@@ -1,0 +1,96 @@
+AUTHOR  Sweet Program 2.0
+REMARK  This file was generated from the SWEET-programm.
+REMARK  Molecular: 
+REMARK  [][b-D-Galp]{[(1-4)][a-D-Glcp]{}}
+ATOM      1  C01 bdga    1       1.033  -1.146   0.163  0.00  0.00
+ATOM      2  C02 bdga    1       0.391  -0.936   1.531  0.00  0.00
+ATOM      3  C03 bdga    1      -1.116  -1.129   1.489  0.00  0.00
+ATOM      4  C04 bdga    1      -1.724  -0.311   0.373  0.00  0.00
+ATOM      5  C05 bdga    1      -1.019  -0.628  -0.946  0.00  0.00
+ATOM      6  C06 bdga    1      -1.525   0.149  -2.142  0.00  0.00
+ATOM      7  O07 bdga    1       2.349  -0.722   0.234  0.00  0.00
+ATOM      8  O08 bdga    1       0.969  -1.857   2.447  0.00  0.00
+ATOM      9  O09 bdga    1      -1.668  -0.702   2.740  0.00  0.00
+ATOM     10  O10 bdga    1       0.371  -0.301  -0.787  0.00  0.00
+ATOM     11  O11 bdga    1      -1.394   1.550  -1.957  0.00  0.00
+ATOM     12  H13 bdga    1       1.704  -1.461   3.052  0.00  0.00
+ATOM     13  H14 bdga    1      -1.987  -1.637   3.200  0.00  0.00
+ATOM     14  H15 bdga    1      -0.878   2.271  -2.590  0.00  0.00
+ATOM     15  O16 bdga    1      -1.573   1.047   0.769  0.00  0.00
+ATOM     16  H17 bdga    1      -2.088   1.209   1.716  0.00  0.00
+ATOM     17  H18 bdga    1      -1.158  -1.647  -1.181  0.00  0.00
+ATOM     18  H19 bdga    1      -1.357   0.024  -3.117  0.00  0.00
+ATOM     19  H20 bdga    1      -2.546  -0.061  -2.273  0.00  0.00
+ATOM     20  H21 bdga    1       0.959  -2.197  -0.116  0.00  0.00
+ATOM     21  H22 bdga    1       0.618   0.084   1.842  0.00  0.00
+ATOM     22  H23 bdga    1      -1.330  -2.185   1.324  0.00  0.00
+ATOM     23  H24 bdga    1      -2.780  -0.527   0.209  0.00  0.00
+ATOM     24  C01 adgl    2       5.802  -1.040  -2.089  0.00  0.00
+ATOM     25  C02 adgl    2       4.748  -0.043  -2.563  0.00  0.00
+ATOM     26  C03 adgl    2       3.734   0.274  -1.478  0.00  0.00
+ATOM     27  C04 adgl    2       3.176  -1.000  -0.886  0.00  0.00
+ATOM     28  C05 adgl    2       4.321  -1.901  -0.422  0.00  0.00
+ATOM     29  C06 adgl    2       3.891  -3.224   0.171  0.00  0.00
+ATOM     30  O07 adgl    2       5.407   1.150  -2.970  0.00  0.00
+ATOM     31  O08 adgl    2       2.664   1.031  -2.057  0.00  0.00
+ATOM     32  O10 adgl    2       5.134  -2.197  -1.570  0.00  0.00
+ATOM     33  O11 adgl    2       3.135  -3.997  -0.748  0.00  0.00
+ATOM     34  H12 adgl    2       5.547   1.251  -4.046  0.00  0.00
+ATOM     35  H13 adgl    2       2.802   2.022  -1.626  0.00  0.00
+ATOM     36  H15 adgl    2       3.324  -5.012  -1.096  0.00  0.00
+ATOM     37  O16 adgl    2       6.689  -0.555  -1.089  0.00  0.00
+ATOM     38  H17 adgl    2       6.119  -0.264  -0.206  0.00  0.00
+ATOM     39  H18 adgl    2       4.871  -1.409   0.331  0.00  0.00
+ATOM     40  H19 adgl    2       4.408  -3.907   0.682  0.00  0.00
+ATOM     41  H20 adgl    2       3.281  -3.037   1.007  0.00  0.00
+ATOM     42  H21 adgl    2       6.457  -1.300  -2.920  0.00  0.00
+ATOM     43  H22 adgl    2       4.225   0.854  -0.696  0.00  0.00
+ATOM     44  H23 adgl    2       2.588  -1.495  -1.659  0.00  0.00
+ATOM     45  H24 adgl    2       4.240  -0.491  -3.417  0.00  0.00
+TER
+CONECT    1    2   10    7   20
+CONECT    2    3    8    1   21
+CONECT    3    4    9    2   22
+CONECT    4   15    5    3   23
+CONECT    5    4   10    6   17
+CONECT    6    5   18   19   11
+CONECT    7    1   27
+CONECT    8    2   12
+CONECT    9    3   13
+CONECT   10    1    5
+CONECT   11    6   14
+CONECT   12    8
+CONECT   13    9
+CONECT   14   11
+CONECT   15    4   16
+CONECT   16   15
+CONECT   17    5
+CONECT   18    6
+CONECT   19    6
+CONECT   20    1
+CONECT   21    2
+CONECT   22    3
+CONECT   23    4
+CONECT   24   25   37   32   42
+CONECT   25   26   30   24   45
+CONECT   26   27   31   25   43
+CONECT   27   28   26   44    7
+CONECT   28   27   32   29   39
+CONECT   29   28   40   41   33
+CONECT   30   25   34
+CONECT   31   26   35
+CONECT   32   24   28
+CONECT   33   29   36
+CONECT   34   30
+CONECT   35   31
+CONECT   36   33
+CONECT   37   24   38
+CONECT   38   37
+CONECT   39   28
+CONECT   40   29
+CONECT   41   29
+CONECT   42   24
+CONECT   43   26
+CONECT   44   27
+CONECT   45   25
+END

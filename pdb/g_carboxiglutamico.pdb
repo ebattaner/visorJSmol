@@ -1,0 +1,36 @@
+HEADER    gamma-carboxiglutamato                                                
+AUTHOR    E.Battaner dbbm usal                                                  
+ATOM      1  C           0      -0.015   1.219   0.009
+ATOM      2  O           0       0.002  -0.004   0.002
+ATOM      3  O           0       1.037   1.845   0.002
+ATOM      4  C           0      -1.330   1.955   0.019
+ATOM      5  C           0      -1.427   2.827  -1.206
+ATOM      6  O           0      -1.555   4.038  -1.087
+ATOM      7  O           0      -1.379   2.324  -2.321
+ATOM      8  C           0      -2.479   0.945   0.019
+ATOM      9  C           0      -3.814   1.692   0.029
+ATOM     10  H           0      -3.885   2.323  -0.857
+ATOM     11  N           0      -3.898   2.529   1.234
+ATOM     12  H           0      -4.778   3.021   1.241
+ATOM     13  H           0      -3.833   1.945   2.054
+ATOM     14  H           0      -3.140   3.195   1.234
+ATOM     15  C           0      -4.946   0.697   0.029
+ATOM     16  O           0      -5.751   0.686   0.951
+ATOM     17  O           0      -5.061  -0.100  -0.892
+ATOM     18  H           0      -1.392   2.576   0.913
+ATOM     19  H           0      -2.417   0.324  -0.875
+ATOM     20  H           0      -2.409   0.314   0.905
+CONECT    1    2    3    4    0
+CONECT    2    1    0    0    0
+CONECT    3    1    0    0    0
+CONECT    4    1    5    8   18
+CONECT    5    4    6    7    0
+CONECT    6    5    0    0    0
+CONECT    7    5    0    0    0
+CONECT    8    4    9   19   20
+CONECT    9    8   10   11   15
+CONECT   11    9   12   13   14
+CONECT   15    9   16   17    0
+CONECT   16   15    0    0    0
+CONECT   17   15    0    0    0
+END                                                                             

@@ -1,0 +1,51 @@
+AUTHOR  Sweet Program 2.0
+REMARK  Molecular: blidopa_so.mdf
+REMARK  This file was generated from the SWEET-programm.
+ATOM      1  C1  Sacc    1      -4.601  -6.813   8.356  0.00  0.00
+ATOM      2  C2  Sacc    1      -5.531  -8.033   8.126  0.00  0.00
+ATOM      3  C3  Sacc    1      -7.002  -7.692   8.485  0.00  0.00
+ATOM      4  C4  Sacc    1      -7.476  -6.373   7.822  0.00  0.00
+ATOM      5  C5  Sacc    1      -6.466  -5.215   8.108  0.00  0.00
+ATOM      6  C6  Sacc    1      -6.841  -3.857   7.479  0.00  0.00
+ATOM      7  O7  Sacc    1      -5.120  -5.630   7.696  0.00  0.00
+ATOM      8  O8  Sacc    1      -3.331  -7.053   7.781  0.00  0.00
+ATOM      9  O9  Sacc    1      -5.465  -8.417   6.753  0.00  0.00
+ATOM     10  O10 Sacc    1      -7.133  -7.575   9.900  0.00  0.00
+ATOM     11  O11 Sacc    1      -7.540  -6.620   6.419  0.00  0.00
+ATOM     12  O12 Sacc    1      -6.743  -2.788   8.076  0.00  0.00
+ATOM     13  O13 Sacc    1      -7.284  -3.975   6.192  0.00  0.00
+ATOM     14  H14 Sacc    1      -4.487  -6.617   9.442  0.00  0.00
+ATOM     15  H15 Sacc    1      -5.175  -8.879   8.746  0.00  0.00
+ATOM     16  H16 Sacc    1      -7.659  -8.517   8.143  0.00  0.00
+ATOM     17  H17 Sacc    1      -8.483  -6.104   8.198  0.00  0.00
+ATOM     18  H18 Sacc    1      -6.460  -5.035   9.201  0.00  0.00
+ATOM     19  H19 Sacc    1      -7.349  -4.914   5.986  0.00  0.00
+ATOM     20  H20 Sacc    1      -3.029  -6.173   7.532  0.00  0.00
+ATOM     21  H21 Sacc    1      -4.534  -8.312   6.520  0.00  0.00
+ATOM     22  H22 Sacc    1      -6.923  -8.437  10.270  0.00  0.00
+ATOM     23  H23 Sacc    1      -6.838  -7.273   6.272  0.00  0.00
+TER
+CONNECT    1    7    2   14    8
+CONNECT    2    1    3    9   15
+CONNECT    3    2    4   10   16
+CONNECT    4    3    5   11   17
+CONNECT    5    4    7    6   18
+CONNECT    6    5   12   13
+CONNECT    7    1    5
+CONNECT    8    1   20
+CONNECT    9    2   21
+CONNECT   10    3   22
+CONNECT   11    4   23
+CONNECT   12    6
+CONNECT   13    6   19
+CONNECT   14    1
+CONNECT   15    2
+CONNECT   16    3
+CONNECT   17    4
+CONNECT   18    5
+CONNECT   19   13
+CONNECT   20    8
+CONNECT   21    9
+CONNECT   22   10
+CONNECT   23   11
+END

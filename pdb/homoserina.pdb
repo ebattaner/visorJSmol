@@ -1,0 +1,28 @@
+HEADER    L-homoserina                                                          
+AUTHOR    E.Battaner dbbm usal                                                  
+ATOM      1  C           0      -0.017   1.425   0.010
+ATOM      2  O           0       0.002  -0.004   0.002
+ATOM      3  C           0       1.418   1.954  -0.001
+ATOM      4  C           0       1.397   3.484   0.007
+ATOM      5  H           0       0.887   3.836   0.904
+ATOM      6  N           0       0.687   3.971  -1.183
+ATOM      7  H           0       0.673   4.980  -1.177
+ATOM      8  H           0       1.159   3.645  -2.013
+ATOM      9  H           0      -0.260   3.622  -1.176
+ATOM     10  C           0       2.811   4.006  -0.003
+ATOM     11  O           0       3.577   3.716   0.905
+ATOM     12  O           0       3.193   4.720  -0.921
+ATOM     13  H           0      -0.544   1.786  -0.873
+ATOM     14  H           0      -0.527   1.776   0.907
+ATOM     15  H           0      -0.920  -0.296   0.009
+ATOM     16  H           0       1.945   1.593   0.882
+ATOM     17  H           0       1.928   1.603  -0.898
+CONECT    1    2    3   13   14
+CONECT    2    1   15    0    0
+CONECT    3    1    4   16   17
+CONECT    4    3    5    6   10
+CONECT    6    4    7    8    9
+CONECT   10    4   11   12    0
+CONECT   11   10    0    0    0
+CONECT   12   10    0    0    0
+END                                                                             

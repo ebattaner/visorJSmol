@@ -1,0 +1,44 @@
+HEADER    Gluconolactona-6-fosfato                                              
+AUTHOR    E.Battaner dbbm usal                                                  
+ATOM      1  C           0      -0.014   1.204   0.009
+ATOM      2  O           0       0.002  -0.004   0.002
+ATOM      3  C           0       1.270   2.005   0.001
+ATOM      4  H           0       1.403   2.475  -0.974
+ATOM      5  O           0       2.376   1.143   0.275
+ATOM      6  C           0       1.173   3.084   1.086
+ATOM      7  H           0       1.145   2.612   2.068
+ATOM      8  O           0       2.310   3.947   1.004
+ATOM      9  C           0      -0.106   3.898   0.872
+ATOM     10  H           0      -0.086   4.353  -0.118
+ATOM     11  O           0      -0.191   4.922   1.865
+ATOM     12  C           0      -1.322   2.974   0.985
+ATOM     13  H           0      -1.376   2.563   1.993
+ATOM     14  C           0      -2.597   3.764   0.684
+ATOM     15  O           0      -3.730   2.900   0.790
+ATOM     16  P           0      -5.029   3.793   0.463
+ATOM     17  O           0      -4.916   4.346  -0.905
+ATOM     18  O           0      -6.349   2.878   0.565
+ATOM     19  O           0      -5.130   5.001   1.523
+ATOM     20  O           0      -1.180   1.888   0.018
+ATOM     21  H           0       2.388   0.473  -0.422
+ATOM     22  H           0       3.091   3.394   1.139
+ATOM     23  H           0       0.592   5.479   1.760
+ATOM     24  H           0      -2.695   4.581   1.400
+ATOM     25  H           0      -2.543   4.171  -0.326
+CONECT    1    2    3   20    0
+CONECT    2    1    0    0    0
+CONECT    3    1    4    5    6
+CONECT    5    3   21    0    0
+CONECT    6    3    7    8    9
+CONECT    8    6   22    0    0
+CONECT    9    6   10   11   12
+CONECT   11    9   23    0    0
+CONECT   12    9   13   14   20
+CONECT   14   12   15   24   25
+CONECT   15   14   16    0    0
+CONECT   16   15   17   18   19
+CONECT   17   16    0    0    0
+CONECT   18   16    0    0    0
+CONECT   19   16    0    0    0
+CONECT   20   12    1    0    0
+END                                                                             
