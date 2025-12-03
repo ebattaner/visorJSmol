@@ -1,0 +1,36 @@
+HEADER    Acido dihidroximandélico                                              
+AUTHOR    E.Battaner dbbm usal                                                  
+ATOM      1  C           0      -2.587  -0.306  -0.433
+ATOM      2  O           0      -2.512  -1.405  -0.967
+ATOM      3  O           0      -3.316   0.555  -0.906
+ATOM      4  C           0      -1.785  -0.016   0.809
+ATOM      5  H           0      -2.071  -0.711   1.598
+ATOM      6  O           0      -2.040   1.323   1.239
+ATOM      7  C           0      -0.317  -0.175   0.508
+ATOM      8  C           0       0.417   0.908   0.060
+ATOM      9  C           0       1.767   0.764  -0.216
+ATOM     10  O           0       2.490   1.828  -0.657
+ATOM     11  C           0       2.381  -0.473  -0.042
+ATOM     12  O           0       3.706  -0.620  -0.312
+ATOM     13  C           0       1.640  -1.554   0.407
+ATOM     14  C           0       0.295  -1.402   0.686
+ATOM     15  H           0      -1.773   1.905   0.514
+ATOM     16  H           0      -0.062   1.867  -0.074
+ATOM     17  H           0       2.842   2.271   0.128
+ATOM     18  H           0       4.181  -0.426   0.507
+ATOM     19  H           0       2.115  -2.515   0.542
+ATOM     20  H           0      -0.282  -2.245   1.036
+CONECT    1    2    3    4    0
+CONECT    2    1    0    0    0
+CONECT    3    1    0    0    0
+CONECT    4    1    5    6    7
+CONECT    6    4   15    0    0
+CONECT    7    4    8   14    0
+CONECT    8    7    9   16    0
+CONECT    9    8   10   11    0
+CONECT   10    9   17    0    0
+CONECT   11    9   12   13    0
+CONECT   12   11   18    0    0
+CONECT   13   11   14   19    0
+CONECT   14   13    7   20    0
+END                                                                             

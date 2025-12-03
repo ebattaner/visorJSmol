@@ -1,0 +1,21 @@
+HEADER     Carbamilfosfato                                                      
+AUTHOR     E.Battaner dbbm usal                                                 
+ATOM      1  N           0      -0.674   1.168   0.007
+ATOM      2  C           0       0.000   0.000   0.000
+ATOM      3  O           0      -0.608  -1.052  -0.006
+ATOM      4  O           0       1.346   0.000   0.000
+ATOM      5  P           0       2.151  -1.394  -0.009
+ATOM      6  O           0       1.794  -2.178   1.196
+ATOM      7  O           0       1.763  -2.230  -1.328
+ATOM      8  O           0       3.734  -1.101  -0.006
+ATOM      9  H           0      -0.189   2.007   0.012
+ATOM     10  H           0      -1.644   1.167   0.003
+CONECT    1    2    9   10    0
+CONECT    2    1    3    4    0
+CONECT    3    2    0    0    0
+CONECT    4    2    5    0    0
+CONECT    5    4    6    7    8
+CONECT    6    5    0    0    0
+CONECT    7    5    0    0    0
+CONECT    8    5    0    0    0
+END                                                                             

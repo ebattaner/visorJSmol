@@ -1,0 +1,28 @@
+HEADER     Glicerona fosfato (dihidroxiacetona fosfato)                         
+AUTHOR     E.Battaner  dbbm  usal                                               
+ATOM    426  C          16       1.429   0.000   0.000
+ATOM    427  O          16       0.000   0.000   0.000
+ATOM    428  C          16       1.931  -1.315   0.539
+ATOM    429  O          16       1.147  -2.164   0.887
+ATOM    430  C          16       3.414  -1.569   0.643
+ATOM    431  O          16       3.636  -2.875   1.178
+ATOM    432  P          16       5.231  -3.079   1.261
+ATOM    433  O          16       5.529  -4.420   1.811
+ATOM    434  O          16       5.866  -2.949  -0.212
+ATOM    435  O          16       5.866  -1.951   2.220
+ATOM    436  H          16       1.792   0.138  -1.018
+ATOM    437  H          16       1.792   0.813   0.629
+ATOM    438  H          16      -0.280   0.857  -0.351
+ATOM    439  H          16       3.864  -1.500  -0.348
+ATOM    440  H          16       3.865  -0.825   1.299
+CONECT  426  427  428  436  437
+CONECT  427  426  438          
+CONECT  428  426  429  430     
+CONECT  429  428               
+CONECT  430  428  431  439  440
+CONECT  431  430  432          
+CONECT  432  431  433  434  435
+CONECT  433  432               
+CONECT  434  432               
+CONECT  435  432               
+END                                                                             

@@ -1,0 +1,30 @@
+HEADER    cis-aconitato                                                         
+AUTHOR    E.Battaner dbbm usal                                                  
+ATOM      1  C           0      -0.140   1.403   0.913
+ATOM      2  O           0       0.692   2.113   1.678
+ATOM      3  O           0       0.079   0.100   0.718
+ATOM      4  C           0      -1.307   2.056   0.288
+ATOM      5  C           0      -1.324   3.393   0.128
+ATOM      6  C           0      -0.058   4.153   0.127
+ATOM      7  O           0      -0.081   5.488   0.134
+ATOM      8  O           0       1.109   3.505   0.118
+ATOM      9  C           0      -2.636   4.114  -0.048
+ATOM     10  C           0      -3.171   4.521   1.300
+ATOM     11  O           0      -2.543   4.250   2.315
+ATOM     12  O           0      -4.233   5.123   1.380
+ATOM     13  H           0      -2.146   1.462  -0.041
+ATOM     14  H           0      -2.482   5.002  -0.662
+ATOM     15  H           0      -3.350   3.453  -0.539
+CONECT    1    2    3    4    0
+CONECT    2    1    0    0    0
+CONECT    3    1    0    0    0
+CONECT    4    1    5   13    0
+CONECT    5    4    6    9    0
+CONECT    6    5    7    8    0
+CONECT    7    6    0    0    0
+CONECT    8    6    0    0    0
+CONECT    9    5   10   14   15
+CONECT   10    9   11   12    0
+CONECT   11   10    0    0    0
+CONECT   12   10    0    0    0
+END                                                                             
