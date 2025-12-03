@@ -1,0 +1,40 @@
+HEADER    UNK                                     11-10-23    1UNK
+COMPND    C5H9NO3                                                     
+REMARK   1 corina 3.44 0000  14.05.2008                               
+HETATM    1  C1  UNK     1      -0.014   1.215   0.009  1.00 20.00
+HETATM    2  O2  UNK     1       0.002  -0.004   0.002  1.00 20.00
+HETATM    3  O3  UNK     1       1.033   1.839   0.002  1.00 20.00
+HETATM    4  C4  UNK     1      -1.330   1.951   0.019  1.00 20.00
+HETATM    5  C5  UNK     1      -2.479   0.941   0.019  1.00 20.00
+HETATM    6  C6  UNK     1      -3.794   1.676   0.029  1.00 20.00
+HETATM    7  O7  UNK     1      -3.811   2.884   0.036  1.00 20.00
+HETATM    8  C8  UNK     1      -5.089   0.905   0.031  1.00 20.00
+HETATM    9  N9  UNK     1      -6.218   1.845   0.042  1.00 20.00
+HETATM   10  H10 UNK     1      -7.085   1.328   0.043  1.00 20.00
+HETATM   11  H11 UNK     1      -6.169   2.421   0.868  1.00 20.00
+HETATM   12  H12 UNK     1      -6.177   2.430  -0.779  1.00 20.00
+HETATM   13  H13 UNK     1      -1.392   2.572   0.913  1.00 20.00
+HETATM   14  H14 UNK     1      -1.400   2.581  -0.867  1.00 20.00
+HETATM   15  H15 UNK     1      -2.417   0.320  -0.875  1.00 20.00
+HETATM   16  H16 UNK     1      -2.409   0.310   0.905  1.00 20.00
+HETATM   17  H17 UNK     1      -5.142   0.283  -0.862  1.00 20.00
+HETATM   18  H18 UNK     1      -5.134   0.273   0.918  1.00 20.00
+CONECT    1    2    3    4
+CONECT    2    1
+CONECT    3    1
+CONECT    4    1    5   13   14
+CONECT    5    4    6   15   16
+CONECT    6    5    7    8
+CONECT    7    6
+CONECT    8    6    9   17   18
+CONECT    9    8   10   11   12
+CONECT   10    9
+CONECT   11    9
+CONECT   12    9
+CONECT   13    4
+CONECT   14    4
+CONECT   15    5
+CONECT   16    5
+CONECT   17    8
+CONECT   18    8
+END

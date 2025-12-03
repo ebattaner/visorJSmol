@@ -1,0 +1,7 @@
+HEADER     Agua                                                                 
+AUTHOR     E.Battaner  dbbm  usal                                               
+ATOM    441  O          17       6.500   1.000   0.000
+ATOM    442  H          17       6.513   0.033  -0.005
+ATOM    443  H          17       7.422   1.292  -0.007
+CONECT  441  442  443          
+END                                                                             
