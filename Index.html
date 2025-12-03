@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol -Índice General</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="JSmol/JSmol.min.js"></script>                         //AQUI
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "JSmol/j2s",  // AQUI
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+<hr />
+
+<P>
+<font size="3"><center><b>&Iacute;ndice alfab&eacute;tico</b></center>
+
+<P>
+<center>
+
+<A HREF="html/glosJSmol_ab.html#a " > <B> A  </B> </A> <A HREF="html/glosJSmol_ab.html#b " > <B> B </B>
+</A> 
+<A  HREF="html/glosJSmol_cd.html#c " > <B> C </B> </A> <A  HREF="html/glosJSmol_cd.html#d " > <B> D </B>
+</A> 
+<A  HREF="html/glosJSmol_ef.html#e " > <B> E </B> </A> <A  HREF="html/glosJSmol_ef.html#f " > <B> F </B>
+</A> 
+<A  HREF="html/glosJSmol_gh.html#g " > <B> G </B> </A> <A  HREF="html/glosJSmol_gh.html#h " > <B> H </B>
+</A> 
+<A  HREF="html/glosJSmol_im.html#i " > <B> I </B> </A> <A  HREF="html/glosJSmol_im.html#j " > <B> J </B> 
+</A> 
+<A  HREF="html/glosJSmol_im.html#k " > <B> K </B> </A> <A  HREF="html/glosJSmol_im.html#l " > <B> L </B>
+</A> 
+<A  HREF="html/glosJSmol_im.html#m " > <B> M </B> </A> <A  HREF="html/glosJSmol_nz.html#n " > <B> N </B>
+</A> 
+<A  HREF="html/glosJSmol_nz.html#o " > <B> O </B> </A> <A  HREF="html/glosJSmol_nz.html#p " > <B> P </B>
+</A> 
+<A  HREF="html/glosJSmol_nz.html#q " > <B> Q </B> </A> <A  HREF="html/glosJSmol_nz.html#r " > <B> R </B>
+</A> 
+<A  HREF="html/glosJSmol_nz.html#s " > <B> S </B> </A> <A  HREF="html/glosJSmol_nz.html#t " > <B> T </B>
+</A> 
+<A  HREF="html/glosJSmol_nz.html#u " > <B> U </B> </A> <A  HREF="html/glosJSmol_nz.html#v " > <B> V </B>
+</A> 
+<A  HREF="html/glosJSmol_nz.html#w " > <B> W </B> </A> <A  HREF="html/glosJSmol_nz.html#x " > <B> X </B>
+</A> 
+<A  HREF="html/glosJSmol_nz.html#y " > <B> Y </B> </A> <A  HREF="html/glosJSmol_nz.html#z " > <B> Z </B>
+</A> 
+<p>
+</center>
+
+<hr />
+
+
+<A NAME="tematico"></A>
+<P>
+<font size="3"><center><b>&Iacute;ndice tem&aacute;tico</b></center>
+
+
+
+
+<br /><br />
+
+<UL>
+<LI><A HREF="html/Distr_Organicas.html" ><B>Estructuras org&aacute;nicas</B></A><br /><br />
+<LI><A HREF="html/Distr_Carbohidratos.html" ><B>Hidratos de carbono</B></A><br /><br />
+<LI><A HREF="html/Distr_Lipidos.html" ><B>L&iacute;pidos</B></A><br /><br />
+<LI><A HREF="html/Distr_Aminoacidos.html" ><B>Amino&aacute;cidos y Oligop&eacute;ptidos</B></A><br /><br />
+<LI><A HREF="html/Distr_Proteinas.html" ><B>Prote&iacute;nas</B></A><br /><br />
+<LI><A HREF="html/Distr_Acidos_Nucleicos.html" ><B>&Aacute;cidos Nucleicos</B></A><br /><br />
+<LI><A HREF="html/Distr_Enzimas.html" ><B>Enzimas</B></A><br /><br />
+</UL>
+<HR>
+
+<p align="justify"> Esta demostración ha sido desarrollada por el Dr. Enrique Battaner Arias, catedrático de Bioquímica y Biología Molecular de la Universidad de Salamanca y es una modificación de la demo primitiva de 2002 adaptada gracias a ChatGPT.</p>
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
