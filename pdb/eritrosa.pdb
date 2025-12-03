@@ -1,0 +1,27 @@
+HEADER       D-eritrosa                                                         
+AUTHOR       E.Battaner  dbbm  usal                                             
+ATOM      1  C           1       2.111  -0.583   0.843
+ATOM      2  C           2       1.149   0.079  -0.114
+ATOM      3  C           2      -0.286  -0.220   0.318
+ATOM      4  C           2      -1.260   0.450  -0.651
+ATOM      5  O           1      -2.602   0.170  -0.247
+ATOM      6  O           2      -0.502  -1.633   0.309
+ATOM      7  O           1       1.365   1.493  -0.106
+ATOM      8  O           1       3.289  -0.470   0.679
+ATOM      9  H           1       1.734  -1.158   1.676
+ATOM     10  H           1       1.313  -0.307  -1.118
+ATOM     11  H           2      -0.450   0.166   1.322
+ATOM     12  H           1       2.274   1.691  -0.379
+ATOM     13  H           1      -1.095   1.526  -0.645
+ATOM     14  H           1      -1.095   0.064  -1.655
+ATOM     15  H           1      -1.411  -1.832   0.583
+ATOM     16  H           1      -3.227   0.592  -0.857
+CONECT    1    2    8    9    0
+CONECT    2    1    3    7   10
+CONECT    3    2    4    6   11
+CONECT    4    3    5   13   14
+CONECT    5    4   16    0    0
+CONECT    6    3   15    0    0
+CONECT    7    2   12    0    0
+CONECT    8    1    0    0    0
+END                                                                             

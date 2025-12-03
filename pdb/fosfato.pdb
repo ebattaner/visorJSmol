@@ -1,0 +1,14 @@
+HEADER     Fosfato inorgánico                                                   
+AUTHOR     E.Battaner  dbbm  usal                                               
+ATOM    444  P          18      -1.000  -2.500   0.000
+ATOM    445  O          18      -0.980  -3.980  -0.008
+ATOM    446  O          18       0.510  -1.943  -0.011
+ATOM    447  O          18      -1.779  -1.967  -1.304
+ATOM    448  O          18      -1.754  -1.981   1.325
+ATOM    449  H          18      -2.652  -2.336   1.292
+CONECT  444  445  446  447  448
+CONECT  445  444               
+CONECT  446  444               
+CONECT  447  444               
+CONECT  448  444  449          
+END                                                                             

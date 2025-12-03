@@ -1,0 +1,11 @@
+HEADER      Etano, conf. alternante                                             
+AUTHOR      E.Battaner dbbm usal                                                
+ATOM      1  C           1      -0.752   0.001  -0.141
+ATOM      2  C           1       0.752  -0.001   0.141
+ATOM      3  H           1      -1.158   0.991   0.070
+ATOM      4  H           1      -1.240  -0.737   0.496
+ATOM      5  H           1      -0.924  -0.249  -1.188
+ATOM      6  H           1       1.158  -0.991  -0.070
+ATOM      7  H           1       0.924   0.249   1.188
+ATOM      8  H           1       1.240   0.737  -0.496
+END                                                                             
