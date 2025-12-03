@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>Gasteiger Research - CORINA</TITLE>
+</HEAD>
+<BODY BACKGROUND = "../../data/textures/bg_grey1.gif">
+<BR>
+<DIV ALIGN=CENTER>
+<font face="helvetica,arial">
+<H2><BR>CORINA - 3D Structure Viewer<BR> </H2>
+Java Applet courtesy of <A HREF="http://www.cherwell.com">
+Cherwell Scientific Publishing</A>
+</DIV>
+<p><HR><p>
+<DIV ALIGN=CENTER>
+<applet codebase=/java/CHEMSYM/ code=RenderBasic.class width=400 height=400 name=model>
+<param name=model value=./../../tmp/UDPG.pdb>
+</applet>
+<P><P>
+Drag to rotate<BR>
+Shift-drag to zoom in/out<BR>
+Control-drag to translate<BR>
+<A HREF="http://www2.organik.uni-erlangen.de/tmp/UDPG.pdb">
+	<STRONG>Shift-click</STRONG> to download this structure as an PDB File</A>
+<P><P>
+<HR><p>
+<A HREF="http://www2.organik.uni-erlangen.de/software/corina/free_struct.html">
+Back to SMILES input form</A>
+<P><P>
+</font>
+</DIV>
+</BODY>
+</HTML>
