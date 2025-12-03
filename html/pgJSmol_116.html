@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Ribonucleasa pancre&aacute;tica</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script SRC="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodar&aacute;; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.15; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar mol&eacute;cula y aplicar representaci&oacute;n (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque seg&uacute;n la representaci&oacute;n aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representaci&oacute;n para la mol&eacute;cula indicada (si no est&aacute; cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por mol&eacute;cula (SCROLL) -->
+    <div class="panel">
+
+
+
+<BODY bgcolor="#DDDDDD" text="#000000" link="#FF0000" vlink="#AA0000" alink="#00FF00">
+<FONT FACE="Arial">
+<A HREF="Distr_Enzimas.html" ><B>&Iacute;ndice Enzimas</B></A>
+<A NAME="ind"></A>
+<CENTER><h3><B>Estudio estructural de la ribonucleasa pancre&aacute;tica</B></h3></CENTER>
+
+<A NAME="ind"></A>
+<P><B>&iacute;NDICE</B>
+<P><A HREF="#estmol" ><B>1. Estructura molecular</B></A>
+<P><A HREF="#meccat" ><B>2. Mecanismo catal&iacute;tico</B></A>
+
+<A NAME="estmol"></A>
+<P><B>1. Estructura molecular de la ribonucleasa pancre&aacute;tica</B>
+<P align="justify">Una enzima muy bien conocida en sus relaciones estructura-funci&oacute;n es la  <B>Ribonucleasa pancre&aacute;tica (RNAasa A)</B>:
+
+<label><input type="radio" name="1hew-steps"onchange="jrun('load ../pdb/1rcn.pdb; restrict not solvent; select not nucleic; wireframe off; spacefill off; cartoons; color chain; define sitcat 12,41,119; define ssb 26,84,40,95,58,110,65,72')"> </b></label>
+
+ Se trata de una enzima que hidroliza polirribonucle&oacute;tidos en los enlaces Py-X, siendo Py un nucle&oacute;tido pirimid&iacute;nico (C, U) y X cualquier otro nucle&oacute;tido. La estructura que tenemos en pantalla ha sido determinada por el equipo de C.Cuchillo en la Universidad Aut&oacute;noma de Barcelona.</p>
+
+<P align="justify">La enzima consta de una sola cadena de 124 amino&aacute;cidos:  
+<label><input type="radio" name="1rcn-steps"onchange="jrun('restrict protein; spacefill; colour chain')"> </label>
+
+que ha sido cocristalizada con un tetradesoxinucle&oacute;tido (ATAA) que ocupa parcialmente el centro activo de la enzima:
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select nucleic; spacefill; colour cpk; select all ')"> </b></label>
+
+<P align="justify">En el sitio catal&iacute;tico encontramos tres amino&aacute;cidos dib&aacute;sicos: His 12:  
+<label><input type="radio" name="1rcn-steps"onchange="jrun('colour labels black; select nucleic; spacefill off; wireframe 40; colour cpk; select 12 and not hetero; spacefill; colour cpk; select atomno=97; label His 12; select all ')"> </b></label>
+
+, Lys 41:
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select 41 and not hetero; spacefill; colour cpk; select atomno=316; label Lys 41;select all ')"> </b></label>
+
+, e His 119:
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select 119 and not hetero; spacefill; colour cpk; select atomno=911; label His 119; select all')"> </label></p>
+
+
+
+<P>Los residuos His 12 e His 119 est&aacute;n alrededor del enlace escindible, de cuyo lado 3' hay un nucle&oacute;tido pirimid&iacute;nico; puede apreciarse que en la estructura proteica en torno a este residuo, s&oacute;lo puede alojarse una pirimidina (una purina ser&iacute;a demasiado grande):  
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select T and not backbone; spacefill; colour cpk; zoom 200; select atomno=989; label Pirimidina; select all ')"> </b></label>
+
+
+<P>La enzima presenta cuatro puentes disulfuro que estabilizan su estructura terciaria:  
+<label><input type="radio" name="1rcn-steps"onchange="jrun('labels off; spacefill off; wireframe off; cartoons off; select protein; backbone; colour blue; select sitcat and not hetero; wireframe 40; colour cpk; select nucleic; wireframe 40; colour cpk; select ssb and not hetero; spacefill 200; wireframe 50; colour cpk; select all')"> </label>
+
+
+<P><A  HREF="#ind" >Vuelta al &iacute;ndice</A>
+
+<A NAME="meccat"></A>
+<P><B>2. Mecanismo catal&iacute;tico de la ribonucleasa pancre&aacute;tica</B>
+
+<P>La acci&oacute;n catal&iacute;tica de la ribonucleasa pancre&aacute;tica se debe a tres amino&aacute;cidos absolutamente conservados: His 12, His 119 y Lys 41. No est&aacute; a&uacute;n bien determinado el papel de esta &uacute;ltima, pero la acci&oacute;n de los dos residuos de histidina ilustra c&oacute;mo este amino&aacute;cido se comporta a la vez como &aacute;cido y como base.
+
+<P>As&iacute;, en el estado basal de la enzima, 
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn1.pdb; wireframe  50; colour cpk; select atomno=10; label Lys 41; select atomno=54; label His 119; select atomno=36; label His 12; select atomno=6, atomno=48; dots 300; select all')"> </label>
+
+<B>el Centro Activo</B></A> consta de esos tres amino&aacute;cidos, de tal manera que la His 12 aparece como base y la His 119 como &aacute;cido (protonada, imidazolio).</p>
+
+<P><CENTER><img SRC="../gif/fn1.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P>A esta configuraci&oacute;n se une el 
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/ua.pdb; wireframe  50; colour cpk')"> </b></label>
+
+<B>substrato</B></A> que ser&iacute;a un polirribonucle&oacute;tido; en este caso se representa &uacute;nicamente el dinucle&oacute;tido UA. La RNAasa pancre&aacute;tica hidroliza enlaces en los que del lado 3' hay un nucle&oacute;tido pirimid&iacute;nico (U o C) dando lugar a una rotura tipo b, es decir, dejando el fosfato unido al 3' del enlace escindido.</p>
+
+<P>Cuando se forma el
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn2.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=54; label His 119; select atomno=36; label His 12; select atomno=6, atomno=48; dots 300; select all')"> </b></label>
+
+<B>Complejo Enzima-Substrato</B></A> el polinucle&oacute;tido se aloja en un surco de la mol&eacute;cula, seg&uacute;n vimos anteriormente, el cual est&aacute; flanqueado por los tres amino&aacute;cidos del centro activo, seg&uacute;n se indica en el modelo.</p>
+
+<P><CENTER><img SRC="../gif/fn2.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P>A continuaci&oacute;n la His 12 captura un prot&oacute;n del grupo 2'OH del nucle&oacute;tido pirimid&iacute;nico, el cual lleva a cabo un ataque nucleof&iacute;lico sobre el substrato de manera que se forma el
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn3.pdb; wireframe  50; colour cpk; select atomno=6; label Lys 41; select atomno=35; label His 119; select atomno=54; label His 12; select atomno=6, atomno=48, atomno=70; dots 300; select all')"></label>
+
+
+<B>Estado de transici&oacute;n</B></A> inestable (con P pentacovalente), al tiempo que la His 119 cede su prot&oacute;n al ox&iacute;geno en 5' del enlace atacado; el estado de ionizaci&oacute;n de las histidinas es justo el contrario que el visto en el estado basal de la enzima.</p>
+
+<P><CENTER><img SRC="../gif/fn3.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P>Este estado de transici&oacute;n se resuelve con la
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn4.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=36; label His 119; select atomno=54; label His 12; select atomno=120; label 3-AMP; select atomno=6, atomno=48; dots 300; select all')"> </b></label>
+
+<B>Liberaci&oacute;n del primer producto (3'-AMP)</B></A> quedando unido a la enzima el nucle&oacute;tido c&iacute;clico 3',5' UMP.</p>
+
+<P><CENTER><img SRC="../gif/fn4.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P>Entra entonces al centro activo una
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn5.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=35; label His 119; select atomno=54; label His 12; select atomno=93; label Agua; select atomno=6, atomno=48; dots 300; select all')"> </b></label>
+
+<B>mol&eacute;cula de agua</B>, que es el segundo substrato de la reacci&oacute;n. </p>
+
+<P><CENTER><img SRC="../gif/fn5.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P>La histidina 119 sustrae uno de los dos protones del agua, que queda convertida en un
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn6.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=54; label His 119; select atomno=37; label His 12; select atomno=6, atomno=31, atomno=49, atomno=92; dots 300; select all')"> </b></label><B>ion hidroxilo</B>,</p>
+
+<P><CENTER><img SRC="../gif/fn6.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P>que a su vez ataca al fosfato c&iacute;clico, dando lugar al
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn7.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=54; label His 119; select atomno=37; label His 12; select atomno=6, atomno=31, atomno=49,atomno=71; dots 300; select all')"> </b></label>
+
+<B>Estado de transici&oacute;n 2.</b></p>
+
+<P><CENTER><img SRC="../gif/fn7.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P>&eacute;ste se resuelve rompi&eacute;ndose el enlace entre el fosfato y el ox&iacute;geno que sustituye al carbono 2' de la ribosa, el cual recibe a su vez el prot&oacute;n de la histidina 12, para dar lugar a la liberaci&oacute;n del
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn8.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=54; label His 119; select atomno=36; label His 12; select atomno=6, atomno=48; dots 300; select all')"> </b></label>
+
+
+<B>segundo producto</B>, que es el nucle&oacute;tido 3',5' uridin bisfosfato.
+
+<P><CENTER><img SRC="../gif/fn8.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+				<center><table border=0 WIDTH=90%><tr>
+				<td align=center >
+				<A HREF="pgJSmol_114.html" ><B>Anterior: Lisozima</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#ind" ><B>Indice</B></A>	
+				</td>
+				<td align=center>
+				<A HREF="pgJSmol_117.html" ><B>Siguiente: Serin proteinasas</B></A>	
+				</td>
+			</tr></table></center>
+
+
+
+</FONT>
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
