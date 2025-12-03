@@ -1,0 +1,1149 @@
+HEADER    FIBROUS PROTEIN                         02-OCT-91   2SLK      2SLK   2
+COMPND    SILK FIBROIN (CRYSTALLINE FORM SILK II POLY (ALA-GLY))        2SLK   3
+COMPND   2 (THEORETICAL MODEL)                                          2SLK   4
+SOURCE    SILKWORM (BOMBYX MORI)                                        2SLK   5
+EXPDTA    THEORETICAL MODEL                                             2SLK   6
+AUTHOR    S.A.FOSSEY,G.NEMETHY,K.D.GIBSON,H.A.SCHERAGA                  2SLK   7
+REVDAT   1   31-JAN-94 2SLK    0                                        2SLK   8
+JRNL        AUTH   S.A.FOSSEY,G.NEMETHY,K.D.GIBSON,H.A.SCHERAGA         2SLK   9
+JRNL        TITL   CONFORMATIONAL ENERGY STUDIES OF BETA-SHEETS OF      2SLK  10
+JRNL        TITL 2 MODEL SILK FIBROIN PEPTIDES. I. SHEETS OF            2SLK  11
+JRNL        TITL 3 POLY(ALA-GLY) CHAINS                                 2SLK  12
+JRNL        REF    BIOPOLYMERS                   V.  31  1529 1991      2SLK  13
+JRNL        REFN   ASTM BIPMAA  US ISSN 0006-3525                  161  2SLK  14
+REMARK   1                                                              2SLK  15
+REMARK   2                                                              2SLK  16
+REMARK   2 RESOLUTION. NOT APPLICABLE.  SEE REMARK 4.                   2SLK  17
+REMARK   3                                                              2SLK  18
+REMARK   3 REFINEMENT. NONE.                                            2SLK  19
+REMARK   4                                                              2SLK  20
+REMARK   4 THE COORDINATES IN THIS ENTRY REPRESENT A MODEL STRUCTURE.   2SLK  21
+REMARK   4 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT *CRYST1* AND      2SLK  22
+REMARK   4 *SCALE* RECORDS BE INCLUDED, BUT THE VALUES ON THESE         2SLK  23
+REMARK   4 RECORDS ARE MEANINGLESS.                                     2SLK  24
+REMARK   5                                                              2SLK  25
+REMARK   5 THESE STRUCTURES WERE CALCULATED USING THE EMPIRICAL         2SLK  26
+REMARK   5 CONFORMATIONAL ENERGY PROGRAM FOR PEPTIDES VERSION 2         2SLK  27
+REMARK   5 (ECEPP/2).  TWO CRYSTAL STRUCTURES ARE PROVIDED:  SILK I     2SLK  28
+REMARK   5 AND SILK II.  THE CALCULATED SILK I STRUCTURE (PROTEIN DATA  2SLK  29
+REMARK   5 BANK ENTRY 1SLK) IS PROVIDED FOR COMPARISON PURPOSES.        2SLK  30
+REMARK   5 EXPERIMENTALLY DERIVED UNIT CELLS ARE AVAILABLE.             2SLK  31
+SEQRES   1 A    8  ACE ALA GLY ALA GLY ALA GLY NME                      2SLK  32
+SEQRES   1 B    8  ACE GLY ALA GLY ALA GLY ALA NME                      2SLK  33
+SEQRES   1 C    8  ACE ALA GLY ALA GLY ALA GLY NME                      2SLK  34
+SEQRES   1 D    8  ACE GLY ALA GLY ALA GLY ALA NME                      2SLK  35
+SEQRES   1 E    8  ACE ALA GLY ALA GLY ALA GLY NME                      2SLK  36
+SEQRES   1 F    8  ACE ALA GLY ALA GLY ALA GLY NME                      2SLK  37
+SEQRES   1 G    8  ACE GLY ALA GLY ALA GLY ALA NME                      2SLK  38
+SEQRES   1 H    8  ACE ALA GLY ALA GLY ALA GLY NME                      2SLK  39
+SEQRES   1 I    8  ACE GLY ALA GLY ALA GLY ALA NME                      2SLK  40
+SEQRES   1 J    8  ACE ALA GLY ALA GLY ALA GLY NME                      2SLK  41
+SEQRES   1 K    8  ACE ALA GLY ALA GLY ALA GLY NME                      2SLK  42
+SEQRES   1 L    8  ACE GLY ALA GLY ALA GLY ALA NME                      2SLK  43
+SEQRES   1 M    8  ACE ALA GLY ALA GLY ALA GLY NME                      2SLK  44
+SEQRES   1 N    8  ACE GLY ALA GLY ALA GLY ALA NME                      2SLK  45
+SEQRES   1 O    8  ACE ALA GLY ALA GLY ALA GLY NME                      2SLK  46
+HET    NME  A   8       6     METHYL AMINE                              2SLK  47
+HET    NME  B   8       6     METHYL AMINE                              2SLK  48
+HET    NME  C   8       6     METHYL AMINE                              2SLK  49
+HET    NME  D   8       6     METHYL AMINE                              2SLK  50
+HET    NME  E   8       6     METHYL AMINE                              2SLK  51
+HET    NME  F   8       6     METHYL AMINE                              2SLK  52
+HET    NME  G   8       6     METHYL AMINE                              2SLK  53
+HET    NME  H   8       6     METHYL AMINE                              2SLK  54
+HET    NME  I   8       6     METHYL AMINE                              2SLK  55
+HET    NME  J   8       6     METHYL AMINE                              2SLK  56
+HET    NME  K   8       6     METHYL AMINE                              2SLK  57
+HET    NME  L   8       6     METHYL AMINE                              2SLK  58
+HET    NME  M   8       6     METHYL AMINE                              2SLK  59
+HET    NME  N   8       6     METHYL AMINE                              2SLK  60
+HET    NME  O   8       6     METHYL AMINE                              2SLK  61
+FORMUL   1  NME    C1 H5 N1                                             2SLK  62
+FORMUL   2  NME    C1 H5 N1                                             2SLK  63
+FORMUL   3  NME    C1 H5 N1                                             2SLK  64
+FORMUL   4  NME    C1 H5 N1                                             2SLK  65
+FORMUL   5  NME    C1 H5 N1                                             2SLK  66
+FORMUL   6  NME    C1 H5 N1                                             2SLK  67
+FORMUL   7  NME    C1 H5 N1                                             2SLK  68
+FORMUL   8  NME    C1 H5 N1                                             2SLK  69
+FORMUL   9  NME    C1 H5 N1                                             2SLK  70
+FORMUL  10  NME    C1 H5 N1                                             2SLK  71
+FORMUL  11  NME    C1 H5 N1                                             2SLK  72
+FORMUL  12  NME    C1 H5 N1                                             2SLK  73
+FORMUL  13  NME    C1 H5 N1                                             2SLK  74
+FORMUL  14  NME    C1 H5 N1                                             2SLK  75
+FORMUL  15  NME    C1 H5 N1                                             2SLK  76
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1  2SLK  77
+ORIGX1      1.000000  0.000000  0.000000        0.00000                 2SLK  78
+ORIGX2      0.000000  1.000000  0.000000        0.00000                 2SLK  79
+ORIGX3      0.000000  0.000000  1.000000        0.00000                 2SLK  80
+SCALE1      1.000000  0.000000  0.000000        0.00000                 2SLK  81
+SCALE2      0.000000  1.000000  0.000000        0.00000                 2SLK  82
+SCALE3      0.000000  0.000000  1.000000        0.00000                 2SLK  83
+ATOM      1  C   ACE A   1      -0.682  -1.136   0.000  1.00  0.00      2SLK  84
+ATOM      2  O   ACE A   1      -0.178  -2.252   0.114  1.00  0.00      2SLK  85
+ATOM      3  CH3 ACE A   1      -2.157  -0.984  -0.152  1.00  0.00      2SLK  86
+ATOM      4 1HH3 ACE A   1      -2.638  -1.953  -0.013  1.00  0.00      2SLK  87
+ATOM      5 2HH3 ACE A   1      -2.383  -0.606  -1.149  1.00  0.00      2SLK  88
+ATOM      6 3HH3 ACE A   1      -2.529  -0.284   0.596  1.00  0.00      2SLK  89
+ATOM      7  N   ALA A   2       0.000   0.000   0.000  1.00  0.00      2SLK  90
+ATOM      8  CA  ALA A   2       1.453   0.000   0.000  1.00  0.00      2SLK  91
+ATOM      9  C   ALA A   2       1.959   1.210   0.788  1.00  0.00      2SLK  92
+ATOM     10  O   ALA A   2       1.245   2.201   0.936  1.00  0.00      2SLK  93
+ATOM     11  CB  ALA A   2       1.964  -0.011  -1.442  1.00  0.00      2SLK  94
+ATOM     12  H   ALA A   2      -0.423   0.906   0.000  1.00  0.00      2SLK  95
+ATOM     13  HA  ALA A   2       1.785  -0.912   0.497  1.00  0.00      2SLK  96
+ATOM     14 1HB  ALA A   2       3.054  -0.017  -1.442  1.00  0.00      2SLK  97
+ATOM     15 2HB  ALA A   2       1.596  -0.902  -1.951  1.00  0.00      2SLK  98
+ATOM     16 3HB  ALA A   2       1.606   0.878  -1.961  1.00  0.00      2SLK  99
+ATOM     17  N   GLY A   3       3.186   1.089   1.273  1.00  0.00      2SLK 100
+ATOM     18  CA  GLY A   3       3.779   2.143   2.078  1.00  0.00      2SLK 101
+ATOM     19  C   GLY A   3       5.307   2.094   2.006  1.00  0.00      2SLK 102
+ATOM     20  O   GLY A   3       5.887   1.034   1.778  1.00  0.00      2SLK 103
+ATOM     21  H   GLY A   3       3.770   0.291   1.125  1.00  0.00      2SLK 104
+ATOM     22 1HA  GLY A   3       3.426   3.114   1.730  1.00  0.00      2SLK 105
+ATOM     23 2HA  GLY A   3       3.457   2.040   3.114  1.00  0.00      2SLK 106
+ATOM     24  N   ALA A   4       5.915   3.255   2.204  1.00  0.00      2SLK 107
+ATOM     25  CA  ALA A   4       7.362   3.362   2.140  1.00  0.00      2SLK 108
+ATOM     26  C   ALA A   4       7.820   4.540   3.003  1.00  0.00      2SLK 109
+ATOM     27  O   ALA A   4       7.066   5.488   3.216  1.00  0.00      2SLK 110
+ATOM     28  CB  ALA A   4       7.801   3.503   0.681  1.00  0.00      2SLK 111
+ATOM     29  H   ALA A   4       5.436   4.110   2.404  1.00  0.00      2SLK 112
+ATOM     30  HA  ALA A   4       7.781   2.441   2.545  1.00  0.00      2SLK 113
+ATOM     31 1HB  ALA A   4       8.885   3.606   0.636  1.00  0.00      2SLK 114
+ATOM     32 2HB  ALA A   4       7.497   2.617   0.123  1.00  0.00      2SLK 115
+ATOM     33 3HB  ALA A   4       7.333   4.385   0.245  1.00  0.00      2SLK 116
+ATOM     34  N   GLY A   5       9.054   4.441   3.476  1.00  0.00      2SLK 117
+ATOM     35  CA  GLY A   5       9.627   5.493   4.297  1.00  0.00      2SLK 118
+ATOM     36  C   GLY A   5      11.156   5.431   4.281  1.00  0.00      2SLK 119
+ATOM     37  O   GLY A   5      11.735   4.360   4.102  1.00  0.00      2SLK 120
+ATOM     38  H   GLY A   5       9.657   3.661   3.306  1.00  0.00      2SLK 121
+ATOM     39 1HA  GLY A   5       9.296   6.465   3.932  1.00  0.00      2SLK 122
+ATOM     40 2HA  GLY A   5       9.267   5.397   5.321  1.00  0.00      2SLK 123
+ATOM     41  N   ALA A   6      11.766   6.592   4.469  1.00  0.00      2SLK 124
+ATOM     42  CA  ALA A   6      13.215   6.691   4.430  1.00  0.00      2SLK 125
+ATOM     43  C   ALA A   6      13.662   7.894   5.263  1.00  0.00      2SLK 126
+ATOM     44  O   ALA A   6      12.887   8.823   5.483  1.00  0.00      2SLK 127
+ATOM     45  CB  ALA A   6      13.682   6.782   2.976  1.00  0.00      2SLK 128
+ATOM     46  H   ALA A   6      11.288   7.452   4.645  1.00  0.00      2SLK 129
+ATOM     47  HA  ALA A   6      13.622   5.782   4.873  1.00  0.00      2SLK 130
+ATOM     48 1HB  ALA A   6      14.769   6.863   2.948  1.00  0.00      2SLK 131
+ATOM     49 2HB  ALA A   6      13.370   5.887   2.438  1.00  0.00      2SLK 132
+ATOM     50 3HB  ALA A   6      13.240   7.661   2.507  1.00  0.00      2SLK 133
+ATOM     51  N   GLY A   7      14.911   7.838   5.703  1.00  0.00      2SLK 134
+ATOM     52  CA  GLY A   7      15.486   8.934   6.463  1.00  0.00      2SLK 135
+ATOM     53  C   GLY A   7      17.009   8.966   6.312  1.00  0.00      2SLK 136
+ATOM     54  O   GLY A   7      17.639   7.928   6.118  1.00  0.00      2SLK 137
+ATOM     55  H   GLY A   7      15.524   7.063   5.548  1.00  0.00      2SLK 138
+ATOM     56 1HA  GLY A   7      15.064   9.879   6.122  1.00  0.00      2SLK 139
+ATOM     57 2HA  GLY A   7      15.224   8.829   7.516  1.00  0.00      2SLK 140
+HETATM   58  N   NME A   8      17.556  10.169   6.407  1.00  0.00      2SLK 141
+HETATM   59  CH3 NME A   8      18.989  10.354   6.253  1.00  0.00      2SLK 142
+HETATM   60  H   NME A   8      17.038  11.006   6.585  1.00  0.00      2SLK 143
+HETATM   61 1HH3 NME A   8      19.513   9.783   7.019  1.00  0.00      2SLK 144
+HETATM   62 2HH3 NME A   8      19.296  10.006   5.266  1.00  0.00      2SLK 145
+HETATM   63 3HH3 NME A   8      19.232  11.411   6.357  1.00  0.00      2SLK 146
+TER      64      NME A   8                                              2SLK 147
+ATOM     65  C   ACE B   1      20.118   5.293   5.967  1.00  0.00      2SLK 148
+ATOM     66  O   ACE B   1      20.780   4.268   5.815  1.00  0.00      2SLK 149
+ATOM     67  CH3 ACE B   1      20.791   6.596   6.231  1.00  0.00      2SLK 150
+ATOM     68 1HH3 ACE B   1      21.868   6.442   6.294  1.00  0.00      2SLK 151
+ATOM     69 2HH3 ACE B   1      20.427   7.009   7.172  1.00  0.00      2SLK 152
+ATOM     70 3HH3 ACE B   1      20.570   7.290   5.420  1.00  0.00      2SLK 153
+ATOM     71  N   GLY B   2      18.795   5.347   5.914  1.00  0.00      2SLK 154
+ATOM     72  CA  GLY B   2      17.996   4.134   5.916  1.00  0.00      2SLK 155
+ATOM     73  C   GLY B   2      16.769   4.284   5.015  1.00  0.00      2SLK 156
+ATOM     74  O   GLY B   2      16.255   5.387   4.839  1.00  0.00      2SLK 157
+ATOM     75  H   GLY B   2      18.271   6.198   5.871  1.00  0.00      2SLK 158
+ATOM     76 1HA  GLY B   2      18.602   3.295   5.574  1.00  0.00      2SLK 159
+ATOM     77 2HA  GLY B   2      17.679   3.904   6.933  1.00  0.00      2SLK 160
+ATOM     78  N   ALA B   3      16.334   3.158   4.468  1.00  0.00      2SLK 161
+ATOM     79  CA  ALA B   3      15.218   3.160   3.538  1.00  0.00      2SLK 162
+ATOM     80  C   ALA B   3      14.435   1.853   3.685  1.00  0.00      2SLK 163
+ATOM     81  O   ALA B   3      15.021   0.796   3.913  1.00  0.00      2SLK 164
+ATOM     82  CB  ALA B   3      15.739   3.370   2.115  1.00  0.00      2SLK 165
+ATOM     83  H   ALA B   3      16.731   2.258   4.651  1.00  0.00      2SLK 166
+ATOM     84  HA  ALA B   3      14.568   3.994   3.801  1.00  0.00      2SLK 167
+ATOM     85 1HB  ALA B   3      14.913   3.284   1.409  1.00  0.00      2SLK 168
+ATOM     86 2HB  ALA B   3      16.184   4.362   2.034  1.00  0.00      2SLK 169
+ATOM     87 3HB  ALA B   3      16.491   2.615   1.888  1.00  0.00      2SLK 170
+ATOM     88  N   GLY B   4      13.122   1.969   3.549  1.00  0.00      2SLK 171
+ATOM     89  CA  GLY B   4      12.251   0.814   3.689  1.00  0.00      2SLK 172
+ATOM     90  C   GLY B   4      11.010   0.953   2.805  1.00  0.00      2SLK 173
+ATOM     91  O   GLY B   4      10.477   2.051   2.645  1.00  0.00      2SLK 174
+ATOM     92  H   GLY B   4      12.654   2.829   3.347  1.00  0.00      2SLK 175
+ATOM     93 1HA  GLY B   4      12.794  -0.091   3.419  1.00  0.00      2SLK 176
+ATOM     94 2HA  GLY B   4      11.949   0.706   4.731  1.00  0.00      2SLK 177
+ATOM     95  N   ALA B   5      10.585  -0.174   2.255  1.00  0.00      2SLK 178
+ATOM     96  CA  ALA B   5       9.484  -0.176   1.307  1.00  0.00      2SLK 179
+ATOM     97  C   ALA B   5       8.695  -1.479   1.451  1.00  0.00      2SLK 180
+ATOM     98  O   ALA B   5       9.276  -2.539   1.677  1.00  0.00      2SLK 181
+ATOM     99  CB  ALA B   5      10.028   0.022  -0.109  1.00  0.00      2SLK 182
+ATOM    100  H   ALA B   5      10.979  -1.073   2.446  1.00  0.00      2SLK 183
+ATOM    101  HA  ALA B   5       8.833   0.663   1.553  1.00  0.00      2SLK 184
+ATOM    102 1HB  ALA B   5       9.212  -0.057  -0.827  1.00  0.00      2SLK 185
+ATOM    103 2HB  ALA B   5      10.487   1.008  -0.187  1.00  0.00      2SLK 186
+ATOM    104 3HB  ALA B   5      10.774  -0.744  -0.322  1.00  0.00      2SLK 187
+ATOM    105  N   GLY B   6       7.382  -1.357   1.314  1.00  0.00      2SLK 188
+ATOM    106  CA  GLY B   6       6.507  -2.510   1.435  1.00  0.00      2SLK 189
+ATOM    107  C   GLY B   6       5.258  -2.343   0.567  1.00  0.00      2SLK 190
+ATOM    108  O   GLY B   6       4.711  -1.246   0.465  1.00  0.00      2SLK 191
+ATOM    109  H   GLY B   6       6.918  -0.492   1.125  1.00  0.00      2SLK 192
+ATOM    110 1HA  GLY B   6       7.043  -3.411   1.137  1.00  0.00      2SLK 193
+ATOM    111 2HA  GLY B   6       6.216  -2.643   2.477  1.00  0.00      2SLK 194
+ATOM    112  N   ALA B   7       4.843  -3.448  -0.035  1.00  0.00      2SLK 195
+ATOM    113  CA  ALA B   7       3.750  -3.413  -0.993  1.00  0.00      2SLK 196
+ATOM    114  C   ALA B   7       2.921  -4.692  -0.861  1.00  0.00      2SLK 197
+ATOM    115  O   ALA B   7       3.465  -5.765  -0.603  1.00  0.00      2SLK 198
+ATOM    116  CB  ALA B   7       4.313  -3.225  -2.403  1.00  0.00      2SLK 199
+ATOM    117  H   ALA B   7       5.239  -4.353   0.121  1.00  0.00      2SLK 200
+ATOM    118  HA  ALA B   7       3.122  -2.556  -0.748  1.00  0.00      2SLK 201
+ATOM    119 1HB  ALA B   7       3.497  -3.242  -3.125  1.00  0.00      2SLK 202
+ATOM    120 2HB  ALA B   7       4.831  -2.268  -2.463  1.00  0.00      2SLK 203
+ATOM    121 3HB  ALA B   7       5.012  -4.031  -2.626  1.00  0.00      2SLK 204
+HETATM  122  N   NME B   8       1.618  -4.537  -1.045  1.00  0.00      2SLK 205
+HETATM  123  CH3 NME B   8       0.718  -5.677  -1.022  1.00  0.00      2SLK 206
+HETATM  124  H   NME B   8       1.178  -3.653  -1.206  1.00  0.00      2SLK 207
+HETATM  125 1HH3 NME B   8       0.996  -6.375  -1.811  1.00  0.00      2SLK 208
+HETATM  126 2HH3 NME B   8       0.787  -6.175  -0.055  1.00  0.00      2SLK 209
+HETATM  127 3HH3 NME B   8      -0.305  -5.335  -1.182  1.00  0.00      2SLK 210
+TER     128      NME B   8                                              2SLK 211
+ATOM    129  C   ACE C   1       4.898  -8.745  -2.236  1.00  0.00      2SLK 212
+ATOM    130  O   ACE C   1       5.522  -9.653  -2.784  1.00  0.00      2SLK 213
+ATOM    131  CH3 ACE C   1       3.449  -8.903  -1.927  1.00  0.00      2SLK 214
+ATOM    132 1HH3 ACE C   1       3.129  -9.912  -2.188  1.00  0.00      2SLK 215
+ATOM    133 2HH3 ACE C   1       2.873  -8.179  -2.503  1.00  0.00      2SLK 216
+ATOM    134 3HH3 ACE C   1       3.284  -8.734  -0.863  1.00  0.00      2SLK 217
+ATOM    135  N   ALA C   2       5.424  -7.583  -1.879  1.00  0.00      2SLK 218
+ATOM    136  CA  ALA C   2       6.829  -7.294  -2.110  1.00  0.00      2SLK 219
+ATOM    137  C   ALA C   2       7.333  -6.337  -1.028  1.00  0.00      2SLK 220
+ATOM    138  O   ALA C   2       6.562  -5.547  -0.485  1.00  0.00      2SLK 221
+ATOM    139  CB  ALA C   2       7.009  -6.729  -3.520  1.00  0.00      2SLK 222
+ATOM    140  H   ALA C   2       4.908  -6.847  -1.440  1.00  0.00      2SLK 223
+ATOM    141  HA  ALA C   2       7.377  -8.234  -2.036  1.00  0.00      2SLK 224
+ATOM    142 1HB  ALA C   2       8.062  -6.500  -3.687  1.00  0.00      2SLK 225
+ATOM    143 2HB  ALA C   2       6.677  -7.464  -4.252  1.00  0.00      2SLK 226
+ATOM    144 3HB  ALA C   2       6.418  -5.819  -3.625  1.00  0.00      2SLK 227
+ATOM    145  N   GLY C   3       8.623  -6.438  -0.747  1.00  0.00      2SLK 228
+ATOM    146  CA  GLY C   3       9.246  -5.568   0.236  1.00  0.00      2SLK 229
+ATOM    147  C   GLY C   3      10.743  -5.411  -0.041  1.00  0.00      2SLK 230
+ATOM    148  O   GLY C   3      11.384  -6.330  -0.549  1.00  0.00      2SLK 231
+ATOM    149  H   GLY C   3       9.239  -7.099  -1.178  1.00  0.00      2SLK 232
+ATOM    150 1HA  GLY C   3       8.765  -4.591   0.218  1.00  0.00      2SLK 233
+ATOM    151 2HA  GLY C   3       9.099  -5.978   1.235  1.00  0.00      2SLK 234
+ATOM    152  N   ALA C   4      11.256  -4.240   0.306  1.00  0.00      2SLK 235
+ATOM    153  CA  ALA C   4      12.657  -3.937   0.068  1.00  0.00      2SLK 236
+ATOM    154  C   ALA C   4      13.149  -2.951   1.130  1.00  0.00      2SLK 237
+ATOM    155  O   ALA C   4      12.384  -2.113   1.605  1.00  0.00      2SLK 238
+ATOM    156  CB  ALA C   4      12.830  -3.398  -1.353  1.00  0.00      2SLK 239
+ATOM    157  H   ALA C   4      10.733  -3.506   0.740  1.00  0.00      2SLK 240
+ATOM    158  HA  ALA C   4      13.218  -4.868   0.161  1.00  0.00      2SLK 241
+ATOM    159 1HB  ALA C   4      13.879  -3.155  -1.524  1.00  0.00      2SLK 242
+ATOM    160 2HB  ALA C   4      12.510  -4.154  -2.070  1.00  0.00      2SLK 243
+ATOM    161 3HB  ALA C   4      12.225  -2.500  -1.476  1.00  0.00      2SLK 244
+ATOM    162  N   GLY C   5      14.422  -3.085   1.472  1.00  0.00      2SLK 245
+ATOM    163  CA  GLY C   5      15.030  -2.202   2.453  1.00  0.00      2SLK 246
+ATOM    164  C   GLY C   5      16.532  -2.056   2.203  1.00  0.00      2SLK 247
+ATOM    165  O   GLY C   5      17.176  -2.980   1.708  1.00  0.00      2SLK 248
+ATOM    166  H   GLY C   5      15.033  -3.779   1.091  1.00  0.00      2SLK 249
+ATOM    167 1HA  GLY C   5      14.553  -1.223   2.412  1.00  0.00      2SLK 250
+ATOM    168 2HA  GLY C   5      14.861  -2.596   3.456  1.00  0.00      2SLK 251
+ATOM    169  N   ALA C   6      17.047  -0.887   2.556  1.00  0.00      2SLK 252
+ATOM    170  CA  ALA C   6      18.445  -0.580   2.308  1.00  0.00      2SLK 253
+ATOM    171  C   ALA C   6      18.948   0.389   3.380  1.00  0.00      2SLK 254
+ATOM    172  O   ALA C   6      18.185   1.208   3.889  1.00  0.00      2SLK 255
+ATOM    173  CB  ALA C   6      18.602  -0.016   0.894  1.00  0.00      2SLK 256
+ATOM    174  H   ALA C   6      16.527  -0.159   3.002  1.00  0.00      2SLK 257
+ATOM    175  HA  ALA C   6      19.007  -1.511   2.379  1.00  0.00      2SLK 258
+ATOM    176 1HB  ALA C   6      19.648   0.230   0.715  1.00  0.00      2SLK 259
+ATOM    177 2HB  ALA C   6      18.275  -0.761   0.168  1.00  0.00      2SLK 260
+ATOM    178 3HB  ALA C   6      17.994   0.883   0.792  1.00  0.00      2SLK 261
+ATOM    179  N   GLY C   7      20.230   0.262   3.692  1.00  0.00      2SLK 262
+ATOM    180  CA  GLY C   7      20.849   1.132   4.678  1.00  0.00      2SLK 263
+ATOM    181  C   GLY C   7      22.329   1.354   4.361  1.00  0.00      2SLK 264
+ATOM    182  O   GLY C   7      23.009   0.445   3.887  1.00  0.00      2SLK 265
+ATOM    183  H   GLY C   7      20.840  -0.417   3.285  1.00  0.00      2SLK 266
+ATOM    184 1HA  GLY C   7      20.330   2.090   4.700  1.00  0.00      2SLK 267
+ATOM    185 2HA  GLY C   7      20.748   0.692   5.670  1.00  0.00      2SLK 268
+HETATM  186  N   NME C   8      22.785   2.568   4.635  1.00  0.00      2SLK 269
+HETATM  187  CH3 NME C   8      24.164   2.930   4.356  1.00  0.00      2SLK 270
+HETATM  188  H   NME C   8      22.230   3.295   5.039  1.00  0.00      2SLK 271
+HETATM  189 1HH3 NME C   8      24.831   2.281   4.923  1.00  0.00      2SLK 272
+HETATM  190 2HH3 NME C   8      24.362   2.813   3.290  1.00  0.00      2SLK 273
+HETATM  191 3HH3 NME C   8      24.333   3.967   4.646  1.00  0.00      2SLK 274
+TER     192      NME C   8                                              2SLK 275
+ATOM    193  C   ACE D   1      25.377  -2.234   3.969  1.00  0.00      2SLK 276
+ATOM    194  O   ACE D   1      26.044  -3.267   3.947  1.00  0.00      2SLK 277
+ATOM    195  CH3 ACE D   1      26.044  -0.906   4.076  1.00  0.00      2SLK 278
+ATOM    196 1HH3 ACE D   1      27.125  -1.040   4.063  1.00  0.00      2SLK 279
+ATOM    197 2HH3 ACE D   1      25.748  -0.425   5.008  1.00  0.00      2SLK 280
+ATOM    198 3HH3 ACE D   1      25.745  -0.281   3.234  1.00  0.00      2SLK 281
+ATOM    199  N   GLY D   2      24.054  -2.193   3.904  1.00  0.00      2SLK 282
+ATOM    200  CA  GLY D   2      23.268  -3.415   3.892  1.00  0.00      2SLK 283
+ATOM    201  C   GLY D   2      22.025  -3.258   3.014  1.00  0.00      2SLK 284
+ATOM    202  O   GLY D   2      21.496  -2.157   2.870  1.00  0.00      2SLK 285
+ATOM    203  H   GLY D   2      23.523  -1.348   3.859  1.00  0.00      2SLK 286
+ATOM    204 1HA  GLY D   2      23.876  -4.240   3.523  1.00  0.00      2SLK 287
+ATOM    205 2HA  GLY D   2      22.969  -3.669   4.909  1.00  0.00      2SLK 288
+ATOM    206  N   ALA D   3      21.594  -4.377   2.448  1.00  0.00      2SLK 289
+ATOM    207  CA  ALA D   3      20.469  -4.366   1.529  1.00  0.00      2SLK 290
+ATOM    208  C   ALA D   3      19.689  -5.674   1.669  1.00  0.00      2SLK 291
+ATOM    209  O   ALA D   3      20.275  -6.727   1.916  1.00  0.00      2SLK 292
+ATOM    210  CB  ALA D   3      20.976  -4.138   0.104  1.00  0.00      2SLK 293
+ATOM    211  H   ALA D   3      21.999  -5.277   2.609  1.00  0.00      2SLK 294
+ATOM    212  HA  ALA D   3      19.821  -3.534   1.808  1.00  0.00      2SLK 295
+ATOM    213 1HB  ALA D   3      20.141  -4.204  -0.594  1.00  0.00      2SLK 296
+ATOM    214 2HB  ALA D   3      21.432  -3.151   0.033  1.00  0.00      2SLK 297
+ATOM    215 3HB  ALA D   3      21.717  -4.899  -0.144  1.00  0.00      2SLK 298
+ATOM    216  N   GLY D   4      18.379  -5.565   1.505  1.00  0.00      2SLK 299
+ATOM    217  CA  GLY D   4      17.510  -6.723   1.632  1.00  0.00      2SLK 300
+ATOM    218  C   GLY D   4      16.269  -6.577   0.748  1.00  0.00      2SLK 301
+ATOM    219  O   GLY D   4      15.744  -5.477   0.587  1.00  0.00      2SLK 302
+ATOM    220  H   GLY D   4      17.911  -4.708   1.289  1.00  0.00      2SLK 303
+ATOM    221 1HA  GLY D   4      18.056  -7.624   1.353  1.00  0.00      2SLK 304
+ATOM    222 2HA  GLY D   4      17.207  -6.843   2.672  1.00  0.00      2SLK 305
+ATOM    223  N   ALA D   5      15.837  -7.703   0.199  1.00  0.00      2SLK 306
+ATOM    224  CA  ALA D   5      14.730  -7.700  -0.741  1.00  0.00      2SLK 307
+ATOM    225  C   ALA D   5      13.937  -9.001  -0.592  1.00  0.00      2SLK 308
+ATOM    226  O   ALA D   5      14.511 -10.055  -0.327  1.00  0.00      2SLK 309
+ATOM    227  CB  ALA D   5      15.265  -7.503  -2.161  1.00  0.00      2SLK 310
+ATOM    228  H   ALA D   5      16.230  -8.603   0.387  1.00  0.00      2SLK 311
+ATOM    229  HA  ALA D   5      14.083  -6.860  -0.490  1.00  0.00      2SLK 312
+ATOM    230 1HB  ALA D   5      14.441  -7.567  -2.872  1.00  0.00      2SLK 313
+ATOM    231 2HB  ALA D   5      15.737  -6.524  -2.238  1.00  0.00      2SLK 314
+ATOM    232 3HB  ALA D   5      15.998  -8.279  -2.384  1.00  0.00      2SLK 315
+ATOM    233  N   GLY D   6      12.629  -8.883  -0.770  1.00  0.00      2SLK 316
+ATOM    234  CA  GLY D   6      11.751 -10.035  -0.654  1.00  0.00      2SLK 317
+ATOM    235  C   GLY D   6      10.509  -9.867  -1.531  1.00  0.00      2SLK 318
+ATOM    236  O   GLY D   6       9.983  -8.763  -1.666  1.00  0.00      2SLK 319
+ATOM    237  H   GLY D   6      12.170  -8.022  -0.989  1.00  0.00      2SLK 320
+ATOM    238 1HA  GLY D   6      12.289 -10.937  -0.947  1.00  0.00      2SLK 321
+ATOM    239 2HA  GLY D   6      11.452 -10.165   0.385  1.00  0.00      2SLK 322
+ATOM    240  N   ALA D   7      10.075 -10.980  -2.106  1.00  0.00      2SLK 323
+ATOM    241  CA  ALA D   7       8.994 -10.948  -3.076  1.00  0.00      2SLK 324
+ATOM    242  C   ALA D   7       8.195 -12.250  -2.985  1.00  0.00      2SLK 325
+ATOM    243  O   ALA D   7       8.757 -13.311  -2.720  1.00  0.00      2SLK 326
+ATOM    244  CB  ALA D   7       9.570 -10.715  -4.475  1.00  0.00      2SLK 327
+ATOM    245  H   ALA D   7      10.448 -11.888  -1.918  1.00  0.00      2SLK 328
+ATOM    246  HA  ALA D   7       8.343 -10.113  -2.821  1.00  0.00      2SLK 329
+ATOM    247 1HB  ALA D   7       8.762 -10.727  -5.207  1.00  0.00      2SLK 330
+ATOM    248 2HB  ALA D   7      10.072  -9.748  -4.504  1.00  0.00      2SLK 331
+ATOM    249 3HB  ALA D   7      10.285 -11.503  -4.709  1.00  0.00      2SLK 332
+HETATM  250  N   NME D   8       6.895 -12.125  -3.210  1.00  0.00      2SLK 333
+HETATM  251  CH3 NME D   8       6.021 -13.286  -3.213  1.00  0.00      2SLK 334
+HETATM  252  H   NME D   8       6.439 -11.253  -3.389  1.00  0.00      2SLK 335
+HETATM  253 1HH3 NME D   8       6.354 -13.990  -3.975  1.00  0.00      2SLK 336
+HETATM  254 2HH3 NME D   8       6.054 -13.768  -2.235  1.00  0.00      2SLK 337
+HETATM  255 3HH3 NME D   8       5.000 -12.972  -3.429  1.00  0.00      2SLK 338
+TER     256      NME D   8                                              2SLK 339
+ATOM    257  C   ACE E   1      10.231 -16.242  -4.335  1.00  0.00      2SLK 340
+ATOM    258  O   ACE E   1      10.887 -17.149  -4.845  1.00  0.00      2SLK 341
+ATOM    259  CH3 ACE E   1       8.776 -16.419  -4.069  1.00  0.00      2SLK 342
+ATOM    260 1HH3 ACE E   1       8.512 -17.472  -4.176  1.00  0.00      2SLK 343
+ATOM    261 2HH3 ACE E   1       8.201 -15.827  -4.780  1.00  0.00      2SLK 344
+ATOM    262 3HH3 ACE E   1       8.550 -16.090  -3.055  1.00  0.00      2SLK 345
+ATOM    263  N   ALA E   2      10.725 -15.064  -3.985  1.00  0.00      2SLK 346
+ATOM    264  CA  ALA E   2      12.129 -14.750  -4.191  1.00  0.00      2SLK 347
+ATOM    265  C   ALA E   2      12.606 -13.813  -3.080  1.00  0.00      2SLK 348
+ATOM    266  O   ALA E   2      11.829 -13.012  -2.562  1.00  0.00      2SLK 349
+ATOM    267  CB  ALA E   2      12.318 -14.146  -5.584  1.00  0.00      2SLK 350
+ATOM    268  H   ALA E   2      10.186 -14.333  -3.568  1.00  0.00      2SLK 351
+ATOM    269  HA  ALA E   2      12.690 -15.683  -4.134  1.00  0.00      2SLK 352
+ATOM    270 1HB  ALA E   2      13.370 -13.904  -5.736  1.00  0.00      2SLK 353
+ATOM    271 2HB  ALA E   2      11.998 -14.865  -6.338  1.00  0.00      2SLK 354
+ATOM    272 3HB  ALA E   2      11.721 -13.238  -5.671  1.00  0.00      2SLK 355
+ATOM    273  N   GLY E   3      13.882 -13.944  -2.746  1.00  0.00      2SLK 356
+ATOM    274  CA  GLY E   3      14.482 -13.090  -1.735  1.00  0.00      2SLK 357
+ATOM    275  C   GLY E   3      15.995 -12.981  -1.937  1.00  0.00      2SLK 358
+ATOM    276  O   GLY E   3      16.642 -13.948  -2.337  1.00  0.00      2SLK 359
+ATOM    277  H   GLY E   3      14.500 -14.617  -3.152  1.00  0.00      2SLK 360
+ATOM    278 1HA  GLY E   3      14.033 -12.098  -1.779  1.00  0.00      2SLK 361
+ATOM    279 2HA  GLY E   3      14.272 -13.491  -0.744  1.00  0.00      2SLK 362
+ATOM    280  N   ALA E   4      16.514 -11.796  -1.652  1.00  0.00      2SLK 363
+ATOM    281  CA  ALA E   4      17.924 -11.524  -1.872  1.00  0.00      2SLK 364
+ATOM    282  C   ALA E   4      18.411 -10.508  -0.838  1.00  0.00      2SLK 365
+ATOM    283  O   ALA E   4      17.643  -9.658  -0.388  1.00  0.00      2SLK 366
+ATOM    284  CB  ALA E   4      18.133 -11.040  -3.309  1.00  0.00      2SLK 367
+ATOM    285  H   ALA E   4      15.990 -11.031  -1.277  1.00  0.00      2SLK 368
+ATOM    286  HA  ALA E   4      18.468 -12.459  -1.734  1.00  0.00      2SLK 369
+ATOM    287 1HB  ALA E   4      19.189 -10.823  -3.469  1.00  0.00      2SLK 370
+ATOM    288 2HB  ALA E   4      17.811 -11.816  -4.004  1.00  0.00      2SLK 371
+ATOM    289 3HB  ALA E   4      17.546 -10.137  -3.476  1.00  0.00      2SLK 372
+ATOM    290  N   GLY E   5      19.684 -10.628  -0.490  1.00  0.00      2SLK 373
+ATOM    291  CA  GLY E   5      20.284  -9.725   0.477  1.00  0.00      2SLK 374
+ATOM    292  C   GLY E   5      21.793  -9.609   0.257  1.00  0.00      2SLK 375
+ATOM    293  O   GLY E   5      22.436 -10.564  -0.179  1.00  0.00      2SLK 376
+ATOM    294  H   GLY E   5      20.300 -11.324  -0.857  1.00  0.00      2SLK 377
+ATOM    295 1HA  GLY E   5      19.824  -8.740   0.395  1.00  0.00      2SLK 378
+ATOM    296 2HA  GLY E   5      20.087 -10.086   1.487  1.00  0.00      2SLK 379
+ATOM    297  N   ALA E   6      22.316  -8.432   0.567  1.00  0.00      2SLK 380
+ATOM    298  CA  ALA E   6      23.720  -8.148   0.321  1.00  0.00      2SLK 381
+ATOM    299  C   ALA E   6      24.225  -7.152   1.368  1.00  0.00      2SLK 382
+ATOM    300  O   ALA E   6      23.452  -6.352   1.892  1.00  0.00      2SLK 383
+ATOM    301  CB  ALA E   6      23.894  -7.630  -1.108  1.00  0.00      2SLK 384
+ATOM    302  H   ALA E   6      21.799  -7.681   0.977  1.00  0.00      2SLK 385
+ATOM    303  HA  ALA E   6      24.271  -9.083   0.426  1.00  0.00      2SLK 386
+ATOM    304 1HB  ALA E   6      24.946  -7.408  -1.288  1.00  0.00      2SLK 387
+ATOM    305 2HB  ALA E   6      23.557  -8.390  -1.813  1.00  0.00      2SLK 388
+ATOM    306 3HB  ALA E   6      23.303  -6.724  -1.240  1.00  0.00      2SLK 389
+ATOM    307  N   GLY E   7      25.519  -7.235   1.641  1.00  0.00      2SLK 390
+ATOM    308  CA  GLY E   7      26.137  -6.347   2.610  1.00  0.00      2SLK 391
+ATOM    309  C   GLY E   7      27.602  -6.084   2.256  1.00  0.00      2SLK 392
+ATOM    310  O   GLY E   7      28.288  -6.966   1.742  1.00  0.00      2SLK 393
+ATOM    311  H   GLY E   7      26.139  -7.892   1.213  1.00  0.00      2SLK 394
+ATOM    312 1HA  GLY E   7      25.592  -5.404   2.644  1.00  0.00      2SLK 395
+ATOM    313 2HA  GLY E   7      26.073  -6.788   3.605  1.00  0.00      2SLK 396
+HETATM  314  N   NME E   8      28.038  -4.867   2.546  1.00  0.00      2SLK 397
+HETATM  315  CH3 NME E   8      29.396  -4.461   2.222  1.00  0.00      2SLK 398
+HETATM  316  H   NME E   8      27.483  -4.165   2.993  1.00  0.00      2SLK 399
+HETATM  317 1HH3 NME E   8      30.102  -5.112   2.739  1.00  0.00      2SLK 400
+HETATM  318 2HH3 NME E   8      29.551  -4.538   1.146  1.00  0.00      2SLK 401
+HETATM  319 3HH3 NME E   8      29.552  -3.430   2.539  1.00  0.00      2SLK 402
+TER     320      NME E   8                                              2SLK 403
+ATOM    321  C   ACE F   1      19.827   9.460   1.651  1.00  0.00      2SLK 404
+ATOM    322  O   ACE F   1      20.592   8.497   1.641  1.00  0.00      2SLK 405
+ATOM    323  CH3 ACE F   1      20.359  10.846   1.781  1.00  0.00      2SLK 406
+ATOM    324 1HH3 ACE F   1      21.437  10.809   1.936  1.00  0.00      2SLK 407
+ATOM    325 2HH3 ACE F   1      19.886  11.338   2.632  1.00  0.00      2SLK 408
+ATOM    326 3HH3 ACE F   1      20.141  11.405   0.872  1.00  0.00      2SLK 409
+ATOM    327  N   ALA F   2      18.509   9.373   1.552  1.00  0.00      2SLK 410
+ATOM    328  CA  ALA F   2      17.854   8.085   1.391  1.00  0.00      2SLK 411
+ATOM    329  C   ALA F   2      16.470   8.296   0.775  1.00  0.00      2SLK 412
+ATOM    330  O   ALA F   2      15.884   9.369   0.907  1.00  0.00      2SLK 413
+ATOM    331  CB  ALA F   2      17.788   7.374   2.744  1.00  0.00      2SLK 414
+ATOM    332  H   ALA F   2      17.893  10.160   1.580  1.00  0.00      2SLK 415
+ATOM    333  HA  ALA F   2      18.460   7.488   0.710  1.00  0.00      2SLK 416
+ATOM    334 1HB  ALA F   2      17.327   6.394   2.617  1.00  0.00      2SLK 417
+ATOM    335 2HB  ALA F   2      18.796   7.252   3.140  1.00  0.00      2SLK 418
+ATOM    336 3HB  ALA F   2      17.194   7.968   3.439  1.00  0.00      2SLK 419
+ATOM    337  N   GLY F   3      15.987   7.254   0.114  1.00  0.00      2SLK 420
+ATOM    338  CA  GLY F   3      14.690   7.317  -0.538  1.00  0.00      2SLK 421
+ATOM    339  C   GLY F   3      14.079   5.921  -0.680  1.00  0.00      2SLK 422
+ATOM    340  O   GLY F   3      14.798   4.924  -0.697  1.00  0.00      2SLK 423
+ATOM    341  H   GLY F   3      16.464   6.380   0.022  1.00  0.00      2SLK 424
+ATOM    342 1HA  GLY F   3      14.020   7.954   0.038  1.00  0.00      2SLK 425
+ATOM    343 2HA  GLY F   3      14.796   7.773  -1.522  1.00  0.00      2SLK 426
+ATOM    344  N   ALA F   4      12.758   5.896  -0.778  1.00  0.00      2SLK 427
+ATOM    345  CA  ALA F   4      12.039   4.637  -0.876  1.00  0.00      2SLK 428
+ATOM    346  C   ALA F   4      10.735   4.858  -1.644  1.00  0.00      2SLK 429
+ATOM    347  O   ALA F   4      10.208   5.969  -1.674  1.00  0.00      2SLK 430
+ATOM    348  CB  ALA F   4      11.801   4.075   0.527  1.00  0.00      2SLK 431
+ATOM    349  H   ALA F   4      12.182   6.713  -0.792  1.00  0.00      2SLK 432
+ATOM    350  HA  ALA F   4      12.665   3.939  -1.432  1.00  0.00      2SLK 433
+ATOM    351 1HB  ALA F   4      11.285   3.118   0.452  1.00  0.00      2SLK 434
+ATOM    352 2HB  ALA F   4      12.758   3.933   1.029  1.00  0.00      2SLK 435
+ATOM    353 3HB  ALA F   4      11.191   4.773   1.100  1.00  0.00      2SLK 436
+ATOM    354  N   GLY F   5      10.251   3.782  -2.247  1.00  0.00      2SLK 437
+ATOM    355  CA  GLY F   5       8.993   3.832  -2.972  1.00  0.00      2SLK 438
+ATOM    356  C   GLY F   5       8.341   2.449  -3.038  1.00  0.00      2SLK 439
+ATOM    357  O   GLY F   5       9.033   1.432  -3.013  1.00  0.00      2SLK 440
+ATOM    358  H   GLY F   5      10.702   2.889  -2.245  1.00  0.00      2SLK 441
+ATOM    359 1HA  GLY F   5       8.316   4.534  -2.485  1.00  0.00      2SLK 442
+ATOM    360 2HA  GLY F   5       9.166   4.205  -3.982  1.00  0.00      2SLK 443
+ATOM    361  N   ALA F   6       7.019   2.456  -3.120  1.00  0.00      2SLK 444
+ATOM    362  CA  ALA F   6       6.263   1.216  -3.127  1.00  0.00      2SLK 445
+ATOM    363  C   ALA F   6       4.937   1.436  -3.857  1.00  0.00      2SLK 446
+ATOM    364  O   ALA F   6       4.420   2.551  -3.891  1.00  0.00      2SLK 447
+ATOM    365  CB  ALA F   6       6.064   0.731  -1.690  1.00  0.00      2SLK 448
+ATOM    366  H   ALA F   6       6.467   3.288  -3.181  1.00  0.00      2SLK 449
+ATOM    367  HA  ALA F   6       6.848   0.473  -3.670  1.00  0.00      2SLK 450
+ATOM    368 1HB  ALA F   6       5.512  -0.209  -1.696  1.00  0.00      2SLK 451
+ATOM    369 2HB  ALA F   6       7.035   0.579  -1.219  1.00  0.00      2SLK 452
+ATOM    370 3HB  ALA F   6       5.502   1.478  -1.129  1.00  0.00      2SLK 453
+ATOM    371  N   GLY F   7       4.423   0.353  -4.424  1.00  0.00      2SLK 454
+ATOM    372  CA  GLY F   7       3.117   0.390  -5.059  1.00  0.00      2SLK 455
+ATOM    373  C   GLY F   7       2.498  -1.008  -5.119  1.00  0.00      2SLK 456
+ATOM    374  O   GLY F   7       3.199  -1.992  -5.348  1.00  0.00      2SLK 457
+ATOM    375  H   GLY F   7       4.883  -0.534  -4.453  1.00  0.00      2SLK 458
+ATOM    376 1HA  GLY F   7       2.458   1.059  -4.506  1.00  0.00      2SLK 459
+ATOM    377 2HA  GLY F   7       3.209   0.794  -6.067  1.00  0.00      2SLK 460
+HETATM  378  N   NME F   8       1.190  -1.051  -4.909  1.00  0.00      2SLK 461
+HETATM  379  CH3 NME F   8       0.474  -2.315  -4.901  1.00  0.00      2SLK 462
+HETATM  380  H   NME F   8       0.623  -0.243  -4.746  1.00  0.00      2SLK 463
+HETATM  381 1HH3 NME F   8       0.578  -2.797  -5.873  1.00  0.00      2SLK 464
+HETATM  382 2HH3 NME F   8       0.889  -2.963  -4.128  1.00  0.00      2SLK 465
+HETATM  383 3HH3 NME F   8      -0.581  -2.134  -4.696  1.00  0.00      2SLK 466
+TER     384      NME F   8                                              2SLK 467
+ATOM    385  C   ACE G   1       4.521  -5.216  -6.210  1.00  0.00      2SLK 468
+ATOM    386  O   ACE G   1       5.134  -6.152  -6.721  1.00  0.00      2SLK 469
+ATOM    387  CH3 ACE G   1       3.059  -5.324  -5.946  1.00  0.00      2SLK 470
+ATOM    388 1HH3 ACE G   1       2.695  -6.287  -6.304  1.00  0.00      2SLK 471
+ATOM    389 2HH3 ACE G   1       2.536  -4.522  -6.468  1.00  0.00      2SLK 472
+ATOM    390 3HH3 ACE G   1       2.875  -5.241  -4.875  1.00  0.00      2SLK 473
+ATOM    391  N   GLY G   2       5.071  -4.065  -5.854  1.00  0.00      2SLK 474
+ATOM    392  CA  GLY G   2       6.491  -3.823  -6.046  1.00  0.00      2SLK 475
+ATOM    393  C   GLY G   2       7.024  -2.835  -5.006  1.00  0.00      2SLK 476
+ATOM    394  O   GLY G   2       6.290  -1.968  -4.535  1.00  0.00      2SLK 477
+ATOM    395  H   GLY G   2       4.565  -3.307  -5.443  1.00  0.00      2SLK 478
+ATOM    396 1HA  GLY G   2       7.037  -4.763  -5.972  1.00  0.00      2SLK 479
+ATOM    397 2HA  GLY G   2       6.665  -3.431  -7.048  1.00  0.00      2SLK 480
+ATOM    398  N   ALA G   3       8.298  -2.999  -4.679  1.00  0.00      2SLK 481
+ATOM    399  CA  ALA G   3       8.905  -2.214  -3.618  1.00  0.00      2SLK 482
+ATOM    400  C   ALA G   3      10.367  -1.932  -3.970  1.00  0.00      2SLK 483
+ATOM    401  O   ALA G   3      11.040  -2.774  -4.562  1.00  0.00      2SLK 484
+ATOM    402  CB  ALA G   3       8.758  -2.954  -2.287  1.00  0.00      2SLK 485
+ATOM    403  H   ALA G   3       8.910  -3.652  -5.124  1.00  0.00      2SLK 486
+ATOM    404  HA  ALA G   3       8.366  -1.268  -3.554  1.00  0.00      2SLK 487
+ATOM    405 1HB  ALA G   3       9.257  -2.389  -1.500  1.00  0.00      2SLK 488
+ATOM    406 2HB  ALA G   3       7.701  -3.060  -2.044  1.00  0.00      2SLK 489
+ATOM    407 3HB  ALA G   3       9.212  -3.942  -2.369  1.00  0.00      2SLK 490
+ATOM    408  N   GLY G   4      10.815  -0.744  -3.591  1.00  0.00      2SLK 491
+ATOM    409  CA  GLY G   4      12.185  -0.341  -3.859  1.00  0.00      2SLK 492
+ATOM    410  C   GLY G   4      12.707   0.590  -2.762  1.00  0.00      2SLK 493
+ATOM    411  O   GLY G   4      11.959   1.406  -2.227  1.00  0.00      2SLK 494
+ATOM    412  H   GLY G   4      10.261  -0.064  -3.110  1.00  0.00      2SLK 495
+ATOM    413 1HA  GLY G   4      12.821  -1.223  -3.926  1.00  0.00      2SLK 496
+ATOM    414 2HA  GLY G   4      12.237   0.163  -4.824  1.00  0.00      2SLK 497
+ATOM    415  N   ALA G   5      13.988   0.435  -2.460  1.00  0.00      2SLK 498
+ATOM    416  CA  ALA G   5      14.596   1.185  -1.374  1.00  0.00      2SLK 499
+ATOM    417  C   ALA G   5      16.059   1.473  -1.715  1.00  0.00      2SLK 500
+ATOM    418  O   ALA G   5      16.736   0.639  -2.316  1.00  0.00      2SLK 501
+ATOM    419  CB  ALA G   5      14.445   0.403  -0.067  1.00  0.00      2SLK 502
+ATOM    420  H   ALA G   5      14.605  -0.187  -2.942  1.00  0.00      2SLK 503
+ATOM    421  HA  ALA G   5      14.060   2.129  -1.281  1.00  0.00      2SLK 504
+ATOM    422 1HB  ALA G   5      14.947   0.940   0.738  1.00  0.00      2SLK 505
+ATOM    423 2HB  ALA G   5      13.387   0.295   0.172  1.00  0.00      2SLK 506
+ATOM    424 3HB  ALA G   5      14.894  -0.584  -0.180  1.00  0.00      2SLK 507
+ATOM    425  N   GLY G   6      16.505   2.655  -1.317  1.00  0.00      2SLK 508
+ATOM    426  CA  GLY G   6      17.886   3.048  -1.539  1.00  0.00      2SLK 509
+ATOM    427  C   GLY G   6      18.364   4.013  -0.452  1.00  0.00      2SLK 510
+ATOM    428  O   GLY G   6      17.603   4.866   0.003  1.00  0.00      2SLK 511
+ATOM    429  H   GLY G   6      15.941   3.337  -0.851  1.00  0.00      2SLK 512
+ATOM    430 1HA  GLY G   6      18.522   2.163  -1.550  1.00  0.00      2SLK 513
+ATOM    431 2HA  GLY G   6      17.980   3.521  -2.517  1.00  0.00      2SLK 514
+ATOM    432  N   ALA G   7      19.621   3.845  -0.068  1.00  0.00      2SLK 515
+ATOM    433  CA  ALA G   7      20.182   4.630   1.019  1.00  0.00      2SLK 516
+ATOM    434  C   ALA G   7      21.663   4.893   0.740  1.00  0.00      2SLK 517
+ATOM    435  O   ALA G   7      22.358   4.035   0.198  1.00  0.00      2SLK 518
+ATOM    436  CB  ALA G   7      19.958   3.900   2.345  1.00  0.00      2SLK 519
+ATOM    437  H   ALA G   7      20.250   3.189  -0.484  1.00  0.00      2SLK 520
+ATOM    438  HA  ALA G   7      19.652   5.582   1.048  1.00  0.00      2SLK 521
+ATOM    439 1HB  ALA G   7      20.397   4.480   3.157  1.00  0.00      2SLK 522
+ATOM    440 2HB  ALA G   7      18.889   3.783   2.519  1.00  0.00      2SLK 523
+ATOM    441 3HB  ALA G   7      20.430   2.919   2.303  1.00  0.00      2SLK 524
+HETATM  442  N   NME G   8      22.103   6.083   1.124  1.00  0.00      2SLK 525
+HETATM  443  CH3 NME G   8      23.497   6.455   0.954  1.00  0.00      2SLK 526
+HETATM  444  H   NME G   8      21.526   6.784   1.542  1.00  0.00      2SLK 527
+HETATM  445 1HH3 NME G   8      24.127   5.772   1.522  1.00  0.00      2SLK 528
+HETATM  446 2HH3 NME G   8      23.761   6.401  -0.102  1.00  0.00      2SLK 529
+HETATM  447 3HH3 NME G   8      23.647   7.473   1.315  1.00  0.00      2SLK 530
+TER     448      NME G   8                                              2SLK 531
+ATOM    449  C   ACE H   1      25.038   1.790  -0.605  1.00  0.00      2SLK 532
+ATOM    450  O   ACE H   1      25.741   0.796  -0.432  1.00  0.00      2SLK 533
+ATOM    451  CH3 ACE H   1      25.655   3.139  -0.737  1.00  0.00      2SLK 534
+ATOM    452 1HH3 ACE H   1      26.740   3.049  -0.686  1.00  0.00      2SLK 535
+ATOM    453 2HH3 ACE H   1      25.305   3.780   0.072  1.00  0.00      2SLK 536
+ATOM    454 3HH3 ACE H   1      25.373   3.576  -1.695  1.00  0.00      2SLK 537
+ATOM    455  N   ALA H   2      23.715   1.769  -0.690  1.00  0.00      2SLK 538
+ATOM    456  CA  ALA H   2      22.985   0.513  -0.679  1.00  0.00      2SLK 539
+ATOM    457  C   ALA H   2      21.687   0.676  -1.473  1.00  0.00      2SLK 540
+ATOM    458  O   ALA H   2      21.115   1.764  -1.517  1.00  0.00      2SLK 541
+ATOM    459  CB  ALA H   2      22.734   0.081   0.767  1.00  0.00      2SLK 542
+ATOM    460  H   ALA H   2      23.147   2.588  -0.764  1.00  0.00      2SLK 543
+ATOM    461  HA  ALA H   2      23.607  -0.237  -1.167  1.00  0.00      2SLK 544
+ATOM    462 1HB  ALA H   2      22.161  -0.847   0.775  1.00  0.00      2SLK 545
+ATOM    463 2HB  ALA H   2      23.688  -0.077   1.270  1.00  0.00      2SLK 546
+ATOM    464 3HB  ALA H   2      22.173   0.858   1.286  1.00  0.00      2SLK 547
+ATOM    465  N   GLY H   3      21.260  -0.422  -2.080  1.00  0.00      2SLK 548
+ATOM    466  CA  GLY H   3      20.062  -0.405  -2.901  1.00  0.00      2SLK 549
+ATOM    467  C   GLY H   3      19.377  -1.773  -2.901  1.00  0.00      2SLK 550
+ATOM    468  O   GLY H   3      20.043  -2.804  -2.808  1.00  0.00      2SLK 551
+ATOM    469  H   GLY H   3      21.717  -1.309  -2.017  1.00  0.00      2SLK 552
+ATOM    470 1HA  GLY H   3      19.371   0.351  -2.528  1.00  0.00      2SLK 553
+ATOM    471 2HA  GLY H   3      20.321  -0.124  -3.922  1.00  0.00      2SLK 554
+ATOM    472  N   ALA H   4      18.057  -1.739  -3.005  1.00  0.00      2SLK 555
+ATOM    473  CA  ALA H   4      17.272  -2.961  -2.974  1.00  0.00      2SLK 556
+ATOM    474  C   ALA H   4      16.014  -2.776  -3.825  1.00  0.00      2SLK 557
+ATOM    475  O   ALA H   4      15.476  -1.674  -3.913  1.00  0.00      2SLK 558
+ATOM    476  CB  ALA H   4      16.946  -3.322  -1.523  1.00  0.00      2SLK 559
+ATOM    477  H   ALA H   4      17.526  -0.898  -3.109  1.00  0.00      2SLK 560
+ATOM    478  HA  ALA H   4      17.879  -3.757  -3.406  1.00  0.00      2SLK 561
+ATOM    479 1HB  ALA H   4      16.336  -4.225  -1.502  1.00  0.00      2SLK 562
+ATOM    480 2HB  ALA H   4      17.872  -3.496  -0.976  1.00  0.00      2SLK 563
+ATOM    481 3HB  ALA H   4      16.398  -2.502  -1.059  1.00  0.00      2SLK 564
+ATOM    482  N   GLY H   5      15.582  -3.872  -4.432  1.00  0.00      2SLK 565
+ATOM    483  CA  GLY H   5      14.389  -3.848  -5.261  1.00  0.00      2SLK 566
+ATOM    484  C   GLY H   5      13.680  -5.204  -5.240  1.00  0.00      2SLK 567
+ATOM    485  O   GLY H   5      14.327  -6.246  -5.154  1.00  0.00      2SLK 568
+ATOM    486  H   GLY H   5      16.032  -4.763  -4.364  1.00  0.00      2SLK 569
+ATOM    487 1HA  GLY H   5      13.710  -3.073  -4.905  1.00  0.00      2SLK 570
+ATOM    488 2HA  GLY H   5      14.658  -3.590  -6.285  1.00  0.00      2SLK 571
+ATOM    489  N   ALA H   6      12.358  -5.146  -5.320  1.00  0.00      2SLK 572
+ATOM    490  CA  ALA H   6      11.550  -6.350  -5.240  1.00  0.00      2SLK 573
+ATOM    491  C   ALA H   6      10.286  -6.168  -6.082  1.00  0.00      2SLK 574
+ATOM    492  O   ALA H   6       9.758  -5.062  -6.184  1.00  0.00      2SLK 575
+ATOM    493  CB  ALA H   6      11.234  -6.657  -3.774  1.00  0.00      2SLK 576
+ATOM    494  H   ALA H   6      11.842  -4.297  -5.437  1.00  0.00      2SLK 577
+ATOM    495  HA  ALA H   6      12.136  -7.171  -5.652  1.00  0.00      2SLK 578
+ATOM    496 1HB  ALA H   6      10.597  -7.539  -3.717  1.00  0.00      2SLK 579
+ATOM    497 2HB  ALA H   6      12.163  -6.844  -3.234  1.00  0.00      2SLK 580
+ATOM    498 3HB  ALA H   6      10.719  -5.807  -3.328  1.00  0.00      2SLK 581
+ATOM    499  N   GLY H   7       9.838  -7.271  -6.665  1.00  0.00      2SLK 582
+ATOM    500  CA  GLY H   7       8.609  -7.261  -7.440  1.00  0.00      2SLK 583
+ATOM    501  C   GLY H   7       7.923  -8.628  -7.398  1.00  0.00      2SLK 584
+ATOM    502  O   GLY H   7       8.581  -9.660  -7.516  1.00  0.00      2SLK 585
+ATOM    503  H   GLY H   7      10.298  -8.157  -6.614  1.00  0.00      2SLK 586
+ATOM    504 1HA  GLY H   7       7.934  -6.499  -7.049  1.00  0.00      2SLK 587
+ATOM    505 2HA  GLY H   7       8.828  -6.991  -8.473  1.00  0.00      2SLK 588
+HETATM  506  N   NME H   8       6.609  -8.590  -7.229  1.00  0.00      2SLK 589
+HETATM  507  CH3 NME H   8       5.831  -9.814  -7.141  1.00  0.00      2SLK 590
+HETATM  508  H   NME H   8       6.079  -7.746  -7.153  1.00  0.00      2SLK 591
+HETATM  509 1HH3 NME H   8       5.944 -10.384  -8.063  1.00  0.00      2SLK 592
+HETATM  510 2HH3 NME H   8       6.186 -10.410  -6.300  1.00  0.00      2SLK 593
+HETATM  511 3HH3 NME H   8       4.780  -9.566  -6.993  1.00  0.00      2SLK 594
+TER     512      NME H   8                                              2SLK 595
+ATOM    513  C   ACE I   1       9.940 -12.864  -8.421  1.00  0.00      2SLK 596
+ATOM    514  O   ACE I   1      10.586 -13.746  -8.984  1.00  0.00      2SLK 597
+ATOM    515  CH3 ACE I   1       8.487 -13.048  -8.148  1.00  0.00      2SLK 598
+ATOM    516 1HH3 ACE I   1       8.180 -14.043  -8.472  1.00  0.00      2SLK 599
+ATOM    517 2HH3 ACE I   1       7.916 -12.297  -8.694  1.00  0.00      2SLK 600
+ATOM    518 3HH3 ACE I   1       8.301 -12.940  -7.080  1.00  0.00      2SLK 601
+ATOM    519  N   GLY I   2      10.444 -11.707  -8.016  1.00  0.00      2SLK 602
+ATOM    520  CA  GLY I   2      11.849 -11.393  -8.211  1.00  0.00      2SLK 603
+ATOM    521  C   GLY I   2      12.359 -10.457  -7.114  1.00  0.00      2SLK 604
+ATOM    522  O   GLY I   2      11.619  -9.602  -6.629  1.00  0.00      2SLK 605
+ATOM    523  H   GLY I   2       9.910 -10.993  -7.563  1.00  0.00      2SLK 606
+ATOM    524 1HA  GLY I   2      12.434 -12.313  -8.210  1.00  0.00      2SLK 607
+ATOM    525 2HA  GLY I   2      11.989 -10.927  -9.187  1.00  0.00      2SLK 608
+ATOM    526  N   ALA I   3      13.620 -10.649  -6.755  1.00  0.00      2SLK 609
+ATOM    527  CA  ALA I   3      14.221  -9.869  -5.687  1.00  0.00      2SLK 610
+ATOM    528  C   ALA I   3      15.690  -9.601  -6.021  1.00  0.00      2SLK 611
+ATOM    529  O   ALA I   3      16.367 -10.457  -6.588  1.00  0.00      2SLK 612
+ATOM    530  CB  ALA I   3      14.050 -10.607  -4.358  1.00  0.00      2SLK 613
+ATOM    531  H   ALA I   3      14.226 -11.322  -7.180  1.00  0.00      2SLK 614
+ATOM    532  HA  ALA I   3      13.690  -8.919  -5.631  1.00  0.00      2SLK 615
+ATOM    533 1HB  ALA I   3      14.524 -10.034  -3.560  1.00  0.00      2SLK 616
+ATOM    534 2HB  ALA I   3      12.989 -10.724  -4.140  1.00  0.00      2SLK 617
+ATOM    535 3HB  ALA I   3      14.518 -11.590  -4.425  1.00  0.00      2SLK 618
+ATOM    536  N   GLY I   4      16.139  -8.410  -5.655  1.00  0.00      2SLK 619
+ATOM    537  CA  GLY I   4      17.516  -8.020  -5.905  1.00  0.00      2SLK 620
+ATOM    538  C   GLY I   4      18.023  -7.072  -4.817  1.00  0.00      2SLK 621
+ATOM    539  O   GLY I   4      17.269  -6.242  -4.311  1.00  0.00      2SLK 622
+ATOM    540  H   GLY I   4      15.580  -7.718  -5.198  1.00  0.00      2SLK 623
+ATOM    541 1HA  GLY I   4      18.148  -8.908  -5.941  1.00  0.00      2SLK 624
+ATOM    542 2HA  GLY I   4      17.591  -7.536  -6.878  1.00  0.00      2SLK 625
+ATOM    543  N   ALA I   5      19.298  -7.226  -4.488  1.00  0.00      2SLK 626
+ATOM    544  CA  ALA I   5      19.894  -6.448  -3.416  1.00  0.00      2SLK 627
+ATOM    545  C   ALA I   5      21.365  -6.183  -3.740  1.00  0.00      2SLK 628
+ATOM    546  O   ALA I   5      22.039  -7.032  -4.322  1.00  0.00      2SLK 629
+ATOM    547  CB  ALA I   5      19.713  -7.187  -2.088  1.00  0.00      2SLK 630
+ATOM    548  H   ALA I   5      19.918  -7.867  -4.941  1.00  0.00      2SLK 631
+ATOM    549  HA  ALA I   5      19.365  -5.496  -3.363  1.00  0.00      2SLK 632
+ATOM    550 1HB  ALA I   5      20.193  -6.621  -1.289  1.00  0.00      2SLK 633
+ATOM    551 2HB  ALA I   5      18.650  -7.290  -1.871  1.00  0.00      2SLK 634
+ATOM    552 3HB  ALA I   5      20.167  -8.175  -2.157  1.00  0.00      2SLK 635
+ATOM    553  N   GLY I   6      21.821  -5.002  -3.350  1.00  0.00      2SLK 636
+ATOM    554  CA  GLY I   6      23.212  -4.634  -3.550  1.00  0.00      2SLK 637
+ATOM    555  C   GLY I   6      23.674  -3.636  -2.486  1.00  0.00      2SLK 638
+ATOM    556  O   GLY I   6      22.897  -2.791  -2.043  1.00  0.00      2SLK 639
+ATOM    557  H   GLY I   6      21.259  -4.305  -2.904  1.00  0.00      2SLK 640
+ATOM    558 1HA  GLY I   6      23.838  -5.526  -3.513  1.00  0.00      2SLK 641
+ATOM    559 2HA  GLY I   6      23.337  -4.197  -4.541  1.00  0.00      2SLK 642
+ATOM    560  N   ALA I   7      24.936  -3.767  -2.106  1.00  0.00      2SLK 643
+ATOM    561  CA  ALA I   7      25.485  -2.948  -1.038  1.00  0.00      2SLK 644
+ATOM    562  C   ALA I   7      26.972  -2.701  -1.304  1.00  0.00      2SLK 645
+ATOM    563  O   ALA I   7      27.664  -3.568  -1.835  1.00  0.00      2SLK 646
+ATOM    564  CB  ALA I   7      25.239  -3.632   0.308  1.00  0.00      2SLK 647
+ATOM    565  H   ALA I   7      25.579  -4.416  -2.513  1.00  0.00      2SLK 648
+ATOM    566  HA  ALA I   7      24.959  -1.993  -1.048  1.00  0.00      2SLK 649
+ATOM    567 1HB  ALA I   7      25.672  -3.029   1.106  1.00  0.00      2SLK 650
+ATOM    568 2HB  ALA I   7      24.167  -3.736   0.472  1.00  0.00      2SLK 651
+ATOM    569 3HB  ALA I   7      25.704  -4.618   0.305  1.00  0.00      2SLK 652
+HETATM  570  N   NME I   8      27.419  -1.513  -0.922  1.00  0.00      2SLK 653
+HETATM  571  CH3 NME I   8      28.818  -1.154  -1.081  1.00  0.00      2SLK 654
+HETATM  572  H   NME I   8      26.845  -0.805  -0.511  1.00  0.00      2SLK 655
+HETATM  573 1HH3 NME I   8      29.437  -1.841  -0.503  1.00  0.00      2SLK 656
+HETATM  574 2HH3 NME I   8      29.091  -1.216  -2.134  1.00  0.00      2SLK 657
+HETATM  575 3HH3 NME I   8      28.974  -0.136  -0.724  1.00  0.00      2SLK 658
+TER     576      NME I   8                                              2SLK 659
+ATOM    577  C   ACE J   1      30.338  -5.683  -2.895  1.00  0.00      2SLK 660
+ATOM    578  O   ACE J   1      31.093  -6.655  -2.894  1.00  0.00      2SLK 661
+ATOM    579  CH3 ACE J   1      30.887  -4.299  -2.929  1.00  0.00      2SLK 662
+ATOM    580 1HH3 ACE J   1      31.976  -4.340  -2.951  1.00  0.00      2SLK 663
+ATOM    581 2HH3 ACE J   1      30.562  -3.757  -2.041  1.00  0.00      2SLK 664
+ATOM    582 3HH3 ACE J   1      30.525  -3.787  -3.821  1.00  0.00      2SLK 665
+ATOM    583  N   ALA J   2      29.015  -5.761  -2.866  1.00  0.00      2SLK 666
+ATOM    584  CA  ALA J   2      28.342  -7.047  -2.816  1.00  0.00      2SLK 667
+ATOM    585  C   ALA J   2      27.006  -6.948  -3.555  1.00  0.00      2SLK 668
+ATOM    586  O   ALA J   2      26.407  -5.876  -3.621  1.00  0.00      2SLK 669
+ATOM    587  CB  ALA J   2      28.171  -7.477  -1.357  1.00  0.00      2SLK 670
+ATOM    588  H   ALA J   2      28.408  -4.966  -2.877  1.00  0.00      2SLK 671
+ATOM    589  HA  ALA J   2      28.976  -7.774  -3.324  1.00  0.00      2SLK 672
+ATOM    590 1HB  ALA J   2      27.667  -8.443  -1.320  1.00  0.00      2SLK 673
+ATOM    591 2HB  ALA J   2      29.150  -7.560  -0.885  1.00  0.00      2SLK 674
+ATOM    592 3HB  ALA J   2      27.573  -6.735  -0.828  1.00  0.00      2SLK 675
+ATOM    593  N   GLY J   3      26.578  -8.081  -4.093  1.00  0.00      2SLK 676
+ATOM    594  CA  GLY J   3      25.341  -8.128  -4.853  1.00  0.00      2SLK 677
+ATOM    595  C   GLY J   3      24.672  -9.498  -4.727  1.00  0.00      2SLK 678
+ATOM    596  O   GLY J   3      25.348 -10.509  -4.542  1.00  0.00      2SLK 679
+ATOM    597  H   GLY J   3      27.060  -8.954  -4.015  1.00  0.00      2SLK 680
+ATOM    598 1HA  GLY J   3      24.662  -7.354  -4.498  1.00  0.00      2SLK 681
+ATOM    599 2HA  GLY J   3      25.547  -7.915  -5.902  1.00  0.00      2SLK 682
+ATOM    600  N   ALA J   4      23.351  -9.488  -4.833  1.00  0.00      2SLK 683
+ATOM    601  CA  ALA J   4      22.584 -10.719  -4.744  1.00  0.00      2SLK 684
+ATOM    602  C   ALA J   4      21.295 -10.571  -5.554  1.00  0.00      2SLK 685
+ATOM    603  O   ALA J   4      20.760  -9.470  -5.682  1.00  0.00      2SLK 686
+ATOM    604  CB  ALA J   4      22.314 -11.048  -3.274  1.00  0.00      2SLK 687
+ATOM    605  H   ALA J   4      22.808  -8.661  -4.976  1.00  0.00      2SLK 688
+ATOM    606  HA  ALA J   4      23.186 -11.517  -5.178  1.00  0.00      2SLK 689
+ATOM    607 1HB  ALA J   4      21.731 -11.966  -3.209  1.00  0.00      2SLK 690
+ATOM    608 2HB  ALA J   4      23.262 -11.181  -2.752  1.00  0.00      2SLK 691
+ATOM    609 3HB  ALA J   4      21.758 -10.230  -2.815  1.00  0.00      2SLK 692
+ATOM    610  N   GLY J   5      20.832 -11.695  -6.081  1.00  0.00      2SLK 693
+ATOM    611  CA  GLY J   5      19.606 -11.706  -6.862  1.00  0.00      2SLK 694
+ATOM    612  C   GLY J   5      18.923 -13.074  -6.789  1.00  0.00      2SLK 695
+ATOM    613  O   GLY J   5      19.587 -14.095  -6.617  1.00  0.00      2SLK 696
+ATOM    614  H   GLY J   5      21.278 -12.584  -5.982  1.00  0.00      2SLK 697
+ATOM    615 1HA  GLY J   5      18.928 -10.937  -6.493  1.00  0.00      2SLK 698
+ATOM    616 2HA  GLY J   5      19.830 -11.463  -7.900  1.00  0.00      2SLK 699
+ATOM    617  N   ALA J   6      17.605 -13.049  -6.924  1.00  0.00      2SLK 700
+ATOM    618  CA  ALA J   6      16.821 -14.269  -6.843  1.00  0.00      2SLK 701
+ATOM    619  C   ALA J   6      15.550 -14.110  -7.679  1.00  0.00      2SLK 702
+ATOM    620  O   ALA J   6      15.074 -12.995  -7.886  1.00  0.00      2SLK 703
+ATOM    621  CB  ALA J   6      16.520 -14.587  -5.377  1.00  0.00      2SLK 704
+ATOM    622  H   ALA J   6      17.075 -12.216  -7.086  1.00  0.00      2SLK 705
+ATOM    623  HA  ALA J   6      17.422 -15.078  -7.261  1.00  0.00      2SLK 706
+ATOM    624 1HB  ALA J   6      15.918 -15.494  -5.318  1.00  0.00      2SLK 707
+ATOM    625 2HB  ALA J   6      17.455 -14.735  -4.838  1.00  0.00      2SLK 708
+ATOM    626 3HB  ALA J   6      15.971 -13.757  -4.932  1.00  0.00      2SLK 709
+ATOM    627  N   GLY J   7      15.035 -15.242  -8.137  1.00  0.00      2SLK 710
+ATOM    628  CA  GLY J   7      13.812 -15.245  -8.921  1.00  0.00      2SLK 711
+ATOM    629  C   GLY J   7      13.013 -16.528  -8.686  1.00  0.00      2SLK 712
+ATOM    630  O   GLY J   7      13.589 -17.586  -8.435  1.00  0.00      2SLK 713
+ATOM    631  H   GLY J   7      15.439 -16.144  -7.980  1.00  0.00      2SLK 714
+ATOM    632 1HA  GLY J   7      13.204 -14.380  -8.656  1.00  0.00      2SLK 715
+ATOM    633 2HA  GLY J   7      14.054 -15.152  -9.979  1.00  0.00      2SLK 716
+HETATM  634  N   NME J   8      11.698 -16.394  -8.775  1.00  0.00      2SLK 717
+HETATM  635  CH3 NME J   8      10.812 -17.522  -8.544  1.00  0.00      2SLK 718
+HETATM  636  H   NME J   8      11.238 -15.535  -9.000  1.00  0.00      2SLK 719
+HETATM  637 1HH3 NME J   8      11.032 -18.310  -9.265  1.00  0.00      2SLK 720
+HETATM  638 2HH3 NME J   8      10.964 -17.902  -7.534  1.00  0.00      2SLK 721
+HETATM  639 3HH3 NME J   8       9.777 -17.202  -8.661  1.00  0.00      2SLK 722
+TER     640      NME J   8                                              2SLK 723
+ATOM    641  C   ACE K   1      18.200   5.881   9.724  1.00  0.00      2SLK 724
+ATOM    642  O   ACE K   1      18.790   4.858  10.066  1.00  0.00      2SLK 725
+ATOM    643  CH3 ACE K   1      18.949   7.153   9.520  1.00  0.00      2SLK 726
+ATOM    644 1HH3 ACE K   1      20.010   6.935   9.399  1.00  0.00      2SLK 727
+ATOM    645 2HH3 ACE K   1      18.808   7.800  10.386  1.00  0.00      2SLK 728
+ATOM    646 3HH3 ACE K   1      18.577   7.655   8.627  1.00  0.00      2SLK 729
+ATOM    647  N   ALA K   2      16.895   5.959   9.509  1.00  0.00      2SLK 730
+ATOM    648  CA  ALA K   2      16.053   4.777   9.581  1.00  0.00      2SLK 731
+ATOM    649  C   ALA K   2      14.954   4.874   8.520  1.00  0.00      2SLK 732
+ATOM    650  O   ALA K   2      14.522   5.970   8.168  1.00  0.00      2SLK 733
+ATOM    651  CB  ALA K   2      15.487   4.639  10.996  1.00  0.00      2SLK 734
+ATOM    652  H   ALA K   2      16.414   6.808   9.290  1.00  0.00      2SLK 735
+ATOM    653  HA  ALA K   2      16.678   3.911   9.366  1.00  0.00      2SLK 736
+ATOM    654 1HB  ALA K   2      14.854   3.753  11.048  1.00  0.00      2SLK 737
+ATOM    655 2HB  ALA K   2      16.307   4.542  11.707  1.00  0.00      2SLK 738
+ATOM    656 3HB  ALA K   2      14.896   5.522  11.239  1.00  0.00      2SLK 739
+ATOM    657  N   GLY K   3      14.534   3.712   8.042  1.00  0.00      2SLK 740
+ATOM    658  CA  GLY K   3      13.458   3.650   7.068  1.00  0.00      2SLK 741
+ATOM    659  C   GLY K   3      12.645   2.363   7.231  1.00  0.00      2SLK 742
+ATOM    660  O   GLY K   3      13.189   1.325   7.604  1.00  0.00      2SLK 743
+ATOM    661  H   GLY K   3      14.916   2.827   8.308  1.00  0.00      2SLK 744
+ATOM    662 1HA  GLY K   3      12.804   4.514   7.186  1.00  0.00      2SLK 745
+ATOM    663 2HA  GLY K   3      13.871   3.698   6.060  1.00  0.00      2SLK 746
+ATOM    664  N   ALA K   4      11.357   2.474   6.943  1.00  0.00      2SLK 747
+ATOM    665  CA  ALA K   4      10.452   1.351   7.115  1.00  0.00      2SLK 748
+ATOM    666  C   ALA K   4       9.294   1.477   6.123  1.00  0.00      2SLK 749
+ATOM    667  O   ALA K   4       8.875   2.584   5.790  1.00  0.00      2SLK 750
+ATOM    668  CB  ALA K   4       9.972   1.300   8.567  1.00  0.00      2SLK 751
+ATOM    669  H   ALA K   4      10.931   3.311   6.598  1.00  0.00      2SLK 752
+ATOM    670  HA  ALA K   4      11.009   0.439   6.897  1.00  0.00      2SLK 753
+ATOM    671 1HB  ALA K   4       9.286   0.462   8.694  1.00  0.00      2SLK 754
+ATOM    672 2HB  ALA K   4      10.829   1.171   9.228  1.00  0.00      2SLK 755
+ATOM    673 3HB  ALA K   4       9.459   2.229   8.813  1.00  0.00      2SLK 756
+ATOM    674  N   GLY K   5       8.811   0.327   5.677  1.00  0.00      2SLK 757
+ATOM    675  CA  GLY K   5       7.672   0.292   4.775  1.00  0.00      2SLK 758
+ATOM    676  C   GLY K   5       6.890  -1.014   4.928  1.00  0.00      2SLK 759
+ATOM    677  O   GLY K   5       7.464  -2.049   5.264  1.00  0.00      2SLK 760
+ATOM    678  H   GLY K   5       9.183  -0.569   5.921  1.00  0.00      2SLK 761
+ATOM    679 1HA  GLY K   5       7.016   1.139   4.980  1.00  0.00      2SLK 762
+ATOM    680 2HA  GLY K   5       8.015   0.397   3.746  1.00  0.00      2SLK 763
+ATOM    681  N   ALA K   6       5.593  -0.923   4.676  1.00  0.00      2SLK 764
+ATOM    682  CA  ALA K   6       4.717  -2.071   4.840  1.00  0.00      2SLK 765
+ATOM    683  C   ALA K   6       3.559  -1.969   3.845  1.00  0.00      2SLK 766
+ATOM    684  O   ALA K   6       3.112  -0.871   3.516  1.00  0.00      2SLK 767
+ATOM    685  CB  ALA K   6       4.234  -2.141   6.290  1.00  0.00      2SLK 768
+ATOM    686  H   ALA K   6       5.141  -0.087   4.364  1.00  0.00      2SLK 769
+ATOM    687  HA  ALA K   6       5.297  -2.966   4.619  1.00  0.00      2SLK 770
+ATOM    688 1HB  ALA K   6       3.571  -2.998   6.411  1.00  0.00      2SLK 771
+ATOM    689 2HB  ALA K   6       5.092  -2.249   6.953  1.00  0.00      2SLK 772
+ATOM    690 3HB  ALA K   6       3.696  -1.227   6.539  1.00  0.00      2SLK 773
+ATOM    691  N   GLY K   7       3.106  -3.129   3.393  1.00  0.00      2SLK 774
+ATOM    692  CA  GLY K   7       1.972  -3.188   2.485  1.00  0.00      2SLK 775
+ATOM    693  C   GLY K   7       1.238  -4.524   2.611  1.00  0.00      2SLK 776
+ATOM    694  O   GLY K   7       1.842  -5.539   2.953  1.00  0.00      2SLK 777
+ATOM    695  H   GLY K   7       3.499  -4.016   3.636  1.00  0.00      2SLK 778
+ATOM    696 1HA  GLY K   7       1.286  -2.369   2.702  1.00  0.00      2SLK 779
+ATOM    697 2HA  GLY K   7       2.316  -3.052   1.460  1.00  0.00      2SLK 780
+HETATM  698  N   NME K   8      -0.056  -4.480   2.328  1.00  0.00      2SLK 781
+HETATM  699  CH3 NME K   8      -0.904  -5.644   2.523  1.00  0.00      2SLK 782
+HETATM  700  H   NME K   8      -0.524  -3.671   1.972  1.00  0.00      2SLK 783
+HETATM  701 1HH3 NME K   8      -0.532  -6.470   1.918  1.00  0.00      2SLK 784
+HETATM  702 2HH3 NME K   8      -0.892  -5.929   3.575  1.00  0.00      2SLK 785
+HETATM  703 3HH3 NME K   8      -1.924  -5.404   2.223  1.00  0.00      2SLK 786
+TER     704      NME K   8                                              2SLK 787
+ATOM    705  C   ACE L   1       3.115  -8.806   1.963  1.00  0.00      2SLK 788
+ATOM    706  O   ACE L   1       3.704  -9.886   1.937  1.00  0.00      2SLK 789
+ATOM    707  CH3 ACE L   1       1.632  -8.750   1.822  1.00  0.00      2SLK 790
+ATOM    708 1HH3 ACE L   1       1.240  -9.760   1.705  1.00  0.00      2SLK 791
+ATOM    709 2HH3 ACE L   1       1.373  -8.155   0.946  1.00  0.00      2SLK 792
+ATOM    710 3HH3 ACE L   1       1.200  -8.293   2.712  1.00  0.00      2SLK 793
+ATOM    711  N   GLY L   2       3.708  -7.631   2.113  1.00  0.00      2SLK 794
+ATOM    712  CA  GLY L   2       5.157  -7.521   2.128  1.00  0.00      2SLK 795
+ATOM    713  C   GLY L   2       5.604  -6.280   2.904  1.00  0.00      2SLK 796
+ATOM    714  O   GLY L   2       4.838  -5.331   3.059  1.00  0.00      2SLK 797
+ATOM    715  H   GLY L   2       3.217  -6.767   2.222  1.00  0.00      2SLK 798
+ATOM    716 1HA  GLY L   2       5.588  -8.413   2.582  1.00  0.00      2SLK 799
+ATOM    717 2HA  GLY L   2       5.532  -7.470   1.106  1.00  0.00      2SLK 800
+ATOM    718  N   ALA L   3       6.843  -6.329   3.371  1.00  0.00      2SLK 801
+ATOM    719  CA  ALA L   3       7.374  -5.258   4.198  1.00  0.00      2SLK 802
+ATOM    720  C   ALA L   3       8.900  -5.251   4.099  1.00  0.00      2SLK 803
+ATOM    721  O   ALA L   3       9.511  -6.278   3.806  1.00  0.00      2SLK 804
+ATOM    722  CB  ALA L   3       6.883  -5.432   5.636  1.00  0.00      2SLK 805
+ATOM    723  H   ALA L   3       7.479  -7.080   3.194  1.00  0.00      2SLK 806
+ATOM    724  HA  ALA L   3       6.989  -4.316   3.807  1.00  0.00      2SLK 807
+ATOM    725 1HB  ALA L   3       7.290  -4.635   6.258  1.00  0.00      2SLK 808
+ATOM    726 2HB  ALA L   3       5.794  -5.389   5.657  1.00  0.00      2SLK 809
+ATOM    727 3HB  ALA L   3       7.216  -6.397   6.019  1.00  0.00      2SLK 810
+ATOM    728  N   GLY L   4       9.473  -4.083   4.349  1.00  0.00      2SLK 811
+ATOM    729  CA  GLY L   4      10.916  -3.929   4.289  1.00  0.00      2SLK 812
+ATOM    730  C   GLY L   4      11.376  -2.741   5.136  1.00  0.00      2SLK 813
+ATOM    731  O   GLY L   4      10.615  -1.801   5.359  1.00  0.00      2SLK 814
+ATOM    732  H   GLY L   4       8.969  -3.253   4.588  1.00  0.00      2SLK 815
+ATOM    733 1HA  GLY L   4      11.398  -4.840   4.643  1.00  0.00      2SLK 816
+ATOM    734 2HA  GLY L   4      11.228  -3.785   3.254  1.00  0.00      2SLK 817
+ATOM    735  N   ALA L   5      12.621  -2.821   5.584  1.00  0.00      2SLK 818
+ATOM    736  CA  ALA L   5      13.157  -1.818   6.488  1.00  0.00      2SLK 819
+ATOM    737  C   ALA L   5      14.682  -1.791   6.367  1.00  0.00      2SLK 820
+ATOM    738  O   ALA L   5      15.296  -2.789   5.995  1.00  0.00      2SLK 821
+ATOM    739  CB  ALA L   5      12.690  -2.114   7.915  1.00  0.00      2SLK 822
+ATOM    740  H   ALA L   5      13.257  -3.553   5.340  1.00  0.00      2SLK 823
+ATOM    741  HA  ALA L   5      12.759  -0.850   6.183  1.00  0.00      2SLK 824
+ATOM    742 1HB  ALA L   5      13.101  -1.367   8.594  1.00  0.00      2SLK 825
+ATOM    743 2HB  ALA L   5      11.602  -2.083   7.955  1.00  0.00      2SLK 826
+ATOM    744 3HB  ALA L   5      13.036  -3.104   8.212  1.00  0.00      2SLK 827
+ATOM    745  N   GLY L   6      15.249  -0.637   6.689  1.00  0.00      2SLK 828
+ATOM    746  CA  GLY L   6      16.693  -0.478   6.653  1.00  0.00      2SLK 829
+ATOM    747  C   GLY L   6      17.138   0.686   7.541  1.00  0.00      2SLK 830
+ATOM    748  O   GLY L   6      16.345   1.574   7.851  1.00  0.00      2SLK 831
+ATOM    749  H   GLY L   6      14.740   0.177   6.969  1.00  0.00      2SLK 832
+ATOM    750 1HA  GLY L   6      17.172  -1.398   6.985  1.00  0.00      2SLK 833
+ATOM    751 2HA  GLY L   6      17.017  -0.302   5.627  1.00  0.00      2SLK 834
+ATOM    752  N   ALA L   7      18.405   0.644   7.926  1.00  0.00      2SLK 835
+ATOM    753  CA  ALA L   7      18.937   1.622   8.859  1.00  0.00      2SLK 836
+ATOM    754  C   ALA L   7      20.427   1.829   8.581  1.00  0.00      2SLK 837
+ATOM    755  O   ALA L   7      21.120   0.900   8.169  1.00  0.00      2SLK 838
+ATOM    756  CB  ALA L   7      18.670   1.158  10.292  1.00  0.00      2SLK 839
+ATOM    757  H   ALA L   7      19.062  -0.041   7.611  1.00  0.00      2SLK 840
+ATOM    758  HA  ALA L   7      18.410   2.562   8.691  1.00  0.00      2SLK 841
+ATOM    759 1HB  ALA L   7      19.074   1.890  10.992  1.00  0.00      2SLK 842
+ATOM    760 2HB  ALA L   7      17.596   1.060  10.449  1.00  0.00      2SLK 843
+ATOM    761 3HB  ALA L   7      19.151   0.194  10.457  1.00  0.00      2SLK 844
+HETATM  762  N   NME L   8      20.876   3.053   8.816  1.00  0.00      2SLK 845
+HETATM  763  CH3 NME L   8      22.273   3.391   8.606  1.00  0.00      2SLK 846
+HETATM  764  H   NME L   8      20.304   3.805   9.143  1.00  0.00      2SLK 847
+HETATM  765 1HH3 NME L   8      22.895   2.801   9.280  1.00  0.00      2SLK 848
+HETATM  766 2HH3 NME L   8      22.549   3.174   7.574  1.00  0.00      2SLK 849
+HETATM  767 3HH3 NME L   8      22.425   4.452   8.807  1.00  0.00      2SLK 850
+TER     768      NME L   8                                              2SLK 851
+ATOM    769  C   ACE M   1      23.531  -1.662   7.511  1.00  0.00      2SLK 852
+ATOM    770  O   ACE M   1      24.205  -2.691   7.507  1.00  0.00      2SLK 853
+ATOM    771  CH3 ACE M   1      24.191  -0.327   7.562  1.00  0.00      2SLK 854
+ATOM    772 1HH3 ACE M   1      25.273  -0.455   7.533  1.00  0.00      2SLK 855
+ATOM    773 2HH3 ACE M   1      23.910   0.183   8.483  1.00  0.00      2SLK 856
+ATOM    774 3HH3 ACE M   1      23.873   0.268   6.705  1.00  0.00      2SLK 857
+ATOM    775  N   ALA M   2      22.207  -1.631   7.473  1.00  0.00      2SLK 858
+ATOM    776  CA  ALA M   2      21.430  -2.858   7.458  1.00  0.00      2SLK 859
+ATOM    777  C   ALA M   2      20.222  -2.681   6.537  1.00  0.00      2SLK 860
+ATOM    778  O   ALA M   2      19.682  -1.582   6.420  1.00  0.00      2SLK 861
+ATOM    779  CB  ALA M   2      21.024  -3.223   8.888  1.00  0.00      2SLK 862
+ATOM    780  H   ALA M   2      21.668  -0.789   7.453  1.00  0.00      2SLK 863
+ATOM    781  HA  ALA M   2      22.067  -3.649   7.061  1.00  0.00      2SLK 864
+ATOM    782 1HB  ALA M   2      20.439  -4.143   8.875  1.00  0.00      2SLK 865
+ATOM    783 2HB  ALA M   2      21.919  -3.370   9.493  1.00  0.00      2SLK 866
+ATOM    784 3HB  ALA M   2      20.426  -2.418   9.313  1.00  0.00      2SLK 867
+ATOM    785  N   GLY M   3      19.833  -3.779   5.905  1.00  0.00      2SLK 868
+ATOM    786  CA  GLY M   3      18.659  -3.774   5.049  1.00  0.00      2SLK 869
+ATOM    787  C   GLY M   3      17.926  -5.115   5.116  1.00  0.00      2SLK 870
+ATOM    788  O   GLY M   3      18.555  -6.166   5.225  1.00  0.00      2SLK 871
+ATOM    789  H   GLY M   3      20.304  -4.658   5.971  1.00  0.00      2SLK 872
+ATOM    790 1HA  GLY M   3      17.987  -2.972   5.353  1.00  0.00      2SLK 873
+ATOM    791 2HA  GLY M   3      18.956  -3.568   4.020  1.00  0.00      2SLK 874
+ATOM    792  N   ALA M   4      16.605  -5.035   5.048  1.00  0.00      2SLK 875
+ATOM    793  CA  ALA M   4      15.777  -6.225   5.143  1.00  0.00      2SLK 876
+ATOM    794  C   ALA M   4      14.551  -6.061   4.243  1.00  0.00      2SLK 877
+ATOM    795  O   ALA M   4      14.007  -4.965   4.122  1.00  0.00      2SLK 878
+ATOM    796  CB  ALA M   4      15.399  -6.468   6.605  1.00  0.00      2SLK 879
+ATOM    797  H   ALA M   4      16.102  -4.178   4.930  1.00  0.00      2SLK 880
+ATOM    798  HA  ALA M   4      16.368  -7.069   4.788  1.00  0.00      2SLK 881
+ATOM    799 1HB  ALA M   4      14.774  -7.358   6.676  1.00  0.00      2SLK 882
+ATOM    800 2HB  ALA M   4      16.304  -6.611   7.196  1.00  0.00      2SLK 883
+ATOM    801 3HB  ALA M   4      14.849  -5.607   6.986  1.00  0.00      2SLK 884
+ATOM    802  N   GLY M   5      14.152  -7.168   3.634  1.00  0.00      2SLK 885
+ATOM    803  CA  GLY M   5      12.981  -7.169   2.774  1.00  0.00      2SLK 886
+ATOM    804  C   GLY M   5      12.245  -8.508   2.849  1.00  0.00      2SLK 887
+ATOM    805  O   GLY M   5      12.874  -9.561   2.950  1.00  0.00      2SLK 888
+ATOM    806  H   GLY M   5      14.613  -8.051   3.720  1.00  0.00      2SLK 889
+ATOM    807 1HA  GLY M   5      12.308  -6.363   3.069  1.00  0.00      2SLK 890
+ATOM    808 2HA  GLY M   5      13.281  -6.972   1.745  1.00  0.00      2SLK 891
+ATOM    809  N   ALA M   6      10.924  -8.426   2.798  1.00  0.00      2SLK 892
+ATOM    810  CA  ALA M   6      10.096  -9.617   2.874  1.00  0.00      2SLK 893
+ATOM    811  C   ALA M   6       8.861  -9.433   1.990  1.00  0.00      2SLK 894
+ATOM    812  O   ALA M   6       8.291  -8.344   1.933  1.00  0.00      2SLK 895
+ATOM    813  CB  ALA M   6       9.732  -9.893   4.335  1.00  0.00      2SLK 896
+ATOM    814  H   ALA M   6      10.421  -7.566   2.705  1.00  0.00      2SLK 897
+ATOM    815  HA  ALA M   6      10.683 -10.454   2.495  1.00  0.00      2SLK 898
+ATOM    816 1HB  ALA M   6       9.109 -10.785   4.392  1.00  0.00      2SLK 899
+ATOM    817 2HB  ALA M   6      10.642 -10.048   4.913  1.00  0.00      2SLK 900
+ATOM    818 3HB  ALA M   6       9.184  -9.041   4.739  1.00  0.00      2SLK 901
+ATOM    819  N   GLY M   7       8.484 -10.513   1.322  1.00  0.00      2SLK 902
+ATOM    820  CA  GLY M   7       7.300 -10.497   0.481  1.00  0.00      2SLK 903
+ATOM    821  C   GLY M   7       6.622 -11.869   0.462  1.00  0.00      2SLK 904
+ATOM    822  O   GLY M   7       7.282 -12.889   0.273  1.00  0.00      2SLK 905
+ATOM    823  H   GLY M   7       8.971 -11.386   1.350  1.00  0.00      2SLK 906
+ATOM    824 1HA  GLY M   7       6.600  -9.746   0.846  1.00  0.00      2SLK 907
+ATOM    825 2HA  GLY M   7       7.575 -10.210  -0.534  1.00  0.00      2SLK 908
+HETATM  826  N   NME M   8       5.312 -11.848   0.662  1.00  0.00      2SLK 909
+HETATM  827  CH3 NME M   8       4.541 -13.079   0.692  1.00  0.00      2SLK 910
+HETATM  828  H   NME M   8       4.780 -11.013   0.801  1.00  0.00      2SLK 911
+HETATM  829 1HH3 NME M   8       4.633 -13.590  -0.267  1.00  0.00      2SLK 912
+HETATM  830 2HH3 NME M   8       4.918 -13.725   1.485  1.00  0.00      2SLK 913
+HETATM  831 3HH3 NME M   8       3.492 -12.847   0.880  1.00  0.00      2SLK 914
+TER     832      NME M   8                                              2SLK 915
+ATOM    833  C   ACE N   1       8.424 -16.332  -0.223  1.00  0.00      2SLK 916
+ATOM    834  O   ACE N   1       9.022 -17.400  -0.343  1.00  0.00      2SLK 917
+ATOM    835  CH3 ACE N   1       6.935 -16.293  -0.241  1.00  0.00      2SLK 918
+ATOM    836 1HH3 ACE N   1       6.546 -17.304  -0.365  1.00  0.00      2SLK 919
+ATOM    837 2HH3 ACE N   1       6.597 -15.671  -1.070  1.00  0.00      2SLK 920
+ATOM    838 3HH3 ACE N   1       6.571 -15.877   0.698  1.00  0.00      2SLK 921
+ATOM    839  N   GLY N   2       9.013 -15.155  -0.072  1.00  0.00      2SLK 922
+ATOM    840  CA  GLY N   2      10.461 -15.036  -0.073  1.00  0.00      2SLK 923
+ATOM    841  C   GLY N   2      10.911 -13.804   0.713  1.00  0.00      2SLK 924
+ATOM    842  O   GLY N   2      10.162 -12.836   0.840  1.00  0.00      2SLK 925
+ATOM    843  H   GLY N   2       8.519 -14.294   0.049  1.00  0.00      2SLK 926
+ATOM    844 1HA  GLY N   2      10.903 -15.932   0.364  1.00  0.00      2SLK 927
+ATOM    845 2HA  GLY N   2      10.823 -14.970  -1.099  1.00  0.00      2SLK 928
+ATOM    846  N   ALA N   3      12.133 -13.879   1.221  1.00  0.00      2SLK 929
+ATOM    847  CA  ALA N   3      12.660 -12.817   2.062  1.00  0.00      2SLK 930
+ATOM    848  C   ALA N   3      14.189 -12.847   2.013  1.00  0.00      2SLK 931
+ATOM    849  O   ALA N   3      14.786 -13.894   1.766  1.00  0.00      2SLK 932
+ATOM    850  CB  ALA N   3      12.119 -12.975   3.484  1.00  0.00      2SLK 933
+ATOM    851  H   ALA N   3      12.756 -14.645   1.068  1.00  0.00      2SLK 934
+ATOM    852  HA  ALA N   3      12.310 -11.868   1.656  1.00  0.00      2SLK 935
+ATOM    853 1HB  ALA N   3      12.517 -12.180   4.115  1.00  0.00      2SLK 936
+ATOM    854 2HB  ALA N   3      11.030 -12.915   3.467  1.00  0.00      2SLK 937
+ATOM    855 3HB  ALA N   3      12.423 -13.942   3.883  1.00  0.00      2SLK 938
+ATOM    856  N   GLY N   4      14.779 -11.685   2.253  1.00  0.00      2SLK 939
+ATOM    857  CA  GLY N   4      16.227 -11.565   2.240  1.00  0.00      2SLK 940
+ATOM    858  C   GLY N   4      16.684 -10.349   3.049  1.00  0.00      2SLK 941
+ATOM    859  O   GLY N   4      15.934  -9.386   3.206  1.00  0.00      2SLK 942
+ATOM    860  H   GLY N   4      14.287 -10.838   2.453  1.00  0.00      2SLK 943
+ATOM    861 1HA  GLY N   4      16.675 -12.469   2.653  1.00  0.00      2SLK 944
+ATOM    862 2HA  GLY N   4      16.579 -11.475   1.212  1.00  0.00      2SLK 945
+ATOM    863  N   ALA N   5      17.911 -10.431   3.540  1.00  0.00      2SLK 946
+ATOM    864  CA  ALA N   5      18.445  -9.389   4.400  1.00  0.00      2SLK 947
+ATOM    865  C   ALA N   5      19.973  -9.404   4.324  1.00  0.00      2SLK 948
+ATOM    866  O   ALA N   5      20.574 -10.438   4.033  1.00  0.00      2SLK 949
+ATOM    867  CB  ALA N   5      17.931  -9.589   5.826  1.00  0.00      2SLK 950
+ATOM    868  H   ALA N   5      18.536 -11.192   3.360  1.00  0.00      2SLK 951
+ATOM    869  HA  ALA N   5      18.081  -8.432   4.026  1.00  0.00      2SLK 952
+ATOM    870 1HB  ALA N   5      18.336  -8.810   6.472  1.00  0.00      2SLK 953
+ATOM    871 2HB  ALA N   5      16.842  -9.535   5.831  1.00  0.00      2SLK 954
+ATOM    872 3HB  ALA N   5      18.247 -10.566   6.193  1.00  0.00      2SLK 955
+ATOM    873  N   GLY N   6      20.559  -8.246   4.590  1.00  0.00      2SLK 956
+ATOM    874  CA  GLY N   6      22.006  -8.116   4.566  1.00  0.00      2SLK 957
+ATOM    875  C   GLY N   6      22.464  -6.934   5.424  1.00  0.00      2SLK 958
+ATOM    876  O   GLY N   6      21.688  -6.019   5.691  1.00  0.00      2SLK 959
+ATOM    877  H   GLY N   6      20.063  -7.408   4.818  1.00  0.00      2SLK 960
+ATOM    878 1HA  GLY N   6      22.463  -9.035   4.933  1.00  0.00      2SLK 961
+ATOM    879 2HA  GLY N   6      22.346  -7.979   3.540  1.00  0.00      2SLK 962
+ATOM    880  N   ALA N   7      23.724  -6.993   5.830  1.00  0.00      2SLK 963
+ATOM    881  CA  ALA N   7      24.264  -5.996   6.739  1.00  0.00      2SLK 964
+ATOM    882  C   ALA N   7      25.768  -5.851   6.495  1.00  0.00      2SLK 965
+ATOM    883  O   ALA N   7      26.440  -6.820   6.145  1.00  0.00      2SLK 966
+ATOM    884  CB  ALA N   7      23.943  -6.392   8.181  1.00  0.00      2SLK 967
+ATOM    885  H   ALA N   7      24.370  -7.703   5.550  1.00  0.00      2SLK 968
+ATOM    886  HA  ALA N   7      23.776  -5.046   6.518  1.00  0.00      2SLK 969
+ATOM    887 1HB  ALA N   7      24.354  -5.646   8.862  1.00  0.00      2SLK 970
+ATOM    888 2HB  ALA N   7      22.862  -6.446   8.311  1.00  0.00      2SLK 971
+ATOM    889 3HB  ALA N   7      24.385  -7.364   8.398  1.00  0.00      2SLK 972
+HETATM  890  N   NME N   8      26.252  -4.633   6.689  1.00  0.00      2SLK 973
+HETATM  891  CH3 NME N   8      27.666  -4.353   6.509  1.00  0.00      2SLK 974
+HETATM  892  H   NME N   8      25.697  -3.848   6.964  1.00  0.00      2SLK 975
+HETATM  893 1HH3 NME N   8      28.246  -4.936   7.224  1.00  0.00      2SLK 976
+HETATM  894 2HH3 NME N   8      27.964  -4.621   5.495  1.00  0.00      2SLK 977
+HETATM  895 3HH3 NME N   8      27.850  -3.291   6.672  1.00  0.00      2SLK 978
+TER     896      NME N   8                                              2SLK 979
+ATOM    897  C   ACE O   1      28.924  -9.162   5.182  1.00  0.00      2SLK 980
+ATOM    898  O   ACE O   1      29.618 -10.176   5.250  1.00  0.00      2SLK 981
+ATOM    899  CH3 ACE O   1      29.556  -7.813   5.160  1.00  0.00      2SLK 982
+ATOM    900 1HH3 ACE O   1      30.630  -7.912   5.319  1.00  0.00      2SLK 983
+ATOM    901 2HH3 ACE O   1      29.127  -7.198   5.950  1.00  0.00      2SLK 984
+ATOM    902 3HH3 ACE O   1      29.375  -7.343   4.193  1.00  0.00      2SLK 985
+ATOM    903  N   ALA O   2      27.601  -9.161   5.123  1.00  0.00      2SLK 986
+ATOM    904  CA  ALA O   2      26.851 -10.406   5.119  1.00  0.00      2SLK 987
+ATOM    905  C   ALA O   2      25.570 -10.222   4.302  1.00  0.00      2SLK 988
+ATOM    906  O   ALA O   2      25.033  -9.119   4.223  1.00  0.00      2SLK 989
+ATOM    907  CB  ALA O   2      26.567 -10.836   6.559  1.00  0.00      2SLK 990
+ATOM    908  H   ALA O   2      27.043  -8.332   5.079  1.00  0.00      2SLK 991
+ATOM    909  HA  ALA O   2      27.471 -11.165   4.641  1.00  0.00      2SLK 992
+ATOM    910 1HB  ALA O   2      25.998 -11.766   6.556  1.00  0.00      2SLK 993
+ATOM    911 2HB  ALA O   2      27.510 -10.989   7.085  1.00  0.00      2SLK 994
+ATOM    912 3HB  ALA O   2      25.991 -10.060   7.064  1.00  0.00      2SLK 995
+ATOM    913  N   GLY O   3      25.118 -11.321   3.715  1.00  0.00      2SLK 996
+ATOM    914  CA  GLY O   3      23.898 -11.299   2.926  1.00  0.00      2SLK 997
+ATOM    915  C   GLY O   3      23.196 -12.658   2.965  1.00  0.00      2SLK 998
+ATOM    916  O   GLY O   3      23.849 -13.696   3.058  1.00  0.00      2SLK 999
+ATOM    917  H   GLY O   3      25.569 -12.211   3.772  1.00  0.00      2SLK1000
+ATOM    918 1HA  GLY O   3      23.228 -10.528   3.306  1.00  0.00      2SLK1001
+ATOM    919 2HA  GLY O   3      24.133 -11.037   1.894  1.00  0.00      2SLK1002
+ATOM    920  N   ALA O   4      21.874 -12.607   2.892  1.00  0.00      2SLK1003
+ATOM    921  CA  ALA O   4      21.074 -13.820   2.941  1.00  0.00      2SLK1004
+ATOM    922  C   ALA O   4      19.819 -13.632   2.087  1.00  0.00      2SLK1005
+ATOM    923  O   ALA O   4      19.295 -12.524   1.983  1.00  0.00      2SLK1006
+ATOM    924  CB  ALA O   4      20.745 -14.157   4.396  1.00  0.00      2SLK1007
+ATOM    925  H   ALA O   4      21.351 -11.760   2.802  1.00  0.00      2SLK1008
+ATOM    926  HA  ALA O   4      21.672 -14.628   2.520  1.00  0.00      2SLK1009
+ATOM    927 1HB  ALA O   4      20.141 -15.063   4.432  1.00  0.00      2SLK1010
+ATOM    928 2HB  ALA O   4      21.670 -14.315   4.951  1.00  0.00      2SLK1011
+ATOM    929 3HB  ALA O   4      20.190 -13.332   4.844  1.00  0.00      2SLK1012
+ATOM    930  N   GLY O   5      19.372 -14.732   1.499  1.00  0.00      2SLK1013
+ATOM    931  CA  GLY O   5      18.179 -14.705   0.670  1.00  0.00      2SLK1014
+ATOM    932  C   GLY O   5      17.492 -16.072   0.654  1.00  0.00      2SLK1015
+ATOM    933  O   GLY O   5      18.156 -17.106   0.716  1.00  0.00      2SLK1016
+ATOM    934  H   GLY O   5      19.809 -15.627   1.581  1.00  0.00      2SLK1017
+ATOM    935 1HA  GLY O   5      17.487 -13.951   1.045  1.00  0.00      2SLK1018
+ATOM    936 2HA  GLY O   5      18.445 -14.416  -0.347  1.00  0.00      2SLK1019
+ATOM    937  N   ALA O   6      16.170 -16.033   0.570  1.00  0.00      2SLK1020
+ATOM    938  CA  ALA O   6      15.387 -17.257   0.521  1.00  0.00      2SLK1021
+ATOM    939  C   ALA O   6      14.116 -17.011  -0.295  1.00  0.00      2SLK1022
+ATOM    940  O   ALA O   6      13.577 -15.906  -0.294  1.00  0.00      2SLK1023
+ATOM    941  CB  ALA O   6      15.084 -17.726   1.945  1.00  0.00      2SLK1024
+ATOM    942  H   ALA O   6      15.636 -15.188   0.536  1.00  0.00      2SLK1025
+ATOM    943  HA  ALA O   6      15.989 -18.016   0.022  1.00  0.00      2SLK1026
+ATOM    944 1HB  ALA O   6      14.490 -18.639   1.908  1.00  0.00      2SLK1027
+ATOM    945 2HB  ALA O   6      16.019 -17.921   2.470  1.00  0.00      2SLK1028
+ATOM    946 3HB  ALA O   6      14.526 -16.952   2.472  1.00  0.00      2SLK1029
+ATOM    947  N   GLY O   7      13.674 -18.061  -0.972  1.00  0.00      2SLK1030
+ATOM    948  CA  GLY O   7      12.489 -17.967  -1.808  1.00  0.00      2SLK1031
+ATOM    949  C   GLY O   7      11.773 -19.317  -1.897  1.00  0.00      2SLK1032
+ATOM    950  O   GLY O   7      12.418 -20.363  -1.942  1.00  0.00      2SLK1033
+ATOM    951  H   GLY O   7      14.110 -18.961  -0.955  1.00  0.00      2SLK1034
+ATOM    952 1HA  GLY O   7      11.811 -17.218  -1.401  1.00  0.00      2SLK1035
+ATOM    953 2HA  GLY O   7      12.770 -17.634  -2.807  1.00  0.00      2SLK1036
+HETATM  954  N   NME O   8      10.450 -19.248  -1.920  1.00  0.00      2SLK1037
+HETATM  955  CH3 NME O   8       9.641 -20.447  -2.062  1.00  0.00      2SLK1038
+HETATM  956  H   NME O   8       9.933 -18.396  -1.844  1.00  0.00      2SLK1039
+HETATM  957 1HH3 NME O   8       9.886 -20.941  -3.003  1.00  0.00      2SLK1040
+HETATM  958 2HH3 NME O   8       9.845 -21.123  -1.232  1.00  0.00      2SLK1041
+HETATM  959 3HH3 NME O   8       8.586 -20.175  -2.059  1.00  0.00      2SLK1042
+TER     960      NME O   8                                              2SLK1043
+CONECT   53   52   54   58                                              2SLK1044
+CONECT   58   53   59   60                                              2SLK1045
+CONECT   59   58   61   62   63                                         2SLK1046
+CONECT   60   58                                                        2SLK1047
+CONECT   61   59                                                        2SLK1048
+CONECT   62   59                                                        2SLK1049
+CONECT   63   59                                                        2SLK1050
+CONECT  114  113  115  122                                              2SLK1051
+CONECT  122  114  123  124                                              2SLK1052
+CONECT  123  122  125  126  127                                         2SLK1053
+CONECT  124  122                                                        2SLK1054
+CONECT  125  123                                                        2SLK1055
+CONECT  126  123                                                        2SLK1056
+CONECT  127  123                                                        2SLK1057
+CONECT  181  180  182  186                                              2SLK1058
+CONECT  186  181  187  188                                              2SLK1059
+CONECT  187  186  189  190  191                                         2SLK1060
+CONECT  188  186                                                        2SLK1061
+CONECT  189  187                                                        2SLK1062
+CONECT  190  187                                                        2SLK1063
+CONECT  191  187                                                        2SLK1064
+CONECT  242  241  243  250                                              2SLK1065
+CONECT  250  242  251  252                                              2SLK1066
+CONECT  251  250  253  254  255                                         2SLK1067
+CONECT  252  250                                                        2SLK1068
+CONECT  253  251                                                        2SLK1069
+CONECT  254  251                                                        2SLK1070
+CONECT  255  251                                                        2SLK1071
+CONECT  309  308  310  314                                              2SLK1072
+CONECT  314  309  315  316                                              2SLK1073
+CONECT  315  314  317  318  319                                         2SLK1074
+CONECT  316  314                                                        2SLK1075
+CONECT  317  315                                                        2SLK1076
+CONECT  318  315                                                        2SLK1077
+CONECT  319  315                                                        2SLK1078
+CONECT  373  372  374  378                                              2SLK1079
+CONECT  378  373  379  380                                              2SLK1080
+CONECT  379  378  381  382  383                                         2SLK1081
+CONECT  380  378                                                        2SLK1082
+CONECT  381  379                                                        2SLK1083
+CONECT  382  379                                                        2SLK1084
+CONECT  383  379                                                        2SLK1085
+CONECT  434  433  435  442                                              2SLK1086
+CONECT  442  434  443  444                                              2SLK1087
+CONECT  443  442  445  446  447                                         2SLK1088
+CONECT  444  442                                                        2SLK1089
+CONECT  445  443                                                        2SLK1090
+CONECT  446  443                                                        2SLK1091
+CONECT  447  443                                                        2SLK1092
+CONECT  501  500  502  506                                              2SLK1093
+CONECT  506  501  507  508                                              2SLK1094
+CONECT  507  506  509  510  511                                         2SLK1095
+CONECT  508  506                                                        2SLK1096
+CONECT  509  507                                                        2SLK1097
+CONECT  510  507                                                        2SLK1098
+CONECT  511  507                                                        2SLK1099
+CONECT  562  561  563  570                                              2SLK1100
+CONECT  570  562  571  572                                              2SLK1101
+CONECT  571  570  573  574  575                                         2SLK1102
+CONECT  572  570                                                        2SLK1103
+CONECT  573  571                                                        2SLK1104
+CONECT  574  571                                                        2SLK1105
+CONECT  575  571                                                        2SLK1106
+CONECT  629  628  630  634                                              2SLK1107
+CONECT  634  629  635  636                                              2SLK1108
+CONECT  635  634  637  638  639                                         2SLK1109
+CONECT  636  634                                                        2SLK1110
+CONECT  637  635                                                        2SLK1111
+CONECT  638  635                                                        2SLK1112
+CONECT  639  635                                                        2SLK1113
+CONECT  693  692  694  698                                              2SLK1114
+CONECT  698  693  699  700                                              2SLK1115
+CONECT  699  698  701  702  703                                         2SLK1116
+CONECT  700  698                                                        2SLK1117
+CONECT  701  699                                                        2SLK1118
+CONECT  702  699                                                        2SLK1119
+CONECT  703  699                                                        2SLK1120
+CONECT  754  753  755  762                                              2SLK1121
+CONECT  762  754  763  764                                              2SLK1122
+CONECT  763  762  765  766  767                                         2SLK1123
+CONECT  764  762                                                        2SLK1124
+CONECT  765  763                                                        2SLK1125
+CONECT  766  763                                                        2SLK1126
+CONECT  767  763                                                        2SLK1127
+CONECT  821  820  822  826                                              2SLK1128
+CONECT  826  821  827  828                                              2SLK1129
+CONECT  827  826  829  830  831                                         2SLK1130
+CONECT  828  826                                                        2SLK1131
+CONECT  829  827                                                        2SLK1132
+CONECT  830  827                                                        2SLK1133
+CONECT  831  827                                                        2SLK1134
+CONECT  882  881  883  890                                              2SLK1135
+CONECT  890  882  891  892                                              2SLK1136
+CONECT  891  890  893  894  895                                         2SLK1137
+CONECT  892  890                                                        2SLK1138
+CONECT  893  891                                                        2SLK1139
+CONECT  894  891                                                        2SLK1140
+CONECT  895  891                                                        2SLK1141
+CONECT  949  948  950  954                                              2SLK1142
+CONECT  954  949  955  956                                              2SLK1143
+CONECT  955  954  957  958  959                                         2SLK1144
+CONECT  956  954                                                        2SLK1145
+CONECT  957  955                                                        2SLK1146
+CONECT  958  955                                                        2SLK1147
+CONECT  959  955                                                        2SLK1148
+MASTER       17    0   15    0    0    0    0    6  945   15  105   15  2SLK1149
+END                                                                     2SLK1150

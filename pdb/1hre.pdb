@@ -1,0 +1,1213 @@
+HEADER    GROWTH FACTOR                           21-JUL-94   1HRE      1HRE   2
+COMPND    HEREGULIN-ALPHA (EPIDERMAL GROWTH FACTOR-LIKE DOMAIN)         1HRE   3
+COMPND   2 (NMR, MINIMIZED AVERAGE STRUCTURE)                           1HRE   4
+SOURCE    SYNTHETIC BASED ON SEQUENCE FROM HUMAN (HOMO SAPIENS)         1HRE   5
+EXPDTA    NMR                                                           1HRE   6
+AUTHOR    K.NAGATA,D.KOHDA,H.HATANAKA,S.ICHIKAWA,F.INAGAKI              1HRE   7
+REVDAT   1   15-OCT-94 1HRE    0                                        1HRE   8
+JRNL        AUTH   K.NAGATA,D.KOHDA,H.HATANAKA,S.ICHIKAWA,S.MATSUDA,    1HRE   9
+JRNL        AUTH 2 T.YAMAMOTO,A.SUZUKI,F.INAGAKI                        1HRE  10
+JRNL        TITL   SOLUTION STRUCTURE OF THE EPIDERMAL GROWTH           1HRE  11
+JRNL        TITL 2 FACTOR-LIKE DOMAIN OF HEREGULIN-ALPHA, A LIGAND FOR  1HRE  12
+JRNL        TITL 3 P180ERB4                                             1HRE  13
+JRNL        REF    TO BE PUBLISHED                                      1HRE  14
+JRNL        REFN                                                  0353  1HRE  15
+REMARK   1                                                              1HRE  16
+REMARK   2                                                              1HRE  17
+REMARK   2 RESOLUTION. NOT APPLICABLE.  SEE REMARK 4.                   1HRE  18
+REMARK   3                                                              1HRE  19
+REMARK   3 REFINEMENT.                                                  1HRE  20
+REMARK   3   PROGRAM                    X-PLOR                          1HRE  21
+REMARK   3   AUTHORS                    BRUNGER                         1HRE  22
+REMARK   3                                                              1HRE  23
+REMARK   3  NMR DATA WERE COLLECTED IN H2O AND D2O AT PH6.0 AT 37       1HRE  24
+REMARK   3  DEGREES CELSIUS.                                            1HRE  25
+REMARK   3                                                              1HRE  26
+REMARK   3  STRUCTURAL STATISTICS -                                     1HRE  27
+REMARK   3                                                              1HRE  28
+REMARK   3  RMS DEVIATION FROM EXPERIMENTAL RESTRAINTS                  1HRE  29
+REMARK   3                                                              1HRE  30
+REMARK   3  RESTRAINT TYPE      NUMBER             RMS (ANGSTROMS)      1HRE  31
+REMARK   3                    OF RESTRAINTS  MODEL 0  MODELS 1-10       1HRE  32
+REMARK   3  DISTANCE RESTRAINTS *(1)*                                   1HRE  33
+REMARK   3   ALL                537          0.079   0.084 (0.002)      1HRE  34
+REMARK   3   DISULFIDE BOND       3                                     1HRE  35
+REMARK   3   HYDROGEN BOND        0                                     1HRE  36
+REMARK   3                                                              1HRE  37
+REMARK   3  DIHEDRAL RESTRAINTS *(2)*                                   1HRE  38
+REMARK   3   ALL                 22          6.09    5.83 (1.26)(DEGS)  1HRE  39
+REMARK   3                                                              1HRE  40
+REMARK   3                                                              1HRE  41
+REMARK   3  POTENTIAL ENERGY TERMS                                      1HRE  42
+REMARK   3                                                              1HRE  43
+REMARK   3  TYPE                 ENERGY (KCAL/MOL)                      1HRE  44
+REMARK   3                       MODEL 0    MODELS 1-10                 1HRE  45
+REMARK   3  F(NOE) *(3)*          167.8    187.2 ( 8.5)                 1HRE  46
+REMARK   3  F(TOR) *(4)*           12.4     11.9 ( 4.9)                 1HRE  47
+REMARK   3  F(REPEL) *(5)*        106.0    118.5 ( 3.6)                 1HRE  48
+REMARK   3                                                              1HRE  49
+REMARK   3  LENNARD-JONES VAN DER WAALS ENERGY (E(L-J)) CALCULATED      1HRE  50
+REMARK   3  USING THE *CHARMM* EMPIRICAL ENERGY FUNCTION IS             1HRE  51
+REMARK   3  -132 KCAL/MOL (MODEL 0), AND -171(14) KCAL/MOL (MODELS 1    1HRE  52
+REMARK   3  - 10).  IT IS NOT INCLUDED INTO THE TARGET FUNCTION FOR     1HRE  53
+REMARK   3  SIMULATED ANNEALING.                                        1HRE  54
+REMARK   3                                                              1HRE  55
+REMARK   3  DEVIATIONS FROM IDEALIZED GEOMETRY *(6)*                    1HRE  56
+REMARK   3                                                              1HRE  57
+REMARK   3  TYPE     TOTAL NUMBER        RMS DEVIATION                  1HRE  58
+REMARK   3                           MODEL 0      MODELS 1-10           1HRE  59
+REMARK   3  BONDS        1044        0.006   0.007 (0.0003)(ANGSTROMS)  1HRE  60
+REMARK   3  ANGLES       1893        2.00    2.05  (0.02)  (DEGREES)    1HRE  61
+REMARK   3  IMPROPERS     408        1.09    1.13  (0.02)  (DEGREES)    1HRE  62
+REMARK   3                                                              1HRE  63
+REMARK   3  NOTES.                                                      1HRE  64
+REMARK   3  *(1)*  THE RMS DEVIATION FROM THE EXPERIMENTAL RESTRAINTS   1HRE  65
+REMARK   3         IS CALCULATED WITH RESPECT TO THE UPPER AND          1HRE  66
+REMARK   3         LOWER LIMITS OF THE DISTANCE RESTRAINTS.             1HRE  67
+REMARK   3         THE UPPER LIMITS WERE DERIVED FROM NOE CROSS PEAK    1HRE  68
+REMARK   3         INTENSITIES ON THE BASIS OF A RELATION OF            1HRE  69
+REMARK   3         (DISTANCE) = K * (NOE INTENSITY)^(-1/6) + 0.5        1HRE  70
+REMARK   3         (ANGSTROMS).  THE VALUE OF K WAS DETERMINED FROM     1HRE  71
+REMARK   3         THE KNOWN STANDARD DISTANCES. NOE INTENSITY WAS      1HRE  72
+REMARK   3         DERIVED FROM NOESY SPECTRUM OF 150 MS MIXING TIME.   1HRE  73
+REMARK   3         THE LOWER LIMITS WERE SET TO 1.8 ANGSTROMS.          1HRE  74
+REMARK   3         THE NUMBER OF VIOLATIONS GREATER THAN 0.5 ANGSTROMS  1HRE  75
+REMARK   3         IS 1 (0.51 ANGSTROMS) FOR MODEL 0 AND 1.5 (AVERAGE,  1HRE  76
+REMARK   3         MAX 0.72 ANGSTROMS) FOR MODELS 1 - 10.               1HRE  77
+REMARK   3  *(2)*  THE RMS DEVIATION FROM THE EXPERIMENTAL RESTRAINTS   1HRE  78
+REMARK   3         IS CALCULATED WITH RESPECT TO THE UPPER AND          1HRE  79
+REMARK   3         LOWER LIMITS OF THE DIHEDRAL RESTRAINTS. THE NUMBER  1HRE  80
+REMARK   3         OF VIOLATIONS GREATER THAN 5 DEG. IS 5 (MAX 18.2     1HRE  81
+REMARK   3         DEG.) FOR MODEL 0 AND 3.9 (AVERAGE, MAX 24.6 DEG.)   1HRE  82
+REMARK   3         FOR MODELS 1 - 10.                                   1HRE  83
+REMARK   3  *(3)*  THE VALUES OF THE SQUARE-WELL NOE POTENTIAL WITH A   1HRE  84
+REMARK   3         FORCE CONSTANT OF 50 KCAL/MOL/ANGSTROM**2.           1HRE  85
+REMARK   3  *(4)*  THE VALUES OF F(TOR) ARE CALCULATED WITH A FORCE     1HRE  86
+REMARK   3         CONSTANT OF 50 KCAL/MOL/RAD**2.  F(TOR) IS A         1HRE  87
+REMARK   3         SQUARE-WELL DIHEDRAL POTENTIAL WHICH IS USED TO      1HRE  88
+REMARK   3         RESTRICT THE RANGES OF TORSION ANGLES.               1HRE  89
+REMARK   3  *(5)*  THE VALUE OF THE VAN DER WAALS REPULSION TERM        1HRE  90
+REMARK   3         F(REPEL) IS CALCULATED WITH A FORCE CONSTANT OF      1HRE  91
+REMARK   3         4 KCAL/MOL/ANGSTROM**4 WITH THE HARD SPHERE          1HRE  92
+REMARK   3         VAN DER WAALS RADII SET TO 0.8 TIMES THE STANDARD    1HRE  93
+REMARK   3         VALUES USED IN THE *CHARMM* EMPIRICAL ENERGY         1HRE  94
+REMARK   3         FUNCTION. NBXMOD=-4                                  1HRE  95
+REMARK   3  *(6)*  THE IMPROPER TERMS SERVE TO MAINTAIN PLANARITY       1HRE  96
+REMARK   3         AND APPROPRIATE CHIRALITY.  THE RESTRAINTS FOR THE   1HRE  97
+REMARK   3         DISULFIDE BRIDGES WERE INCLUDED IN THE BOND AND      1HRE  98
+REMARK   3         ANGLES TERMS JUST BEFORE THE COOLING STAGE OF THE    1HRE  99
+REMARK   3         *XPLOR* PROTOCOL.                                    1HRE 100
+REMARK   4                                                              1HRE 101
+REMARK   4 THESE COORDINATES WERE GENERATED FROM SOLUTION NMR DATA.     1HRE 102
+REMARK   4 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT *CRYST1* AND      1HRE 103
+REMARK   4 *SCALE* RECORDS BE INCLUDED, BUT THE VALUES ON THESE         1HRE 104
+REMARK   4 RECORDS ARE MEANINGLESS.                                     1HRE 105
+REMARK   5                                                              1HRE 106
+REMARK   5 THIS MOLECULE IS ALSO KNOWN AS NEU DIFFERENTIATION FACTOR    1HRE 107
+REMARK   5 (RAT), ACETYLCHOLINE RECEPTOR INDUCING ACTIVITY (CHICKEN),   1HRE 108
+REMARK   5 GLIAL GROWTH FACTOR (HUMAN), NEUREGULIN.                     1HRE 109
+REMARK   6                                                              1HRE 110
+REMARK   6   PDB    ENTRY                 CONTENTS                      1HRE 111
+REMARK   6                                                              1HRE 112
+REMARK   6  MODEL   1HRE    THE MEAN STRUCTURE OF THE EPIDERMAL GROWTH  1HRE 113
+REMARK   6    0               FACTOR-LIKE DOMAIN OF HEREGULIN-ALPHA     1HRE 114
+REMARK   6                                                              1HRE 115
+REMARK   6  MODELS  1HRF    THE 10 STRUCTURES CONSISTENT WITH THE NMR   1HRE 116
+REMARK   6   1-10                 DATA                                  1HRE 117
+REMARK   7                                                              1HRE 118
+REMARK   7 THE MEAN STRUCTURE WAS OBTAINED BY AVERAGING THE             1HRE 119
+REMARK   7 COORDINATES OF THE INDIVIDUAL STRUCTURES AND SUBJECTING THE  1HRE 120
+REMARK   7 RESULTING COORDINATES TO FURTHER RESTRAINED MINIMIZATION.    1HRE 121
+REMARK   8                                                              1HRE 122
+REMARK   8 HYDROGEN ATOMS IN THIS ENTRY HAVE BEEN ASSIGNED NAMES        1HRE 123
+REMARK   8 CONSISTENT WITH THE RECOMMENDATIONS OF THE IUPAC-IUB         1HRE 124
+REMARK   8 COMMISSION ON BIOCHEMICAL NOMENCLATURE (SEE,E.G., J.MOL.     1HRE 125
+REMARK   8 BIOL. 52, 1-17 (1970)).  THE PROTEIN DATA BANK HAS FOLLOWED  1HRE 126
+REMARK   8 RULE 4.4 OF THE RECOMMENDATIONS WITH THE FOLLOWING           1HRE 127
+REMARK   8 MODIFICATION - WHEN MORE THAN ONE HYDROGEN ATOM IS BONDED    1HRE 128
+REMARK   8 TO A SINGLE NON-HYDROGEN ATOM, THE HYDROGEN ATOM NUMBER      1HRE 129
+REMARK   8 DESIGNATION IS GIVEN AS THE FIRST CHARACTER OF THE ATOM      1HRE 130
+REMARK   8 NAME RATHER THAN AS THE LAST CHARACTER (E.G. H*BETA*1 IS     1HRE 131
+REMARK   8 DENOTED AS 1HB).                                             1HRE 132
+REMARK   9                                                              1HRE 133
+REMARK   9 THE THERMAL PARAMETERS GIVEN IN THIS ENTRY REPRESENT THE     1HRE 134
+REMARK   9 THE AVERAGE OF THE RMS DIFFERENCES PER ATOM BETWEEN THE      1HRE 135
+REMARK   9 INDIVIDUAL STRUCTURES AND THE MEAN STRUCTURE (IN             1HRE 136
+REMARK   9 ANGSTROMS).  THE RMS DIFFERENCES WERE OBTAINED FOR A GIVEN   1HRE 137
+REMARK   9 STRUCTURE AFTER THE BACKBONE ATOMS OF RESIDUES 179 - 199     1HRE 138
+REMARK   9 AND 207 - 225 WERE FITTED TO THE BACKBONE OF THE MEAN        1HRE 139
+REMARK   9 STRUCTURE, AND THEN AVERAGED.                                1HRE 140
+REMARK  10                                                              1HRE 141
+REMARK  10 THE EGF-LIKE DOMAIN OF HEREGULIN-ALPHA ENCOMPASSING          1HRE 142
+REMARK  10 RESIDUES 175 - 241 WAS SYNTHESIZED BY THE BOC                1HRE 143
+REMARK  10 CHEMISTRY-BASED SOLID PHASE PEPTIDE SYNTHESIS.               1HRE 144
+REMARK  11                                                              1HRE 145
+REMARK  11 ALL PEPTIDE BONDS ARE IN THE TRANS CONFORMATION.             1HRE 146
+REMARK  12                                                              1HRE 147
+REMARK  12 CROSS REFERENCE TO SEQUENCE DATABASE                         1HRE 148
+REMARK  12 PIR ENTRY NAME                                               1HRE 149
+REMARK  12    A43273                                                    1HRE 150
+SEQRES   1     67  GLY THR SER HIS LEU VAL LYS CYS ALA GLU LYS GLU LYS  1HRE 151
+SEQRES   2     67  THR PHE CYS VAL ASN GLY GLY GLU CYS PHE MET VAL LYS  1HRE 152
+SEQRES   3     67  ASP LEU SER ASN PRO SER ARG TYR LEU CYS LYS CYS GLN  1HRE 153
+SEQRES   4     67  PRO GLY PHE THR GLY ALA ARG CYS THR GLU ASN VAL PRO  1HRE 154
+SEQRES   5     67  MET LYS VAL GLN ASN GLN GLU LYS ALA GLU GLU LEU TYR  1HRE 155
+SEQRES   6     67  GLN LYS                                              1HRE 156
+SHEET    1  B1 3 LEU   179  CYS   182  0                                1HRE 157
+SHEET    2  B1 3 GLY   194  VAL   199 -1  O  MET   198   N  VAL   180   1HRE 158
+SHEET    3  B1 3 ARG   207  GLN   213 -1  O  LYS   211   N  GLU   195   1HRE 159
+SHEET    1  B2 2 PHE   216  THR   217  0                                1HRE 160
+SHEET    2  B2 2 GLU   223  ASN   224 -1  O  GLU   223   N  THR   217   1HRE 161
+TURN     1  CD GLN   213  PHE   216     (I,I+3) B-BEND TYPE II          1HRE 162
+SSBOND   1 CYS    182    CYS    196                                     1HRE 163
+SSBOND   2 CYS    190    CYS    210                                     1HRE 164
+SSBOND   3 CYS    212    CYS    221                                     1HRE 165
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1  1HRE 166
+ORIGX1      1.000000  0.000000  0.000000        0.00000                 1HRE 167
+ORIGX2      0.000000  1.000000  0.000000        0.00000                 1HRE 168
+ORIGX3      0.000000  0.000000  1.000000        0.00000                 1HRE 169
+SCALE1      1.000000  0.000000  0.000000        0.00000                 1HRE 170
+SCALE2      0.000000  1.000000  0.000000        0.00000                 1HRE 171
+SCALE3      0.000000  0.000000  1.000000        0.00000                 1HRE 172
+ATOM      1  N   GLY   175       0.000   0.000   0.000  1.00  7.88      1HRE 173
+ATOM      2  CA  GLY   175       1.094   0.836   0.571  1.00  8.29      1HRE 174
+ATOM      3  C   GLY   175       0.642   1.448   1.897  1.00  7.93      1HRE 175
+ATOM      4  O   GLY   175       1.375   1.442   2.867  1.00  6.90      1HRE 176
+ATOM      5 1H   GLY   175      -0.295  -0.710   0.700  1.00  9.32      1HRE 177
+ATOM      6 2H   GLY   175      -0.810   0.605  -0.243  1.00  8.38      1HRE 178
+ATOM      7 3H   GLY   175       0.343  -0.481  -0.857  1.00  8.81      1HRE 179
+ATOM      8 1HA  GLY   175       1.966   0.221   0.738  1.00  6.81      1HRE 180
+ATOM      9 2HA  GLY   175       1.341   1.625  -0.123  1.00  8.58      1HRE 181
+ATOM     10  N   THR   176      -0.555   1.967   1.911  1.00  6.62      1HRE 182
+ATOM     11  CA  THR   176      -1.068   2.582   3.162  1.00  7.07      1HRE 183
+ATOM     12  C   THR   176      -0.113   3.662   3.665  1.00  6.12      1HRE 184
+ATOM     13  O   THR   176      -0.128   4.017   4.827  1.00  6.73      1HRE 185
+ATOM     14  CB  THR   176      -1.181   1.488   4.225  1.00  6.88      1HRE 186
+ATOM     15  OG1 THR   176      -1.174   0.267   3.509  1.00  6.25      1HRE 187
+ATOM     16  CG2 THR   176      -2.556   1.528   4.903  1.00  7.81      1HRE 188
+ATOM     17  H   THR   176      -1.111   1.950   1.104  1.00  8.58      1HRE 189
+ATOM     18  HA  THR   176      -2.036   3.030   2.963  1.00  8.23      1HRE 190
+ATOM     19  HB  THR   176      -0.360   1.526   4.933  1.00  8.89      1HRE 191
+ATOM     20  HG1 THR   176      -2.060  -0.101   3.541  1.00  9.06      1HRE 192
+ATOM     21 1HG2 THR   176      -3.333   1.460   4.156  1.00  4.59      1HRE 193
+ATOM     22 2HG2 THR   176      -2.648   0.698   5.588  1.00  7.98      1HRE 194
+ATOM     23 3HG2 THR   176      -2.665   2.453   5.448  1.00  4.44      1HRE 195
+ATOM     24  N   SER   177       0.703   4.161   2.777  1.00  3.90      1HRE 196
+ATOM     25  CA  SER   177       1.669   5.220   3.176  1.00  4.44      1HRE 197
+ATOM     26  C   SER   177       1.837   6.239   2.053  1.00  2.88      1HRE 198
+ATOM     27  O   SER   177       1.020   7.122   1.886  1.00  3.34      1HRE 199
+ATOM     28  CB  SER   177       3.025   4.559   3.451  1.00  3.10      1HRE 200
+ATOM     29  OG  SER   177       3.922   5.650   3.597  1.00  3.48      1HRE 201
+ATOM     30  H   SER   177       0.678   3.840   1.852  1.00  3.43      1HRE 202
+ATOM     31  HA  SER   177       1.296   5.726   4.060  1.00  3.49      1HRE 203
+ATOM     32 1HB  SER   177       2.992   3.980   4.362  1.00  2.22      1HRE 204
+ATOM     33 2HB  SER   177       3.324   3.938   2.620  1.00  3.99      1HRE 205
+ATOM     34  HG  SER   177       4.737   5.317   3.978  1.00  2.64      1HRE 206
+ATOM     35  N   HIS   178       2.895   6.097   1.303  1.00  1.87      1HRE 207
+ATOM     36  CA  HIS   178       3.132   7.048   0.187  1.00  2.39      1HRE 208
+ATOM     37  C   HIS   178       3.788   6.340  -0.995  1.00  1.78      1HRE 209
+ATOM     38  O   HIS   178       3.514   6.655  -2.136  1.00  2.15      1HRE 210
+ATOM     39  CB  HIS   178       4.067   8.162   0.673  1.00  2.12      1HRE 211
+ATOM     40  CG  HIS   178       3.379   8.950   1.790  1.00  2.89      1HRE 212
+ATOM     41  ND1 HIS   178       2.616   9.946   1.616  1.00  2.44      1HRE 213
+ATOM     42  CD2 HIS   178       3.429   8.773   3.160  1.00  2.64      1HRE 214
+ATOM     43  CE1 HIS   178       2.196  10.394   2.738  1.00  3.51      1HRE 215
+ATOM     44  NE2 HIS   178       2.669   9.702   3.762  1.00  3.92      1HRE 216
+ATOM     45  H   HIS   178       3.530   5.370   1.476  1.00  3.08      1HRE 217
+ATOM     46  HA  HIS   178       2.179   7.456  -0.135  1.00  3.40      1HRE 218
+ATOM     47 1HB  HIS   178       4.983   7.732   1.050  1.00  5.08      1HRE 219
+ATOM     48 2HB  HIS   178       4.294   8.829  -0.146  1.00  4.17      1HRE 220
+ATOM     49  HD1 HIS   178       2.379  10.321   0.742  1.00  3.90      1HRE 221
+ATOM     50  HD2 HIS   178       3.994   8.006   3.669  1.00  1.87      1HRE 222
+ATOM     51  HE1 HIS   178       1.532  11.240   2.838  1.00  2.83      1HRE 223
+ATOM     52  N   LEU   179       4.642   5.395  -0.704  1.00  1.17      1HRE 224
+ATOM     53  CA  LEU   179       5.315   4.669  -1.811  1.00  1.31      1HRE 225
+ATOM     54  C   LEU   179       4.251   4.125  -2.761  1.00  1.21      1HRE 226
+ATOM     55  O   LEU   179       3.069   4.226  -2.490  1.00  1.38      1HRE 227
+ATOM     56  CB  LEU   179       6.080   3.463  -1.215  1.00  1.22      1HRE 228
+ATOM     57  CG  LEU   179       7.566   3.362  -1.667  1.00  1.30      1HRE 229
+ATOM     58  CD1 LEU   179       7.796   3.753  -3.139  1.00  1.25      1HRE 230
+ATOM     59  CD2 LEU   179       8.413   4.268  -0.772  1.00  1.40      1HRE 231
+ATOM     60  H   LEU   179       4.837   5.170   0.230  1.00  1.45      1HRE 232
+ATOM     61  HA  LEU   179       5.957   5.357  -2.335  1.00  1.55      1HRE 233
+ATOM     62 1HB  LEU   179       6.054   3.536  -0.138  1.00  2.64      1HRE 234
+ATOM     63 2HB  LEU   179       5.570   2.555  -1.502  1.00  2.38      1HRE 235
+ATOM     64  HG  LEU   179       7.890   2.335  -1.537  1.00  2.51      1HRE 236
+ATOM     65 1HD1 LEU   179       7.036   3.329  -3.761  1.00  1.50      1HRE 237
+ATOM     66 2HD1 LEU   179       7.804   4.817  -3.254  1.00  1.59      1HRE 238
+ATOM     67 3HD1 LEU   179       8.749   3.369  -3.460  1.00  1.96      1HRE 239
+ATOM     68 1HD2 LEU   179       7.857   5.161  -0.528  1.00  1.60      1HRE 240
+ATOM     69 2HD2 LEU   179       8.664   3.747   0.140  1.00  1.52      1HRE 241
+ATOM     70 3HD2 LEU   179       9.322   4.542  -1.284  1.00  1.35      1HRE 242
+ATOM     71  N   VAL   180       4.684   3.567  -3.851  1.00  1.40      1HRE 243
+ATOM     72  CA  VAL   180       3.707   3.009  -4.830  1.00  1.40      1HRE 244
+ATOM     73  C   VAL   180       4.198   1.677  -5.397  1.00  1.63      1HRE 245
+ATOM     74  O   VAL   180       3.466   0.982  -6.070  1.00  1.65      1HRE 246
+ATOM     75  CB  VAL   180       3.577   4.007  -5.984  1.00  1.95      1HRE 247
+ATOM     76  CG1 VAL   180       4.978   4.415  -6.446  1.00  2.54      1HRE 248
+ATOM     77  CG2 VAL   180       2.828   3.347  -7.145  1.00  2.80      1HRE 249
+ATOM     78  H   VAL   180       5.650   3.541  -4.037  1.00  3.22      1HRE 250
+ATOM     79  HA  VAL   180       2.752   2.855  -4.341  1.00  3.35      1HRE 251
+ATOM     80  HB  VAL   180       3.035   4.880  -5.651  1.00  3.39      1HRE 252
+ATOM     81 1HG1 VAL   180       5.703   3.688  -6.102  1.00  3.95      1HRE 253
+ATOM     82 2HG1 VAL   180       5.008   4.465  -7.525  1.00  3.59      1HRE 254
+ATOM     83 3HG1 VAL   180       5.229   5.384  -6.039  1.00  3.29      1HRE 255
+ATOM     84 1HG2 VAL   180       2.001   2.768  -6.763  1.00  1.98      1HRE 256
+ATOM     85 2HG2 VAL   180       2.449   4.105  -7.814  1.00  1.68      1HRE 257
+ATOM     86 3HG2 VAL   180       3.495   2.696  -7.689  1.00  3.73      1HRE 258
+ATOM     87  N   LYS   181       5.417   1.341  -5.069  1.00  1.61      1HRE 259
+ATOM     88  CA  LYS   181       6.017   0.075  -5.558  1.00  1.88      1HRE 260
+ATOM     89  C   LYS   181       5.919  -0.016  -7.083  1.00  1.65      1HRE 261
+ATOM     90  O   LYS   181       4.924   0.329  -7.687  1.00  1.76      1HRE 262
+ATOM     91  CB  LYS   181       5.300  -1.110  -4.904  1.00  1.61      1HRE 263
+ATOM     92  CG  LYS   181       5.750  -2.444  -5.508  1.00  1.71      1HRE 264
+ATOM     93  CD  LYS   181       4.576  -3.086  -6.250  1.00  1.89      1HRE 265
+ATOM     94  CE  LYS   181       3.571  -3.615  -5.225  1.00  1.81      1HRE 266
+ATOM     95  NZ  LYS   181       2.178  -3.282  -5.637  1.00  1.88      1HRE 267
+ATOM     96  H   LYS   181       5.927   1.908  -4.471  1.00  2.00      1HRE 268
+ATOM     97  HA  LYS   181       7.059   0.080  -5.286  1.00  2.10      1HRE 269
+ATOM     98 1HB  LYS   181       5.507  -1.145  -3.882  1.00  2.20      1HRE 270
+ATOM     99 2HB  LYS   181       4.272  -0.975  -4.999  1.00  2.39      1HRE 271
+ATOM    100 1HG  LYS   181       6.580  -2.297  -6.179  1.00  1.90      1HRE 272
+ATOM    101 2HG  LYS   181       6.070  -3.095  -4.704  1.00  2.10      1HRE 273
+ATOM    102 1HD  LYS   181       4.099  -2.354  -6.884  1.00  2.32      1HRE 274
+ATOM    103 2HD  LYS   181       4.935  -3.903  -6.859  1.00  2.57      1HRE 275
+ATOM    104 1HE  LYS   181       3.667  -4.687  -5.144  1.00  2.59      1HRE 276
+ATOM    105 2HE  LYS   181       3.771  -3.170  -4.260  1.00  2.71      1HRE 277
+ATOM    106 1HZ  LYS   181       2.108  -2.261  -5.827  1.00  1.75      1HRE 278
+ATOM    107 2HZ  LYS   181       1.935  -3.811  -6.499  1.00  2.51      1HRE 279
+ATOM    108 3HZ  LYS   181       1.519  -3.539  -4.875  1.00  1.81      1HRE 280
+ATOM    109  N   CYS   182       6.974  -0.486  -7.665  1.00  1.84      1HRE 281
+ATOM    110  CA  CYS   182       7.017  -0.628  -9.142  1.00  1.86      1HRE 282
+ATOM    111  C   CYS   182       5.917  -1.565  -9.639  1.00  2.03      1HRE 283
+ATOM    112  O   CYS   182       4.795  -1.509  -9.176  1.00  2.16      1HRE 284
+ATOM    113  CB  CYS   182       8.379  -1.225  -9.480  1.00  2.38      1HRE 285
+ATOM    114  SG  CYS   182       9.833  -0.363  -8.819  1.00  2.21      1HRE 286
+ATOM    115  H   CYS   182       7.740  -0.761  -7.123  1.00  1.98      1HRE 287
+ATOM    116  HA  CYS   182       6.894   0.346  -9.601  1.00  2.08      1HRE 288
+ATOM    117 1HB  CYS   182       8.381  -2.226  -9.114  1.00  2.24      1HRE 289
+ATOM    118 2HB  CYS   182       8.488  -1.282 -10.541  1.00  2.20      1HRE 290
+ATOM    119  N   ALA   183       6.259  -2.410 -10.572  1.00  2.26      1HRE 291
+ATOM    120  CA  ALA   183       5.245  -3.355 -11.107  1.00  2.64      1HRE 292
+ATOM    121  C   ALA   183       5.907  -4.529 -11.814  1.00  2.21      1HRE 293
+ATOM    122  O   ALA   183       7.099  -4.742 -11.703  1.00  2.19      1HRE 294
+ATOM    123  CB  ALA   183       4.388  -2.614 -12.137  1.00  2.29      1HRE 295
+ATOM    124  H   ALA   183       7.174  -2.421 -10.917  1.00  2.35      1HRE 296
+ATOM    125  HA  ALA   183       4.635  -3.727 -10.292  1.00  2.46      1HRE 297
+ATOM    126 1HB  ALA   183       5.031  -2.104 -12.842  1.00  2.27      1HRE 298
+ATOM    127 2HB  ALA   183       3.767  -3.321 -12.672  1.00  2.35      1HRE 299
+ATOM    128 3HB  ALA   183       3.759  -1.892 -11.640  1.00  2.78      1HRE 300
+ATOM    129  N   GLU   184       5.110  -5.268 -12.529  1.00  2.38      1HRE 301
+ATOM    130  CA  GLU   184       5.644  -6.434 -13.262  1.00  2.81      1HRE 302
+ATOM    131  C   GLU   184       6.370  -5.971 -14.522  1.00  2.42      1HRE 303
+ATOM    132  O   GLU   184       7.111  -6.720 -15.128  1.00  2.45      1HRE 304
+ATOM    133  CB  GLU   184       4.440  -7.333 -13.616  1.00  2.38      1HRE 305
+ATOM    134  CG  GLU   184       4.292  -7.502 -15.134  1.00  2.24      1HRE 306
+ATOM    135  CD  GLU   184       3.073  -8.383 -15.418  1.00  2.46      1HRE 307
+ATOM    136  OE1 GLU   184       1.982  -7.842 -15.334  1.00  2.62      1HRE 308
+ATOM    137  OE2 GLU   184       3.302  -9.546 -15.703  1.00  2.78      1HRE 309
+ATOM    138  H   GLU   184       4.154  -5.056 -12.579  1.00  2.68      1HRE 310
+ATOM    139  HA  GLU   184       6.345  -6.954 -12.623  1.00  2.66      1HRE 311
+ATOM    140 1HB  GLU   184       4.574  -8.302 -13.160  1.00  3.19      1HRE 312
+ATOM    141 2HB  GLU   184       3.540  -6.884 -13.220  1.00  3.09      1HRE 313
+ATOM    142 1HG  GLU   184       4.143  -6.540 -15.603  1.00  2.82      1HRE 314
+ATOM    143 2HG  GLU   184       5.171  -7.977 -15.543  1.00  2.60      1HRE 315
+ATOM    144  N   LYS   185       6.134  -4.739 -14.886  1.00  2.65      1HRE 316
+ATOM    145  CA  LYS   185       6.791  -4.184 -16.098  1.00  2.62      1HRE 317
+ATOM    146  C   LYS   185       7.891  -3.205 -15.699  1.00  2.91      1HRE 318
+ATOM    147  O   LYS   185       8.454  -2.528 -16.534  1.00  2.98      1HRE 319
+ATOM    148  CB  LYS   185       5.735  -3.436 -16.922  1.00  3.07      1HRE 320
+ATOM    149  CG  LYS   185       4.691  -2.840 -15.976  1.00  3.06      1HRE 321
+ATOM    150  CD  LYS   185       3.823  -1.847 -16.748  1.00  3.39      1HRE 322
+ATOM    151  CE  LYS   185       4.365  -0.433 -16.530  1.00  3.19      1HRE 323
+ATOM    152  NZ  LYS   185       3.877   0.481 -17.599  1.00  3.43      1HRE 324
+ATOM    153  H   LYS   185       5.525  -4.180 -14.361  1.00  3.51      1HRE 325
+ATOM    154  HA  LYS   185       7.230  -4.993 -16.673  1.00  3.24      1HRE 326
+ATOM    155 1HB  LYS   185       6.209  -2.645 -17.484  1.00  3.74      1HRE 327
+ATOM    156 2HB  LYS   185       5.256  -4.120 -17.606  1.00  3.71      1HRE 328
+ATOM    157 1HG  LYS   185       4.071  -3.629 -15.576  1.00  3.88      1HRE 329
+ATOM    158 2HG  LYS   185       5.188  -2.333 -15.163  1.00  3.15      1HRE 330
+ATOM    159 1HD  LYS   185       3.845  -2.086 -17.801  1.00  3.97      1HRE 331
+ATOM    160 2HD  LYS   185       2.803  -1.904 -16.394  1.00  3.28      1HRE 332
+ATOM    161 1HE  LYS   185       4.035  -0.063 -15.571  1.00  4.40      1HRE 333
+ATOM    162 2HE  LYS   185       5.445  -0.454 -16.546  1.00  4.19      1HRE 334
+ATOM    163 1HZ  LYS   185       2.837   0.447 -17.638  1.00  4.37      1HRE 335
+ATOM    164 2HZ  LYS   185       4.185   1.453 -17.391  1.00  3.30      1HRE 336
+ATOM    165 3HZ  LYS   185       4.267   0.184 -18.516  1.00  2.96      1HRE 337
+ATOM    166  N   GLU   186       8.168  -3.152 -14.420  1.00  2.74      1HRE 338
+ATOM    167  CA  GLU   186       9.227  -2.227 -13.930  1.00  2.71      1HRE 339
+ATOM    168  C   GLU   186      10.135  -2.914 -12.910  1.00  2.77      1HRE 340
+ATOM    169  O   GLU   186      11.078  -2.320 -12.426  1.00  2.95      1HRE 341
+ATOM    170  CB  GLU   186       8.555  -1.030 -13.246  1.00  2.69      1HRE 342
+ATOM    171  CG  GLU   186       8.152   0.010 -14.287  1.00  2.67      1HRE 343
+ATOM    172  CD  GLU   186       6.801   0.615 -13.900  1.00  2.61      1HRE 344
+ATOM    173  OE1 GLU   186       5.829  -0.115 -14.009  1.00  2.89      1HRE 345
+ATOM    174  OE2 GLU   186       6.816   1.773 -13.518  1.00  3.73      1HRE 346
+ATOM    175  H   GLU   186       7.682  -3.721 -13.789  1.00  3.82      1HRE 347
+ATOM    176  HA  GLU   186       9.832  -1.902 -14.768  1.00  4.28      1HRE 348
+ATOM    177 1HB  GLU   186       7.679  -1.361 -12.710  1.00  4.68      1HRE 349
+ATOM    178 2HB  GLU   186       9.251  -0.581 -12.554  1.00  5.33      1HRE 350
+ATOM    179 1HG  GLU   186       8.897   0.794 -14.320  1.00  2.74      1HRE 351
+ATOM    180 2HG  GLU   186       8.069  -0.453 -15.257  1.00  2.68      1HRE 352
+ATOM    181  N   LYS   187       9.845  -4.152 -12.592  1.00  2.64      1HRE 353
+ATOM    182  CA  LYS   187      10.708  -4.857 -11.601  1.00  2.67      1HRE 354
+ATOM    183  C   LYS   187      12.067  -5.157 -12.210  1.00  2.63      1HRE 355
+ATOM    184  O   LYS   187      12.816  -5.962 -11.692  1.00  2.58      1HRE 356
+ATOM    185  CB  LYS   187      10.052  -6.209 -11.209  1.00  2.69      1HRE 357
+ATOM    186  CG  LYS   187      10.282  -7.293 -12.300  1.00  2.63      1HRE 358
+ATOM    187  CD  LYS   187       9.691  -6.801 -13.620  1.00  2.89      1HRE 359
+ATOM    188  CE  LYS   187       9.607  -7.972 -14.601  1.00  2.81      1HRE 360
+ATOM    189  NZ  LYS   187       9.838  -7.501 -15.994  1.00  3.10      1HRE 361
+ATOM    190  H   LYS   187       9.076  -4.605 -12.998  1.00  3.23      1HRE 362
+ATOM    191  HA  LYS   187      10.833  -4.215 -10.732  1.00  3.61      1HRE 363
+ATOM    192 1HB  LYS   187      10.475  -6.551 -10.276  1.00  3.73      1HRE 364
+ATOM    193 2HB  LYS   187       8.990  -6.062 -11.074  1.00  4.22      1HRE 365
+ATOM    194 1HG  LYS   187      11.340  -7.497 -12.435  1.00  5.15      1HRE 366
+ATOM    195 2HG  LYS   187       9.792  -8.220 -12.006  1.00  4.28      1HRE 367
+ATOM    196 1HD  LYS   187       8.706  -6.399 -13.446  1.00  5.37      1HRE 368
+ATOM    197 2HD  LYS   187      10.322  -6.027 -14.032  1.00  4.94      1HRE 369
+ATOM    198 1HE  LYS   187      10.357  -8.708 -14.349  1.00  5.65      1HRE 370
+ATOM    199 2HE  LYS   187       8.630  -8.426 -14.539  1.00  5.88      1HRE 371
+ATOM    200 1HZ  LYS   187      10.721  -6.953 -16.033  1.00  5.87      1HRE 372
+ATOM    201 2HZ  LYS   187       9.911  -8.321 -16.629  1.00  2.96      1HRE 373
+ATOM    202 3HZ  LYS   187       9.043  -6.901 -16.294  1.00  2.82      1HRE 374
+ATOM    203  N   THR   188      12.401  -4.470 -13.257  1.00  3.00      1HRE 375
+ATOM    204  CA  THR   188      13.707  -4.747 -13.878  1.00  3.03      1HRE 376
+ATOM    205  C   THR   188      14.882  -4.431 -12.963  1.00  3.26      1HRE 377
+ATOM    206  O   THR   188      15.921  -5.051 -13.077  1.00  3.30      1HRE 378
+ATOM    207  CB  THR   188      13.828  -3.924 -15.161  1.00  3.54      1HRE 379
+ATOM    208  OG1 THR   188      13.952  -2.579 -14.734  1.00  3.77      1HRE 380
+ATOM    209  CG2 THR   188      12.516  -3.956 -15.957  1.00  3.65      1HRE 381
+ATOM    210  H   THR   188      11.804  -3.792 -13.629  1.00  4.04      1HRE 382
+ATOM    211  HA  THR   188      13.727  -5.804 -14.095  1.00  3.71      1HRE 383
+ATOM    212  HB  THR   188      14.687  -4.221 -15.752  1.00  4.25      1HRE 384
+ATOM    213  HG1 THR   188      13.835  -2.012 -15.500  1.00  3.81      1HRE 385
+ATOM    214 1HG2 THR   188      11.936  -4.818 -15.667  1.00  3.31      1HRE 386
+ATOM    215 2HG2 THR   188      11.947  -3.061 -15.757  1.00  4.13      1HRE 387
+ATOM    216 3HG2 THR   188      12.732  -4.011 -17.014  1.00  3.53      1HRE 388
+ATOM    217  N   PHE   189      14.726  -3.483 -12.087  1.00  3.23      1HRE 389
+ATOM    218  CA  PHE   189      15.865  -3.177 -11.193  1.00  3.14      1HRE 390
+ATOM    219  C   PHE   189      16.337  -4.482 -10.585  1.00  3.36      1HRE 391
+ATOM    220  O   PHE   189      17.482  -4.639 -10.209  1.00  3.60      1HRE 392
+ATOM    221  CB  PHE   189      15.403  -2.257 -10.066  1.00  3.26      1HRE 393
+ATOM    222  CG  PHE   189      16.632  -1.879  -9.250  1.00  3.16      1HRE 394
+ATOM    223  CD1 PHE   189      17.064  -2.679  -8.209  1.00  3.29      1HRE 395
+ATOM    224  CD2 PHE   189      17.358  -0.760  -9.586  1.00  3.33      1HRE 396
+ATOM    225  CE1 PHE   189      18.215  -2.363  -7.517  1.00  3.31      1HRE 397
+ATOM    226  CE2 PHE   189      18.509  -0.438  -8.894  1.00  3.47      1HRE 398
+ATOM    227  CZ  PHE   189      18.938  -1.240  -7.858  1.00  3.67      1HRE 399
+ATOM    228  H   PHE   189      13.890  -2.996 -12.020  1.00  3.93      1HRE 400
+ATOM    229  HA  PHE   189      16.671  -2.733 -11.769  1.00  3.36      1HRE 401
+ATOM    230 1HB  PHE   189      14.949  -1.368 -10.476  1.00  3.76      1HRE 402
+ATOM    231 2HB  PHE   189      14.692  -2.770  -9.435  1.00  3.48      1HRE 403
+ATOM    232  HD1 PHE   189      16.490  -3.550  -7.931  1.00  4.08      1HRE 404
+ATOM    233  HD2 PHE   189      17.023  -0.137 -10.403  1.00  3.49      1HRE 405
+ATOM    234  HE1 PHE   189      18.564  -3.010  -6.723  1.00  3.57      1HRE 406
+ATOM    235  HE2 PHE   189      19.074   0.442  -9.163  1.00  3.37      1HRE 407
+ATOM    236  HZ  PHE   189      19.839  -0.991  -7.317  1.00  3.69      1HRE 408
+ATOM    237  N   CYS   190      15.407  -5.391 -10.512  1.00  3.21      1HRE 409
+ATOM    238  CA  CYS   190      15.696  -6.723  -9.949  1.00  3.17      1HRE 410
+ATOM    239  C   CYS   190      15.209  -7.778 -10.933  1.00  3.37      1HRE 411
+ATOM    240  O   CYS   190      14.907  -7.470 -12.068  1.00  3.61      1HRE 412
+ATOM    241  CB  CYS   190      14.944  -6.868  -8.613  1.00  3.59      1HRE 413
+ATOM    242  SG  CYS   190      13.389  -5.967  -8.435  1.00  3.72      1HRE 414
+ATOM    243  H   CYS   190      14.505  -5.187 -10.836  1.00  3.35      1HRE 415
+ATOM    244  HA  CYS   190      16.766  -6.829  -9.816  1.00  3.44      1HRE 416
+ATOM    245 1HB  CYS   190      14.734  -7.912  -8.442  1.00  3.22      1HRE 417
+ATOM    246 2HB  CYS   190      15.602  -6.538  -7.823  1.00  3.32      1HRE 418
+ATOM    247  N   VAL   191      15.138  -8.991 -10.487  1.00  3.39      1HRE 419
+ATOM    248  CA  VAL   191      14.676 -10.072 -11.386  1.00  3.52      1HRE 420
+ATOM    249  C   VAL   191      13.188 -10.370 -11.173  1.00  3.42      1HRE 421
+ATOM    250  O   VAL   191      12.331  -9.593 -11.544  1.00  3.55      1HRE 422
+ATOM    251  CB  VAL   191      15.533 -11.303 -11.063  1.00  3.67      1HRE 423
+ATOM    252  CG1 VAL   191      15.391 -11.611  -9.569  1.00  3.91      1HRE 424
+ATOM    253  CG2 VAL   191      15.164 -12.503 -11.969  1.00  3.62      1HRE 425
+ATOM    254  H   VAL   191      15.389  -9.192  -9.562  1.00  4.58      1HRE 426
+ATOM    255  HA  VAL   191      14.827  -9.767 -12.405  1.00  4.50      1HRE 427
+ATOM    256  HB  VAL   191      16.552 -11.055 -11.247  1.00  4.40      1HRE 428
+ATOM    257 1HG1 VAL   191      14.707 -10.906  -9.127  1.00  3.80      1HRE 429
+ATOM    258 2HG1 VAL   191      15.022 -12.606  -9.414  1.00  3.82      1HRE 430
+ATOM    259 3HG1 VAL   191      16.349 -11.508  -9.093  1.00  3.98      1HRE 431
+ATOM    260 1HG2 VAL   191      14.153 -12.417 -12.329  1.00  3.20      1HRE 432
+ATOM    261 2HG2 VAL   191      15.829 -12.518 -12.819  1.00  4.11      1HRE 433
+ATOM    262 3HG2 VAL   191      15.272 -13.433 -11.436  1.00  3.22      1HRE 434
+ATOM    263  N   ASN   192      12.925 -11.489 -10.578  1.00  3.25      1HRE 435
+ATOM    264  CA  ASN   192      11.516 -11.891 -10.317  1.00  3.50      1HRE 436
+ATOM    265  C   ASN   192      10.880 -11.153  -9.138  1.00  3.15      1HRE 437
+ATOM    266  O   ASN   192      11.097  -9.972  -8.956  1.00  3.20      1HRE 438
+ATOM    267  CB  ASN   192      11.528 -13.395  -9.986  1.00  3.23      1HRE 439
+ATOM    268  CG  ASN   192      12.704 -14.075 -10.688  1.00  3.34      1HRE 440
+ATOM    269  OD1 ASN   192      12.721 -14.223 -11.893  1.00  3.25      1HRE 441
+ATOM    270  ND2 ASN   192      13.707 -14.511  -9.964  1.00  3.41      1HRE 442
+ATOM    271  H   ASN   192      13.660 -12.085 -10.336  1.00  3.67      1HRE 443
+ATOM    272  HA  ASN   192      10.922 -11.685 -11.210  1.00  3.51      1HRE 444
+ATOM    273 1HB  ASN   192      11.650 -13.532  -8.918  1.00  3.75      1HRE 445
+ATOM    274 2HB  ASN   192      10.603 -13.852 -10.304  1.00  3.49      1HRE 446
+ATOM    275 1HD2 ASN   192      14.474 -14.941 -10.396  1.00  3.31      1HRE 447
+ATOM    276 2HD2 ASN   192      13.695 -14.401  -8.986  1.00  3.10      1HRE 448
+ATOM    277  N   GLY   193      10.093 -11.901  -8.381  1.00  2.95      1HRE 449
+ATOM    278  CA  GLY   193       9.380 -11.360  -7.185  1.00  2.98      1HRE 450
+ATOM    279  C   GLY   193       9.943 -10.029  -6.742  1.00  2.98      1HRE 451
+ATOM    280  O   GLY   193       9.679  -9.006  -7.340  1.00  3.06      1HRE 452
+ATOM    281  H   GLY   193       9.990 -12.846  -8.596  1.00  3.04      1HRE 453
+ATOM    282 1HA  GLY   193       8.334 -11.236  -7.424  1.00  3.75      1HRE 454
+ATOM    283 2HA  GLY   193       9.471 -12.066  -6.364  1.00  3.06      1HRE 455
+ATOM    284  N   GLY   194      10.731 -10.077  -5.718  1.00  2.94      1HRE 456
+ATOM    285  CA  GLY   194      11.330  -8.821  -5.210  1.00  3.67      1HRE 457
+ATOM    286  C   GLY   194      10.227  -7.775  -5.014  1.00  2.84      1HRE 458
+ATOM    287  O   GLY   194       9.082  -8.000  -5.348  1.00  2.90      1HRE 459
+ATOM    288  H   GLY   194      10.940 -10.938  -5.298  1.00  2.86      1HRE 460
+ATOM    289 1HA  GLY   194      11.822  -9.013  -4.272  1.00  3.90      1HRE 461
+ATOM    290 2HA  GLY   194      12.054  -8.453  -5.927  1.00  2.83      1HRE 462
+ATOM    291  N   GLU   195      10.590  -6.662  -4.452  1.00  2.57      1HRE 463
+ATOM    292  CA  GLU   195       9.589  -5.589  -4.224  1.00  3.39      1HRE 464
+ATOM    293  C   GLU   195      10.247  -4.286  -4.558  1.00  2.26      1HRE 465
+ATOM    294  O   GLU   195      10.652  -3.534  -3.707  1.00  2.21      1HRE 466
+ATOM    295  CB  GLU   195       9.098  -5.564  -2.767  1.00  2.18      1HRE 467
+ATOM    296  CG  GLU   195       8.733  -6.971  -2.279  1.00  2.01      1HRE 468
+ATOM    297  CD  GLU   195       7.375  -7.374  -2.862  1.00  2.28      1HRE 469
+ATOM    298  OE1 GLU   195       7.244  -7.265  -4.068  1.00  2.40      1HRE 470
+ATOM    299  OE2 GLU   195       6.543  -7.770  -2.064  1.00  2.83      1HRE 471
+ATOM    300  H   GLU   195      11.528  -6.514  -4.214  1.00  3.27      1HRE 472
+ATOM    301  HA  GLU   195       8.769  -5.712  -4.911  1.00  2.60      1HRE 473
+ATOM    302 1HB  GLU   195       9.860  -5.147  -2.139  1.00  2.80      1HRE 474
+ATOM    303 2HB  GLU   195       8.218  -4.944  -2.712  1.00  3.29      1HRE 475
+ATOM    304 1HG  GLU   195       9.484  -7.679  -2.581  1.00  2.18      1HRE 476
+ATOM    305 2HG  GLU   195       8.663  -6.971  -1.202  1.00  2.20      1HRE 477
+ATOM    306  N   CYS   196      10.314  -4.066  -5.824  1.00  2.29      1HRE 478
+ATOM    307  CA  CYS   196      10.926  -2.845  -6.358  1.00  2.42      1HRE 479
+ATOM    308  C   CYS   196      10.155  -1.617  -5.878  1.00  2.28      1HRE 480
+ATOM    309  O   CYS   196       8.944  -1.653  -5.781  1.00  2.42      1HRE 481
+ATOM    310  CB  CYS   196      10.819  -3.037  -7.854  1.00  2.44      1HRE 482
+ATOM    311  SG  CYS   196      11.342  -1.699  -8.945  1.00  2.77      1HRE 483
+ATOM    312  H   CYS   196       9.949  -4.729  -6.444  1.00  2.02      1HRE 484
+ATOM    313  HA  CYS   196      11.958  -2.781  -6.045  1.00  1.98      1HRE 485
+ATOM    314 1HB  CYS   196      11.391  -3.920  -8.091  1.00  2.44      1HRE 486
+ATOM    315 2HB  CYS   196       9.798  -3.265  -8.072  1.00  2.45      1HRE 487
+ATOM    316  N   PHE   197      10.871  -0.551  -5.586  1.00  1.99      1HRE 488
+ATOM    317  CA  PHE   197      10.174   0.677  -5.100  1.00  2.20      1HRE 489
+ATOM    318  C   PHE   197      10.616   1.993  -5.717  1.00  1.82      1HRE 490
+ATOM    319  O   PHE   197      11.772   2.222  -5.984  1.00  1.67      1HRE 491
+ATOM    320  CB  PHE   197      10.425   0.728  -3.610  1.00  1.82      1HRE 492
+ATOM    321  CG  PHE   197       9.351  -0.119  -2.962  1.00  1.82      1HRE 493
+ATOM    322  CD1 PHE   197       8.063   0.341  -2.921  1.00  1.99      1HRE 494
+ATOM    323  CD2 PHE   197       9.644  -1.352  -2.437  1.00  1.67      1HRE 495
+ATOM    324  CE1 PHE   197       7.083  -0.390  -2.352  1.00  1.47      1HRE 496
+ATOM    325  CE2 PHE   197       8.640  -2.115  -1.875  1.00  1.45      1HRE 497
+ATOM    326  CZ  PHE   197       7.347  -1.613  -1.838  1.00  1.77      1HRE 498
+ATOM    327  H   PHE   197      11.850  -0.568  -5.675  1.00  1.97      1HRE 499
+ATOM    328  HA  PHE   197       9.123   0.582  -5.262  1.00  1.38      1HRE 500
+ATOM    329 1HB  PHE   197      11.399   0.325  -3.380  1.00  1.68      1HRE 501
+ATOM    330 2HB  PHE   197      10.351   1.738  -3.256  1.00  1.28      1HRE 502
+ATOM    331  HD1 PHE   197       7.797   1.226  -3.455  1.00  1.82      1HRE 503
+ATOM    332  HD2 PHE   197      10.664  -1.700  -2.436  1.00  1.48      1HRE 504
+ATOM    333  HE1 PHE   197       6.089   0.024  -2.267  1.00  1.43      1HRE 505
+ATOM    334  HE2 PHE   197       8.852  -3.123  -1.533  1.00  2.01      1HRE 506
+ATOM    335  HZ  PHE   197       6.535  -2.192  -1.466  1.00  2.33      1HRE 507
+ATOM    336  N   MET   198       9.637   2.841  -5.905  1.00  1.92      1HRE 508
+ATOM    337  CA  MET   198       9.886   4.178  -6.495  1.00  1.74      1HRE 509
+ATOM    338  C   MET   198       8.962   5.172  -5.813  1.00  2.19      1HRE 510
+ATOM    339  O   MET   198       7.803   4.886  -5.586  1.00  2.35      1HRE 511
+ATOM    340  CB  MET   198       9.605   4.145  -8.002  1.00  2.38      1HRE 512
+ATOM    341  CG  MET   198       8.177   3.668  -8.237  1.00  2.57      1HRE 513
+ATOM    342  SD  MET   198       7.685   3.291  -9.938  1.00  2.83      1HRE 514
+ATOM    343  CE  MET   198       8.696   4.548 -10.759  1.00  2.53      1HRE 515
+ATOM    344  H   MET   198       8.721   2.593  -5.643  1.00  2.70      1HRE 516
+ATOM    345  HA  MET   198      10.906   4.464  -6.289  1.00  2.62      1HRE 517
+ATOM    346 1HB  MET   198       9.729   5.136  -8.412  1.00  3.48      1HRE 518
+ATOM    347 2HB  MET   198      10.297   3.473  -8.486  1.00  3.13      1HRE 519
+ATOM    348 1HG  MET   198       8.026   2.780  -7.650  1.00  4.12      1HRE 520
+ATOM    349 2HG  MET   198       7.510   4.427  -7.861  1.00  3.82      1HRE 521
+ATOM    350 1HE  MET   198       8.467   5.519 -10.347  1.00  3.70      1HRE 522
+ATOM    351 2HE  MET   198       9.742   4.327 -10.603  1.00  2.08      1HRE 523
+ATOM    352 3HE  MET   198       8.481   4.546 -11.817  1.00  2.13      1HRE 524
+ATOM    353  N   VAL   199       9.489   6.321  -5.507  1.00  2.38      1HRE 525
+ATOM    354  CA  VAL   199       8.665   7.350  -4.829  1.00  2.69      1HRE 526
+ATOM    355  C   VAL   199       8.256   8.508  -5.733  1.00  2.38      1HRE 527
+ATOM    356  O   VAL   199       8.804   8.707  -6.798  1.00  2.07      1HRE 528
+ATOM    357  CB  VAL   199       9.525   7.866  -3.683  1.00  2.53      1HRE 529
+ATOM    358  CG1 VAL   199       8.881   9.094  -3.054  1.00  2.83      1HRE 530
+ATOM    359  CG2 VAL   199       9.632   6.747  -2.652  1.00  2.77      1HRE 531
+ATOM    360  H   VAL   199      10.423   6.507  -5.723  1.00  2.88      1HRE 532
+ATOM    361  HA  VAL   199       7.769   6.884  -4.438  1.00  2.54      1HRE 533
+ATOM    362  HB  VAL   199      10.508   8.118  -4.050  1.00  3.18      1HRE 534
+ATOM    363 1HG1 VAL   199       7.828   8.917  -2.901  1.00  2.15      1HRE 535
+ATOM    364 2HG1 VAL   199       9.350   9.304  -2.106  1.00  2.24      1HRE 536
+ATOM    365 3HG1 VAL   199       9.009   9.943  -3.709  1.00  2.01      1HRE 537
+ATOM    366 1HG2 VAL   199       9.890   5.820  -3.157  1.00  2.49      1HRE 538
+ATOM    367 2HG2 VAL   199      10.394   6.984  -1.927  1.00  3.26      1HRE 539
+ATOM    368 3HG2 VAL   199       8.682   6.625  -2.152  1.00  2.88      1HRE 540
+ATOM    369  N   LYS   200       7.281   9.245  -5.260  1.00  2.91      1HRE 541
+ATOM    370  CA  LYS   200       6.768  10.411  -6.028  1.00  2.59      1HRE 542
+ATOM    371  C   LYS   200       6.976  11.725  -5.267  1.00  3.46      1HRE 543
+ATOM    372  O   LYS   200       6.251  12.027  -4.339  1.00  3.96      1HRE 544
+ATOM    373  CB  LYS   200       5.259  10.208  -6.217  1.00  3.36      1HRE 545
+ATOM    374  CG  LYS   200       4.683   9.588  -4.936  1.00  3.64      1HRE 546
+ATOM    375  CD  LYS   200       3.254  10.088  -4.719  1.00  3.76      1HRE 547
+ATOM    376  CE  LYS   200       2.706   9.488  -3.421  1.00  2.99      1HRE 548
+ATOM    377  NZ  LYS   200       1.537  10.273  -2.935  1.00  3.04      1HRE 549
+ATOM    378  H   LYS   200       6.874   9.015  -4.398  1.00  2.98      1HRE 550
+ATOM    379  HA  LYS   200       7.273  10.466  -6.984  1.00  3.45      1HRE 551
+ATOM    380 1HB  LYS   200       4.785  11.157  -6.409  1.00  4.02      1HRE 552
+ATOM    381 2HB  LYS   200       5.083   9.546  -7.052  1.00  3.70      1HRE 553
+ATOM    382 1HG  LYS   200       4.681   8.513  -5.025  1.00  3.18      1HRE 554
+ATOM    383 2HG  LYS   200       5.294   9.870  -4.092  1.00  3.38      1HRE 555
+ATOM    384 1HD  LYS   200       3.252  11.166  -4.647  1.00  4.12      1HRE 556
+ATOM    385 2HD  LYS   200       2.631   9.786  -5.549  1.00  3.75      1HRE 557
+ATOM    386 1HE  LYS   200       2.396   8.469  -3.596  1.00  4.71      1HRE 558
+ATOM    387 2HE  LYS   200       3.477   9.495  -2.662  1.00  4.33      1HRE 559
+ATOM    388 1HZ  LYS   200       1.046  10.700  -3.746  1.00  3.75      1HRE 560
+ATOM    389 2HZ  LYS   200       0.884   9.646  -2.426  1.00  4.40      1HRE 561
+ATOM    390 3HZ  LYS   200       1.867  11.023  -2.295  1.00  3.62      1HRE 562
+ATOM    391  N   ASP   201       7.959  12.482  -5.675  1.00  4.50      1HRE 563
+ATOM    392  CA  ASP   201       8.225  13.780  -4.991  1.00  4.84      1HRE 564
+ATOM    393  C   ASP   201       8.532  13.595  -3.504  1.00  5.05      1HRE 565
+ATOM    394  O   ASP   201       7.789  12.955  -2.789  1.00  5.02      1HRE 566
+ATOM    395  CB  ASP   201       6.973  14.654  -5.123  1.00  6.29      1HRE 567
+ATOM    396  CG  ASP   201       7.372  16.032  -5.655  1.00  7.00      1HRE 568
+ATOM    397  OD1 ASP   201       7.509  16.126  -6.863  1.00  6.89      1HRE 569
+ATOM    398  OD2 ASP   201       7.516  16.912  -4.823  1.00  6.62      1HRE 570
+ATOM    399  H   ASP   201       8.519  12.198  -6.426  1.00  7.45      1HRE 571
+ATOM    400  HA  ASP   201       9.075  14.259  -5.465  1.00  7.07      1HRE 572
+ATOM    401 1HB  ASP   201       6.276  14.195  -5.808  1.00  6.61      1HRE 573
+ATOM    402 2HB  ASP   201       6.502  14.767  -4.158  1.00  5.69      1HRE 574
+ATOM    403  N   LEU   202       9.630  14.166  -3.075  1.00  5.83      1HRE 575
+ATOM    404  CA  LEU   202      10.033  14.055  -1.639  1.00  5.58      1HRE 576
+ATOM    405  C   LEU   202      11.352  14.799  -1.419  1.00  7.11      1HRE 577
+ATOM    406  O   LEU   202      11.422  15.752  -0.670  1.00  7.67      1HRE 578
+ATOM    407  CB  LEU   202      10.248  12.564  -1.285  1.00  7.81      1HRE 579
+ATOM    408  CG  LEU   202       9.532  12.184   0.028  1.00  8.34      1HRE 580
+ATOM    409  CD1 LEU   202       9.826  13.222   1.120  1.00  7.43      1HRE 581
+ATOM    410  CD2 LEU   202       8.018  12.085  -0.207  1.00  8.99      1HRE 582
+ATOM    411  H   LEU   202      10.192  14.670  -3.698  1.00  9.93      1HRE 583
+ATOM    412  HA  LEU   202       9.267  14.510  -1.026  1.00  9.64      1HRE 584
+ATOM    413 1HB  LEU   202       9.874  11.942  -2.083  1.00  9.71      1HRE 585
+ATOM    414 2HB  LEU   202      11.307  12.378  -1.173  1.00  9.88      1HRE 586
+ATOM    415  HG  LEU   202       9.897  11.223   0.356  1.00 10.20      1HRE 587
+ATOM    416 1HD1 LEU   202      10.720  13.772   0.873  1.00  8.90      1HRE 588
+ATOM    417 2HD1 LEU   202       8.998  13.909   1.209  1.00  8.91      1HRE 589
+ATOM    418 3HD1 LEU   202       9.972  12.722   2.065  1.00  9.15      1HRE 590
+ATOM    419 1HD2 LEU   202       7.820  11.405  -1.022  1.00  7.70      1HRE 591
+ATOM    420 2HD2 LEU   202       7.537  11.713   0.685  1.00  8.92      1HRE 592
+ATOM    421 3HD2 LEU   202       7.610  13.053  -0.448  1.00  8.65      1HRE 593
+ATOM    422  N   SER   203      12.371  14.335  -2.086  1.00  7.51      1HRE 594
+ATOM    423  CA  SER   203      13.711  14.971  -1.961  1.00  7.18      1HRE 595
+ATOM    424  C   SER   203      14.664  14.353  -2.979  1.00  8.29      1HRE 596
+ATOM    425  O   SER   203      15.524  15.013  -3.525  1.00  8.76      1HRE 597
+ATOM    426  CB  SER   203      14.248  14.704  -0.550  1.00  9.06      1HRE 598
+ATOM    427  OG  SER   203      13.608  15.682   0.256  1.00  9.67      1HRE 599
+ATOM    428  H   SER   203      12.253  13.560  -2.670  1.00  9.36      1HRE 600
+ATOM    429  HA  SER   203      13.621  16.035  -2.154  1.00  9.19      1HRE 601
+ATOM    430 1HB  SER   203      13.977  13.713  -0.219  1.00  7.98      1HRE 602
+ATOM    431 2HB  SER   203      15.320  14.834  -0.516  1.00  9.12      1HRE 603
+ATOM    432  HG  SER   203      12.764  15.324   0.541  1.00  8.40      1HRE 604
+ATOM    433  N   ASN   204      14.475  13.083  -3.204  1.00  7.50      1HRE 605
+ATOM    434  CA  ASN   204      15.326  12.350  -4.171  1.00  7.50      1HRE 606
+ATOM    435  C   ASN   204      14.661  11.026  -4.547  1.00  7.41      1HRE 607
+ATOM    436  O   ASN   204      15.238   9.967  -4.406  1.00  7.52      1HRE 608
+ATOM    437  CB  ASN   204      16.646  12.057  -3.485  1.00  8.73      1HRE 609
+ATOM    438  CG  ASN   204      17.543  11.245  -4.420  1.00  9.09      1HRE 610
+ATOM    439  OD1 ASN   204      17.697  11.564  -5.583  1.00  9.57      1HRE 611
+ATOM    440  ND2 ASN   204      18.154  10.190  -3.955  1.00  9.18      1HRE 612
+ATOM    441  H   ASN   204      13.764  12.608  -2.726  1.00  9.37      1HRE 613
+ATOM    442  HA  ASN   204      15.473  12.950  -5.060  1.00 10.08      1HRE 614
+ATOM    443 1HB  ASN   204      17.130  12.986  -3.237  1.00 10.84      1HRE 615
+ATOM    444 2HB  ASN   204      16.460  11.497  -2.586  1.00 10.26      1HRE 616
+ATOM    445 1HD2 ASN   204      18.732   9.660  -4.542  1.00  6.88      1HRE 617
+ATOM    446 2HD2 ASN   204      18.036   9.929  -3.018  1.00  6.34      1HRE 618
+ATOM    447  N   PRO   205      13.446  11.134  -5.022  1.00  5.83      1HRE 619
+ATOM    448  CA  PRO   205      12.649   9.971  -5.436  1.00  5.31      1HRE 620
+ATOM    449  C   PRO   205      13.332   9.124  -6.500  1.00  5.70      1HRE 621
+ATOM    450  O   PRO   205      14.462   9.367  -6.878  1.00  5.70      1HRE 622
+ATOM    451  CB  PRO   205      11.373  10.570  -6.041  1.00  6.12      1HRE 623
+ATOM    452  CG  PRO   205      11.520  12.109  -6.008  1.00  5.68      1HRE 624
+ATOM    453  CD  PRO   205      12.774  12.432  -5.202  1.00  6.54      1HRE 625
+ATOM    454  HA  PRO   205      12.414   9.366  -4.575  1.00  7.07      1HRE 626
+ATOM    455 1HB  PRO   205      11.257  10.231  -7.059  1.00  6.52      1HRE 627
+ATOM    456 2HB  PRO   205      10.515  10.268  -5.463  1.00  7.10      1HRE 628
+ATOM    457 1HG  PRO   205      11.627  12.492  -7.010  1.00  7.00      1HRE 629
+ATOM    458 2HG  PRO   205      10.658  12.552  -5.540  1.00  7.13      1HRE 630
+ATOM    459 1HD  PRO   205      13.403  13.117  -5.740  1.00  4.68      1HRE 631
+ATOM    460 2HD  PRO   205      12.502  12.841  -4.248  1.00  5.28      1HRE 632
+ATOM    461  N   SER   206      12.608   8.142  -6.956  1.00  4.04      1HRE 633
+ATOM    462  CA  SER   206      13.146   7.234  -8.003  1.00  4.08      1HRE 634
+ATOM    463  C   SER   206      14.139   6.226  -7.442  1.00  4.33      1HRE 635
+ATOM    464  O   SER   206      14.917   5.646  -8.172  1.00  4.97      1HRE 636
+ATOM    465  CB  SER   206      13.844   8.078  -9.074  1.00  5.21      1HRE 637
+ATOM    466  OG  SER   206      13.582   7.388 -10.286  1.00  5.99      1HRE 638
+ATOM    467  H   SER   206      11.700   8.001  -6.600  1.00  5.24      1HRE 639
+ATOM    468  HA  SER   206      12.317   6.684  -8.425  1.00  6.24      1HRE 640
+ATOM    469 1HB  SER   206      13.424   9.073  -9.111  1.00  3.96      1HRE 641
+ATOM    470 2HB  SER   206      14.908   8.125  -8.890  1.00  6.88      1HRE 642
+ATOM    471  HG  SER   206      13.522   6.452 -10.087  1.00  4.65      1HRE 643
+ATOM    472  N   ARG   207      14.095   6.035  -6.162  1.00  3.40      1HRE 644
+ATOM    473  CA  ARG   207      15.034   5.060  -5.547  1.00  3.57      1HRE 645
+ATOM    474  C   ARG   207      14.594   3.637  -5.867  1.00  3.29      1HRE 646
+ATOM    475  O   ARG   207      13.810   3.058  -5.142  1.00  3.73      1HRE 647
+ATOM    476  CB  ARG   207      15.022   5.229  -4.023  1.00  3.55      1HRE 648
+ATOM    477  CG  ARG   207      13.648   5.725  -3.566  1.00  3.75      1HRE 649
+ATOM    478  CD  ARG   207      13.711   7.244  -3.408  1.00  3.77      1HRE 650
+ATOM    479  NE  ARG   207      14.747   7.612  -2.393  1.00  3.76      1HRE 651
+ATOM    480  CZ  ARG   207      14.915   6.868  -1.334  1.00  4.67      1HRE 652
+ATOM    481  NH1 ARG   207      15.887   5.997  -1.322  1.00  3.43      1HRE 653
+ATOM    482  NH2 ARG   207      14.106   7.022  -0.322  1.00  3.96      1HRE 654
+ATOM    483  H   ARG   207      13.451   6.530  -5.613  1.00  3.50      1HRE 655
+ATOM    484  HA  ARG   207      16.028   5.228  -5.942  1.00  3.33      1HRE 656
+ATOM    485 1HB  ARG   207      15.237   4.281  -3.555  1.00  4.34      1HRE 657
+ATOM    486 2HB  ARG   207      15.778   5.941  -3.739  1.00  4.01      1HRE 658
+ATOM    487 1HG  ARG   207      12.892   5.465  -4.301  1.00  5.52      1HRE 659
+ATOM    488 2HG  ARG   207      13.389   5.265  -2.625  1.00  4.98      1HRE 660
+ATOM    489 1HD  ARG   207      13.977   7.687  -4.356  1.00  6.44      1HRE 661
+ATOM    490 2HD  ARG   207      12.750   7.617  -3.092  1.00  5.18      1HRE 662
+ATOM    491  HE  ARG   207      15.299   8.410  -2.523  1.00  5.80      1HRE 663
+ATOM    492 1HH1 ARG   207      16.488   5.906  -2.117  1.00  3.10      1HRE 664
+ATOM    493 2HH1 ARG   207      16.030   5.418  -0.520  1.00  3.28      1HRE 665
+ATOM    494 1HH2 ARG   207      13.373   7.699  -0.367  1.00  5.71      1HRE 666
+ATOM    495 2HH2 ARG   207      14.220   6.461   0.498  1.00  6.74      1HRE 667
+ATOM    496  N   TYR   208      15.102   3.088  -6.936  1.00  2.92      1HRE 668
+ATOM    497  CA  TYR   208      14.698   1.702  -7.288  1.00  3.17      1HRE 669
+ATOM    498  C   TYR   208      15.401   0.673  -6.407  1.00  2.82      1HRE 670
+ATOM    499  O   TYR   208      16.570   0.388  -6.587  1.00  2.67      1HRE 671
+ATOM    500  CB  TYR   208      15.077   1.413  -8.736  1.00  3.08      1HRE 672
+ATOM    501  CG  TYR   208      14.023   2.004  -9.676  1.00  3.11      1HRE 673
+ATOM    502  CD1 TYR   208      12.727   1.527  -9.665  1.00  3.31      1HRE 674
+ATOM    503  CD2 TYR   208      14.357   3.006 -10.562  1.00  3.06      1HRE 675
+ATOM    504  CE1 TYR   208      11.782   2.041 -10.527  1.00  2.86      1HRE 676
+ATOM    505  CE2 TYR   208      13.411   3.521 -11.425  1.00  2.93      1HRE 677
+ATOM    506  CZ  TYR   208      12.117   3.042 -11.416  1.00  3.53      1HRE 678
+ATOM    507  OH  TYR   208      11.175   3.550 -12.287  1.00  3.89      1HRE 679
+ATOM    508  H   TYR   208      15.738   3.581  -7.496  1.00  2.86      1HRE 680
+ATOM    509  HA  TYR   208      13.628   1.606  -7.157  1.00  2.85      1HRE 681
+ATOM    510 1HB  TYR   208      16.044   1.839  -8.960  1.00  4.09      1HRE 682
+ATOM    511 2HB  TYR   208      15.111   0.343  -8.878  1.00  3.62      1HRE 683
+ATOM    512  HD1 TYR   208      12.451   0.744  -8.976  1.00  3.21      1HRE 684
+ATOM    513  HD2 TYR   208      15.366   3.392 -10.582  1.00  3.36      1HRE 685
+ATOM    514  HE1 TYR   208      10.771   1.658 -10.506  1.00  3.59      1HRE 686
+ATOM    515  HE2 TYR   208      13.686   4.305 -12.113  1.00  2.86      1HRE 687
+ATOM    516  HH  TYR   208      10.798   2.815 -12.778  1.00  3.18      1HRE 688
+ATOM    517  N   LEU   209      14.667   0.140  -5.470  1.00  2.69      1HRE 689
+ATOM    518  CA  LEU   209      15.245  -0.879  -4.552  1.00  2.64      1HRE 690
+ATOM    519  C   LEU   209      14.244  -2.015  -4.420  1.00  2.72      1HRE 691
+ATOM    520  O   LEU   209      13.062  -1.773  -4.274  1.00  2.95      1HRE 692
+ATOM    521  CB  LEU   209      15.492  -0.227  -3.183  1.00  2.71      1HRE 693
+ATOM    522  CG  LEU   209      16.131  -1.210  -2.173  1.00  2.56      1HRE 694
+ATOM    523  CD1 LEU   209      15.086  -2.213  -1.643  1.00  2.98      1HRE 695
+ATOM    524  CD2 LEU   209      17.313  -1.955  -2.821  1.00  2.77      1HRE 696
+ATOM    525  H   LEU   209      13.731   0.410  -5.375  1.00  2.82      1HRE 697
+ATOM    526  HA  LEU   209      16.159  -1.257  -4.991  1.00  2.80      1HRE 698
+ATOM    527 1HB  LEU   209      16.154   0.610  -3.316  1.00  3.39      1HRE 699
+ATOM    528 2HB  LEU   209      14.557   0.135  -2.795  1.00  3.09      1HRE 700
+ATOM    529  HG  LEU   209      16.509  -0.640  -1.337  1.00  3.56      1HRE 701
+ATOM    530 1HD1 LEU   209      14.087  -1.863  -1.848  1.00  3.30      1HRE 702
+ATOM    531 2HD1 LEU   209      15.223  -3.174  -2.102  1.00  3.54      1HRE 703
+ATOM    532 3HD1 LEU   209      15.205  -2.320  -0.575  1.00  3.37      1HRE 704
+ATOM    533 1HD2 LEU   209      17.896  -1.263  -3.413  1.00  2.92      1HRE 705
+ATOM    534 2HD2 LEU   209      17.943  -2.375  -2.051  1.00  2.67      1HRE 706
+ATOM    535 3HD2 LEU   209      16.960  -2.749  -3.460  1.00  3.47      1HRE 707
+ATOM    536  N   CYS   210      14.736  -3.220  -4.446  1.00  2.64      1HRE 708
+ATOM    537  CA  CYS   210      13.816  -4.391  -4.331  1.00  2.97      1HRE 709
+ATOM    538  C   CYS   210      14.018  -5.240  -3.080  1.00  2.63      1HRE 710
+ATOM    539  O   CYS   210      15.122  -5.608  -2.733  1.00  2.53      1HRE 711
+ATOM    540  CB  CYS   210      14.047  -5.268  -5.564  1.00  3.32      1HRE 712
+ATOM    541  SG  CYS   210      13.857  -4.465  -7.175  1.00  3.44      1HRE 713
+ATOM    542  H   CYS   210      15.699  -3.348  -4.525  1.00  2.61      1HRE 714
+ATOM    543  HA  CYS   210      12.805  -4.033  -4.327  1.00  2.83      1HRE 715
+ATOM    544 1HB  CYS   210      15.050  -5.675  -5.512  1.00  3.46      1HRE 716
+ATOM    545 2HB  CYS   210      13.354  -6.096  -5.526  1.00  2.92      1HRE 717
+ATOM    546  N   LYS   211      12.915  -5.528  -2.431  1.00  2.49      1HRE 718
+ATOM    547  CA  LYS   211      12.961  -6.352  -1.200  1.00  2.50      1HRE 719
+ATOM    548  C   LYS   211      12.877  -7.814  -1.583  1.00  2.52      1HRE 720
+ATOM    549  O   LYS   211      11.866  -8.252  -2.090  1.00  2.55      1HRE 721
+ATOM    550  CB  LYS   211      11.721  -6.040  -0.349  1.00  2.38      1HRE 722
+ATOM    551  CG  LYS   211      12.063  -6.249   1.125  1.00  2.45      1HRE 723
+ATOM    552  CD  LYS   211      12.639  -4.953   1.703  1.00  2.43      1HRE 724
+ATOM    553  CE  LYS   211      12.990  -5.173   3.176  1.00  2.52      1HRE 725
+ATOM    554  NZ  LYS   211      13.857  -6.373   3.333  1.00  2.95      1HRE 726
+ATOM    555  H   LYS   211      12.055  -5.194  -2.755  1.00  2.65      1HRE 727
+ATOM    556  HA  LYS   211      13.881  -6.161  -0.659  1.00  2.70      1HRE 728
+ATOM    557 1HB  LYS   211      11.412  -5.015  -0.507  1.00  2.91      1HRE 729
+ATOM    558 2HB  LYS   211      10.907  -6.715  -0.633  1.00  2.94      1HRE 730
+ATOM    559 1HG  LYS   211      11.171  -6.522   1.666  1.00  3.60      1HRE 731
+ATOM    560 2HG  LYS   211      12.790  -7.040   1.216  1.00  3.26      1HRE 732
+ATOM    561 1HD  LYS   211      13.528  -4.674   1.156  1.00  4.80      1HRE 733
+ATOM    562 2HD  LYS   211      11.909  -4.163   1.618  1.00  3.69      1HRE 734
+ATOM    563 1HE  LYS   211      13.512  -4.307   3.558  1.00  5.32      1HRE 735
+ATOM    564 2HE  LYS   211      12.083  -5.316   3.745  1.00  5.66      1HRE 736
+ATOM    565 1HZ  LYS   211      14.623  -6.341   2.629  1.00  2.69      1HRE 737
+ATOM    566 2HZ  LYS   211      14.267  -6.382   4.290  1.00  5.19      1HRE 738
+ATOM    567 3HZ  LYS   211      13.290  -7.232   3.190  1.00  3.21      1HRE 739
+ATOM    568  N   CYS   212      13.906  -8.564  -1.338  1.00  2.65      1HRE 740
+ATOM    569  CA  CYS   212      13.797  -9.983  -1.721  1.00  3.10      1HRE 741
+ATOM    570  C   CYS   212      12.866 -10.693  -0.767  1.00  2.73      1HRE 742
+ATOM    571  O   CYS   212      13.186 -10.995   0.366  1.00  2.77      1HRE 743
+ATOM    572  CB  CYS   212      15.173 -10.630  -1.739  1.00  3.08      1HRE 744
+ATOM    573  SG  CYS   212      16.196 -10.333  -3.210  1.00  3.00      1HRE 745
+ATOM    574  H   CYS   212      14.717  -8.206  -0.921  1.00  2.73      1HRE 746
+ATOM    575  HA  CYS   212      13.336 -10.025  -2.698  1.00  2.87      1HRE 747
+ATOM    576 1HB  CYS   212      15.722 -10.282  -0.877  1.00  3.26      1HRE 748
+ATOM    577 2HB  CYS   212      15.038 -11.693  -1.638  1.00  2.97      1HRE 749
+ATOM    578  N   GLN   213      11.718 -10.930  -1.303  1.00  2.68      1HRE 750
+ATOM    579  CA  GLN   213      10.630 -11.609  -0.574  1.00  2.70      1HRE 751
+ATOM    580  C   GLN   213      11.012 -13.011  -0.094  1.00  2.70      1HRE 752
+ATOM    581  O   GLN   213      11.855 -13.660  -0.681  1.00  2.66      1HRE 753
+ATOM    582  CB  GLN   213       9.483 -11.697  -1.588  1.00  2.60      1HRE 754
+ATOM    583  CG  GLN   213       9.195 -10.281  -2.055  1.00  2.68      1HRE 755
+ATOM    584  CD  GLN   213       7.750 -10.196  -2.552  1.00  2.66      1HRE 756
+ATOM    585  OE1 GLN   213       6.819 -10.112  -1.778  1.00  2.49      1HRE 757
+ATOM    586  NE2 GLN   213       7.520 -10.214  -3.836  1.00  2.62      1HRE 758
+ATOM    587  H   GLN   213      11.574 -10.665  -2.232  1.00  2.52      1HRE 759
+ATOM    588  HA  GLN   213      10.358 -10.987   0.264  1.00  2.60      1HRE 760
+ATOM    589 1HB  GLN   213       9.790 -12.296  -2.439  1.00  3.28      1HRE 761
+ATOM    590 2HB  GLN   213       8.603 -12.128  -1.150  1.00  3.19      1HRE 762
+ATOM    591 1HG  GLN   213       9.345  -9.583  -1.230  1.00  3.30      1HRE 763
+ATOM    592 2HG  GLN   213       9.872 -10.034  -2.859  1.00  4.03      1HRE 764
+ATOM    593 1HE2 GLN   213       6.600 -10.160  -4.172  1.00  3.02      1HRE 765
+ATOM    594 2HE2 GLN   213       8.268 -10.281  -4.466  1.00  2.91      1HRE 766
+ATOM    595  N   PRO   214      10.376 -13.459   0.976  1.00  2.99      1HRE 767
+ATOM    596  CA  PRO   214      10.655 -14.788   1.525  1.00  3.23      1HRE 768
+ATOM    597  C   PRO   214      10.706 -15.820   0.407  1.00  3.34      1HRE 769
+ATOM    598  O   PRO   214       9.690 -16.270  -0.084  1.00  3.31      1HRE 770
+ATOM    599  CB  PRO   214       9.479 -15.068   2.478  1.00  3.46      1HRE 771
+ATOM    600  CG  PRO   214       8.670 -13.753   2.618  1.00  3.39      1HRE 772
+ATOM    601  CD  PRO   214       9.327 -12.707   1.704  1.00  3.09      1HRE 773
+ATOM    602  HA  PRO   214      11.601 -14.772   2.057  1.00  3.12      1HRE 774
+ATOM    603 1HB  PRO   214       8.851 -15.846   2.072  1.00  2.90      1HRE 775
+ATOM    604 2HB  PRO   214       9.853 -15.374   3.444  1.00  3.06      1HRE 776
+ATOM    605 1HG  PRO   214       7.645 -13.915   2.314  1.00  2.87      1HRE 777
+ATOM    606 2HG  PRO   214       8.693 -13.413   3.642  1.00  2.78      1HRE 778
+ATOM    607 1HD  PRO   214       8.608 -12.286   1.020  1.00  3.28      1HRE 779
+ATOM    608 2HD  PRO   214       9.779 -11.923   2.294  1.00  3.29      1HRE 780
+ATOM    609  N   GLY   215      11.904 -16.167   0.031  1.00  3.37      1HRE 781
+ATOM    610  CA  GLY   215      12.085 -17.165  -1.056  1.00  3.44      1HRE 782
+ATOM    611  C   GLY   215      13.157 -16.669  -2.027  1.00  3.48      1HRE 783
+ATOM    612  O   GLY   215      13.400 -17.273  -3.052  1.00  3.40      1HRE 784
+ATOM    613  H   GLY   215      12.685 -15.781   0.478  1.00  3.68      1HRE 785
+ATOM    614 1HA  GLY   215      12.398 -18.107  -0.630  1.00  3.68      1HRE 786
+ATOM    615 2HA  GLY   215      11.154 -17.300  -1.586  1.00  3.51      1HRE 787
+ATOM    616  N   PHE   216      13.779 -15.565  -1.677  1.00  3.43      1HRE 788
+ATOM    617  CA  PHE   216      14.841 -15.001  -2.551  1.00  3.38      1HRE 789
+ATOM    618  C   PHE   216      16.039 -14.476  -1.756  1.00  3.49      1HRE 790
+ATOM    619  O   PHE   216      15.933 -14.155  -0.590  1.00  3.63      1HRE 791
+ATOM    620  CB  PHE   216      14.240 -13.813  -3.290  1.00  3.42      1HRE 792
+ATOM    621  CG  PHE   216      13.384 -14.314  -4.453  1.00  3.69      1HRE 793
+ATOM    622  CD1 PHE   216      13.964 -14.891  -5.583  1.00  3.39      1HRE 794
+ATOM    623  CD2 PHE   216      12.003 -14.266  -4.354  1.00  3.26      1HRE 795
+ATOM    624  CE1 PHE   216      13.167 -15.425  -6.572  1.00  3.50      1HRE 796
+ATOM    625  CE2 PHE   216      11.212 -14.798  -5.352  1.00  3.72      1HRE 797
+ATOM    626  CZ  PHE   216      11.794 -15.376  -6.460  1.00  3.08      1HRE 798
+ATOM    627  H   PHE   216      13.515 -15.090  -0.867  1.00  3.00      1HRE 799
+ATOM    628  HA  PHE   216      15.183 -15.759  -3.247  1.00  3.55      1HRE 800
+ATOM    629 1HB  PHE   216      13.620 -13.247  -2.614  1.00  3.17      1HRE 801
+ATOM    630 2HB  PHE   216      15.030 -13.189  -3.646  1.00  3.79      1HRE 802
+ATOM    631  HD1 PHE   216      15.043 -14.867  -5.725  1.00  3.13      1HRE 803
+ATOM    632  HD2 PHE   216      11.539 -13.784  -3.492  1.00  3.39      1HRE 804
+ATOM    633  HE1 PHE   216      13.625 -15.915  -7.418  1.00  3.50      1HRE 805
+ATOM    634  HE2 PHE   216      10.136 -14.761  -5.267  1.00  3.50      1HRE 806
+ATOM    635  HZ  PHE   216      11.174 -15.791  -7.241  1.00  3.48      1HRE 807
+ATOM    636  N   THR   217      17.161 -14.405  -2.425  1.00  3.60      1HRE 808
+ATOM    637  CA  THR   217      18.403 -13.908  -1.772  1.00  3.69      1HRE 809
+ATOM    638  C   THR   217      19.457 -13.601  -2.831  1.00  3.65      1HRE 810
+ATOM    639  O   THR   217      19.136 -13.328  -3.971  1.00  3.58      1HRE 811
+ATOM    640  CB  THR   217      18.964 -14.998  -0.859  1.00  3.81      1HRE 812
+ATOM    641  OG1 THR   217      20.039 -14.399  -0.160  1.00  3.79      1HRE 813
+ATOM    642  CG2 THR   217      19.607 -16.117  -1.690  1.00  3.91      1HRE 814
+ATOM    643  H   THR   217      17.184 -14.681  -3.365  1.00  4.68      1HRE 815
+ATOM    644  HA  THR   217      18.175 -13.014  -1.213  1.00  4.01      1HRE 816
+ATOM    645  HB  THR   217      18.224 -15.355  -0.170  1.00  4.16      1HRE 817
+ATOM    646  HG1 THR   217      19.885 -13.451  -0.133  1.00  4.10      1HRE 818
+ATOM    647 1HG2 THR   217      19.121 -16.175  -2.658  1.00  3.82      1HRE 819
+ATOM    648 2HG2 THR   217      20.660 -15.920  -1.828  1.00  3.78      1HRE 820
+ATOM    649 3HG2 THR   217      19.491 -17.058  -1.178  1.00  3.99      1HRE 821
+ATOM    650  N   GLY   218      20.693 -13.652  -2.429  1.00  3.96      1HRE 822
+ATOM    651  CA  GLY   218      21.794 -13.375  -3.387  1.00  4.01      1HRE 823
+ATOM    652  C   GLY   218      22.070 -11.882  -3.565  1.00  4.18      1HRE 824
+ATOM    653  O   GLY   218      23.156 -11.421  -3.275  1.00  4.26      1HRE 825
+ATOM    654  H   GLY   218      20.895 -13.879  -1.501  1.00  4.37      1HRE 826
+ATOM    655 1HA  GLY   218      22.691 -13.857  -3.030  1.00  4.38      1HRE 827
+ATOM    656 2HA  GLY   218      21.531 -13.798  -4.345  1.00  4.11      1HRE 828
+ATOM    657  N   ALA   219      21.095 -11.150  -4.029  1.00  3.81      1HRE 829
+ATOM    658  CA  ALA   219      21.332  -9.691  -4.222  1.00  3.73      1HRE 830
+ATOM    659  C   ALA   219      20.072  -8.971  -4.590  1.00  3.77      1HRE 831
+ATOM    660  O   ALA   219      19.572  -8.140  -3.858  1.00  3.82      1HRE 832
+ATOM    661  CB  ALA   219      22.297  -9.536  -5.400  1.00  4.02      1HRE 833
+ATOM    662  H   ALA   219      20.214 -11.553  -4.245  1.00  4.04      1HRE 834
+ATOM    663  HA  ALA   219      21.738  -9.243  -3.341  1.00  4.09      1HRE 835
+ATOM    664 1HB  ALA   219      23.205 -10.084  -5.204  1.00  3.63      1HRE 836
+ATOM    665 2HB  ALA   219      21.832  -9.923  -6.297  1.00  3.54      1HRE 837
+ATOM    666 3HB  ALA   219      22.533  -8.493  -5.544  1.00  4.32      1HRE 838
+ATOM    667  N   ARG   220      19.597  -9.321  -5.728  1.00  3.60      1HRE 839
+ATOM    668  CA  ARG   220      18.379  -8.711  -6.239  1.00  3.95      1HRE 840
+ATOM    669  C   ARG   220      17.330  -9.770  -6.423  1.00  3.45      1HRE 841
+ATOM    670  O   ARG   220      16.385  -9.600  -7.159  1.00  3.41      1HRE 842
+ATOM    671  CB  ARG   220      18.776  -8.066  -7.538  1.00  3.57      1HRE 843
+ATOM    672  CG  ARG   220      19.899  -7.079  -7.188  1.00  3.53      1HRE 844
+ATOM    673  CD  ARG   220      20.397  -6.449  -8.467  1.00  3.69      1HRE 845
+ATOM    674  NE  ARG   220      21.861  -6.691  -8.588  1.00  3.78      1HRE 846
+ATOM    675  CZ  ARG   220      22.410  -6.722  -9.771  1.00  4.05      1HRE 847
+ATOM    676  NH1 ARG   220      22.276  -7.796 -10.499  1.00  3.78      1HRE 848
+ATOM    677  NH2 ARG   220      23.074  -5.678 -10.186  1.00  3.85      1HRE 849
+ATOM    678  H   ARG   220      20.053 -10.008  -6.256  1.00  3.78      1HRE 850
+ATOM    679  HA  ARG   220      18.025  -7.968  -5.551  1.00  3.88      1HRE 851
+ATOM    680 1HB  ARG   220      19.135  -8.814  -8.229  1.00  4.56      1HRE 852
+ATOM    681 2HB  ARG   220      17.937  -7.544  -7.964  1.00  4.19      1HRE 853
+ATOM    682 1HG  ARG   220      19.513  -6.312  -6.533  1.00  6.21      1HRE 854
+ATOM    683 2HG  ARG   220      20.719  -7.592  -6.681  1.00  4.99      1HRE 855
+ATOM    684 1HD  ARG   220      19.886  -6.896  -9.302  1.00  7.01      1HRE 856
+ATOM    685 2HD  ARG   220      20.201  -5.391  -8.444  1.00  6.59      1HRE 857
+ATOM    686  HE  ARG   220      22.404  -6.834  -7.787  1.00  5.39      1HRE 858
+ATOM    687 1HH1 ARG   220      21.759  -8.577 -10.147  1.00  5.72      1HRE 859
+ATOM    688 2HH1 ARG   220      22.690  -7.838 -11.408  1.00  6.08      1HRE 860
+ATOM    689 1HH2 ARG   220      23.155  -4.872  -9.600  1.00  3.37      1HRE 861
+ATOM    690 2HH2 ARG   220      23.501  -5.685 -11.090  1.00  3.33      1HRE 862
+ATOM    691  N   CYS   221      17.576 -10.860  -5.738  1.00  3.44      1HRE 863
+ATOM    692  CA  CYS   221      16.654 -12.026  -5.778  1.00  3.55      1HRE 864
+ATOM    693  C   CYS   221      16.893 -12.887  -6.988  1.00  3.44      1HRE 865
+ATOM    694  O   CYS   221      15.982 -13.501  -7.505  1.00  3.48      1HRE 866
+ATOM    695  CB  CYS   221      15.214 -11.502  -5.814  1.00  3.39      1HRE 867
+ATOM    696  SG  CYS   221      14.880 -10.094  -4.740  1.00  3.34      1HRE 868
+ATOM    697  H   CYS   221      18.406 -10.913  -5.208  1.00  3.59      1HRE 869
+ATOM    698  HA  CYS   221      16.838 -12.617  -4.890  1.00  3.81      1HRE 870
+ATOM    699 1HB  CYS   221      14.967 -11.226  -6.826  1.00  3.25      1HRE 871
+ATOM    700 2HB  CYS   221      14.544 -12.296  -5.549  1.00  3.34      1HRE 872
+ATOM    701  N   THR   222      18.115 -12.946  -7.398  1.00  3.70      1HRE 873
+ATOM    702  CA  THR   222      18.426 -13.764  -8.577  1.00  3.80      1HRE 874
+ATOM    703  C   THR   222      18.800 -15.194  -8.193  1.00  3.86      1HRE 875
+ATOM    704  O   THR   222      19.280 -15.949  -9.016  1.00  3.85      1HRE 876
+ATOM    705  CB  THR   222      19.600 -13.097  -9.298  1.00  4.03      1HRE 877
+ATOM    706  OG1 THR   222      20.763 -13.564  -8.637  1.00  4.19      1HRE 878
+ATOM    707  CG2 THR   222      19.589 -11.580  -9.043  1.00  4.25      1HRE 879
+ATOM    708  H   THR   222      18.822 -12.453  -6.931  1.00  4.96      1HRE 880
+ATOM    709  HA  THR   222      17.544 -13.790  -9.207  1.00  3.93      1HRE 881
+ATOM    710  HB  THR   222      19.623 -13.347 -10.351  1.00  4.18      1HRE 882
+ATOM    711  HG1 THR   222      20.606 -13.519  -7.692  1.00  4.03      1HRE 883
+ATOM    712 1HG2 THR   222      18.616 -11.183  -9.279  1.00  4.36      1HRE 884
+ATOM    713 2HG2 THR   222      19.810 -11.374  -8.002  1.00  4.03      1HRE 885
+ATOM    714 3HG2 THR   222      20.329 -11.098  -9.663  1.00  3.98      1HRE 886
+ATOM    715  N   GLU   223      18.578 -15.540  -6.952  1.00  3.96      1HRE 887
+ATOM    716  CA  GLU   223      18.915 -16.917  -6.507  1.00  3.97      1HRE 888
+ATOM    717  C   GLU   223      17.848 -17.444  -5.554  1.00  4.18      1HRE 889
+ATOM    718  O   GLU   223      17.839 -17.114  -4.386  1.00  4.41      1HRE 890
+ATOM    719  CB  GLU   223      20.259 -16.879  -5.774  1.00  4.31      1HRE 891
+ATOM    720  CG  GLU   223      21.181 -15.875  -6.468  1.00  4.66      1HRE 892
+ATOM    721  CD  GLU   223      22.594 -16.004  -5.895  1.00  4.24      1HRE 893
+ATOM    722  OE1 GLU   223      23.033 -17.136  -5.786  1.00  4.93      1HRE 894
+ATOM    723  OE2 GLU   223      23.155 -14.962  -5.598  1.00  4.51      1HRE 895
+ATOM    724  H   GLU   223      18.203 -14.897  -6.314  1.00  4.68      1HRE 896
+ATOM    725  HA  GLU   223      18.962 -17.569  -7.373  1.00  5.23      1HRE 897
+ATOM    726 1HB  GLU   223      20.105 -16.583  -4.749  1.00  5.72      1HRE 898
+ATOM    727 2HB  GLU   223      20.708 -17.860  -5.797  1.00  5.96      1HRE 899
+ATOM    728 1HG  GLU   223      21.206 -16.074  -7.529  1.00  4.52      1HRE 900
+ATOM    729 2HG  GLU   223      20.819 -14.872  -6.304  1.00  4.14      1HRE 901
+ATOM    730  N   ASN   224      16.965 -18.249  -6.072  1.00  4.13      1HRE 902
+ATOM    731  CA  ASN   224      15.894 -18.804  -5.205  1.00  4.53      1HRE 903
+ATOM    732  C   ASN   224      16.514 -19.556  -4.025  1.00  4.03      1HRE 904
+ATOM    733  O   ASN   224      16.690 -20.756  -4.084  1.00  3.82      1HRE 905
+ATOM    734  CB  ASN   224      15.054 -19.778  -6.039  1.00  4.24      1HRE 906
+ATOM    735  CG  ASN   224      15.983 -20.659  -6.875  1.00  4.63      1HRE 907
+ATOM    736  OD1 ASN   224      17.065 -21.018  -6.453  1.00  4.81      1HRE 908
+ATOM    737  ND2 ASN   224      15.601 -21.029  -8.067  1.00  4.98      1HRE 909
+ATOM    738  H   ASN   224      17.011 -18.490  -7.019  1.00  5.89      1HRE 910
+ATOM    739  HA  ASN   224      15.282 -17.985  -4.833  1.00  5.64      1HRE 911
+ATOM    740 1HB  ASN   224      14.461 -20.402  -5.387  1.00  6.22      1HRE 912
+ATOM    741 2HB  ASN   224      14.398 -19.224  -6.696  1.00  5.82      1HRE 913
+ATOM    742 1HD2 ASN   224      16.185 -21.593  -8.615  1.00  4.58      1HRE 914
+ATOM    743 2HD2 ASN   224      14.729 -20.743  -8.413  1.00  4.16      1HRE 915
+ATOM    744  N   VAL   225      16.838 -18.812  -2.990  1.00  4.10      1HRE 916
+ATOM    745  CA  VAL   225      17.456 -19.391  -1.757  1.00  4.08      1HRE 917
+ATOM    746  C   VAL   225      17.390 -20.924  -1.672  1.00  4.29      1HRE 918
+ATOM    747  O   VAL   225      16.486 -21.475  -1.076  1.00  4.42      1HRE 919
+ATOM    748  CB  VAL   225      16.710 -18.814  -0.561  1.00  4.16      1HRE 920
+ATOM    749  CG1 VAL   225      17.607 -18.945   0.665  1.00  4.17      1HRE 921
+ATOM    750  CG2 VAL   225      16.430 -17.340  -0.830  1.00  4.46      1HRE 922
+ATOM    751  H   VAL   225      16.669 -17.850  -3.021  1.00  4.57      1HRE 923
+ATOM    752  HA  VAL   225      18.487 -19.075  -1.712  1.00  4.83      1HRE 924
+ATOM    753  HB  VAL   225      15.782 -19.345  -0.404  1.00  4.35      1HRE 925
+ATOM    754 1HG1 VAL   225      18.213 -19.834   0.572  1.00  3.89      1HRE 926
+ATOM    755 2HG1 VAL   225      18.254 -18.084   0.732  1.00  3.96      1HRE 927
+ATOM    756 3HG1 VAL   225      17.003 -19.013   1.555  1.00  3.95      1HRE 928
+ATOM    757 1HG2 VAL   225      17.181 -16.943  -1.489  1.00  4.59      1HRE 929
+ATOM    758 2HG2 VAL   225      15.474 -17.241  -1.295  1.00  4.16      1HRE 930
+ATOM    759 3HG2 VAL   225      16.432 -16.787   0.097  1.00  4.90      1HRE 931
+ATOM    760  N   PRO   226      18.352 -21.585  -2.280  1.00  4.82      1HRE 932
+ATOM    761  CA  PRO   226      18.409 -23.053  -2.272  1.00  5.11      1HRE 933
+ATOM    762  C   PRO   226      18.932 -23.549  -0.915  1.00  5.16      1HRE 934
+ATOM    763  O   PRO   226      19.846 -24.345  -0.838  1.00  5.56      1HRE 935
+ATOM    764  CB  PRO   226      19.405 -23.396  -3.405  1.00  5.59      1HRE 936
+ATOM    765  CG  PRO   226      20.068 -22.071  -3.859  1.00  5.95      1HRE 937
+ATOM    766  CD  PRO   226      19.425 -20.934  -3.055  1.00  5.71      1HRE 938
+ATOM    767  HA  PRO   226      17.424 -23.461  -2.469  1.00  5.91      1HRE 939
+ATOM    768 1HB  PRO   226      20.159 -24.082  -3.056  1.00  5.15      1HRE 940
+ATOM    769 2HB  PRO   226      18.874 -23.842  -4.234  1.00  6.14      1HRE 941
+ATOM    770 1HG  PRO   226      21.131 -22.105  -3.666  1.00  5.08      1HRE 942
+ATOM    771 2HG  PRO   226      19.897 -21.918  -4.915  1.00  5.29      1HRE 943
+ATOM    772 1HD  PRO   226      20.148 -20.493  -2.384  1.00  5.66      1HRE 944
+ATOM    773 2HD  PRO   226      19.012 -20.182  -3.709  1.00  6.11      1HRE 945
+ATOM    774  N   MET   227      18.326 -23.049   0.133  1.00  6.15      1HRE 946
+ATOM    775  CA  MET   227      18.739 -23.446   1.513  1.00  6.25      1HRE 947
+ATOM    776  C   MET   227      19.198 -24.901   1.584  1.00  6.89      1HRE 948
+ATOM    777  O   MET   227      18.401 -25.814   1.506  1.00  7.29      1HRE 949
+ATOM    778  CB  MET   227      17.533 -23.271   2.440  1.00  7.25      1HRE 950
+ATOM    779  CG  MET   227      18.022 -22.813   3.816  1.00  7.17      1HRE 951
+ATOM    780  SD  MET   227      16.824 -22.825   5.171  1.00  7.36      1HRE 952
+ATOM    781  CE  MET   227      17.880 -22.039   6.415  1.00  8.28      1HRE 953
+ATOM    782  H   MET   227      17.594 -22.408   0.012  1.00  8.39      1HRE 954
+ATOM    783  HA  MET   227      19.558 -22.807   1.829  1.00  8.60      1HRE 955
+ATOM    784 1HB  MET   227      16.862 -22.531   2.030  1.00 11.17      1HRE 956
+ATOM    785 2HB  MET   227      17.008 -24.209   2.536  1.00  9.52      1HRE 957
+ATOM    786 1HG  MET   227      18.850 -23.444   4.106  1.00 11.85      1HRE 958
+ATOM    787 2HG  MET   227      18.399 -21.806   3.721  1.00 11.58      1HRE 959
+ATOM    788 1HE  MET   227      18.881 -22.439   6.342  1.00 11.36      1HRE 960
+ATOM    789 2HE  MET   227      17.905 -20.974   6.243  1.00  7.05      1HRE 961
+ATOM    790 3HE  MET   227      17.484 -22.236   7.400  1.00  7.20      1HRE 962
+ATOM    791  N   LYS   228      20.484 -25.078   1.736  1.00  7.97      1HRE 963
+ATOM    792  CA  LYS   228      21.041 -26.455   1.820  1.00  8.26      1HRE 964
+ATOM    793  C   LYS   228      22.141 -26.510   2.881  1.00  8.66      1HRE 965
+ATOM    794  O   LYS   228      23.252 -26.922   2.611  1.00  8.47      1HRE 966
+ATOM    795  CB  LYS   228      21.649 -26.814   0.457  1.00  8.75      1HRE 967
+ATOM    796  CG  LYS   228      20.532 -27.230  -0.505  1.00  9.75      1HRE 968
+ATOM    797  CD  LYS   228      20.225 -28.718  -0.314  1.00  9.03      1HRE 969
+ATOM    798  CE  LYS   228      21.048 -29.533  -1.314  1.00  8.15      1HRE 970
+ATOM    799  NZ  LYS   228      22.439 -29.005  -1.402  1.00  7.99      1HRE 971
+ATOM    800  H   LYS   228      21.082 -24.305   1.796  1.00  8.31      1HRE 972
+ATOM    801  HA  LYS   228      20.250 -27.145   2.090  1.00  8.71      1HRE 973
+ATOM    802 1HB  LYS   228      22.170 -25.957   0.056  1.00  9.17      1HRE 974
+ATOM    803 2HB  LYS   228      22.349 -27.628   0.573  1.00  9.10      1HRE 975
+ATOM    804 1HG  LYS   228      19.645 -26.650  -0.304  1.00  9.16      1HRE 976
+ATOM    805 2HG  LYS   228      20.846 -27.054  -1.523  1.00  8.92      1HRE 977
+ATOM    806 1HD  LYS   228      20.477 -29.016   0.693  1.00  9.16      1HRE 978
+ATOM    807 2HD  LYS   228      19.173 -28.894  -0.482  1.00  9.53      1HRE 979
+ATOM    808 1HE  LYS   228      21.082 -30.565  -0.998  1.00  9.18      1HRE 980
+ATOM    809 2HE  LYS   228      20.587 -29.479  -2.289  1.00  9.33      1HRE 981
+ATOM    810 1HZ  LYS   228      22.414 -28.011  -1.706  1.00  9.98      1HRE 982
+ATOM    811 2HZ  LYS   228      22.894 -29.070  -0.468  1.00  9.50      1HRE 983
+ATOM    812 3HZ  LYS   228      22.980 -29.566  -2.090  1.00 10.84      1HRE 984
+ATOM    813  N   VAL   229      21.809 -26.092   4.072  1.00 10.49      1HRE 985
+ATOM    814  CA  VAL   229      22.823 -26.112   5.160  1.00 10.19      1HRE 986
+ATOM    815  C   VAL   229      22.170 -26.376   6.517  1.00 11.81      1HRE 987
+ATOM    816  O   VAL   229      20.962 -26.462   6.621  1.00 12.14      1HRE 988
+ATOM    817  CB  VAL   229      23.506 -24.736   5.190  1.00 12.53      1HRE 989
+ATOM    818  CG1 VAL   229      22.481 -23.662   5.580  1.00 12.51      1HRE 990
+ATOM    819  CG2 VAL   229      24.659 -24.747   6.203  1.00 12.64      1HRE 991
+ATOM    820  H   VAL   229      20.901 -25.768   4.248  1.00 12.83      1HRE 992
+ATOM    821  HA  VAL   229      23.546 -26.897   4.956  1.00 13.10      1HRE 993
+ATOM    822  HB  VAL   229      23.895 -24.512   4.210  1.00 12.38      1HRE 994
+ATOM    823 1HG1 VAL   229      21.615 -23.737   4.939  1.00 13.98      1HRE 995
+ATOM    824 2HG1 VAL   229      22.173 -23.795   6.606  1.00 14.04      1HRE 996
+ATOM    825 3HG1 VAL   229      22.921 -22.683   5.467  1.00 13.72      1HRE 997
+ATOM    826 1HG2 VAL   229      25.124 -25.721   6.216  1.00 14.24      1HRE 998
+ATOM    827 2HG2 VAL   229      25.395 -24.008   5.922  1.00 12.24      1HRE 999
+ATOM    828 3HG2 VAL   229      24.288 -24.517   7.190  1.00 12.43      1HRE1000
+ATOM    829  N   GLN   230      22.988 -26.503   7.526  1.00 13.40      1HRE1001
+ATOM    830  CA  GLN   230      22.449 -26.760   8.887  1.00 13.72      1HRE1002
+ATOM    831  C   GLN   230      21.230 -25.880   9.162  1.00 14.27      1HRE1003
+ATOM    832  O   GLN   230      21.131 -24.782   8.651  1.00 14.22      1HRE1004
+ATOM    833  CB  GLN   230      23.565 -26.431   9.894  1.00 15.47      1HRE1005
+ATOM    834  CG  GLN   230      22.970 -26.198  11.288  1.00 15.80      1HRE1006
+ATOM    835  CD  GLN   230      22.531 -24.737  11.448  1.00 15.87      1HRE1007
+ATOM    836  OE1 GLN   230      22.160 -24.309  12.522  1.00 16.03      1HRE1008
+ATOM    837  NE2 GLN   230      22.555 -23.939  10.415  1.00 16.29      1HRE1009
+ATOM    838  H   GLN   230      23.955 -26.428   7.387  1.00 16.18      1HRE1010
+ATOM    839  HA  GLN   230      22.157 -27.802   8.960  1.00 16.50      1HRE1011
+ATOM    840 1HB  GLN   230      24.258 -27.257   9.937  1.00 16.15      1HRE1012
+ATOM    841 2HB  GLN   230      24.098 -25.549   9.572  1.00 17.45      1HRE1013
+ATOM    842 1HG  GLN   230      22.120 -26.846  11.437  1.00 16.67      1HRE1014
+ATOM    843 2HG  GLN   230      23.716 -26.421  12.034  1.00 15.55      1HRE1015
+ATOM    844 1HE2 GLN   230      22.277 -23.004  10.513  1.00 14.32      1HRE1016
+ATOM    845 2HE2 GLN   230      22.851 -24.273   9.544  1.00 14.47      1HRE1017
+ATOM    846  N   ASN   231      20.321 -26.385   9.958  1.00 15.14      1HRE1018
+ATOM    847  CA  ASN   231      19.098 -25.600  10.283  1.00 15.47      1HRE1019
+ATOM    848  C   ASN   231      18.808 -25.629  11.783  1.00 15.70      1HRE1020
+ATOM    849  O   ASN   231      18.685 -24.597  12.412  1.00 15.77      1HRE1021
+ATOM    850  CB  ASN   231      17.911 -26.229   9.543  1.00 16.02      1HRE1022
+ATOM    851  CG  ASN   231      18.276 -26.416   8.070  1.00 16.37      1HRE1023
+ATOM    852  OD1 ASN   231      19.007 -27.316   7.709  1.00 16.03      1HRE1024
+ATOM    853  ND2 ASN   231      17.788 -25.588   7.187  1.00 16.19      1HRE1025
+ATOM    854  H   ASN   231      20.447 -27.279  10.339  1.00 16.25      1HRE1026
+ATOM    855  HA  ASN   231      19.242 -24.571   9.975  1.00 16.51      1HRE1027
+ATOM    856 1HB  ASN   231      17.677 -27.189   9.977  1.00 16.82      1HRE1028
+ATOM    857 2HB  ASN   231      17.049 -25.584   9.617  1.00 16.58      1HRE1029
+ATOM    858 1HD2 ASN   231      18.013 -25.695   6.239  1.00 16.52      1HRE1030
+ATOM    859 2HD2 ASN   231      17.198 -24.859   7.471  1.00 16.33      1HRE1031
+ATOM    860  N   GLN   232      18.705 -26.811  12.331  1.00 16.87      1HRE1032
+ATOM    861  CA  GLN   232      18.423 -26.917  13.788  1.00 16.87      1HRE1033
+ATOM    862  C   GLN   232      19.718 -27.013  14.597  1.00 17.68      1HRE1034
+ATOM    863  O   GLN   232      20.016 -28.036  15.177  1.00 17.61      1HRE1035
+ATOM    864  CB  GLN   232      17.587 -28.181  14.025  1.00 18.04      1HRE1036
+ATOM    865  CG  GLN   232      16.109 -27.851  13.809  1.00 18.94      1HRE1037
+ATOM    866  CD  GLN   232      15.598 -27.027  14.991  1.00 17.73      1HRE1038
+ATOM    867  OE1 GLN   232      16.358 -26.602  15.839  1.00 17.90      1HRE1039
+ATOM    868  NE2 GLN   232      14.320 -26.777  15.084  1.00 17.76      1HRE1040
+ATOM    869  H   GLN   232      18.812 -27.618  11.787  1.00 17.56      1HRE1041
+ATOM    870  HA  GLN   232      17.878 -26.032  14.103  1.00 18.80      1HRE1042
+ATOM    871 1HB  GLN   232      17.892 -28.953  13.334  1.00 19.15      1HRE1043
+ATOM    872 2HB  GLN   232      17.735 -28.531  15.035  1.00 19.40      1HRE1044
+ATOM    873 1HG  GLN   232      15.988 -27.284  12.899  1.00 19.82      1HRE1045
+ATOM    874 2HG  GLN   232      15.536 -28.765  13.738  1.00 18.90      1HRE1046
+ATOM    875 1HE2 GLN   232      13.978 -26.250  15.836  1.00 19.21      1HRE1047
+ATOM    876 2HE2 GLN   232      13.702 -27.116  14.404  1.00 18.60      1HRE1048
+ATOM    877  N   GLU   233      20.455 -25.935  14.621  1.00 18.96      1HRE1049
+ATOM    878  CA  GLU   233      21.739 -25.919  15.380  1.00 18.63      1HRE1050
+ATOM    879  C   GLU   233      22.647 -27.077  14.992  1.00 20.15      1HRE1051
+ATOM    880  O   GLU   233      22.338 -28.227  15.231  1.00 20.38      1HRE1052
+ATOM    881  CB  GLU   233      21.440 -26.040  16.880  1.00 21.50      1HRE1053
+ATOM    882  CG  GLU   233      22.695 -26.563  17.602  1.00 21.59      1HRE1054
+ATOM    883  CD  GLU   233      22.610 -26.201  19.086  1.00 21.84      1HRE1055
+ATOM    884  OE1 GLU   233      22.639 -25.012  19.354  1.00 22.54      1HRE1056
+ATOM    885  OE2 GLU   233      22.522 -27.133  19.866  1.00 22.52      1HRE1057
+ATOM    886  H   GLU   233      20.163 -25.133  14.138  1.00 22.27      1HRE1058
+ATOM    887  HA  GLU   233      22.256 -24.989  15.171  1.00 24.14      1HRE1059
+ATOM    888 1HB  GLU   233      21.171 -25.072  17.275  1.00 24.68      1HRE1060
+ATOM    889 2HB  GLU   233      20.620 -26.725  17.033  1.00 24.89      1HRE1061
+ATOM    890 1HG  GLU   233      22.759 -27.637  17.500  1.00 19.95      1HRE1062
+ATOM    891 2HG  GLU   233      23.583 -26.113  17.177  1.00 20.01      1HRE1063
+ATOM    892  N   LYS   234      23.761 -26.751  14.410  1.00 20.10      1HRE1064
+ATOM    893  CA  LYS   234      24.708 -27.815  13.999  1.00 20.22      1HRE1065
+ATOM    894  C   LYS   234      25.896 -27.210  13.255  1.00 20.17      1HRE1066
+ATOM    895  O   LYS   234      26.071 -26.008  13.237  1.00 21.02      1HRE1067
+ATOM    896  CB  LYS   234      23.996 -28.806  13.056  1.00 19.41      1HRE1068
+ATOM    897  CG  LYS   234      24.060 -30.214  13.653  1.00 19.09      1HRE1069
+ATOM    898  CD  LYS   234      23.625 -31.228  12.593  1.00 18.85      1HRE1070
+ATOM    899  CE  LYS   234      22.213 -30.886  12.114  1.00 20.28      1HRE1071
+ATOM    900  NZ  LYS   234      21.553 -32.090  11.536  1.00 20.59      1HRE1072
+ATOM    901  H   LYS   234      23.974 -25.809  14.242  1.00 20.99      1HRE1073
+ATOM    902  HA  LYS   234      25.063 -28.312  14.899  1.00 20.20      1HRE1074
+ATOM    903 1HB  LYS   234      22.965 -28.516  12.920  1.00 20.23      1HRE1075
+ATOM    904 2HB  LYS   234      24.486 -28.802  12.095  1.00 20.51      1HRE1076
+ATOM    905 1HG  LYS   234      25.071 -30.433  13.967  1.00 19.86      1HRE1077
+ATOM    906 2HG  LYS   234      23.401 -30.277  14.507  1.00 20.14      1HRE1078
+ATOM    907 1HD  LYS   234      24.309 -31.193  11.758  1.00 20.37      1HRE1079
+ATOM    908 2HD  LYS   234      23.634 -32.220  13.015  1.00 20.52      1HRE1080
+ATOM    909 1HE  LYS   234      21.625 -30.528  12.946  1.00 20.81      1HRE1081
+ATOM    910 2HE  LYS   234      22.262 -30.116  11.360  1.00 20.44      1HRE1082
+ATOM    911 1HZ  LYS   234      22.208 -32.896  11.575  1.00 20.11      1HRE1083
+ATOM    912 2HZ  LYS   234      20.696 -32.313  12.082  1.00 20.24      1HRE1084
+ATOM    913 3HZ  LYS   234      21.293 -31.901  10.547  1.00 19.95      1HRE1085
+ATOM    914  N   ALA   235      26.692 -28.052  12.654  1.00 20.40      1HRE1086
+ATOM    915  CA  ALA   235      27.866 -27.534  11.909  1.00 20.58      1HRE1087
+ATOM    916  C   ALA   235      27.409 -26.689  10.722  1.00 20.62      1HRE1088
+ATOM    917  O   ALA   235      26.269 -26.275  10.659  1.00 21.30      1HRE1089
+ATOM    918  CB  ALA   235      28.673 -28.728  11.385  1.00 21.36      1HRE1090
+ATOM    919  H   ALA   235      26.514 -29.014  12.695  1.00 21.19      1HRE1091
+ATOM    920  HA  ALA   235      28.467 -26.921  12.572  1.00 21.48      1HRE1092
+ATOM    921 1HB  ALA   235      28.302 -29.640  11.828  1.00 19.40      1HRE1093
+ATOM    922 2HB  ALA   235      28.575 -28.791  10.311  1.00 22.06      1HRE1094
+ATOM    923 3HB  ALA   235      29.715 -28.606  11.641  1.00 19.16      1HRE1095
+ATOM    924  N   GLU   236      28.304 -26.449   9.804  1.00 18.83      1HRE1096
+ATOM    925  CA  GLU   236      27.930 -25.632   8.618  1.00 19.24      1HRE1097
+ATOM    926  C   GLU   236      28.716 -26.077   7.387  1.00 17.72      1HRE1098
+ATOM    927  O   GLU   236      29.639 -26.860   7.493  1.00 17.25      1HRE1099
+ATOM    928  CB  GLU   236      28.256 -24.168   8.925  1.00 18.17      1HRE1100
+ATOM    929  CG  GLU   236      27.405 -23.707  10.112  1.00 18.11      1HRE1101
+ATOM    930  CD  GLU   236      27.437 -22.181  10.206  1.00 18.97      1HRE1102
+ATOM    931  OE1 GLU   236      28.422 -21.630   9.745  1.00 18.28      1HRE1103
+ATOM    932  OE2 GLU   236      26.473 -21.652  10.734  1.00 17.92      1HRE1104
+ATOM    933  H   GLU   236      29.214 -26.802   9.895  1.00 17.22      1HRE1105
+ATOM    934  HA  GLU   236      26.869 -25.760   8.424  1.00 18.52      1HRE1106
+ATOM    935 1HB  GLU   236      29.304 -24.072   9.169  1.00 18.75      1HRE1107
+ATOM    936 2HB  GLU   236      28.035 -23.561   8.061  1.00 18.98      1HRE1108
+ATOM    937 1HG  GLU   236      26.384 -24.032   9.977  1.00 17.35      1HRE1109
+ATOM    938 2HG  GLU   236      27.795 -24.127  11.026  1.00 17.09      1HRE1110
+ATOM    939  N   GLU   237      28.343 -25.573   6.239  1.00 16.47      1HRE1111
+ATOM    940  CA  GLU   237      29.074 -25.973   5.006  1.00 16.42      1HRE1112
+ATOM    941  C   GLU   237      28.978 -24.908   3.911  1.00 16.11      1HRE1113
+ATOM    942  O   GLU   237      29.982 -24.403   3.448  1.00 16.56      1HRE1114
+ATOM    943  CB  GLU   237      28.436 -27.265   4.474  1.00 15.72      1HRE1115
+ATOM    944  CG  GLU   237      28.821 -28.442   5.376  1.00 15.63      1HRE1116
+ATOM    945  CD  GLU   237      28.493 -29.752   4.659  1.00 14.65      1HRE1117
+ATOM    946  OE1 GLU   237      27.309 -30.026   4.544  1.00 17.28      1HRE1118
+ATOM    947  OE2 GLU   237      29.444 -30.406   4.266  1.00 17.29      1HRE1119
+ATOM    948  H   GLU   237      27.594 -24.942   6.192  1.00 18.27      1HRE1120
+ATOM    949  HA  GLU   237      30.118 -26.130   5.252  1.00 17.78      1HRE1121
+ATOM    950 1HB  GLU   237      27.360 -27.158   4.460  1.00 17.68      1HRE1122
+ATOM    951 2HB  GLU   237      28.783 -27.452   3.469  1.00 18.41      1HRE1123
+ATOM    952 1HG  GLU   237      29.878 -28.411   5.596  1.00 16.91      1HRE1124
+ATOM    953 2HG  GLU   237      28.263 -28.394   6.299  1.00 15.88      1HRE1125
+ATOM    954  N   LEU   238      27.774 -24.593   3.516  1.00 14.72      1HRE1126
+ATOM    955  CA  LEU   238      27.592 -23.567   2.451  1.00 14.06      1HRE1127
+ATOM    956  C   LEU   238      28.239 -22.231   2.826  1.00 14.68      1HRE1128
+ATOM    957  O   LEU   238      29.188 -22.185   3.582  1.00 15.42      1HRE1129
+ATOM    958  CB  LEU   238      26.080 -23.362   2.243  1.00 13.72      1HRE1130
+ATOM    959  CG  LEU   238      25.767 -23.159   0.751  1.00 13.81      1HRE1131
+ATOM    960  CD1 LEU   238      26.115 -24.427  -0.040  1.00 13.72      1HRE1132
+ATOM    961  CD2 LEU   238      24.269 -22.877   0.590  1.00 13.02      1HRE1133
+ATOM    962  H   LEU   238      26.994 -25.029   3.918  1.00 13.14      1HRE1134
+ATOM    963  HA  LEU   238      28.060 -23.929   1.545  1.00 13.40      1HRE1135
+ATOM    964 1HB  LEU   238      25.549 -24.226   2.608  1.00 14.29      1HRE1136
+ATOM    965 2HB  LEU   238      25.759 -22.494   2.800  1.00 13.56      1HRE1137
+ATOM    966  HG  LEU   238      26.336 -22.325   0.369  1.00 12.88      1HRE1138
+ATOM    967 1HD1 LEU   238      26.181 -25.272   0.630  1.00 12.16      1HRE1139
+ATOM    968 2HD1 LEU   238      25.351 -24.619  -0.778  1.00 12.33      1HRE1140
+ATOM    969 3HD1 LEU   238      27.064 -24.297  -0.538  1.00 11.76      1HRE1141
+ATOM    970 1HD2 LEU   238      23.937 -22.205   1.367  1.00 12.08      1HRE1142
+ATOM    971 2HD2 LEU   238      24.083 -22.424  -0.372  1.00 15.67      1HRE1143
+ATOM    972 3HD2 LEU   238      23.712 -23.799   0.661  1.00 14.90      1HRE1144
+ATOM    973  N   TYR   239      27.703 -21.169   2.279  1.00 14.48      1HRE1145
+ATOM    974  CA  TYR   239      28.255 -19.817   2.572  1.00 14.10      1HRE1146
+ATOM    975  C   TYR   239      28.672 -19.668   4.034  1.00 14.93      1HRE1147
+ATOM    976  O   TYR   239      29.702 -19.094   4.327  1.00 15.76      1HRE1148
+ATOM    977  CB  TYR   239      27.176 -18.775   2.248  1.00 14.05      1HRE1149
+ATOM    978  CG  TYR   239      25.904 -19.077   3.046  1.00 13.95      1HRE1150
+ATOM    979  CD1 TYR   239      25.775 -18.647   4.350  1.00 12.87      1HRE1151
+ATOM    980  CD2 TYR   239      24.864 -19.776   2.466  1.00 14.67      1HRE1152
+ATOM    981  CE1 TYR   239      24.624 -18.913   5.064  1.00 11.90      1HRE1153
+ATOM    982  CE2 TYR   239      23.713 -20.041   3.180  1.00 11.83      1HRE1154
+ATOM    983  CZ  TYR   239      23.584 -19.611   4.485  1.00 13.25      1HRE1155
+ATOM    984  OH  TYR   239      22.433 -19.875   5.198  1.00 14.27      1HRE1156
+ATOM    985  H   TYR   239      26.936 -21.263   1.678  1.00 11.15      1HRE1157
+ATOM    986  HA  TYR   239      29.130 -19.661   1.948  1.00 10.59      1HRE1158
+ATOM    987 1HB  TYR   239      27.532 -17.789   2.505  1.00 13.39      1HRE1159
+ATOM    988 2HB  TYR   239      26.945 -18.808   1.193  1.00 12.72      1HRE1160
+ATOM    989  HD1 TYR   239      26.581 -18.100   4.817  1.00 11.73      1HRE1161
+ATOM    990  HD2 TYR   239      24.950 -20.110   1.444  1.00 11.71      1HRE1162
+ATOM    991  HE1 TYR   239      24.536 -18.570   6.084  1.00 15.42      1HRE1163
+ATOM    992  HE2 TYR   239      22.906 -20.590   2.714  1.00 12.15      1HRE1164
+ATOM    993  HH  TYR   239      22.042 -19.036   5.452  1.00 16.26      1HRE1165
+ATOM    994  N   GLN   240      27.872 -20.181   4.923  1.00 15.09      1HRE1166
+ATOM    995  CA  GLN   240      28.228 -20.066   6.360  1.00 14.58      1HRE1167
+ATOM    996  C   GLN   240      29.414 -20.968   6.697  1.00 15.68      1HRE1168
+ATOM    997  O   GLN   240      29.308 -22.177   6.653  1.00 16.62      1HRE1169
+ATOM    998  CB  GLN   240      27.013 -20.494   7.192  1.00 15.07      1HRE1170
+ATOM    999  CG  GLN   240      26.676 -19.387   8.192  1.00 15.05      1HRE1171
+ATOM   1000  CD  GLN   240      25.521 -19.846   9.084  1.00 14.63      1HRE1172
+ATOM   1001  OE1 GLN   240      24.650 -20.582   8.662  1.00 15.67      1HRE1173
+ATOM   1002  NE2 GLN   240      25.474 -19.434  10.321  1.00 15.68      1HRE1174
+ATOM   1003  H   GLN   240      27.049 -20.637   4.649  1.00 16.31      1HRE1175
+ATOM   1004  HA  GLN   240      28.499 -19.036   6.573  1.00 15.81      1HRE1176
+ATOM   1005 1HB  GLN   240      26.168 -20.664   6.540  1.00 16.40      1HRE1177
+ATOM   1006 2HB  GLN   240      27.239 -21.404   7.722  1.00 15.79      1HRE1178
+ATOM   1007 1HG  GLN   240      27.538 -19.173   8.806  1.00 16.87      1HRE1179
+ATOM   1008 2HG  GLN   240      26.383 -18.492   7.663  1.00 16.65      1HRE1180
+ATOM   1009 1HE2 GLN   240      24.740 -19.719  10.905  1.00 16.14      1HRE1181
+ATOM   1010 2HE2 GLN   240      26.173 -18.840  10.667  1.00 15.98      1HRE1182
+ATOM   1011  N   LYS   241      30.523 -20.360   7.023  1.00 16.37      1HRE1183
+ATOM   1012  CA  LYS   241      31.728 -21.165   7.365  1.00 16.90      1HRE1184
+ATOM   1013  C   LYS   241      31.689 -21.623   8.820  1.00 16.86      1HRE1185
+ATOM   1014  O   LYS   241      30.652 -22.142   9.195  1.00 16.55      1HRE1186
+ATOM   1015  CB  LYS   241      32.969 -20.288   7.156  1.00 17.63      1HRE1187
+ATOM   1016  CG  LYS   241      32.956 -19.142   8.170  1.00 18.07      1HRE1188
+ATOM   1017  CD  LYS   241      33.350 -17.842   7.466  1.00 18.61      1HRE1189
+ATOM   1018  CE  LYS   241      33.375 -16.708   8.492  1.00 19.51      1HRE1190
+ATOM   1019  NZ  LYS   241      34.723 -16.073   8.537  1.00 20.75      1HRE1191
+ATOM   1020  OXT LYS   241      32.699 -21.432   9.477  1.00 17.47      1HRE1192
+ATOM   1021  H   LYS   241      30.562 -19.382   7.043  1.00 16.53      1HRE1193
+ATOM   1022  HA  LYS   241      31.760 -22.038   6.722  1.00 17.23      1HRE1194
+ATOM   1023 1HB  LYS   241      33.861 -20.881   7.293  1.00 18.21      1HRE1195
+ATOM   1024 2HB  LYS   241      32.963 -19.884   6.154  1.00 17.50      1HRE1196
+ATOM   1025 1HG  LYS   241      31.966 -19.040   8.591  1.00 17.46      1HRE1197
+ATOM   1026 2HG  LYS   241      33.658 -19.350   8.963  1.00 18.94      1HRE1198
+ATOM   1027 1HD  LYS   241      34.328 -17.951   7.023  1.00 19.38      1HRE1199
+ATOM   1028 2HD  LYS   241      32.631 -17.617   6.692  1.00 17.82      1HRE1200
+ATOM   1029 1HE  LYS   241      32.642 -15.961   8.223  1.00 19.46      1HRE1201
+ATOM   1030 2HE  LYS   241      33.137 -17.098   9.469  1.00 19.45      1HRE1202
+ATOM   1031 1HZ  LYS   241      35.370 -16.589   7.907  1.00 20.71      1HRE1203
+ATOM   1032 2HZ  LYS   241      34.650 -15.085   8.224  1.00 21.01      1HRE1204
+ATOM   1033 3HZ  LYS   241      35.089 -16.103   9.509  1.00 21.51      1HRE1205
+TER    1034      LYS   241                                              1HRE1206
+CONECT  114  113  311                                                   1HRE1207
+CONECT  242  241  541                                                   1HRE1208
+CONECT  311  114  310                                                   1HRE1209
+CONECT  541  242  540                                                   1HRE1210
+CONECT  573  572  696                                                   1HRE1211
+CONECT  696  573  695                                                   1HRE1212
+MASTER      135    0    0    0    5    1    0    6 1033    1    6    6  1HRE1213
+END                                                                     1HRE1214

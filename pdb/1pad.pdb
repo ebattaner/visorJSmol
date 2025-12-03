@@ -1,0 +1,3742 @@
+HEADER    HYDROLASE (SULFHYDRYL PROTEINASE)       01-NOV-76  
+1PAD      1PAD   3
+COMPND    PAPAIN (E.C.3.4.22.2) -ACETYL-ALANYL-ALANYL-         
+        1PADB  1
+COMPND   2 PHENYLALANYL-METHYLENYLALANYL DERIVATIVE OF         
+        1PADB  2
+COMPND   3 CYSTEINE 25 (/ACAAPACK)                             
+        1PADB  3
+SOURCE    PAPAYA (CARICA PAPAYA) FRUIT LATEX                   
+        1PADB  4
+AUTHOR    J.DRENTH,K.H.KALK,H.M.SWEN                           
+        1PADB  5
+REVDAT   8   17-FEB-84 1PADG   1       REMARK                  
+        1PADG  1
+REVDAT   7   30-SEP-83 1PADF   1       REVDAT                  
+        1PADF  1
+REVDAT   6   14-SEP-81 1PADE   1       REMARK                  
+        1PADF  2
+REVDAT   5   31-DEC-80 1PADD   1       REMARK                  
+        1PADF  3
+REVDAT   4   30-DEC-77 1PADC   1       REMARK                  
+        1PADF  4
+REVDAT   3   01-NOV-77 1PADB   1       COMPND SOURCE AUTHOR
+REMARK      1PADF  5
+REVDAT   3 2                   1       FORMUL SSBOND           
+        1PADF  6
+REVDAT   2   27-SEP-77 1PADA   1       SEQRES                  
+        1PADF  7
+REVDAT   1   12-APR-77 1PAD    0                               
+        1PADF  8
+SPRSDE     12-APR-77 1PAD      2PAP                            
+        1PADF  9
+REMARK   1                                                     
+        1PADB  6
+REMARK   1 REFERENCE 1                                         
+        1PADB  7
+REMARK   1  AUTH   J.DRENTH,K.H.KALK,H.M.SWEN                  
+        1PADB  8
+REMARK   1  TITL   BINDING OF CHLOROMETHYL KETONE SUBSTRATE    
+        1PADB  9
+REMARK   1  TITL 2 ANALOGUES TO CRYSTALLINE PAPAIN             
+        1PADB 10
+REMARK   1  REF    BIOCHEMISTRY                  V.  15  3731
+1976      1PADG  2
+REMARK   1  REFN   ASTM BICHAW  US ISSN 0006-2960              
+   033  1PADB 12
+REMARK   1 REFERENCE 2                                         
+        1PADB 13
+REMARK   1  AUTH   J.DRENTH,J.N.JANSONIUS,R.KOEKOEK,B.G.WOLTHERS 
+      1PADB 14
+REMARK   1  TITL   THE STRUCTURE OF PAPAIN                     
+        1PADB 15
+REMARK   1  REF    ADV.PROTEIN CHEM.             V.  25    79
+1971      1PADB 16
+REMARK   1  REFN   ASTM APCHA2  US ISSN 0065-3233              
+   433  1PADE  1
+REMARK   1 REFERENCE 3                                         
+        1PADB 18
+REMARK   1  AUTH  
+J.DRENTH,J.N.JANSONIUS,R.KOEKOEK,L.A.A.SLUYTERMAN,   1PADB 19
+REMARK   1  AUTH 2 B.G.WOLTHERS                                
+        1PADB 20
+REMARK   1  TITL   THE STRUCTURE OF THE PAPAIN MOLECULE        
+        1PADB 21
+REMARK   1  REF    PHILOS.TRANS.R.SOC.LONDON,    V. 257   231
+1970      1PADG  3
+REMARK   1  REF  2 SER.B                                       
+        1PADB 23
+REMARK   1  REFN   ASTM PTRBAE  UK ISSN 0080-4622              
+   441  1PADC  1
+REMARK   1 REFERENCE 4                                         
+        1PADB 25
+REMARK   1  AUTH   J.DRENTH,J.N.JANSONIUS,R.KOEKOEK,H.M.SWEN,  
+        1PADB 26
+REMARK   1  AUTH 2 B.G.WOLTHERS                                
+        1PADB 27
+REMARK   1  TITL   STRUCTURE OF PAPAIN                         
+        1PADB 28
+REMARK   1  REF    NATURE                        V. 218   929
+1968      1PADB 29
+REMARK   1  REFN   ASTM NATUAS  UK ISSN 0028-0836              
+   006  1PADB 30
+REMARK   1 REFERENCE 5                                         
+        1PADB 31
+REMARK   1  EDIT   R.J.FELDMANN                                
+        1PADB 32
+REMARK   1  REF    ATLAS OF MACROMOLECULAR                250
+1976      1PADB 33
+REMARK   1  REF  2 STRUCTURE ON MICROFICHE                     
+        1PADB 34
+REMARK   1  PUBL   TRACOR JITCO INC.,ROCKVILLE,MD.             
+        1PADB 35
+REMARK   1  REFN                   ISBN 0-917934-01-6          
+   434  1PADB 36
+REMARK   1 REFERENCE 6                                         
+        1PADB 37
+REMARK   1  EDIT   M.O.DAYHOFF                                 
+        1PADB 38
+REMARK   1  REF    ATLAS OF PROTEIN SEQUENCE     V.   5   121
+1972      1PADB 39
+REMARK   1  REF  2 AND STRUCTURE (DATA SECTION)                
+        1PADB 40
+REMARK   1  PUBL   NATIONAL BIOMEDICAL RESEARCH FOUNDATION,    
+        1PADB 41
+REMARK   1  PUBL 2 SILVER SPRING,MD.                           
+        1PADB 42
+REMARK   1  REFN                   ISBN 0-912466-02-2          
+   435  1PADB 43
+REMARK   2                                                     
+        1PAD  22
+REMARK   2 RESOLUTION. 2.8 ANGSTROMS.                          
+        1PADD  1
+REMARK   3                                                     
+        1PAD  24
+REMARK   3 REFINEMENT. BY THE MODEL BUILDING PROCEDURE OF R.
+DIAMOND.   1PAD  25
+REMARK   3  THE COORDINATES OF THE INHIBITOR WERE NOT REFINED. 
+        1PAD  26
+REMARK   4                                                     
+        1PAD  27
+REMARK   4 THIS DATA SET WAS OBTAINED BY MERGING THE INHIBITOR 
+        1PAD  28
+REMARK   4 COORDINATES WITH THE REFINED NATIVE PAPAIN COORDINATES 
+     1PAD  29
+REMARK   4 OF SET 8PAP.  THE CONFORMATION OF RESIDUE CYS 25 IN
+THIS     1PAD  30
+REMARK   4 DERIVATIVE STRUCTURE IS NOT THE SAME AS THAT IN THE
+NATIVE   1PAD  31
+REMARK   4 ENZYME AND THIS FACT IS REFLECTED IN THE COORDINATES 
+       1PAD  32
+REMARK   4 GIVEN BELOW.                                        
+        1PAD  33
+REMARK   5                                                     
+        1PAD  34
+REMARK   5 THE SHEET SUBSTRUCTURE OF THIS MOLECULE IS DOUBLY   
+        1PAD  35
+REMARK   5 BIFURCATED.  IN ORDER TO REPRESENT THIS FEATURE IN THE 
+     1PAD  36
+REMARK   5 SHEET RECORDS BELOW, TWO SHEETS ARE DEFINED. STRANDS
+4,5,6   1PAD  37
+REMARK   5 OF S1A ARE IDENTICAL TO STRANDS 2,3,4 OF S1B.       
+        1PAD  38
+REMARK   6                                                     
+        1PAD  39
+REMARK   6 THE AXIAL SYSTEM OF THIS COORDINATE SET IS RELATED TO
+THE    1PAD  40
+REMARK   6 CRYSTALLOGRAPHIC AXES BY THE FOLLOWING -            
+        1PAD  41
+REMARK   6      (I) ITS ORIGIN IS DISPLACED BY THE VECTOR      
+        1PAD  42
+REMARK   6          (11.6,-101.2,-38.55) IN ANGSTROMS.         
+        1PAD  43
+REMARK   6      (II) ROTATION OF THE OLD AXES BY +178.785 DEGREES 
+     1PAD  44
+REMARK   6           ABOUT X.                                  
+        1PAD  45
+REMARK   6 A PRECISE STATEMENT OF THIS TRANSFORMATION IS
+CONTAINED      1PAD  46
+REMARK   6 IN THE SCALE RECORDS BELOW WHICH CAN BE USED TO
+PRODUCE      1PAD  47
+REMARK   6 FRACTIONAL CRYSTALLOGRAPHIC COORDINATES FROM THOSE  
+        1PAD  48
+REMARK   6 STORED HERE.                                        
+        1PAD  49
+REMARK   7                                                     
+        1PAD  50
+REMARK   7 THE PEPTIDE INHIBITOR DERIVATIVE IS GIVEN THE CHAIN 
+        1PAD  51
+REMARK   7 IDENTIFIER I AND IS LISTED AT THE END OF THE
+COORDINATE SET  1PAD  52
+REMARK   7 FOR THE MAIN PROTEIN. THIS INHIBITOR CONTAINS A
+MODIFIED     1PAD  53
+REMARK   7 ALANINE RESIDUE DEFINED IN THE HET RECORD BELOW.    
+        1PAD  54
+REMARK   8                                                     
+        1PAD  55
+REMARK   8 THE PEPTIDE INHIBITOR DERIVATIVE (ACE-ALA-PHE-ALA-ALM)
+IS    1PAD  56
+REMARK   8 COVALENTLY BOUND THROUGN THE CM ATOM OF ALM I 5 TO
+ATOM SG   1PAD  57
+REMARK   8 OF CYS-25.                                          
+        1PAD  58
+REMARK   9                                                     
+        1PADA  1
+REMARK   9 CORRECTION. INSERT SEQRES RECORD FOR THE INHIBITOR
+CHAIN.    1PADA  2
+REMARK   9  27-SEP-77.                                         
+        1PADA  3
+REMARK  10                                                     
+        1PADB 44
+REMARK  10 CORRECTION. REFORMAT HEADER INFORMATION TO MEET NEW 
+        1PADB 45
+REMARK  10  SPECIFICATIONS.                                    
+        1PADB 46
+REMARK  10  ADD FORMUL RECORDS.                                
+        1PADB 47
+REMARK  10  ADD SSBOND RECORDS.                                
+        1PADB 48
+REMARK  10  01-NOV-77.                                         
+        1PADB 49
+REMARK  11                                                     
+        1PADC  2
+REMARK  11 CORRECTION. CHANGE CODEN ON REFN RECORD OF REFERENCE
+3.      1PADC  3
+REMARK  11  30-DEC-77.                                         
+        1PADC  4
+REMARK  12                                                     
+        1PADD  2
+REMARK  12 CORRECTION. STANDARDIZE FORMAT OF REMARK 2. 
+31-DEC-80.      1PADD  3
+REMARK  13                                                     
+        1PADE  2
+REMARK  13 CORRECTION. CORRECT ASTM CODE FOR REFERENCE 2. 
+14-SEP-81.   1PADE  3
+REMARK  14                                                     
+        1PADF 10
+REMARK  14 CORRECTION. INSERT REVDAT RECORDS. 30-SEP-83.       
+        1PADF 11
+REMARK  15                                                     
+        1PADG  4
+REMARK  15 CORRECTION. CORRECT JOURNAL NAME FOR REFERENCES 1 AND
+3.     1PADG  5
+REMARK  15  17-FEB-84.                                         
+        1PADG  6
+SEQRES   1    212  ILE PRO GLU TYR VAL ASP TRP ARG GLN LYS GLY
+ALA VAL  1PAD  59
+SEQRES   2    212  THR PRO VAL LYS ASN GLN GLY SER CYS GLY SER
+CYS TRP  1PAD  60
+SEQRES   3    212  ALA PHE SER ALA VAL VAL THR ILE GLU GLY ILE
+ILE LYS  1PAD  61
+SEQRES   4    212  ILE ARG THR GLY ASN LEU ASN GLN TYR SER GLU
+GLN GLU  1PAD  62
+SEQRES   5    212  LEU LEU ASP CYS ASP ARG ARG SER TYR GLY CYS
+ASN GLY  1PAD  63
+SEQRES   6    212  GLY TYR PRO TRP SER ALA LEU GLN LEU VAL ALA
+GLN TYR  1PAD  64
+SEQRES   7    212  GLY ILE HIS TYR ARG ASN THR TYR PRO TYR GLU
+GLY VAL  1PAD  65
+SEQRES   8    212  GLN ARG TYR CYS ARG SER ARG GLU LYS GLY PRO
+TYR ALA  1PAD  66
+SEQRES   9    212  ALA LYS THR ASP GLY VAL ARG GLN VAL GLN PRO
+TYR ASN  1PAD  67
+SEQRES  10    212  GLN GLY ALA LEU LEU TYR SER ILE ALA ASN GLN
+PRO VAL  1PAD  68
+SEQRES  11    212  SER VAL VAL LEU GLN ALA ALA GLY LYS ASP PHE
+GLN LEU  1PAD  69
+SEQRES  12    212  TYR ARG GLY GLY ILE PHE VAL GLY PRO CYS GLY
+ASN LYS  1PAD  70
+SEQRES  13    212  VAL ASP HIS ALA VAL ALA ALA VAL GLY TYR GLY
+PRO ASN  1PAD  71
+SEQRES  14    212  TYR ILE LEU ILE LYS ASN SER TRP GLY THR GLY
+TRP GLY  1PAD  72
+SEQRES  15    212  GLU ASN GLY TYR ILE ARG ILE LYS ARG GLY THR
+GLY ASN  1PAD  73
+SEQRES  16    212  SER TYR GLY VAL CYS GLY LEU TYR THR SER SER
+PHE TYR  1PAD  74
+SEQRES  17    212  PRO VAL LYS ASN                             
+        1PAD  75
+SEQRES   1 I    5  ACE ALA ALA PHE ALM                         
+        1PADA  4
+FTNOTE   1                                                     
+        1PAD  76
+FTNOTE   1 RESIDUE 152 IS A CIS PROLINE.                       
+        1PAD  77
+FTNOTE   2                                                     
+        1PAD  78
+FTNOTE   2 SOME COORDINATES WERE AFFECTED BY THE BINDING OF THE 
+       1PAD  79
+FORMUL   2  ALM    C4 H7 N1 O1                                 
+        1PADB 50
+FORMUL   3  HOH   *32(H2 O1)                                   
+        1PADB 51
+HELIX    1  H1 SER     24  GLY     43  1                       
+        1PAD  82
+HELIX    2  H2 GLU     50  ARG     58  1                       
+        1PAD  83
+HELIX    3  H3 TYR     67  TYR     78  1                       
+        1PAD  84
+HELIX    4  H4 ASN    117  GLN    128  1                       
+        1PAD  85
+HELIX    5  H5 ALA    137  LEU    143  1                       
+        1PAD  86
+SHEET    1 S1A 7 ARG   111  GLN   112  0                       
+        1PAD  87
+SHEET    2 S1A 7 SER   206  TYR   208 -1  N  TYR   208   O  ARG 
+ 111   1PAD  88
+SHEET    3 S1A 7 VAL   130  SER   131 -1  N  SER   131   O  PHE 
+ 207   1PAD  89
+SHEET    4 S1A 7 ALA   162  GLY   167 -1  N  ALA   163   O  VAL 
+ 130   1PAD  90
+SHEET    5 S1A 7 ASN   169  ASN   175 -1  N  LYS   174   O  ALA 
+ 162   1PAD  91
+SHEET    6 S1A 7 GLY   185  ARG   191 -1  N  ILE   187   O  ILE 
+ 173   1PAD  92
+SHEET    7 S1A 7 GLU   183  GLU   183 -1  N  GLU   183   O  TYR 
+ 186   1PAD  93
+SHEET    1 S1B 5 VAL     5  TRP     7  0                       
+        1PAD  94
+SHEET    2 S1B 5 ALA   162  GLY   167 -1  N  TYR   166   O  VAL 
+   5   1PAD  95
+SHEET    3 S1B 5 ASN   169  ASN   175 -1  N  LEU   172   O  GLY 
+ 165   1PAD  96
+SHEET    4 S1B 5 GLY   185  ARG   191 -1  N  ILE   189   O  ILE 
+ 171   1PAD  97
+SHEET    5 S1B 5 PHE   149  PHE   149  1  N  PHE   149   O  ARG 
+ 188   1PAD  98
+TURN     1  T1 GLY    62  GLY    65                            
+        1PAD  99
+TURN     2  T2 GLY   167  TYR   170                            
+        1PAD 100
+SSBOND   1 CYS     22    CYS     63                            
+        1PADB 52
+SSBOND   2 CYS     56    CYS     95                            
+        1PADB 53
+SSBOND   3 CYS    153    CYS    200                            
+        1PADB 54
+CRYST1   45.000  104.300   50.800  90.00  90.00  90.00 P 21 21
+21    4  1PAD 101
+ORIGX1      1.000000  0.000000  0.000000       0.000000        
+        1PAD 102
+ORIGX2      0.000000  1.000000  0.000000       0.000000        
+        1PAD 103
+ORIGX3      0.000000  0.000000  1.000000       0.000000        
+        1PAD 104
+SCALE1       .022222  0.000000  0.000000        .257778        
+        1PAD 105
+SCALE2      0.000000  -.009855   .000208        .962041        
+        1PAD 106
+SCALE3      0.000000  -.000427  -.019680        .801848        
+        1PAD 107
+ATOM      1  N   ILE     1      25.587  42.032  42.654  1.00 
+0.00      1PAD 108
+ATOM      2  CA  ILE     1      25.055  41.848  41.298  1.00 
+0.00      1PAD 109
+ATOM      3  C   ILE     1      26.324  42.469  40.711  1.00 
+0.00      1PAD 110
+ATOM      4  O   ILE     1      26.407  43.700  40.510  1.00 
+0.00      1PAD 111
+ATOM      5  CB  ILE     1      23.722  42.611  41.094  1.00 
+0.00      1PAD 112
+ATOM      6  CG1 ILE     1      22.499  41.851  41.675  1.00 
+0.00      1PAD 113
+ATOM      7  CG2 ILE     1      23.722  42.840  39.581  1.00 
+0.00      1PAD 114
+ATOM      8  CD1 ILE     1      22.357  40.404  41.150  1.00 
+0.00      1PAD 115
+ATOM      9  N   PRO     2      27.281  41.592  40.445  1.00 
+0.00      1PAD 116
+ATOM     10  CA  PRO     2      28.577  41.969  39.866  1.00 
+0.00      1PAD 117
+ATOM     11  C   PRO     2      28.344  42.913  38.686  1.00 
+0.00      1PAD 118
+ATOM     12  O   PRO     2      27.218  43.013  38.152  1.00 
+0.00      1PAD 119
+ATOM     13  CB  PRO     2      29.193  40.662  39.478  1.00 
+0.00      1PAD 120
+ATOM     14  CG  PRO     2      28.035  39.704  39.271  1.00 
+0.00      1PAD 121
+ATOM     15  CD  PRO     2      26.971  40.186  40.255  1.00 
+0.00      1PAD 122
+ATOM     16  N   GLU     3      29.423  43.579  38.306  1.00 
+0.00      1PAD 123
+ATOM     17  CA  GLU     3      29.427  44.529  37.186  1.00 
+0.00      1PAD 124
+ATOM     18  C   GLU     3      29.650  43.704  35.918  1.00 
+0.00      1PAD 125
+ATOM     19  O   GLU     3      29.374  44.168  34.790  1.00 
+0.00      1PAD 126
+ATOM     20  CB  GLU     3      30.555  45.590  37.337  1.00 
+0.00      1PAD 127
+ATOM     21  CG  GLU     3      30.537  46.768  36.341  1.00 
+0.00      1PAD 128
+ATOM     22  CD  GLU     3      31.578  47.911  36.646  1.00 
+0.00      1PAD 129
+ATOM     23  OE1 GLU     3      32.381  47.812  37.524  1.00 
+0.00      1PAD 130
+ATOM     24  OE2 GLU     3      31.387  48.824  35.842  1.00 
+0.00      1PAD 131
+ATOM     25  N   TYR     4      30.140  42.494  36.139  1.00 
+0.00      1PAD 132
+ATOM     26  CA  TYR     4      30.418  41.532  35.066  1.00 
+0.00      1PAD 133
+ATOM     27  C   TYR     4      29.924  40.132  35.433  1.00 
+0.00      1PAD 134
+ATOM     28  O   TYR     4      30.163  39.637  36.556  1.00 
+0.00      1PAD 135
+ATOM     29  CB  TYR     4      31.933  41.518  34.792  1.00 
+0.00      1PAD 136
+ATOM     30  CG  TYR     4      32.468  42.883  34.332  1.00 
+0.00      1PAD 137
+ATOM     31  CD1 TYR     4      32.407  43.273  33.021  1.00 
+0.00      1PAD 138
+ATOM     32  CD2 TYR     4      32.956  43.765  35.314  1.00 
+0.00      1PAD 139
+ATOM     33  CE1 TYR     4      32.893  44.547  32.596  1.00 
+0.00      1PAD 140
+ATOM     34  CE2 TYR     4      33.456  45.067  34.890  1.00 
+0.00      1PAD 141
+ATOM     35  CZ  TYR     4      33.371  45.414  33.588  1.00 
+0.00      1PAD 142
+ATOM     36  OH  TYR     4      33.821  46.655  33.190  1.00 
+0.00      1PAD 143
+ATOM     37  N   VAL     5      29.248  39.527  34.468  1.00 
+0.00      1PAD 144
+ATOM     38  CA  VAL     5      28.693  38.174  34.602  1.00 
+0.00      1PAD 145
+ATOM     39  C   VAL     5      28.947  37.239  33.419  1.00 
+0.00      1PAD 146
+ATOM     40  O   VAL     5      28.236  37.291  32.392  1.00 
+0.00      1PAD 147
+ATOM     41  CB  VAL     5      27.187  38.251  34.815  1.00 
+0.00      1PAD 148
+ATOM     42  CG1 VAL     5      26.484  36.883  34.994  1.00 
+0.00      1PAD 149
+ATOM     43  CG2 VAL     5      26.817  39.232  35.897  1.00 
+0.00      1PAD 150
+ATOM     44  N   ASP     6      29.957  36.402  33.599  1.00 
+0.00      1PAD 151
+ATOM     45  CA  ASP     6      30.367  35.410  32.597  1.00 
+0.00      1PAD 152
+ATOM     46  C   ASP     6      30.301  34.059  33.310  1.00 
+0.00      1PAD 153
+ATOM     47  O   ASP     6      30.949  33.851  34.359  1.00 
+0.00      1PAD 154
+ATOM     48  CB  ASP     6      31.781  35.750  32.080  1.00 
+0.00      1PAD 155
+ATOM     49  CG  ASP     6      32.183  34.847  30.944  1.00 
+0.00      1PAD 156
+ATOM     50  OD1 ASP     6      32.651  33.729  31.073  1.00 
+0.00      1PAD 157
+ATOM     51  OD2 ASP     6      31.958  35.270  29.842  1.00 
+0.00      1PAD 158
+ATOM     52  N   TRP     7      29.520  33.171  32.715  1.00 
+0.00      1PAD 159
+ATOM     53  CA  TRP     7      29.321  31.808  33.222  1.00 
+0.00      1PAD 160
+ATOM     54  C   TRP     7      30.270  30.808  32.560  1.00 
+0.00      1PAD 161
+ATOM     55  O   TRP     7      30.421  29.657  33.023  1.00 
+0.00      1PAD 162
+ATOM     56  CB  TRP     7      27.866  31.404  32.989  1.00 
+0.00      1PAD 163
+ATOM     57  CG  TRP     7      26.799  32.020  33.968  1.00 
+0.00      1PAD 164
+ATOM     58  CD1 TRP     7      25.703  32.737  33.685  1.00 
+0.00      1PAD 165
+ATOM     59  CD2 TRP     7      26.786  31.867  35.358  1.00 
+0.00      1PAD 166
+ATOM     60  NE1 TRP     7      25.029  33.108  34.916  1.00 
+0.00      1PAD 167
+ATOM     61  CE2 TRP     7      25.652  32.554  35.881  1.00 
+0.00      1PAD 168
+ATOM     62  CE3 TRP     7      27.633  31.212  36.223  1.00 
+0.00      1PAD 169
+ATOM     63  CZ2 TRP     7      25.303  32.622  37.233  1.00 
+0.00      1PAD 170
+ATOM     64  CZ3 TRP     7      27.280  31.299  37.586  1.00 
+0.00      1PAD 171
+ATOM     65  CH2 TRP     7      26.144  31.940  38.061  1.00 
+0.00      1PAD 172
+ATOM     66  N   ARG     8      30.891  31.281  31.490  1.00 
+0.00      1PAD 173
+ATOM     67  CA  ARG     8      31.855  30.495  30.708  1.00 
+0.00      1PAD 174
+ATOM     68  C   ARG     8      33.013  30.139  31.640  1.00 
+0.00      1PAD 175
+ATOM     69  O   ARG     8      33.285  28.948  31.905  1.00 
+0.00      1PAD 176
+ATOM     70  CB  ARG     8      32.371  31.292  29.493  1.00 
+0.00      1PAD 177
+ATOM     71  CG  ARG     8      31.267  31.777  28.534  1.00 
+0.00      1PAD 178
+ATOM     72  CD  ARG     8      31.875  32.198  27.210  1.00 
+0.00      1PAD 179
+ATOM     73  NE  ARG     8      32.683  33.419  27.364  1.00 
+0.00      1PAD 180
+ATOM     74  CZ  ARG     8      33.600  33.821  26.456  1.00 
+0.00      1PAD 181
+ATOM     75  NH1 ARG     8      34.356  34.906  26.675  1.00 
+0.00      1PAD 182
+ATOM     76  NH2 ARG     8      33.749  33.121  25.345  1.00 
+0.00      1PAD 183
+ATOM     77  N   GLN     9      33.664  31.188  32.118  1.00 
+0.00      1PAD 184
+ATOM     78  CA  GLN     9      34.802  31.076  33.040  1.00 
+0.00      1PAD 185
+ATOM     79  C   GLN     9      34.317  30.671  34.433  1.00 
+0.00      1PAD 186
+ATOM     80  O   GLN     9      35.092  30.680  35.413  1.00 
+0.00      1PAD 187
+ATOM     81  CB  GLN     9      35.515  32.399  33.066  1.00 
+0.00      1PAD 188
+ATOM     82  CG  GLN     9      35.005  33.315  34.093  1.00 
+0.00      1PAD 189
+ATOM     83  CD  GLN     9      35.793  34.624  34.249  1.00 
+0.00      1PAD 190
+ATOM     84  AE1 GLN     9      35.204  35.722  33.963  1.00 
+0.00      1PAD 191
+ATOM     85  AE2 GLN     9      36.970  34.564  34.711  1.00 
+0.00      1PAD 192
+ATOM     86  N   LYS    10      33.041  30.319  34.479  1.00 
+0.00      1PAD 193
+ATOM     87  CA  LYS    10      32.373  29.884  35.712  1.00 
+0.00      1PAD 194
+ATOM     88  C   LYS    10      32.157  28.370  35.696  1.00 
+0.00      1PAD 195
+ATOM     89  O   LYS    10      31.780  27.762  36.721  1.00 
+0.00      1PAD 196
+ATOM     90  CB  LYS    10      31.022  30.571  35.880  1.00 
+0.00      1PAD 197
+ATOM     91  CG  LYS    10      31.098  32.010  36.354  1.00 
+0.00      1PAD 198
+ATOM     92  CD  LYS    10      31.746  32.098  37.732  1.00 
+0.00      1PAD 199
+ATOM     93  CE  LYS    10      31.758  33.527  38.254  1.00 
+0.00      1PAD 200
+ATOM     94  NZ  LYS    10      32.272  33.577  39.641  1.00 
+0.00      1PAD 201
+ATOM     95  N   GLY    11      32.409  27.801  34.528  1.00 
+0.00      1PAD 202
+ATOM     96  CA  GLY    11      32.279  26.357  34.293  1.00 
+0.00      1PAD 203
+ATOM     97  C   GLY    11      30.812  25.925  34.265  1.00 
+0.00      1PAD 204
+ATOM     98  O   GLY    11      30.431  24.898  34.867  1.00 
+0.00      1PAD 205
+ATOM     99  N   ALA    12      30.027  26.723  33.558  1.00 
+0.00      1PAD 206
+ATOM    100  CA  ALA    12      28.588  26.489  33.388  1.00 
+0.00      1PAD 207
+ATOM    101  C   ALA    12      28.062  26.132  31.997  1.00 
+0.00      1PAD 208
+ATOM    102  O   ALA    12      27.040  25.427  31.855  1.00 
+0.00      1PAD 209
+ATOM    103  CB  ALA    12      27.930  27.757  33.917  1.00 
+0.00      1PAD 210
+ATOM    104  N   VAL    13      28.783  26.628  31.004  1.00 
+0.00      1PAD 211
+ATOM    105  CA  VAL    13      28.466  26.399  29.588  1.00 
+0.00      1PAD 212
+ATOM    106  C   VAL    13      29.600  25.569  28.985  1.00 
+0.00      1PAD 213
+ATOM    107  O   VAL    13      30.788  25.756  29.328  1.00 
+0.00      1PAD 214
+ATOM    108  CB  VAL    13      28.298  27.733  28.873  1.00 
+0.00      1PAD 215
+ATOM    109  CG1 VAL    13      28.459  28.981  29.777  1.00 
+0.00      1PAD 216
+ATOM    110  CG2 VAL    13      29.135  27.816  27.624  1.00 
+0.00      1PAD 217
+ATOM    111  N   THR    14      29.200  24.674  28.095  1.00 
+0.00      1PAD 218
+ATOM    112  CA  THR    14      30.124  23.780  27.385  1.00 
+0.00      1PAD 219
+ATOM    113  C   THR    14      30.330  24.397  26.001  1.00 
+0.00      1PAD 220
+ATOM    114  O   THR    14      29.745  25.452  25.672  1.00 
+0.00      1PAD 221
+ATOM    115  CB  THR    14      29.477  22.381  27.365  1.00 
+0.00      1PAD 222
+ATOM    116  OG1 THR    14      28.223  22.588  26.723  1.00 
+0.00      1PAD 223
+ATOM    117  CG2 THR    14      29.275  21.819  28.747  1.00 
+0.00      1PAD 224
+ATOM    118  N   PRO    15      31.156  23.716  25.223  1.00 
+0.00      1PAD 225
+ATOM    119  CA  PRO    15      31.487  24.122  23.851  1.00 
+0.00      1PAD 226
+ATOM    120  C   PRO    15      30.199  24.485  23.111  1.00 
+0.00      1PAD 227
+ATOM    121  O   PRO    15      29.080  24.161  23.566  1.00 
+0.00      1PAD 228
+ATOM    122  CB  PRO    15      32.193  22.932  23.282  1.00 
+0.00      1PAD 229
+ATOM    123  CG  PRO    15      31.701  21.739  24.079  1.00 
+0.00      1PAD 230
+ATOM    124  CD  PRO    15      31.420  22.308  25.467  1.00 
+0.00      1PAD 231
+ATOM    125  N   VAL    16      30.393  25.148  21.982  1.00 
+0.00      1PAD 232
+ATOM    126  CA  VAL    16      29.296  25.584  21.108  1.00 
+0.00      1PAD 233
+ATOM    127  C   VAL    16      28.885  24.477  20.135  1.00 
+0.00      1PAD 234
+ATOM    128  O   VAL    16      29.688  23.578  19.806  1.00 
+0.00      1PAD 235
+ATOM    129  CB  VAL    16      29.715  26.826  20.332  1.00 
+0.00      1PAD 236
+ATOM    130  CG1 VAL    16      28.750  27.238  19.193  1.00 
+0.00      1PAD 237
+ATOM    131  CG2 VAL    16      30.052  27.977  21.244  1.00 
+0.00      1PAD 238
+ATOM    132  N   LYS    17      27.640  24.578  19.697  1.00 
+0.00      1PAD 239
+ATOM    133  CA  LYS    17      27.043  23.629  18.749  1.00 
+0.00      1PAD 240
+ATOM    134  C   LYS    17      26.198  24.305  17.668  1.00 
+0.00      1PAD 241
+ATOM    135  O   LYS    17      25.928  25.524  17.729  1.00 
+0.00      1PAD 242
+ATOM    136  CB  LYS    17      26.143  22.626  19.463  1.00 
+0.00      1PAD 243
+ATOM    137  CG  LYS    17      26.841  21.791  20.520  1.00 
+0.00      1PAD 244
+ATOM    138  CD  LYS    17      25.842  21.256  21.541  1.00 
+0.00      1PAD 245
+ATOM    139  CE  LYS    17      26.540  20.756  22.797  1.00 
+0.00      1PAD 246
+ATOM    140  NZ  LYS    17      26.913  21.885  23.677  1.00 
+0.00      1PAD 247
+ATOM    141  N   ASN    18      25.798  23.489  16.705  1.00 
+0.00      1PAD 248
+ATOM    142  CA  ASN    18      24.968  23.925  15.575  1.00 
+0.00      1PAD 249
+ATOM    143  C   ASN    18      23.758  23.006  15.399  1.00 
+0.00      1PAD 250
+ATOM    144  O   ASN    18      23.875  21.764  15.478  1.00 
+0.00      1PAD 251
+ATOM    145  CB  ASN    18      25.816  23.940  14.285  1.00 
+0.00      1PAD 252
+ATOM    146  CG  ASN    18      24.961  24.179  13.068  1.00 
+0.00      1PAD 253
+ATOM    147  AD1 ASN    18      23.674  24.639  13.322  1.00 
+0.00      1PAD 254
+ATOM    148  AD2 ASN    18      25.299  23.945  11.921  1.00 
+0.00      1PAD 255
+ATOM    149  N   GLN    19      22.624  23.646  15.159  1.00 
+0.00      1PAD 256
+ATOM    150  CA  GLN    19      21.344  22.959  14.946  1.00 
+0.00      1PAD 257
+ATOM    151  C   GLN    19      21.323  22.413  13.518  1.00 
+0.00      1PAD 258
+ATOM    152  O   GLN    19      20.611  21.431  13.214  1.00 
+0.00      1PAD 259
+ATOM    153  CB  GLN    19      20.237  23.943  15.203  1.00 
+0.00      1PAD 260
+ATOM    154  CG  GLN    19      20.355  25.173  14.412  1.00 
+0.00      1PAD 261
+ATOM    155  CD  GLN    19      19.458  26.332  14.871  1.00 
+0.00      1PAD 262
+ATOM    156  AE1 GLN    19      20.003  27.307  15.494  1.00 
+0.00      1PAD 263
+ATOM    157  AE2 GLN    19      18.232  26.302  14.558  1.00 
+0.00      1PAD 264
+ATOM    158  N   GLY    20      22.112  23.065  12.678  1.00 
+0.00      1PAD 265
+ATOM    159  CA  GLY    20      22.253  22.701  11.262  1.00 
+0.00      1PAD 266
+ATOM    160  C   GLY    20      21.000  23.183  10.531  1.00 
+0.00      1PAD 267
+ATOM    161  O   GLY    20      20.350  24.168  10.944  1.00 
+0.00      1PAD 268
+ATOM    162  N   SER    21      20.690  22.467   9.461  1.00 
+0.00      1PAD 269
+ATOM    163  CA  SER    21      19.520  22.747   8.619  1.00 
+0.00      1PAD 270
+ATOM    164  C   SER    21      18.234  22.288   9.307  1.00 
+0.00      1PAD 271
+ATOM    165  O   SER    21      17.264  21.861   8.643  1.00 
+0.00      1PAD 272
+ATOM    166  CB  SER    21      19.649  22.040   7.287  1.00 
+0.00      1PAD 273
+ATOM    167  OG  SER    21      18.545  22.312   6.428  1.00 
+0.00      1PAD 274
+ATOM    168  N   CYS    22      18.260  22.395  10.626  1.00 
+0.00      1PAD 275
+ATOM    169  CA  CYS    22      17.127  22.022  11.484  1.00 
+0.00      1PAD 276
+ATOM    170  C   CYS    22      16.712  23.257  12.286  1.00 
+0.00      1PAD 277
+ATOM    171  O   CYS    22      17.524  23.844  13.033  1.00 
+0.00      1PAD 278
+ATOM    172  CB  CYS    22      17.394  20.817  12.351  1.00 
+0.00      1PAD 279
+ATOM    173  SG  CYS    22      16.095  20.386  13.551  1.00 
+0.00      1PAD 280
+ATOM    174  N   GLY    23      15.449  23.614  12.111  1.00 
+0.00      1PAD 281
+ATOM    175  CA  GLY    23      14.838  24.763  12.792  1.00 
+0.00      1PAD 282
+ATOM    176  C   GLY    23      14.488  24.215  14.176  1.00 
+0.00      1PAD 283
+ATOM    177  O   GLY    23      13.316  23.885  14.462  1.00 
+0.00      1PAD 284
+ATOM    178  N   SER    24      15.519  24.137  15.003  1.00 
+0.00      1PAD 285
+ATOM    179  CA  SER    24      15.406  23.650  16.384  1.00 
+0.00      1PAD 286
+ATOM    180  C   SER    24      16.117  24.347  17.545  1.00 
+0.00      1PAD 287
+ATOM    181  O   SER    24      16.388  23.731  18.599  1.00 
+0.00      1PAD 288
+ATOM    182  CB  SER    24      15.907  22.226  16.484  1.00 
+0.00      1PAD 289
+ATOM    183  OG  SER    24      17.246  22.097  16.015  1.00 
+0.00      1PAD 290
+ATOM    184  N   CYS    25      16.490  25.683  17.277  1.00 
+0.00   2  1PAD 291
+ATOM    185  CA  CYS    25      16.718  26.944  18.104  1.00 
+0.00   2  1PAD 292
+ATOM    186  C   CYS    25      16.424  26.475  19.615  1.00 
+0.00   2  1PAD 293
+ATOM    187  O   CYS    25      17.086  26.583  20.707  1.00 
+0.00   2  1PAD 294
+ATOM    188  CB  CYS    25      16.485  28.288  17.483  1.00 
+0.00   2  1PAD 295
+ATOM    189  SG  CYS    25      14.789  28.709  17.091  1.00 
+0.00   2  1PAD 296
+ATOM    190  N   TRP    26      15.172  26.178  19.744  1.00 
+0.00      1PAD 297
+ATOM    191  CA  TRP    26      14.383  26.159  20.982  1.00 
+0.00      1PAD 298
+ATOM    192  C   TRP    26      14.856  25.097  21.976  1.00 
+0.00      1PAD 299
+ATOM    193  O   TRP    26      14.987  25.364  23.190  1.00 
+0.00      1PAD 300
+ATOM    194  CB  TRP    26      12.915  25.924  20.625  1.00 
+0.00      1PAD 301
+ATOM    195  CG  TRP    26      12.591  24.628  19.793  1.00 
+0.00      1PAD 302
+ATOM    196  CD1 TRP    26      12.716  24.413  18.475  1.00 
+0.00      1PAD 303
+ATOM    197  CD2 TRP    26      12.153  23.410  20.322  1.00 
+0.00      1PAD 304
+ATOM    198  NE1 TRP    26      12.277  23.067  18.156  1.00 
+0.00      1PAD 305
+ATOM    199  CE2 TRP    26      11.994  22.481  19.253  1.00 
+0.00      1PAD 306
+ATOM    200  CE3 TRP    26      11.872  23.010  21.608  1.00 
+0.00      1PAD 307
+ATOM    201  CZ2 TRP    26      11.572  21.155  19.393  1.00 
+0.00      1PAD 308
+ATOM    202  CZ3 TRP    26      11.434  21.675  21.736  1.00 
+0.00      1PAD 309
+ATOM    203  CH2 TRP    26      11.331  20.781  20.681  1.00 
+0.00      1PAD 310
+ATOM    204  N   ALA    27      15.105  23.917  21.429  1.00 
+0.00      1PAD 311
+ATOM    205  CA  ALA    27      15.580  22.760  22.198  1.00 
+0.00      1PAD 312
+ATOM    206  C   ALA    27      17.034  22.888  22.655  1.00 
+0.00      1PAD 313
+ATOM    207  O   ALA    27      17.431  22.334  23.703  1.00 
+0.00      1PAD 314
+ATOM    208  CB  ALA    27      15.382  21.524  21.329  1.00 
+0.00      1PAD 315
+ATOM    209  N   PHE    28      17.789  23.624  21.855  1.00 
+0.00      1PAD 316
+ATOM    210  CA  PHE    28      19.211  23.887  22.110  1.00 
+0.00      1PAD 317
+ATOM    211  C   PHE    28      19.350  24.932  23.218  1.00 
+0.00      1PAD 318
+ATOM    212  O   PHE    28      20.173  24.782  24.147  1.00 
+0.00      1PAD 319
+ATOM    213  CB  PHE    28      19.869  24.361  20.827  1.00 
+0.00      1PAD 320
+ATOM    214  CG  PHE    28      20.454  23.270  19.979  1.00 
+0.00      1PAD 321
+ATOM    215  CD1 PHE    28      19.700  22.577  19.065  1.00 
+0.00      1PAD 322
+ATOM    216  CD2 PHE    28      21.742  22.902  20.176  1.00 
+0.00      1PAD 323
+ATOM    217  CE1 PHE    28      20.311  21.501  18.334  1.00 
+0.00      1PAD 324
+ATOM    218  CE2 PHE    28      22.351  21.863  19.415  1.00 
+0.00      1PAD 325
+ATOM    219  CZ  PHE    28      21.612  21.192  18.497  1.00 
+0.00      1PAD 326
+ATOM    220  N   SER    29      18.531  25.965  23.092  1.00 
+0.00      1PAD 327
+ATOM    221  CA  SER    29      18.488  27.077  24.050  1.00 
+0.00      1PAD 328
+ATOM    222  C   SER    29      18.200  26.501  25.437  1.00 
+0.00      1PAD 329
+ATOM    223  O   SER    29      18.839  26.885  26.441  1.00 
+0.00      1PAD 330
+ATOM    224  CB  SER    29      17.417  28.071  23.656  1.00 
+0.00      1PAD 331
+ATOM    225  OG  SER    29      17.116  28.979  24.712  1.00 
+0.00      1PAD 332
+ATOM    226  N   ALA    30      17.242  25.587  25.454  1.00 
+0.00      1PAD 333
+ATOM    227  CA  ALA    30      16.813  24.896  26.677  1.00 
+0.00      1PAD 334
+ATOM    228  C   ALA    30      17.877  24.063  27.393  1.00 
+0.00      1PAD 335
+ATOM    229  O   ALA    30      18.134  24.246  28.602  1.00 
+0.00      1PAD 336
+ATOM    230  CB  ALA    30      15.620  24.039  26.273  1.00 
+0.00      1PAD 337
+ATOM    231  N   VAL    31      18.472  23.168  26.620  1.00 
+0.00      1PAD 338
+ATOM    232  CA  VAL    31      19.531  22.270  27.099  1.00 
+0.00      1PAD 339
+ATOM    233  C   VAL    31      20.637  23.033  27.830  1.00 
+0.00      1PAD 340
+ATOM    234  O   VAL    31      21.280  22.502  28.761  1.00 
+0.00      1PAD 341
+ATOM    235  CB  VAL    31      20.127  21.501  25.928  1.00 
+0.00      1PAD 342
+ATOM    236  CG1 VAL    31      19.260  21.494  24.645  1.00 
+0.00      1PAD 343
+ATOM    237  CG2 VAL    31      21.554  21.901  25.655  1.00 
+0.00      1PAD 344
+ATOM    238  N   VAL    32      20.825  24.267  27.388  1.00 
+0.00      1PAD 345
+ATOM    239  CA  VAL    32      21.827  25.179  27.954  1.00 
+0.00      1PAD 346
+ATOM    240  C   VAL    32      21.308  25.779  29.262  1.00 
+0.00      1PAD 347
+ATOM    241  O   VAL    32      22.075  25.982  30.227  1.00 
+0.00      1PAD 348
+ATOM    242  CB  VAL    32      22.153  26.277  26.952  1.00 
+0.00      1PAD 349
+ATOM    243  CG1 VAL    32      21.390  26.178  25.607  1.00 
+0.00      1PAD 350
+ATOM    244  CG2 VAL    32      22.061  27.650  27.564  1.00 
+0.00      1PAD 351
+ATOM    245  N   THR    33      20.010  26.043  29.257  1.00 
+0.00      1PAD 352
+ATOM    246  CA  THR    33      19.302  26.612  30.411  1.00 
+0.00      1PAD 353
+ATOM    247  C   THR    33      19.383  25.616  31.569  1.00 
+0.00      1PAD 354
+ATOM    248  O   THR    33      20.058  25.869  32.591  1.00 
+0.00      1PAD 355
+ATOM    249  CB  THR    33      17.857  26.900  29.962  1.00 
+0.00      1PAD 356
+ATOM    250  OG1 THR    33      17.329  25.615  29.647  1.00 
+0.00      1PAD 357
+ATOM    251  CG2 THR    33      17.796  27.803  28.759  1.00 
+0.00      1PAD 358
+ATOM    252  N   ILE    34      18.693  24.504  31.374  1.00 
+0.00      1PAD 359
+ATOM    253  CA  ILE    34      18.641  23.409  32.351  1.00 
+0.00      1PAD 360
+ATOM    254  C   ILE    34      20.084  23.122  32.772  1.00 
+0.00      1PAD 361
+ATOM    255  O   ILE    34      20.417  23.126  33.977  1.00 
+0.00      1PAD 362
+ATOM    256  CB  ILE    34      18.011  22.129  31.749  1.00 
+0.00      1PAD 363
+ATOM    257  CG1 ILE    34      16.499  22.293  31.433  1.00 
+0.00      1PAD 364
+ATOM    258  CG2 ILE    34      18.374  21.077  32.800  1.00 
+0.00      1PAD 365
+ATOM    259  CD1 ILE    34      15.899  21.116  30.629  1.00 
+0.00      1PAD 366
+ATOM    260  N   GLU    35      20.904  22.884  31.760  1.00 
+0.00      1PAD 367
+ATOM    261  CA  GLU    35      22.334  22.598  31.936  1.00 
+0.00      1PAD 368
+ATOM    262  C   GLU    35      22.984  23.470  33.011  1.00 
+0.00      1PAD 369
+ATOM    263  O   GLU    35      23.495  22.960  34.032  1.00 
+0.00      1PAD 370
+ATOM    264  CB  GLU    35      23.133  22.837  30.623  1.00 
+0.00      1PAD 371
+ATOM    265  CG  GLU    35      23.980  21.657  30.102  1.00 
+0.00      1PAD 372
+ATOM    266  CD  GLU    35      24.514  21.822  28.629  1.00 
+0.00      1PAD 373
+ATOM    267  OE1 GLU    35      24.810  22.890  28.184  1.00 
+0.00      1PAD 374
+ATOM    268  OE2 GLU    35      24.554  20.706  28.112  1.00 
+0.00      1PAD 375
+ATOM    269  N   GLY    36      22.941  24.768  32.753  1.00 
+0.00      1PAD 376
+ATOM    270  CA  GLY    36      23.495  25.785  33.656  1.00 
+0.00      1PAD 377
+ATOM    271  C   GLY    36      23.137  25.563  35.126  1.00 
+0.00      1PAD 378
+ATOM    272  O   GLY    36      24.026  25.402  35.990  1.00 
+0.00      1PAD 379
+ATOM    273  N   ILE    37      21.835  25.555  35.370  1.00 
+0.00      1PAD 380
+ATOM    274  CA  ILE    37      21.270  25.346  36.709  1.00 
+0.00      1PAD 381
+ATOM    275  C   ILE    37      21.751  24.032  37.325  1.00 
+0.00      1PAD 382
+ATOM    276  O   ILE    37      22.108  23.972  38.522  1.00 
+0.00      1PAD 383
+ATOM    277  CB  ILE    37      19.722  25.295  36.679  1.00 
+0.00      1PAD 384
+ATOM    278  CG1 ILE    37      19.080  25.681  38.039  1.00 
+0.00      1PAD 385
+ATOM    279  CG2 ILE    37      19.467  23.867  36.189  1.00 
+0.00      1PAD 386
+ATOM    280  CD1 ILE    37      19.443  27.105  38.517  1.00 
+0.00      1PAD 387
+ATOM    281  N   ILE    38      21.753  23.009  36.483  1.00 
+0.00      1PAD 388
+ATOM    282  CA  ILE    38      22.188  21.659  36.861  1.00 
+0.00      1PAD 389
+ATOM    283  C   ILE    38      23.610  21.594  37.420  1.00 
+0.00      1PAD 390
+ATOM    284  O   ILE    38      23.933  20.727  38.261  1.00 
+0.00      1PAD 391
+ATOM    285  CB  ILE    38      22.168  20.689  35.653  1.00 
+0.00      1PAD 392
+ATOM    286  CG1 ILE    38      20.731  20.385  35.148  1.00 
+0.00      1PAD 393
+ATOM    287  CG2 ILE    38      22.962  19.498  36.196  1.00 
+0.00      1PAD 394
+ATOM    288  CD1 ILE    38      19.860  19.620  36.172  1.00 
+0.00      1PAD 395
+ATOM    289  N   LYS    39      24.423  22.521  36.939  1.00 
+0.00      1PAD 396
+ATOM    290  CA  LYS    39      25.827  22.649  37.348  1.00 
+0.00      1PAD 397
+ATOM    291  C   LYS    39      26.063  23.659  38.472  1.00 
+0.00      1PAD 398
+ATOM    292  O   LYS    39      27.097  23.615  39.172  1.00 
+0.00      1PAD 399
+ATOM    293  CB  LYS    39      26.706  23.081  36.178  1.00 
+0.00      1PAD 400
+ATOM    294  CG  LYS    39      28.197  22.958  36.428  1.00 
+0.00      1PAD 401
+ATOM    295  CD  LYS    39      28.684  24.048  37.378  1.00 
+0.00      1PAD 402
+ATOM    296  CE  LYS    39      30.191  23.986  37.574  1.00 
+0.00      1PAD 403
+ATOM    297  NZ  LYS    39      30.664  22.584  37.585  1.00 
+0.00      1PAD 404
+ATOM    298  N   ILE    40      25.087  24.542  38.617  1.00 
+0.00      1PAD 405
+ATOM    299  CA  ILE    40      25.102  25.594  39.642  1.00 
+0.00      1PAD 406
+ATOM    300  C   ILE    40      24.978  25.195  41.113  1.00 
+0.00      1PAD 407
+ATOM    301  O   ILE    40      25.420  25.932  42.021  1.00 
+0.00      1PAD 408
+ATOM    302  CB  ILE    40      23.937  26.597  39.454  1.00 
+0.00      1PAD 409
+ATOM    303  CG1 ILE    40      23.871  27.182  38.017  1.00 
+0.00      1PAD 410
+ATOM    304  CG2 ILE    40      24.202  27.597  40.582  1.00 
+0.00      1PAD 411
+ATOM    305  CD1 ILE    40      25.052  28.118  37.671  1.00 
+0.00      1PAD 412
+ATOM    306  N   ARG    41      24.381  24.030  41.308  1.00 
+0.00      1PAD 413
+ATOM    307  CA  ARG    41      24.167  23.450  42.640  1.00 
+0.00      1PAD 414
+ATOM    308  C   ARG    41      24.990  22.188  42.906  1.00 
+0.00      1PAD 415
+ATOM    309  O   ARG    41      25.772  22.121  43.878  1.00 
+0.00      1PAD 416
+ATOM    310  CB  ARG    41      22.688  23.069  42.854  1.00 
+0.00      1PAD 417
+ATOM    311  CG  ARG    41      21.701  24.241  42.704  1.00 
+0.00      1PAD 418
+ATOM    312  CD  ARG    41      22.001  25.311  43.736  1.00 
+0.00      1PAD 419
+ATOM    313  NE  ARG    41      21.226  26.534  43.473  1.00 
+0.00      1PAD 420
+ATOM    314  CZ  ARG    41      19.898  26.531  43.220  1.00 
+0.00      1PAD 421
+ATOM    315  NH1 ARG    41      19.192  25.392  43.266  1.00 
+0.00      1PAD 422
+ATOM    316  NH2 ARG    41      19.299  27.672  42.933  1.00 
+0.00      1PAD 423
+ATOM    317  N   THR    42      24.793  21.220  42.024  1.00 
+0.00      1PAD 424
+ATOM    318  CA  THR    42      25.488  19.927  42.082  1.00 
+0.00      1PAD 425
+ATOM    319  C   THR    42      27.006  19.994  41.905  1.00 
+0.00      1PAD 426
+ATOM    320  O   THR    42      27.763  19.233  42.545  1.00 
+0.00      1PAD 427
+ATOM    321  CB  THR    42      24.877  19.033  40.986  1.00 
+0.00      1PAD 428
+ATOM    322  OG1 THR    42      25.198  19.704  39.772  1.00 
+0.00      1PAD 429
+ATOM    323  CG2 THR    42      23.386  18.885  41.127  1.00 
+0.00      1PAD 430
+ATOM    324  N   GLY    43      27.409  20.912  41.041  1.00 
+0.00      1PAD 431
+ATOM    325  CA  GLY    43      28.823  21.155  40.728  1.00 
+0.00      1PAD 432
+ATOM    326  C   GLY    43      29.272  20.125  39.691  1.00 
+0.00      1PAD 433
+ATOM    327  O   GLY    43      30.438  19.674  39.692  1.00 
+0.00      1PAD 434
+ATOM    328  N   ASN    44      28.330  19.784  38.825  1.00 
+0.00      1PAD 435
+ATOM    329  CA  ASN    44      28.549  18.821  37.738  1.00 
+0.00      1PAD 436
+ATOM    330  C   ASN    44      28.016  19.363  36.411  1.00 
+0.00      1PAD 437
+ATOM    331  O   ASN    44      26.788  19.454  36.198  1.00 
+0.00      1PAD 438
+ATOM    332  CB  ASN    44      27.854  17.486  38.082  1.00 
+0.00      1PAD 439
+ATOM    333  CG  ASN    44      28.859  16.389  38.322  1.00 
+0.00      1PAD 440
+ATOM    334  AD1 ASN    44      28.598  15.565  39.410  1.00 
+0.00      1PAD 441
+ATOM    335  AD2 ASN    44      29.880  16.227  37.677  1.00 
+0.00      1PAD 442
+ATOM    336  N   LEU    45      28.961  19.706  35.549  1.00 
+0.00      1PAD 443
+ATOM    337  CA  LEU    45      28.673  20.238  34.211  1.00 
+0.00      1PAD 444
+ATOM    338  C   LEU    45      28.349  19.095  33.249  1.00 
+0.00      1PAD 445
+ATOM    339  O   LEU    45      29.111  18.110  33.137  1.00 
+0.00      1PAD 446
+ATOM    340  CB  LEU    45      29.883  21.036  33.688  1.00 
+0.00      1PAD 447
+ATOM    341  CG  LEU    45      29.757  21.714  32.339  1.00 
+0.00      1PAD 448
+ATOM    342  CD1 LEU    45      28.649  22.738  32.392  1.00 
+0.00      1PAD 449
+ATOM    343  CD2 LEU    45      31.056  22.381  31.957  1.00 
+0.00      1PAD 450
+ATOM    344  N   ASN    46      27.223  19.261  32.572  1.00 
+0.00      1PAD 451
+ATOM    345  CA  ASN    46      26.728  18.292  31.586  1.00 
+0.00      1PAD 452
+ATOM    346  C   ASN    46      26.147  18.766  30.253  1.00 
+0.00      1PAD 453
+ATOM    347  O   ASN    46      25.603  19.886  30.150  1.00 
+0.00      1PAD 454
+ATOM    348  CB  ASN    46      25.613  17.432  32.220  1.00 
+0.00      1PAD 455
+ATOM    349  CG  ASN    46      26.113  16.692  33.433  1.00 
+0.00      1PAD 456
+ATOM    350  AD1 ASN    46      25.279  16.732  34.544  1.00 
+0.00      1PAD 457
+ATOM    351  AD2 ASN    46      27.191  16.131  33.512  1.00 
+0.00      1PAD 458
+ATOM    352  N   GLN    47      26.276  17.892  29.267  1.00 
+0.00      1PAD 459
+ATOM    353  CA  GLN    47      25.778  18.137  27.907  1.00 
+0.00      1PAD 460
+ATOM    354  C   GLN    47      24.611  17.171  27.700  1.00 
+0.00      1PAD 461
+ATOM    355  O   GLN    47      24.808  15.945  27.552  1.00 
+0.00      1PAD 462
+ATOM    356  CB  GLN    47      26.915  17.923  26.947  1.00 
+0.00      1PAD 463
+ATOM    357  CG  GLN    47      26.994  18.947  25.899  1.00 
+0.00      1PAD 464
+ATOM    358  CD  GLN    47      28.167  18.791  24.921  1.00 
+0.00      1PAD 465
+ATOM    359  AE1 GLN    47      28.818  19.840  24.587  1.00 
+0.00      1PAD 466
+ATOM    360  AE2 GLN    47      28.478  17.625  24.538  1.00 
+0.00      1PAD 467
+ATOM    361  N   TYR    48      23.423  17.754  27.690  1.00 
+0.00      1PAD 468
+ATOM    362  CA  TYR    48      22.168  17.016  27.494  1.00 
+0.00      1PAD 469
+ATOM    363  C   TYR    48      21.751  17.083  26.024  1.00 
+0.00      1PAD 470
+ATOM    364  O   TYR    48      22.159  18.001  25.280  1.00 
+0.00      1PAD 471
+ATOM    365  CB  TYR    48      21.089  17.618  28.412  1.00 
+0.00      1PAD 472
+ATOM    366  CG  TYR    48      21.477  17.572  29.898  1.00 
+0.00      1PAD 473
+ATOM    367  CD1 TYR    48      21.669  18.715  30.626  1.00 
+0.00      1PAD 474
+ATOM    368  CD2 TYR    48      21.555  16.312  30.521  1.00 
+0.00      1PAD 475
+ATOM    369  CE1 TYR    48      22.017  18.672  32.010  1.00 
+0.00      1PAD 476
+ATOM    370  CE2 TYR    48      21.911  16.257  31.933  1.00 
+0.00      1PAD 477
+ATOM    371  CZ  TYR    48      22.085  17.410  32.614  1.00 
+0.00      1PAD 478
+ATOM    372  OH  TYR    48      22.398  17.359  33.957  1.00 
+0.00      1PAD 479
+ATOM    373  N   SER    49      20.942  16.106  25.647  1.00 
+0.00      1PAD 480
+ATOM    374  CA  SER    49      20.411  15.984  24.283  1.00 
+0.00      1PAD 481
+ATOM    375  C   SER    49      19.232  16.895  23.935  1.00 
+0.00      1PAD 482
+ATOM    376  O   SER    49      18.220  16.947  24.666  1.00 
+0.00      1PAD 483
+ATOM    377  CB  SER    49      19.941  14.569  24.025  1.00 
+0.00      1PAD 484
+ATOM    378  OG  SER    49      19.086  14.489  22.888  1.00 
+0.00      1PAD 485
+ATOM    379  N   GLU    50      19.395  17.586  22.817  1.00 
+0.00      1PAD 486
+ATOM    380  CA  GLU    50      18.384  18.511  22.290  1.00 
+0.00      1PAD 487
+ATOM    381  C   GLU    50      17.555  17.689  21.303  1.00 
+0.00      1PAD 488
+ATOM    382  O   GLU    50      16.342  17.931  21.121  1.00 
+0.00      1PAD 489
+ATOM    383  CB  GLU    50      19.036  19.729  21.576  1.00 
+0.00      1PAD 490
+ATOM    384  CG  GLU    50      20.341  20.276  22.191  1.00 
+0.00      1PAD 491
+ATOM    385  CD  GLU    50      21.599  19.343  22.018  1.00 
+0.00      1PAD 492
+ATOM    386  OE1 GLU    50      21.506  18.239  21.570  1.00 
+0.00      1PAD 493
+ATOM    387  OE2 GLU    50      22.589  19.963  22.404  1.00 
+0.00      1PAD 494
+ATOM    388  N   GLN    51      18.235  16.730  20.693  1.00 
+0.00      1PAD 495
+ATOM    389  CA  GLN    51      17.632  15.815  19.715  1.00 
+0.00      1PAD 496
+ATOM    390  C   GLN    51      16.392  15.169  20.336  1.00 
+0.00      1PAD 497
+ATOM    391  O   GLN    51      15.327  15.068  19.690  1.00 
+0.00      1PAD 498
+ATOM    392  CB  GLN    51      18.668  14.798  19.326  1.00 
+0.00      1PAD 499
+ATOM    393  CG  GLN    51      18.149  13.746  18.444  1.00 
+0.00      1PAD 500
+ATOM    394  CD  GLN    51      17.680  14.227  17.063  1.00 
+0.00      1PAD 501
+ATOM    395  AE1 GLN    51      18.540  14.769  16.287  1.00 
+0.00      1PAD 502
+ATOM    396  AE2 GLN    51      16.478  14.009  16.729  1.00 
+0.00      1PAD 503
+ATOM    397  N   GLU    52      16.566  14.754  21.581  1.00 
+0.00      1PAD 504
+ATOM    398  CA  GLU    52      15.504  14.116  22.370  1.00 
+0.00      1PAD 505
+ATOM    399  C   GLU    52      14.298  15.048  22.491  1.00 
+0.00      1PAD 506
+ATOM    400  O   GLU    52      13.139  14.635  22.270  1.00 
+0.00      1PAD 507
+ATOM    401  CB  GLU    52      15.987  13.766  23.806  1.00 
+0.00      1PAD 508
+ATOM    402  CG  GLU    52      14.896  13.416  24.839  1.00 
+0.00      1PAD 509
+ATOM    403  CD  GLU    52      15.436  12.921  26.233  1.00 
+0.00      1PAD 510
+ATOM    404  OE1 GLU    52      16.497  13.269  26.657  1.00 
+0.00      1PAD 511
+ATOM    405  OE2 GLU    52      14.588  12.177  26.727  1.00 
+0.00      1PAD 512
+ATOM    406  N   LEU    53      14.607  16.289  22.834  1.00 
+0.00      1PAD 513
+ATOM    407  CA  LEU    53      13.605  17.351  22.995  1.00 
+0.00      1PAD 514
+ATOM    408  C   LEU    53      12.785  17.543  21.719  1.00 
+0.00      1PAD 515
+ATOM    409  O   LEU    53      11.581  17.876  21.770  1.00 
+0.00      1PAD 516
+ATOM    410  CB  LEU    53      14.297  18.680  23.356  1.00 
+0.00      1PAD 517
+ATOM    411  CG  LEU    53      13.974  19.307  24.697  1.00 
+0.00      1PAD 518
+ATOM    412  CD1 LEU    53      13.263  18.297  25.567  1.00 
+0.00      1PAD 519
+ATOM    413  CD2 LEU    53      15.235  19.778  25.380  1.00 
+0.00      1PAD 520
+ATOM    414  N   LEU    54      13.462  17.320  20.603  1.00 
+0.00      1PAD 521
+ATOM    415  CA  LEU    54      12.866  17.434  19.266  1.00 
+0.00      1PAD 522
+ATOM    416  C   LEU    54      11.871  16.309  18.979  1.00 
+0.00      1PAD 523
+ATOM    417  O   LEU    54      10.693  16.560  18.644  1.00 
+0.00      1PAD 524
+ATOM    418  CB  LEU    54      13.970  17.405  18.191  1.00 
+0.00      1PAD 525
+ATOM    419  CG  LEU    54      13.685  18.074  16.863  1.00 
+0.00      1PAD 526
+ATOM    420  CD1 LEU    54      14.320  17.275  15.750  1.00 
+0.00      1PAD 527
+ATOM    421  CD2 LEU    54      12.197  18.184  16.633  1.00 
+0.00      1PAD 528
+ATOM    422  N   ASP    55      12.374  15.093  19.123  1.00 
+0.00      1PAD 529
+ATOM    423  CA  ASP    55      11.591  13.869  18.910  1.00 
+0.00      1PAD 530
+ATOM    424  C   ASP    55      10.470  13.572  19.907  1.00 
+0.00      1PAD 531
+ATOM    425  O   ASP    55       9.492  12.862  19.585  1.00 
+0.00      1PAD 532
+ATOM    426  CB  ASP    55      12.531  12.644  18.921  1.00 
+0.00      1PAD 533
+ATOM    427  CG  ASP    55      13.913  13.008  18.445  1.00 
+0.00      1PAD 534
+ATOM    428  OD1 ASP    55      14.170  13.929  17.689  1.00 
+0.00      1PAD 535
+ATOM    429  OD2 ASP    55      14.809  12.357  18.911  1.00 
+0.00      1PAD 536
+ATOM    430  N   CYS    56      10.642  14.130  21.095  1.00 
+0.00      1PAD 537
+ATOM    431  CA  CYS    56       9.682  13.984  22.197  1.00 
+0.00      1PAD 538
+ATOM    432  C   CYS    56       8.586  15.043  22.328  1.00 
+0.00      1PAD 539
+ATOM    433  O   CYS    56       7.411  14.723  22.609  1.00 
+0.00      1PAD 540
+ATOM    434  CB  CYS    56      10.447  13.794  23.484  1.00 
+0.00      1PAD 541
+ATOM    435  SG  CYS    56      10.211  12.199  24.330  1.00 
+0.00      1PAD 542
+ATOM    436  N   ASP    57       9.004  16.281  22.116  1.00 
+0.00      1PAD 543
+ATOM    437  CA  ASP    57       8.117  17.450  22.179  1.00 
+0.00      1PAD 544
+ATOM    438  C   ASP    57       7.314  17.529  20.879  1.00 
+0.00      1PAD 545
+ATOM    439  O   ASP    57       7.832  17.959  19.827  1.00 
+0.00      1PAD 546
+ATOM    440  CB  ASP    57       8.957  18.727  22.396  1.00 
+0.00      1PAD 547
+ATOM    441  CG  ASP    57       8.123  19.843  22.970  1.00 
+0.00      1PAD 548
+ATOM    442  OD1 ASP    57       6.919  19.791  23.149  1.00 
+0.00      1PAD 549
+ATOM    443  OD2 ASP    57       8.732  20.818  23.316  1.00 
+0.00      1PAD 550
+ATOM    444  N   ARG    58       6.062  17.112  20.992  1.00 
+0.00      1PAD 551
+ATOM    445  CA  ARG    58       5.112  17.113  19.872  1.00 
+0.00      1PAD 552
+ATOM    446  C   ARG    58       4.329  18.426  19.900  1.00 
+0.00      1PAD 553
+ATOM    447  O   ARG    58       3.661  18.800  18.912  1.00 
+0.00      1PAD 554
+ATOM    448  CB  ARG    58       4.135  15.924  19.967  1.00 
+0.00      1PAD 555
+ATOM    449  CG  ARG    58       4.711  14.585  19.468  1.00 
+0.00      1PAD 556
+ATOM    450  CD  ARG    58       5.769  14.835  18.411  1.00 
+0.00      1PAD 557
+ATOM    451  NE  ARG    58       6.705  13.703  18.320  1.00 
+0.00      1PAD 558
+ATOM    452  CZ  ARG    58       7.033  13.103  17.154  1.00 
+0.00      1PAD 559
+ATOM    453  NH1 ARG    58       6.557  13.561  15.987  1.00 
+0.00      1PAD 560
+ATOM    454  NH2 ARG    58       7.840  12.057  17.178  1.00 
+0.00      1PAD 561
+ATOM    455  N   ARG    59       4.438  19.096  21.037  1.00 
+0.00      1PAD 562
+ATOM    456  CA  ARG    59       3.779  20.386  21.276  1.00 
+0.00      1PAD 563
+ATOM    457  C   ARG    59       4.526  21.426  20.439  1.00 
+0.00      1PAD 564
+ATOM    458  O   ARG    59       3.937  22.429  19.982  1.00 
+0.00      1PAD 565
+ATOM    459  CB  ARG    59       3.817  20.766  22.770  1.00 
+0.00      1PAD 566
+ATOM    460  CG  ARG    59       2.762  21.807  23.190  1.00 
+0.00      1PAD 567
+ATOM    461  CD  ARG    59       2.406  21.626  24.653  1.00 
+0.00      1PAD 568
+ATOM    462  NE  ARG    59       3.616  21.512  25.482  1.00 
+0.00      1PAD 569
+ATOM    463  CZ  ARG    59       3.598  21.561  26.832  1.00 
+0.00      1PAD 570
+ATOM    464  NH1 ARG    59       2.842  22.461  27.478  1.00 
+0.00      1PAD 571
+ATOM    465  NH2 ARG    59       4.333  20.700  27.513  1.00 
+0.00      1PAD 572
+ATOM    466  N   SER    60       5.808  21.152  20.256  1.00 
+0.00      1PAD 573
+ATOM    467  CA  SER    60       6.708  22.009  19.474  1.00 
+0.00      1PAD 574
+ATOM    468  C   SER    60       6.645  21.305  18.117  1.00 
+0.00      1PAD 575
+ATOM    469  O   SER    60       6.165  20.156  18.009  1.00 
+0.00      1PAD 576
+ATOM    470  CB  SER    60       8.085  22.038  20.100  1.00 
+0.00      1PAD 577
+ATOM    471  OG  SER    60       8.106  22.788  21.311  1.00 
+0.00      1PAD 578
+ATOM    472  N   TYR    61       7.139  22.017  17.116  1.00 
+0.00      1PAD 579
+ATOM    473  CA  TYR    61       7.189  21.529  15.732  1.00 
+0.00      1PAD 580
+ATOM    474  C   TYR    61       8.622  21.235  15.287  1.00 
+0.00      1PAD 581
+ATOM    475  O   TYR    61       9.071  21.691  14.213  1.00 
+0.00      1PAD 582
+ATOM    476  CB  TYR    61       6.545  22.580  14.811  1.00 
+0.00      1PAD 583
+ATOM    477  CG  TYR    61       5.497  23.443  15.531  1.00 
+0.00      1PAD 584
+ATOM    478  CD1 TYR    61       4.157  23.194  15.411  1.00 
+0.00      1PAD 585
+ATOM    479  CD2 TYR    61       5.957  24.457  16.392  1.00 
+0.00      1PAD 586
+ATOM    480  CE1 TYR    61       3.184  23.987  16.091  1.00 
+0.00      1PAD 587
+ATOM    481  CE2 TYR    61       4.972  25.275  17.089  1.00 
+0.00      1PAD 588
+ATOM    482  CZ  TYR    61       3.660  24.990  16.947  1.00 
+0.00      1PAD 589
+ATOM    483  OH  TYR    61       2.728  25.747  17.626  1.00 
+0.00      1PAD 590
+ATOM    484  N   GLY    62       9.303  20.471  16.128  1.00 
+0.00      1PAD 591
+ATOM    485  CA  GLY    62      10.691  20.056  15.892  1.00 
+0.00      1PAD 592
+ATOM    486  C   GLY    62      11.613  20.827  14.945  1.00 
+0.00      1PAD 593
+ATOM    487  O   GLY    62      11.935  22.011  15.181  1.00 
+0.00      1PAD 594
+ATOM    488  N   CYS    63      12.008  20.130  13.891  1.00 
+0.00      1PAD 595
+ATOM    489  CA  CYS    63      12.886  20.679  12.849  1.00 
+0.00      1PAD 596
+ATOM    490  C   CYS    63      12.220  21.815  12.071  1.00 
+0.00      1PAD 597
+ATOM    491  O   CYS    63      12.085  21.754  10.830  1.00 
+0.00      1PAD 598
+ATOM    492  CB  CYS    63      13.465  19.578  11.995  1.00 
+0.00      1PAD 599
+ATOM    493  SG  CYS    63      15.070  18.906  12.530  1.00 
+0.00      1PAD 600
+ATOM    494  N   ASN    64      11.825  22.828  12.826  1.00 
+0.00      1PAD 601
+ATOM    495  CA  ASN    64      11.174  24.027  12.285  1.00 
+0.00      1PAD 602
+ATOM    496  C   ASN    64      10.000  24.591  13.086  1.00 
+0.00      1PAD 603
+ATOM    497  O   ASN    64       8.836  24.564  12.631  1.00 
+0.00      1PAD 604
+ATOM    498  CB  ASN    64      10.651  23.734  10.862  1.00 
+0.00      1PAD 605
+ATOM    499  CG  ASN    64       9.395  22.903  10.899  1.00 
+0.00      1PAD 606
+ATOM    500  AD1 ASN    64       8.585  22.991   9.773  1.00 
+0.00      1PAD 607
+ATOM    501  AD2 ASN    64       9.033  22.228  11.847  1.00 
+0.00      1PAD 608
+ATOM    502  N   GLY    65      10.341  25.094  14.262  1.00 
+0.00      1PAD 609
+ATOM    503  CA  GLY    65       9.374  25.697  15.188  1.00 
+0.00      1PAD 610
+ATOM    504  C   GLY    65       9.352  24.975  16.536  1.00 
+0.00      1PAD 611
+ATOM    505  O   GLY    65       9.496  23.736  16.606  1.00 
+0.00      1PAD 612
+ATOM    506  N   GLY    66       9.166  25.775  17.575  1.00 
+0.00      1PAD 613
+ATOM    507  CA  GLY    66       9.099  25.292  18.960  1.00 
+0.00      1PAD 614
+ATOM    508  C   GLY    66       8.988  26.376  20.032  1.00 
+0.00      1PAD 615
+ATOM    509  O   GLY    66       8.963  27.587  19.724  1.00 
+0.00      1PAD 616
+ATOM    510  N   TYR    67       8.929  25.908  21.269  1.00 
+0.00      1PAD 617
+ATOM    511  CA  TYR    67       8.831  26.774  22.452  1.00 
+0.00      1PAD 618
+ATOM    512  C   TYR    67       9.835  26.365  23.531  1.00 
+0.00      1PAD 619
+ATOM    513  O   TYR    67       9.629  25.371  24.259  1.00 
+0.00      1PAD 620
+ATOM    514  CB  TYR    67       7.394  26.709  22.998  1.00 
+0.00      1PAD 621
+ATOM    515  CG  TYR    67       6.332  26.941  21.912  1.00 
+0.00      1PAD 622
+ATOM    516  CD1 TYR    67       5.428  25.972  21.573  1.00 
+0.00      1PAD 623
+ATOM    517  CD2 TYR    67       6.258  28.218  21.325  1.00 
+0.00      1PAD 624
+ATOM    518  CE1 TYR    67       4.433  26.193  20.573  1.00 
+0.00      1PAD 625
+ATOM    519  CE2 TYR    67       5.247  28.454  20.301  1.00 
+0.00      1PAD 626
+ATOM    520  CZ  TYR    67       4.372  27.471  20.002  1.00 
+0.00      1PAD 627
+ATOM    521  OH  TYR    67       3.399  27.701  19.051  1.00 
+0.00      1PAD 628
+ATOM    522  N   PRO    68      10.896  27.152  23.607  1.00 
+0.00      1PAD 629
+ATOM    523  CA  PRO    68      11.978  26.950  24.580  1.00 
+0.00      1PAD 630
+ATOM    524  C   PRO    68      11.370  26.701  25.961  1.00 
+0.00      1PAD 631
+ATOM    525  O   PRO    68      12.021  26.121  26.857  1.00 
+0.00      1PAD 632
+ATOM    526  CB  PRO    68      12.781  28.210  24.496  1.00 
+0.00      1PAD 633
+ATOM    527  CG  PRO    68      11.827  29.275  23.986  1.00 
+0.00      1PAD 634
+ATOM    528  CD  PRO    68      10.858  28.509  23.089  1.00 
+0.00      1PAD 635
+ATOM    529  N   TRP    69      10.129  27.143  26.094  1.00 
+0.00      1PAD 636
+ATOM    530  CA  TRP    69       9.352  26.997  27.331  1.00 
+0.00      1PAD 637
+ATOM    531  C   TRP    69       8.460  25.758  27.260  1.00 
+0.00      1PAD 638
+ATOM    532  O   TRP    69       8.242  25.061  28.275  1.00 
+0.00      1PAD 639
+ATOM    533  CB  TRP    69       8.527  28.266  27.545  1.00 
+0.00      1PAD 640
+ATOM    534  CG  TRP    69       7.508  28.643  26.406  1.00 
+0.00      1PAD 641
+ATOM    535  CD1 TRP    69       7.636  29.534  25.414  1.00 
+0.00      1PAD 642
+ATOM    536  CD2 TRP    69       6.263  28.041  26.198  1.00 
+0.00      1PAD 643
+ATOM    537  NE1 TRP    69       6.426  29.552  24.613  1.00 
+0.00      1PAD 644
+ATOM    538  CE2 TRP    69       5.652  28.642  25.059  1.00 
+0.00      1PAD 645
+ATOM    539  CE3 TRP    69       5.594  27.044  26.871  1.00 
+0.00      1PAD 646
+ATOM    540  CZ2 TRP    69       4.400  28.299  24.540  1.00 
+0.00      1PAD 647
+ATOM    541  CZ3 TRP    69       4.326  26.716  26.348  1.00 
+0.00      1PAD 648
+ATOM    542  CH2 TRP    69       3.776  27.290  25.210  1.00 
+0.00      1PAD 649
+ATOM    543  N   SER    70       8.198  25.224  26.126  1.00 
+0.00      1PAD 650
+ATOM    544  CA  SER    70       7.860  23.586  26.325  1.00 
+0.00      1PAD 651
+ATOM    545  C   SER    70       8.954  22.622  26.786  1.00 
+0.00      1PAD 652
+ATOM    546  O   SER    70       8.759  21.832  27.735  1.00 
+0.00      1PAD 653
+ATOM    547  CB  SER    70       7.291  23.125  25.000  1.00 
+0.00      1PAD 654
+ATOM    548  OG  SER    70       6.498  21.950  25.140  1.00 
+0.00      1PAD 655
+ATOM    549  N   ALA    71      10.083  22.719  26.101  1.00 
+0.00      1PAD 656
+ATOM    550  CA  ALA    71      11.267  21.897  26.384  1.00 
+0.00      1PAD 657
+ATOM    551  C   ALA    71      11.544  21.749  27.881  1.00 
+0.00      1PAD 658
+ATOM    552  O   ALA    71      11.513  20.628  28.434  1.00 
+0.00      1PAD 659
+ATOM    553  CB  ALA    71      12.452  22.529  25.664  1.00 
+0.00      1PAD 660
+ATOM    554  N   LEU    72      11.804  22.891  28.498  1.00 
+0.00      1PAD 661
+ATOM    555  CA  LEU    72      12.086  22.980  29.937  1.00 
+0.00      1PAD 662
+ATOM    556  C   LEU    72      10.994  22.272  30.739  1.00 
+0.00      1PAD 663
+ATOM    557  O   LEU    72      11.268  21.318  31.499  1.00 
+0.00      1PAD 664
+ATOM    558  CB  LEU    72      12.172  24.457  30.368  1.00 
+0.00      1PAD 665
+ATOM    559  CG  LEU    72      13.174  25.346  29.659  1.00 
+0.00      1PAD 666
+ATOM    560  CD1 LEU    72      13.036  26.762  30.166  1.00 
+0.00      1PAD 667
+ATOM    561  CD2 LEU    72      14.580  24.850  29.892  1.00 
+0.00      1PAD 668
+ATOM    562  N   GLN    73       9.778  22.757  30.542  1.00 
+0.00      1PAD 669
+ATOM    563  CA  GLN    73       8.582  22.219  31.202  1.00 
+0.00      1PAD 670
+ATOM    564  C   GLN    73       8.641  20.696  31.084  1.00 
+0.00      1PAD 671
+ATOM    565  O   GLN    73       8.494  19.965  32.088  1.00 
+0.00      1PAD 672
+ATOM    566  CB  GLN    73       7.372  22.814  30.535  1.00 
+0.00      1PAD 673
+ATOM    567  CG  GLN    73       6.104  22.363  31.120  1.00 
+0.00      1PAD 674
+ATOM    568  CD  GLN    73       4.864  22.590  30.243  1.00 
+0.00      1PAD 675
+ATOM    569  AE1 GLN    73       3.920  21.729  30.298  1.00 
+0.00      1PAD 676
+ATOM    570  AE2 GLN    73       4.804  23.649  29.553  1.00 
+0.00      1PAD 677
+ATOM    571  N   LEU    74       8.860  20.257  29.854  1.00 
+0.00      1PAD 678
+ATOM    572  CA  LEU    74       8.966  18.832  29.517  1.00 
+0.00      1PAD 679
+ATOM    573  C   LEU    74       9.901  18.118  30.494  1.00 
+0.00      1PAD 680
+ATOM    574  O   LEU    74       9.486  17.193  31.225  1.00 
+0.00      1PAD 681
+ATOM    575  CB  LEU    74       9.495  18.667  28.079  1.00 
+0.00      1PAD 682
+ATOM    576  CG  LEU    74       8.784  17.687  27.169  1.00 
+0.00      1PAD 683
+ATOM    577  CD1 LEU    74       9.804  16.868  26.415  1.00 
+0.00      1PAD 684
+ATOM    578  CD2 LEU    74       7.883  16.778  27.969  1.00 
+0.00      1PAD 685
+ATOM    579  N   VAL    75      11.145  18.573  30.482  1.00 
+0.00      1PAD 686
+ATOM    580  CA  VAL    75      12.204  18.040  31.348  1.00 
+0.00      1PAD 687
+ATOM    581  C   VAL    75      11.752  17.885  32.801  1.00 
+0.00      1PAD 688
+ATOM    582  O   VAL    75      11.771  16.771  33.367  1.00 
+0.00      1PAD 689
+ATOM    583  CB  VAL    75      13.423  18.951  31.297  1.00 
+0.00      1PAD 690
+ATOM    584  CG1 VAL    75      14.551  18.586  32.294  1.00 
+0.00      1PAD 691
+ATOM    585  CG2 VAL    75      13.935  19.134  29.892  1.00 
+0.00      1PAD 692
+ATOM    586  N   ALA    76      11.350  19.013  33.365  1.00 
+0.00      1PAD 693
+ATOM    587  CA  ALA    76      10.864  19.091  34.749  1.00 
+0.00      1PAD 694
+ATOM    588  C   ALA    76       9.820  18.003  35.005  1.00 
+0.00      1PAD 695
+ATOM    589  O   ALA    76       9.862  17.300  36.037  1.00 
+0.00      1PAD 696
+ATOM    590  CB  ALA    76      10.286  20.479  34.998  1.00 
+0.00      1PAD 697
+ATOM    591  N   GLN    77       8.911  17.891  34.049  1.00 
+0.00      1PAD 698
+ATOM    592  CA  GLN    77       7.825  16.903  34.085  1.00 
+0.00      1PAD 699
+ATOM    593  C   GLN    77       8.356  15.471  33.995  1.00 
+0.00      1PAD 700
+ATOM    594  O   GLN    77       8.093  14.630  34.881  1.00 
+0.00      1PAD 701
+ATOM    595  CB  GLN    77       6.887  17.197  32.947  1.00 
+0.00      1PAD 702
+ATOM    596  CG  GLN    77       6.155  18.458  33.106  1.00 
+0.00      1PAD 703
+ATOM    597  CD  GLN    77       5.212  18.816  31.948  1.00 
+0.00      1PAD 704
+ATOM    598  AE1 GLN    77       5.467  18.335  30.792  1.00 
+0.00      1PAD 705
+ATOM    599  AE2 GLN    77       4.191  19.519  32.202  1.00 
+0.00      1PAD 706
+ATOM    600  N   TYR    78       9.096  15.236  32.923  1.00 
+0.00      1PAD 707
+ATOM    601  CA  TYR    78       9.715  13.934  32.644  1.00 
+0.00      1PAD 708
+ATOM    602  C   TYR    78      11.192  13.942  33.040  1.00 
+0.00      1PAD 709
+ATOM    603  O   TYR    78      11.566  13.489  34.144  1.00 
+0.00      1PAD 710
+ATOM    604  CB  TYR    78       9.547  13.614  31.148  1.00 
+0.00      1PAD 711
+ATOM    605  CG  TYR    78       8.076  13.461  30.732  1.00 
+0.00      1PAD 712
+ATOM    606  CD1 TYR    78       7.352  12.345  31.054  1.00 
+0.00      1PAD 713
+ATOM    607  CD2 TYR    78       7.460  14.542  30.074  1.00 
+0.00      1PAD 714
+ATOM    608  CE1 TYR    78       5.981  12.208  30.678  1.00 
+0.00      1PAD 715
+ATOM    609  CE2 TYR    78       6.062  14.412  29.685  1.00 
+0.00      1PAD 716
+ATOM    610  CZ  TYR    78       5.383  13.296  30.027  1.00 
+0.00      1PAD 717
+ATOM    611  OH  TYR    78       4.053  13.183  29.681  1.00 
+0.00      1PAD 718
+ATOM    612  N   GLY    79      11.994  14.464  32.125  1.00 
+0.00      1PAD 719
+ATOM    613  CA  GLY    79      13.447  14.581  32.304  1.00 
+0.00      1PAD 720
+ATOM    614  C   GLY    79      14.128  14.842  30.960  1.00 
+0.00      1PAD 721
+ATOM    615  O   GLY    79      13.489  15.312  29.993  1.00 
+0.00      1PAD 722
+ATOM    616  N   ILE    80      15.413  14.523  30.934  1.00 
+0.00      1PAD 723
+ATOM    617  CA  ILE    80      16.256  14.680  29.743  1.00 
+0.00      1PAD 724
+ATOM    618  C   ILE    80      17.558  13.894  29.898  1.00 
+0.00      1PAD 725
+ATOM    619  O   ILE    80      18.146  13.831  30.999  1.00 
+0.00      1PAD 726
+ATOM    620  CB  ILE    80      16.630  16.163  29.494  1.00 
+0.00      1PAD 727
+ATOM    621  CG1 ILE    80      17.345  16.385  28.133  1.00 
+0.00      1PAD 728
+ATOM    622  CG2 ILE    80      17.443  16.494  30.749  1.00 
+0.00      1PAD 729
+ATOM    623  CD1 ILE    80      17.673  17.866  27.836  1.00 
+0.00      1PAD 730
+ATOM    624  N   HIS    81      17.977  13.316  28.783  1.00 
+0.00      1PAD 731
+ATOM    625  CA  HIS    81      19.210  12.522  28.703  1.00 
+0.00      1PAD 732
+ATOM    626  C   HIS    81      20.459  13.315  28.314  1.00 
+0.00      1PAD 733
+ATOM    627  O   HIS    81      20.383  14.520  27.991  1.00 
+0.00      1PAD 734
+ATOM    628  CB  HIS    81      19.011  11.404  27.684  1.00 
+0.00      1PAD 735
+ATOM    629  CG  HIS    81      18.196  10.234  28.176  1.00 
+0.00      1PAD 736
+ATOM    630  ND1 HIS    81      16.825  10.159  27.990  1.00 
+0.00      1PAD 737
+ATOM    631  CD2 HIS    81      18.547   9.117  28.865  1.00 
+0.00      1PAD 738
+ATOM    632  CE1 HIS    81      16.386   9.048  28.549  1.00 
+0.00      1PAD 739
+ATOM    633  NE2 HIS    81      17.409   8.398  29.057  1.00 
+0.00      1PAD 740
+ATOM    634  N   TYR    82      21.579  12.610  28.350  1.00 
+0.00      1PAD 741
+ATOM    635  CA  TYR    82      22.892  13.170  28.003  1.00 
+0.00      1PAD 742
+ATOM    636  C   TYR    82      22.810  13.342  26.486  1.00 
+0.00      1PAD 743
+ATOM    637  O   TYR    82      21.853  12.869  25.834  1.00 
+0.00      1PAD 744
+ATOM    638  CB  TYR    82      23.987  12.201  28.482  1.00 
+0.00      1PAD 745
+ATOM    639  CG  TYR    82      24.227  12.274  29.998  1.00 
+0.00      1PAD 746
+ATOM    640  CD1 TYR    82      24.429  13.468  30.636  1.00 
+0.00      1PAD 747
+ATOM    641  CD2 TYR    82      24.155  11.077  30.736  1.00 
+0.00      1PAD 748
+ATOM    642  CE1 TYR    82      24.639  13.536  32.047  1.00 
+0.00      1PAD 749
+ATOM    643  CE2 TYR    82      24.370  11.136  32.176  1.00 
+0.00      1PAD 750
+ATOM    644  CZ  TYR    82      24.559  12.336  32.766  1.00 
+0.00      1PAD 751
+ATOM    645  OH  TYR    82      24.737  12.395  34.132  1.00 
+0.00      1PAD 752
+ATOM    646  N   ARG    83      23.824  14.013  25.963  1.00 
+0.00      1PAD 753
+ATOM    647  CA  ARG    83      23.952  14.284  24.525  1.00 
+0.00      1PAD 754
+ATOM    648  C   ARG    83      24.859  13.209  23.924  1.00 
+0.00      1PAD 755
+ATOM    649  O   ARG    83      25.408  13.376  22.814  1.00 
+0.00      1PAD 756
+ATOM    650  CB  ARG    83      24.550  15.682  24.270  1.00 
+0.00      1PAD 757
+ATOM    651  CG  ARG    83      23.800  16.511  23.210  1.00 
+0.00      1PAD 758
+ATOM    652  CD  ARG    83      24.751  17.486  22.543  1.00 
+0.00      1PAD 759
+ATOM    653  NE  ARG    83      24.249  17.896  21.221  1.00 
+0.00      1PAD 760
+ATOM    654  CZ  ARG    83      25.025  18.478  20.281  1.00 
+0.00      1PAD 761
+ATOM    655  NH1 ARG    83      26.348  18.602  20.461  1.00 
+0.00      1PAD 762
+ATOM    656  NH2 ARG    83      24.461  18.920  19.171  1.00 
+0.00      1PAD 763
+ATOM    657  N   ASN    84      24.988  12.128  24.677  1.00 
+0.00      1PAD 764
+ATOM    658  CA  ASN    84      25.802  10.969  24.287  1.00 
+0.00      1PAD 765
+ATOM    659  C   ASN    84      24.839   9.796  24.101  1.00 
+0.00      1PAD 766
+ATOM    660  O   ASN    84      24.971   8.999  23.148  1.00 
+0.00      1PAD 767
+ATOM    661  CB  ASN    84      26.860  10.691  25.376  1.00 
+0.00      1PAD 768
+ATOM    662  CG  ASN    84      28.092  11.535  25.174  1.00 
+0.00      1PAD 769
+ATOM    663  AD1 ASN    84      28.527  11.654  23.859  1.00 
+0.00      1PAD 770
+ATOM    664  AD2 ASN    84      28.738  12.051  26.069  1.00 
+0.00      1PAD 771
+ATOM    665  N   THR    85      23.888   9.727  25.020  1.00 
+0.00      1PAD 772
+ATOM    666  CA  THR    85      22.850   8.688  25.025  1.00 
+0.00      1PAD 773
+ATOM    667  C   THR    85      21.649   9.210  24.235  1.00 
+0.00      1PAD 774
+ATOM    668  O   THR    85      20.544   8.629  24.283  1.00 
+0.00      1PAD 775
+ATOM    669  CB  THR    85      22.522   8.380  26.499  1.00 
+0.00      1PAD 776
+ATOM    670  OG1 THR    85      21.969   9.596  26.992  1.00 
+0.00      1PAD 777
+ATOM    671  CG2 THR    85      23.742   7.996  27.293  1.00 
+0.00      1PAD 778
+ATOM    672  N   TYR    86      21.902  10.297  23.523  1.00 
+0.00      1PAD 779
+ATOM    673  CA  TYR    86      20.897  10.959  22.682  1.00 
+0.00      1PAD 780
+ATOM    674  C   TYR    86      21.442  12.143  21.882  1.00 
+0.00      1PAD 781
+ATOM    675  O   TYR    86      20.793  13.206  21.781  1.00 
+0.00      1PAD 782
+ATOM    676  CB  TYR    86      19.739  11.438  23.576  1.00 
+0.00      1PAD 783
+ATOM    677  CG  TYR    86      18.357  11.130  22.980  1.00 
+0.00      1PAD 784
+ATOM    678  CD1 TYR    86      17.318  10.700  23.760  1.00 
+0.00      1PAD 785
+ATOM    679  CD2 TYR    86      18.160  11.379  21.609  1.00 
+0.00      1PAD 786
+ATOM    680  CE1 TYR    86      16.030  10.427  23.207  1.00 
+0.00      1PAD 787
+ATOM    681  CE2 TYR    86      16.850  11.101  21.034  1.00 
+0.00      1PAD 788
+ATOM    682  CZ  TYR    86      15.852  10.684  21.841  1.00 
+0.00      1PAD 789
+ATOM    683  OH  TYR    86      14.604  10.445  21.303  1.00 
+0.00      1PAD 790
+ATOM    684  N   PRO    87      22.624  11.922  21.329  1.00 
+0.00      1PAD 791
+ATOM    685  CA  PRO    87      23.325  12.918  20.509  1.00 
+0.00      1PAD 792
+ATOM    686  C   PRO    87      22.344  13.521  19.502  1.00 
+0.00      1PAD 793
+ATOM    687  O   PRO    87      21.299  12.916  19.180  1.00 
+0.00      1PAD 794
+ATOM    688  CB  PRO    87      24.438  12.145  19.874  1.00 
+0.00      1PAD 795
+ATOM    689  CG  PRO    87      23.976  10.700  19.847  1.00 
+0.00      1PAD 796
+ATOM    690  CD  PRO    87      23.093  10.569  21.086  1.00 
+0.00      1PAD 797
+ATOM    691  N   TYR    88      22.712  14.701  19.028  1.00 
+0.00      1PAD 798
+ATOM    692  CA  TYR    88      21.925  15.452  18.043  1.00 
+0.00      1PAD 799
+ATOM    693  C   TYR    88      22.282  14.912  16.657  1.00 
+0.00      1PAD 800
+ATOM    694  O   TYR    88      23.463  14.633  16.359  1.00 
+0.00      1PAD 801
+ATOM    695  CB  TYR    88      22.241  16.951  18.192  1.00 
+0.00      1PAD 802
+ATOM    696  CG  TYR    88      21.568  17.813  17.114  1.00 
+0.00      1PAD 803
+ATOM    697  CD1 TYR    88      20.206  17.927  17.032  1.00 
+0.00      1PAD 804
+ATOM    698  CD2 TYR    88      22.395  18.556  16.251  1.00 
+0.00      1PAD 805
+ATOM    699  CE1 TYR    88      19.581  18.740  16.038  1.00 
+0.00      1PAD 806
+ATOM    700  CE2 TYR    88      21.767  19.387  15.231  1.00 
+0.00      1PAD 807
+ATOM    701  CZ  TYR    88      20.421  19.475  15.190  1.00 
+0.00      1PAD 808
+ATOM    702  OH  TYR    88      19.826  20.280  14.242  1.00 
+0.00      1PAD 809
+ATOM    703  N   GLU    89      21.245  14.784  15.843  1.00 
+0.00      1PAD 810
+ATOM    704  CA  GLU    89      21.363  14.295  14.464  1.00 
+0.00      1PAD 811
+ATOM    705  C   GLU    89      20.934  15.397  13.494  1.00 
+0.00      1PAD 812
+ATOM    706  O   GLU    89      21.551  15.591  12.424  1.00 
+0.00      1PAD 813
+ATOM    707  CB  GLU    89      20.469  13.046  14.219  1.00 
+0.00      1PAD 814
+ATOM    708  CG  GLU    89      19.106  13.017  14.941  1.00 
+0.00      1PAD 815
+ATOM    709  CD  GLU    89      18.473  11.584  15.107  1.00 
+0.00      1PAD 816
+ATOM    710  OE1 GLU    89      18.791  10.855  15.999  1.00 
+0.00      1PAD 817
+ATOM    711  OE2 GLU    89      17.657  11.421  14.200  1.00 
+0.00      1PAD 818
+ATOM    712  N   GLY    90      19.884  16.095  13.900  1.00 
+0.00      1PAD 819
+ATOM    713  CA  GLY    90      19.312  17.207  13.130  1.00 
+0.00      1PAD 820
+ATOM    714  C   GLY    90      17.917  17.047  12.524  1.00 
+0.00      1PAD 821
+ATOM    715  O   GLY    90      17.337  18.011  11.979  1.00 
+0.00      1PAD 822
+ATOM    716  N   VAL    91      17.413  15.829  12.642  1.00 
+0.00      1PAD 823
+ATOM    717  CA  VAL    91      16.083  15.458  12.142  1.00 
+0.00      1PAD 824
+ATOM    718  C   VAL    91      15.186  14.913  13.255  1.00 
+0.00      1PAD 825
+ATOM    719  O   VAL    91      15.586  14.009  14.020  1.00 
+0.00      1PAD 826
+ATOM    720  CB  VAL    91      16.216  14.417  11.038  1.00 
+0.00      1PAD 827
+ATOM    721  CG1 VAL    91      14.888  14.036  10.339  1.00 
+0.00      1PAD 828
+ATOM    722  CG2 VAL    91      17.302  14.769  10.056  1.00 
+0.00      1PAD 829
+ATOM    723  N   GLN    92      13.990  15.479  13.311  1.00 
+0.00      1PAD 830
+ATOM    724  CA  GLN    92      12.968  15.100  14.294  1.00 
+0.00      1PAD 831
+ATOM    725  C   GLN    92      12.549  13.666  13.966  1.00 
+0.00      1PAD 832
+ATOM    726  O   GLN    92      12.441  13.280  12.782  1.00 
+0.00      1PAD 833
+ATOM    727  CB  GLN    92      11.837  16.086  14.198  1.00 
+0.00      1PAD 834
+ATOM    728  CG  GLN    92      10.551  15.544  14.652  1.00 
+0.00      1PAD 835
+ATOM    729  CD  GLN    92       9.339  16.457  14.416  1.00 
+0.00      1PAD 836
+ATOM    730  AE1 GLN    92       8.713  16.905  15.436  1.00 
+0.00      1PAD 837
+ATOM    731  AE2 GLN    92       9.051  16.774  13.225  1.00 
+0.00      1PAD 838
+ATOM    732  N   ARG    93      12.319  12.913  15.031  1.00 
+0.00      1PAD 839
+ATOM    733  CA  ARG    93      11.895  11.510  14.946  1.00 
+0.00      1PAD 840
+ATOM    734  C   ARG    93      11.127  11.009  16.170  1.00 
+0.00      1PAD 841
+ATOM    735  O   ARG    93      10.654  11.808  17.007  1.00 
+0.00      1PAD 842
+ATOM    736  CB  ARG    93      13.105  10.569  14.774  1.00 
+0.00      1PAD 843
+ATOM    737  CG  ARG    93      13.537  10.349  13.311  1.00 
+0.00      1PAD 844
+ATOM    738  CD  ARG    93      15.049  10.311  13.216  1.00 
+0.00      1PAD 845
+ATOM    739  NE  ARG    93      15.494  10.414  11.816  1.00 
+0.00      1PAD 846
+ATOM    740  CZ  ARG    93      16.585   9.778  11.337  1.00 
+0.00      1PAD 847
+ATOM    741  NH1 ARG    93      16.941   9.897  10.049  1.00 
+0.00      1PAD 848
+ATOM    742  NH2 ARG    93      17.306   9.037  12.159  1.00 
+0.00      1PAD 849
+ATOM    743  N   TYR    94      11.028   9.690  16.243  1.00 
+0.00      1PAD 850
+ATOM    744  CA  TYR    94      10.342   8.996  17.341  1.00 
+0.00      1PAD 851
+ATOM    745  C   TYR    94      11.064   9.216  18.671  1.00 
+0.00      1PAD 852
+ATOM    746  O   TYR    94      12.311   9.158  18.745  1.00 
+0.00      1PAD 853
+ATOM    747  CB  TYR    94      10.263   7.495  17.006  1.00 
+0.00      1PAD 854
+ATOM    748  CG  TYR    94      10.100   6.614  18.254  1.00 
+0.00      1PAD 855
+ATOM    749  CD1 TYR    94      11.057   5.708  18.623  1.00 
+0.00      1PAD 856
+ATOM    750  CD2 TYR    94       8.966   6.819  19.063  1.00 
+0.00      1PAD 857
+ATOM    751  CE1 TYR    94      10.910   4.898  19.790  1.00 
+0.00      1PAD 858
+ATOM    752  CE2 TYR    94       8.807   5.996  20.255  1.00 
+0.00      1PAD 859
+ATOM    753  CZ  TYR    94       9.778   5.119  20.585  1.00 
+0.00      1PAD 860
+ATOM    754  OH  TYR    94       9.640   4.357  21.727  1.00 
+0.00      1PAD 861
+ATOM    755  N   CYS    95      10.256   9.461  19.690  1.00 
+0.00      1PAD 862
+ATOM    756  CA  CYS    95      10.736   9.690  21.059  1.00 
+0.00      1PAD 863
+ATOM    757  C   CYS    95      11.466   8.402  21.441  1.00 
+0.00      1PAD 864
+ATOM    758  O   CYS    95      10.938   7.284  21.260  1.00 
+0.00      1PAD 865
+ATOM    759  CB  CYS    95       9.642  10.096  22.015  1.00 
+0.00      1PAD 866
+ATOM    760  SG  CYS    95      10.179  10.641  23.667  1.00 
+0.00      1PAD 867
+ATOM    761  N   ARG    96      12.666   8.597  21.966  1.00 
+0.00      1PAD 868
+ATOM    762  CA  ARG    96      13.534   7.500  22.414  1.00 
+0.00      1PAD 869
+ATOM    763  C   ARG    96      13.687   7.523  23.936  1.00 
+0.00      1PAD 870
+ATOM    764  O   ARG    96      14.181   6.552  24.549  1.00 
+0.00      1PAD 871
+ATOM    765  CB  ARG    96      14.935   7.601  21.779  1.00 
+0.00      1PAD 872
+ATOM    766  CG  ARG    96      14.929   7.852  20.259  1.00 
+0.00      1PAD 873
+ATOM    767  CD  ARG    96      16.206   7.321  19.638  1.00 
+0.00      1PAD 874
+ATOM    768  NE  ARG    96      16.065   7.172  18.181  1.00 
+0.00      1PAD 875
+ATOM    769  CZ  ARG    96      15.432   8.076  17.401  1.00 
+0.00      1PAD 876
+ATOM    770  NH1 ARG    96      14.920   9.198  17.925  1.00 
+0.00      1PAD 877
+ATOM    771  NH2 ARG    96      15.331   7.841  16.105  1.00 
+0.00      1PAD 878
+ATOM    772  N   SER    97      13.250   8.635  24.506  1.00 
+0.00      1PAD 879
+ATOM    773  CA  SER    97      13.291   8.864  25.956  1.00 
+0.00      1PAD 880
+ATOM    774  C   SER    97      13.144   7.523  26.677  1.00 
+0.00      1PAD 881
+ATOM    775  O   SER    97      14.130   6.963  27.204  1.00 
+0.00      1PAD 882
+ATOM    776  CB  SER    97      12.178   9.800  26.373  1.00 
+0.00      1PAD 883
+ATOM    777  OG  SER    97      12.318  11.091  25.787  1.00 
+0.00      1PAD 884
+ATOM    778  N   ARG    98      11.911   7.041  26.676  1.00 
+0.00      1PAD 885
+ATOM    779  CA  ARG    98      11.548   5.762  27.301  1.00 
+0.00      1PAD 886
+ATOM    780  C   ARG    98      12.437   4.578  26.917  1.00 
+0.00      1PAD 887
+ATOM    781  O   ARG    98      12.959   3.854  27.792  1.00 
+0.00      1PAD 888
+ATOM    782  CB  ARG    98      10.107   5.351  26.936  1.00 
+0.00      1PAD 889
+ATOM    783  CG  ARG    98       9.825   5.294  25.423  1.00 
+0.00      1PAD 890
+ATOM    784  CD  ARG    98       9.877   6.689  24.830  1.00 
+0.00      1PAD 891
+ATOM    785  NE  ARG    98       8.743   7.504  25.294  1.00 
+0.00      1PAD 892
+ATOM    786  CZ  ARG    98       7.513   7.447  24.737  1.00 
+0.00      1PAD 893
+ATOM    787  NH1 ARG    98       6.507   8.195  25.214  1.00 
+0.00      1PAD 894
+ATOM    788  NH2 ARG    98       7.314   6.646  23.706  1.00 
+0.00      1PAD 895
+ATOM    789  N   GLU    99      12.589   4.417  25.612  1.00 
+0.00      1PAD 896
+ATOM    790  CA  GLU    99      13.410   3.351  25.024  1.00 
+0.00      1PAD 897
+ATOM    791  C   GLU    99      14.878   3.462  25.438  1.00 
+0.00      1PAD 898
+ATOM    792  O   GLU    99      15.575   2.440  25.621  1.00 
+0.00      1PAD 899
+ATOM    793  CB  GLU    99      13.370   3.387  23.469  1.00 
+0.00      1PAD 900
+ATOM    794  CG  GLU    99      14.588   2.793  22.731  1.00 
+0.00      1PAD 901
+ATOM    795  CD  GLU    99      14.460   2.757  21.161  1.00 
+0.00      1PAD 902
+ATOM    796  OE1 GLU    99      13.397   2.722  20.617  1.00 
+0.00      1PAD 903
+ATOM    797  OE2 GLU    99      15.595   2.782  20.686  1.00 
+0.00      1PAD 904
+ATOM    798  N   LYS   100      15.307   4.706  25.580  1.00 
+0.00      1PAD 905
+ATOM    799  CA  LYS   100      16.678   5.042  25.984  1.00 
+0.00      1PAD 906
+ATOM    800  C   LYS   100      16.998   4.546  27.395  1.00 
+0.00      1PAD 907
+ATOM    801  O   LYS   100      18.159   4.205  27.711  1.00 
+0.00      1PAD 908
+ATOM    802  CB  LYS   100      16.910   6.548  25.952  1.00 
+0.00      1PAD 909
+ATOM    803  CG  LYS   100      17.086   7.132  24.563  1.00 
+0.00      1PAD 910
+ATOM    804  CD  LYS   100      18.189   6.405  23.800  1.00 
+0.00      1PAD 911
+ATOM    805  CE  LYS   100      18.453   7.051  22.448  1.00 
+0.00      1PAD 912
+ATOM    806  NZ  LYS   100      19.624   6.433  21.788  1.00 
+0.00      1PAD 913
+ATOM    807  N   GLY   101      15.953   4.516  28.207  1.00 
+0.00      1PAD 914
+ATOM    808  CA  GLY   101      16.032   4.063  29.602  1.00 
+0.00      1PAD 915
+ATOM    809  C   GLY   101      15.912   5.208  30.608  1.00 
+0.00      1PAD 916
+ATOM    810  O   GLY   101      15.407   6.303  30.281  1.00 
+0.00      1PAD 917
+ATOM    811  N   PRO   102      16.387   4.922  31.810  1.00 
+0.00      1PAD 918
+ATOM    812  CA  PRO   102      16.384   5.880  32.924  1.00 
+0.00      1PAD 919
+ATOM    813  C   PRO   102      16.903   7.230  32.427  1.00 
+0.00      1PAD 920
+ATOM    814  O   PRO   102      17.821   7.296  31.581  1.00 
+0.00      1PAD 921
+ATOM    815  CB  PRO   102      17.261   5.241  33.954  1.00 
+0.00      1PAD 922
+ATOM    816  CG  PRO   102      18.188   4.313  33.190  1.00 
+0.00      1PAD 923
+ATOM    817  CD  PRO   102      17.355   3.854  31.995  1.00 
+0.00      1PAD 924
+ATOM    818  N   TYR   103      16.300   8.275  32.973  1.00 
+0.00      1PAD 925
+ATOM    819  CA  TYR   103      16.650   9.663  32.649  1.00 
+0.00      1PAD 926
+ATOM    820  C   TYR   103      17.948   9.885  33.427  1.00 
+0.00      1PAD 927
+ATOM    821  O   TYR   103      18.327   9.068  34.294  1.00 
+0.00      1PAD 928
+ATOM    822  CB  TYR   103      15.484  10.579  33.064  1.00 
+0.00      1PAD 929
+ATOM    823  CG  TYR   103      14.307  10.530  32.078  1.00 
+0.00      1PAD 930
+ATOM    824  CD1 TYR   103      13.018  10.365  32.508  1.00 
+0.00      1PAD 931
+ATOM    825  CD2 TYR   103      14.579  10.741  30.714  1.00 
+0.00      1PAD 932
+ATOM    826  CE1 TYR   103      11.922  10.333  31.592  1.00 
+0.00      1PAD 933
+ATOM    827  CE2 TYR   103      13.468  10.708  29.771  1.00 
+0.00      1PAD 934
+ATOM    828  CZ  TYR   103      12.212  10.549  30.238  1.00 
+0.00      1PAD 935
+ATOM    829  OH  TYR   103      11.158  10.542  29.349  1.00 
+0.00      1PAD 936
+ATOM    830  N   ALA   104      18.593  10.993  33.097  1.00 
+0.00      1PAD 937
+ATOM    831  CA  ALA   104      19.853  11.406  33.728  1.00 
+0.00      1PAD 938
+ATOM    832  C   ALA   104      19.762  12.762  34.429  1.00 
+0.00      1PAD 939
+ATOM    833  O   ALA   104      20.419  12.996  35.467  1.00 
+0.00      1PAD 940
+ATOM    834  CB  ALA   104      20.925  11.417  32.645  1.00 
+0.00      1PAD 941
+ATOM    835  N   ALA   105      18.941  13.619  33.843  1.00 
+0.00      1PAD 942
+ATOM    836  CA  ALA   105      18.694  14.973  34.355  1.00 
+0.00      1PAD 943
+ATOM    837  C   ALA   105      17.186  15.223  34.342  1.00 
+0.00      1PAD 944
+ATOM    838  O   ALA   105      16.476  14.836  33.389  1.00 
+0.00      1PAD 945
+ATOM    839  CB  ALA   105      19.431  16.000  33.504  1.00 
+0.00      1PAD 946
+ATOM    840  N   LYS   106      16.736  15.872  35.405  1.00 
+0.00      1PAD 947
+ATOM    841  CA  LYS   106      15.324  16.227  35.592  1.00 
+0.00      1PAD 948
+ATOM    842  C   LYS   106      15.234  17.361  36.614  1.00 
+0.00      1PAD 949
+ATOM    843  O   LYS   106      15.625  17.200  37.791  1.00 
+0.00      1PAD 950
+ATOM    844  CB  LYS   106      14.514  15.030  36.078  1.00 
+0.00      1PAD 951
+ATOM    845  CG  LYS   106      13.120  15.368  36.573  1.00 
+0.00      1PAD 952
+ATOM    846  CD  LYS   106      12.367  14.109  36.989  1.00 
+0.00      1PAD 953
+ATOM    847  CE  LYS   106      10.889  14.391  37.219  1.00 
+0.00      1PAD 954
+ATOM    848  NZ  LYS   106      10.209  13.207  37.790  1.00 
+0.00      1PAD 955
+ATOM    849  N   THR   107      14.713  18.480  36.136  1.00 
+0.00      1PAD 956
+ATOM    850  CA  THR   107      14.524  19.689  36.947  1.00 
+0.00      1PAD 957
+ATOM    851  C   THR   107      13.330  19.578  37.896  1.00 
+0.00      1PAD 958
+ATOM    852  O   THR   107      12.670  18.519  37.981  1.00 
+0.00      1PAD 959
+ATOM    853  CB  THR   107      14.348  20.869  35.972  1.00 
+0.00      1PAD 960
+ATOM    854  OG1 THR   107      13.285  20.457  35.117  1.00 
+0.00      1PAD 961
+ATOM    855  CG2 THR   107      15.592  21.144  35.169  1.00 
+0.00      1PAD 962
+ATOM    856  N   ASP   108      13.081  20.682  38.583  1.00 
+0.00      1PAD 963
+ATOM    857  CA  ASP   108      11.975  20.799  39.542  1.00 
+0.00      1PAD 964
+ATOM    858  C   ASP   108      11.038  21.996  39.369  1.00 
+0.00      1PAD 965
+ATOM    859  O   ASP   108      10.508  22.548  40.357  1.00 
+0.00      1PAD 966
+ATOM    860  CB  ASP   108      12.539  20.872  40.977  1.00 
+0.00      1PAD 967
+ATOM    861  CG  ASP   108      12.753  19.497  41.554  1.00 
+0.00      1PAD 968
+ATOM    862  OD1 ASP   108      11.882  18.656  41.693  1.00 
+0.00      1PAD 969
+ATOM    863  OD2 ASP   108      13.888  19.224  41.835  1.00 
+0.00      1PAD 970
+ATOM    864  N   GLY   109      10.857  22.361  38.109  1.00 
+0.00      1PAD 971
+ATOM    865  CA  GLY   109       9.989  23.478  37.714  1.00 
+0.00      1PAD 972
+ATOM    866  C   GLY   109      10.567  24.453  36.687  1.00 
+0.00      1PAD 973
+ATOM    867  O   GLY   109      11.785  24.446  36.407  1.00 
+0.00      1PAD 974
+ATOM    868  N   VAL   110       9.672  25.272  36.156  1.00 
+0.00      1PAD 975
+ATOM    869  CA  VAL   110      10.011  26.295  35.159  1.00 
+0.00      1PAD 976
+ATOM    870  C   VAL   110       9.267  27.591  35.480  1.00 
+0.00      1PAD 977
+ATOM    871  O   VAL   110       8.069  27.575  35.837  1.00 
+0.00      1PAD 978
+ATOM    872  CB  VAL   110       9.655  25.797  33.765  1.00 
+0.00      1PAD 979
+ATOM    873  CG1 VAL   110       9.150  24.334  33.705  1.00 
+0.00      1PAD 980
+ATOM    874  CG2 VAL   110       8.743  26.749  33.038  1.00 
+0.00      1PAD 981
+ATOM    875  N   ARG   111      10.000  28.684  35.339  1.00 
+0.00      1PAD 982
+ATOM    876  CA  ARG   111       9.482  30.036  35.584  1.00 
+0.00      1PAD 983
+ATOM    877  C   ARG   111       9.966  30.941  34.450  1.00 
+0.00      1PAD 984
+ATOM    878  O   ARG   111      11.027  30.694  33.837  1.00 
+0.00      1PAD 985
+ATOM    879  CB  ARG   111       9.970  30.586  36.939  1.00 
+0.00      1PAD 986
+ATOM    880  CG  ARG   111       9.194  30.054  38.159  1.00 
+0.00      1PAD 987
+ATOM    881  CD  ARG   111      10.041  30.178  39.410  1.00 
+0.00      1PAD 988
+ATOM    882  NE  ARG   111       9.517  29.329  40.492  1.00 
+0.00      1PAD 989
+ATOM    883  CZ  ARG   111       9.544  29.686  41.795  1.00 
+0.00      1PAD 990
+ATOM    884  NH1 ARG   111      10.150  30.816  42.186  1.00 
+0.00      1PAD 991
+ATOM    885  NH2 ARG   111       8.956  28.905  42.683  1.00 
+0.00      1PAD 992
+ATOM    886  N   GLN   112       9.173  31.972  34.205  1.00 
+0.00      1PAD 993
+ATOM    887  CA  GLN   112       9.454  32.972  33.167  1.00 
+0.00      1PAD 994
+ATOM    888  C   GLN   112       9.763  34.332  33.796  1.00 
+0.00      1PAD 995
+ATOM    889  O   GLN   112       9.208  34.692  34.857  1.00 
+0.00      1PAD 996
+ATOM    890  CB  GLN   112       8.260  33.050  32.256  1.00 
+0.00      1PAD 997
+ATOM    891  CG  GLN   112       8.278  34.219  31.370  1.00 
+0.00      1PAD 998
+ATOM    892  CD  GLN   112       7.038  34.381  30.479  1.00 
+0.00      1PAD 999
+ATOM    893  AE1 GLN   112       5.886  34.268  31.021  1.00 
+0.00      1PAD1000
+ATOM    894  AE2 GLN   112       7.210  34.681  29.261  1.00 
+0.00      1PAD1001
+ATOM    895  N   VAL   113      10.641  35.054  33.118  1.00 
+0.00      1PAD1002
+ATOM    896  CA  VAL   113      11.073  36.394  33.535  1.00 
+0.00      1PAD1003
+ATOM    897  C   VAL   113      10.120  37.391  32.875  1.00 
+0.00      1PAD1004
+ATOM    898  O   VAL   113       9.779  37.262  31.679  1.00 
+0.00      1PAD1005
+ATOM    899  CB  VAL   113      12.522  36.622  33.127  1.00 
+0.00      1PAD1006
+ATOM    900  CG1 VAL   113      13.088  38.017  33.488  1.00 
+0.00      1PAD1007
+ATOM    901  CG2 VAL   113      13.421  35.502  33.581  1.00 
+0.00      1PAD1008
+ATOM    902  N   GLN   114       9.720  38.367  33.675  1.00 
+0.00      1PAD1009
+ATOM    903  CA  GLN   114       8.814  39.440  33.244  1.00 
+0.00      1PAD1010
+ATOM    904  C   GLN   114       9.384  40.106  31.991  1.00 
+0.00      1PAD1011
+ATOM    905  O   GLN   114      10.403  40.827  32.051  1.00 
+0.00      1PAD1012
+ATOM    906  CB  GLN   114       8.662  40.410  34.381  1.00 
+0.00      1PAD1013
+ATOM    907  CG  GLN   114       7.379  41.122  34.373  1.00 
+0.00      1PAD1014
+ATOM    908  CD  GLN   114       7.341  42.410  35.208  1.00 
+0.00      1PAD1015
+ATOM    909  AE1 GLN   114       8.440  42.845  35.696  1.00 
+0.00      1PAD1016
+ATOM    910  AE2 GLN   114       6.236  43.016  35.325  1.00 
+0.00      1PAD1017
+ATOM    911  N   PRO   115       8.703  39.849  30.885  1.00 
+0.00      1PAD1018
+ATOM    912  CA  PRO   115       9.067  40.397  29.572  1.00 
+0.00      1PAD1019
+ATOM    913  C   PRO   115       9.354  41.892  29.713  1.00 
+0.00      1PAD1020
+ATOM    914  O   PRO   115       8.965  42.531  30.714  1.00 
+0.00      1PAD1021
+ATOM    915  CB  PRO   115       7.882  40.091  28.711  1.00 
+0.00      1PAD1022
+ATOM    916  CG  PRO   115       6.704  39.966  29.658  1.00 
+0.00      1PAD1023
+ATOM    917  CD  PRO   115       7.316  39.420  30.946  1.00 
+0.00      1PAD1024
+ATOM    918  N   TYR   116      10.027  42.411  28.698  1.00 
+0.00      1PAD1025
+ATOM    919  CA  TYR   116      10.399  43.830  28.623  1.00 
+0.00      1PAD1026
+ATOM    920  C   TYR   116      10.904  44.556  29.871  1.00 
+0.00      1PAD1027
+ATOM    921  O   TYR   116      10.310  45.561  30.317  1.00 
+0.00      1PAD1028
+ATOM    922  CB  TYR   116       9.184  44.636  28.128  1.00 
+0.00      1PAD1029
+ATOM    923  CG  TYR   116       8.492  43.990  26.919  1.00 
+0.00      1PAD1030
+ATOM    924  CD1 TYR   116       9.090  43.946  25.689  1.00 
+0.00      1PAD1031
+ATOM    925  CD2 TYR   116       7.247  43.366  27.126  1.00 
+0.00      1PAD1032
+ATOM    926  CE1 TYR   116       8.452  43.333  24.567  1.00 
+0.00      1PAD1033
+ATOM    927  CE2 TYR   116       6.587  42.740  25.988  1.00 
+0.00      1PAD1034
+ATOM    928  CZ  TYR   116       7.215  42.714  24.794  1.00 
+0.00      1PAD1035
+ATOM    929  OH  TYR   116       6.602  42.100  23.722  1.00 
+0.00      1PAD1036
+ATOM    930  N   ASN   117      11.997  44.026  30.398  1.00 
+0.00      1PAD1037
+ATOM    931  CA  ASN   117      12.658  44.571  31.591  1.00 
+0.00      1PAD1038
+ATOM    932  C   ASN   117      14.061  43.963  31.641  1.00 
+0.00      1PAD1039
+ATOM    933  O   ASN   117      14.239  42.781  32.009  1.00 
+0.00      1PAD1040
+ATOM    934  CB  ASN   117      11.829  44.225  32.846  1.00 
+0.00      1PAD1041
+ATOM    935  CG  ASN   117      12.470  44.769  34.096  1.00 
+0.00      1PAD1042
+ATOM    936  AD1 ASN   117      13.777  45.219  33.951  1.00 
+0.00      1PAD1043
+ATOM    937  AD2 ASN   117      11.949  44.783  35.197  1.00 
+0.00      1PAD1044
+ATOM    938  N   GLN   118      15.023  44.793  31.271  1.00 
+0.00      1PAD1045
+ATOM    939  CA  GLN   118      16.444  44.421  31.255  1.00 
+0.00      1PAD1046
+ATOM    940  C   GLN   118      16.873  44.096  32.687  1.00 
+0.00      1PAD1047
+ATOM    941  O   GLN   118      17.467  43.029  32.955  1.00 
+0.00      1PAD1048
+ATOM    942  CB  GLN   118      17.221  45.565  30.667  1.00 
+0.00      1PAD1049
+ATOM    943  CG  GLN   118      18.619  45.610  31.112  1.00 
+0.00      1PAD1050
+ATOM    944  CD  GLN   118      19.429  46.809  30.598  1.00 
+0.00      1PAD1051
+ATOM    945  AE1 GLN   118      20.489  47.138  31.232  1.00 
+0.00      1PAD1052
+ATOM    946  AE2 GLN   118      19.047  47.379  29.534  1.00 
+0.00      1PAD1053
+ATOM    947  N   GLY   119      16.554  45.028  33.571  1.00 
+0.00      1PAD1054
+ATOM    948  CA  GLY   119      16.860  44.915  35.003  1.00 
+0.00      1PAD1055
+ATOM    949  C   GLY   119      16.528  43.510  35.508  1.00 
+0.00      1PAD1056
+ATOM    950  O   GLY   119      17.294  42.910  36.293  1.00 
+0.00      1PAD1057
+ATOM    951  N   ALA   120      15.392  43.021  35.036  1.00 
+0.00      1PAD1058
+ATOM    952  CA  ALA   120      14.888  41.685  35.381  1.00 
+0.00      1PAD1059
+ATOM    953  C   ALA   120      15.623  40.514  34.728  1.00 
+0.00      1PAD1060
+ATOM    954  O   ALA   120      15.870  39.470  35.369  1.00 
+0.00      1PAD1061
+ATOM    955  CB  ALA   120      13.409  41.681  35.016  1.00 
+0.00      1PAD1062
+ATOM    956  N   LEU   121      15.958  40.723  33.464  1.00 
+0.00      1PAD1063
+ATOM    957  CA  LEU   121      16.679  39.736  32.650  1.00 
+0.00      1PAD1064
+ATOM    958  C   LEU   121      18.013  39.415  33.326  1.00 
+0.00      1PAD1065
+ATOM    959  O   LEU   121      18.314  38.242  33.634  1.00 
+0.00      1PAD1066
+ATOM    960  CB  LEU   121      16.913  40.291  31.232  1.00 
+0.00      1PAD1067
+ATOM    961  CG  LEU   121      17.520  39.364  30.199  1.00 
+0.00      1PAD1068
+ATOM    962  CD1 LEU   121      16.714  38.089  30.131  1.00 
+0.00      1PAD1069
+ATOM    963  CD2 LEU   121      17.550  40.028  28.843  1.00 
+0.00      1PAD1070
+ATOM    964  N   LEU   122      18.778  40.474  33.542  1.00 
+0.00      1PAD1071
+ATOM    965  CA  LEU   122      20.094  40.396  34.189  1.00 
+0.00      1PAD1072
+ATOM    966  C   LEU   122      20.113  39.580  35.483  1.00 
+0.00      1PAD1073
+ATOM    967  O   LEU   122      20.851  38.578  35.602  1.00 
+0.00      1PAD1074
+ATOM    968  CB  LEU   122      20.603  41.811  34.524  1.00 
+0.00      1PAD1075
+ATOM    969  CG  LEU   122      20.410  42.899  33.488  1.00 
+0.00      1PAD1076
+ATOM    970  CD1 LEU   122      21.210  44.117  33.882  1.00 
+0.00      1PAD1077
+ATOM    971  CD2 LEU   122      20.845  42.416  32.125  1.00 
+0.00      1PAD1078
+ATOM    972  N   TYR   123      19.292  40.031  36.418  1.00 
+0.00      1PAD1079
+ATOM    973  CA  TYR   123      19.144  39.393  37.732  1.00 
+0.00      1PAD1080
+ATOM    974  C   TYR   123      19.133  37.868  37.610  1.00 
+0.00      1PAD1081
+ATOM    975  O   TYR   123      19.982  37.168  38.201  1.00 
+0.00      1PAD1082
+ATOM    976  CB  TYR   123      17.843  39.895  38.384  1.00 
+0.00      1PAD1083
+ATOM    977  CG  TYR   123      17.788  39.619  39.895  1.00 
+0.00      1PAD1084
+ATOM    978  CD1 TYR   123      17.829  40.635  40.812  1.00 
+0.00      1PAD1085
+ATOM    979  CD2 TYR   123      17.611  38.288  40.317  1.00 
+0.00      1PAD1086
+ATOM    980  CE1 TYR   123      17.764  40.379  42.215  1.00 
+0.00      1PAD1087
+ATOM    981  CE2 TYR   123      17.546  38.016  41.747  1.00 
+0.00      1PAD1088
+ATOM    982  CZ  TYR   123      17.584  39.048  42.616  1.00 
+0.00      1PAD1089
+ATOM    983  OH  TYR   123      17.498  38.794  43.969  1.00 
+0.00      1PAD1090
+ATOM    984  N   SER   124      18.168  37.395  36.836  1.00 
+0.00      1PAD1091
+ATOM    985  CA  SER   124      17.981  35.963  36.570  1.00 
+0.00      1PAD1092
+ATOM    986  C   SER   124      19.203  35.343  35.891  1.00 
+0.00      1PAD1093
+ATOM    987  O   SER   124      19.603  34.201  36.203  1.00 
+0.00      1PAD1094
+ATOM    988  CB  SER   124      16.776  35.745  35.681  1.00 
+0.00      1PAD1095
+ATOM    989  OG  SER   124      16.593  36.814  34.757  1.00 
+0.00      1PAD1096
+ATOM    990  N   ILE   125      19.767  36.120  34.980  1.00 
+0.00      1PAD1097
+ATOM    991  CA  ILE   125      20.958  35.728  34.216  1.00 
+0.00      1PAD1098
+ATOM    992  C   ILE   125      22.160  35.732  35.161  1.00 
+0.00      1PAD1099
+ATOM    993  O   ILE   125      23.225  35.154  34.852  1.00 
+0.00      1PAD1100
+ATOM    994  CB  ILE   125      21.238  36.704  33.046  1.00 
+0.00      1PAD1101
+ATOM    995  CG1 ILE   125      20.108  36.708  31.980  1.00 
+0.00      1PAD1102
+ATOM    996  CG2 ILE   125      22.616  36.234  32.572  1.00 
+0.00      1PAD1103
+ATOM    997  CD1 ILE   125      20.457  37.511  30.706  1.00 
+0.00      1PAD1104
+ATOM    998  N   ALA   126      21.954  36.385  36.294  1.00 
+0.00      1PAD1105
+ATOM    999  CA  ALA   126      22.970  36.504  37.348  1.00 
+0.00      1PAD1106
+ATOM   1000  C   ALA   126      22.911  35.315  38.308  1.00 
+0.00      1PAD1107
+ATOM   1001  O   ALA   126      23.947  34.872  38.850  1.00 
+0.00      1PAD1108
+ATOM   1002  CB  ALA   126      22.754  37.819  38.086  1.00 
+0.00      1PAD1109
+ATOM   1003  N   ASN   127      21.694  34.826  38.489  1.00 
+0.00      1PAD1110
+ATOM   1004  CA  ASN   127      21.411  33.677  39.359  1.00 
+0.00      1PAD1111
+ATOM   1005  C   ASN   127      21.523  32.363  38.586  1.00 
+0.00      1PAD1112
+ATOM   1006  O   ASN   127      21.669  31.274  39.183  1.00 
+0.00      1PAD1113
+ATOM   1007  CB  ASN   127      19.997  33.820  39.961  1.00 
+0.00      1PAD1114
+ATOM   1008  CG  ASN   127      19.737  35.230  40.426  1.00 
+0.00      1PAD1115
+ATOM   1009  AD1 ASN   127      18.407  35.631  40.406  1.00 
+0.00      1PAD1116
+ATOM   1010  AD2 ASN   127      20.600  36.027  40.749  1.00 
+0.00      1PAD1117
+ATOM   1011  N   GLN   128      21.455  32.502  37.271  1.00 
+0.00      1PAD1118
+ATOM   1012  CA  GLN   128      21.551  31.372  36.338  1.00 
+0.00      1PAD1119
+ATOM   1013  C   GLN   128      21.109  31.806  34.940  1.00 
+0.00      1PAD1120
+ATOM   1014  O   GLN   128      20.157  32.600  34.783  1.00 
+0.00      1PAD1121
+ATOM   1015  CB  GLN   128      20.698  30.253  36.868  1.00 
+0.00      1PAD1122
+ATOM   1016  CG  GLN   128      19.487  30.719  37.553  1.00 
+0.00      1PAD1123
+ATOM   1017  CD  GLN   128      18.210  29.929  37.230  1.00 
+0.00      1PAD1124
+ATOM   1018  AE1 GLN   128      17.129  30.257  37.829  1.00 
+0.00      1PAD1125
+ATOM   1019  AE2 GLN   128      18.270  29.030  36.341  1.00 
+0.00      1PAD1126
+ATOM   1020  N   PRO   129      21.814  31.265  33.958  1.00 
+0.00      1PAD1127
+ATOM   1021  CA  PRO   129      21.552  31.534  32.539  1.00 
+0.00      1PAD1128
+ATOM   1022  C   PRO   129      20.050  31.418  32.275  1.00 
+0.00      1PAD1129
+ATOM   1023  O   PRO   129      19.287  30.891  33.113  1.00 
+0.00      1PAD1130
+ATOM   1024  CB  PRO   129      22.370  30.508  31.819  1.00 
+0.00      1PAD1131
+ATOM   1025  CG  PRO   129      22.547  29.361  32.796  1.00 
+0.00      1PAD1132
+ATOM   1026  CD  PRO   129      22.559  30.035  34.165  1.00 
+0.00      1PAD1133
+ATOM   1027  N   VAL   130      19.667  31.912  31.108  1.00 
+0.00      1PAD1134
+ATOM   1028  CA  VAL   130      18.273  31.894  30.646  1.00 
+0.00      1PAD1135
+ATOM   1029  C   VAL   130      18.134  31.782  29.127  1.00 
+0.00      1PAD1136
+ATOM   1030  O   VAL   130      19.055  32.149  28.367  1.00 
+0.00      1PAD1137
+ATOM   1031  CB  VAL   130      17.557  33.155  31.111  1.00 
+0.00      1PAD1138
+ATOM   1032  CG1 VAL   130      16.011  33.086  31.049  1.00 
+0.00      1PAD1139
+ATOM   1033  CG2 VAL   130      18.058  33.630  32.450  1.00 
+0.00      1PAD1140
+ATOM   1034  N   SER   131      16.976  31.279  28.727  1.00 
+0.00      1PAD1141
+ATOM   1035  CA  SER   131      16.627  31.095  27.312  1.00 
+0.00      1PAD1142
+ATOM   1036  C   SER   131      15.881  32.377  26.940  1.00 
+0.00      1PAD1143
+ATOM   1037  O   SER   131      14.888  32.759  27.596  1.00 
+0.00      1PAD1144
+ATOM   1038  CB  SER   131      15.775  29.857  27.136  1.00 
+0.00      1PAD1145
+ATOM   1039  OG  SER   131      15.066  29.868  25.901  1.00 
+0.00      1PAD1146
+ATOM   1040  N   VAL   132      16.380  33.006  25.887  1.00 
+0.00      1PAD1147
+ATOM   1041  CA  VAL   132      15.811  34.249  25.350  1.00 
+0.00      1PAD1148
+ATOM   1042  C   VAL   132      15.667  34.184  23.829  1.00 
+0.00      1PAD1149
+ATOM   1043  O   VAL   132      16.429  33.473  23.139  1.00 
+0.00      1PAD1150
+ATOM   1044  CB  VAL   132      16.690  35.430  25.737  1.00 
+0.00      1PAD1151
+ATOM   1045  CG1 VAL   132      17.335  36.181  24.546  1.00 
+0.00      1PAD1152
+ATOM   1046  CG2 VAL   132      15.996  36.363  26.696  1.00 
+0.00      1PAD1153
+ATOM   1047  N   VAL   133      14.691  34.937  23.346  1.00 
+0.00      1PAD1154
+ATOM   1048  CA  VAL   133      14.385  35.034  21.913  1.00 
+0.00      1PAD1155
+ATOM   1049  C   VAL   133      14.819  36.381  21.335  1.00 
+0.00      1PAD1156
+ATOM   1050  O   VAL   133      15.342  37.255  22.060  1.00 
+0.00      1PAD1157
+ATOM   1051  CB  VAL   133      12.892  34.833  21.688  1.00 
+0.00      1PAD1158
+ATOM   1052  CG1 VAL   133      12.359  33.430  22.071  1.00 
+0.00      1PAD1159
+ATOM   1053  CG2 VAL   133      12.073  35.944  22.291  1.00 
+0.00      1PAD1160
+ATOM   1054  N   LEU   134      14.585  36.514  20.039  1.00 
+0.00      1PAD1161
+ATOM   1055  CA  LEU   134      14.913  37.730  19.284  1.00 
+0.00      1PAD1162
+ATOM   1056  C   LEU   134      14.773  37.594  17.767  1.00 
+0.00      1PAD1163
+ATOM   1057  O   LEU   134      14.394  36.522  17.248  1.00 
+0.00      1PAD1164
+ATOM   1058  CB  LEU   134      16.363  38.161  19.578  1.00 
+0.00      1PAD1165
+ATOM   1059  CG  LEU   134      17.466  37.152  19.336  1.00 
+0.00      1PAD1166
+ATOM   1060  CD1 LEU   134      17.482  36.765  17.876  1.00 
+0.00      1PAD1167
+ATOM   1061  CD2 LEU   134      18.805  37.725  19.731  1.00 
+0.00      1PAD1168
+ATOM   1062  N   GLN   135      15.091  38.690  17.095  1.00 
+0.00      1PAD1169
+ATOM   1063  CA  GLN   135      15.040  38.776  15.630  1.00 
+0.00      1PAD1170
+ATOM   1064  C   GLN   135      16.397  38.377  15.048  1.00 
+0.00      1PAD1171
+ATOM   1065  O   GLN   135      17.413  39.079  15.241  1.00 
+0.00      1PAD1172
+ATOM   1066  CB  GLN   135      14.660  40.182  15.256  1.00 
+0.00      1PAD1173
+ATOM   1067  CG  GLN   135      14.502  40.378  13.811  1.00 
+0.00      1PAD1174
+ATOM   1068  CD  GLN   135      14.074  41.791  13.388  1.00 
+0.00      1PAD1175
+ATOM   1069  AE1 GLN   135      14.986  42.668  13.204  1.00 
+0.00      1PAD1176
+ATOM   1070  AE2 GLN   135      12.845  42.008  13.179  1.00 
+0.00      1PAD1177
+ATOM   1071  N   ALA   136      16.375  37.256  14.344  1.00 
+0.00      1PAD1178
+ATOM   1072  CA  ALA   136      17.563  36.695  13.687  1.00 
+0.00      1PAD1179
+ATOM   1073  C   ALA   136      17.389  36.687  12.168  1.00 
+0.00      1PAD1180
+ATOM   1074  O   ALA   136      18.376  36.764  11.405  1.00 
+0.00      1PAD1181
+ATOM   1075  CB  ALA   136      17.805  35.289  14.223  1.00 
+0.00      1PAD1182
+ATOM   1076  N   ALA   137      16.129  36.597  11.769  1.00 
+0.00      1PAD1183
+ATOM   1077  CA  ALA   137      15.734  36.584  10.355  1.00 
+0.00      1PAD1184
+ATOM   1078  C   ALA   137      16.548  37.768   9.830  1.00 
+0.00      1PAD1185
+ATOM   1079  O   ALA   137      16.560  38.053   8.613  1.00 
+0.00      1PAD1186
+ATOM   1080  CB  ALA   137      14.243  36.793  10.121  1.00 
+0.00      1PAD1187
+ATOM   1081  N   GLY   138      17.212  38.425  10.769  1.00 
+0.00      1PAD1188
+ATOM   1082  CA  GLY   138      18.065  39.586  10.485  1.00 
+0.00      1PAD1189
+ATOM   1083  C   GLY   138      19.040  39.219   9.365  1.00 
+0.00      1PAD1190
+ATOM   1084  O   GLY   138      19.434  38.043   9.214  1.00 
+0.00      1PAD1191
+ATOM   1085  N   LYS   139      19.407  40.244   8.611  1.00 
+0.00      1PAD1192
+ATOM   1086  CA  LYS   139      20.345  40.118   7.488  1.00 
+0.00      1PAD1193
+ATOM   1087  C   LYS   139      21.698  40.671   7.937  1.00 
+0.00      1PAD1194
+ATOM   1088  O   LYS   139      22.709  40.571   7.209  1.00 
+0.00      1PAD1195
+ATOM   1089  CB  LYS   139      19.847  40.883   6.266  1.00 
+0.00      1PAD1196
+ATOM   1090  CG  LYS   139      20.466  40.446   4.951  1.00 
+0.00      1PAD1197
+ATOM   1091  CD  LYS   139      19.864  41.216   3.780  1.00 
+0.00      1PAD1198
+ATOM   1092  CE  LYS   139      20.874  41.410   2.660  1.00 
+0.00      1PAD1199
+ATOM   1093  NZ  LYS   139      20.491  42.548   1.795  1.00 
+0.00      1PAD1200
+ATOM   1094  N   ASP   140      21.680  41.238   9.133  1.00 
+0.00      1PAD1201
+ATOM   1095  CA  ASP   140      22.871  41.823   9.763  1.00 
+0.00      1PAD1202
+ATOM   1096  C   ASP   140      23.405  40.895  10.855  1.00 
+0.00      1PAD1203
+ATOM   1097  O   ASP   140      24.621  40.614  10.924  1.00 
+0.00      1PAD1204
+ATOM   1098  CB  ASP   140      22.518  43.205  10.355  1.00 
+0.00      1PAD1205
+ATOM   1099  CG  ASP   140      21.939  44.120   9.307  1.00 
+0.00      1PAD1206
+ATOM   1100  OD1 ASP   140      22.594  44.761   8.504  1.00 
+0.00      1PAD1207
+ATOM   1101  OD2 ASP   140      20.740  44.151   9.252  1.00 
+0.00      1PAD1208
+ATOM   1102  N   PHE   141      22.474  40.439  11.678  1.00 
+0.00      1PAD1209
+ATOM   1103  CA  PHE   141      22.764  39.525  12.791  1.00 
+0.00      1PAD1210
+ATOM   1104  C   PHE   141      23.240  38.207  12.179  1.00 
+0.00      1PAD1211
+ATOM   1105  O   PHE   141      23.957  37.416  12.830  1.00 
+0.00      1PAD1212
+ATOM   1106  CB  PHE   141      21.513  39.353  13.633  1.00 
+0.00      1PAD1213
+ATOM   1107  CG  PHE   141      21.626  38.329  14.725  1.00 
+0.00      1PAD1214
+ATOM   1108  CD1 PHE   141      21.848  38.683  16.032  1.00 
+0.00      1PAD1215
+ATOM   1109  CD2 PHE   141      21.586  37.014  14.402  1.00 
+0.00      1PAD1216
+ATOM   1110  CE1 PHE   141      22.010  37.646  17.014  1.00 
+0.00      1PAD1217
+ATOM   1111  CE2 PHE   141      21.704  35.994  15.390  1.00 
+0.00      1PAD1218
+ATOM   1112  CZ  PHE   141      21.903  36.345  16.685  1.00 
+0.00      1PAD1219
+ATOM   1113  N   GLN   142      22.830  38.009  10.936  1.00 
+0.00      1PAD1220
+ATOM   1114  CA  GLN   142      23.181  36.815  10.155  1.00 
+0.00      1PAD1221
+ATOM   1115  C   GLN   142      24.640  36.856   9.697  1.00 
+0.00      1PAD1222
+ATOM   1116  O   GLN   142      25.300  35.804   9.555  1.00 
+0.00      1PAD1223
+ATOM   1117  CB  GLN   142      22.250  36.736   8.978  1.00 
+0.00      1PAD1224
+ATOM   1118  CG  GLN   142      21.309  35.613   9.054  1.00 
+0.00      1PAD1225
+ATOM   1119  CD  GLN   142      20.361  35.473   7.853  1.00 
+0.00      1PAD1226
+ATOM   1120  AE1 GLN   142      20.660  36.088   6.773  1.00 
+0.00      1PAD1227
+ATOM   1121  AE2 GLN   142      19.360  34.706   7.966  1.00 
+0.00      1PAD1228
+ATOM   1122  N   LEU   143      25.105  38.076   9.483  1.00 
+0.00      1PAD1229
+ATOM   1123  CA  LEU   143      26.482  38.346   9.050  1.00 
+0.00      1PAD1230
+ATOM   1124  C   LEU   143      27.527  38.662  10.122  1.00 
+0.00      1PAD1231
+ATOM   1125  O   LEU   143      28.748  38.644   9.856  1.00 
+0.00      1PAD1232
+ATOM   1126  CB  LEU   143      26.507  39.547   8.085  1.00 
+0.00      1PAD1233
+ATOM   1127  CG  LEU   143      26.265  39.281   6.614  1.00 
+0.00      1PAD1234
+ATOM   1128  CD1 LEU   143      26.217  40.591   5.866  1.00 
+0.00      1PAD1235
+ATOM   1129  CD2 LEU   143      27.356  38.404   6.047  1.00 
+0.00      1PAD1236
+ATOM   1130  N   TYR   144      27.015  38.939  11.311  1.00 
+0.00      1PAD1237
+ATOM   1131  CA  TYR   144      27.837  39.259  12.485  1.00 
+0.00      1PAD1238
+ATOM   1132  C   TYR   144      28.985  38.254  12.593  1.00 
+0.00      1PAD1239
+ATOM   1133  O   TYR   144      28.762  37.037  12.770  1.00 
+0.00      1PAD1240
+ATOM   1134  CB  TYR   144      26.944  39.236  13.738  1.00 
+0.00      1PAD1241
+ATOM   1135  CG  TYR   144      27.750  39.232  15.045  1.00 
+0.00      1PAD1242
+ATOM   1136  CD1 TYR   144      28.163  38.066  15.631  1.00 
+0.00      1PAD1243
+ATOM   1137  CD2 TYR   144      28.128  40.474  15.591  1.00 
+0.00      1PAD1244
+ATOM   1138  CE1 TYR   144      28.924  38.064  16.840  1.00 
+0.00      1PAD1245
+ATOM   1139  CE2 TYR   144      28.903  40.482  16.825  1.00 
+0.00      1PAD1246
+ATOM   1140  CZ  TYR   144      29.294  39.309  17.366  1.00 
+0.00      1PAD1247
+ATOM   1141  OH  TYR   144      30.049  39.317  18.520  1.00 
+0.00      1PAD1248
+ATOM   1142  N   ARG   145      30.188  38.796  12.487  1.00 
+0.00      1PAD1249
+ATOM   1143  CA  ARG   145      31.430  38.017  12.573  1.00 
+0.00      1PAD1250
+ATOM   1144  C   ARG   145      32.283  38.704  13.640  1.00 
+0.00      1PAD1251
+ATOM   1145  O   ARG   145      33.515  38.849  13.486  1.00 
+0.00      1PAD1252
+ATOM   1146  CB  ARG   145      32.163  37.980  11.217  1.00 
+0.00      1PAD1253
+ATOM   1147  CG  ARG   145      32.471  39.367  10.622  1.00 
+0.00      1PAD1254
+ATOM   1148  CD  ARG   145      33.231  39.218   9.319  1.00 
+0.00      1PAD1255
+ATOM   1149  NE  ARG   145      32.616  38.190   8.463  1.00 
+0.00      1PAD1256
+ATOM   1150  CZ  ARG   145      32.651  38.232   7.112  1.00 
+0.00      1PAD1257
+ATOM   1151  NH1 ARG   145      33.178  39.284   6.470  1.00 
+0.00      1PAD1258
+ATOM   1152  NH2 ARG   145      32.163  37.212   6.429  1.00 
+0.00      1PAD1259
+ATOM   1153  N   GLY   146      31.601  39.107  14.701  1.00 
+0.00      1PAD1260
+ATOM   1154  CA  GLY   146      32.223  39.780  15.848  1.00 
+0.00      1PAD1261
+ATOM   1155  C   GLY   146      31.869  41.264  15.945  1.00 
+0.00      1PAD1262
+ATOM   1156  O   GLY   146      31.924  42.007  14.941  1.00 
+0.00      1PAD1263
+ATOM   1157  N   GLY   147      31.520  41.658  17.160  1.00 
+0.00      1PAD1264
+ATOM   1158  CA  GLY   147      31.153  43.044  17.481  1.00 
+0.00      1PAD1265
+ATOM   1159  C   GLY   147      30.005  43.207  18.478  1.00 
+0.00      1PAD1266
+ATOM   1160  O   GLY   147      29.566  42.230  19.122  1.00 
+0.00      1PAD1267
+ATOM   1161  N   ILE   148      29.545  44.445  18.574  1.00 
+0.00      1PAD1268
+ATOM   1162  CA  ILE   148      28.439  44.824  19.462  1.00 
+0.00      1PAD1269
+ATOM   1163  C   ILE   148      27.303  45.249  18.529  1.00 
+0.00      1PAD1270
+ATOM   1164  O   ILE   148      27.316  46.363  17.963  1.00 
+0.00      1PAD1271
+ATOM   1165  CB  ILE   148      28.830  45.990  20.404  1.00 
+0.00      1PAD1272
+ATOM   1166  CG1 ILE   148      29.992  45.623  21.367  1.00 
+0.00      1PAD1273
+ATOM   1167  CG2 ILE   148      27.488  46.327  21.058  1.00 
+0.00      1PAD1274
+ATOM   1168  CD1 ILE   148      29.689  44.409  22.275  1.00 
+0.00      1PAD1275
+ATOM   1169  N   PHE   149      26.345  44.344  18.399  1.00 
+0.00      1PAD1276
+ATOM   1170  CA  PHE   149      25.156  44.550  17.562  1.00 
+0.00      1PAD1277
+ATOM   1171  C   PHE   149      24.198  45.584  18.156  1.00 
+0.00      1PAD1278
+ATOM   1172  O   PHE   149      23.758  45.461  19.319  1.00 
+0.00      1PAD1279
+ATOM   1173  CB  PHE   149      24.435  43.226  17.387  1.00 
+0.00      1PAD1280
+ATOM   1174  CG  PHE   149      23.685  43.083  16.095  1.00 
+0.00      1PAD1281
+ATOM   1175  CD1 PHE   149      24.326  42.848  14.905  1.00 
+0.00      1PAD1282
+ATOM   1176  CD2 PHE   149      22.344  43.270  16.088  1.00 
+0.00      1PAD1283
+ATOM   1177  CE1 PHE   149      23.550  42.787  13.698  1.00 
+0.00      1PAD1284
+ATOM   1178  CE2 PHE   149      21.577  43.164  14.892  1.00 
+0.00      1PAD1285
+ATOM   1179  CZ  PHE   149      22.209  42.911  13.719  1.00 
+0.00      1PAD1286
+ATOM   1180  N   VAL   150      23.897  46.576  17.333  1.00 
+0.00      1PAD1287
+ATOM   1181  CA  VAL   150      22.987  47.671  17.694  1.00 
+0.00      1PAD1288
+ATOM   1182  C   VAL   150      21.864  47.659  16.657  1.00 
+0.00      1PAD1289
+ATOM   1183  O   VAL   150      20.733  48.120  16.926  1.00 
+0.00      1PAD1290
+ATOM   1184  CB  VAL   150      23.747  48.990  17.716  1.00 
+0.00      1PAD1291
+ATOM   1185  CG1 VAL   150      23.248  50.045  16.697  1.00 
+0.00      1PAD1292
+ATOM   1186  CG2 VAL   150      23.872  49.550  19.108  1.00 
+0.00      1PAD1293
+ATOM   1187  N   GLY   151      22.207  47.125  15.495  1.00 
+0.00      1PAD1294
+ATOM   1188  CA  GLY   151      21.280  47.002  14.363  1.00 
+0.00      1PAD1295
+ATOM   1189  C   GLY   151      22.035  47.077  13.035  1.00 
+0.00      1PAD1296
+ATOM   1190  O   GLY   151      23.216  46.677  12.941  1.00 
+0.00      1PAD1297
+ATOM   1191  N   PRO   152      21.294  47.516  12.156  1.00 
+0.00   1  1PAD1298
+ATOM   1192  CA  PRO   152      19.808  47.592  12.470  1.00 
+0.00   1  1PAD1299
+ATOM   1193  C   PRO   152      19.165  46.206  12.572  1.00 
+0.00   1  1PAD1300
+ATOM   1194  O   PRO   152      19.723  45.201  12.081  1.00 
+0.00   1  1PAD1301
+ATOM   1195  CB  PRO   152      19.356  48.378  11.276  1.00 
+0.00   1  1PAD1302
+ATOM   1196  CG  PRO   152      20.381  48.101  10.190  1.00 
+0.00   1  1PAD1303
+ATOM   1197  CD  PRO   152      21.688  47.883  10.956  1.00 
+0.00   1  1PAD1304
+ATOM   1198  N   CYS   153      17.999  46.192  13.205  1.00 
+0.00      1PAD1305
+ATOM   1199  CA  CYS   153      17.204  44.970  13.406  1.00 
+0.00      1PAD1306
+ATOM   1200  C   CYS   153      15.800  45.411  13.831  1.00 
+0.00      1PAD1307
+ATOM   1201  O   CYS   153      15.556  46.606  14.103  1.00 
+0.00      1PAD1308
+ATOM   1202  CB  CYS   153      17.814  43.890  14.269  1.00 
+0.00      1PAD1309
+ATOM   1203  SG  CYS   153      17.821  44.204  16.065  1.00 
+0.00      1PAD1310
+ATOM   1204  N   GLY   154      14.913  44.425  13.883  1.00 
+0.00      1PAD1311
+ATOM   1205  CA  GLY   154      13.509  44.622  14.279  1.00 
+0.00      1PAD1312
+ATOM   1206  C   GLY   154      12.904  44.045  15.562  1.00 
+0.00      1PAD1313
+ATOM   1207  O   GLY   154      13.630  43.539  16.444  1.00 
+0.00      1PAD1314
+ATOM   1208  N   ASN   155      11.581  44.135  15.628  1.00 
+0.00      1PAD1315
+ATOM   1209  CA  ASN   155      10.794  43.634  16.765  1.00 
+0.00      1PAD1316
+ATOM   1210  C   ASN   155       9.967  42.380  16.464  1.00 
+0.00      1PAD1317
+ATOM   1211  O   ASN   155       9.028  42.035  17.213  1.00 
+0.00      1PAD1318
+ATOM   1212  CB  ASN   155       9.828  44.737  17.257  1.00 
+0.00      1PAD1319
+ATOM   1213  CG  ASN   155      10.542  46.055  17.427  1.00 
+0.00      1PAD1320
+ATOM   1214  AD1 ASN   155      11.587  46.055  18.346  1.00 
+0.00      1PAD1321
+ATOM   1215  AD2 ASN   155      10.229  47.097  16.870  1.00 
+0.00      1PAD1322
+ATOM   1216  N   LYS   156      10.346  41.727  15.372  1.00 
+0.00      1PAD1323
+ATOM   1217  CA  LYS   156       9.698  40.492  14.905  1.00 
+0.00      1PAD1324
+ATOM   1218  C   LYS   156      10.515  39.289  15.386  1.00 
+0.00      1PAD1325
+ATOM   1219  O   LYS   156      11.307  38.702  14.618  1.00 
+0.00      1PAD1326
+ATOM   1220  CB  LYS   156       9.595  40.460  13.381  1.00 
+0.00      1PAD1327
+ATOM   1221  CG  LYS   156       8.773  41.586  12.779  1.00 
+0.00      1PAD1328
+ATOM   1222  CD  LYS   156       9.116  41.785  11.302  1.00 
+0.00      1PAD1329
+ATOM   1223  CE  LYS   156       8.257  42.872  10.671  1.00 
+0.00      1PAD1330
+ATOM   1224  NZ  LYS   156       8.369  42.840   9.193  1.00 
+0.00      1PAD1331
+ATOM   1225  N   VAL   157      10.294  38.952  16.651  1.00 
+0.00      1PAD1332
+ATOM   1226  CA  VAL   157      10.963  37.821  17.313  1.00 
+0.00      1PAD1333
+ATOM   1227  C   VAL   157      10.622  36.514  16.593  1.00 
+0.00      1PAD1334
+ATOM   1228  O   VAL   157       9.456  36.277  16.207  1.00 
+0.00      1PAD1335
+ATOM   1229  CB  VAL   157      10.539  37.749  18.777  1.00 
+0.00      1PAD1336
+ATOM   1230  CG1 VAL   157      10.138  36.333  19.270  1.00 
+0.00      1PAD1337
+ATOM   1231  CG2 VAL   157      11.536  38.416  19.694  1.00 
+0.00      1PAD1338
+ATOM   1232  N   ASP   158      11.654  35.694  16.436  1.00 
+0.00      1PAD1339
+ATOM   1233  CA  ASP   158      11.549  34.380  15.782  1.00 
+0.00      1PAD1340
+ATOM   1234  C   ASP   158      12.676  33.343  15.797  1.00 
+0.00      1PAD1341
+ATOM   1235  O   ASP   158      12.663  32.369  15.014  1.00 
+0.00      1PAD1342
+ATOM   1236  CB  ASP   158      11.264  34.569  14.273  1.00 
+0.00      1PAD1343
+ATOM   1237  CG  ASP   158      12.470  35.119  13.551  1.00 
+0.00      1PAD1344
+ATOM   1238  OD1 ASP   158      13.494  35.503  14.095  1.00 
+0.00      1PAD1345
+ATOM   1239  OD2 ASP   158      12.402  35.109  12.350  1.00 
+0.00      1PAD1346
+ATOM   1240  N   HIS   159      13.622  33.581  16.696  1.00 
+0.00      1PAD1347
+ATOM   1241  CA  HIS   159      14.790  32.707  16.890  1.00 
+0.00      1PAD1348
+ATOM   1242  C   HIS   159      15.111  32.770  18.386  1.00 
+0.00      1PAD1349
+ATOM   1243  O   HIS   159      15.092  33.857  19.003  1.00 
+0.00      1PAD1350
+ATOM   1244  CB  HIS   159      15.937  33.208  16.011  1.00 
+0.00      1PAD1351
+ATOM   1245  CG  HIS   159      17.183  32.357  16.050  1.00 
+0.00      1PAD1352
+ATOM   1246  ND1 HIS   159      17.132  30.968  16.035  1.00 
+0.00      1PAD1353
+ATOM   1247  CD2 HIS   159      18.499  32.688  16.132  1.00 
+0.00      1PAD1354
+ATOM   1248  CE1 HIS   159      18.364  30.502  16.108  1.00 
+0.00      1PAD1355
+ATOM   1249  NE2 HIS   159      19.199  31.520  16.142  1.00 
+0.00      1PAD1356
+ATOM   1250  N   ALA   160      15.405  31.595  18.929  1.00 
+0.00      1PAD1357
+ATOM   1251  CA  ALA   160      15.756  31.426  20.348  1.00 
+0.00      1PAD1358
+ATOM   1252  C   ALA   160      17.245  31.098  20.488  1.00 
+0.00      1PAD1359
+ATOM   1253  O   ALA   160      17.803  30.298  19.706  1.00 
+0.00      1PAD1360
+ATOM   1254  CB  ALA   160      14.890  30.325  20.954  1.00 
+0.00      1PAD1361
+ATOM   1255  N   VAL   161      17.849  31.725  21.490  1.00 
+0.00      1PAD1362
+ATOM   1256  CA  VAL   161      19.273  31.546  21.813  1.00 
+0.00      1PAD1363
+ATOM   1257  C   VAL   161      19.373  31.558  23.341  1.00 
+0.00      1PAD1364
+ATOM   1258  O   VAL   161      18.376  31.306  24.052  1.00 
+0.00      1PAD1365
+ATOM   1259  CB  VAL   161      20.098  32.656  21.167  1.00 
+0.00      1PAD1366
+ATOM   1260  CG1 VAL   161      20.139  32.618  19.616  1.00 
+0.00      1PAD1367
+ATOM   1261  CG2 VAL   161      19.735  34.021  21.700  1.00 
+0.00      1PAD1368
+ATOM   1262  N   ALA   162      20.579  31.858  23.806  1.00 
+0.00      1PAD1369
+ATOM   1263  CA  ALA   162      20.895  31.938  25.240  1.00 
+0.00      1PAD1370
+ATOM   1264  C   ALA   162      21.877  33.024  25.689  1.00 
+0.00      1PAD1371
+ATOM   1265  O   ALA   162      22.879  33.310  24.998  1.00 
+0.00      1PAD1372
+ATOM   1266  CB  ALA   162      21.403  30.548  25.616  1.00 
+0.00      1PAD1373
+ATOM   1267  N   ALA   163      21.562  33.598  26.844  1.00 
+0.00      1PAD1374
+ATOM   1268  CA  ALA   163      22.373  34.657  27.466  1.00 
+0.00      1PAD1375
+ATOM   1269  C   ALA   163      23.231  33.941  28.513  1.00 
+0.00      1PAD1376
+ATOM   1270  O   ALA   163      22.707  33.222  29.391  1.00 
+0.00      1PAD1377
+ATOM   1271  CB  ALA   163      21.505  35.735  28.110  1.00 
+0.00      1PAD1378
+ATOM   1272  N   VAL   164      24.534  34.163  28.392  1.00 
+0.00      1PAD1379
+ATOM   1273  CA  VAL   164      25.539  33.585  29.298  1.00 
+0.00      1PAD1380
+ATOM   1274  C   VAL   164      26.513  34.651  29.807  1.00 
+0.00      1PAD1381
+ATOM   1275  O   VAL   164      27.736  34.412  29.901  1.00 
+0.00      1PAD1382
+ATOM   1276  CB  VAL   164      26.311  32.480  28.584  1.00 
+0.00      1PAD1383
+ATOM   1277  CG1 VAL   164      25.458  31.250  28.171  1.00 
+0.00      1PAD1384
+ATOM   1278  CG2 VAL   164      27.144  33.011  27.443  1.00 
+0.00      1PAD1385
+ATOM   1279  N   GLY   165      25.939  35.805  30.126  1.00 
+0.00      1PAD1386
+ATOM   1280  CA  GLY   165      26.685  36.961  30.646  1.00 
+0.00      1PAD1387
+ATOM   1281  C   GLY   165      26.289  38.332  30.091  1.00 
+0.00      1PAD1388
+ATOM   1282  O   GLY   165      25.636  38.432  29.030  1.00 
+0.00      1PAD1389
+ATOM   1283  N   TYR   166      26.702  39.357  30.827  1.00 
+0.00      1PAD1390
+ATOM   1284  CA  TYR   166      26.443  40.761  30.473  1.00 
+0.00      1PAD1391
+ATOM   1285  C   TYR   166      27.513  41.653  31.109  1.00 
+0.00      1PAD1392
+ATOM   1286  O   TYR   166      28.236  41.227  32.036  1.00 
+0.00      1PAD1393
+ATOM   1287  CB  TYR   166      25.028  41.146  30.952  1.00 
+0.00      1PAD1394
+ATOM   1288  CG  TYR   166      24.954  41.393  32.469  1.00 
+0.00      1PAD1395
+ATOM   1289  CD1 TYR   166      25.453  42.538  33.037  1.00 
+0.00      1PAD1396
+ATOM   1290  CD2 TYR   166      24.281  40.439  33.263  1.00 
+0.00      1PAD1397
+ATOM   1291  CE1 TYR   166      25.372  42.773  34.446  1.00 
+0.00      1PAD1398
+ATOM   1292  CE2 TYR   166      24.194  40.669  34.703  1.00 
+0.00      1PAD1399
+ATOM   1293  CZ  TYR   166      24.695  41.814  35.219  1.00 
+0.00      1PAD1400
+ATOM   1294  OH  TYR   166      24.592  42.044  36.578  1.00 
+0.00      1PAD1401
+ATOM   1295  N   GLY   167      27.580  42.874  30.594  1.00 
+0.00      1PAD1402
+ATOM   1296  CA  GLY   167      28.528  43.897  31.063  1.00 
+0.00      1PAD1403
+ATOM   1297  C   GLY   167      27.726  45.190  31.238  1.00 
+0.00      1PAD1404
+ATOM   1298  O   GLY   167      26.525  45.253  30.894  1.00 
+0.00      1PAD1405
+ATOM   1299  N   PRO   168      28.417  46.192  31.765  1.00 
+0.00      1PAD1406
+ATOM   1300  CA  PRO   168      27.847  47.526  32.009  1.00 
+0.00      1PAD1407
+ATOM   1301  C   PRO   168      27.078  47.977  30.764  1.00 
+0.00      1PAD1408
+ATOM   1302  O   PRO   168      26.106  48.759  30.856  1.00 
+0.00      1PAD1409
+ATOM   1303  CB  PRO   168      29.037  48.382  32.321  1.00 
+0.00      1PAD1410
+ATOM   1304  CG  PRO   168      30.220  47.701  31.654  1.00 
+0.00      1PAD1411
+ATOM   1305  CD  PRO   168      29.869  46.211  31.701  1.00 
+0.00      1PAD1412
+ATOM   1306  N   ASN   169      27.533  47.463  29.628  1.00 
+0.00      1PAD1413
+ATOM   1307  CA  ASN   169      26.935  47.752  28.315  1.00 
+0.00      1PAD1414
+ATOM   1308  C   ASN   169      26.594  46.764  27.195  1.00 
+0.00      1PAD1415
+ATOM   1309  O   ASN   169      25.807  47.081  26.277  1.00 
+0.00      1PAD1416
+ATOM   1310  CB  ASN   169      27.829  48.751  27.543  1.00 
+0.00      1PAD1417
+ATOM   1311  CG  ASN   169      29.096  48.091  27.056  1.00 
+0.00      1PAD1418
+ATOM   1312  AD1 ASN   169      28.936  47.190  26.008  1.00 
+0.00      1PAD1419
+ATOM   1313  AD2 ASN   169      30.202  48.251  27.550  1.00 
+0.00      1PAD1420
+ATOM   1314  N   TYR   170      27.196  45.587  27.307  1.00 
+0.00      1PAD1421
+ATOM   1315  CA  TYR   170      27.002  44.487  26.349  1.00 
+0.00      1PAD1422
+ATOM   1316  C   TYR   170      26.439  43.238  27.033  1.00 
+0.00      1PAD1423
+ATOM   1317  O   TYR   170      26.868  42.866  28.146  1.00 
+0.00      1PAD1424
+ATOM   1318  CB  TYR   170      28.351  44.168  25.673  1.00 
+0.00      1PAD1425
+ATOM   1319  CG  TYR   170      29.340  43.454  26.612  1.00 
+0.00      1PAD1426
+ATOM   1320  CD1 TYR   170      30.298  44.147  27.308  1.00 
+0.00      1PAD1427
+ATOM   1321  CD2 TYR   170      29.185  42.065  26.804  1.00 
+0.00      1PAD1428
+ATOM   1322  CE1 TYR   170      31.209  43.485  28.191  1.00 
+0.00      1PAD1429
+ATOM   1323  CE2 TYR   170      30.111  41.379  27.702  1.00 
+0.00      1PAD1430
+ATOM   1324  CZ  TYR   170      31.037  42.102  28.373  1.00 
+0.00      1PAD1431
+ATOM   1325  OH  TYR   170      31.898  41.458  29.242  1.00 
+0.00      1PAD1432
+ATOM   1326  N   ILE   171      25.490  42.620  26.340  1.00 
+0.00      1PAD1433
+ATOM   1327  CA  ILE   171      24.821  41.395  26.804  1.00 
+0.00      1PAD1434
+ATOM   1328  C   ILE   171      25.412  40.292  25.921  1.00 
+0.00      1PAD1435
+ATOM   1329  O   ILE   171      25.488  40.433  24.681  1.00 
+0.00      1PAD1436
+ATOM   1330  CB  ILE   171      23.280  41.476  26.634  1.00 
+0.00      1PAD1437
+ATOM   1331  CG1 ILE   171      22.608  42.413  27.677  1.00 
+0.00      1PAD1438
+ATOM   1332  CG2 ILE   171      22.877  39.998  26.694  1.00 
+0.00      1PAD1439
+ATOM   1333  CD1 ILE   171      21.084  42.187  27.824  1.00 
+0.00      1PAD1440
+ATOM   1334  N   LEU   172      25.812  39.216  26.588  1.00 
+0.00      1PAD1441
+ATOM   1335  CA  LEU   172      26.398  38.035  25.937  1.00 
+0.00      1PAD1442
+ATOM   1336  C   LEU   172      25.373  36.942  25.620  1.00 
+0.00      1PAD1443
+ATOM   1337  O   LEU   172      24.602  36.508  26.504  1.00 
+0.00      1PAD1444
+ATOM   1338  CB  LEU   172      27.489  37.416  26.838  1.00 
+0.00      1PAD1445
+ATOM   1339  CG  LEU   172      28.433  36.403  26.216  1.00 
+0.00      1PAD1446
+ATOM   1340  CD1 LEU   172      29.185  37.052  25.075  1.00 
+0.00      1PAD1447
+ATOM   1341  CD2 LEU   172      29.411  35.882  27.245  1.00 
+0.00      1PAD1448
+ATOM   1342  N   ILE   173      25.396  36.523  24.361  1.00 
+0.00      1PAD1449
+ATOM   1343  CA  ILE   173      24.505  35.472  23.844  1.00 
+0.00      1PAD1450
+ATOM   1344  C   ILE   173      25.134  34.300  23.087  1.00 
+0.00      1PAD1451
+ATOM   1345  O   ILE   173      25.974  34.496  22.181  1.00 
+0.00      1PAD1452
+ATOM   1346  CB  ILE   173      23.469  36.035  22.834  1.00 
+0.00      1PAD1453
+ATOM   1347  CG1 ILE   173      22.577  37.152  23.446  1.00 
+0.00      1PAD1454
+ATOM   1348  CG2 ILE   173      22.745  34.763  22.381  1.00 
+0.00      1PAD1455
+ATOM   1349  CD1 ILE   173      21.600  36.640  24.531  1.00 
+0.00      1PAD1456
+ATOM   1350  N   LYS   174      24.704  33.106  23.477  1.00 
+0.00      1PAD1457
+ATOM   1351  CA  LYS   174      25.167  31.845  22.877  1.00 
+0.00      1PAD1458
+ATOM   1352  C   LYS   174      24.165  31.515  21.766  1.00 
+0.00      1PAD1459
+ATOM   1353  O   LYS   174      22.956  31.329  22.026  1.00 
+0.00      1PAD1460
+ATOM   1354  CB  LYS   174      25.226  30.724  23.913  1.00 
+0.00      1PAD1461
+ATOM   1355  CG  LYS   174      26.001  29.495  23.470  1.00 
+0.00      1PAD1462
+ATOM   1356  CD  LYS   174      26.124  28.486  24.612  1.00 
+0.00      1PAD1463
+ATOM   1357  CE  LYS   174      26.467  27.096  24.094  1.00 
+0.00      1PAD1464
+ATOM   1358  NZ  LYS   174      26.422  26.099  25.190  1.00 
+0.00      1PAD1465
+ATOM   1359  N   ASN   175      24.700  31.446  20.554  1.00 
+0.00      1PAD1466
+ATOM   1360  CA  ASN   175      23.922  31.130  19.345  1.00 
+0.00      1PAD1467
+ATOM   1361  C   ASN   175      23.986  29.639  19.006  1.00 
+0.00      1PAD1468
+ATOM   1362  O   ASN   175      25.013  28.968  19.248  1.00 
+0.00      1PAD1469
+ATOM   1363  CB  ASN   175      24.454  31.958  18.151  1.00 
+0.00      1PAD1470
+ATOM   1364  CG  ASN   175      23.474  31.957  17.004  1.00 
+0.00      1PAD1471
+ATOM   1365  AD1 ASN   175      22.147  31.728  17.352  1.00 
+0.00      1PAD1472
+ATOM   1366  AD2 ASN   175      23.776  32.083  15.826  1.00 
+0.00      1PAD1473
+ATOM   1367  N   SER   176      22.882  29.160  18.446  1.00 
+0.00      1PAD1474
+ATOM   1368  CA  SER   176      22.731  27.758  18.028  1.00 
+0.00      1PAD1475
+ATOM   1369  C   SER   176      23.262  27.429  16.630  1.00 
+0.00      1PAD1476
+ATOM   1370  O   SER   176      22.850  26.428  16.005  1.00 
+0.00      1PAD1477
+ATOM   1371  CB  SER   176      21.270  27.354  18.041  1.00 
+0.00      1PAD1478
+ATOM   1372  OG  SER   176      20.678  27.532  19.326  1.00 
+0.00      1PAD1479
+ATOM   1373  N   TRP   177      24.170  28.285  16.178  1.00 
+0.00      1PAD1480
+ATOM   1374  CA  TRP   177      24.820  28.153  14.865  1.00 
+0.00      1PAD1481
+ATOM   1375  C   TRP   177      26.228  27.691  15.253  1.00 
+0.00      1PAD1482
+ATOM   1376  O   TRP   177      26.563  27.592  16.453  1.00 
+0.00      1PAD1483
+ATOM   1377  CB  TRP   177      24.745  29.499  14.138  1.00 
+0.00      1PAD1484
+ATOM   1378  CG  TRP   177      23.305  30.009  13.750  1.00 
+0.00      1PAD1485
+ATOM   1379  CD1 TRP   177      22.116  29.417  13.942  1.00 
+0.00      1PAD1486
+ATOM   1380  CD2 TRP   177      23.008  31.248  13.164  1.00 
+0.00      1PAD1487
+ATOM   1381  NE1 TRP   177      21.059  30.258  13.401  1.00 
+0.00      1PAD1488
+ATOM   1382  CE2 TRP   177      21.595  31.343  12.991  1.00 
+0.00      1PAD1489
+ATOM   1383  CE3 TRP   177      23.806  32.298  12.762  1.00 
+0.00      1PAD1490
+ATOM   1384  CZ2 TRP   177      20.920  32.441  12.438  1.00 
+0.00      1PAD1491
+ATOM   1385  CZ3 TRP   177      23.117  33.394  12.192  1.00 
+0.00      1PAD1492
+ATOM   1386  CH2 TRP   177      21.735  33.475  12.077  1.00 
+0.00      1PAD1493
+ATOM   1387  N   GLY   178      27.018  27.426  14.220  1.00 
+0.00      1PAD1494
+ATOM   1388  CA  GLY   178      28.412  26.979  14.365  1.00 
+0.00      1PAD1495
+ATOM   1389  C   GLY   178      29.248  28.114  14.963  1.00 
+0.00      1PAD1496
+ATOM   1390  O   GLY   178      28.776  29.266  15.084  1.00 
+0.00      1PAD1497
+ATOM   1391  N   THR   179      30.476  27.757  15.319  1.00 
+0.00      1PAD1498
+ATOM   1392  CA  THR   179      31.451  28.691  15.904  1.00 
+0.00      1PAD1499
+ATOM   1393  C   THR   179      32.055  29.475  14.736  1.00 
+0.00      1PAD1500
+ATOM   1394  O   THR   179      33.121  30.114  14.874  1.00 
+0.00      1PAD1501
+ATOM   1395  CB  THR   179      32.478  27.849  16.691  1.00 
+0.00      1PAD1502
+ATOM   1396  OG1 THR   179      33.188  27.137  15.680  1.00 
+0.00      1PAD1503
+ATOM   1397  CG2 THR   179      31.825  26.886  17.652  1.00 
+0.00      1PAD1504
+ATOM   1398  N   GLY   180      31.351  29.408  13.613  1.00 
+0.00      1PAD1505
+ATOM   1399  CA  GLY   180      31.743  30.095  12.372  1.00 
+0.00      1PAD1506
+ATOM   1400  C   GLY   180      30.788  31.278  12.189  1.00 
+0.00      1PAD1507
+ATOM   1401  O   GLY   180      30.513  31.711  11.049  1.00 
+0.00      1PAD1508
+ATOM   1402  N   TRP   181      30.311  31.774  13.324  1.00 
+0.00      1PAD1509
+ATOM   1403  CA  TRP   181      29.388  32.918  13.381  1.00 
+0.00      1PAD1510
+ATOM   1404  C   TRP   181      29.719  33.797  14.590  1.00 
+0.00      1PAD1511
+ATOM   1405  O   TRP   181      30.170  33.297  15.644  1.00 
+0.00      1PAD1512
+ATOM   1406  CB  TRP   181      27.951  32.392  13.445  1.00 
+0.00      1PAD1513
+ATOM   1407  CG  TRP   181      26.808  33.476  13.504  1.00 
+0.00      1PAD1514
+ATOM   1408  CD1 TRP   181      26.036  33.948  12.513  1.00 
+0.00      1PAD1515
+ATOM   1409  CD2 TRP   181      26.349  34.116  14.664  1.00 
+0.00      1PAD1516
+ATOM   1410  NE1 TRP   181      25.128  34.956  13.039  1.00 
+0.00      1PAD1517
+ATOM   1411  CE2 TRP   181      25.295  35.009  14.306  1.00 
+0.00      1PAD1518
+ATOM   1412  CE3 TRP   181      26.731  34.024  15.986  1.00 
+0.00      1PAD1519
+ATOM   1413  CZ2 TRP   181      24.585  35.822  15.200  1.00 
+0.00      1PAD1520
+ATOM   1414  CZ3 TRP   181      26.018  34.860  16.877  1.00 
+0.00      1PAD1521
+ATOM   1415  CH2 TRP   181      24.966  35.686  16.504  1.00 
+0.00      1PAD1522
+ATOM   1416  N   GLY   182      29.479  35.089  14.405  1.00 
+0.00      1PAD1523
+ATOM   1417  CA  GLY   182      29.714  36.109  15.439  1.00 
+0.00      1PAD1524
+ATOM   1418  C   GLY   182      31.176  35.989  15.877  1.00 
+0.00      1PAD1525
+ATOM   1419  O   GLY   182      32.099  35.954  15.034  1.00 
+0.00      1PAD1526
+ATOM   1420  N   GLU   183      31.347  35.924  17.191  1.00 
+0.00      1PAD1527
+ATOM   1421  CA  GLU   183      32.667  35.793  17.829  1.00 
+0.00      1PAD1528
+ATOM   1422  C   GLU   183      32.854  34.404  18.445  1.00 
+0.00      1PAD1529
+ATOM   1423  O   GLU   183      32.850  34.245  19.685  1.00 
+0.00      1PAD1530
+ATOM   1424  CB  GLU   183      32.865  36.838  18.968  1.00 
+0.00      1PAD1531
+ATOM   1425  CG  GLU   183      33.089  38.302  18.534  1.00 
+0.00      1PAD1532
+ATOM   1426  CD  GLU   183      32.949  39.370  19.690  1.00 
+0.00      1PAD1533
+ATOM   1427  OE1 GLU   183      32.278  39.167  20.658  1.00 
+0.00      1PAD1534
+ATOM   1428  OE2 GLU   183      33.631  40.351  19.388  1.00 
+0.00      1PAD1535
+ATOM   1429  N   ASN   184      33.019  33.432  17.556  1.00 
+0.00      1PAD1536
+ATOM   1430  CA  ASN   184      33.227  32.024  17.929  1.00 
+0.00      1PAD1537
+ATOM   1431  C   ASN   184      31.962  31.330  18.442  1.00 
+0.00      1PAD1538
+ATOM   1432  O   ASN   184      32.020  30.490  19.366  1.00 
+0.00      1PAD1539
+ATOM   1433  CB  ASN   184      34.317  31.929  19.023  1.00 
+0.00      1PAD1540
+ATOM   1434  CG  ASN   184      35.695  32.136  18.443  1.00 
+0.00      1PAD1541
+ATOM   1435  AD1 ASN   184      35.948  33.408  17.940  1.00 
+0.00      1PAD1542
+ATOM   1436  AD2 ASN   184      36.548  31.266  18.340  1.00 
+0.00      1PAD1543
+ATOM   1437  N   GLY   185      30.849  31.700  17.820  1.00 
+0.00      1PAD1544
+ATOM   1438  CA  GLY   185      29.523  31.151  18.145  1.00 
+0.00      1PAD1545
+ATOM   1439  C   GLY   185      28.862  32.062  19.183  1.00 
+0.00      1PAD1546
+ATOM   1440  O   GLY   185      27.702  31.835  19.591  1.00 
+0.00      1PAD1547
+ATOM   1441  N   TYR   186      29.620  33.077  19.578  1.00 
+0.00      1PAD1548
+ATOM   1442  CA  TYR   186      29.179  34.081  20.559  1.00 
+0.00      1PAD1549
+ATOM   1443  C   TYR   186      28.938  35.430  19.877  1.00 
+0.00      1PAD1550
+ATOM   1444  O   TYR   186      29.585  35.761  18.859  1.00 
+0.00      1PAD1551
+ATOM   1445  CB  TYR   186      30.247  34.205  21.664  1.00 
+0.00      1PAD1552
+ATOM   1446  CG  TYR   186      30.243  33.016  22.641  1.00 
+0.00      1PAD1553
+ATOM   1447  CD1 TYR   186      29.234  32.839  23.554  1.00 
+0.00      1PAD1554
+ATOM   1448  CD2 TYR   186      31.271  32.057  22.520  1.00 
+0.00      1PAD1555
+ATOM   1449  CE1 TYR   186      29.224  31.726  24.453  1.00 
+0.00      1PAD1556
+ATOM   1450  CE2 TYR   186      31.271  30.918  23.435  1.00 
+0.00      1PAD1557
+ATOM   1451  CZ  TYR   186      30.253  30.779  24.316  1.00 
+0.00      1PAD1558
+ATOM   1452  OH  TYR   186      30.239  29.689  25.165  1.00 
+0.00      1PAD1559
+ATOM   1453  N   ILE   187      28.012  36.179  20.463  1.00 
+0.00      1PAD1560
+ATOM   1454  CA  ILE   187      27.631  37.515  19.981  1.00 
+0.00      1PAD1561
+ATOM   1455  C   ILE   187      27.239  38.420  21.153  1.00 
+0.00      1PAD1562
+ATOM   1456  O   ILE   187      26.472  38.011  22.052  1.00 
+0.00      1PAD1563
+ATOM   1457  CB  ILE   187      26.420  37.459  19.012  1.00 
+0.00      1PAD1564
+ATOM   1458  CG1 ILE   187      25.978  38.866  18.519  1.00 
+0.00      1PAD1565
+ATOM   1459  CG2 ILE   187      25.391  36.677  19.835  1.00 
+0.00      1PAD1566
+ATOM   1460  CD1 ILE   187      24.690  38.847  17.661  1.00 
+0.00      1PAD1567
+ATOM   1461  N   ARG   188      27.776  39.633  21.108  1.00 
+0.00      1PAD1568
+ATOM   1462  CA  ARG   188      27.525  40.665  22.125  1.00 
+0.00      1PAD1569
+ATOM   1463  C   ARG   188      26.600  41.731  21.531  1.00 
+0.00      1PAD1570
+ATOM   1464  O   ARG   188      26.938  42.385  20.520  1.00 
+0.00      1PAD1571
+ATOM   1465  CB  ARG   188      28.840  41.331  22.590  1.00 
+0.00      1PAD1572
+ATOM   1466  CG  ARG   188      30.069  40.400  22.560  1.00 
+0.00      1PAD1573
+ATOM   1467  CD  ARG   188      31.331  41.213  22.333  1.00 
+0.00      1PAD1574
+ATOM   1468  NE  ARG   188      31.607  42.089  23.485  1.00 
+0.00      1PAD1575
+ATOM   1469  CZ  ARG   188      32.814  42.657  23.710  1.00 
+0.00      1PAD1576
+ATOM   1470  NH1 ARG   188      33.871  42.362  22.933  1.00 
+0.00      1PAD1577
+ATOM   1471  NH2 ARG   188      32.938  43.517  24.707  1.00 
+0.00      1PAD1578
+ATOM   1472  N   ILE   189      25.454  41.881  22.183  1.00 
+0.00      1PAD1579
+ATOM   1473  CA  ILE   189      24.424  42.856  21.792  1.00 
+0.00      1PAD1580
+ATOM   1474  C   ILE   189      24.606  43.908  22.890  1.00 
+0.00      1PAD1581
+ATOM   1475  O   ILE   189      25.184  43.625  23.962  1.00 
+0.00      1PAD1582
+ATOM   1476  CB  ILE   189      23.003  42.231  21.789  1.00 
+0.00      1PAD1583
+ATOM   1477  CG1 ILE   189      22.929  40.912  20.968  1.00 
+0.00      1PAD1584
+ATOM   1478  CG2 ILE   189      22.147  43.394  21.279  1.00 
+0.00      1PAD1585
+ATOM   1479  CD1 ILE   189      21.555  40.205  21.054  1.00 
+0.00      1PAD1586
+ATOM   1480  N   LYS   190      24.099  45.098  22.593  1.00 
+0.00      1PAD1587
+ATOM   1481  CA  LYS   190      24.151  46.249  23.508  1.00 
+0.00      1PAD1588
+ATOM   1482  C   LYS   190      22.862  46.458  24.308  1.00 
+0.00      1PAD1589
+ATOM   1483  O   LYS   190      21.743  46.361  23.760  1.00 
+0.00      1PAD1590
+ATOM   1484  CB  LYS   190      24.419  47.549  22.752  1.00 
+0.00      1PAD1591
+ATOM   1485  CG  LYS   190      24.522  48.783  23.633  1.00 
+0.00      1PAD1592
+ATOM   1486  CD  LYS   190      24.772  50.035  22.793  1.00 
+0.00      1PAD1593
+ATOM   1487  CE  LYS   190      26.260  50.329  22.660  1.00 
+0.00      1PAD1594
+ATOM   1488  NZ  LYS   190      26.909  50.373  23.993  1.00 
+0.00      1PAD1595
+ATOM   1489  N   ARG   191      23.057  46.746  25.589  1.00 
+0.00      1PAD1596
+ATOM   1490  CA  ARG   191      21.960  46.997  26.536  1.00 
+0.00      1PAD1597
+ATOM   1491  C   ARG   191      22.041  48.480  26.908  1.00 
+0.00      1PAD1598
+ATOM   1492  O   ARG   191      22.975  49.198  26.490  1.00 
+0.00      1PAD1599
+ATOM   1493  CB  ARG   191      22.088  46.111  27.796  1.00 
+0.00      1PAD1600
+ATOM   1494  CG  ARG   191      23.341  46.396  28.648  1.00 
+0.00      1PAD1601
+ATOM   1495  CD  ARG   191      23.257  45.640  29.962  1.00 
+0.00      1PAD1602
+ATOM   1496  NE  ARG   191      24.348  46.036  30.869  1.00 
+0.00      1PAD1603
+ATOM   1497  CZ  ARG   191      24.135  46.520  32.114  1.00 
+0.00      1PAD1604
+ATOM   1498  NH1 ARG   191      25.162  46.928  32.881  1.00 
+0.00      1PAD1605
+ATOM   1499  NH2 ARG   191      22.895  46.592  32.567  1.00 
+0.00      1PAD1606
+ATOM   1500  N   GLY   192      21.056  48.899  27.694  1.00 
+0.00      1PAD1607
+ATOM   1501  CA  GLY   192      20.946  50.282  28.181  1.00 
+0.00      1PAD1608
+ATOM   1502  C   GLY   192      20.963  51.221  26.972  1.00 
+0.00      1PAD1609
+ATOM   1503  O   GLY   192      22.033  51.722  26.563  1.00 
+0.00      1PAD1610
+ATOM   1504  N   THR   193      19.770  51.439  26.434  1.00 
+0.00      1PAD1611
+ATOM   1505  CA  THR   193      19.555  52.316  25.273  1.00 
+0.00      1PAD1612
+ATOM   1506  C   THR   193      18.180  52.986  25.346  1.00 
+0.00      1PAD1613
+ATOM   1507  O   THR   193      17.963  54.073  24.767  1.00 
+0.00      1PAD1614
+ATOM   1508  CB  THR   193      19.704  51.447  24.006  1.00 
+0.00      1PAD1615
+ATOM   1509  OG1 THR   193      19.655  52.387  22.935  1.00 
+0.00      1PAD1616
+ATOM   1510  CG2 THR   193      18.597  50.431  23.865  1.00 
+0.00      1PAD1617
+ATOM   1511  N   GLY   194      17.286  52.318  26.063  1.00 
+0.00      1PAD1618
+ATOM   1512  CA  GLY   194      15.907  52.785  26.274  1.00 
+0.00      1PAD1619
+ATOM   1513  C   GLY   194      14.923  51.794  25.648  1.00 
+0.00      1PAD1620
+ATOM   1514  O   GLY   194      13.789  51.614  26.143  1.00 
+0.00      1PAD1621
+ATOM   1515  N   ASN   195      15.389  51.171  24.572  1.00 
+0.00      1PAD1622
+ATOM   1516  CA  ASN   195      14.616  50.170  23.821  1.00 
+0.00      1PAD1623
+ATOM   1517  C   ASN   195      14.125  49.104  24.805  1.00 
+0.00      1PAD1624
+ATOM   1518  O   ASN   195      14.859  48.147  25.136  1.00 
+0.00      1PAD1625
+ATOM   1519  CB  ASN   195      15.501  49.549  22.714  1.00 
+0.00      1PAD1626
+ATOM   1520  CG  ASN   195      14.665  49.031  21.570  1.00 
+0.00      1PAD1627
+ATOM   1521  AD1 ASN   195      13.313  48.858  21.848  1.00 
+0.00      1PAD1628
+ATOM   1522  AD2 ASN   195      15.101  48.712  20.474  1.00 
+0.00      1PAD1629
+ATOM   1523  N   SER   196      12.888  49.297  25.245  1.00 
+0.00      1PAD1630
+ATOM   1524  CA  SER   196      12.215  48.389  26.186  1.00 
+0.00      1PAD1631
+ATOM   1525  C   SER   196      12.165  46.967  25.621  1.00 
+0.00      1PAD1632
+ATOM   1526  O   SER   196      12.602  45.998  26.280  1.00 
+0.00      1PAD1633
+ATOM   1527  CB  SER   196      10.801  48.863  26.462  1.00 
+0.00      1PAD1634
+ATOM   1528  OG  SER   196      10.257  48.262  27.636  1.00 
+0.00      1PAD1635
+ATOM   1529  N   TYR   197      11.636  46.882  24.407  1.00 
+0.00      1PAD1636
+ATOM   1530  CA  TYR   197      11.502  45.615  23.672  1.00 
+0.00      1PAD1637
+ATOM   1531  C   TYR   197      12.898  44.987  23.728  1.00 
+0.00      1PAD1638
+ATOM   1532  O   TYR   197      13.046  43.771  23.981  1.00 
+0.00      1PAD1639
+ATOM   1533  CB  TYR   197      11.009  45.915  22.242  1.00 
+0.00      1PAD1640
+ATOM   1534  CG  TYR   197       9.570  46.460  22.205  1.00 
+0.00      1PAD1641
+ATOM   1535  CD1 TYR   197       8.621  46.048  23.106  1.00 
+0.00      1PAD1642
+ATOM   1536  CD2 TYR   197       9.268  47.466  21.262  1.00 
+0.00      1PAD1643
+ATOM   1537  CE1 TYR   197       7.287  46.566  23.080  1.00 
+0.00      1PAD1644
+ATOM   1538  CE2 TYR   197       7.908  47.999  21.225  1.00 
+0.00      1PAD1645
+ATOM   1539  CZ  TYR   197       7.006  47.569  22.137  1.00 
+0.00      1PAD1646
+ATOM   1540  OH  TYR   197       5.726  48.091  22.119  1.00 
+0.00      1PAD1647
+ATOM   1541  N   GLY   198      13.888  45.839  23.495  1.00 
+0.00      1PAD1648
+ATOM   1542  CA  GLY   198      15.307  45.451  23.511  1.00 
+0.00      1PAD1649
+ATOM   1543  C   GLY   198      15.590  45.197  22.028  1.00 
+0.00      1PAD1650
+ATOM   1544  O   GLY   198      14.766  44.588  21.311  1.00 
+0.00      1PAD1651
+ATOM   1545  N   VAL   199      16.757  45.668  21.608  1.00 
+0.00      1PAD1652
+ATOM   1546  CA  VAL   199      17.235  45.524  20.224  1.00 
+0.00      1PAD1653
+ATOM   1547  C   VAL   199      17.064  44.059  19.813  1.00 
+0.00      1PAD1654
+ATOM   1548  O   VAL   199      17.515  43.135  20.524  1.00 
+0.00      1PAD1655
+ATOM   1549  CB  VAL   199      18.692  45.966  20.126  1.00 
+0.00      1PAD1656
+ATOM   1550  CG1 VAL   199      19.277  46.574  21.429  1.00 
+0.00      1PAD1657
+ATOM   1551  CG2 VAL   199      19.578  44.891  19.545  1.00 
+0.00      1PAD1658
+ATOM   1552  N   CYS   200      16.418  43.887  18.667  1.00 
+0.00      1PAD1659
+ATOM   1553  CA  CYS   200      16.154  42.565  18.079  1.00 
+0.00      1PAD1660
+ATOM   1554  C   CYS   200      15.069  41.789  18.833  1.00 
+0.00      1PAD1661
+ATOM   1555  O   CYS   200      14.828  40.593  18.561  1.00 
+0.00      1PAD1662
+ATOM   1556  CB  CYS   200      17.432  41.774  17.918  1.00 
+0.00      1PAD1663
+ATOM   1557  SG  CYS   200      18.713  42.525  16.860  1.00 
+0.00      1PAD1664
+ATOM   1558  N   GLY   201      14.438  42.499  19.760  1.00 
+0.00      1PAD1665
+ATOM   1559  CA  GLY   201      13.354  41.955  20.593  1.00 
+0.00      1PAD1666
+ATOM   1560  C   GLY   201      13.843  40.854  21.538  1.00 
+0.00      1PAD1667
+ATOM   1561  O   GLY   201      13.163  39.823  21.731  1.00 
+0.00      1PAD1668
+ATOM   1562  N   LEU   202      15.015  41.108  22.108  1.00 
+0.00      1PAD1669
+ATOM   1563  CA  LEU   202      15.665  40.192  23.059  1.00 
+0.00      1PAD1670
+ATOM   1564  C   LEU   202      15.049  40.184  24.461  1.00 
+0.00      1PAD1671
+ATOM   1565  O   LEU   202      15.455  39.388  25.336  1.00 
+0.00      1PAD1672
+ATOM   1566  CB  LEU   202      17.156  40.558  23.216  1.00 
+0.00      1PAD1673
+ATOM   1567  CG  LEU   202      17.927  39.923  24.359  1.00 
+0.00      1PAD1674
+ATOM   1568  CD1 LEU   202      18.337  38.520  23.970  1.00 
+0.00      1PAD1675
+ATOM   1569  CD2 LEU   202      19.152  40.741  24.698  1.00 
+0.00      1PAD1676
+ATOM   1570  N   TYR   203      14.077  41.071  24.634  1.00 
+0.00      1PAD1677
+ATOM   1571  CA  TYR   203      13.341  41.225  25.898  1.00 
+0.00      1PAD1678
+ATOM   1572  C   TYR   203      11.868  40.805  25.907  1.00 
+0.00      1PAD1679
+ATOM   1573  O   TYR   203      11.139  41.040  26.895  1.00 
+0.00      1PAD1680
+ATOM   1574  CB  TYR   203      13.400  42.702  26.336  1.00 
+0.00      1PAD1681
+ATOM   1575  CG  TYR   203      14.838  43.217  26.521  1.00 
+0.00      1PAD1682
+ATOM   1576  CD1 TYR   203      15.116  44.312  27.299  1.00 
+0.00      1PAD1683
+ATOM   1577  CD2 TYR   203      15.886  42.480  25.929  1.00 
+0.00      1PAD1684
+ATOM   1578  CE1 TYR   203      16.455  44.782  27.482  1.00 
+0.00      1PAD1685
+ATOM   1579  CE2 TYR   203      17.257  42.953  26.107  1.00 
+0.00      1PAD1686
+ATOM   1580  CZ  TYR   203      17.485  44.034  26.889  1.00 
+0.00      1PAD1687
+ATOM   1581  OH  TYR   203      18.784  44.467  27.079  1.00 
+0.00      1PAD1688
+ATOM   1582  N   THR   204      11.472  40.185  24.802  1.00 
+0.00      1PAD1689
+ATOM   1583  CA  THR   204      10.102  39.686  24.604  1.00 
+0.00      1PAD1690
+ATOM   1584  C   THR   204       9.619  38.629  25.601  1.00 
+0.00      1PAD1691
+ATOM   1585  O   THR   204       8.725  38.893  26.434  1.00 
+0.00      1PAD1692
+ATOM   1586  CB  THR   204      10.028  39.104  23.176  1.00 
+0.00      1PAD1693
+ATOM   1587  OG1 THR   204      10.542  40.148  22.351  1.00 
+0.00      1PAD1694
+ATOM   1588  CG2 THR   204       8.620  38.754  22.764  1.00 
+0.00      1PAD1695
+ATOM   1589  N   SER   205      10.231  37.457  25.491  1.00 
+0.00      1PAD1696
+ATOM   1590  CA  SER   205       9.932  36.305  26.356  1.00 
+0.00      1PAD1697
+ATOM   1591  C   SER   205      11.093  35.360  26.676  1.00 
+0.00      1PAD1698
+ATOM   1592  O   SER   205      11.571  34.609  25.798  1.00 
+0.00      1PAD1699
+ATOM   1593  CB  SER   205       8.857  35.438  25.731  1.00 
+0.00      1PAD1700
+ATOM   1594  OG  SER   205       7.830  36.217  25.120  1.00 
+0.00      1PAD1701
+ATOM   1595  N   SER   206      11.512  35.419  27.934  1.00 
+0.00      1PAD1702
+ATOM   1596  CA  SER   206      12.607  34.590  28.459  1.00 
+0.00      1PAD1703
+ATOM   1597  C   SER   206      12.211  33.599  29.558  1.00 
+0.00      1PAD1704
+ATOM   1598  O   SER   206      11.191  33.787  30.256  1.00 
+0.00      1PAD1705
+ATOM   1599  CB  SER   206      13.703  35.461  29.040  1.00 
+0.00      1PAD1706
+ATOM   1600  OG  SER   206      14.024  36.555  28.184  1.00 
+0.00      1PAD1707
+ATOM   1601  N   PHE   207      13.038  32.569  29.686  1.00 
+0.00      1PAD1708
+ATOM   1602  CA  PHE   207      12.854  31.505  30.686  1.00 
+0.00      1PAD1709
+ATOM   1603  C   PHE   207      13.819  30.553  31.398  1.00 
+0.00      1PAD1710
+ATOM   1604  O   PHE   207      15.026  30.502  31.077  1.00 
+0.00      1PAD1711
+ATOM   1605  CB  PHE   207      11.905  30.454  30.133  1.00 
+0.00      1PAD1712
+ATOM   1606  CG  PHE   207      10.508  30.942  29.862  1.00 
+0.00      1PAD1713
+ATOM   1607  CD1 PHE   207      10.093  31.292  28.599  1.00 
+0.00      1PAD1714
+ATOM   1608  CD2 PHE   207       9.655  31.118  30.904  1.00 
+0.00      1PAD1715
+ATOM   1609  CE1 PHE   207       8.761  31.812  28.425  1.00 
+0.00      1PAD1716
+ATOM   1610  CE2 PHE   207       8.322  31.594  30.715  1.00 
+0.00      1PAD1717
+ATOM   1611  CZ  PHE   207       7.905  31.920  29.464  1.00 
+0.00      1PAD1718
+ATOM   1612  N   TYR   208      13.255  29.817  32.348  1.00 
+0.00      1PAD1719
+ATOM   1613  CA  TYR   208      13.994  28.829  33.149  1.00 
+0.00      1PAD1720
+ATOM   1614  C   TYR   208      13.455  27.893  34.234  1.00 
+0.00      1PAD1721
+ATOM   1615  O   TYR   208      12.674  28.312  35.116  1.00 
+0.00      1PAD1722
+ATOM   1616  CB  TYR   208      15.124  29.548  33.914  1.00 
+0.00      1PAD1723
+ATOM   1617  CG  TYR   208      14.613  30.699  34.799  1.00 
+0.00      1PAD1724
+ATOM   1618  CD1 TYR   208      14.468  31.972  34.310  1.00 
+0.00      1PAD1725
+ATOM   1619  CD2 TYR   208      14.217  30.393  36.118  1.00 
+0.00      1PAD1726
+ATOM   1620  CE1 TYR   208      13.981  33.040  35.129  1.00 
+0.00      1PAD1727
+ATOM   1621  CE2 TYR   208      13.720  31.476  36.964  1.00 
+0.00      1PAD1728
+ATOM   1622  CZ  TYR   208      13.588  32.715  36.439  1.00 
+0.00      1PAD1729
+ATOM   1623  OH  TYR   208      13.094  33.735  37.231  1.00 
+0.00      1PAD1730
+ATOM   1624  N   PRO   209      13.894  26.644  34.142  1.00 
+0.00      1PAD1731
+ATOM   1625  CA  PRO   209      13.513  25.582  35.087  1.00 
+0.00      1PAD1732
+ATOM   1626  C   PRO   209      13.646  26.114  36.517  1.00 
+0.00      1PAD1733
+ATOM   1627  O   PRO   209      13.631  27.342  36.750  1.00 
+0.00      1PAD1734
+ATOM   1628  CB  PRO   209      14.454  24.459  34.774  1.00 
+0.00      1PAD1735
+ATOM   1629  CG  PRO   209      15.677  25.108  34.149  1.00 
+0.00      1PAD1736
+ATOM   1630  CD  PRO   209      15.119  26.335  33.423  1.00 
+0.00      1PAD1737
+ATOM   1631  N   VAL   210      13.779  25.168  37.438  1.00 
+0.00      1PAD1738
+ATOM   1632  CA  VAL   210      13.933  25.456  38.873  1.00 
+0.00      1PAD1739
+ATOM   1633  C   VAL   210      14.704  24.204  39.301  1.00 
+0.00      1PAD1740
+ATOM   1634  O   VAL   210      14.638  23.148  38.635  1.00 
+0.00      1PAD1741
+ATOM   1635  CB  VAL   210      12.564  25.644  39.518  1.00 
+0.00      1PAD1742
+ATOM   1636  CG1 VAL   210      12.582  25.740  41.068  1.00 
+0.00      1PAD1743
+ATOM   1637  CG2 VAL   210      11.782  26.766  38.882  1.00 
+0.00      1PAD1744
+ATOM   1638  N   LYS   211      15.415  24.356  40.412  1.00 
+0.00      1PAD1745
+ATOM   1639  CA  LYS   211      16.220  23.279  41.009  1.00 
+0.00      1PAD1746
+ATOM   1640  C   LYS   211      16.371  23.521  42.513  1.00 
+0.00      1PAD1747
+ATOM   1641  O   LYS   211      16.613  24.663  42.960  1.00 
+0.00      1PAD1748
+ATOM   1642  CB  LYS   211      17.608  23.206  40.374  1.00 
+0.00      1PAD1749
+ATOM   1643  CG  LYS   211      18.329  21.885  40.583  1.00 
+0.00      1PAD1750
+ATOM   1644  CD  LYS   211      17.419  20.706  40.237  1.00 
+0.00      1PAD1751
+ATOM   1645  CE  LYS   211      18.076  19.376  40.580  1.00 
+0.00      1PAD1752
+ATOM   1646  NZ  LYS   211      17.131  18.252  40.369  1.00 
+0.00      1PAD1753
+ATOM   1647  N   ASN   212      16.229  22.430  43.256  1.00 
+0.00      1PAD1754
+ATOM   1648  CA  ASN   212      16.346  22.432  44.723  1.00 
+0.00      1PAD1755
+ATOM   1649  C   ASN   212      17.725  21.912  45.137  1.00 
+0.00      1PAD1756
+ATOM   1650  O   ASN   212      18.237  22.246  46.228  1.00 
+0.00      1PAD1757
+ATOM   1651  CB  ASN   212      15.230  21.554  45.337  1.00 
+0.00      1PAD1758
+ATOM   1652  CG  ASN   212      13.864  22.134  45.064  1.00 
+0.00      1PAD1759
+ATOM   1653  AD1 ASN   212      13.826  23.512  44.877  1.00 
+0.00      1PAD1760
+ATOM   1654  AD2 ASN   212      12.822  21.496  45.057  1.00 
+0.00      1PAD1761
+ATOM   1655  OXT ASN   212      18.268  20.960  44.300  1.00 
+0.00      1PAD1762
+TER    1656      ASN   212                                     
+        1PAD1763
+HETATM 1688  O   HOH     1       6.500  18.950  12.850  1.00 
+0.00      1PAD1795
+HETATM 1689  O   HOH     2       5.850  17.500  16.150  1.00 
+0.00      1PAD1796
+HETATM 1690  O   HOH     3      22.700  14.600  36.300  1.00 
+0.00      1PAD1797
+HETATM 1691  O   HOH     4      25.650  13.850  36.300  1.00 
+0.00      1PAD1798
+HETATM 1692  O   HOH     5      25.000  20.400  34.100  1.00 
+0.00      1PAD1799
+HETATM 1693  O   HOH     6      31.750  23.550  35.500  1.00 
+0.00      1PAD1800
+HETATM 1694  O   HOH     7      24.550  20.200  25.400  1.00 
+0.00      1PAD1801
+HETATM 1695  O   HOH     8      24.900  24.150  25.150  1.00 
+0.00      1PAD1802
+HETATM 1696  O   HOH     9      22.450  23.850  23.650  1.00 
+0.00      1PAD1803
+HETATM 1697  O   HOH    10      22.750  26.000  21.800  1.00 
+0.00      1PAD1804
+HETATM 1698  O   HOH    11      25.850  26.200  21.350  1.00 
+0.00      1PAD1805
+HETATM 1699  O   HOH    12      21.550  28.400  22.450  1.00 
+0.00      1PAD1806
+HETATM 1700  O   HOH    13      26.350  30.600  16.700  1.00 
+0.00      1PAD1807
+HETATM 1701  O   HOH    14      11.300  31.850  24.950  1.00 
+0.00      1PAD1808
+HETATM 1702  O   HOH    15      10.000  37.450  28.900  1.00 
+0.00      1PAD1809
+HETATM 1703  O   HOH    16      12.650  38.950  28.450  1.00 
+0.00      1PAD1810
+HETATM 1704  O   HOH    17      13.400  47.750  29.750  1.00 
+0.00      1PAD1811
+HETATM 1705  O   HOH    18      13.000  41.050  30.950  1.00 
+0.00      1PAD1812
+HETATM 1706  O   HOH    19      30.750  36.150  36.500  1.00 
+0.00      1PAD1813
+HETATM 1707  O   HOH    20      31.600  38.450  37.950  1.00 
+0.00      1PAD1814
+HETATM 1708  O   HOH    21      30.200  38.750  29.650  1.00 
+0.00      1PAD1815
+HETATM 1709  O   HOH    22      27.250  45.700  34.400  1.00 
+0.00      1PAD1816
+HETATM 1710  O   HOH    23      17.750  50.050  27.950  1.00 
+0.00      1PAD1817
+HETATM 1711  O   HOH    24      17.700  48.100  25.600  1.00 
+0.00      1PAD1818
+HETATM 1712  O   HOH    25      18.650  45.500  26.800  1.00 
+0.00      1PAD1819
+HETATM 1713  O   HOH    26      19.400  28.250  34.200  1.00 
+0.00      1PAD1820
+HETATM 1714  O   HOH    27      12.000  22.800  34.100  1.00 
+0.00      1PAD1821
+HETATM 1715  O   HOH    28      19.700  42.100  11.600  1.00 
+0.00      1PAD1822
+HETATM 1716  O   HOH    29      17.300  40.900  13.150  1.00 
+0.00      1PAD1823
+HETATM 1717  O   HOH    30       7.550  41.200  19.500  1.00 
+0.00      1PAD1824
+HETATM 1718  O   HOH    31       4.555  28.330  14.192  1.00 
+0.00      1PAD1825
+HETATM 1719  O   HOH    32      11.340  30.998  13.034  1.00 
+0.00      1PAD1826
+CONECT  173  172  493                                          
+        1PAD1827
+CONECT  189  188 1686                                          
+        1PAD1828
+CONECT  386  385                           653                 
+        1PAD1829
+CONECT  435  434  760                                          
+        1PAD1830
+CONECT  493  173  492                                          
+        1PAD1831
+CONECT  653  652  654                                     386  
+        1PAD1832
+CONECT  760  435  759                                          
+        1PAD1833
+CONECT 1203 1202 1557                                          
+        1PAD1834
+CONECT 1557 1203 1556                                          
+        1PAD1835
+CONECT 1672 1671 1673 1681                                     
+        1PAD1836
+CONECT 1681 1672 1682                                          
+        1PAD1837
+CONECT 1682 1681 1683 1685                                     
+        1PAD1838
+CONECT 1683 1682 1684 1686                                     
+        1PAD1839
+CONECT 1684 1683                                               
+        1PAD1840
+CONECT 1685 1682                                               
+        1PAD1841
+CONECT 1686  189 1683                                          
+        1PAD1842
+MASTER       96    5    1    5   12    2    0    6 1717    2  
+16   18  1PADG  7
+END                                                            
+        1PAD1844

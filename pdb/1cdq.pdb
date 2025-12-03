@@ -1,0 +1,1480 @@
+HEADER    COMPLEMENT REGULATORY PROTEIN           01-JUN-94   1CDQ      1CDQ 
+ 2
+COMPND    CD59 (NMR, 20 STRUCTURES)                                     1CDQ   3
+SOURCE    HUMAN (HOMO SAPIENS)                                          1CDQ   4
+EXPDTA    NMR                                                           1CDQ   5
+AUTHOR    C.M.FLETCHER,R.A.HARRISON,P.J.LACHMANN,D.NEUHAUS              1CDQ 
+ 6
+REVDAT   1   30-SEP-94 1CDQ    0                                        1CDQ   7
+JRNL        AUTH   C.M.FLETCHER,R.A.HARRISON,P.J.LACHMANN,D.NEUHAUS    
+1CDQ   8
+JRNL        TITL   STRUCTURE OF A SOLUBLE, GLYCOSYLATED FORM OF THE     1CDQ 
+ 9
+JRNL        TITL 2 HUMAN COMPLEMENT REGULATORY PROTEIN CD59             1CDQ 
+10
+JRNL        REF    STRUCTURE                     V.   2   185 1994      1CDQ  11
+JRNL        REFN   ASTM         UK ISSN 0969-2126                 2005  1CDQ  12
+REMARK   1                                                              1CDQ  13
+REMARK   1 REFERENCE 1                                                  1CDQ  14
+REMARK   1  AUTH   C.M.FLETCHER,R.A.HARRISON,P.J.LACHMANN,D.NEUHAUS   
+ 1CDQ  15
+REMARK   1  TITL   SEQUENCE-SPECIFIC 1H-NMR ASSIGNMENTS AND FOLDING    
+1CDQ  16
+REMARK   1  TITL 2 TOPOLOGY OF HUMAN CD59                               1CDQ  17
+REMARK   1  REF    PROTEIN SCI.                  V.   2  2015 1993      1CDQ  18
+REMARK   1  REFN   ASTM         US ISSN 0961-8368                 0795  1CDQ  19
+REMARK   1 REFERENCE 2                                                  1CDQ  20
+REMARK   1  AUTH   A.DAVIES,P.J.LACHMANN                                1CDQ  21
+REMARK   1  TITL   MEMBRANE DEFENCE AGAINST COMPLEMENT LYSIS: THE      
+1CDQ  22
+REMARK   1  TITL 2 STRUCTURE AND BIOLOGICAL PROPERTIES OF CD59          1CDQ 
+23
+REMARK   1  REF    IMMUNOL.RES.                  V.  12   258 1993      1CDQ  24
+REMARK   1  REFN   ASTM         US ISSN 0257-277X                 2031  1CDQ  25
+REMARK   2                                                              1CDQ  26
+REMARK   2 RESOLUTION. NOT APPLICABLE.  SEE REMARK 4.                   1CDQ  27
+REMARK   3                                                              1CDQ  28
+REMARK   3 REFINEMENT.                                                  1CDQ  29
+REMARK   3   PROGRAM                    X-PLOR                          1CDQ  30
+REMARK   3   AUTHORS                    BRUNGER                         1CDQ  31
+REMARK   3                                                              1CDQ  32
+REMARK   3   NUMBER OF PROTEIN ATOMS                       1195         1CDQ  33
+REMARK   3                                                              1CDQ  34
+REMARK   3  THE STRUCTURES WERE CALCULATED USING A SIMULATED
+ANNEALING  1CDQ  35
+REMARK   3  PROTOCOL ESSENTIALLY AS SUPPLIED WITH THE PROGRAM X-PLOR 
+  1CDQ  36
+REMARK   3  3.1, BUT STARTING FROM STRUCTURES WITH RANDOMIZED PHI AND 
+ 1CDQ  37
+REMARK   3  PSI ANGLES.  CENTER AVERAGING WAS USED FOR NOE CONSTRAINTS 
+1CDQ  38
+REMARK   3  INVOLVING DEGENERATE OR NON-STEREOSPECIFICALLY ASSIGNED 
+   1CDQ  39
+REMARK   3  RESONANCES.                                                 1CDQ  40
+REMARK   3                                                              1CDQ  41
+REMARK   3  PROGRAMS:                                                   1CDQ  42
+REMARK   3                                                              1CDQ  43
+REMARK   3   SIMULATED ANNEALING:  NILGES, GRONENBORN, BRUNGER, AND  
+  1CDQ  44
+REMARK   3                         CLORE, PROT.  ENG., VOL.  2, 27 -    1CDQ  45
+REMARK   3                         38, (1988)                           1CDQ  46
+REMARK   3   X-PLOR:               NILGES, KUSZEWSKI AND BRUNGER:       1CDQ  47
+REMARK   3                         "COMPUTATIONAL ASPECTS OF            1CDQ  48
+REMARK   3                         BIOLOGICAL MACROMOLECULES BY NMR."   1CDQ  49
+REMARK   3                         PLENUM PRESS, NEW YORK (1991).       1CDQ  50
+REMARK   3                         BRUNGER:  "X-PLOR 3.1", YALE         1CDQ  51
+REMARK   3                         UNIVERSITY PRESS, NEW HAVEN, CT,     1CDQ  52
+REMARK   3                         U.S.A.                               1CDQ  53
+REMARK   4                                                              1CDQ  54
+REMARK   4 THESE COORDINATES WERE GENERATED FROM SOLUTION NMR
+DATA.     1CDQ  55
+REMARK   4 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT *CRYST1* AND 
+    1CDQ  56
+REMARK   4 *SCALE* RECORDS BE INCLUDED, BUT THE VALUES ON THESE        
+1CDQ  57
+REMARK   4 RECORDS ARE MEANINGLESS.                                     1CDQ  58
+REMARK   5                                                              1CDQ  59
+REMARK   5 CARBOHYDRATE GROUPS:                                         1CDQ  60
+REMARK   5 CD59 IS A GLYCOPROTEIN, CONTAINING AN N-LINKED               1CDQ 
+61
+REMARK   5 OLIGOSACCHARIDE AT ASN 18 AND A                              1CDQ  62
+REMARK   5 GLYCOSYLPHOSPHATIDYLINOSITOL (GPI) MEMBRANE ANCHOR AT
+THE    1CDQ  63
+REMARK   5 C-TERMINUS.  CD59 PURIFIED FROM HUMAN URINE, AS USED FOR    
+1CDQ  64
+REMARK   5 THE DETERMINATION OF THIS STRUCTURE, RETAINS THE N-LINKED 
+  1CDQ  65
+REMARK   5 OLIGOSACCHARIDE AND THE NON-LIPID PART OF THE GPI ANCHOR. 
+  1CDQ  66
+REMARK   5 THE NMR CONSTRAINTS WERE, THEREFORE, DERIVED FROM THE    
+   1CDQ  67
+REMARK   5 MOLECULE CONTAINING MOST OF THE NATIVE CARBOHYDRATE
+GROUPS.  1CDQ  68
+REMARK   5 THE COORDINATES GIVEN HERE WERE GENERATED BY A STRUCTURE 
+   1CDQ  69
+REMARK   5 CALCULATION IN WHICH ONLY THE PROTEIN COMPONENT AND NO 
+     1CDQ  70
+REMARK   5 CARBOHYDRATE GROUPS WERE INCLUDED IN THE COMPUTATIONAL 
+     1CDQ  71
+REMARK   5 MODEL.                                                       1CDQ  72
+REMARK   6                                                              1CDQ  73
+REMARK   6 THE DEPOSITORS HAVE CARRIED OUT OTHER STRUCTURE             
+1CDQ  74
+REMARK   6 CALCULATIONS IN WHICH TWO DIFFERENT FRAGMENTS OF THE       
+ 1CDQ  75
+REMARK   6 N-LINKED OLIGOSACCHARIDE WERE INCLUDED IN THE
+COMPUTATIONAL  1CDQ  76
+REMARK   6 MODEL.  THESE COORDINATES ARE AVAILABLE IN PROTEIN DATA   
+  1CDQ  77
+REMARK   6 BANK ENTRIES 1CDR AND 1CDS.  THE STRUCTURE OF THE PROTEIN 
+  1CDQ  78
+REMARK   6 COMPONENT IS NOT SIGNIFICANTLY AFFECTED BY INCLUSION OF    
+ 1CDQ  79
+REMARK   6 EITHER CARBOHYDRATE FRAGMENT IN THE COMPUTATIONAL
+MODEL.     1CDQ  80
+REMARK   6 HOWEVER, ANY INVESTIGATION OF SURFACE FEATURES OF THE      
+ 1CDQ  81
+REMARK   6 MOLECULE SHOULD TAKE INTO ACCOUNT THE PRESENCE OF THE   
+    1CDQ  82
+REMARK   6 CARBOHYDRATE GROUPS.                                         1CDQ  83
+REMARK   7                                                              1CDQ  84
+REMARK   7 C-TERMINAL RESIDUE:                                          1CDQ  85
+REMARK   7 THE IDENTITY OF THE C-TERMINAL RESIDUE OF CD59 HAS BEEN     
+1CDQ  86
+REMARK   7 UNCERTAIN DUE TO THE POST-TRANSLATIONAL MODIFICATION
+WHICH   1CDQ  87
+REMARK   7 LEADS TO THE ADDITION OF THE GPI ANCHOR.  THE DEPOSITORS'   
+1CDQ  88
+REMARK   7 NMR ANALYSIS INDICATES THAT THE C-TERMINAL RESIDUE OF CD59 
+ 1CDQ  89
+REMARK   7 FROM HUMAN URINE IS ASN 77.  THIS IS CONFIRMED BY THE        1CDQ 
+90
+REMARK   7 INDEPENDENT WORK OF SUGITA ET AL. (1993) J.BIOCHEM.(TOKYO)  
+1CDQ  91
+REMARK   7 114, 473 - 477.                                              1CDQ  92
+REMARK   8                                                              1CDQ  93
+REMARK   8 SUMMARY OF NMR-DERIVED CONSTRAINTS:                          1CDQ  94
+REMARK   8                                                              1CDQ  95
+REMARK   8   THE FULL CONSTRAINT LIST IS AVAILABLE FROM THE PROTEIN    
+1CDQ  96
+REMARK   8   DATA BANK.                                                 1CDQ  97
+REMARK   8                                                              1CDQ  98
+REMARK   8 1. NOE CONSTRAINTS                                           1CDQ  99
+REMARK   8                                                              1CDQ 100
+REMARK   8    (A) UPPER LIMIT CONSTRAINTS                               1CDQ 101
+REMARK   8                                                              1CDQ 102
+REMARK   8    INTRA-RESIDUE            = 165                            1CDQ 103
+REMARK   8    SEQUENTIAL               = 225                            1CDQ 104
+REMARK   8    MEDIUM RANGE (|I-J| < 5) = 119                            1CDQ 105
+REMARK   8    LONG RANGE (|I-J| > 4)   = 289                            1CDQ 106
+REMARK   8                                                              1CDQ 107
+REMARK   8    TOTAL                    = 798                            1CDQ 108
+REMARK   8                                                              1CDQ 109
+REMARK   8    (B) LOWER LIMIT CONSTRAINTS                               1CDQ 110
+REMARK   8                                                              1CDQ 111
+REMARK   8    3 LOWER LIMIT DISTANCE CONSTRAINTS                        1CDQ 112
+REMARK   8                                                              1CDQ 113
+REMARK   8 2. DIHEDRAL CONSTRAINTS                                      1CDQ 114
+REMARK   8                                                              1CDQ 115
+REMARK   8    12 CHI-1 ANGLE CONSTRAINTS AND 4 PHI ANGLE CONSTRAINTS   
+1CDQ 116
+REMARK   8                                                              1CDQ 117
+REMARK   8 3. HYDROGEN BOND CONSTRAINTS                                 1CDQ 118
+REMARK   8                                                              1CDQ 119
+REMARK   8    10 HYDROGEN BOND CONSTRAINTS                              1CDQ 120
+REMARK   9                                                              1CDQ 121
+REMARK   9 SELECTION OF STRUCTURES FOR DEPOSITION:                      1CDQ 122
+REMARK   9 THE STRUCTURES GIVEN HERE ARE THE 20 STRUCTURES WITH THE 
+   1CDQ 123
+REMARK   9 LOWEST DISTANCE CONSTRAINT ENERGIES AMONG THE TOTAL OF
+50    1CDQ 124
+REMARK   9 CALCULATED STRUCTURES.  THEY ARE ARRANGED IN ORDER OF     
+  1CDQ 125
+REMARK   9 INCREASING DISTANCE CONSTRAINT ENERGY; I.E., THE BEST       
+1CDQ 126
+REMARK   9 STRUCTURE IS FIRST.                                          1CDQ 127
+REMARK  10                                                              1CDQ 128
+REMARK  10 SOME ENERGY TERMS:                                           1CDQ 129
+REMARK  10 THE TABLE BELOW GIVES THE TOTAL, VAN DER WAALS, DIHEDRAL 
+   1CDQ 130
+REMARK  10 ANGLE CONSTRAINT AND DISTANCE CONSTRAINT (NOE AND
+HYDROGEN   1CDQ 131
+REMARK  10 BOND) ENERGIES IN KCAL.                                      1CDQ 132
+REMARK  10                                                              1CDQ 133
+REMARK  10 MODEL E(TOTAL) E(VDW) E(DIHEDRAL) E(DISTANCE)                1CDQ
+134
+REMARK  10   1    72.765  1.645     0.024       4.150                   1CDQ 135
+REMARK  10   2    74.813  2.163     0.144       4.282                   1CDQ 136
+REMARK  10   3    70.889  1.741     0.001       4.312                   1CDQ 137
+REMARK  10   4    74.417  2.329     0.020       4.340                   1CDQ 138
+REMARK  10   5    68.896  1.064     0.048       4.352                   1CDQ 139
+REMARK  10   6    74.626  2.535     0.006       4.358                   1CDQ 140
+REMARK  10   7    72.487  1.686     0.063       4.484                   1CDQ 141
+REMARK  10   8    72.789  2.021     0.245       4.592                   1CDQ 142
+REMARK  10   9    74.306  1.799     0.000       4.663                   1CDQ 143
+REMARK  10  10    74.946  2.088     0.034       4.714                   1CDQ 144
+REMARK  10  11    75.087  1.784     0.022       4.752                   1CDQ 145
+REMARK  10  12    71.659  1.393     0.022       4.778                   1CDQ 146
+REMARK  10  13    72.266  1.392     0.051       4.780                   1CDQ 147
+REMARK  10  14    77.845  3.342     0.064       4.832                   1CDQ 148
+REMARK  10  15    85.149  3.954     0.016       4.847                   1CDQ 149
+REMARK  10  16    74.604  2.124     0.104       5.004                   1CDQ 150
+REMARK  10  17    74.203  1.443     0.007       5.081                   1CDQ 151
+REMARK  10  18    83.571  2.736     0.017       5.113                   1CDQ 152
+REMARK  10  19    75.695  2.775     0.052       5.127                   1CDQ 153
+REMARK  10  20    73.879  1.137     0.005       5.229                   1CDQ 154
+REMARK  11                                                              1CDQ 155
+REMARK  11 ATOMIC RMS DEVIATIONS:                                       1CDQ 156
+REMARK  11 OVERALL ATOMIC RMS DEVIATIONS FROM THE MEAN STRUCTURE 
+      1CDQ 157
+REMARK  11 FOR ALL 46 SELECTED STRUCTURES AND RESIDUES 1 - 75           1CDQ
+158
+REMARK  11 ARE 0.65 ANGSTROMS FOR BACKBONE CARBON AND NITROGEN      
+   1CDQ 159
+REMARK  11 ATOMS AND 1.15 ANGSTROMS FOR ALL HEAVY ATOMS.                1CDQ
+160
+REMARK  12                                                              1CDQ 161
+REMARK  12 HYDROGEN BONDS:                                              1CDQ 162
+REMARK  12 THE HYDROGEN BONDS DESCRIBED IN THIS HEADER ARE BASED    
+   1CDQ 163
+REMARK  12 UPON THE PRESENCE OF SLOWLY-EXCHANGING AMIDE PROTONS   
+     1CDQ 164
+REMARK  12 IDENTIFIED BY NMR AND ANALYSIS OF PARTIALLY REFINED         
+1CDQ 165
+REMARK  12 STRUCTURES.  ALL OF THESE HYDROGEN BONDS WERE INCLUDED 
+     1CDQ 166
+REMARK  12 AS CONSTRAINTS IN THE FINAL STRUCTURE CALCULATIONS.         
+1CDQ 167
+REMARK  12 OTHER POSSIBLE HYDROGEN BONDS ARE DISCUSSED IN THE          
+1CDQ 168
+REMARK  12 JOURNAL ARTICLE WHICH DESCRIBES THE STRUCTURE.               1CDQ
+169
+REMARK  13                                                              1CDQ 170
+REMARK  13 CROSS REFERENCE TO SEQUENCE DATABASE                         1CDQ 171
+REMARK  13 SWISS-PROT ENTRY NAME       PDB ENTRY CHAIN NAME             1CDQ
+172
+REMARK  13    CD59_HUMAN                                                1CDQ 173
+REMARK  14                                                              1CDQ 174
+REMARK  14 THIS MOLECULE WAS PREVIOUSLY CALLED P-18, MACIF, MIRL,      
+1CDQ 175
+REMARK  14 HRF-20, 1F5 ANTIGEN, H19 AND PROTECTIN.                      1CDQ 176
+SEQRES   1     77  LEU GLN CYS TYR ASN CYS PRO ASN PRO THR ALA ASP CYS  1CDQ
+177
+SEQRES   2     77  LYS THR ALA VAL ASN CYS SER SER ASP PHE ASP ALA CYS  1CDQ
+178
+SEQRES   3     77  LEU ILE THR LYS ALA GLY LEU GLN VAL TYR ASN LYS CYS  1CDQ
+179
+SEQRES   4     77  TRP LYS PHE GLU HIS CYS ASN PHE ASN ASP VAL THR THR  1CDQ
+180
+SEQRES   5     77  ARG LEU ARG GLU ASN GLU LEU THR TYR TYR CYS CYS LYS 
+1CDQ 181
+SEQRES   6     77  LYS ASP LEU CYS ASN PHE ASN GLU GLN LEU GLU ASN      1CDQ
+182
+HELIX    1  H1 PHE     47  GLU     56  1 IRREGULAR H-BONDS AT C-T END   1CDQ 183
+SHEET    1  S1 2 LEU     1  CYS     6  0                                1CDQ 184
+SHEET    2  S1 2 THR    15  CYS    19 -1  O  VAL    17   N  CYS     3   1CDQ 185
+SHEET    1  S2 3 GLN    34  TRP    40  0                                1CDQ 186
+SHEET    2  S2 3 ALA    25  ALA    31 -1  N  ALA    25   O  TRP    40   1CDQ 187
+SHEET    3  S2 3 LEU    59  LYS    65 -1  N  CYS    64   O  CYS    26   1CDQ 188
+SSBOND   1 CYS      3    CYS     26                                     1CDQ 189
+SSBOND   2 CYS      6    CYS     13                                     1CDQ 190
+SSBOND   3 CYS     19    CYS     39                                     1CDQ 191
+SSBOND   4 CYS     45    CYS     63                                     1CDQ 192
+SSBOND   5 CYS     64    CYS     69                                     1CDQ 193
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1  1CDQ 194
+ORIGX1      1.000000  0.000000  0.000000        0.00000                 1CDQ 195
+ORIGX2      0.000000  1.000000  0.000000        0.00000                 1CDQ 196
+ORIGX3      0.000000  0.000000  1.000000        0.00000                 1CDQ 197
+SCALE1      1.000000  0.000000  0.000000        0.00000                 1CDQ 198
+SCALE2      0.000000  1.000000  0.000000        0.00000                 1CDQ 199
+SCALE3      0.000000  0.000000  1.000000        0.00000                 1CDQ 200
+MODEL        1                                                          1CDQ 201
+ATOM      1  N   LEU     1       6.886 -12.701  -7.167  1.00  0.00      1CDQ 202
+ATOM      2  CA  LEU     1       6.732 -11.276  -7.575  1.00  0.00      1CDQ 203
+ATOM      3  C   LEU     1       7.252 -10.365  -6.461  1.00  0.00      1CDQ 204
+ATOM      4  O   LEU     1       6.799 -10.423  -5.335  1.00  0.00      1CDQ 205
+ATOM      5  CB  LEU     1       5.254 -10.975  -7.830  1.00  0.00      1CDQ 206
+ATOM      6  CG  LEU     1       5.119 -10.116  -9.089  1.00  0.00      1CDQ 207
+ATOM      7  CD1 LEU     1       3.958 -10.632  -9.939  1.00  0.00      1CDQ 208
+ATOM      8  CD2 LEU     1       4.848  -8.665  -8.687  1.00  0.00      1CDQ 209
+ATOM      9 1H   LEU     1       6.352 -12.872  -6.293  1.00  0.00      1CDQ 210
+ATOM     10 2H   LEU     1       6.522 -13.319  -7.919  1.00  0.00      1CDQ 211
+ATOM     11 3H   LEU     1       7.894 -12.907  -7.005  1.00  0.00      1CDQ 212
+ATOM     12  HA  LEU     1       7.297 -11.098  -8.479  1.00  0.00      1CDQ 213
+ATOM     13 1HB  LEU     1       4.717 -11.903  -7.967  1.00  0.00      1CDQ 214
+ATOM     14 2HB  LEU     1       4.844 -10.442  -6.986  1.00  0.00      1CDQ 215
+ATOM     15  HG  LEU     1       6.035 -10.168  -9.660  1.00  0.00      1CDQ 216
+ATOM     16 1HD1 LEU     1       3.183 -11.019  -9.293  1.00  0.00      1CDQ 217
+ATOM     17 2HD1 LEU     1       3.560  -9.824 -10.534  1.00  0.00      1CDQ 218
+ATOM     18 3HD1 LEU     1       4.309 -11.420 -10.589  1.00  0.00      1CDQ 219
+ATOM     19 1HD2 LEU     1       4.512  -8.631  -7.661  1.00  0.00      1CDQ 220
+ATOM     20 2HD2 LEU     1       5.755  -8.087  -8.787  1.00  0.00      1CDQ 221
+ATOM     21 3HD2 LEU     1       4.084  -8.250  -9.329  1.00  0.00      1CDQ 222
+ATOM     22  N   GLN     2       8.199  -9.522  -6.767  1.00  0.00      1CDQ 223
+ATOM     23  CA  GLN     2       8.749  -8.605  -5.730  1.00  0.00      1CDQ 224
+ATOM     24  C   GLN     2       7.898  -7.339  -5.663  1.00  0.00      1CDQ 225
+ATOM     25  O   GLN     2       7.163  -7.020  -6.577  1.00  0.00      1CDQ 226
+ATOM     26  CB  GLN     2      10.189  -8.235  -6.092  1.00  0.00      1CDQ 227
+ATOM     27  CG  GLN     2      11.113  -9.414  -5.777  1.00  0.00      1CDQ 228
+ATOM     28  CD  GLN     2      12.142  -9.570  -6.898  1.00  0.00      1CDQ 229
+ATOM     29  OE1 GLN     2      13.144  -8.882  -6.921  1.00  0.00      1CDQ 230
+ATOM     30  NE2 GLN     2      11.936 -10.452  -7.838  1.00  0.00      1CDQ 231
+ATOM     31  H   GLN     2       8.550  -9.491  -7.682  1.00  0.00      1CDQ 232
+ATOM     32  HA  GLN     2       8.735  -9.093  -4.767  1.00  0.00      1CDQ 233
+ATOM     33 1HB  GLN     2      10.246  -8.001  -7.144  1.00  0.00      1CDQ 234
+ATOM     34 2HB  GLN     2      10.495  -7.375  -5.514  1.00  0.00      1CDQ 235
+ATOM     35 1HG  GLN     2      11.622  -9.231  -4.842  1.00  0.00      1CDQ 236
+ATOM     36 2HG  GLN     2      10.529 -10.318  -5.699  1.00  0.00      1CDQ 237
+ATOM     37 1HE2 GLN     2      12.590 -10.560  -8.560  1.00  0.00      1CDQ 238
+ATOM     38 2HE2 GLN     2      11.127 -11.006  -7.821  1.00  0.00      1CDQ 239
+ATOM     39  N   CYS     3       7.990  -6.618  -4.583  1.00  0.00      1CDQ 240
+ATOM     40  CA  CYS     3       7.186  -5.372  -4.447  1.00  0.00      1CDQ 241
+ATOM     41  C   CYS     3       7.764  -4.511  -3.323  1.00  0.00      1CDQ 242
+ATOM     42  O   CYS     3       8.405  -5.004  -2.418  1.00  0.00      1CDQ 243
+ATOM     43  CB  CYS     3       5.743  -5.737  -4.116  1.00  0.00      1CDQ 244
+ATOM     44  SG  CYS     3       4.809  -5.961  -5.650  1.00  0.00      1CDQ 245
+ATOM     45  H   CYS     3       8.586  -6.902  -3.859  1.00  0.00      1CDQ 246
+ATOM     46  HA  CYS     3       7.213  -4.823  -5.373  1.00  0.00      1CDQ 247
+ATOM     47 1HB  CYS     3       5.732  -6.652  -3.554  1.00  0.00      1CDQ 248
+ATOM     48 2HB  CYS     3       5.293  -4.947  -3.532  1.00  0.00      1CDQ 249
+ATOM     49  N   TYR     4       7.545  -3.225  -3.371  1.00  0.00      1CDQ 250
+ATOM     50  CA  TYR     4       8.087  -2.336  -2.303  1.00  0.00      1CDQ 251
+ATOM     51  C   TYR     4       7.080  -2.241  -1.153  1.00  0.00      1CDQ 252
+ATOM     52  O   TYR     4       6.003  -1.699  -1.300  1.00  0.00      1CDQ 253
+ATOM     53  CB  TYR     4       8.333  -0.942  -2.882  1.00  0.00      1CDQ 254
+ATOM     54  CG  TYR     4       9.433  -1.013  -3.912  1.00  0.00      1CDQ 255
+ATOM     55  CD1 TYR     4       9.136  -1.402  -5.224  1.00  0.00      1CDQ 256
+ATOM     56  CD2 TYR     4      10.748  -0.693  -3.558  1.00  0.00      1CDQ 257
+ATOM     57  CE1 TYR     4      10.156  -1.469  -6.182  1.00  0.00      1CDQ 258
+ATOM     58  CE2 TYR     4      11.768  -0.761  -4.514  1.00  0.00      1CDQ 259
+ATOM     59  CZ  TYR     4      11.472  -1.148  -5.827  1.00  0.00      1CDQ 260
+ATOM     60  OH  TYR     4      12.476  -1.215  -6.771  1.00  0.00      1CDQ 261
+ATOM     61  H   TYR     4       7.026  -2.844  -4.110  1.00  0.00      1CDQ 262
+ATOM     62  HA  TYR     4       9.018  -2.743  -1.935  1.00  0.00      1CDQ 263
+ATOM     63 1HB  TYR     4       7.426  -0.579  -3.345  1.00  0.00      1CDQ 264
+ATOM     64 2HB  TYR     4       8.626  -0.270  -2.089  1.00  0.00      1CDQ 265
+ATOM     65  HD1 TYR     4       8.122  -1.649  -5.498  1.00  0.00      1CDQ 266
+ATOM     66  HD2 TYR     4      10.976  -0.394  -2.545  1.00  0.00      1CDQ 267
+ATOM     67  HE1 TYR     4       9.928  -1.769  -7.193  1.00  0.00      1CDQ 268
+ATOM     68  HE2 TYR     4      12.783  -0.513  -4.241  1.00  0.00      1CDQ 269
+ATOM     69  HH  TYR     4      12.689  -2.140  -6.912  1.00  0.00      1CDQ 270
+ATOM     70  N   ASN     5       7.426  -2.760  -0.006  1.00  0.00      1CDQ 271
+ATOM     71  CA  ASN     5       6.491  -2.694   1.154  1.00  0.00      1CDQ 272
+ATOM     72  C   ASN     5       7.076  -1.775   2.227  1.00  0.00      1CDQ 273
+ATOM     73  O   ASN     5       8.250  -1.834   2.536  1.00  0.00      1CDQ 274
+ATOM     74  CB  ASN     5       6.296  -4.094   1.739  1.00  0.00      1CDQ 275
+ATOM     75  CG  ASN     5       5.214  -4.048   2.820  1.00  0.00      1CDQ 276
+ATOM     76  OD1 ASN     5       4.257  -3.307   2.706  1.00  0.00      1CDQ 277
+ATOM     77  ND2 ASN     5       5.326  -4.812   3.872  1.00  0.00      1CDQ 278
+ATOM     78  H   ASN     5       8.300  -3.190   0.095  1.00  0.00      1CDQ 279
+ATOM     79  HA  ASN     5       5.537  -2.305   0.828  1.00  0.00      1CDQ 280
+ATOM     80 1HB  ASN     5       5.996  -4.775   0.955  1.00  0.00      1CDQ 281
+ATOM     81 2HB  ASN     5       7.222  -4.435   2.176  1.00  0.00      1CDQ 282
+ATOM     82 1HD2 ASN     5       4.638  -4.788   4.570  1.00  0.00      1CDQ 283
+ATOM     83 2HD2 ASN     5       6.097  -5.408   3.966  1.00  0.00      1CDQ 284
+ATOM     84  N   CYS     6       6.268  -0.925   2.798  1.00  0.00      1CDQ 285
+ATOM     85  CA  CYS     6       6.780  -0.003   3.849  1.00  0.00      1CDQ 286
+ATOM     86  C   CYS     6       5.742   0.121   4.967  1.00  0.00      1CDQ 287
+ATOM     87  O   CYS     6       4.581  -0.175   4.768  1.00  0.00      1CDQ 288
+ATOM     88  CB  CYS     6       7.038   1.374   3.234  1.00  0.00      1CDQ 289
+ATOM     89  SG  CYS     6       7.778   1.171   1.595  1.00  0.00      1CDQ 290
+ATOM     90  H   CYS     6       5.325  -0.893   2.534  1.00  0.00      1CDQ 291
+ATOM     91  HA  CYS     6       7.702  -0.395   4.254  1.00  0.00      1CDQ 292
+ATOM     92 1HB  CYS     6       6.104   1.909   3.145  1.00  0.00      1CDQ 293
+ATOM     93 2HB  CYS     6       7.712   1.931   3.868  1.00  0.00      1CDQ 294
+ATOM     94  N   PRO     7       6.195   0.557   6.114  1.00  0.00      1CDQ 295
+ATOM     95  CA  PRO     7       5.332   0.736   7.293  1.00  0.00      1CDQ 296
+ATOM     96  C   PRO     7       4.518   2.027   7.158  1.00  0.00      1CDQ 297
+ATOM     97  O   PRO     7       3.542   2.232   7.851  1.00  0.00      1CDQ 298
+ATOM     98  CB  PRO     7       6.325   0.831   8.454  1.00  0.00      1CDQ 299
+ATOM     99  CG  PRO     7       7.675   1.268   7.839  1.00  0.00      1CDQ 300
+ATOM    100  CD  PRO     7       7.611   0.914   6.342  1.00  0.00      1CDQ 301
+ATOM    101  HA  PRO     7       4.684  -0.115   7.426  1.00  0.00      1CDQ 302
+ATOM    102 1HB  PRO     7       5.984   1.564   9.173  1.00  0.00      1CDQ 303
+ATOM    103 2HB  PRO     7       6.436  -0.132   8.928  1.00  0.00      1CDQ 304
+ATOM    104 1HG  PRO     7       7.809   2.335   7.966  1.00  0.00      1CDQ 305
+ATOM    105 2HG  PRO     7       8.487   0.734   8.306  1.00  0.00      1CDQ 306
+ATOM    106 1HD  PRO     7       7.890   1.768   5.740  1.00  0.00      1CDQ 307
+ATOM    107 2HD  PRO     7       8.248   0.071   6.124  1.00  0.00      1CDQ 308
+ATOM    108  N   ASN     8       4.915   2.896   6.268  1.00  0.00      1CDQ 309
+ATOM    109  CA  ASN     8       4.169   4.173   6.085  1.00  0.00      1CDQ 310
+ATOM    110  C   ASN     8       4.224   4.588   4.614  1.00  0.00      1CDQ 311
+ATOM    111  O   ASN     8       5.132   4.210   3.899  1.00  0.00      1CDQ 312
+ATOM    112  CB  ASN     8       4.808   5.265   6.947  1.00  0.00      1CDQ 313
+ATOM    113  CG  ASN     8       3.987   5.454   8.223  1.00  0.00      1CDQ 314
+ATOM    114  OD1 ASN     8       2.813   5.143   8.256  1.00  0.00      1CDQ 315
+ATOM    115  ND2 ASN     8       4.559   5.957   9.282  1.00  0.00      1CDQ 316
+ATOM    116  H   ASN     8       5.706   2.708   5.720  1.00  0.00      1CDQ 317
+ATOM    117  HA  ASN     8       3.141   4.035   6.380  1.00  0.00      1CDQ 318
+ATOM    118 1HB  ASN     8       5.816   4.974   7.205  1.00  0.00      1CDQ 319
+ATOM    119 2HB  ASN     8       4.831   6.191   6.394  1.00  0.00      1CDQ 320
+ATOM    120 1HD2 ASN     8       4.043   6.080  10.107  1.00  0.00      1CDQ 321
+ATOM    121 2HD2 ASN     8       5.507   6.208   9.256  1.00  0.00      1CDQ 322
+ATOM    122  N   PRO     9       3.249   5.359   4.206  1.00  0.00      1CDQ 323
+ATOM    123  CA  PRO     9       3.156   5.851   2.822  1.00  0.00      1CDQ 324
+ATOM    124  C   PRO     9       4.143   6.995   2.601  1.00  0.00      1CDQ 325
+ATOM    125  O   PRO     9       3.795   8.158   2.648  1.00  0.00      1CDQ 326
+ATOM    126  CB  PRO     9       1.709   6.338   2.706  1.00  0.00      1CDQ 327
+ATOM    127  CG  PRO     9       1.231   6.621   4.150  1.00  0.00      1CDQ 328
+ATOM    128  CD  PRO     9       2.151   5.813   5.085  1.00  0.00      1CDQ 329
+ATOM    129  HA  PRO     9       3.340   5.055   2.122  1.00  0.00      1CDQ 330
+ATOM    130 1HB  PRO     9       1.670   7.241   2.113  1.00  0.00      1CDQ 331
+ATOM    131 2HB  PRO     9       1.094   5.571   2.262  1.00  0.00      1CDQ 332
+ATOM    132 1HG  PRO     9       1.314   7.678   4.366  1.00  0.00      1CDQ 333
+ATOM    133 2HG  PRO     9       0.209   6.297   4.274  1.00  0.00      1CDQ 334
+ATOM    134 1HD  PRO     9       2.532   6.444   5.878  1.00  0.00      1CDQ 335
+ATOM    135 2HD  PRO     9       1.626   4.963   5.493  1.00  0.00      1CDQ 336
+ATOM    136  N   THR    10       5.377   6.662   2.359  1.00  0.00      1CDQ 337
+ATOM    137  CA  THR    10       6.407   7.714   2.130  1.00  0.00      1CDQ 338
+ATOM    138  C   THR    10       6.596   7.922   0.626  1.00  0.00      1CDQ 339
+ATOM    139  O   THR    10       6.260   7.072  -0.174  1.00  0.00      1CDQ 340
+ATOM    140  CB  THR    10       7.731   7.273   2.757  1.00  0.00      1CDQ 341
+ATOM    141  OG1 THR    10       8.712   8.280   2.549  1.00  0.00      1CDQ 342
+ATOM    142  CG2 THR    10       8.192   5.965   2.111  1.00  0.00      1CDQ 343
+ATOM    143  H   THR    10       5.625   5.715   2.327  1.00  0.00      1CDQ 344
+ATOM    144  HA  THR    10       6.084   8.640   2.583  1.00  0.00      1CDQ 345
+ATOM    145  HB  THR    10       7.593   7.116   3.816  1.00  0.00      1CDQ 346
+ATOM    146  HG1 THR    10       9.031   8.564   3.408  1.00  0.00      1CDQ 347
+ATOM    147 1HG2 THR    10       7.441   5.622   1.416  1.00  0.00      1CDQ 348
+ATOM    148 2HG2 THR    10       9.121   6.131   1.585  1.00  0.00      1CDQ 349
+ATOM    149 3HG2 THR    10       8.341   5.218   2.878  1.00  0.00      1CDQ 350
+ATOM    150  N   ALA    11       7.130   9.046   0.234  1.00  0.00      1CDQ 351
+ATOM    151  CA  ALA    11       7.339   9.305  -1.219  1.00  0.00      1CDQ 352
+ATOM    152  C   ALA    11       8.805   9.053  -1.575  1.00  0.00      1CDQ 353
+ATOM    153  O   ALA    11       9.388   9.749  -2.381  1.00  0.00      1CDQ 354
+ATOM    154  CB  ALA    11       6.981  10.759  -1.535  1.00  0.00      1CDQ 355
+ATOM    155  H   ALA    11       7.394   9.720   0.895  1.00  0.00      1CDQ 356
+ATOM    156  HA  ALA    11       6.710   8.645  -1.797  1.00  0.00      1CDQ 357
+ATOM    157 1HB  ALA    11       6.514  11.210  -0.672  1.00  0.00      1CDQ 358
+ATOM    158 2HB  ALA    11       7.878  11.305  -1.786  1.00  0.00      1CDQ 359
+ATOM    159 3HB  ALA    11       6.296  10.786  -2.370  1.00  0.00      1CDQ 360
+ATOM    160  N   ASP    12       9.403   8.061  -0.978  1.00  0.00      1CDQ 361
+ATOM    161  CA  ASP    12      10.830   7.758  -1.277  1.00  0.00      1CDQ 362
+ATOM    162  C   ASP    12      11.208   6.430  -0.618  1.00  0.00      1CDQ 363
+ATOM    163  O   ASP    12      12.311   6.253  -0.140  1.00  0.00      1CDQ 364
+ATOM    164  CB  ASP    12      11.717   8.875  -0.723  1.00  0.00      1CDQ 365
+ATOM    165  CG  ASP    12      11.281   9.213   0.705  1.00  0.00      1CDQ 366
+ATOM    166  OD1 ASP    12      10.732   8.342   1.357  1.00  0.00      1CDQ 367
+ATOM    167  OD2 ASP    12      11.504  10.339   1.120  1.00  0.00      1CDQ 368
+ATOM    168  H   ASP    12       8.912   7.512  -0.331  1.00  0.00      1CDQ 369
+ATOM    169  HA  ASP    12      10.968   7.683  -2.346  1.00  0.00      1CDQ 370
+ATOM    170 1HB  ASP    12      12.747   8.548  -0.718  1.00  0.00      1CDQ 371
+ATOM    171 2HB  ASP    12      11.619   9.753  -1.344  1.00  0.00      1CDQ 372
+ATOM    172  N   CYS    13      10.296   5.498  -0.588  1.00  0.00      1CDQ 373
+ATOM    173  CA  CYS    13      10.593   4.182   0.042  1.00  0.00      1CDQ 374
+ATOM    174  C   CYS    13      11.527   3.378  -0.865  1.00  0.00      1CDQ 375
+ATOM    175  O   CYS    13      11.527   3.534  -2.069  1.00  0.00      1CDQ 376
+ATOM    176  CB  CYS    13       9.287   3.412   0.241  1.00  0.00      1CDQ 377
+ATOM    177  SG  CYS    13       9.450   2.302   1.661  1.00  0.00      1CDQ 378
+ATOM    178  H   CYS    13       9.413   5.666  -0.978  1.00  0.00      1CDQ 379
+ATOM    179  HA  CYS    13      11.068   4.339   0.999  1.00  0.00      1CDQ 380
+ATOM    180 1HB  CYS    13       8.482   4.109   0.421  1.00  0.00      1CDQ 381
+ATOM    181 2HB  CYS    13       9.071   2.833  -0.645  1.00  0.00      1CDQ 382
+ATOM    182  N   LYS    14      12.322   2.516  -0.291  1.00  0.00      1CDQ 383
+ATOM    183  CA  LYS    14      13.257   1.699  -1.114  1.00  0.00      1CDQ 384
+ATOM    184  C   LYS    14      13.297   0.272  -0.565  1.00  0.00      1CDQ 385
+ATOM    185  O   LYS    14      14.290  -0.421  -0.681  1.00  0.00      1CDQ 386
+ATOM    186  CB  LYS    14      14.659   2.310  -1.052  1.00  0.00      1CDQ 387
+ATOM    187  CG  LYS    14      15.104   2.718  -2.458  1.00  0.00      1CDQ 388
+ATOM    188  CD  LYS    14      15.384   4.222  -2.490  1.00  0.00      1CDQ 389
+ATOM    189  CE  LYS    14      16.895   4.462  -2.477  1.00  0.00      1CDQ 390
+ATOM    190  NZ  LYS    14      17.205   5.718  -3.220  1.00  0.00      1CDQ 391
+ATOM    191  H   LYS    14      12.304   2.407   0.683  1.00  0.00      1CDQ 392
+ATOM    192  HA  LYS    14      12.916   1.682  -2.139  1.00  0.00      1CDQ 393
+ATOM    193 1HB  LYS    14      14.644   3.180  -0.411  1.00  0.00      1CDQ 394
+ATOM    194 2HB  LYS    14      15.351   1.583  -0.654  1.00  0.00      1CDQ 395
+ATOM    195 1HG  LYS    14      16.002   2.178  -2.721  1.00  0.00      1CDQ 396
+ATOM    196 2HG  LYS    14      14.322   2.484  -3.164  1.00  0.00      1CDQ 397
+ATOM    197 1HD  LYS    14      14.958   4.648  -3.388  1.00  0.00      1CDQ 398
+ATOM    198 2HD  LYS    14      14.940   4.690  -1.624  1.00  0.00      1CDQ 399
+ATOM    199 1HE  LYS    14      17.236   4.555  -1.456  1.00  0.00      1CDQ 400
+ATOM    200 2HE  LYS    14      17.396   3.631  -2.950  1.00  0.00      1CDQ 401
+ATOM    201 1HZ  LYS    14      16.440   6.406  -3.075  1.00  0.00      1CDQ 402
+ATOM    202 2HZ  LYS    14      18.100   6.116  -2.868  1.00  0.00      1CDQ 403
+ATOM    203 3HZ  LYS    14      17.293   5.509  -4.234  1.00  0.00      1CDQ 404
+ATOM    204  N   THR    15      12.227  -0.171   0.036  1.00  0.00      1CDQ 405
+ATOM    205  CA  THR    15      12.205  -1.551   0.597  1.00  0.00      1CDQ 406
+ATOM    206  C   THR    15      11.827  -2.547  -0.503  1.00  0.00      1CDQ 407
+ATOM    207  O   THR    15      10.982  -2.281  -1.334  1.00  0.00      1CDQ 408
+ATOM    208  CB  THR    15      11.171  -1.623   1.726  1.00  0.00      1CDQ 409
+ATOM    209  OG1 THR    15      11.674  -0.944   2.869  1.00  0.00      1CDQ 410
+ATOM    210  CG2 THR    15      10.894  -3.087   2.079  1.00  0.00      1CDQ 411
+ATOM    211  H   THR    15      11.440   0.405   0.120  1.00  0.00      1CDQ 412
+ATOM    212  HA  THR    15      13.180  -1.798   0.986  1.00  0.00      1CDQ 413
+ATOM    213  HB  THR    15      10.254  -1.156   1.404  1.00  0.00      1CDQ 414
+ATOM    214  HG1 THR    15      11.273  -1.338   3.646  1.00  0.00      1CDQ 415
+ATOM    215 1HG2 THR    15      11.822  -3.638   2.084  1.00  0.00      1CDQ 416
+ATOM    216 2HG2 THR    15      10.438  -3.141   3.057  1.00  0.00      1CDQ 417
+ATOM    217 3HG2 THR    15      10.225  -3.513   1.346  1.00  0.00      1CDQ 418
+ATOM    218  N   ALA    16      12.444  -3.696  -0.504  1.00  0.00      1CDQ 419
+ATOM    219  CA  ALA    16      12.120  -4.718  -1.539  1.00  0.00      1CDQ 420
+ATOM    220  C   ALA    16      11.822  -6.049  -0.847  1.00  0.00      1CDQ 421
+ATOM    221  O   ALA    16      12.706  -6.697  -0.320  1.00  0.00      1CDQ 422
+ATOM    222  CB  ALA    16      13.310  -4.883  -2.485  1.00  0.00      1CDQ 423
+ATOM    223  H   ALA    16      13.117  -3.891   0.181  1.00  0.00      1CDQ 424
+ATOM    224  HA  ALA    16      11.253  -4.401  -2.100  1.00  0.00      1CDQ 425
+ATOM    225 1HB  ALA    16      14.110  -4.228  -2.175  1.00  0.00      1CDQ 426
+ATOM    226 2HB  ALA    16      13.652  -5.908  -2.456  1.00  0.00      1CDQ 427
+ATOM    227 3HB  ALA    16      13.008  -4.633  -3.491  1.00  0.00      1CDQ 428
+ATOM    228  N   VAL    17      10.584  -6.461  -0.836  1.00  0.00      1CDQ 429
+ATOM    229  CA  VAL    17      10.233  -7.745  -0.167  1.00  0.00      1CDQ 430
+ATOM    230  C   VAL    17       9.439  -8.630  -1.127  1.00  0.00      1CDQ 431
+ATOM    231  O   VAL    17       8.780  -8.154  -2.030  1.00  0.00      1CDQ 432
+ATOM    232  CB  VAL    17       9.385  -7.453   1.071  1.00  0.00      1CDQ 433
+ATOM    233  CG1 VAL    17       8.852  -8.766   1.646  1.00  0.00      1CDQ 434
+ATOM    234  CG2 VAL    17      10.243  -6.746   2.122  1.00  0.00      1CDQ 435
+ATOM    235  H   VAL    17       9.885  -5.922  -1.259  1.00  0.00      1CDQ 436
+ATOM    236  HA  VAL    17      11.136  -8.257   0.129  1.00  0.00      1CDQ 437
+ATOM    237  HB  VAL    17       8.554  -6.818   0.796  1.00  0.00      1CDQ 438
+ATOM    238 1HG1 VAL    17       9.600  -9.538   1.534  1.00  0.00      1CDQ 439
+ATOM    239 2HG1 VAL    17       8.625  -8.634   2.694  1.00  0.00      1CDQ 440
+ATOM    240 3HG1 VAL    17       7.956  -9.053   1.117  1.00  0.00      1CDQ 441
+ATOM    241 1HG2 VAL    17      10.983  -6.132   1.630  1.00  0.00      1CDQ 442
+ATOM    242 2HG2 VAL    17       9.614  -6.125   2.743  1.00  0.00      1CDQ 443
+ATOM    243 3HG2 VAL    17      10.739  -7.484   2.737  1.00  0.00      1CDQ 444
+ATOM    244  N   ASN    18       9.491  -9.918  -0.930  1.00  0.00      1CDQ 445
+ATOM    245  CA  ASN    18       8.736 -10.843  -1.821  1.00  0.00      1CDQ 446
+ATOM    246  C   ASN    18       7.264 -10.845  -1.405  1.00  0.00      1CDQ 447
+ATOM    247  O   ASN    18       6.911 -11.290  -0.331  1.00  0.00      1CDQ 448
+ATOM    248  CB  ASN    18       9.309 -12.256  -1.694  1.00  0.00      1CDQ 449
+ATOM    249  CG  ASN    18      10.829 -12.207  -1.861  1.00  0.00      1CDQ 450
+ATOM    250  OD1 ASN    18      11.340 -12.434  -2.939  1.00  0.00      1CDQ 451
+ATOM    251  ND2 ASN    18      11.578 -11.917  -0.832  1.00  0.00      1CDQ 452
+ATOM    252  H   ASN    18      10.025 -10.277  -0.191  1.00  0.00      1CDQ 453
+ATOM    253  HA  ASN    18       8.821 -10.508  -2.844  1.00  0.00      1CDQ 454
+ATOM    254 1HB  ASN    18       9.065 -12.657  -0.720  1.00  0.00      1CDQ 455
+ATOM    255 2HB  ASN    18       8.884 -12.887  -2.460  1.00  0.00      1CDQ 456
+ATOM    256 1HD2 ASN    18      12.553 -11.881  -0.930  1.00  0.00      1CDQ 457
+ATOM    257 2HD2 ASN    18      11.167 -11.735   0.039  1.00  0.00      1CDQ 458
+ATOM    258  N   CYS    19       6.402 -10.339  -2.244  1.00  0.00      1CDQ 459
+ATOM    259  CA  CYS    19       4.954 -10.296  -1.897  1.00  0.00      1CDQ 460
+ATOM    260  C   CYS    19       4.406 -11.716  -1.741  1.00  0.00      1CDQ 461
+ATOM    261  O   CYS    19       4.439 -12.290  -0.670  1.00  0.00      1CDQ 462
+ATOM    262  CB  CYS    19       4.188  -9.575  -3.004  1.00  0.00      1CDQ 463
+ATOM    263  SG  CYS    19       3.840  -7.880  -2.484  1.00  0.00      1CDQ 464
+ATOM    264  H   CYS    19       6.709  -9.977  -3.102  1.00  0.00      1CDQ 465
+ATOM    265  HA  CYS    19       4.826  -9.761  -0.967  1.00  0.00      1CDQ 466
+ATOM    266 1HB  CYS    19       4.785  -9.560  -3.904  1.00  0.00      1CDQ 467
+ATOM    267 2HB  CYS    19       3.259 -10.091  -3.195  1.00  0.00      1CDQ 468
+ATOM    268  N   SER    20       3.886 -12.283  -2.796  1.00  0.00      1CDQ 469
+ATOM    269  CA  SER    20       3.321 -13.657  -2.697  1.00  0.00      1CDQ 470
+ATOM    270  C   SER    20       2.227 -13.665  -1.627  1.00  0.00      1CDQ 471
+ATOM    271  O   SER    20       1.897 -12.642  -1.059  1.00  0.00      1CDQ 472
+ATOM    272  CB  SER    20       4.424 -14.640  -2.309  1.00  0.00      1CDQ 473
+ATOM    273  OG  SER    20       5.001 -15.188  -3.486  1.00  0.00      1CDQ 474
+ATOM    274  H   SER    20       3.858 -11.801  -3.650  1.00  0.00      1CDQ 475
+ATOM    275  HA  SER    20       2.897 -13.943  -3.650  1.00  0.00      1CDQ 476
+ATOM    276 1HB  SER    20       5.186 -14.126  -1.746  1.00  0.00      1CDQ 477
+ATOM    277 2HB  SER    20       4.002 -15.429  -1.700  1.00  0.00      1CDQ 478
+ATOM    278  HG  SER    20       4.947 -16.145  -3.425  1.00  0.00      1CDQ 479
+ATOM    279  N   SER    21       1.665 -14.805  -1.342  1.00  0.00      1CDQ 480
+ATOM    280  CA  SER    21       0.599 -14.866  -0.303  1.00  0.00      1CDQ 481
+ATOM    281  C   SER    21      -0.682 -14.220  -0.837  1.00  0.00      1CDQ 482
+ATOM    282  O   SER    21      -1.173 -13.251  -0.292  1.00  0.00      1CDQ 483
+ATOM    283  CB  SER    21       1.063 -14.116   0.944  1.00  0.00      1CDQ 484
+ATOM    284  OG  SER    21       2.485 -14.068   0.960  1.00  0.00      1CDQ 485
+ATOM    285  H   SER    21       1.945 -15.621  -1.808  1.00  0.00      1CDQ 486
+ATOM    286  HA  SER    21       0.403 -15.897  -0.050  1.00  0.00      1CDQ 487
+ATOM    287 1HB  SER    21       0.675 -13.111   0.928  1.00  0.00      1CDQ 488
+ATOM    288 2HB  SER    21       0.700 -14.626   1.826  1.00  0.00      1CDQ 489
+ATOM    289  HG  SER    21       2.749 -13.273   1.427  1.00  0.00      1CDQ 490
+ATOM    290  N   ASP    22      -1.233 -14.754  -1.893  1.00  0.00      1CDQ 491
+ATOM    291  CA  ASP    22      -2.487 -14.176  -2.455  1.00  0.00      1CDQ 492
+ATOM    292  C   ASP    22      -2.211 -12.784  -3.032  1.00  0.00      1CDQ 493
+ATOM    293  O   ASP    22      -3.040 -11.899  -2.960  1.00  0.00      1CDQ 494
+ATOM    294  CB  ASP    22      -3.536 -14.066  -1.346  1.00  0.00      1CDQ 495
+ATOM    295  CG  ASP    22      -4.615 -15.130  -1.556  1.00  0.00      1CDQ 496
+ATOM    296  OD1 ASP    22      -4.289 -16.302  -1.473  1.00  0.00      1CDQ 497
+ATOM    297  OD2 ASP    22      -5.750 -14.754  -1.798  1.00  0.00      1CDQ 498
+ATOM    298  H   ASP    22      -0.825 -15.538  -2.313  1.00  0.00      1CDQ 499
+ATOM    299  HA  ASP    22      -2.859 -14.820  -3.236  1.00  0.00      1CDQ 500
+ATOM    300 1HB  ASP    22      -3.061 -14.218  -0.386  1.00  0.00      1CDQ 501
+ATOM    301 2HB  ASP    22      -3.988 -13.086  -1.373  1.00  0.00      1CDQ 502
+ATOM    302  N   PHE    23      -1.060 -12.586  -3.612  1.00  0.00      1CDQ 503
+ATOM    303  CA  PHE    23      -0.743 -11.252  -4.200  1.00  0.00      1CDQ 504
+ATOM    304  C   PHE    23      -0.299 -11.434  -5.652  1.00  0.00      1CDQ 505
+ATOM    305  O   PHE    23       0.623 -12.171  -5.941  1.00  0.00      1CDQ 506
+ATOM    306  CB  PHE    23       0.385 -10.590  -3.403  1.00  0.00      1CDQ 507
+ATOM    307  CG  PHE    23      -0.087 -10.264  -2.003  1.00  0.00      1CDQ 508
+ATOM    308  CD1 PHE    23      -1.436  -9.964  -1.760  1.00  0.00      1CDQ 509
+ATOM    309  CD2 PHE    23       0.829 -10.261  -0.945  1.00  0.00      1CDQ 510
+ATOM    310  CE1 PHE    23      -1.863  -9.662  -0.461  1.00  0.00      1CDQ 511
+ATOM    311  CE2 PHE    23       0.400  -9.959   0.354  1.00  0.00      1CDQ 512
+ATOM    312  CZ  PHE    23      -0.945  -9.659   0.595  1.00  0.00      1CDQ 513
+ATOM    313  H   PHE    23      -0.406 -13.313  -3.667  1.00  0.00      1CDQ 514
+ATOM    314  HA  PHE    23      -1.622 -10.627  -4.172  1.00  0.00      1CDQ 515
+ATOM    315 1HB  PHE    23       1.227 -11.265  -3.346  1.00  0.00      1CDQ 516
+ATOM    316 2HB  PHE    23       0.689  -9.681  -3.899  1.00  0.00      1CDQ 517
+ATOM    317  HD1 PHE    23      -2.146  -9.964  -2.572  1.00  0.00      1CDQ 518
+ATOM    318  HD2 PHE    23       1.868 -10.492  -1.129  1.00  0.00      1CDQ 519
+ATOM    319  HE1 PHE    23      -2.901  -9.431  -0.276  1.00  0.00      1CDQ 520
+ATOM    320  HE2 PHE    23       1.109  -9.955   1.169  1.00  0.00      1CDQ 521
+ATOM    321  HZ  PHE    23      -1.275  -9.427   1.597  1.00  0.00      1CDQ 522
+ATOM    322  N   ASP    24      -0.951 -10.777  -6.573  1.00  0.00      1CDQ 523
+ATOM    323  CA  ASP    24      -0.563 -10.927  -8.004  1.00  0.00      1CDQ 524
+ATOM    324  C   ASP    24      -0.503  -9.556  -8.686  1.00  0.00      1CDQ 525
+ATOM    325  O   ASP    24      -0.164  -9.452  -9.848  1.00  0.00      1CDQ 526
+ATOM    326  CB  ASP    24      -1.594 -11.802  -8.721  1.00  0.00      1CDQ 527
+ATOM    327  CG  ASP    24      -1.194 -13.272  -8.597  1.00  0.00      1CDQ 528
+ATOM    328  OD1 ASP    24      -0.889 -13.691  -7.492  1.00  0.00      1CDQ 529
+ATOM    329  OD2 ASP    24      -1.197 -13.954  -9.608  1.00  0.00      1CDQ 530
+ATOM    330  H   ASP    24      -1.698 -10.192  -6.324  1.00  0.00      1CDQ 531
+ATOM    331  HA  ASP    24       0.407 -11.398  -8.063  1.00  0.00      1CDQ 532
+ATOM    332 1HB  ASP    24      -2.566 -11.652  -8.272  1.00  0.00      1CDQ 533
+ATOM    333 2HB  ASP    24      -1.634 -11.529  -9.765  1.00  0.00      1CDQ 534
+ATOM    334  N   ALA    25      -0.832  -8.501  -7.988  1.00  0.00      1CDQ 535
+ATOM    335  CA  ALA    25      -0.787  -7.158  -8.633  1.00  0.00      1CDQ 536
+ATOM    336  C   ALA    25      -0.181  -6.133  -7.673  1.00  0.00      1CDQ 537
+ATOM    337  O   ALA    25      -0.799  -5.733  -6.707  1.00  0.00      1CDQ 538
+ATOM    338  CB  ALA    25      -2.206  -6.725  -9.007  1.00  0.00      1CDQ 539
+ATOM    339  H   ALA    25      -1.109  -8.590  -7.052  1.00  0.00      1CDQ 540
+ATOM    340  HA  ALA    25      -0.184  -7.212  -9.525  1.00  0.00      1CDQ 541
+ATOM    341 1HB  ALA    25      -2.879  -7.563  -8.900  1.00  0.00      1CDQ 542
+ATOM    342 2HB  ALA    25      -2.522  -5.924  -8.354  1.00  0.00      1CDQ 543
+ATOM    343 3HB  ALA    25      -2.219  -6.381 -10.030  1.00  0.00      1CDQ 544
+ATOM    344  N   CYS    26       1.016  -5.684  -7.940  1.00  0.00      1CDQ 545
+ATOM    345  CA  CYS    26       1.638  -4.668  -7.048  1.00  0.00      1CDQ 546
+ATOM    346  C   CYS    26       0.792  -3.404  -7.113  1.00  0.00      1CDQ 547
+ATOM    347  O   CYS    26       0.106  -3.164  -8.084  1.00  0.00      1CDQ 548
+ATOM    348  CB  CYS    26       3.059  -4.361  -7.525  1.00  0.00      1CDQ 549
+ATOM    349  SG  CYS    26       4.136  -4.109  -6.093  1.00  0.00      1CDQ 550
+ATOM    350  H   CYS    26       1.494  -6.001  -8.734  1.00  0.00      1CDQ 551
+ATOM    351  HA  CYS    26       1.661  -5.034  -6.032  1.00  0.00      1CDQ 552
+ATOM    352 1HB  CYS    26       3.429  -5.188  -8.113  1.00  0.00      1CDQ 553
+ATOM    353 2HB  CYS    26       3.049  -3.466  -8.128  1.00  0.00      1CDQ 554
+ATOM    354  N   LEU    27       0.808  -2.601  -6.091  1.00  0.00      1CDQ 555
+ATOM    355  CA  LEU    27      -0.032  -1.374  -6.127  1.00  0.00      1CDQ 556
+ATOM    356  C   LEU    27       0.799  -0.130  -5.822  1.00  0.00      1CDQ 557
+ATOM    357  O   LEU    27       1.413  -0.015  -4.781  1.00  0.00      1CDQ 558
+ATOM    358  CB  LEU    27      -1.148  -1.502  -5.097  1.00  0.00      1CDQ 559
+ATOM    359  CG  LEU    27      -1.954  -0.206  -5.049  1.00  0.00      1CDQ 560
+ATOM    360  CD1 LEU    27      -3.190  -0.356  -5.935  1.00  0.00      1CDQ 561
+ATOM    361  CD2 LEU    27      -2.388   0.069  -3.608  1.00  0.00      1CDQ 562
+ATOM    362  H   LEU    27       1.352  -2.811  -5.302  1.00  0.00      1CDQ 563
+ATOM    363  HA  LEU    27      -0.470  -1.274  -7.108  1.00  0.00      1CDQ 564
+ATOM    364 1HB  LEU    27      -1.796  -2.315  -5.378  1.00  0.00      1CDQ 565
+ATOM    365 2HB  LEU    27      -0.723  -1.696  -4.124  1.00  0.00      1CDQ 566
+ATOM    366  HG  LEU    27      -1.350   0.613  -5.409  1.00  0.00      1CDQ 567
+ATOM    367 1HD1 LEU    27      -3.498  -1.391  -5.950  1.00  0.00      1CDQ 568
+ATOM    368 2HD1 LEU    27      -3.990   0.253  -5.544  1.00  0.00      1CDQ 569
+ATOM    369 3HD1 LEU    27      -2.950  -0.038  -6.940  1.00  0.00      1CDQ 570
+ATOM    370 1HD2 LEU    27      -1.880  -0.613  -2.943  1.00  0.00      1CDQ 571
+ATOM    371 2HD2 LEU    27      -2.134   1.085  -3.344  1.00  0.00      1CDQ 572
+ATOM    372 3HD2 LEU    27      -3.455  -0.070  -3.521  1.00  0.00      1CDQ 573
+ATOM    373  N   ILE    28       0.789   0.814  -6.717  1.00  0.00      1CDQ 574
+ATOM    374  CA  ILE    28       1.540   2.075  -6.489  1.00  0.00      1CDQ 575
+ATOM    375  C   ILE    28       0.555   3.238  -6.600  1.00  0.00      1CDQ 576
+ATOM    376  O   ILE    28       0.362   3.809  -7.656  1.00  0.00      1CDQ 577
+ATOM    377  CB  ILE    28       2.642   2.218  -7.539  1.00  0.00      1CDQ 578
+ATOM    378  CG1 ILE    28       3.225   3.633  -7.479  1.00  0.00      1CDQ 579
+ATOM    379  CG2 ILE    28       2.064   1.962  -8.930  1.00  0.00      1CDQ 580
+ATOM    380  CD1 ILE    28       4.220   3.821  -8.625  1.00  0.00      1CDQ 581
+ATOM    381  H   ILE    28       0.263   0.702  -7.538  1.00  0.00      1CDQ 582
+ATOM    382  HA  ILE    28       1.974   2.061  -5.500  1.00  0.00      1CDQ 583
+ATOM    383  HB  ILE    28       3.422   1.500  -7.339  1.00  0.00      1CDQ 584
+ATOM    384 1HG1 ILE    28       2.427   4.356  -7.570  1.00  0.00      1CDQ 585
+ATOM    385 2HG1 ILE    28       3.734   3.774  -6.537  1.00  0.00      1CDQ 586
+ATOM    386 1HG2 ILE    28       0.992   1.857  -8.860  1.00  0.00      1CDQ 587
+ATOM    387 2HG2 ILE    28       2.303   2.793  -9.578  1.00  0.00      1CDQ 588
+ATOM    388 3HG2 ILE    28       2.489   1.056  -9.334  1.00  0.00      1CDQ 589
+ATOM    389 1HD1 ILE    28       4.464   2.859  -9.052  1.00  0.00      1CDQ 590
+ATOM    390 2HD1 ILE    28       3.780   4.451  -9.384  1.00  0.00      1CDQ 591
+ATOM    391 3HD1 ILE    28       5.120   4.286  -8.249  1.00  0.00      1CDQ 592
+ATOM    392  N   THR    29      -0.087   3.576  -5.517  1.00  0.00      1CDQ 593
+ATOM    393  CA  THR    29      -1.082   4.683  -5.545  1.00  0.00      1CDQ 594
+ATOM    394  C   THR    29      -0.400   6.004  -5.180  1.00  0.00      1CDQ 595
+ATOM    395  O   THR    29       0.031   6.204  -4.062  1.00  0.00      1CDQ 596
+ATOM    396  CB  THR    29      -2.200   4.372  -4.540  1.00  0.00      1CDQ 597
+ATOM    397  OG1 THR    29      -3.089   3.421  -5.109  1.00  0.00      1CDQ 598
+ATOM    398  CG2 THR    29      -2.971   5.647  -4.194  1.00  0.00      1CDQ 599
+ATOM    399  H   THR    29       0.073   3.087  -4.683  1.00  0.00      1CDQ 600
+ATOM    400  HA  THR    29      -1.504   4.761  -6.536  1.00  0.00      1CDQ 601
+ATOM    401  HB  THR    29      -1.767   3.964  -3.639  1.00  0.00      1CDQ 602
+ATOM    402  HG1 THR    29      -2.987   2.595  -4.629  1.00  0.00      1CDQ 603
+ATOM    403 1HG2 THR    29      -2.286   6.386  -3.804  1.00  0.00      1CDQ 604
+ATOM    404 2HG2 THR    29      -3.448   6.032  -5.082  1.00  0.00      1CDQ 605
+ATOM    405 3HG2 THR    29      -3.721   5.423  -3.450  1.00  0.00      1CDQ 606
+ATOM    406  N   LYS    30      -0.306   6.910  -6.113  1.00  0.00      1CDQ 607
+ATOM    407  CA  LYS    30       0.339   8.220  -5.820  1.00  0.00      1CDQ 608
+ATOM    408  C   LYS    30      -0.732   9.312  -5.765  1.00  0.00      1CDQ 609
+ATOM    409  O   LYS    30      -1.213   9.773  -6.781  1.00  0.00      1CDQ 610
+ATOM    410  CB  LYS    30       1.349   8.554  -6.922  1.00  0.00      1CDQ 611
+ATOM    411  CG  LYS    30       1.937   9.944  -6.667  1.00  0.00      1CDQ 612
+ATOM    412  CD  LYS    30       3.282  10.069  -7.384  1.00  0.00      1CDQ 613
+ATOM    413  CE  LYS    30       3.049  10.480  -8.839  1.00  0.00      1CDQ 614
+ATOM    414  NZ  LYS    30       2.985  11.965  -8.932  1.00  0.00      1CDQ 615
+ATOM    415  H   LYS    30      -0.666   6.731  -7.007  1.00  0.00      1CDQ 616
+ATOM    416  HA  LYS    30       0.848   8.166  -4.869  1.00  0.00      1CDQ 617
+ATOM    417 1HB  LYS    30       2.142   7.820  -6.919  1.00  0.00      1CDQ 618
+ATOM    418 2HB  LYS    30       0.852   8.545  -7.881  1.00  0.00      1CDQ 619
+ATOM    419 1HG  LYS    30       1.257  10.695  -7.041  1.00  0.00      1CDQ 620
+ATOM    420 2HG  LYS    30       2.081  10.084  -5.607  1.00  0.00      1CDQ 621
+ATOM    421 1HD  LYS    30       3.884  10.819  -6.889  1.00  0.00      1CDQ 622
+ATOM    422 2HD  LYS    30       3.796   9.120  -7.357  1.00  0.00      1CDQ 623
+ATOM    423 1HE  LYS    30       3.862  10.116  -9.451  1.00  0.00      1CDQ 624
+ATOM    424 2HE  LYS    30       2.120  10.057  -9.187  1.00  0.00      1CDQ 625
+ATOM    425 1HZ  LYS    30       3.503  12.386  -8.134  1.00  0.00      1CDQ 626
+ATOM    426 2HZ  LYS    30       3.415  12.276  -9.827  1.00  0.00      1CDQ 627
+ATOM    427 3HZ  LYS    30       1.993  12.273  -8.898  1.00  0.00      1CDQ 628
+ATOM    428  N   ALA    31      -1.111   9.725  -4.587  1.00  0.00      1CDQ 629
+ATOM    429  CA  ALA    31      -2.153  10.785  -4.470  1.00  0.00      1CDQ 630
+ATOM    430  C   ALA    31      -1.481  12.160  -4.453  1.00  0.00      1CDQ 631
+ATOM    431  O   ALA    31      -1.802  13.010  -3.646  1.00  0.00      1CDQ 632
+ATOM    432  CB  ALA    31      -2.940  10.587  -3.174  1.00  0.00      1CDQ 633
+ATOM    433  H   ALA    31      -0.713   9.339  -3.780  1.00  0.00      1CDQ 634
+ATOM    434  HA  ALA    31      -2.826  10.723  -5.314  1.00  0.00      1CDQ 635
+ATOM    435 1HB  ALA    31      -3.105   9.532  -3.011  1.00  0.00      1CDQ 636
+ATOM    436 2HB  ALA    31      -2.380  10.996  -2.346  1.00  0.00      1CDQ 637
+ATOM    437 3HB  ALA    31      -3.892  11.093  -3.250  1.00  0.00      1CDQ 638
+ATOM    438  N   GLY    32      -0.550  12.386  -5.340  1.00  0.00      1CDQ 639
+ATOM    439  CA  GLY    32       0.143  13.706  -5.375  1.00  0.00      1CDQ 640
+ATOM    440  C   GLY    32       1.583  13.540  -4.889  1.00  0.00      1CDQ 641
+ATOM    441  O   GLY    32       2.414  12.966  -5.563  1.00  0.00      1CDQ 642
+ATOM    442  H   GLY    32      -0.306  11.688  -5.982  1.00  0.00      1CDQ 643
+ATOM    443 1HA  GLY    32       0.144  14.085  -6.387  1.00  0.00      1CDQ 644
+ATOM    444 2HA  GLY    32      -0.373  14.401  -4.730  1.00  0.00      1CDQ 645
+ATOM    445  N   LEU    33       1.885  14.038  -3.722  1.00  0.00      1CDQ 646
+ATOM    446  CA  LEU    33       3.272  13.909  -3.194  1.00  0.00      1CDQ 647
+ATOM    447  C   LEU    33       3.375  12.647  -2.334  1.00  0.00      1CDQ 648
+ATOM    448  O   LEU    33       4.416  12.028  -2.244  1.00  0.00      1CDQ 649
+ATOM    449  CB  LEU    33       3.610  15.135  -2.344  1.00  0.00      1CDQ 650
+ATOM    450  CG  LEU    33       2.748  15.133  -1.081  1.00  0.00      1CDQ 651
+ATOM    451  CD1 LEU    33       3.548  14.543   0.082  1.00  0.00      1CDQ 652
+ATOM    452  CD2 LEU    33       2.338  16.568  -0.741  1.00  0.00      1CDQ 653
+ATOM    453  H   LEU    33       1.200  14.498  -3.192  1.00  0.00      1CDQ 654
+ATOM    454  HA  LEU    33       3.967  13.839  -4.019  1.00  0.00      1CDQ 655
+ATOM    455 1HB  LEU    33       4.655  15.106  -2.069  1.00  0.00      1CDQ 656
+ATOM    456 2HB  LEU    33       3.412  16.031  -2.912  1.00  0.00      1CDQ 657
+ATOM    457  HG  LEU    33       1.864  14.534  -1.250  1.00  0.00      1CDQ 658
+ATOM    458 1HD1 LEU    33       4.492  14.169  -0.285  1.00  0.00      1CDQ 659
+ATOM    459 2HD1 LEU    33       3.728  15.311   0.821  1.00  0.00      1CDQ 660
+ATOM    460 3HD1 LEU    33       2.990  13.735   0.530  1.00  0.00      1CDQ 661
+ATOM    461 1HD2 LEU    33       2.367  17.173  -1.635  1.00  0.00      1CDQ 662
+ATOM    462 2HD2 LEU    33       1.337  16.571  -0.337  1.00  0.00      1CDQ 663
+ATOM    463 3HD2 LEU    33       3.022  16.974  -0.011  1.00  0.00      1CDQ 664
+ATOM    464  N   GLN    34       2.302  12.260  -1.700  1.00  0.00      1CDQ 665
+ATOM    465  CA  GLN    34       2.339  11.040  -0.847  1.00  0.00      1CDQ 666
+ATOM    466  C   GLN    34       2.216   9.796  -1.729  1.00  0.00      1CDQ 667
+ATOM    467  O   GLN    34       1.419   9.749  -2.645  1.00  0.00      1CDQ 668
+ATOM    468  CB  GLN    34       1.178  11.077   0.151  1.00  0.00      1CDQ 669
+ATOM    469  CG  GLN    34      -0.146  11.159  -0.609  1.00  0.00      1CDQ 670
+ATOM    470  CD  GLN    34      -1.096  12.109   0.123  1.00  0.00      1CDQ 671
+ATOM    471  OE1 GLN    34      -1.076  13.302  -0.105  1.00  0.00      1CDQ 672
+ATOM    472  NE2 GLN    34      -1.933  11.627   1.001  1.00  0.00      1CDQ 673
+ATOM    473  H   GLN    34       1.470  12.774  -1.785  1.00  0.00      1CDQ 674
+ATOM    474  HA  GLN    34       3.275  11.006  -0.308  1.00  0.00      1CDQ 675
+ATOM    475 1HB  GLN    34       1.194  10.180   0.753  1.00  0.00      1CDQ 676
+ATOM    476 2HB  GLN    34       1.280  11.942   0.789  1.00  0.00      1CDQ 677
+ATOM    477 1HG  GLN    34       0.035  11.529  -1.608  1.00  0.00      1CDQ 678
+ATOM    478 2HG  GLN    34      -0.592  10.178  -0.663  1.00  0.00      1CDQ 679
+ATOM    479 1HE2 GLN    34      -2.548  12.227   1.473  1.00  0.00      1CDQ 680
+ATOM    480 2HE2 GLN    34      -1.948  10.664   1.188  1.00  0.00      1CDQ 681
+ATOM    481  N   VAL    35       3.001   8.787  -1.462  1.00  0.00      1CDQ 682
+ATOM    482  CA  VAL    35       2.932   7.547  -2.286  1.00  0.00      1CDQ 683
+ATOM    483  C   VAL    35       2.515   6.369  -1.402  1.00  0.00      1CDQ 684
+ATOM    484  O   VAL    35       2.801   6.335  -0.221  1.00  0.00      1CDQ 685
+ATOM    485  CB  VAL    35       4.305   7.267  -2.900  1.00  0.00      1CDQ 686
+ATOM    486  CG1 VAL    35       4.226   6.027  -3.794  1.00  0.00      1CDQ 687
+ATOM    487  CG2 VAL    35       4.741   8.470  -3.738  1.00  0.00      1CDQ 688
+ATOM    488  H   VAL    35       3.639   8.847  -0.720  1.00  0.00      1CDQ 689
+ATOM    489  HA  VAL    35       2.206   7.679  -3.074  1.00  0.00      1CDQ 690
+ATOM    490  HB  VAL    35       5.024   7.096  -2.111  1.00  0.00      1CDQ 691
+ATOM    491 1HG1 VAL    35       3.518   5.326  -3.377  1.00  0.00      1CDQ 692
+ATOM    492 2HG1 VAL    35       3.905   6.317  -4.784  1.00  0.00      1CDQ 693
+ATOM    493 3HG1 VAL    35       5.199   5.564  -3.854  1.00  0.00      1CDQ 694
+ATOM    494 1HG2 VAL    35       4.549   9.381  -3.189  1.00  0.00      1CDQ 695
+ATOM    495 2HG2 VAL    35       5.796   8.397  -3.955  1.00  0.00      1CDQ 696
+ATOM    496 3HG2 VAL    35       4.184   8.485  -4.664  1.00  0.00      1CDQ 697
+ATOM    497  N   TYR    36       1.842   5.403  -1.964  1.00  0.00      1CDQ 698
+ATOM    498  CA  TYR    36       1.408   4.229  -1.155  1.00  0.00      1CDQ 699
+ATOM    499  C   TYR    36       2.029   2.953  -1.732  1.00  0.00      1CDQ 700
+ATOM    500  O   TYR    36       1.577   2.426  -2.729  1.00  0.00      1CDQ 701
+ATOM    501  CB  TYR    36      -0.118   4.126  -1.196  1.00  0.00      1CDQ 702
+ATOM    502  CG  TYR    36      -0.716   5.257  -0.394  1.00  0.00      1CDQ 703
+ATOM    503  CD1 TYR    36      -0.894   6.514  -0.981  1.00  0.00      1CDQ 704
+ATOM    504  CD2 TYR    36      -1.090   5.048   0.940  1.00  0.00      1CDQ 705
+ATOM    505  CE1 TYR    36      -1.446   7.563  -0.237  1.00  0.00      1CDQ 706
+ATOM    506  CE2 TYR    36      -1.642   6.097   1.684  1.00  0.00      1CDQ 707
+ATOM    507  CZ  TYR    36      -1.819   7.355   1.097  1.00  0.00      1CDQ 708
+ATOM    508  OH  TYR    36      -2.362   8.389   1.831  1.00  0.00      1CDQ 709
+ATOM    509  H   TYR    36       1.623   5.448  -2.917  1.00  0.00      1CDQ 710
+ATOM    510  HA  TYR    36       1.732   4.356  -0.133  1.00  0.00      1CDQ 711
+ATOM    511 1HB  TYR    36      -0.456   4.192  -2.220  1.00  0.00      1CDQ 712
+ATOM    512 2HB  TYR    36      -0.429   3.182  -0.775  1.00  0.00      1CDQ 713
+ATOM    513  HD1 TYR    36      -0.606   6.675  -2.010  1.00  0.00      1CDQ 714
+ATOM    514  HD2 TYR    36      -0.953   4.077   1.394  1.00  0.00      1CDQ 715
+ATOM    515  HE1 TYR    36      -1.583   8.533  -0.690  1.00  0.00      1CDQ 716
+ATOM    516  HE2 TYR    36      -1.929   5.935   2.713  1.00  0.00      1CDQ 717
+ATOM    517  HH  TYR    36      -2.876   8.008   2.546  1.00  0.00      1CDQ 718
+ATOM    518  N   ASN    37       3.065   2.455  -1.113  1.00  0.00      1CDQ 719
+ATOM    519  CA  ASN    37       3.718   1.216  -1.624  1.00  0.00      1CDQ 720
+ATOM    520  C   ASN    37       3.143  -0.001  -0.898  1.00  0.00      1CDQ 721
+ATOM    521  O   ASN    37       3.563  -0.340   0.191  1.00  0.00      1CDQ 722
+ATOM    522  CB  ASN    37       5.225   1.293  -1.367  1.00  0.00      1CDQ 723
+ATOM    523  CG  ASN    37       5.773   2.605  -1.929  1.00  0.00      1CDQ 724
+ATOM    524  OD1 ASN    37       6.212   3.462  -1.186  1.00  0.00      1CDQ 725
+ATOM    525  ND2 ASN    37       5.766   2.802  -3.218  1.00  0.00      1CDQ 726
+ATOM    526  H   ASN    37       3.415   2.898  -0.311  1.00  0.00      1CDQ 727
+ATOM    527  HA  ASN    37       3.538   1.124  -2.684  1.00  0.00      1CDQ 728
+ATOM    528 1HB  ASN    37       5.410   1.250  -0.303  1.00  0.00      1CDQ 729
+ATOM    529 2HB  ASN    37       5.716   0.464  -1.852  1.00  0.00      1CDQ 730
+ATOM    530 1HD2 ASN    37       6.115   3.639  -3.589  1.00  0.00      1CDQ 731
+ATOM    531 2HD2 ASN    37       5.409   2.111  -3.816  1.00  0.00      1CDQ 732
+ATOM    532  N   LYS    38       2.184  -0.661  -1.488  1.00  0.00      1CDQ 733
+ATOM    533  CA  LYS    38       1.589  -1.852  -0.820  1.00  0.00      1CDQ 734
+ATOM    534  C   LYS    38       1.191  -2.890  -1.869  1.00  0.00      1CDQ 735
+ATOM    535  O   LYS    38       0.918  -2.569  -3.011  1.00  0.00      1CDQ 736
+ATOM    536  CB  LYS    38       0.350  -1.426  -0.028  1.00  0.00      1CDQ 737
+ATOM    537  CG  LYS    38       0.771  -0.955   1.365  1.00  0.00      1CDQ 738
+ATOM    538  CD  LYS    38      -0.471  -0.780   2.242  1.00  0.00      1CDQ 739
+ATOM    539  CE  LYS    38      -0.888   0.692   2.252  1.00  0.00      1CDQ 740
+ATOM    540  NZ  LYS    38      -0.878   1.200   3.652  1.00  0.00      1CDQ 741
+ATOM    541  H   LYS    38       1.854  -0.374  -2.367  1.00  0.00      1CDQ 742
+ATOM    542  HA  LYS    38       2.313  -2.285  -0.146  1.00  0.00      1CDQ 743
+ATOM    543 1HB  LYS    38      -0.149  -0.621  -0.548  1.00  0.00      1CDQ 744
+ATOM    544 2HB  LYS    38      -0.322  -2.266   0.066  1.00  0.00      1CDQ 745
+ATOM    545 1HG  LYS    38       1.426  -1.688   1.810  1.00  0.00      1CDQ 746
+ATOM    546 2HG  LYS    38       1.287  -0.010   1.285  1.00  0.00      1CDQ 747
+ATOM    547 1HD  LYS    38      -1.277  -1.381   1.848  1.00  0.00      1CDQ 748
+ATOM    548 2HD  LYS    38      -0.247  -1.095   3.250  1.00  0.00      1CDQ 749
+ATOM    549 1HE  LYS    38      -0.196   1.267   1.655  1.00  0.00      1CDQ 750
+ATOM    550 2HE  LYS    38      -1.883   0.787   1.842  1.00  0.00      1CDQ 751
+ATOM    551 1HZ  LYS    38      -0.351   0.537   4.258  1.00  0.00      1CDQ 752
+ATOM    552 2HZ  LYS    38      -0.420   2.133   3.680  1.00  0.00      1CDQ 753
+ATOM    553 3HZ  LYS    38      -1.855   1.286   3.998  1.00  0.00      1CDQ 754
+ATOM    554  N   CYS    39       1.147  -4.136  -1.485  1.00  0.00      1CDQ 755
+ATOM    555  CA  CYS    39       0.756  -5.203  -2.446  1.00  0.00      1CDQ 756
+ATOM    556  C   CYS    39      -0.761  -5.180  -2.609  1.00  0.00      1CDQ 757
+ATOM    557  O   CYS    39      -1.481  -4.784  -1.713  1.00  0.00      1CDQ 758
+ATOM    558  CB  CYS    39       1.188  -6.564  -1.901  1.00  0.00      1CDQ 759
+ATOM    559  SG  CYS    39       1.995  -7.508  -3.215  1.00  0.00      1CDQ 760
+ATOM    560  H   CYS    39       1.366  -4.368  -0.558  1.00  0.00      1CDQ 761
+ATOM    561  HA  CYS    39       1.228  -5.025  -3.401  1.00  0.00      1CDQ 762
+ATOM    562 1HB  CYS    39       1.878  -6.422  -1.083  1.00  0.00      1CDQ 763
+ATOM    563 2HB  CYS    39       0.321  -7.104  -1.551  1.00  0.00      1CDQ 764
+ATOM    564  N   TRP    40      -1.263  -5.581  -3.742  1.00  0.00      1CDQ 765
+ATOM    565  CA  TRP    40      -2.729  -5.554  -3.935  1.00  0.00      1CDQ 766
+ATOM    566  C   TRP    40      -3.153  -6.657  -4.907  1.00  0.00      1CDQ 767
+ATOM    567  O   TRP    40      -2.375  -7.126  -5.717  1.00  0.00      1CDQ 768
+ATOM    568  CB  TRP    40      -3.110  -4.188  -4.494  1.00  0.00      1CDQ 769
+ATOM    569  CG  TRP    40      -4.478  -3.831  -4.037  1.00  0.00      1CDQ 770
+ATOM    570  CD1 TRP    40      -5.612  -4.296  -4.590  1.00  0.00      1CDQ 771
+ATOM    571  CD2 TRP    40      -4.873  -2.952  -2.949  1.00  0.00      1CDQ 772
+ATOM    572  NE1 TRP    40      -6.692  -3.753  -3.914  1.00  0.00      1CDQ 773
+ATOM    573  CE2 TRP    40      -6.285  -2.918  -2.891  1.00  0.00      1CDQ 774
+ATOM    574  CE3 TRP    40      -4.150  -2.187  -2.019  1.00  0.00      1CDQ 775
+ATOM    575  CZ2 TRP    40      -6.959  -2.150  -1.939  1.00  0.00      1CDQ 776
+ATOM    576  CZ3 TRP    40      -4.821  -1.413  -1.059  1.00  0.00      1CDQ 777
+ATOM    577  CH2 TRP    40      -6.224  -1.394  -1.020  1.00  0.00      1CDQ 778
+ATOM    578  H   TRP    40      -0.679  -5.884  -4.465  1.00  0.00      1CDQ 779
+ATOM    579  HA  TRP    40      -3.221  -5.702  -2.986  1.00  0.00      1CDQ 780
+ATOM    580 1HB  TRP    40      -2.411  -3.451  -4.133  1.00  0.00      1CDQ 781
+ATOM    581 2HB  TRP    40      -3.085  -4.218  -5.573  1.00  0.00      1CDQ 782
+ATOM    582  HD1 TRP    40      -5.661  -4.978  -5.426  1.00  0.00      1CDQ 783
+ATOM    583  HE1 TRP    40      -7.634  -3.929  -4.118  1.00  0.00      1CDQ 784
+ATOM    584  HE3 TRP    40      -3.069  -2.196  -2.042  1.00  0.00      1CDQ 785
+ATOM    585  HZ2 TRP    40      -8.038  -2.138  -1.913  1.00  0.00      1CDQ 786
+ATOM    586  HZ3 TRP    40      -4.255  -0.830  -0.348  1.00  0.00      1CDQ 787
+ATOM    587  HH2 TRP    40      -6.734  -0.797  -0.280  1.00  0.00      1CDQ 788
+ATOM    588  N   LYS    41      -4.385  -7.078  -4.829  1.00  0.00      1CDQ 789
+ATOM    589  CA  LYS    41      -4.870  -8.151  -5.741  1.00  0.00      1CDQ 790
+ATOM    590  C   LYS    41      -5.328  -7.522  -7.058  1.00  0.00      1CDQ 791
+ATOM    591  O   LYS    41      -5.598  -6.340  -7.130  1.00  0.00      1CDQ 792
+ATOM    592  CB  LYS    41      -6.043  -8.887  -5.087  1.00  0.00      1CDQ 793
+ATOM    593  CG  LYS    41      -5.864  -8.889  -3.567  1.00  0.00      1CDQ 794
+ATOM    594  CD  LYS    41      -6.848  -9.877  -2.939  1.00  0.00      1CDQ 795
+ATOM    595  CE  LYS    41      -6.265 -11.289  -3.003  1.00  0.00      1CDQ 796
+ATOM    596  NZ  LYS    41      -7.266 -12.264  -2.488  1.00  0.00      1CDQ 797
+ATOM    597  H   LYS    41      -4.994  -6.688  -4.167  1.00  0.00      1CDQ 798
+ATOM    598  HA  LYS    41      -4.069  -8.849  -5.935  1.00  0.00      1CDQ 799
+ATOM    599 1HB  LYS    41      -6.967  -8.388  -5.341  1.00  0.00      1CDQ 800
+ATOM    600 2HB  LYS    41      -6.073  -9.906  -5.445  1.00  0.00      1CDQ 801
+ATOM    601 1HG  LYS    41      -4.854  -9.183  -3.323  1.00  0.00      1CDQ 802
+ATOM    602 2HG  LYS    41      -6.057  -7.900  -3.180  1.00  0.00      1CDQ 803
+ATOM    603 1HD  LYS    41      -7.022  -9.605  -1.908  1.00  0.00      1CDQ 804
+ATOM    604 2HD  LYS    41      -7.780  -9.850  -3.481  1.00  0.00      1CDQ 805
+ATOM    605 1HE  LYS    41      -6.019 -11.531  -4.026  1.00  0.00      1CDQ 806
+ATOM    606 2HE  LYS    41      -5.371 -11.338  -2.397  1.00  0.00      1CDQ 807
+ATOM    607 1HZ  LYS    41      -8.214 -11.838  -2.522  1.00  0.00      1CDQ 808
+ATOM    608 2HZ  LYS    41      -7.253 -13.119  -3.077  1.00  0.00      1CDQ 809
+ATOM    609 3HZ  LYS    41      -7.033 -12.514  -1.505  1.00  0.00      1CDQ 810
+ATOM    610  N   PHE    42      -5.421  -8.303  -8.099  1.00  0.00      1CDQ 811
+ATOM    611  CA  PHE    42      -5.864  -7.748  -9.407  1.00  0.00      1CDQ 812
+ATOM    612  C   PHE    42      -7.387  -7.633  -9.416  1.00  0.00      1CDQ 813
+ATOM    613  O   PHE    42      -7.958  -6.883 -10.183  1.00  0.00      1CDQ 814
+ATOM    614  CB  PHE    42      -5.416  -8.677 -10.536  1.00  0.00      1CDQ 815
+ATOM    615  CG  PHE    42      -5.515  -7.950 -11.856  1.00  0.00      1CDQ 816
+ATOM    616  CD1 PHE    42      -6.749  -7.853 -12.511  1.00  0.00      1CDQ 817
+ATOM    617  CD2 PHE    42      -4.373  -7.374 -12.426  1.00  0.00      1CDQ 818
+ATOM    618  CE1 PHE    42      -6.842  -7.180 -13.735  1.00  0.00      1CDQ 819
+ATOM    619  CE2 PHE    42      -4.466  -6.701 -13.650  1.00  0.00      1CDQ 820
+ATOM    620  CZ  PHE    42      -5.700  -6.605 -14.305  1.00  0.00      1CDQ 821
+ATOM    621  H   PHE    42      -5.204  -9.254  -8.020  1.00  0.00      1CDQ 822
+ATOM    622  HA  PHE    42      -5.428  -6.770  -9.549  1.00  0.00      1CDQ 823
+ATOM    623 1HB  PHE    42      -4.392  -8.978 -10.368  1.00  0.00      1CDQ 824
+ATOM    624 2HB  PHE    42      -6.049  -9.550 -10.558  1.00  0.00      1CDQ 825
+ATOM    625  HD1 PHE    42      -7.630  -8.297 -12.070  1.00  0.00      1CDQ 826
+ATOM    626  HD2 PHE    42      -3.422  -7.449 -11.921  1.00  0.00      1CDQ 827
+ATOM    627  HE1 PHE    42      -7.794  -7.105 -14.240  1.00  0.00      1CDQ 828
+ATOM    628  HE2 PHE    42      -3.585  -6.257 -14.089  1.00  0.00      1CDQ 829
+ATOM    629  HZ  PHE    42      -5.771  -6.086 -15.250  1.00  0.00      1CDQ 830
+ATOM    630  N   GLU    43      -8.051  -8.370  -8.568  1.00  0.00      1CDQ 831
+ATOM    631  CA  GLU    43      -9.536  -8.301  -8.531  1.00  0.00      1CDQ 832
+ATOM    632  C   GLU    43      -9.966  -7.054  -7.761  1.00  0.00      1CDQ 833
+ATOM    633  O   GLU    43     -10.994  -6.467  -8.034  1.00  0.00      1CDQ 834
+ATOM    634  CB  GLU    43     -10.094  -9.546  -7.840  1.00  0.00      1CDQ 835
+ATOM    635  CG  GLU    43     -11.399  -9.963  -8.520  1.00  0.00      1CDQ 836
+ATOM    636  CD  GLU    43     -11.665 -11.446  -8.250  1.00  0.00      1CDQ 837
+ATOM    637  OE1 GLU    43     -11.389 -11.886  -7.147  1.00  0.00      1CDQ 838
+ATOM    638  OE2 GLU    43     -12.141 -12.115  -9.153  1.00  0.00      1CDQ 839
+ATOM    639  H   GLU    43      -7.572  -8.969  -7.957  1.00  0.00      1CDQ 840
+ATOM    640  HA  GLU    43      -9.914  -8.248  -9.539  1.00  0.00      1CDQ 841
+ATOM    641 1HB  GLU    43      -9.376 -10.350  -7.910  1.00  0.00      1CDQ 842
+ATOM    642 2HB  GLU    43     -10.286  -9.325  -6.800  1.00  0.00      1CDQ 843
+ATOM    643 1HG  GLU    43     -12.215  -9.374  -8.126  1.00  0.00      1CDQ 844
+ATOM    644 2HG  GLU    43     -11.319  -9.802  -9.584  1.00  0.00      1CDQ 845
+ATOM    645  N   HIS    44      -9.187  -6.645  -6.802  1.00  0.00      1CDQ 846
+ATOM    646  CA  HIS    44      -9.547  -5.434  -6.018  1.00  0.00      1CDQ 847
+ATOM    647  C   HIS    44      -8.796  -4.229  -6.586  1.00  0.00      1CDQ 848
+ATOM    648  O   HIS    44      -8.668  -3.204  -5.946  1.00  0.00      1CDQ 849
+ATOM    649  CB  HIS    44      -9.155  -5.640  -4.553  1.00  0.00      1CDQ 850
+ATOM    650  CG  HIS    44      -9.985  -6.748  -3.962  1.00  0.00      1CDQ 851
+ATOM    651  ND1 HIS    44     -10.081  -6.948  -2.594  1.00  0.00      1CDQ 852
+ATOM    652  CD2 HIS    44     -10.762  -7.721  -4.540  1.00  0.00      1CDQ 853
+ATOM    653  CE1 HIS    44     -10.891  -8.006  -2.396  1.00  0.00      1CDQ 854
+ATOM    654  NE2 HIS    44     -11.333  -8.514  -3.549  1.00  0.00      1CDQ 855
+ATOM    655  H   HIS    44      -8.361  -7.133  -6.599  1.00  0.00      1CDQ 856
+ATOM    656  HA  HIS    44     -10.611  -5.262  -6.086  1.00  0.00      1CDQ 857
+ATOM    657 1HB  HIS    44      -8.110  -5.903  -4.494  1.00  0.00      1CDQ 858
+ATOM    658 2HB  HIS    44      -9.329  -4.728  -4.002  1.00  0.00      1CDQ 859
+ATOM    659  HD1 HIS    44      -9.641  -6.418  -1.899  1.00  0.00      1CDQ 860
+ATOM    660  HD2 HIS    44     -10.909  -7.851  -5.602  1.00  0.00      1CDQ 861
+ATOM    661  HE1 HIS    44     -11.151  -8.395  -1.423  1.00  0.00      1CDQ 862
+ATOM    662  N   CYS    45      -8.298  -4.346  -7.788  1.00  0.00      1CDQ 863
+ATOM    663  CA  CYS    45      -7.555  -3.209  -8.399  1.00  0.00      1CDQ 864
+ATOM    664  C   CYS    45      -8.509  -2.390  -9.272  1.00  0.00      1CDQ 865
+ATOM    665  O   CYS    45      -8.564  -2.557 -10.473  1.00  0.00      1CDQ 866
+ATOM    666  CB  CYS    45      -6.415  -3.752  -9.263  1.00  0.00      1CDQ 867
+ATOM    667  SG  CYS    45      -4.887  -3.782  -8.295  1.00  0.00      1CDQ 868
+ATOM    668  H   CYS    45      -8.413  -5.184  -8.287  1.00  0.00      1CDQ 869
+ATOM    669  HA  CYS    45      -7.150  -2.582  -7.620  1.00  0.00      1CDQ 870
+ATOM    670 1HB  CYS    45      -6.655  -4.755  -9.589  1.00  0.00      1CDQ 871
+ATOM    671 2HB  CYS    45      -6.282  -3.116 -10.126  1.00  0.00      1CDQ 872
+ATOM    672  N   ASN    46      -9.263  -1.506  -8.677  1.00  0.00      1CDQ 873
+ATOM    673  CA  ASN    46     -10.213  -0.680  -9.476  1.00  0.00      1CDQ 874
+ATOM    674  C   ASN    46     -10.462   0.651  -8.766  1.00  0.00      1CDQ 875
+ATOM    675  O   ASN    46      -9.888   0.933  -7.733  1.00  0.00      1CDQ 876
+ATOM    676  CB  ASN    46     -11.536  -1.431  -9.625  1.00  0.00      1CDQ 877
+ATOM    677  CG  ASN    46     -11.256  -2.924  -9.808  1.00  0.00      1CDQ 878
+ATOM    678  OD1 ASN    46     -11.428  -3.459 -10.885  1.00  0.00      1CDQ 879
+ATOM    679  ND2 ASN    46     -10.830  -3.624  -8.792  1.00  0.00      1CDQ 880
+ATOM    680  H   ASN    46      -9.206  -1.385  -7.705  1.00  0.00      1CDQ 881
+ATOM    681  HA  ASN    46      -9.793  -0.495 -10.454  1.00  0.00      1CDQ 882
+ATOM    682 1HB  ASN    46     -12.137  -1.282  -8.739  1.00  0.00      1CDQ 883
+ATOM    683 2HB  ASN    46     -12.068  -1.058 -10.488  1.00  0.00      1CDQ 884
+ATOM    684 1HD2 ASN    46     -10.645  -4.580  -8.900  1.00  0.00      1CDQ 885
+ATOM    685 2HD2 ASN    46     -10.691  -3.192  -7.923  1.00  0.00      1CDQ 886
+ATOM    686  N   PHE    47     -11.315   1.473  -9.314  1.00  0.00      1CDQ 887
+ATOM    687  CA  PHE    47     -11.604   2.785  -8.673  1.00  0.00      1CDQ 888
+ATOM    688  C   PHE    47     -12.689   2.604  -7.610  1.00  0.00      1CDQ 889
+ATOM    689  O   PHE    47     -13.778   3.131  -7.722  1.00  0.00      1CDQ 890
+ATOM    690  CB  PHE    47     -12.088   3.775  -9.734  1.00  0.00      1CDQ 891
+ATOM    691  CG  PHE    47     -11.179   4.980  -9.751  1.00  0.00      1CDQ 892
+ATOM    692  CD1 PHE    47     -11.135   5.841  -8.647  1.00  0.00      1CDQ 893
+ATOM    693  CD2 PHE    47     -10.379   5.237 -10.871  1.00  0.00      1CDQ 894
+ATOM    694  CE1 PHE    47     -10.291   6.958  -8.663  1.00  0.00      1CDQ 895
+ATOM    695  CE2 PHE    47      -9.535   6.354 -10.888  1.00  0.00      1CDQ 896
+ATOM    696  CZ  PHE    47      -9.491   7.214  -9.784  1.00  0.00      1CDQ 897
+ATOM    697  H   PHE    47     -11.767   1.224 -10.148  1.00  0.00      1CDQ 898
+ATOM    698  HA  PHE    47     -10.706   3.165  -8.210  1.00  0.00      1CDQ 899
+ATOM    699 1HB  PHE    47     -12.073   3.299 -10.704  1.00  0.00      1CDQ 900
+ATOM    700 2HB  PHE    47     -13.096   4.089  -9.503  1.00  0.00      1CDQ 901
+ATOM    701  HD1 PHE    47     -11.752   5.643  -7.783  1.00  0.00      1CDQ 902
+ATOM    702  HD2 PHE    47     -10.413   4.573 -11.723  1.00  0.00      1CDQ 903
+ATOM    703  HE1 PHE    47     -10.257   7.622  -7.812  1.00  0.00      1CDQ 904
+ATOM    704  HE2 PHE    47      -8.918   6.552 -11.751  1.00  0.00      1CDQ 905
+ATOM    705  HZ  PHE    47      -8.839   8.076  -9.797  1.00  0.00      1CDQ 906
+ATOM    706  N   ASN    48     -12.399   1.861  -6.576  1.00  0.00      1CDQ 907
+ATOM    707  CA  ASN    48     -13.411   1.645  -5.505  1.00  0.00      1CDQ 908
+ATOM    708  C   ASN    48     -12.900   0.581  -4.532  1.00  0.00      1CDQ 909
+ATOM    709  O   ASN    48     -13.120   0.660  -3.340  1.00  0.00      1CDQ 910
+ATOM    710  CB  ASN    48     -14.726   1.175  -6.131  1.00  0.00      1CDQ 911
+ATOM    711  CG  ASN    48     -15.826   2.199  -5.838  1.00  0.00      1CDQ 912
+ATOM    712  OD1 ASN    48     -16.209   2.960  -6.703  1.00  0.00      1CDQ 913
+ATOM    713  ND2 ASN    48     -16.353   2.248  -4.645  1.00  0.00      1CDQ 914
+ATOM    714  H   ASN    48     -11.515   1.446  -6.505  1.00  0.00      1CDQ 915
+ATOM    715  HA  ASN    48     -13.575   2.570  -4.973  1.00  0.00      1CDQ 916
+ATOM    716 1HB  ASN    48     -14.600   1.076  -7.200  1.00  0.00      1CDQ 917
+ATOM    717 2HB  ASN    48     -15.005   0.220  -5.712  1.00  0.00      1CDQ 918
+ATOM    718 1HD2 ASN    48     -17.057   2.901  -4.448  1.00  0.00      1CDQ 919
+ATOM    719 2HD2 ASN    48     -16.045   1.633  -3.947  1.00  0.00      1CDQ 920
+ATOM    720  N   ASP    49     -12.218  -0.415  -5.029  1.00  0.00      1CDQ 921
+ATOM    721  CA  ASP    49     -11.693  -1.480  -4.130  1.00  0.00      1CDQ 922
+ATOM    722  C   ASP    49     -10.423  -0.979  -3.439  1.00  0.00      1CDQ 923
+ATOM    723  O   ASP    49     -10.059  -1.442  -2.376  1.00  0.00      1CDQ 924
+ATOM    724  CB  ASP    49     -11.369  -2.729  -4.952  1.00  0.00      1CDQ 925
+ATOM    725  CG  ASP    49     -12.421  -3.805  -4.681  1.00  0.00      1CDQ 926
+ATOM    726  OD1 ASP    49     -13.040  -3.749  -3.631  1.00  0.00      1CDQ 927
+ATOM    727  OD2 ASP    49     -12.592  -4.665  -5.529  1.00  0.00      1CDQ 928
+ATOM    728  H   ASP    49     -12.051  -0.462  -5.994  1.00  0.00      1CDQ 929
+ATOM    729  HA  ASP    49     -12.437  -1.722  -3.385  1.00  0.00      1CDQ 930
+ATOM    730 1HB  ASP    49     -11.371  -2.478  -6.004  1.00  0.00      1CDQ 931
+ATOM    731 2HB  ASP    49     -10.395  -3.102  -4.672  1.00  0.00      1CDQ 932
+ATOM    732  N   VAL    50      -9.748  -0.034  -4.035  1.00  0.00      1CDQ 933
+ATOM    733  CA  VAL    50      -8.503   0.498  -3.413  1.00  0.00      1CDQ 934
+ATOM    734  C   VAL    50      -8.814   1.816  -2.703  1.00  0.00      1CDQ 935
+ATOM    735  O   VAL    50      -8.445   2.019  -1.563  1.00  0.00      1CDQ 936
+ATOM    736  CB  VAL    50      -7.452   0.735  -4.498  1.00  0.00      1CDQ 937
+ATOM    737  CG1 VAL    50      -6.277   1.519  -3.912  1.00  0.00      1CDQ 938
+ATOM    738  CG2 VAL    50      -6.953  -0.612  -5.022  1.00  0.00      1CDQ 939
+ATOM    739  H   VAL    50     -10.060   0.326  -4.890  1.00  0.00      1CDQ 940
+ATOM    740  HA  VAL    50      -8.126  -0.217  -2.697  1.00  0.00      1CDQ 941
+ATOM    741  HB  VAL    50      -7.893   1.299  -5.309  1.00  0.00      1CDQ 942
+ATOM    742 1HG1 VAL    50      -6.462   1.716  -2.866  1.00  0.00      1CDQ 943
+ATOM    743 2HG1 VAL    50      -5.371   0.940  -4.015  1.00  0.00      1CDQ 944
+ATOM    744 3HG1 VAL    50      -6.169   2.455  -4.440  1.00  0.00      1CDQ 945
+ATOM    745 1HG2 VAL    50      -7.697  -1.371  -4.827  1.00  0.00      1CDQ 946
+ATOM    746 2HG2 VAL    50      -6.779  -0.543  -6.086  1.00  0.00      1CDQ 947
+ATOM    747 3HG2 VAL    50      -6.032  -0.874  -4.523  1.00  0.00      1CDQ 948
+ATOM    748  N   THR    51      -9.492   2.713  -3.364  1.00  0.00      1CDQ 949
+ATOM    749  CA  THR    51      -9.827   4.015  -2.721  1.00  0.00      1CDQ 950
+ATOM    750  C   THR    51     -10.771   3.766  -1.542  1.00  0.00      1CDQ 951
+ATOM    751  O   THR    51     -11.026   4.645  -0.742  1.00  0.00      1CDQ 952
+ATOM    752  CB  THR    51     -10.506   4.932  -3.740  1.00  0.00      1CDQ 953
+ATOM    753  OG1 THR    51     -11.022   4.152  -4.810  1.00  0.00      1CDQ 954
+ATOM    754  CG2 THR    51      -9.489   5.937  -4.283  1.00  0.00      1CDQ 955
+ATOM    755  H   THR    51      -9.784   2.530  -4.281  1.00  0.00      1CDQ 956
+ATOM    756  HA  THR    51      -8.921   4.482  -2.364  1.00  0.00      1CDQ 957
+ATOM    757  HB  THR    51     -11.313   5.466  -3.263  1.00  0.00      1CDQ 958
+ATOM    758  HG1 THR    51     -11.445   4.746  -5.433  1.00  0.00      1CDQ 959
+ATOM    759 1HG2 THR    51      -8.576   5.422  -4.543  1.00  0.00      1CDQ 960
+ATOM    760 2HG2 THR    51      -9.893   6.421  -5.160  1.00  0.00      1CDQ 961
+ATOM    761 3HG2 THR    51      -9.281   6.679  -3.527  1.00  0.00      1CDQ 962
+ATOM    762  N   THR    52     -11.289   2.574  -1.427  1.00  0.00      1CDQ 963
+ATOM    763  CA  THR    52     -12.209   2.267  -0.300  1.00  0.00      1CDQ 964
+ATOM    764  C   THR    52     -11.433   1.537   0.797  1.00  0.00      1CDQ 965
+ATOM    765  O   THR    52     -11.585   1.814   1.969  1.00  0.00      1CDQ 966
+ATOM    766  CB  THR    52     -13.343   1.373  -0.798  1.00  0.00      1CDQ 967
+ATOM    767  OG1 THR    52     -14.126   2.086  -1.747  1.00  0.00      1CDQ 968
+ATOM    768  CG2 THR    52     -14.218   0.956   0.381  1.00  0.00      1CDQ 969
+ATOM    769  H   THR    52     -11.070   1.879  -2.079  1.00  0.00      1CDQ 970
+ATOM    770  HA  THR    52     -12.618   3.185   0.096  1.00  0.00      1CDQ 971
+ATOM    771  HB  THR    52     -12.928   0.492  -1.261  1.00  0.00      1CDQ 972
+ATOM    772  HG1 THR    52     -14.752   1.471  -2.137  1.00  0.00      1CDQ 973
+ATOM    773 1HG2 THR    52     -13.762   1.290   1.302  1.00  0.00      1CDQ 974
+ATOM    774 2HG2 THR    52     -15.195   1.405   0.279  1.00  0.00      1CDQ 975
+ATOM    775 3HG2 THR    52     -14.314  -0.119   0.396  1.00  0.00      1CDQ 976
+ATOM    776  N   ARG    53     -10.596   0.608   0.422  1.00  0.00      1CDQ 977
+ATOM    777  CA  ARG    53      -9.802  -0.134   1.437  1.00  0.00      1CDQ 978
+ATOM    778  C   ARG    53      -8.956   0.862   2.227  1.00  0.00      1CDQ 979
+ATOM    779  O   ARG    53      -8.890   0.816   3.439  1.00  0.00      1CDQ 980
+ATOM    780  CB  ARG    53      -8.890  -1.141   0.733  1.00  0.00      1CDQ 981
+ATOM    781  CG  ARG    53      -9.524  -2.533   0.787  1.00  0.00      1CDQ 982
+ATOM    782  CD  ARG    53      -9.192  -3.193   2.126  1.00  0.00      1CDQ 983
+ATOM    783  NE  ARG    53      -7.927  -3.968   1.997  1.00  0.00      1CDQ 984
+ATOM    784  CZ  ARG    53      -7.870  -5.200   2.423  1.00  0.00      1CDQ 985
+ATOM    785  NH1 ARG    53      -7.674  -6.174   1.577  1.00  0.00      1CDQ 986
+ATOM    786  NH2 ARG    53      -8.009  -5.458   3.694  1.00  0.00      1CDQ 987
+ATOM    787  H   ARG    53     -10.483   0.405  -0.529  1.00  0.00      1CDQ 988
+ATOM    788  HA  ARG    53     -10.469  -0.656   2.109  1.00  0.00      1CDQ 989
+ATOM    789 1HB  ARG    53      -8.759  -0.844  -0.298  1.00  0.00      1CDQ 990
+ATOM    790 2HB  ARG    53      -7.931  -1.164   1.226  1.00  0.00      1CDQ 991
+ATOM    791 1HG  ARG    53     -10.596  -2.444   0.682  1.00  0.00      1CDQ 992
+ATOM    792 2HG  ARG    53      -9.133  -3.138  -0.018  1.00  0.00      1CDQ 993
+ATOM    793 1HD  ARG    53      -9.073  -2.432   2.882  1.00  0.00      1CDQ 994
+ATOM    794 2HD  ARG    53      -9.996  -3.858   2.407  1.00  0.00      1CDQ 995
+ATOM    795  HE  ARG    53      -7.136  -3.552   1.595  1.00  0.00      1CDQ 996
+ATOM    796 1HH1 ARG    53      -7.567  -5.976   0.602  1.00  0.00      1CDQ 997
+ATOM    797 2HH1 ARG    53      -7.631  -7.118   1.903  1.00  0.00      1CDQ 998
+ATOM    798 1HH2 ARG    53      -8.158  -4.712   4.342  1.00  0.00      1CDQ 999
+ATOM    799 2HH2 ARG    53      -7.965  -6.402   4.019  1.00  0.00      1CDQ1000
+ATOM    800  N   LEU    54      -8.313   1.769   1.545  1.00  0.00      1CDQ1001
+ATOM    801  CA  LEU    54      -7.475   2.778   2.244  1.00  0.00      1CDQ1002
+ATOM    802  C   LEU    54      -8.344   3.979   2.627  1.00  0.00      1CDQ1003
+ATOM    803  O   LEU    54      -7.890   4.909   3.263  1.00  0.00      1CDQ1004
+ATOM    804  CB  LEU    54      -6.354   3.237   1.312  1.00  0.00      1CDQ1005
+ATOM    805  CG  LEU    54      -5.750   2.026   0.600  1.00  0.00      1CDQ1006
+ATOM    806  CD1 LEU    54      -5.155   2.463  -0.739  1.00  0.00      1CDQ1007
+ATOM    807  CD2 LEU    54      -4.650   1.420   1.473  1.00  0.00      1CDQ1008
+ATOM    808  H   LEU    54      -8.384   1.789   0.568  1.00  0.00      1CDQ1009
+ATOM    809  HA  LEU    54      -7.049   2.339   3.132  1.00  0.00      1CDQ1010
+ATOM    810 1HB  LEU    54      -6.752   3.925   0.580  1.00  0.00      1CDQ1011
+ATOM    811 2HB  LEU    54      -5.588   3.730   1.888  1.00  0.00      1CDQ1012
+ATOM    812  HG  LEU    54      -6.520   1.290   0.429  1.00  0.00      1CDQ1013
+ATOM    813 1HD1 LEU    54      -5.811   3.182  -1.207  1.00  0.00      1CDQ1014
+ATOM    814 2HD1 LEU    54      -4.186   2.913  -0.575  1.00  0.00      1CDQ1015
+ATOM    815 3HD1 LEU    54      -5.047   1.602  -1.383  1.00  0.00      1CDQ1016
+ATOM    816 1HD2 LEU    54      -4.900   1.558   2.514  1.00  0.00      1CDQ1017
+ATOM    817 2HD2 LEU    54      -4.562   0.365   1.259  1.00  0.00      1CDQ1018
+ATOM    818 3HD2 LEU    54      -3.712   1.910   1.259  1.00  0.00      1CDQ1019
+ATOM    819  N   ARG    55      -9.593   3.966   2.241  1.00  0.00      1CDQ1020
+ATOM    820  CA  ARG    55     -10.492   5.103   2.577  1.00  0.00      1CDQ1021
+ATOM    821  C   ARG    55     -10.013   6.363   1.854  1.00  0.00      1CDQ1022
+ATOM    822  O   ARG    55     -10.162   7.467   2.340  1.00  0.00      1CDQ1023
+ATOM    823  CB  ARG    55     -10.488   5.337   4.090  1.00  0.00      1CDQ1024
+ATOM    824  CG  ARG    55     -11.702   4.644   4.713  1.00  0.00      1CDQ1025
+ATOM    825  CD  ARG    55     -11.574   4.654   6.237  1.00  0.00      1CDQ1026
+ATOM    826  NE  ARG    55     -12.819   4.107   6.843  1.00  0.00      1CDQ1027
+ATOM    827  CZ  ARG    55     -12.758   3.411   7.946  1.00  0.00      1CDQ1028
+ATOM    828  NH1 ARG    55     -12.738   2.108   7.896  1.00  0.00      1CDQ1029
+ATOM    829  NH2 ARG    55     -12.716   4.020   9.100  1.00  0.00      1CDQ1030
+ATOM    830  H   ARG    55      -9.941   3.208   1.728  1.00  0.00      1CDQ1031
+ATOM    831  HA  ARG    55     -11.493   4.867   2.254  1.00  0.00      1CDQ1032
+ATOM    832 1HB  ARG    55      -9.581   4.931   4.516  1.00  0.00      1CDQ1033
+ATOM    833 2HB  ARG    55     -10.538   6.397   4.291  1.00  0.00      1CDQ1034
+ATOM    834 1HG  ARG    55     -12.601   5.167   4.425  1.00  0.00      1CDQ1035
+ATOM    835 2HG  ARG    55     -11.750   3.624   4.365  1.00  0.00      1CDQ1036
+ATOM    836 1HD  ARG    55     -10.732   4.045   6.532  1.00  0.00      1CDQ1037
+ATOM    837 2HD  ARG    55     -11.421   5.667   6.579  1.00  0.00      1CDQ1038
+ATOM    838  HE  ARG    55     -13.686   4.270   6.415  1.00  0.00      1CDQ1039
+ATOM    839 1HH1 ARG    55     -12.772   1.640   7.013  1.00  0.00      1CDQ1040
+ATOM    840 2HH1 ARG    55     -12.690   1.575   8.742  1.00  0.00      1CDQ1041
+ATOM    841 1HH2 ARG    55     -12.731   5.019   9.138  1.00  0.00      1CDQ1042
+ATOM    842 2HH2 ARG    55     -12.667   3.488   9.945  1.00  0.00      1CDQ1043
+ATOM    843  N   GLU    56      -9.447   6.205   0.689  1.00  0.00      1CDQ1044
+ATOM    844  CA  GLU    56      -8.965   7.388  -0.076  1.00  0.00      1CDQ1045
+ATOM    845  C   GLU    56      -9.894   7.627  -1.267  1.00  0.00      1CDQ1046
+ATOM    846  O   GLU    56     -10.909   6.974  -1.412  1.00  0.00      1CDQ1047
+ATOM    847  CB  GLU    56      -7.545   7.129  -0.581  1.00  0.00      1CDQ1048
+ATOM    848  CG  GLU    56      -6.814   8.461  -0.758  1.00  0.00      1CDQ1049
+ATOM    849  CD  GLU    56      -5.344   8.295  -0.365  1.00  0.00      1CDQ1050
+ATOM    850  OE1 GLU    56      -4.984   7.209   0.058  1.00  0.00      1CDQ1051
+ATOM    851  OE2 GLU    56      -4.605   9.257  -0.495  1.00  0.00      1CDQ1052
+ATOM    852  H   GLU    56      -9.344   5.306   0.316  1.00  0.00      1CDQ1053
+ATOM    853  HA  GLU    56      -8.967   8.258   0.565  1.00  0.00      1CDQ1054
+ATOM    854 1HB  GLU    56      -7.014   6.518   0.134  1.00  0.00      1CDQ1055
+ATOM    855 2HB  GLU    56      -7.588   6.616  -1.530  1.00  0.00      1CDQ1056
+ATOM    856 1HG  GLU    56      -6.878   8.772  -1.791  1.00  0.00      1CDQ1057
+ATOM    857 2HG  GLU    56      -7.270   9.208  -0.127  1.00  0.00      1CDQ1058
+ATOM    858  N   ASN    57      -9.560   8.553  -2.123  1.00  0.00      1CDQ1059
+ATOM    859  CA  ASN    57     -10.433   8.823  -3.301  1.00  0.00      1CDQ1060
+ATOM    860  C   ASN    57      -9.589   9.369  -4.454  1.00  0.00      1CDQ1061
+ATOM    861  O   ASN    57      -9.396   8.715  -5.460  1.00  0.00      1CDQ1062
+ATOM    862  CB  ASN    57     -11.500   9.851  -2.921  1.00  0.00      1CDQ1063
+ATOM    863  CG  ASN    57     -12.814   9.507  -3.626  1.00  0.00      1CDQ1064
+ATOM    864  OD1 ASN    57     -13.439  10.362  -4.222  1.00  0.00      1CDQ1065
+ATOM    865  ND2 ASN    57     -13.261   8.282  -3.586  1.00  0.00      1CDQ1066
+ATOM    866  H   ASN    57      -8.738   9.070  -1.992  1.00  0.00      1CDQ1067
+ATOM    867  HA  ASN    57     -10.912   7.906  -3.610  1.00  0.00      1CDQ1068
+ATOM    868 1HB  ASN    57     -11.650   9.836  -1.851  1.00  0.00      1CDQ1069
+ATOM    869 2HB  ASN    57     -11.178  10.834  -3.226  1.00  0.00      1CDQ1070
+ATOM    870 1HD2 ASN    57     -14.101   8.051  -4.036  1.00  0.00      1CDQ1071
+ATOM    871 2HD2 ASN    57     -12.757   7.592  -3.106  1.00  0.00      1CDQ1072
+ATOM    872  N   GLU    58      -9.091  10.568  -4.321  1.00  0.00      1CDQ1073
+ATOM    873  CA  GLU    58      -8.267  11.158  -5.414  1.00  0.00      1CDQ1074
+ATOM    874  C   GLU    58      -6.909  10.456  -5.472  1.00  0.00      1CDQ1075
+ATOM    875  O   GLU    58      -6.176  10.416  -4.503  1.00  0.00      1CDQ1076
+ATOM    876  CB  GLU    58      -8.060  12.650  -5.147  1.00  0.00      1CDQ1077
+ATOM    877  CG  GLU    58      -9.214  13.444  -5.761  1.00  0.00      1CDQ1078
+ATOM    878  CD  GLU    58      -9.013  14.934  -5.480  1.00  0.00      1CDQ1079
+ATOM    879  OE1 GLU    58      -7.907  15.307  -5.127  1.00  0.00      1CDQ1080
+ATOM    880  OE2 GLU    58      -9.970  15.679  -5.625  1.00  0.00      1CDQ1081
+ATOM    881  H   GLU    58      -9.263  11.082  -3.504  1.00  0.00      1CDQ1082
+ATOM    882  HA  GLU    58      -8.778  11.029  -6.357  1.00  0.00      1CDQ1083
+ATOM    883 1HB  GLU    58      -8.028  12.824  -4.081  1.00  0.00      1CDQ1084
+ATOM    884 2HB  GLU    58      -7.130  12.970  -5.593  1.00  0.00      1CDQ1085
+ATOM    885 1HG  GLU    58      -9.239  13.278  -6.828  1.00  0.00      1CDQ1086
+ATOM    886 2HG  GLU    58     -10.147  13.121  -5.323  1.00  0.00      1CDQ1087
+ATOM    887  N   LEU    59      -6.566   9.905  -6.604  1.00  0.00      1CDQ1088
+ATOM    888  CA  LEU    59      -5.255   9.208  -6.732  1.00  0.00      1CDQ1089
+ATOM    889  C   LEU    59      -5.220   8.432  -8.051  1.00  0.00      1CDQ1090
+ATOM    890  O   LEU    59      -6.155   8.468  -8.827  1.00  0.00      1CDQ1091
+ATOM    891  CB  LEU    59      -5.070   8.239  -5.562  1.00  0.00      1CDQ1092
+ATOM    892  CG  LEU    59      -6.362   7.453  -5.332  1.00  0.00      1CDQ1093
+ATOM    893  CD1 LEU    59      -6.205   6.038  -5.892  1.00  0.00      1CDQ1094
+ATOM    894  CD2 LEU    59      -6.647   7.378  -3.831  1.00  0.00      1CDQ1095
+ATOM    895  H   LEU    59      -7.172   9.951  -7.373  1.00  0.00      1CDQ1096
+ATOM    896  HA  LEU    59      -4.459   9.937  -6.723  1.00  0.00      1CDQ1097
+ATOM    897 1HB  LEU    59      -4.266   7.554  -5.787  1.00  0.00      1CDQ1098
+ATOM    898 2HB  LEU    59      -4.828   8.797  -4.669  1.00  0.00      1CDQ1099
+ATOM    899  HG  LEU    59      -7.180   7.949  -5.833  1.00  0.00      1CDQ1100
+ATOM    900 1HD1 LEU    59      -5.165   5.850  -6.111  1.00  0.00      1CDQ1101
+ATOM    901 2HD1 LEU    59      -6.553   5.322  -5.162  1.00  0.00      1CDQ1102
+ATOM    902 3HD1 LEU    59      -6.787   5.942  -6.797  1.00  0.00      1CDQ1103
+ATOM    903 1HD2 LEU    59      -6.020   8.087  -3.311  1.00  0.00      1CDQ1104
+ATOM    904 2HD2 LEU    59      -7.684   7.615  -3.651  1.00  0.00      1CDQ1105
+ATOM    905 3HD2 LEU    59      -6.438   6.381  -3.474  1.00  0.00      1CDQ1106
+ATOM    906  N   THR    60      -4.151   7.732  -8.312  1.00  0.00      1CDQ1107
+ATOM    907  CA  THR    60      -4.061   6.957  -9.582  1.00  0.00      1CDQ1108
+ATOM    908  C   THR    60      -3.506   5.561  -9.291  1.00  0.00      1CDQ1109
+ATOM    909  O   THR    60      -2.491   5.162  -9.826  1.00  0.00      1CDQ1110
+ATOM    910  CB  THR    60      -3.133   7.685 -10.558  1.00  0.00      1CDQ1111
+ATOM    911  OG1 THR    60      -3.248   9.087 -10.360  1.00  0.00      1CDQ1112
+ATOM    912  CG2 THR    60      -3.524   7.335 -11.995  1.00  0.00      1CDQ1113
+ATOM    913  H   THR    60      -3.407   7.715  -7.673  1.00  0.00      1CDQ1114
+ATOM    914  HA  THR    60      -5.045   6.869 -10.018  1.00  0.00      1CDQ1115
+ATOM    915  HB  THR    60      -2.113   7.379 -10.382  1.00  0.00      1CDQ1116
+ATOM    916  HG1 THR    60      -3.157   9.515 -11.214  1.00  0.00      1CDQ1117
+ATOM    917 1HG2 THR    60      -4.255   6.541 -11.986  1.00  0.00      1CDQ1118
+ATOM    918 2HG2 THR    60      -3.945   8.207 -12.474  1.00  0.00      1CDQ1119
+ATOM    919 3HG2 THR    60      -2.648   7.013 -12.538  1.00  0.00      1CDQ1120
+ATOM    920  N   TYR    61      -4.163   4.819  -8.445  1.00  0.00      1CDQ1121
+ATOM    921  CA  TYR    61      -3.676   3.450  -8.116  1.00  0.00      1CDQ1122
+ATOM    922  C   TYR    61      -3.235   2.735  -9.396  1.00  0.00      1CDQ1123
+ATOM    923  O   TYR    61      -4.036   2.443 -10.262  1.00  0.00      1CDQ1124
+ATOM    924  CB  TYR    61      -4.804   2.656  -7.451  1.00  0.00      1CDQ1125
+ATOM    925  CG  TYR    61      -5.873   2.345  -8.471  1.00  0.00      1CDQ1126
+ATOM    926  CD1 TYR    61      -6.696   3.366  -8.961  1.00  0.00      1CDQ1127
+ATOM    927  CD2 TYR    61      -6.042   1.032  -8.929  1.00  0.00      1CDQ1128
+ATOM    928  CE1 TYR    61      -7.686   3.076  -9.906  1.00  0.00      1CDQ1129
+ATOM    929  CE2 TYR    61      -7.033   0.742  -9.875  1.00  0.00      1CDQ1130
+ATOM    930  CZ  TYR    61      -7.856   1.765 -10.363  1.00  0.00      1CDQ1131
+ATOM    931  OH  TYR    61      -8.833   1.478 -11.295  1.00  0.00      1CDQ1132
+ATOM    932  H   TYR    61      -4.978   5.162  -8.024  1.00  0.00      1CDQ1133
+ATOM    933  HA  TYR    61      -2.839   3.521  -7.437  1.00  0.00      1CDQ1134
+ATOM    934 1HB  TYR    61      -4.408   1.734  -7.051  1.00  0.00      1CDQ1135
+ATOM    935 2HB  TYR    61      -5.232   3.241  -6.651  1.00  0.00      1CDQ1136
+ATOM    936  HD1 TYR    61      -6.566   4.379  -8.608  1.00  0.00      1CDQ1137
+ATOM    937  HD2 TYR    61      -5.409   0.243  -8.553  1.00  0.00      1CDQ1138
+ATOM    938  HE1 TYR    61      -8.320   3.866 -10.283  1.00  0.00      1CDQ1139
+ATOM    939  HE2 TYR    61      -7.164  -0.270 -10.226  1.00  0.00      1CDQ1140
+ATOM    940  HH  TYR    61      -9.140   2.308 -11.667  1.00  0.00      1CDQ1141
+ATOM    941  N   TYR    62      -1.968   2.442  -9.522  1.00  0.00      1CDQ1142
+ATOM    942  CA  TYR    62      -1.488   1.738 -10.745  1.00  0.00      1CDQ1143
+ATOM    943  C   TYR    62      -1.078   0.310 -10.376  1.00  0.00      1CDQ1144
+ATOM    944  O   TYR    62      -0.066   0.090  -9.741  1.00  0.00      1CDQ1145
+ATOM    945  CB  TYR    62      -0.286   2.482 -11.330  1.00  0.00      1CDQ1146
+ATOM    946  CG  TYR    62       0.138   1.823 -12.623  1.00  0.00      1CDQ1147
+ATOM    947  CD1 TYR    62       0.936   0.674 -12.596  1.00  0.00      1CDQ1148
+ATOM    948  CD2 TYR    62      -0.268   2.363 -13.849  1.00  0.00      1CDQ1149
+ATOM    949  CE1 TYR    62       1.329   0.064 -13.793  1.00  0.00      1CDQ1150
+ATOM    950  CE2 TYR    62       0.124   1.754 -15.048  1.00  0.00      1CDQ1151
+ATOM    951  CZ  TYR    62       0.923   0.605 -15.019  1.00  0.00      1CDQ1152
+ATOM    952  OH  TYR    62       1.310   0.005 -16.200  1.00  0.00      1CDQ1153
+ATOM    953  H   TYR    62      -1.335   2.682  -8.811  1.00  0.00      1CDQ1154
+ATOM    954  HA  TYR    62      -2.282   1.707 -11.476  1.00  0.00      1CDQ1155
+ATOM    955 1HB  TYR    62      -0.557   3.509 -11.521  1.00  0.00      1CDQ1156
+ATOM    956 2HB  TYR    62       0.534   2.452 -10.627  1.00  0.00      1CDQ1157
+ATOM    957  HD1 TYR    62       1.250   0.256 -11.649  1.00  0.00      1CDQ1158
+ATOM    958  HD2 TYR    62      -0.884   3.250 -13.872  1.00  0.00      1CDQ1159
+ATOM    959  HE1 TYR    62       1.944  -0.823 -13.772  1.00  0.00      1CDQ1160
+ATOM    960  HE2 TYR    62      -0.189   2.170 -15.994  1.00  0.00      1CDQ1161
+ATOM    961  HH  TYR    62       2.265   0.079 -16.271  1.00  0.00      1CDQ1162
+ATOM    962  N   CYS    63      -1.861  -0.663 -10.760  1.00  0.00      1CDQ1163
+ATOM    963  CA  CYS    63      -1.516  -2.070 -10.421  1.00  0.00      1CDQ1164
+ATOM    964  C   CYS    63      -0.631  -2.664 -11.520  1.00  0.00      1CDQ1165
+ATOM    965  O   CYS    63      -0.815  -2.397 -12.691  1.00  0.00      1CDQ1166
+ATOM    966  CB  CYS    63      -2.800  -2.894 -10.298  1.00  0.00      1CDQ1167
+ATOM    967  SG  CYS    63      -3.835  -2.202  -8.984  1.00  0.00      1CDQ1168
+ATOM    968  H   CYS    63      -2.676  -0.466 -11.265  1.00  0.00      1CDQ1169
+ATOM    969  HA  CYS    63      -0.985  -2.092  -9.483  1.00  0.00      1CDQ1170
+ATOM    970 1HB  CYS    63      -3.339  -2.864 -11.235  1.00  0.00      1CDQ1171
+ATOM    971 2HB  CYS    63      -2.551  -3.917 -10.059  1.00  0.00      1CDQ1172
+ATOM    972  N   CYS    64       0.326  -3.471 -11.150  1.00  0.00      1CDQ1173
+ATOM    973  CA  CYS    64       1.222  -4.086 -12.171  1.00  0.00      1CDQ1174
+ATOM    974  C   CYS    64       1.485  -5.545 -11.796  1.00  0.00      1CDQ1175
+ATOM    975  O   CYS    64       0.954  -6.048 -10.826  1.00  0.00      1CDQ1176
+ATOM    976  CB  CYS    64       2.548  -3.322 -12.222  1.00  0.00      1CDQ1177
+ATOM    977  SG  CYS    64       3.021  -2.817 -10.550  1.00  0.00      1CDQ1178
+ATOM    978  H   CYS    64       0.454  -3.676 -10.198  1.00  0.00      1CDQ1179
+ATOM    979  HA  CYS    64       0.746  -4.044 -13.139  1.00  0.00      1CDQ1180
+ATOM    980 1HB  CYS    64       3.315  -3.961 -12.635  1.00  0.00      1CDQ1181
+ATOM    981 2HB  CYS    64       2.435  -2.447 -12.844  1.00  0.00      1CDQ1182
+ATOM    982  N   LYS    65       2.294  -6.235 -12.553  1.00  0.00      1CDQ1183
+ATOM    983  CA  LYS    65       2.573  -7.662 -12.227  1.00  0.00      1CDQ1184
+ATOM    984  C   LYS    65       4.038  -7.990 -12.522  1.00  0.00      1CDQ1185
+ATOM    985  O   LYS    65       4.373  -9.102 -12.880  1.00  0.00      1CDQ1186
+ATOM    986  CB  LYS    65       1.671  -8.562 -13.073  1.00  0.00      1CDQ1187
+ATOM    987  CG  LYS    65       0.207  -8.184 -12.839  1.00  0.00      1CDQ1188
+ATOM    988  CD  LYS    65      -0.665  -8.826 -13.919  1.00  0.00      1CDQ1189
+ATOM    989  CE  LYS    65      -0.987 -10.269 -13.526  1.00  0.00      1CDQ1190
+ATOM    990  NZ  LYS    65       0.208 -11.127 -13.761  1.00  0.00      1CDQ1191
+ATOM    991  H   LYS    65       2.713  -5.817 -13.334  1.00  0.00      1CDQ1192
+ATOM    992  HA  LYS    65       2.371  -7.837 -11.180  1.00  0.00      1CDQ1193
+ATOM    993 1HB  LYS    65       1.914  -8.433 -14.119  1.00  0.00      1CDQ1194
+ATOM    994 2HB  LYS    65       1.824  -9.593 -12.793  1.00  0.00      1CDQ1195
+ATOM    995 1HG  LYS    65      -0.104  -8.538 -11.867  1.00  0.00      1CDQ1196
+ATOM    996 2HG  LYS    65       0.100  -7.110 -12.883  1.00  0.00      1CDQ1197
+ATOM    997 1HD  LYS    65      -1.583  -8.267 -14.019  1.00  0.00      1CDQ1198
+ATOM    998 2HD  LYS    65      -0.135  -8.822 -14.860  1.00  0.00      1CDQ1199
+ATOM    999 1HE  LYS    65      -1.257 -10.306 -12.481  1.00  0.00      1CDQ1200
+ATOM   1000 2HE  LYS    65      -1.812 -10.629 -14.122  1.00  0.00      1CDQ1201
+ATOM   1001 1HZ  LYS    65       0.974 -10.552 -14.166  1.00  0.00      1CDQ1202
+ATOM   1002 2HZ  LYS    65       0.525 -11.536 -12.859  1.00  0.00      1CDQ1203
+ATOM   1003 3HZ  LYS    65      -0.039 -11.892 -14.421  1.00  0.00      1CDQ1204
+ATOM   1004  N   LYS    66       4.917  -7.036 -12.373  1.00  0.00      1CDQ1205
+ATOM   1005  CA  LYS    66       6.357  -7.308 -12.644  1.00  0.00      1CDQ1206
+ATOM   1006  C   LYS    66       7.139  -7.273 -11.329  1.00  0.00      1CDQ1207
+ATOM   1007  O   LYS    66       6.631  -6.860 -10.304  1.00  0.00      1CDQ1208
+ATOM   1008  CB  LYS    66       6.912  -6.247 -13.596  1.00  0.00      1CDQ1209
+ATOM   1009  CG  LYS    66       5.942  -6.047 -14.762  1.00  0.00      1CDQ1210
+ATOM   1010  CD  LYS    66       6.687  -5.424 -15.943  1.00  0.00      1CDQ1211
+ATOM   1011  CE  LYS    66       7.753  -6.397 -16.446  1.00  0.00      1CDQ1212
+ATOM   1012  NZ  LYS    66       7.751  -6.407 -17.936  1.00  0.00      1CDQ1213
+ATOM   1013  H   LYS    66       4.631  -6.146 -12.080  1.00  0.00      1CDQ1214
+ATOM   1014  HA  LYS    66       6.459  -8.283 -13.095  1.00  0.00      1CDQ1215
+ATOM   1015 1HB  LYS    66       7.036  -5.316 -13.065  1.00  0.00      1CDQ1216
+ATOM   1016 2HB  LYS    66       7.868  -6.572 -13.978  1.00  0.00      1CDQ1217
+ATOM   1017 1HG  LYS    66       5.532  -7.002 -15.056  1.00  0.00      1CDQ1218
+ATOM   1018 2HG  LYS    66       5.142  -5.390 -14.456  1.00  0.00      1CDQ1219
+ATOM   1019 1HD  LYS    66       5.988  -5.212 -16.738  1.00  0.00      1CDQ1220
+ATOM   1020 2HD  LYS    66       7.160  -4.507 -15.626  1.00  0.00      1CDQ1221
+ATOM   1021 1HE  LYS    66       8.724  -6.084 -16.090  1.00  0.00      1CDQ1222
+ATOM   1022 2HE  LYS    66       7.538  -7.390 -16.079  1.00  0.00      1CDQ1223
+ATOM   1023 1HZ  LYS    66       6.770  -6.392 -18.281  1.00  0.00      1CDQ1224
+ATOM   1024 2HZ  LYS    66       8.253  -5.568 -18.289  1.00  0.00      1CDQ1225
+ATOM   1025 3HZ  LYS    66       8.227  -7.267 -18.277  1.00  0.00      1CDQ1226
+ATOM   1026  N   ASP    67       8.368  -7.708 -11.349  1.00  0.00      1CDQ1227
+ATOM   1027  CA  ASP    67       9.181  -7.705 -10.100  1.00  0.00      1CDQ1228
+ATOM   1028  C   ASP    67       9.548  -6.267  -9.724  1.00  0.00      1CDQ1229
+ATOM   1029  O   ASP    67      10.267  -5.594 -10.434  1.00  0.00      1CDQ1230
+ATOM   1030  CB  ASP    67      10.459  -8.515 -10.323  1.00  0.00      1CDQ1231
+ATOM   1031  CG  ASP    67      11.386  -7.755 -11.274  1.00  0.00      1CDQ1232
+ATOM   1032  OD1 ASP    67      10.906  -7.303 -12.301  1.00  0.00      1CDQ1233
+ATOM   1033  OD2 ASP    67      12.558  -7.635 -10.959  1.00  0.00      1CDQ1234
+ATOM   1034  H   ASP    67       8.757  -8.040 -12.184  1.00  0.00      1CDQ1235
+ATOM   1035  HA  ASP    67       8.609  -8.151  -9.298  1.00  0.00      1CDQ1236
+ATOM   1036 1HB  ASP    67      10.960  -8.667  -9.378  1.00  0.00      1CDQ1237
+ATOM   1037 2HB  ASP    67      10.209  -9.472 -10.757  1.00  0.00      1CDQ1238
+ATOM   1038  N   LEU    68       9.062  -5.795  -8.608  1.00  0.00      1CDQ1239
+ATOM   1039  CA  LEU    68       9.382  -4.406  -8.179  1.00  0.00      1CDQ1240
+ATOM   1040  C   LEU    68       8.861  -3.406  -9.214  1.00  0.00      1CDQ1241
+ATOM   1041  O   LEU    68       9.581  -2.543  -9.674  1.00  0.00      1CDQ1242
+ATOM   1042  CB  LEU    68      10.898  -4.253  -8.040  1.00  0.00      1CDQ1243
+ATOM   1043  CG  LEU    68      11.421  -5.267  -7.020  1.00  0.00      1CDQ1244
+ATOM   1044  CD1 LEU    68      12.950  -5.252  -7.021  1.00  0.00      1CDQ1245
+ATOM   1045  CD2 LEU    68      10.909  -4.895  -5.626  1.00  0.00      1CDQ1246
+ATOM   1046  H   LEU    68       8.488  -6.355  -8.049  1.00  0.00      1CDQ1247
+ATOM   1047  HA  LEU    68       8.914  -4.211  -7.226  1.00  0.00      1CDQ1248
+ATOM   1048 1HB  LEU    68      11.367  -4.430  -8.997  1.00  0.00      1CDQ1249
+ATOM   1049 2HB  LEU    68      11.131  -3.255  -7.703  1.00  0.00      1CDQ1250
+ATOM   1050  HG  LEU    68      11.070  -6.255  -7.282  1.00  0.00      1CDQ1251
+ATOM   1051 1HD1 LEU    68      13.301  -4.460  -7.666  1.00  0.00      1CDQ1252
+ATOM   1052 2HD1 LEU    68      13.309  -5.083  -6.016  1.00  0.00      1CDQ1253
+ATOM   1053 3HD1 LEU    68      13.319  -6.201  -7.380  1.00  0.00      1CDQ1254
+ATOM   1054 1HD2 LEU    68       9.834  -4.791  -5.654  1.00  0.00      1CDQ1255
+ATOM   1055 2HD2 LEU    68      11.177  -5.671  -4.925  1.00  0.00      1CDQ1256
+ATOM   1056 3HD2 LEU    68      11.353  -3.960  -5.318  1.00  0.00      1CDQ1257
+ATOM   1057  N   CYS    69       7.613  -3.513  -9.581  1.00  0.00      1CDQ1258
+ATOM   1058  CA  CYS    69       7.048  -2.563 -10.582  1.00  0.00      1CDQ1259
+ATOM   1059  C   CYS    69       6.506  -1.328  -9.861  1.00  0.00      1CDQ1260
+ATOM   1060  O   CYS    69       5.859  -0.488 -10.453  1.00  0.00      1CDQ1261
+ATOM   1061  CB  CYS    69       5.908  -3.241 -11.345  1.00  0.00      1CDQ1262
+ATOM   1062  SG  CYS    69       4.693  -3.883 -10.167  1.00  0.00      1CDQ1263
+ATOM   1063  H   CYS    69       7.046  -4.212  -9.195  1.00  0.00      1CDQ1264
+ATOM   1064  HA  CYS    69       7.821  -2.267 -11.276  1.00  0.00      1CDQ1265
+ATOM   1065 1HB  CYS    69       5.434  -2.522 -11.996  1.00  0.00      1CDQ1266
+ATOM   1066 2HB  CYS    69       6.304  -4.054 -11.933  1.00  0.00      1CDQ1267
+ATOM   1067  N   ASN    70       6.758  -1.215  -8.586  1.00  0.00      1CDQ1268
+ATOM   1068  CA  ASN    70       6.248  -0.037  -7.831  1.00  0.00      1CDQ1269
+ATOM   1069  C   ASN    70       7.417   0.851  -7.401  1.00  0.00      1CDQ1270
+ATOM   1070  O   ASN    70       7.742   0.941  -6.233  1.00  0.00      1CDQ1271
+ATOM   1071  CB  ASN    70       5.494  -0.519  -6.591  1.00  0.00      1CDQ1272
+ATOM   1072  CG  ASN    70       4.979   0.688  -5.808  1.00  0.00      1CDQ1273
+ATOM   1073  OD1 ASN    70       5.542   1.762  -5.884  1.00  0.00      1CDQ1274
+ATOM   1074  ND2 ASN    70       3.923   0.556  -5.055  1.00  0.00      1CDQ1275
+ATOM   1075  H   ASN    70       7.277  -1.905  -8.125  1.00  0.00      1CDQ1276
+ATOM   1076  HA  ASN    70       5.578   0.531  -8.460  1.00  0.00      1CDQ1277
+ATOM   1077 1HB  ASN    70       4.660  -1.136  -6.895  1.00  0.00      1CDQ1278
+ATOM   1078 2HB  ASN    70       6.160  -1.094  -5.965  1.00  0.00      1CDQ1279
+ATOM   1079 1HD2 ASN    70       3.580   1.324  -4.551  1.00  0.00      1CDQ1280
+ATOM   1080 2HD2 ASN    70       3.470  -0.311  -4.995  1.00  0.00      1CDQ1281
+ATOM   1081  N   PHE    71       8.048   1.513  -8.332  1.00  0.00      1CDQ1282
+ATOM   1082  CA  PHE    71       9.191   2.401  -7.971  1.00  0.00      1CDQ1283
+ATOM   1083  C   PHE    71       8.785   3.860  -8.187  1.00  0.00      1CDQ1284
+ATOM   1084  O   PHE    71       7.672   4.153  -8.577  1.00  0.00      1CDQ1285
+ATOM   1085  CB  PHE    71      10.400   2.071  -8.851  1.00  0.00      1CDQ1286
+ATOM   1086  CG  PHE    71       9.949   1.860 -10.276  1.00  0.00      1CDQ1287
+ATOM   1087  CD1 PHE    71       9.463   0.610 -10.679  1.00  0.00      1CDQ1288
+ATOM   1088  CD2 PHE    71      10.023   2.912 -11.197  1.00  0.00      1CDQ1289
+ATOM   1089  CE1 PHE    71       9.049   0.412 -12.002  1.00  0.00      1CDQ1290
+ATOM   1090  CE2 PHE    71       9.610   2.714 -12.520  1.00  0.00      1CDQ1291
+ATOM   1091  CZ  PHE    71       9.123   1.465 -12.922  1.00  0.00      1CDQ1292
+ATOM   1092  H   PHE    71       7.768   1.432  -9.267  1.00  0.00      1CDQ1293
+ATOM   1093  HA  PHE    71       9.449   2.250  -6.933  1.00  0.00      1CDQ1294
+ATOM   1094 1HB  PHE    71      11.103   2.890  -8.814  1.00  0.00      1CDQ1295
+ATOM   1095 2HB  PHE    71      10.874   1.173  -8.486  1.00  0.00      1CDQ1296
+ATOM   1096  HD1 PHE    71       9.406  -0.201  -9.968  1.00  0.00      1CDQ1297
+ATOM   1097  HD2 PHE    71      10.398   3.875 -10.887  1.00  0.00      1CDQ1298
+ATOM   1098  HE1 PHE    71       8.675  -0.551 -12.312  1.00  0.00      1CDQ1299
+ATOM   1099  HE2 PHE    71       9.668   3.525 -13.231  1.00  0.00      1CDQ1300
+ATOM   1100  HZ  PHE    71       8.805   1.312 -13.943  1.00  0.00      1CDQ1301
+ATOM   1101  N   ASN    72       9.677   4.778  -7.937  1.00  0.00      1CDQ1302
+ATOM   1102  CA  ASN    72       9.336   6.215  -8.128  1.00  0.00      1CDQ1303
+ATOM   1103  C   ASN    72       9.581   6.610  -9.586  1.00  0.00      1CDQ1304
+ATOM   1104  O   ASN    72      10.383   7.473  -9.880  1.00  0.00      1CDQ1305
+ATOM   1105  CB  ASN    72      10.211   7.075  -7.213  1.00  0.00      1CDQ1306
+ATOM   1106  CG  ASN    72       9.425   8.312  -6.771  1.00  0.00      1CDQ1307
+ATOM   1107  OD1 ASN    72       8.925   8.365  -5.665  1.00  0.00      1CDQ1308
+ATOM   1108  ND2 ASN    72       9.296   9.315  -7.595  1.00  0.00      1CDQ1309
+ATOM   1109  H   ASN    72      10.570   4.523  -7.623  1.00  0.00      1CDQ1310
+ATOM   1110  HA  ASN    72       8.297   6.374  -7.883  1.00  0.00      1CDQ1311
+ATOM   1111 1HB  ASN    72      10.497   6.500  -6.344  1.00  0.00      1CDQ1312
+ATOM   1112 2HB  ASN    72      11.096   7.385  -7.748  1.00  0.00      1CDQ1313
+ATOM   1113 1HD2 ASN    72       8.793  10.112  -7.322  1.00  0.00      1CDQ1314
+ATOM   1114 2HD2 ASN    72       9.698   9.273  -8.487  1.00  0.00      1CDQ1315
+ATOM   1115  N   GLU    73       8.891   5.985 -10.503  1.00  0.00      1CDQ1316
+ATOM   1116  CA  GLU    73       9.082   6.327 -11.940  1.00  0.00      1CDQ1317
+ATOM   1117  C   GLU    73       8.138   5.480 -12.795  1.00  0.00      1CDQ1318
+ATOM   1118  O   GLU    73       8.457   5.104 -13.905  1.00  0.00      1CDQ1319
+ATOM   1119  CB  GLU    73      10.530   6.046 -12.344  1.00  0.00      1CDQ1320
+ATOM   1120  CG  GLU    73      11.183   7.341 -12.832  1.00  0.00      1CDQ1321
+ATOM   1121  CD  GLU    73      11.827   7.105 -14.200  1.00  0.00      1CDQ1322
+ATOM   1122  OE1 GLU    73      11.989   5.953 -14.566  1.00  0.00      1CDQ1323
+ATOM   1123  OE2 GLU    73      12.148   8.082 -14.857  1.00  0.00      1CDQ1324
+ATOM   1124  H   GLU    73       8.248   5.293 -10.244  1.00  0.00      1CDQ1325
+ATOM   1125  HA  GLU    73       8.861   7.373 -12.092  1.00  0.00      1CDQ1326
+ATOM   1126 1HB  GLU    73      11.075   5.665 -11.491  1.00  0.00      1CDQ1327
+ATOM   1127 2HB  GLU    73      10.547   5.315 -13.138  1.00  0.00      1CDQ1328
+ATOM   1128 1HG  GLU    73      10.431   8.113 -12.915  1.00  0.00      1CDQ1329
+ATOM   1129 2HG  GLU    73      11.941   7.650 -12.129  1.00  0.00      1CDQ1330
+ATOM   1130  N   GLN    74       6.977   5.179 -12.285  1.00  0.00      1CDQ1331
+ATOM   1131  CA  GLN    74       6.009   4.358 -13.065  1.00  0.00      1CDQ1332
+ATOM   1132  C   GLN    74       4.916   5.264 -13.638  1.00  0.00      1CDQ1333
+ATOM   1133  O   GLN    74       4.786   5.411 -14.837  1.00  0.00      1CDQ1334
+ATOM   1134  CB  GLN    74       5.375   3.311 -12.146  1.00  0.00      1CDQ1335
+ATOM   1135  CG  GLN    74       4.479   2.382 -12.969  1.00  0.00      1CDQ1336
+ATOM   1136  CD  GLN    74       5.206   1.058 -13.216  1.00  0.00      1CDQ1337
+ATOM   1137  OE1 GLN    74       6.272   0.828 -12.681  1.00  0.00      1CDQ1338
+ATOM   1138  NE2 GLN    74       4.669   0.171 -14.008  1.00  0.00      1CDQ1339
+ATOM   1139  H   GLN    74       6.740   5.494 -11.388  1.00  0.00      1CDQ1340
+ATOM   1140  HA  GLN    74       6.526   3.862 -13.872  1.00  0.00      1CDQ1341
+ATOM   1141 1HB  GLN    74       6.153   2.732 -11.669  1.00  0.00      1CDQ1342
+ATOM   1142 2HB  GLN    74       4.781   3.805 -11.392  1.00  0.00      1CDQ1343
+ATOM   1143 1HG  GLN    74       3.563   2.196 -12.429  1.00  0.00      1CDQ1344
+ATOM   1144 2HG  GLN    74       4.252   2.848 -13.916  1.00  0.00      1CDQ1345
+ATOM   1145 1HE2 GLN    74       5.126  -0.680 -14.173  1.00  0.00      1CDQ1346
+ATOM   1146 2HE2 GLN    74       3.807   0.356 -14.438  1.00  0.00      1CDQ1347
+ATOM   1147  N   LEU    75       4.131   5.871 -12.792  1.00  0.00      1CDQ1348
+ATOM   1148  CA  LEU    75       3.049   6.767 -13.289  1.00  0.00      1CDQ1349
+ATOM   1149  C   LEU    75       3.668   7.995 -13.959  1.00  0.00      1CDQ1350
+ATOM   1150  O   LEU    75       3.161   8.501 -14.940  1.00  0.00      1CDQ1351
+ATOM   1151  CB  LEU    75       2.175   7.211 -12.115  1.00  0.00      1CDQ1352
+ATOM   1152  CG  LEU    75       1.335   6.029 -11.631  1.00  0.00      1CDQ1353
+ATOM   1153  CD1 LEU    75       1.437   5.918 -10.108  1.00  0.00      1CDQ1354
+ATOM   1154  CD2 LEU    75      -0.127   6.246 -12.029  1.00  0.00      1CDQ1355
+ATOM   1155  H   LEU    75       4.254   5.739 -11.828  1.00  0.00      1CDQ1356
+ATOM   1156  HA  LEU    75       2.443   6.234 -14.007  1.00  0.00      1CDQ1357
+ATOM   1157 1HB  LEU    75       2.805   7.561 -11.310  1.00  0.00      1CDQ1358
+ATOM   1158 2HB  LEU    75       1.521   8.009 -12.433  1.00  0.00      1CDQ1359
+ATOM   1159  HG  LEU    75       1.702   5.118 -12.083  1.00  0.00      1CDQ1360
+ATOM   1160 1HD1 LEU    75       2.452   6.124  -9.800  1.00  0.00      1CDQ1361
+ATOM   1161 2HD1 LEU    75       0.770   6.633  -9.650  1.00  0.00      1CDQ1362
+ATOM   1162 3HD1 LEU    75       1.163   4.921  -9.801  1.00  0.00      1CDQ1363
+ATOM   1163 1HD2 LEU    75      -0.183   6.476 -13.083  1.00  0.00      1CDQ1364
+ATOM   1164 2HD2 LEU    75      -0.692   5.348 -11.826  1.00  0.00      1CDQ1365
+ATOM   1165 3HD2 LEU    75      -0.537   7.066 -11.459  1.00  0.00      1CDQ1366
+ATOM   1166  N   GLU    76       4.762   8.478 -13.437  1.00  0.00      1CDQ1367
+ATOM   1167  CA  GLU    76       5.412   9.671 -14.047  1.00  0.00      1CDQ1368
+ATOM   1168  C   GLU    76       6.268   9.227 -15.234  1.00  0.00      1CDQ1369
+ATOM   1169  O   GLU    76       6.840   8.156 -15.232  1.00  0.00      1CDQ1370
+ATOM   1170  CB  GLU    76       6.301  10.358 -13.007  1.00  0.00      1CDQ1371
+ATOM   1171  CG  GLU    76       5.430  11.166 -12.044  1.00  0.00      1CDQ1372
+ATOM   1172  CD  GLU    76       6.138  11.284 -10.694  1.00  0.00      1CDQ1373
+ATOM   1173  OE1 GLU    76       6.943  10.418 -10.391  1.00  0.00      1CDQ1374
+ATOM   1174  OE2 GLU    76       5.866  12.239  -9.984  1.00  0.00      1CDQ1375
+ATOM   1175  H   GLU    76       5.157   8.056 -12.646  1.00  0.00      1CDQ1376
+ATOM   1176  HA  GLU    76       4.654  10.362 -14.387  1.00  0.00      1CDQ1377
+ATOM   1177 1HB  GLU    76       6.852   9.611 -12.456  1.00  0.00      1CDQ1378
+ATOM   1178 2HB  GLU    76       6.991  11.021 -13.507  1.00  0.00      1CDQ1379
+ATOM   1179 1HG  GLU    76       5.262  12.153 -12.452  1.00  0.00      1CDQ1380
+ATOM   1180 2HG  GLU    76       4.483  10.667 -11.909  1.00  0.00      1CDQ1381
+ATOM   1181  N   ASN    77       6.360  10.040 -16.250  1.00  0.00      1CDQ1382
+ATOM   1182  CA  ASN    77       7.178   9.660 -17.435  1.00  0.00      1CDQ1383
+ATOM   1183  C   ASN    77       6.487   8.519 -18.185  1.00  0.00      1CDQ1384
+ATOM   1184  O   ASN    77       5.487   8.028 -17.685  1.00  0.00      1CDQ1385
+ATOM   1185  CB  ASN    77       8.562   9.198 -16.971  1.00  0.00      1CDQ1386
+ATOM   1186  CG  ASN    77       9.048  10.103 -15.838  1.00  0.00      1CDQ1387
+ATOM   1187  OD1 ASN    77       9.256  11.284 -16.033  1.00  0.00      1CDQ1388
+ATOM   1188  ND2 ASN    77       9.241   9.595 -14.651  1.00  0.00      1CDQ1389
+ATOM   1189  OXT ASN    77       6.967   8.157 -19.246  1.00  0.00      1CDQ1390
+ATOM   1190  H   ASN    77       5.889  10.900 -16.234  1.00  0.00      1CDQ1391
+ATOM   1191  HA  ASN    77       7.282  10.511 -18.090  1.00  0.00      1CDQ1392
+ATOM   1192 1HB  ASN    77       8.502   8.178 -16.619  1.00  0.00      1CDQ1393
+ATOM   1193 2HB  ASN    77       9.255   9.253 -17.797  1.00  0.00      1CDQ1394
+ATOM   1194 1HD2 ASN    77       9.553  10.165 -13.918  1.00  0.00      1CDQ1395
+ATOM   1195 2HD2 ASN    77       9.073   8.642 -14.493  1.00  0.00      1CDQ1396
+TER    1196      ASN    77                                              1CDQ1397
+ENDMDL                                                                  1CDQ1398
+CONECT   44   43  349                                                   1CD24161
+CONECT   89   88  177                                                   1CD24162
+CONECT  177   89  176                                                   1CD24163
+CONECT  263  262  559                                                   1CD24164
+CONECT  349   44  348                                                   1CD24165
+CONECT  559  263  558                                                   1CD24166
+CONECT  667  666  967                                                   1CD24167
+CONECT  967  667  966                                                   1CD24168
+CONECT  977  976 1062                                                   1CD24169
+CONECT 1062  977 1061                                                   1CD24170
+MASTER      164    0    0    1    5    0    0    623900   20  200    6  1CD24361
+END                                                                     1CD24362

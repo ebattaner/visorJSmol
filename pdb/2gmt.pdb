@@ -1,0 +1,2142 @@
+HEADER    HYDROLASE(SERINE PROTEINASE)            07-SEP-94   2GMT      2GMT   2
+COMPND    GAMMA CHYMOTRYPSIN (E.C.3.4.21.1) ALKYLATED WITH              2GMT   3
+COMPND   2 N-ACETYL-L-ALANYL-L-PHENYLALANYL-ALPHA-CHLOROETHYLKETONE     2GMT   4
+SOURCE    BOVINE (BOS TAURUS)                                           2GMT   5
+AUTHOR    K.KREUTTER,A.C.U.STEINMETZ,T.-C.LIANG,M.PROROK,R.ABELES,      2GMT   6
+AUTHOR   2 D.RINGE                                                      2GMT   7
+REVDAT   1   01-NOV-94 2GMT    0                                        2GMT   8
+JRNL        AUTH   K.KREUTTER,A.C.U.STEINMETZ,T.-C.LIANG,M.PROROK,      2GMT   9
+JRNL        AUTH 2 R.ABELES,D.RINGE                                     2GMT  10
+JRNL        TITL   THREE-DIMENSIONAL STRUCTURE OF CHYMOTRYPSIN          2GMT  11
+JRNL        TITL 2 INACTIVATED WITH (2S)                                2GMT  12
+JRNL        TITL 3 N-ACETYL-L-ALANYL-L-PHENYLALANYL-CHLOROETHYL         2GMT  13
+JRNL        TITL 4 KETONE: IMPLICATIONS FOR THE MECHANISM OF            2GMT  14
+JRNL        TITL 5 INACTIVATION OF SERINE PROTEASES BY CHLOROKETONES    2GMT  15
+JRNL        REF    TO BE PUBLISHED                                      2GMT  16
+JRNL        REFN                                                  0353  2GMT  17
+REMARK   1                                                              2GMT  18
+REMARK   2                                                              2GMT  19
+REMARK   2 RESOLUTION. 1.8  ANGSTROMS.                                  2GMT  20
+REMARK   3                                                              2GMT  21
+REMARK   3 REFINEMENT.                                                  2GMT  22
+REMARK   3   PROGRAM                    TNT                             2GMT  23
+REMARK   3   AUTHORS                    TRONRUD,TEN EYCK,MATTHEWS       2GMT  24
+REMARK   3   R VALUE                    0.188                           2GMT  25
+REMARK   3   RMSD BOND DISTANCES        0.02   ANGSTROMS                2GMT  26
+REMARK   3   RMSD BOND ANGLES           3.0    DEGREES                  2GMT  27
+REMARK   3                                                              2GMT  28
+REMARK   3   NUMBER OF REFLECTIONS      13167                           2GMT  29
+REMARK   3   RESOLUTION RANGE       20. - 1.8  ANGSTROMS                2GMT  30
+REMARK   3                                                              2GMT  31
+REMARK   3   NUMBER OF PROTEIN ATOMS                       1760         2GMT  32
+REMARK   3   NUMBER OF SOLVENT ATOMS                        238         2GMT  33
+REMARK   4                                                              2GMT  34
+REMARK   4 THE RESIDUE NUMBER OF THE INACTIVATOR (HIN) IS 247.  THERE   2GMT  35
+REMARK   4 ARE 1760 PROTEIN AND INH ATOMS.                              2GMT  36
+REMARK   5                                                              2GMT  37
+REMARK   5 THE CATALYTIC TRIAD (ACT) IS HIS 57, ASP 102, SER 195.       2GMT  38
+REMARK   6                                                              2GMT  39
+REMARK   6 POLYPEPTIDE CHAINS ARE DERIVED FROM THE ZYMOGEN OF           2GMT  40
+REMARK   6 THIS ENZYME BY EXCISION OF RESIDUES 14 - 15 AND 147 - 148.   2GMT  41
+REMARK   6 TO ASSIGN SEPARATE CHAIN IDENTIFIERS TO THE THREE CHAINS     2GMT  42
+REMARK   6 WOULD OBSCURE THIS RELATIONSHIP AND SO THIS WAS NOT DONE.    2GMT  43
+REMARK   6 RESIDUES 11 THROUGH 13 AND 149 THROUGH 150 ARE NOT VISIBLE   2GMT  44
+REMARK   6 IN THE ELECTRON DENSITY MAP AND SO ARE OMITTED.  ALL         2GMT  45
+REMARK   6 SECONDARY STRUCTURAL FEATURES AND SEQUENCE ARE IDENTICAL TO  2GMT  46
+REMARK   6 PROTEIN DATA BANK ENTRY 2GCH.                                2GMT  47
+REMARK   7                                                              2GMT  48
+REMARK   7 CROSS REFERENCE TO SEQUENCE DATABASE                         2GMT  49
+REMARK   7 SWISS-PROT ENTRY NAME       PDB ENTRY CHAIN NAME             2GMT  50
+REMARK   7    CTRA_BOVIN                                                2GMT  51
+REMARK   8                                                              2GMT  52
+REMARK   8 PDB ADVISORY NOTICE:                                         2GMT  53
+REMARK   8 C TYR 146 HAS CLOSE CONTACTS OF 2.0 ANGSTROMS WITH HOH 384   2GMT  54
+REMARK   8 AND HOH 541. HOH 345 AND HOH 400 HAVE A CLOSE CONTACT OF     2GMT  55
+REMARK   8 2.0 ANGSTROMS.                                               2GMT  56
+REMARK   9                                                              2GMT  57
+REMARK   9 HET GROUP HIN IS                                             2GMT  58
+REMARK   9 (2S) N-ACETYL-L-ALANYL-ALPHAL-PHENYLALANYL-CHLOROETHYL       2GMT  59
+REMARK   9 KETONE.                                                      2GMT  60
+SEQRES   1    245  CYS GLY VAL PRO ALA ILE GLN PRO VAL LEU SER GLY LEU  2GMT  61
+SEQRES   2    245  EXC EXC ILE VAL ASN GLY GLU GLU ALA VAL PRO GLY SER  2GMT  62
+SEQRES   3    245  TRP PRO TRP GLN VAL SER LEU GLN ASP LYS THR GLY PHE  2GMT  63
+SEQRES   4    245  HIS PHE CYS GLY GLY SER LEU ILE ASN GLU ASN TRP VAL  2GMT  64
+SEQRES   5    245  VAL THR ALA ALA HIS CYS GLY VAL THR THR SER ASP VAL  2GMT  65
+SEQRES   6    245  VAL VAL ALA GLY GLU PHE ASP GLN GLY SER SER SER GLU  2GMT  66
+SEQRES   7    245  LYS ILE GLN LYS LEU LYS ILE ALA LYS VAL PHE LYS ASN  2GMT  67
+SEQRES   8    245  SER LYS TYR ASN SER LEU THR ILE ASN ASN ASP ILE THR  2GMT  68
+SEQRES   9    245  LEU LEU LYS LEU SER THR ALA ALA SER PHE SER GLN THR  2GMT  69
+SEQRES  10    245  VAL SER ALA VAL CYS LEU PRO SER ALA SER ASP ASP PHE  2GMT  70
+SEQRES  11    245  ALA ALA GLY THR THR CYS VAL THR THR GLY TRP GLY LEU  2GMT  71
+SEQRES  12    245  THR ARG TYR EXC EXC ALA ASN THR PRO ASP ARG LEU GLN  2GMT  72
+SEQRES  13    245  GLN ALA SER LEU PRO LEU LEU SER ASN THR ASN CYS LYS  2GMT  73
+SEQRES  14    245  LYS TYR TRP GLY THR LYS ILE LYS ASP ALA MET ILE CYS  2GMT  74
+SEQRES  15    245  ALA GLY ALA SER GLY VAL SER SER CYS MET GLY ASP SER  2GMT  75
+SEQRES  16    245  GLY GLY PRO LEU VAL CYS LYS LYS ASN GLY ALA TRP THR  2GMT  76
+SEQRES  17    245  LEU VAL GLY ILE VAL SER TRP GLY SER SER THR CYS SER  2GMT  77
+SEQRES  18    245  THR SER THR PRO GLY VAL TYR ALA ARG VAL THR ALA LEU  2GMT  78
+SEQRES  19    245  VAL ASN TRP VAL GLN GLN THR LEU ALA ALA ASN          2GMT  79
+HET    HIN    247      21     SEE REMARK 9.                             2GMT  80
+FORMUL   2  HIN    C16 H21 N2 O3 CL1                                    2GMT  81
+FORMUL   3  HOH   *238(H2 O1)                                           2GMT  82
+HELIX    1   1 VAL    231  ASN    245  1                                2GMT  83
+SHEET    1 SH1 7 PRO    28  ASP    35  0                                2GMT  84
+SHEET    2 SH1 7 CYS    42  GLU    49 -1                                2GMT  85
+SHEET    3 SH1 7 ASN    50  ALA    56 -1                                2GMT  86
+SHEET    4 SH1 7 ASN   101  THR   110 -1                                2GMT  87
+SHEET    5 SH1 7 ILE   181  SER    92 -1                                2GMT  88
+SHEET    6 SH1 7 SER    63  GLY    69 -1                                2GMT  89
+SHEET    7 SH1 7 PRO    28  ASP    35 -1                                2GMT  90
+SHEET    1 SH2 7 GLY   133  TRP   141  0                                2GMT  91
+SHEET    2 SH2 7 LEU   155  LEU   162 -1                                2GMT  92
+SHEET    3 SH2 7 ALA   179  SER   186 -1                                2GMT  93
+SHEET    4 SH2 7 SER   223  ALA   229 -1                                2GMT  94
+SHEET    5 SH2 7 ILE   212  SER   218 -1                                2GMT  95
+SHEET    6 SH2 7 GLY   193  CYS   201 -1                                2GMT  96
+SHEET    7 SH2 7 GLY   193  TRP   141 -1                                2GMT  97
+SSBOND   1 CYS      1    CYS    122                                     2GMT  98
+SSBOND   2 CYS     42    CYS     58                                     2GMT  99
+SSBOND   3 CYS    136    CYS    201                                     2GMT 100
+SSBOND   4 CYS    168    CYS    182                                     2GMT 101
+SSBOND   5 CYS    191    CYS    220                                     2GMT 102
+SITE     1 ACT  3 ASP   102  HIS    57  SER   195                       2GMT 103
+CRYST1   69.500   69.500   97.600  90.00  90.00  90.00 P 42 21 2     8  2GMT 104
+ORIGX1      1.000000  0.000000  0.000000        0.00000                 2GMT 105
+ORIGX2      0.000000  1.000000  0.000000        0.00000                 2GMT 106
+ORIGX3      0.000000  0.000000  1.000000        0.00000                 2GMT 107
+SCALE1      0.014388  0.000000  0.000000        0.00000                 2GMT 108
+SCALE2      0.000000  0.014388  0.000000        0.00000                 2GMT 109
+SCALE3      0.000000  0.000000  0.010246        0.00000                 2GMT 110
+ATOM      1  N   CYS     1      54.561  90.715  71.590  1.00  8.02      2GMT 111
+ATOM      2  CA  CYS     1      53.541  90.205  72.520  1.00  6.70      2GMT 112
+ATOM      3  C   CYS     1      53.648  90.811  73.905  1.00  4.51      2GMT 113
+ATOM      4  O   CYS     1      54.695  91.292  74.264  1.00  3.52      2GMT 114
+ATOM      5  CB  CYS     1      53.627  88.663  72.731  1.00  6.59      2GMT 115
+ATOM      6  SG  CYS     1      55.228  87.987  73.261  1.00  3.74      2GMT 116
+ATOM      7  N   GLY     2      52.635  90.596  74.735  1.00  4.79      2GMT 117
+ATOM      8  CA  GLY     2      52.672  90.988  76.118  1.00  5.19      2GMT 118
+ATOM      9  C   GLY     2      52.778  92.461  76.541  1.00  6.61      2GMT 119
+ATOM     10  O   GLY     2      53.014  92.703  77.754  1.00  6.10      2GMT 120
+ATOM     11  N   VAL     3      52.600  93.447  75.632  1.00  6.25      2GMT 121
+ATOM     12  CA  VAL     3      52.614  94.867  75.980  1.00  6.23      2GMT 122
+ATOM     13  C   VAL     3      51.296  95.519  75.523  1.00  7.57      2GMT 123
+ATOM     14  O   VAL     3      51.056  95.915  74.389  1.00  7.08      2GMT 124
+ATOM     15  CB  VAL     3      53.809  95.640  75.336  1.00  5.45      2GMT 125
+ATOM     16  CG1 VAL     3      53.678  97.173  75.692  1.00  1.37      2GMT 126
+ATOM     17  CG2 VAL     3      55.140  95.009  75.931  1.00  7.22      2GMT 127
+ATOM     18  N   PRO     4      50.351  95.630  76.422  1.00  7.15      2GMT 128
+ATOM     19  CA  PRO     4      49.071  96.250  75.995  1.00  5.79      2GMT 129
+ATOM     20  C   PRO     4      49.225  97.723  75.621  1.00  6.60      2GMT 130
+ATOM     21  O   PRO     4      50.094  98.403  76.211  1.00  6.51      2GMT 131
+ATOM     22  CB  PRO     4      48.155  96.117  77.259  1.00  5.70      2GMT 132
+ATOM     23  CG  PRO     4      48.949  95.348  78.363  1.00  7.15      2GMT 133
+ATOM     24  CD  PRO     4      50.306  94.967  77.766  1.00  6.12      2GMT 134
+ATOM     25  N   ALA     5      48.374  98.185  74.680  1.00  5.58      2GMT 135
+ATOM     26  CA  ALA     5      48.298  99.557  74.161  1.00  3.37      2GMT 136
+ATOM     27  C   ALA     5      47.697 100.462  75.195  1.00  3.00      2GMT 137
+ATOM     28  O   ALA     5      48.181 101.569  75.321  1.00  4.38      2GMT 138
+ATOM     29  CB  ALA     5      47.647  99.761  72.755  1.00  1.00      2GMT 139
+ATOM     30  N   ILE     6      46.773  99.933  75.991  1.00  1.60      2GMT 140
+ATOM     31  CA  ILE     6      46.123 100.577  77.097  1.00  3.77      2GMT 141
+ATOM     32  C   ILE     6      46.721  99.879  78.359  1.00  5.73      2GMT 142
+ATOM     33  O   ILE     6      46.626  98.648  78.567  1.00  1.63      2GMT 143
+ATOM     34  CB  ILE     6      44.614 100.437  76.985  1.00  3.27      2GMT 144
+ATOM     35  CG1 ILE     6      43.972 100.879  75.687  1.00  5.89      2GMT 145
+ATOM     36  CG2 ILE     6      43.780 100.959  78.140  1.00  7.08      2GMT 146
+ATOM     37  CD1 ILE     6      42.458 100.723  75.758  1.00  6.22      2GMT 147
+ATOM     38  N   GLN     7      47.397 100.670  79.195  1.00  8.65      2GMT 148
+ATOM     39  CA  GLN     7      48.044 100.118  80.386  1.00 11.72      2GMT 149
+ATOM     40  C   GLN     7      47.139  99.700  81.482  1.00  8.57      2GMT 150
+ATOM     41  O   GLN     7      46.227 100.394  81.792  1.00  9.07      2GMT 151
+ATOM     42  CB  GLN     7      49.123 100.977  80.998  1.00 16.59      2GMT 152
+ATOM     43  CG  GLN     7      50.460 100.247  81.028  1.00 20.57      2GMT 153
+ATOM     44  CD  GLN     7      51.487 101.275  81.257  1.00 22.63      2GMT 154
+ATOM     45  OE1 GLN     7      51.782 102.032  80.312  1.00 24.61      2GMT 155
+ATOM     46  NE2 GLN     7      51.835 101.423  82.536  1.00 23.32      2GMT 156
+ATOM     47  N   PRO     8      47.428  98.540  82.077  1.00  6.77      2GMT 157
+ATOM     48  CA  PRO     8      46.594  98.066  83.148  1.00  3.87      2GMT 158
+ATOM     49  C   PRO     8      46.995  98.880  84.399  1.00  3.49      2GMT 159
+ATOM     50  O   PRO     8      48.144  99.289  84.566  1.00  1.95      2GMT 160
+ATOM     51  CB  PRO     8      46.962  96.573  83.432  1.00  1.00      2GMT 161
+ATOM     52  CG  PRO     8      48.208  96.289  82.602  1.00  3.14      2GMT 162
+ATOM     53  CD  PRO     8      48.449  97.500  81.655  1.00  5.54      2GMT 163
+ATOM     54  N   VAL     9      46.050  99.045  85.273  1.00  4.16      2GMT 164
+ATOM     55  CA  VAL     9      46.353  99.707  86.490  1.00  6.26      2GMT 165
+ATOM     56  C   VAL     9      45.873  98.816  87.611  1.00  5.74      2GMT 166
+ATOM     57  O   VAL     9      44.705  98.478  87.637  1.00  6.71      2GMT 167
+ATOM     58  CB  VAL     9      45.969 101.175  86.554  1.00  8.41      2GMT 168
+ATOM     59  CG1 VAL     9      44.773 101.509  85.697  1.00 11.27      2GMT 169
+ATOM     60  CG2 VAL     9      45.828 101.675  88.017  1.00  8.67      2GMT 170
+ATOM     61  N   LEU    10      46.766  98.392  88.499  1.00  6.06      2GMT 171
+ATOM     62  CA  LEU    10      46.418  97.443  89.533  1.00  9.36      2GMT 172
+ATOM     63  C   LEU    10      46.480  97.966  90.961  1.00 10.25      2GMT 173
+ATOM     64  O   LEU    10      46.527  99.176  91.150  1.00 10.51      2GMT 174
+ATOM     65  CB  LEU    10      47.487  96.406  89.335  1.00 12.47      2GMT 175
+ATOM     66  CG  LEU    10      48.688  97.066  88.684  1.00 12.44      2GMT 176
+ATOM     67  CD1 LEU    10      49.275  98.064  89.657  1.00 10.73      2GMT 177
+ATOM     68  CD2 LEU    10      49.710  95.971  88.454  1.00 13.55      2GMT 178
+ATOM     69  N   ILE    16      36.219  86.157  89.497  1.00  1.31      2GMT 179
+ATOM     70  CA  ILE    16      37.143  86.378  90.625  1.00  1.89      2GMT 180
+ATOM     71  C   ILE    16      36.525  87.024  91.897  1.00  1.00      2GMT 181
+ATOM     72  O   ILE    16      35.831  87.969  91.821  1.00  1.00      2GMT 182
+ATOM     73  CB  ILE    16      38.300  87.280  90.148  1.00  5.10      2GMT 183
+ATOM     74  CG1 ILE    16      39.154  86.704  88.974  1.00  4.78      2GMT 184
+ATOM     75  CG2 ILE    16      39.168  87.610  91.357  1.00  7.73      2GMT 185
+ATOM     76  CD1 ILE    16      39.800  87.797  88.052  1.00  5.20      2GMT 186
+ATOM     77  N   VAL    17      36.762  86.469  93.104  1.00  1.00      2GMT 187
+ATOM     78  CA  VAL    17      36.220  87.069  94.322  1.00  1.60      2GMT 188
+ATOM     79  C   VAL    17      37.338  87.944  94.906  1.00  4.32      2GMT 189
+ATOM     80  O   VAL    17      38.554  87.563  94.996  1.00  2.79      2GMT 190
+ATOM     81  CB  VAL    17      35.843  85.978  95.300  1.00  2.31      2GMT 191
+ATOM     82  CG1 VAL    17      35.360  86.454  96.683  1.00  1.45      2GMT 192
+ATOM     83  CG2 VAL    17      34.836  85.113  94.617  1.00  4.05      2GMT 193
+ATOM     84  N   ASN    18      36.891  89.102  95.364  1.00  8.11      2GMT 194
+ATOM     85  CA  ASN    18      37.833  90.048  95.922  1.00  6.48      2GMT 195
+ATOM     86  C   ASN    18      38.672  90.743  94.861  1.00  4.55      2GMT 196
+ATOM     87  O   ASN    18      39.688  91.345  95.092  1.00  4.70      2GMT 197
+ATOM     88  CB  ASN    18      38.590  89.561  97.145  1.00  8.46      2GMT 198
+ATOM     89  CG  ASN    18      37.798  89.601  98.415  1.00 12.65      2GMT 199
+ATOM     90  OD1 ASN    18      36.784  90.303  98.498  1.00 14.50      2GMT 200
+ATOM     91  ND2 ASN    18      38.155  88.742  99.375  1.00 15.58      2GMT 201
+ATOM     92  N   GLY    19      38.174  90.741  93.679  1.00  4.41      2GMT 202
+ATOM     93  CA  GLY    19      38.839  91.393  92.609  1.00  7.72      2GMT 203
+ATOM     94  C   GLY    19      38.434  92.865  92.545  1.00  8.12      2GMT 204
+ATOM     95  O   GLY    19      37.934  93.408  93.517  1.00  8.03      2GMT 205
+ATOM     96  N   GLU    20      38.709  93.490  91.408  1.00  6.23      2GMT 206
+ATOM     97  CA  GLU    20      38.341  94.851  91.100  1.00  6.47      2GMT 207
+ATOM     98  C   GLU    20      38.164  94.967  89.576  1.00  4.94      2GMT 208
+ATOM     99  O   GLU    20      38.657  94.160  88.745  1.00  1.27      2GMT 209
+ATOM    100  CB  GLU    20      39.267  95.963  91.624  1.00  9.06      2GMT 210
+ATOM    101  CG  GLU    20      40.084  96.571  90.485  1.00 15.38      2GMT 211
+ATOM    102  CD  GLU    20      41.573  96.404  90.636  1.00 20.39      2GMT 212
+ATOM    103  OE1 GLU    20      42.152  95.433  90.189  1.00 24.28      2GMT 213
+ATOM    104  OE2 GLU    20      42.194  97.460  91.135  1.00 20.18      2GMT 214
+ATOM    105  N   GLU    21      37.542  96.058  89.225  1.00  4.04      2GMT 215
+ATOM    106  CA  GLU    21      37.272  96.324  87.864  1.00  7.41      2GMT 216
+ATOM    107  C   GLU    21      38.501  96.677  87.058  1.00  5.78      2GMT 217
+ATOM    108  O   GLU    21      39.220  97.517  87.517  1.00  2.84      2GMT 218
+ATOM    109  CB  GLU    21      36.313  97.473  87.891  1.00  8.59      2GMT 219
+ATOM    110  CG  GLU    21      35.052  96.976  87.226  1.00 14.05      2GMT 220
+ATOM    111  CD  GLU    21      34.082  98.102  87.012  1.00 16.42      2GMT 221
+ATOM    112  OE1 GLU    21      33.338  98.400  88.081  1.00 18.65      2GMT 222
+ATOM    113  OE2 GLU    21      34.124  98.711  85.985  1.00 14.67      2GMT 223
+ATOM    114  N   ALA    22      38.742  96.055  85.887  1.00  4.54      2GMT 224
+ATOM    115  CA  ALA    22      39.925  96.346  85.138  1.00  4.40      2GMT 225
+ATOM    116  C   ALA    22      39.701  97.551  84.269  1.00  5.54      2GMT 226
+ATOM    117  O   ALA    22      38.559  97.943  84.002  1.00  5.68      2GMT 227
+ATOM    118  CB  ALA    22      40.341  95.103  84.248  1.00  5.46      2GMT 228
+ATOM    119  N   VAL    23      40.792  98.169  83.817  1.00  5.82      2GMT 229
+ATOM    120  CA  VAL    23      40.642  99.285  82.917  1.00  6.07      2GMT 230
+ATOM    121  C   VAL    23      40.194  98.594  81.646  1.00  3.71      2GMT 231
+ATOM    122  O   VAL    23      40.670  97.502  81.280  1.00  1.00      2GMT 232
+ATOM    123  CB  VAL    23      41.954 100.130  82.856  1.00  5.50      2GMT 233
+ATOM    124  CG1 VAL    23      42.036 101.222  81.776  1.00  3.24      2GMT 234
+ATOM    125  CG2 VAL    23      42.176 100.663  84.261  1.00 10.24      2GMT 235
+ATOM    126  N   PRO    24      39.251  99.196  80.963  1.00  2.25      2GMT 236
+ATOM    127  CA  PRO    24      38.796  98.544  79.790  1.00  1.00      2GMT 237
+ATOM    128  C   PRO    24      39.810  98.508  78.716  1.00  2.07      2GMT 238
+ATOM    129  O   PRO    24      40.471  99.504  78.396  1.00  1.65      2GMT 239
+ATOM    130  CB  PRO    24      37.588  99.246  79.306  1.00  1.00      2GMT 240
+ATOM    131  CG  PRO    24      37.176 100.099  80.451  1.00  1.32      2GMT 241
+ATOM    132  CD  PRO    24      38.408 100.363  81.218  1.00  2.03      2GMT 242
+ATOM    133  N   GLY    25      39.917  97.291  78.211  1.00  1.82      2GMT 243
+ATOM    134  CA  GLY    25      40.802  96.887  77.134  1.00  4.69      2GMT 244
+ATOM    135  C   GLY    25      42.228  96.758  77.575  1.00  4.92      2GMT 245
+ATOM    136  O   GLY    25      43.117  96.740  76.704  1.00  4.89      2GMT 246
+ATOM    137  N   SER    26      42.412  96.608  78.902  1.00  1.00      2GMT 247
+ATOM    138  CA  SER    26      43.782  96.607  79.378  1.00  2.67      2GMT 248
+ATOM    139  C   SER    26      44.435  95.286  79.416  1.00  1.87      2GMT 249
+ATOM    140  O   SER    26      45.608  95.258  79.693  1.00  4.73      2GMT 250
+ATOM    141  CB  SER    26      44.002  97.334  80.703  1.00  2.29      2GMT 251
+ATOM    142  OG  SER    26      43.422  96.578  81.780  1.00  2.70      2GMT 252
+ATOM    143  N   TRP    27      43.658  94.250  79.220  1.00  2.55      2GMT 253
+ATOM    144  CA  TRP    27      44.179  92.871  79.118  1.00  2.37      2GMT 254
+ATOM    145  C   TRP    27      43.681  92.369  77.778  1.00  1.00      2GMT 255
+ATOM    146  O   TRP    27      42.675  91.669  77.669  1.00  1.00      2GMT 256
+ATOM    147  CB  TRP    27      43.655  92.044  80.285  1.00  3.77      2GMT 257
+ATOM    148  CG  TRP    27      44.023  92.667  81.601  1.00  6.31      2GMT 258
+ATOM    149  CD1 TRP    27      43.141  93.101  82.560  1.00  6.93      2GMT 259
+ATOM    150  CD2 TRP    27      45.327  92.729  82.192  1.00  6.65      2GMT 260
+ATOM    151  NE1 TRP    27      43.827  93.575  83.658  1.00  8.49      2GMT 261
+ATOM    152  CE2 TRP    27      45.164  93.292  83.490  1.00  9.04      2GMT 262
+ATOM    153  CE3 TRP    27      46.612  92.382  81.794  1.00  5.18      2GMT 263
+ATOM    154  CZ2 TRP    27      46.263  93.558  84.296  1.00  8.16      2GMT 264
+ATOM    155  CZ3 TRP    27      47.698  92.650  82.614  1.00  7.17      2GMT 265
+ATOM    156  CH2 TRP    27      47.501  93.220  83.853  1.00  8.86      2GMT 266
+ATOM    157  N   PRO    28      44.368  92.817  76.736  1.00  1.92      2GMT 267
+ATOM    158  CA  PRO    28      44.011  92.587  75.356  1.00  2.88      2GMT 268
+ATOM    159  C   PRO    28      43.924  91.183  74.833  1.00  2.09      2GMT 269
+ATOM    160  O   PRO    28      43.261  90.951  73.792  1.00  2.04      2GMT 270
+ATOM    161  CB  PRO    28      44.905  93.439  74.496  1.00  3.29      2GMT 271
+ATOM    162  CG  PRO    28      46.166  93.585  75.383  1.00  2.43      2GMT 272
+ATOM    163  CD  PRO    28      45.689  93.477  76.835  1.00  3.06      2GMT 273
+ATOM    164  N   TRP    29      44.618  90.266  75.506  1.00  1.86      2GMT 274
+ATOM    165  CA  TRP    29      44.562  88.923  75.067  1.00  1.00      2GMT 275
+ATOM    166  C   TRP    29      43.390  88.180  75.637  1.00  2.92      2GMT 276
+ATOM    167  O   TRP    29      43.222  87.010  75.303  1.00  4.52      2GMT 277
+ATOM    168  CB  TRP    29      45.803  88.150  75.549  1.00  1.00      2GMT 278
+ATOM    169  CG  TRP    29      46.200  88.510  76.926  1.00  1.00      2GMT 279
+ATOM    170  CD1 TRP    29      45.808  87.894  78.066  1.00  3.10      2GMT 280
+ATOM    171  CD2 TRP    29      47.088  89.549  77.321  1.00  1.50      2GMT 281
+ATOM    172  NE1 TRP    29      46.465  88.455  79.145  1.00  6.50      2GMT 282
+ATOM    173  CE2 TRP    29      47.282  89.439  78.735  1.00  3.31      2GMT 283
+ATOM    174  CE3 TRP    29      47.838  90.457  76.623  1.00  1.00      2GMT 284
+ATOM    175  CZ2 TRP    29      48.144  90.254  79.489  1.00  2.67      2GMT 285
+ATOM    176  CZ3 TRP    29      48.683  91.262  77.353  1.00  1.00      2GMT 286
+ATOM    177  CH2 TRP    29      48.768  91.238  78.784  1.00  1.58      2GMT 287
+ATOM    178  N   GLN    30      42.689  88.816  76.553  1.00  2.32      2GMT 288
+ATOM    179  CA  GLN    30      41.572  88.175  77.213  1.00  2.82      2GMT 289
+ATOM    180  C   GLN    30      40.366  87.973  76.296  1.00  3.90      2GMT 290
+ATOM    181  O   GLN    30      39.853  88.969  75.745  1.00  3.71      2GMT 291
+ATOM    182  CB  GLN    30      41.103  88.827  78.487  1.00  1.78      2GMT 292
+ATOM    183  CG  GLN    30      39.879  88.083  79.038  1.00  1.57      2GMT 293
+ATOM    184  CD  GLN    30      40.142  87.108  80.185  1.00  1.00      2GMT 294
+ATOM    185  OE1 GLN    30      40.854  87.385  81.189  1.00  1.00      2GMT 295
+ATOM    186  NE2 GLN    30      39.567  85.935  80.029  1.00  1.00      2GMT 296
+ATOM    187  N   VAL    31      39.984  86.727  76.142  1.00  4.91      2GMT 297
+ATOM    188  CA  VAL    31      38.794  86.363  75.309  1.00  4.07      2GMT 298
+ATOM    189  C   VAL    31      37.754  85.643  76.182  1.00  2.44      2GMT 299
+ATOM    190  O   VAL    31      38.020  85.185  77.333  1.00  1.00      2GMT 300
+ATOM    191  CB  VAL    31      39.182  85.529  74.099  1.00  4.24      2GMT 301
+ATOM    192  CG1 VAL    31      40.153  86.391  73.311  1.00  5.47      2GMT 302
+ATOM    193  CG2 VAL    31      39.867  84.196  74.549  1.00  1.66      2GMT 303
+ATOM    194  N   SER    32      36.520  85.694  75.674  1.00  3.23      2GMT 304
+ATOM    195  CA  SER    32      35.357  85.132  76.375  1.00  2.25      2GMT 305
+ATOM    196  C   SER    32      34.903  83.972  75.571  1.00  1.28      2GMT 306
+ATOM    197  O   SER    32      34.722  84.149  74.387  1.00  3.06      2GMT 307
+ATOM    198  CB  SER    32      34.154  86.061  76.319  1.00  2.45      2GMT 308
+ATOM    199  OG  SER    32      32.960  85.385  76.810  1.00  1.00      2GMT 309
+ATOM    200  N   LEU    33      34.756  82.824  76.142  1.00  1.58      2GMT 310
+ATOM    201  CA  LEU    33      34.273  81.710  75.358  1.00  2.82      2GMT 311
+ATOM    202  C   LEU    33      32.770  81.632  75.613  1.00  1.86      2GMT 312
+ATOM    203  O   LEU    33      32.349  81.461  76.786  1.00  2.28      2GMT 313
+ATOM    204  CB  LEU    33      34.917  80.367  75.782  1.00  7.38      2GMT 314
+ATOM    205  CG  LEU    33      36.269  80.058  75.097  1.00 11.26      2GMT 315
+ATOM    206  CD1 LEU    33      36.985  78.853  75.746  1.00 11.47      2GMT 316
+ATOM    207  CD2 LEU    33      36.072  79.851  73.596  1.00 13.14      2GMT 317
+ATOM    208  N   GLN    34      31.962  81.701  74.554  1.00  1.00      2GMT 318
+ATOM    209  CA  GLN    34      30.492  81.710  74.786  1.00  1.00      2GMT 319
+ATOM    210  C   GLN    34      29.764  80.621  74.023  1.00  1.35      2GMT 320
+ATOM    211  O   GLN    34      30.142  80.252  72.894  1.00  2.10      2GMT 321
+ATOM    212  CB  GLN    34      29.878  83.060  74.441  1.00  2.53      2GMT 322
+ATOM    213  CG  GLN    34      30.288  84.222  75.410  1.00  6.11      2GMT 323
+ATOM    214  CD  GLN    34      30.115  85.665  74.893  1.00  5.62      2GMT 324
+ATOM    215  OE1 GLN    34      29.348  85.916  73.955  1.00  6.97      2GMT 325
+ATOM    216  NE2 GLN    34      30.843  86.596  75.480  1.00  4.82      2GMT 326
+ATOM    217  N   ASP    35      28.705  80.098  74.642  1.00  3.12      2GMT 327
+ATOM    218  CA  ASP    35      27.995  79.079  73.940  1.00  3.19      2GMT 328
+ATOM    219  C   ASP    35      27.053  79.709  72.913  1.00  3.64      2GMT 329
+ATOM    220  O   ASP    35      26.978  80.925  72.836  1.00  1.88      2GMT 330
+ATOM    221  CB  ASP    35      27.468  78.020  74.949  1.00  2.77      2GMT 331
+ATOM    222  CG  ASP    35      26.199  78.498  75.527  1.00  1.95      2GMT 332
+ATOM    223  OD1 ASP    35      25.709  79.633  75.055  1.00  1.84      2GMT 333
+ATOM    224  OD2 ASP    35      25.764  77.920  76.420  1.00  2.84      2GMT 334
+ATOM    225  N   LYS    36      26.342  78.920  72.100  1.00  7.23      2GMT 335
+ATOM    226  CA  LYS    36      25.569  79.534  71.025  1.00  8.55      2GMT 336
+ATOM    227  C   LYS    36      24.433  80.399  71.520  1.00  7.24      2GMT 337
+ATOM    228  O   LYS    36      23.983  81.347  70.901  1.00  6.67      2GMT 338
+ATOM    229  CB  LYS    36      25.182  78.495  69.985  1.00 12.44      2GMT 339
+ATOM    230  CG  LYS    36      24.694  77.201  70.618  1.00 15.17      2GMT 340
+ATOM    231  CD  LYS    36      23.819  76.367  69.696  1.00 17.35      2GMT 341
+ATOM    232  CE  LYS    36      24.545  75.811  68.491  1.00 18.16      2GMT 342
+ATOM    233  NZ  LYS    36      24.398  74.373  68.359  1.00 19.52      2GMT 343
+ATOM    234  N   THR    37      24.075  80.149  72.759  1.00  8.56      2GMT 344
+ATOM    235  CA  THR    37      23.073  80.867  73.465  1.00  5.58      2GMT 345
+ATOM    236  C   THR    37      23.563  82.251  73.923  1.00  6.46      2GMT 346
+ATOM    237  O   THR    37      22.751  83.063  74.421  1.00  6.38      2GMT 347
+ATOM    238  CB  THR    37      22.789  79.945  74.650  1.00  5.30      2GMT 348
+ATOM    239  OG1 THR    37      21.592  79.161  74.527  1.00  6.72      2GMT 349
+ATOM    240  CG2 THR    37      23.122  80.499  76.037  1.00  1.00      2GMT 350
+ATOM    241  N   GLY    38      24.890  82.475  73.782  1.00  8.84      2GMT 351
+ATOM    242  CA  GLY    38      25.599  83.699  74.176  1.00  9.00      2GMT 352
+ATOM    243  C   GLY    38      26.087  83.782  75.630  1.00  8.60      2GMT 353
+ATOM    244  O   GLY    38      26.621  84.774  76.119  1.00  7.37      2GMT 354
+ATOM    245  N   PHE    39      25.895  82.703  76.357  1.00  9.24      2GMT 355
+ATOM    246  CA  PHE    39      26.289  82.571  77.743  1.00  7.30      2GMT 356
+ATOM    247  C   PHE    39      27.811  82.256  77.897  1.00  6.45      2GMT 357
+ATOM    248  O   PHE    39      28.279  81.234  77.432  1.00  6.30      2GMT 358
+ATOM    249  CB  PHE    39      25.434  81.398  78.274  1.00  6.10      2GMT 359
+ATOM    250  CG  PHE    39      25.730  80.964  79.678  1.00  6.73      2GMT 360
+ATOM    251  CD1 PHE    39      26.777  80.071  79.897  1.00  4.06      2GMT 361
+ATOM    252  CD2 PHE    39      25.027  81.458  80.782  1.00  8.49      2GMT 362
+ATOM    253  CE1 PHE    39      27.110  79.602  81.164  1.00  5.17      2GMT 363
+ATOM    254  CE2 PHE    39      25.366  81.015  82.064  1.00  8.19      2GMT 364
+ATOM    255  CZ  PHE    39      26.414  80.115  82.261  1.00  7.24      2GMT 365
+ATOM    256  N   HIS    40      28.560  83.125  78.565  1.00  5.01      2GMT 366
+ATOM    257  CA  HIS    40      29.991  82.981  78.902  1.00  1.00      2GMT 367
+ATOM    258  C   HIS    40      30.207  81.781  79.829  1.00  2.85      2GMT 368
+ATOM    259  O   HIS    40      29.616  81.667  80.891  1.00  1.00      2GMT 369
+ATOM    260  CB  HIS    40      30.483  84.256  79.598  1.00  1.17      2GMT 370
+ATOM    261  CG  HIS    40      31.813  84.111  80.329  1.00  1.14      2GMT 371
+ATOM    262  ND1 HIS    40      33.018  84.352  79.716  1.00  1.00      2GMT 372
+ATOM    263  CD2 HIS    40      32.114  83.651  81.588  1.00  1.00      2GMT 373
+ATOM    264  CE1 HIS    40      34.007  84.162  80.569  1.00  1.00      2GMT 374
+ATOM    265  NE2 HIS    40      33.509  83.761  81.717  1.00  1.00      2GMT 375
+ATOM    266  N   PHE    41      31.052  80.834  79.424  1.00  5.58      2GMT 376
+ATOM    267  CA  PHE    41      31.254  79.747  80.319  1.00  6.57      2GMT 377
+ATOM    268  C   PHE    41      32.737  79.592  80.672  1.00  6.80      2GMT 378
+ATOM    269  O   PHE    41      33.099  78.879  81.602  1.00  5.84      2GMT 379
+ATOM    270  CB  PHE    41      30.581  78.440  79.834  1.00  5.03      2GMT 380
+ATOM    271  CG  PHE    41      31.214  77.965  78.536  1.00  5.14      2GMT 381
+ATOM    272  CD1 PHE    41      30.787  78.434  77.296  1.00  5.74      2GMT 382
+ATOM    273  CD2 PHE    41      32.323  77.128  78.525  1.00  5.37      2GMT 383
+ATOM    274  CE1 PHE    41      31.369  78.026  76.096  1.00  6.50      2GMT 384
+ATOM    275  CE2 PHE    41      32.911  76.695  77.331  1.00  4.17      2GMT 385
+ATOM    276  CZ  PHE    41      32.465  77.157  76.091  1.00  5.90      2GMT 386
+ATOM    277  N   CYS    42      33.602  80.234  79.918  1.00  6.44      2GMT 387
+ATOM    278  CA  CYS    42      35.036  80.082  80.146  1.00  5.11      2GMT 388
+ATOM    279  C   CYS    42      35.901  81.217  79.519  1.00  4.77      2GMT 389
+ATOM    280  O   CYS    42      35.575  81.908  78.555  1.00  5.38      2GMT 390
+ATOM    281  CB  CYS    42      35.422  78.742  79.490  1.00  2.95      2GMT 391
+ATOM    282  SG  CYS    42      35.606  77.436  80.703  1.00  1.90      2GMT 392
+ATOM    283  N   GLY    43      37.079  81.453  80.084  1.00  3.89      2GMT 393
+ATOM    284  CA  GLY    43      37.976  82.494  79.535  1.00  3.96      2GMT 394
+ATOM    285  C   GLY    43      39.052  81.830  78.676  1.00  4.13      2GMT 395
+ATOM    286  O   GLY    43      39.178  80.592  78.627  1.00  3.66      2GMT 396
+ATOM    287  N   GLY    44      39.824  82.637  77.962  1.00  3.77      2GMT 397
+ATOM    288  CA  GLY    44      40.859  82.138  77.049  1.00  1.00      2GMT 398
+ATOM    289  C   GLY    44      41.868  83.250  76.828  1.00  1.00      2GMT 399
+ATOM    290  O   GLY    44      41.653  84.325  77.373  1.00  1.00      2GMT 400
+ATOM    291  N   SER    45      43.008  82.985  76.174  1.00  2.38      2GMT 401
+ATOM    292  CA  SER    45      44.024  84.039  75.919  1.00  2.63      2GMT 402
+ATOM    293  C   SER    45      44.514  83.940  74.459  1.00  2.99      2GMT 403
+ATOM    294  O   SER    45      44.994  82.849  74.065  1.00  1.00      2GMT 404
+ATOM    295  CB  SER    45      45.253  83.849  76.816  1.00  2.07      2GMT 405
+ATOM    296  OG  SER    45      44.866  84.110  78.157  1.00  1.91      2GMT 406
+ATOM    297  N   LEU    46      44.454  85.062  73.689  1.00  3.24      2GMT 407
+ATOM    298  CA  LEU    46      44.978  84.991  72.338  1.00  2.27      2GMT 408
+ATOM    299  C   LEU    46      46.471  84.890  72.412  1.00  1.75      2GMT 409
+ATOM    300  O   LEU    46      47.011  85.699  73.173  1.00  1.79      2GMT 410
+ATOM    301  CB  LEU    46      44.624  86.249  71.524  1.00  3.87      2GMT 411
+ATOM    302  CG  LEU    46      43.134  86.283  71.198  1.00  6.07      2GMT 412
+ATOM    303  CD1 LEU    46      42.596  87.717  71.109  1.00  6.44      2GMT 413
+ATOM    304  CD2 LEU    46      42.807  85.521  69.949  1.00  4.27      2GMT 414
+ATOM    305  N   ILE    47      47.135  84.002  71.663  1.00  1.00      2GMT 415
+ATOM    306  CA  ILE    47      48.609  83.931  71.719  1.00  2.75      2GMT 416
+ATOM    307  C   ILE    47      49.160  84.389  70.350  1.00  5.30      2GMT 417
+ATOM    308  O   ILE    47      50.345  84.604  70.134  1.00  5.66      2GMT 418
+ATOM    309  CB  ILE    47      49.116  82.532  72.037  1.00  3.89      2GMT 419
+ATOM    310  CG1 ILE    47      48.742  81.528  70.945  1.00  1.26      2GMT 420
+ATOM    311  CG2 ILE    47      48.567  81.991  73.328  1.00  6.65      2GMT 421
+ATOM    312  CD1 ILE    47      49.071  80.105  71.399  1.00  1.00      2GMT 422
+ATOM    313  N   ASN    48      48.223  84.595  69.415  1.00  4.37      2GMT 423
+ATOM    314  CA  ASN    48      48.439  85.045  68.088  1.00  5.78      2GMT 424
+ATOM    315  C   ASN    48      47.118  85.365  67.436  1.00  5.10      2GMT 425
+ATOM    316  O   ASN    48      46.080  85.190  68.069  1.00  1.00      2GMT 426
+ATOM    317  CB  ASN    48      49.538  84.433  67.158  1.00  5.64      2GMT 427
+ATOM    318  CG  ASN    48      49.389  82.981  66.909  1.00  6.63      2GMT 428
+ATOM    319  OD1 ASN    48      50.221  82.148  67.292  1.00  8.08      2GMT 429
+ATOM    320  ND2 ASN    48      48.260  82.662  66.374  1.00  7.39      2GMT 430
+ATOM    321  N   GLU    49      47.172  85.877  66.186  1.00  4.84      2GMT 431
+ATOM    322  CA  GLU    49      45.887  86.285  65.656  1.00  6.88      2GMT 432
+ATOM    323  C   GLU    49      45.061  85.161  65.253  1.00  7.58      2GMT 433
+ATOM    324  O   GLU    49      43.923  85.465  64.832  1.00  7.83      2GMT 434
+ATOM    325  CB  GLU    49      45.954  87.135  64.361  1.00  9.40      2GMT 435
+ATOM    326  CG  GLU    49      46.711  88.448  64.521  1.00 14.85      2GMT 436
+ATOM    327  CD  GLU    49      48.142  88.280  64.110  1.00 17.98      2GMT 437
+ATOM    328  OE1 GLU    49      48.618  87.112  64.512  1.00 18.54      2GMT 438
+ATOM    329  OE2 GLU    49      48.771  89.162  63.536  1.00 19.88      2GMT 439
+ATOM    330  N   ASN    50      45.639  83.933  65.288  1.00  6.98      2GMT 440
+ATOM    331  CA  ASN    50      44.905  82.757  64.819  1.00  5.42      2GMT 441
+ATOM    332  C   ASN    50      44.600  81.662  65.850  1.00  4.56      2GMT 442
+ATOM    333  O   ASN    50      43.896  80.712  65.548  1.00  2.97      2GMT 443
+ATOM    334  CB  ASN    50      45.549  82.120  63.570  1.00  5.17      2GMT 444
+ATOM    335  CG  ASN    50      45.527  83.046  62.372  1.00  8.20      2GMT 445
+ATOM    336  OD1 ASN    50      44.529  83.144  61.695  1.00 10.47      2GMT 446
+ATOM    337  ND2 ASN    50      46.648  83.669  62.037  1.00  8.41      2GMT 447
+ATOM    338  N   TRP    51      45.184  81.788  67.032  1.00  4.32      2GMT 448
+ATOM    339  CA  TRP    51      45.056  80.761  68.057  1.00  3.60      2GMT 449
+ATOM    340  C   TRP    51      44.787  81.353  69.443  1.00  3.43      2GMT 450
+ATOM    341  O   TRP    51      45.262  82.456  69.798  1.00  3.39      2GMT 451
+ATOM    342  CB  TRP    51      46.380  80.009  68.100  1.00  1.55      2GMT 452
+ATOM    343  CG  TRP    51      46.784  79.185  66.916  1.00  2.96      2GMT 453
+ATOM    344  CD1 TRP    51      47.496  79.548  65.810  1.00  3.54      2GMT 454
+ATOM    345  CD2 TRP    51      46.481  77.826  66.726  1.00  3.32      2GMT 455
+ATOM    346  NE1 TRP    51      47.634  78.477  64.962  1.00  1.00      2GMT 456
+ATOM    347  CE2 TRP    51      47.145  77.382  65.571  1.00  3.02      2GMT 457
+ATOM    348  CE3 TRP    51      45.831  76.927  67.510  1.00  1.82      2GMT 458
+ATOM    349  CZ2 TRP    51      46.979  76.055  65.082  1.00  1.70      2GMT 459
+ATOM    350  CZ3 TRP    51      45.760  75.625  67.086  1.00  3.57      2GMT 460
+ATOM    351  CH2 TRP    51      46.315  75.197  65.884  1.00  2.92      2GMT 461
+ATOM    352  N   VAL    52      44.012  80.583  70.192  1.00  3.39      2GMT 462
+ATOM    353  CA  VAL    52      43.606  80.904  71.541  1.00  3.13      2GMT 463
+ATOM    354  C   VAL    52      44.026  79.758  72.514  1.00  1.00      2GMT 464
+ATOM    355  O   VAL    52      43.872  78.592  72.165  1.00  2.18      2GMT 465
+ATOM    356  CB  VAL    52      42.033  81.047  71.637  1.00  6.23      2GMT 466
+ATOM    357  CG1 VAL    52      41.547  81.126  73.095  1.00  4.33      2GMT 467
+ATOM    358  CG2 VAL    52      41.529  82.319  70.977  1.00  7.85      2GMT 468
+ATOM    359  N   VAL    53      44.544  80.068  73.687  1.00  1.00      2GMT 469
+ATOM    360  CA  VAL    53      44.792  79.021  74.625  1.00  3.64      2GMT 470
+ATOM    361  C   VAL    53      43.669  79.057  75.693  1.00  2.56      2GMT 471
+ATOM    362  O   VAL    53      43.200  80.127  76.162  1.00  1.00      2GMT 472
+ATOM    363  CB  VAL    53      46.152  78.927  75.267  1.00  7.71      2GMT 473
+ATOM    364  CG1 VAL    53      47.123  78.492  74.214  1.00  8.87      2GMT 474
+ATOM    365  CG2 VAL    53      46.539  80.308  75.763  1.00  8.12      2GMT 475
+ATOM    366  N   THR    54      43.196  77.855  76.069  1.00  1.00      2GMT 476
+ATOM    367  CA  THR    54      42.224  77.751  77.141  1.00  1.00      2GMT 477
+ATOM    368  C   THR    54      42.438  76.431  77.916  1.00  1.73      2GMT 478
+ATOM    369  O   THR    54      43.326  75.614  77.634  1.00  1.18      2GMT 479
+ATOM    370  CB  THR    54      40.764  77.961  76.689  1.00  1.78      2GMT 480
+ATOM    371  OG1 THR    54      40.007  78.070  77.877  1.00  2.26      2GMT 481
+ATOM    372  CG2 THR    54      40.233  76.817  75.823  1.00  1.00      2GMT 482
+ATOM    373  N   ALA    55      41.638  76.233  78.954  1.00  2.00      2GMT 483
+ATOM    374  CA  ALA    55      41.644  74.991  79.690  1.00  1.00      2GMT 484
+ATOM    375  C   ALA    55      40.875  73.861  78.974  1.00  2.03      2GMT 485
+ATOM    376  O   ALA    55      39.798  74.048  78.476  1.00  1.08      2GMT 486
+ATOM    377  CB  ALA    55      41.212  75.188  81.134  1.00  1.00      2GMT 487
+ATOM    378  N   ALA    56      41.506  72.695  78.829  1.00  3.73      2GMT 488
+ATOM    379  CA  ALA    56      40.962  71.489  78.197  1.00  5.99      2GMT 489
+ATOM    380  C   ALA    56      39.600  71.107  78.764  1.00  6.59      2GMT 490
+ATOM    381  O   ALA    56      38.700  70.802  77.970  1.00  8.76      2GMT 491
+ATOM    382  CB  ALA    56      41.940  70.347  78.377  1.00  3.48      2GMT 492
+ATOM    383  N   HIS    57      39.442  71.192  80.107  1.00  7.01      2GMT 493
+ATOM    384  CA  HIS    57      38.162  70.876  80.812  1.00  4.17      2GMT 494
+ATOM    385  C   HIS    57      37.004  71.777  80.521  1.00  1.52      2GMT 495
+ATOM    386  O   HIS    57      35.910  71.412  80.861  1.00  1.00      2GMT 496
+ATOM    387  CB  HIS    57      38.205  70.518  82.305  1.00  4.68      2GMT 497
+ATOM    388  CG  HIS    57      38.099  71.719  83.174  1.00  6.04      2GMT 498
+ATOM    389  ND1 HIS    57      39.232  72.491  83.548  1.00  4.72      2GMT 499
+ATOM    390  CD2 HIS    57      36.979  72.315  83.619  1.00  7.12      2GMT 500
+ATOM    391  CE1 HIS    57      38.745  73.475  84.277  1.00  5.36      2GMT 501
+ATOM    392  NE2 HIS    57      37.401  73.425  84.288  1.00  7.92      2GMT 502
+ATOM    393  N   CYS    58      37.235  72.915  79.863  1.00  1.00      2GMT 503
+ATOM    394  CA  CYS    58      36.169  73.788  79.472  1.00  1.00      2GMT 504
+ATOM    395  C   CYS    58      35.232  73.108  78.462  1.00  2.43      2GMT 505
+ATOM    396  O   CYS    58      34.098  73.536  78.275  1.00  3.48      2GMT 506
+ATOM    397  CB  CYS    58      36.770  75.118  78.886  1.00  3.36      2GMT 507
+ATOM    398  SG  CYS    58      37.188  76.269  80.243  1.00  4.32      2GMT 508
+ATOM    399  N   GLY    59      35.751  72.090  77.771  1.00  3.91      2GMT 509
+ATOM    400  CA  GLY    59      35.011  71.334  76.802  1.00  5.35      2GMT 510
+ATOM    401  C   GLY    59      34.433  72.153  75.701  1.00  4.30      2GMT 511
+ATOM    402  O   GLY    59      33.257  72.066  75.379  1.00  3.74      2GMT 512
+ATOM    403  N   VAL    60      35.282  72.915  75.072  1.00  2.92      2GMT 513
+ATOM    404  CA  VAL    60      34.822  73.767  73.989  1.00  4.20      2GMT 514
+ATOM    405  C   VAL    60      34.517  72.919  72.764  1.00  5.63      2GMT 515
+ATOM    406  O   VAL    60      35.075  71.811  72.625  1.00  6.19      2GMT 516
+ATOM    407  CB  VAL    60      35.869  74.832  73.652  1.00  2.83      2GMT 517
+ATOM    408  CG1 VAL    60      35.426  75.598  72.421  1.00  1.00      2GMT 518
+ATOM    409  CG2 VAL    60      36.036  75.763  74.853  1.00  2.46      2GMT 519
+ATOM    410  N   THR    61      33.596  73.401  71.937  1.00  2.93      2GMT 520
+ATOM    411  CA  THR    61      33.357  72.658  70.722  1.00  4.21      2GMT 521
+ATOM    412  C   THR    61      33.409  73.701  69.596  1.00  5.53      2GMT 522
+ATOM    413  O   THR    61      33.580  74.897  69.859  1.00  2.00      2GMT 523
+ATOM    414  CB  THR    61      31.969  72.047  70.657  1.00  3.36      2GMT 524
+ATOM    415  OG1 THR    61      31.085  73.108  70.883  1.00  5.97      2GMT 525
+ATOM    416  CG2 THR    61      31.782  70.930  71.647  1.00  1.88      2GMT 526
+ATOM    417  N   THR    62      33.280  73.198  68.369  1.00  6.34      2GMT 527
+ATOM    418  CA  THR    62      33.245  73.976  67.166  1.00  9.53      2GMT 528
+ATOM    419  C   THR    62      32.016  74.876  67.088  1.00  8.77      2GMT 529
+ATOM    420  O   THR    62      31.882  75.799  66.289  1.00  9.18      2GMT 530
+ATOM    421  CB  THR    62      33.313  72.977  66.007  1.00 12.13      2GMT 531
+ATOM    422  OG1 THR    62      34.691  72.599  65.984  1.00 15.70      2GMT 532
+ATOM    423  CG2 THR    62      32.950  73.679  64.712  1.00 12.58      2GMT 533
+ATOM    424  N   SER    63      31.071  74.573  67.907  1.00  9.24      2GMT 534
+ATOM    425  CA  SER    63      29.850  75.361  67.949  1.00 10.26      2GMT 535
+ATOM    426  C   SER    63      29.958  76.600  68.893  1.00  9.92      2GMT 536
+ATOM    427  O   SER    63      29.174  77.549  68.793  1.00  9.04      2GMT 537
+ATOM    428  CB  SER    63      28.678  74.440  68.255  1.00 12.89      2GMT 538
+ATOM    429  OG  SER    63      28.749  73.306  67.388  1.00 13.77      2GMT 539
+ATOM    430  N   ASP    64      30.966  76.606  69.813  1.00  8.14      2GMT 540
+ATOM    431  CA  ASP    64      31.148  77.754  70.689  1.00  5.57      2GMT 541
+ATOM    432  C   ASP    64      31.816  78.941  69.941  1.00  3.80      2GMT 542
+ATOM    433  O   ASP    64      32.313  78.826  68.794  1.00  4.29      2GMT 543
+ATOM    434  CB  ASP    64      31.884  77.390  72.001  1.00  4.48      2GMT 544
+ATOM    435  CG  ASP    64      31.262  76.242  72.737  1.00  5.52      2GMT 545
+ATOM    436  OD1 ASP    64      29.982  76.426  73.046  1.00  5.26      2GMT 546
+ATOM    437  OD2 ASP    64      31.869  75.188  72.943  1.00  4.90      2GMT 547
+ATOM    438  N   VAL    65      31.847  80.086  70.601  1.00  3.91      2GMT 548
+ATOM    439  CA  VAL    65      32.440  81.257  69.965  1.00  3.89      2GMT 549
+ATOM    440  C   VAL    65      33.348  82.028  70.852  1.00  4.08      2GMT 550
+ATOM    441  O   VAL    65      33.047  82.261  72.054  1.00  8.57      2GMT 551
+ATOM    442  CB  VAL    65      31.488  82.144  69.152  1.00  4.81      2GMT 552
+ATOM    443  CG1 VAL    65      30.024  81.957  69.483  1.00  6.64      2GMT 553
+ATOM    444  CG2 VAL    65      31.834  83.603  69.283  1.00  3.97      2GMT 554
+ATOM    445  N   VAL    66      34.435  82.422  70.199  1.00  3.67      2GMT 555
+ATOM    446  CA  VAL    66      35.511  83.203  70.721  1.00  4.30      2GMT 556
+ATOM    447  C   VAL    66      35.232  84.679  70.530  1.00  4.05      2GMT 557
+ATOM    448  O   VAL    66      35.019  85.156  69.419  1.00  3.15      2GMT 558
+ATOM    449  CB  VAL    66      36.774  82.850  69.959  1.00  3.92      2GMT 559
+ATOM    450  CG1 VAL    66      37.782  83.970  70.260  1.00  5.49      2GMT 560
+ATOM    451  CG2 VAL    66      37.284  81.463  70.415  1.00  1.00      2GMT 561
+ATOM    452  N   VAL    67      35.102  85.393  71.667  1.00  3.35      2GMT 562
+ATOM    453  CA  VAL    67      34.785  86.787  71.633  1.00  2.40      2GMT 563
+ATOM    454  C   VAL    67      35.991  87.558  72.206  1.00  4.26      2GMT 564
+ATOM    455  O   VAL    67      36.539  87.259  73.298  1.00  6.48      2GMT 565
+ATOM    456  CB  VAL    67      33.493  87.031  72.429  1.00  2.75      2GMT 566
+ATOM    457  CG1 VAL    67      33.157  88.548  72.446  1.00  5.10      2GMT 567
+ATOM    458  CG2 VAL    67      32.267  86.240  71.923  1.00  1.00      2GMT 568
+ATOM    459  N   ALA    68      36.441  88.510  71.407  1.00  1.69      2GMT 569
+ATOM    460  CA  ALA    68      37.635  89.289  71.661  1.00  2.87      2GMT 570
+ATOM    461  C   ALA    68      37.272  90.771  71.767  1.00  1.61      2GMT 571
+ATOM    462  O   ALA    68      36.241  91.186  71.163  1.00  1.00      2GMT 572
+ATOM    463  CB  ALA    68      38.659  89.053  70.554  1.00  1.00      2GMT 573
+ATOM    464  N   GLY    69      38.136  91.516  72.479  1.00  2.38      2GMT 574
+ATOM    465  CA  GLY    69      37.931  92.953  72.616  1.00  1.93      2GMT 575
+ATOM    466  C   GLY    69      36.757  93.338  73.492  1.00  3.27      2GMT 576
+ATOM    467  O   GLY    69      36.303  94.487  73.486  1.00  1.75      2GMT 577
+ATOM    468  N   GLU    70      36.261  92.387  74.319  1.00  4.33      2GMT 578
+ATOM    469  CA  GLU    70      35.119  92.697  75.165  1.00  5.78      2GMT 579
+ATOM    470  C   GLU    70      35.508  93.177  76.545  1.00  6.72      2GMT 580
+ATOM    471  O   GLU    70      36.476  92.648  77.045  1.00  7.95      2GMT 581
+ATOM    472  CB  GLU    70      34.168  91.476  75.200  1.00  6.64      2GMT 582
+ATOM    473  CG  GLU    70      32.942  91.684  76.075  1.00  9.08      2GMT 583
+ATOM    474  CD  GLU    70      31.971  90.547  75.836  1.00 10.06      2GMT 584
+ATOM    475  OE1 GLU    70      32.590  89.371  75.976  1.00 11.26      2GMT 585
+ATOM    476  OE2 GLU    70      30.807  90.683  75.470  1.00  8.81      2GMT 586
+ATOM    477  N   PHE    71      34.799  94.177  77.121  1.00  4.43      2GMT 587
+ATOM    478  CA  PHE    71      34.982  94.661  78.468  1.00  5.85      2GMT 588
+ATOM    479  C   PHE    71      33.743  94.342  79.332  1.00  6.36      2GMT 589
+ATOM    480  O   PHE    71      33.818  93.551  80.299  1.00  6.52      2GMT 590
+ATOM    481  CB  PHE    71      35.411  96.161  78.602  1.00  5.73      2GMT 591
+ATOM    482  CG  PHE    71      35.305  96.711  80.025  1.00  6.69      2GMT 592
+ATOM    483  CD1 PHE    71      36.283  96.411  80.964  1.00  6.20      2GMT 593
+ATOM    484  CD2 PHE    71      34.203  97.460  80.439  1.00  6.69      2GMT 594
+ATOM    485  CE1 PHE    71      36.179  96.864  82.278  1.00  9.12      2GMT 595
+ATOM    486  CE2 PHE    71      34.069  97.902  81.755  1.00  8.82      2GMT 596
+ATOM    487  CZ  PHE    71      35.087  97.640  82.672  1.00 10.81      2GMT 597
+ATOM    488  N   ASP    72      32.578  94.928  78.942  1.00  6.18      2GMT 598
+ATOM    489  CA  ASP    72      31.326  94.762  79.608  1.00  6.05      2GMT 599
+ATOM    490  C   ASP    72      30.379  93.979  78.743  1.00  4.49      2GMT 600
+ATOM    491  O   ASP    72      29.906  94.492  77.715  1.00  3.38      2GMT 601
+ATOM    492  CB  ASP    72      30.713  96.155  79.755  1.00  7.11      2GMT 602
+ATOM    493  CG  ASP    72      29.411  96.291  80.447  1.00  4.14      2GMT 603
+ATOM    494  OD1 ASP    72      28.581  95.316  80.413  1.00  3.36      2GMT 604
+ATOM    495  OD2 ASP    72      29.118  97.280  80.978  1.00  6.78      2GMT 605
+ATOM    496  N   GLN    73      30.067  92.771  79.205  1.00  2.41      2GMT 606
+ATOM    497  CA  GLN    73      29.240  91.857  78.522  1.00  3.44      2GMT 607
+ATOM    498  C   GLN    73      27.769  92.261  78.399  1.00  6.73      2GMT 608
+ATOM    499  O   GLN    73      27.033  91.665  77.626  1.00  6.49      2GMT 609
+ATOM    500  CB  GLN    73      29.410  90.457  79.107  1.00  2.88      2GMT 610
+ATOM    501  CG  GLN    73      30.779  89.894  78.613  1.00  3.12      2GMT 611
+ATOM    502  CD  GLN    73      31.117  88.513  79.159  1.00  5.17      2GMT 612
+ATOM    503  OE1 GLN    73      32.231  87.958  78.873  1.00  9.40      2GMT 613
+ATOM    504  NE2 GLN    73      30.263  88.042  80.071  1.00  1.00      2GMT 614
+ATOM    505  N   GLY    74      27.391  93.239  79.191  1.00  8.08      2GMT 615
+ATOM    506  CA  GLY    74      26.072  93.791  79.195  1.00  7.33      2GMT 616
+ATOM    507  C   GLY    74      26.023  94.884  78.091  1.00 10.23      2GMT 617
+ATOM    508  O   GLY    74      24.993  95.206  77.526  1.00 12.73      2GMT 618
+ATOM    509  N   SER    75      27.142  95.458  77.730  1.00  8.73      2GMT 619
+ATOM    510  CA  SER    75      27.148  96.523  76.703  1.00  7.94      2GMT 620
+ATOM    511  C   SER    75      26.822  96.039  75.253  1.00 10.35      2GMT 621
+ATOM    512  O   SER    75      27.046  94.901  74.845  1.00  9.96      2GMT 622
+ATOM    513  CB  SER    75      28.473  97.262  76.764  1.00  5.31      2GMT 623
+ATOM    514  OG  SER    75      28.524  98.268  75.748  1.00  7.71      2GMT 624
+ATOM    515  N   SER    76      26.293  96.924  74.435  1.00 11.73      2GMT 625
+ATOM    516  CA  SER    76      25.960  96.553  73.082  1.00 10.15      2GMT 626
+ATOM    517  C   SER    76      26.632  97.526  72.151  1.00  9.32      2GMT 627
+ATOM    518  O   SER    76      26.452  97.468  70.938  1.00 11.27      2GMT 628
+ATOM    519  CB  SER    76      24.443  96.536  72.885  1.00 12.02      2GMT 629
+ATOM    520  OG  SER    76      23.969  97.826  72.432  1.00 12.16      2GMT 630
+ATOM    521  N   SER    77      27.403  98.423  72.758  1.00  6.68      2GMT 631
+ATOM    522  CA  SER    77      28.106  99.463  72.062  1.00  5.77      2GMT 632
+ATOM    523  C   SER    77      29.587  99.188  71.870  1.00  5.08      2GMT 633
+ATOM    524  O   SER    77      30.346  99.901  71.211  1.00  4.50      2GMT 634
+ATOM    525  CB  SER    77      27.773 100.868  72.470  1.00  6.49      2GMT 635
+ATOM    526  OG  SER    77      28.706 101.245  73.435  1.00  9.16      2GMT 636
+ATOM    527  N   GLU    78      29.974  98.057  72.396  1.00  3.47      2GMT 637
+ATOM    528  CA  GLU    78      31.340  97.679  72.218  1.00  4.33      2GMT 638
+ATOM    529  C   GLU    78      31.559  97.086  70.834  1.00  7.60      2GMT 639
+ATOM    530  O   GLU    78      30.760  96.259  70.430  1.00  7.71      2GMT 640
+ATOM    531  CB  GLU    78      31.740  96.634  73.306  1.00  4.27      2GMT 641
+ATOM    532  CG  GLU    78      32.390  97.327  74.462  1.00  4.08      2GMT 642
+ATOM    533  CD  GLU    78      32.481  96.536  75.687  1.00  7.95      2GMT 643
+ATOM    534  OE1 GLU    78      32.290  95.237  75.437  1.00  8.32      2GMT 644
+ATOM    535  OE2 GLU    78      32.681  97.084  76.798  1.00  7.97      2GMT 645
+ATOM    536  N   LYS    79      32.647  97.493  70.123  1.00  9.84      2GMT 646
+ATOM    537  CA  LYS    79      33.071  96.966  68.810  1.00 11.26      2GMT 647
+ATOM    538  C   LYS    79      33.680  95.524  68.930  1.00 11.68      2GMT 648
+ATOM    539  O   LYS    79      34.730  95.216  68.392  1.00 13.18      2GMT 649
+ATOM    540  CB  LYS    79      34.111  97.894  68.203  1.00 14.02      2GMT 650
+ATOM    541  CG  LYS    79      34.025  98.060  66.684  1.00 17.00      2GMT 651
+ATOM    542  CD  LYS    79      35.290  98.571  65.954  1.00 19.38      2GMT 652
+ATOM    543  CE  LYS    79      36.630  97.991  66.468  1.00 20.61      2GMT 653
+ATOM    544  NZ  LYS    79      37.845  98.784  66.147  1.00 19.81      2GMT 654
+ATOM    545  N   ILE    80      33.013  94.620  69.640  1.00 10.06      2GMT 655
+ATOM    546  CA  ILE    80      33.451  93.274  69.828  1.00  9.75      2GMT 656
+ATOM    547  C   ILE    80      33.724  92.529  68.523  1.00  8.72      2GMT 657
+ATOM    548  O   ILE    80      33.283  92.973  67.449  1.00  6.06      2GMT 658
+ATOM    549  CB  ILE    80      32.618  92.547  70.887  1.00  9.47      2GMT 659
+ATOM    550  CG1 ILE    80      31.124  92.539  70.528  1.00  9.86      2GMT 660
+ATOM    551  CG2 ILE    80      32.823  93.392  72.134  1.00  6.08      2GMT 661
+ATOM    552  CD1 ILE    80      30.313  91.314  70.943  1.00  9.05      2GMT 662
+ATOM    553  N   GLN    81      34.475  91.418  68.669  1.00 10.17      2GMT 663
+ATOM    554  CA  GLN    81      34.923  90.516  67.605  1.00 10.23      2GMT 664
+ATOM    555  C   GLN    81      34.495  89.093  67.955  1.00  8.64      2GMT 665
+ATOM    556  O   GLN    81      35.034  88.553  68.931  1.00  7.68      2GMT 666
+ATOM    557  CB  GLN    81      36.467  90.588  67.469  1.00 11.09      2GMT 667
+ATOM    558  CG  GLN    81      37.068  91.663  66.522  1.00 10.40      2GMT 668
+ATOM    559  CD  GLN    81      38.524  91.359  66.170  1.00 10.17      2GMT 669
+ATOM    560  OE1 GLN    81      38.859  90.237  65.686  1.00 12.82      2GMT 670
+ATOM    561  NE2 GLN    81      39.428  92.281  66.506  1.00  7.92      2GMT 671
+ATOM    562  N   LYS    82      33.470  88.563  67.222  1.00  6.42      2GMT 672
+ATOM    563  CA  LYS    82      32.894  87.233  67.439  1.00  7.55      2GMT 673
+ATOM    564  C   LYS    82      33.547  86.348  66.434  1.00  8.29      2GMT 674
+ATOM    565  O   LYS    82      33.385  86.500  65.217  1.00 11.40      2GMT 675
+ATOM    566  CB  LYS    82      31.369  87.230  67.310  1.00 11.35      2GMT 676
+ATOM    567  CG  LYS    82      30.593  87.695  68.545  1.00 12.79      2GMT 677
+ATOM    568  CD  LYS    82      29.157  88.156  68.315  1.00 15.45      2GMT 678
+ATOM    569  CE  LYS    82      28.695  89.265  69.294  1.00 17.61      2GMT 679
+ATOM    570  NZ  LYS    82      27.898  90.361  68.701  1.00 16.22      2GMT 680
+ATOM    571  N   LEU    83      34.411  85.501  66.936  1.00  6.30      2GMT 681
+ATOM    572  CA  LEU    83      35.163  84.672  66.043  1.00  5.64      2GMT 682
+ATOM    573  C   LEU    83      34.788  83.203  66.072  1.00  4.86      2GMT 683
+ATOM    574  O   LEU    83      34.653  82.575  67.136  1.00  2.14      2GMT 684
+ATOM    575  CB  LEU    83      36.632  84.858  66.418  1.00  8.03      2GMT 685
+ATOM    576  CG  LEU    83      37.041  86.311  66.297  1.00 10.71      2GMT 686
+ATOM    577  CD1 LEU    83      38.534  86.427  66.666  1.00 12.98      2GMT 687
+ATOM    578  CD2 LEU    83      36.741  86.862  64.929  1.00 10.65      2GMT 688
+ATOM    579  N   LYS    84      34.749  82.639  64.903  1.00  5.14      2GMT 689
+ATOM    580  CA  LYS    84      34.397  81.241  64.776  1.00  8.44      2GMT 690
+ATOM    581  C   LYS    84      35.556  80.327  65.029  1.00 10.53      2GMT 691
+ATOM    582  O   LYS    84      36.677  80.736  64.781  1.00  9.88      2GMT 692
+ATOM    583  CB  LYS    84      33.694  80.943  63.472  1.00  8.50      2GMT 693
+ATOM    584  CG  LYS    84      32.226  81.379  63.428  1.00 10.68      2GMT 694
+ATOM    585  CD  LYS    84      31.752  81.425  61.969  1.00 12.95      2GMT 695
+ATOM    586  CE  LYS    84      30.248  81.581  61.804  1.00 16.76      2GMT 696
+ATOM    587  NZ  LYS    84      29.858  82.884  61.194  1.00 19.01      2GMT 697
+ATOM    588  N   ILE    85      35.267  79.123  65.540  1.00 11.38      2GMT 698
+ATOM    589  CA  ILE    85      36.278  78.144  65.926  1.00  8.28      2GMT 699
+ATOM    590  C   ILE    85      36.421  77.083  64.888  1.00  9.42      2GMT 700
+ATOM    591  O   ILE    85      35.500  76.323  64.657  1.00 13.05      2GMT 701
+ATOM    592  CB  ILE    85      36.048  77.495  67.294  1.00  8.78      2GMT 702
+ATOM    593  CG1 ILE    85      36.286  78.504  68.421  1.00  6.41      2GMT 703
+ATOM    594  CG2 ILE    85      36.946  76.272  67.471  1.00  9.14      2GMT 704
+ATOM    595  CD1 ILE    85      35.440  78.235  69.668  1.00  4.37      2GMT 705
+ATOM    596  N   ALA    86      37.596  76.997  64.295  1.00  6.47      2GMT 706
+ATOM    597  CA  ALA    86      37.756  75.998  63.282  1.00  7.43      2GMT 707
+ATOM    598  C   ALA    86      37.974  74.588  63.763  1.00  5.20      2GMT 708
+ATOM    599  O   ALA    86      37.305  73.637  63.284  1.00  7.57      2GMT 709
+ATOM    600  CB  ALA    86      38.870  76.496  62.401  1.00  8.57      2GMT 710
+ATOM    601  N   LYS    87      38.919  74.449  64.679  1.00  3.00      2GMT 711
+ATOM    602  CA  LYS    87      39.314  73.146  65.246  1.00  3.38      2GMT 712
+ATOM    603  C   LYS    87      39.780  73.257  66.690  1.00  3.60      2GMT 713
+ATOM    604  O   LYS    87      40.320  74.291  67.144  1.00  3.44      2GMT 714
+ATOM    605  CB  LYS    87      40.228  72.311  64.377  1.00  5.09      2GMT 715
+ATOM    606  CG  LYS    87      40.567  70.909  64.934  1.00  8.94      2GMT 716
+ATOM    607  CD  LYS    87      41.931  70.345  64.515  1.00  8.25      2GMT 717
+ATOM    608  CE  LYS    87      41.812  68.850  64.186  1.00 10.46      2GMT 718
+ATOM    609  NZ  LYS    87      41.948  68.501  62.758  1.00 10.59      2GMT 719
+ATOM    610  N   VAL    88      39.497  72.196  67.452  1.00  4.59      2GMT 720
+ATOM    611  CA  VAL    88      39.840  72.118  68.892  1.00  5.43      2GMT 721
+ATOM    612  C   VAL    88      40.976  71.116  69.176  1.00  7.74      2GMT 722
+ATOM    613  O   VAL    88      40.828  69.908  68.957  1.00  8.88      2GMT 723
+ATOM    614  CB  VAL    88      38.577  71.640  69.613  1.00  5.15      2GMT 724
+ATOM    615  CG1 VAL    88      38.849  71.476  71.095  1.00  6.48      2GMT 725
+ATOM    616  CG2 VAL    88      37.361  72.532  69.276  1.00  6.38      2GMT 726
+ATOM    617  N   PHE    89      42.126  71.594  69.637  1.00  7.22      2GMT 727
+ATOM    618  CA  PHE    89      43.269  70.712  69.851  1.00  7.27      2GMT 728
+ATOM    619  C   PHE    89      43.434  70.470  71.332  1.00  5.82      2GMT 729
+ATOM    620  O   PHE    89      44.012  71.289  72.021  1.00  3.66      2GMT 730
+ATOM    621  CB  PHE    89      44.583  71.313  69.359  1.00  5.96      2GMT 731
+ATOM    622  CG  PHE    89      44.748  71.292  67.865  1.00  5.24      2GMT 732
+ATOM    623  CD1 PHE    89      45.301  70.174  67.265  1.00  4.97      2GMT 733
+ATOM    624  CD2 PHE    89      44.282  72.315  67.045  1.00  6.49      2GMT 734
+ATOM    625  CE1 PHE    89      45.445  70.073  65.878  1.00  6.78      2GMT 735
+ATOM    626  CE2 PHE    89      44.434  72.253  65.659  1.00  7.88      2GMT 736
+ATOM    627  CZ  PHE    89      45.001  71.123  65.077  1.00  7.66      2GMT 737
+ATOM    628  N   LYS    90      42.827  69.367  71.785  1.00  6.90      2GMT 738
+ATOM    629  CA  LYS    90      42.895  68.973  73.195  1.00  5.39      2GMT 739
+ATOM    630  C   LYS    90      44.201  68.318  73.430  1.00  7.18      2GMT 740
+ATOM    631  O   LYS    90      44.465  67.266  72.812  1.00 10.49      2GMT 741
+ATOM    632  CB  LYS    90      41.789  67.968  73.486  1.00  5.43      2GMT 742
+ATOM    633  CG  LYS    90      41.650  67.591  74.956  1.00  5.18      2GMT 743
+ATOM    634  CD  LYS    90      40.302  66.946  75.245  1.00  4.48      2GMT 744
+ATOM    635  CE  LYS    90      39.940  66.011  74.078  1.00  5.15      2GMT 745
+ATOM    636  NZ  LYS    90      38.478  65.836  73.964  1.00  7.28      2GMT 746
+ATOM    637  N   ASN    91      45.008  68.867  74.340  1.00  4.15      2GMT 747
+ATOM    638  CA  ASN    91      46.279  68.255  74.624  1.00  5.38      2GMT 748
+ATOM    639  C   ASN    91      46.130  66.754  74.930  1.00  6.44      2GMT 749
+ATOM    640  O   ASN    91      45.436  66.315  75.854  1.00  6.87      2GMT 750
+ATOM    641  CB  ASN    91      47.070  68.968  75.716  1.00  5.51      2GMT 751
+ATOM    642  CG  ASN    91      48.452  68.439  75.897  1.00  6.29      2GMT 752
+ATOM    643  OD1 ASN    91      48.777  67.348  75.357  1.00 10.17      2GMT 753
+ATOM    644  ND2 ASN    91      49.296  69.272  76.448  1.00  5.15      2GMT 754
+ATOM    645  N   SER    92      46.845  65.936  74.175  1.00  3.88      2GMT 755
+ATOM    646  CA  SER    92      46.662  64.520  74.442  1.00  5.81      2GMT 756
+ATOM    647  C   SER    92      47.183  64.062  75.780  1.00  8.78      2GMT 757
+ATOM    648  O   SER    92      46.779  62.985  76.217  1.00 14.10      2GMT 758
+ATOM    649  CB  SER    92      47.070  63.627  73.290  1.00  5.07      2GMT 759
+ATOM    650  OG  SER    92      48.460  63.822  73.098  1.00  6.84      2GMT 760
+ATOM    651  N   LYS    93      48.005  64.854  76.469  1.00  3.67      2GMT 761
+ATOM    652  CA  LYS    93      48.442  64.443  77.795  1.00  5.26      2GMT 762
+ATOM    653  C   LYS    93      47.368  64.814  78.798  1.00  4.70      2GMT 763
+ATOM    654  O   LYS    93      47.425  64.438  79.953  1.00  1.00      2GMT 764
+ATOM    655  CB  LYS    93      49.730  65.065  78.370  1.00  7.49      2GMT 765
+ATOM    656  CG  LYS    93      50.949  65.122  77.482  1.00  9.26      2GMT 766
+ATOM    657  CD  LYS    93      51.881  63.982  77.850  1.00 11.68      2GMT 767
+ATOM    658  CE  LYS    93      53.240  64.478  78.403  1.00 13.03      2GMT 768
+ATOM    659  NZ  LYS    93      54.227  64.619  77.327  1.00 13.49      2GMT 769
+ATOM    660  N   TYR    94      46.329  65.525  78.392  1.00  3.95      2GMT 770
+ATOM    661  CA  TYR    94      45.299  65.835  79.344  1.00  1.00      2GMT 771
+ATOM    662  C   TYR    94      44.684  64.621  79.961  1.00  4.71      2GMT 772
+ATOM    663  O   TYR    94      44.364  63.641  79.264  1.00  8.09      2GMT 773
+ATOM    664  CB  TYR    94      44.272  66.814  78.698  1.00  2.26      2GMT 774
+ATOM    665  CG  TYR    94      42.956  66.993  79.429  1.00  3.19      2GMT 775
+ATOM    666  CD1 TYR    94      43.010  67.637  80.666  1.00  4.29      2GMT 776
+ATOM    667  CD2 TYR    94      41.736  66.436  79.018  1.00  2.88      2GMT 777
+ATOM    668  CE1 TYR    94      41.862  67.823  81.427  1.00  5.54      2GMT 778
+ATOM    669  CE2 TYR    94      40.563  66.643  79.747  1.00  2.01      2GMT 779
+ATOM    670  CZ  TYR    94      40.629  67.376  80.941  1.00  4.81      2GMT 780
+ATOM    671  OH  TYR    94      39.534  67.584  81.749  1.00  3.95      2GMT 781
+ATOM    672  N   ASN    95      44.536  64.669  81.264  1.00  4.03      2GMT 782
+ATOM    673  CA  ASN    95      43.937  63.642  82.120  1.00  4.30      2GMT 783
+ATOM    674  C   ASN    95      42.661  64.119  82.764  1.00  3.79      2GMT 784
+ATOM    675  O   ASN    95      42.660  64.744  83.794  1.00  6.60      2GMT 785
+ATOM    676  CB  ASN    95      44.918  63.216  83.225  1.00  5.53      2GMT 786
+ATOM    677  CG  ASN    95      44.391  62.058  84.015  1.00  7.22      2GMT 787
+ATOM    678  OD1 ASN    95      43.165  61.927  84.173  1.00  5.53      2GMT 788
+ATOM    679  ND2 ASN    95      45.311  61.165  84.449  1.00  6.89      2GMT 789
+ATOM    680  N   SER    96      41.542  63.817  82.207  1.00  4.17      2GMT 790
+ATOM    681  CA  SER    96      40.292  64.255  82.775  1.00  7.93      2GMT 791
+ATOM    682  C   SER    96      40.070  63.729  84.177  1.00  9.86      2GMT 792
+ATOM    683  O   SER    96      39.493  64.411  84.996  1.00 10.63      2GMT 793
+ATOM    684  CB  SER    96      39.083  64.040  81.899  1.00  9.67      2GMT 794
+ATOM    685  OG  SER    96      38.609  62.745  82.132  1.00 12.51      2GMT 795
+ATOM    686  N   LEU    97      40.604  62.561  84.477  1.00  9.33      2GMT 796
+ATOM    687  CA  LEU    97      40.385  62.127  85.821  1.00 10.86      2GMT 797
+ATOM    688  C   LEU    97      41.017  63.066  86.827  1.00  9.46      2GMT 798
+ATOM    689  O   LEU    97      40.351  63.472  87.782  1.00 11.20      2GMT 799
+ATOM    690  CB  LEU    97      40.630  60.630  86.106  1.00 13.52      2GMT 800
+ATOM    691  CG  LEU    97      39.424  59.817  85.582  1.00 16.16      2GMT 801
+ATOM    692  CD1 LEU    97      39.407  59.814  84.056  1.00 17.06      2GMT 802
+ATOM    693  CD2 LEU    97      39.293  58.399  86.137  1.00 16.90      2GMT 803
+ATOM    694  N   THR    98      42.243  63.477  86.559  1.00  6.07      2GMT 804
+ATOM    695  CA  THR    98      42.955  64.270  87.525  1.00  8.87      2GMT 805
+ATOM    696  C   THR    98      43.132  65.726  87.227  1.00  6.69      2GMT 806
+ATOM    697  O   THR    98      43.755  66.461  88.036  1.00  3.42      2GMT 807
+ATOM    698  CB  THR    98      44.382  63.692  87.536  1.00 13.31      2GMT 808
+ATOM    699  OG1 THR    98      44.904  63.853  86.231  1.00 15.00      2GMT 809
+ATOM    700  CG2 THR    98      44.353  62.204  87.899  1.00 13.47      2GMT 810
+ATOM    701  N   ILE    99      42.577  66.118  86.074  1.00  6.33      2GMT 811
+ATOM    702  CA  ILE    99      42.696  67.519  85.642  1.00  8.13      2GMT 812
+ATOM    703  C   ILE    99      44.156  67.998  85.412  1.00  8.11      2GMT 813
+ATOM    704  O   ILE    99      44.407  69.198  85.483  1.00  9.37      2GMT 814
+ATOM    705  CB  ILE    99      41.916  68.560  86.480  1.00  7.63      2GMT 815
+ATOM    706  CG1 ILE    99      40.825  67.991  87.361  1.00  7.86      2GMT 816
+ATOM    707  CG2 ILE    99      41.431  69.782  85.671  1.00  5.13      2GMT 817
+ATOM    708  CD1 ILE    99      40.624  68.777  88.657  1.00  8.06      2GMT 818
+ATOM    709  N   ASN   100      45.103  67.086  85.170  1.00  5.92      2GMT 819
+ATOM    710  CA  ASN   100      46.495  67.398  84.903  1.00  6.99      2GMT 820
+ATOM    711  C   ASN   100      46.683  67.690  83.393  1.00  4.08      2GMT 821
+ATOM    712  O   ASN   100      45.852  67.238  82.621  1.00  1.35      2GMT 822
+ATOM    713  CB  ASN   100      47.476  66.345  85.431  1.00  9.27      2GMT 823
+ATOM    714  CG  ASN   100      48.883  66.890  85.423  1.00 10.49      2GMT 824
+ATOM    715  OD1 ASN   100      49.843  66.122  85.211  1.00 13.71      2GMT 825
+ATOM    716  ND2 ASN   100      48.993  68.184  85.730  1.00  8.04      2GMT 826
+ATOM    717  N   ASN   101      47.688  68.505  82.998  1.00  1.97      2GMT 827
+ATOM    718  CA  ASN   101      47.819  68.952  81.599  1.00  1.45      2GMT 828
+ATOM    719  C   ASN   101      46.515  69.599  81.064  1.00  1.00      2GMT 829
+ATOM    720  O   ASN   101      46.118  69.358  79.930  1.00  1.00      2GMT 830
+ATOM    721  CB  ASN   101      48.349  67.940  80.582  1.00  1.70      2GMT 831
+ATOM    722  CG  ASN   101      49.519  67.253  81.174  1.00  4.66      2GMT 832
+ATOM    723  OD1 ASN   101      50.593  67.862  81.186  1.00  6.68      2GMT 833
+ATOM    724  ND2 ASN   101      49.315  66.053  81.739  1.00  3.17      2GMT 834
+ATOM    725  N   ASP   102      45.886  70.476  81.822  1.00  1.00      2GMT 835
+ATOM    726  CA  ASP   102      44.605  71.086  81.433  1.00  1.54      2GMT 836
+ATOM    727  C   ASP   102      44.753  72.180  80.415  1.00  1.22      2GMT 837
+ATOM    728  O   ASP   102      44.644  73.381  80.770  1.00  1.00      2GMT 838
+ATOM    729  CB  ASP   102      43.993  71.636  82.708  1.00  3.15      2GMT 839
+ATOM    730  CG  ASP   102      42.544  71.890  82.629  1.00  5.64      2GMT 840
+ATOM    731  OD1 ASP   102      42.005  71.397  81.564  1.00  7.23      2GMT 841
+ATOM    732  OD2 ASP   102      41.992  72.564  83.448  1.00  5.33      2GMT 842
+ATOM    733  N   ILE   103      45.008  71.766  79.170  1.00  1.00      2GMT 843
+ATOM    734  CA  ILE   103      45.191  72.782  78.155  1.00  2.17      2GMT 844
+ATOM    735  C   ILE   103      44.645  72.380  76.788  1.00  2.38      2GMT 845
+ATOM    736  O   ILE   103      44.869  71.340  76.259  1.00  2.96      2GMT 846
+ATOM    737  CB  ILE   103      46.654  73.167  77.998  1.00  1.68      2GMT 847
+ATOM    738  CG1 ILE   103      46.840  74.402  77.110  1.00  3.80      2GMT 848
+ATOM    739  CG2 ILE   103      47.512  71.955  77.583  1.00  1.00      2GMT 849
+ATOM    740  CD1 ILE   103      48.289  74.891  76.884  1.00  5.30      2GMT 850
+ATOM    741  N   THR   104      43.932  73.252  76.166  1.00  3.28      2GMT 851
+ATOM    742  CA  THR   104      43.445  72.906  74.829  1.00  1.89      2GMT 852
+ATOM    743  C   THR   104      43.793  74.112  73.937  1.00  1.96      2GMT 853
+ATOM    744  O   THR   104      43.619  75.239  74.400  1.00  1.77      2GMT 854
+ATOM    745  CB  THR   104      41.920  72.808  74.914  1.00  1.48      2GMT 855
+ATOM    746  OG1 THR   104      41.511  71.535  75.379  1.00  1.82      2GMT 856
+ATOM    747  CG2 THR   104      41.251  73.084  73.551  1.00  1.00      2GMT 857
+ATOM    748  N   LEU   105      44.171  73.891  72.680  1.00  2.30      2GMT 858
+ATOM    749  CA  LEU   105      44.380  74.993  71.749  1.00  1.92      2GMT 859
+ATOM    750  C   LEU   105      43.176  75.160  70.794  1.00  3.57      2GMT 860
+ATOM    751  O   LEU   105      42.660  74.182  70.251  1.00  2.64      2GMT 861
+ATOM    752  CB  LEU   105      45.522  74.717  70.798  1.00  4.04      2GMT 862
+ATOM    753  CG  LEU   105      46.915  75.334  71.113  1.00  6.64      2GMT 863
+ATOM    754  CD1 LEU   105      46.940  76.616  71.977  1.00  5.97      2GMT 864
+ATOM    755  CD2 LEU   105      47.845  74.279  71.595  1.00  6.59      2GMT 865
+ATOM    756  N   LEU   106      42.770  76.407  70.513  1.00  1.38      2GMT 866
+ATOM    757  CA  LEU   106      41.622  76.644  69.613  1.00  4.20      2GMT 867
+ATOM    758  C   LEU   106      42.146  77.434  68.439  1.00  5.39      2GMT 868
+ATOM    759  O   LEU   106      42.647  78.538  68.605  1.00  4.39      2GMT 869
+ATOM    760  CB  LEU   106      40.444  77.508  70.202  1.00  2.04      2GMT 870
+ATOM    761  CG  LEU   106      40.049  77.038  71.615  1.00  3.36      2GMT 871
+ATOM    762  CD1 LEU   106      39.141  78.075  72.256  1.00  5.50      2GMT 872
+ATOM    763  CD2 LEU   106      39.529  75.576  71.570  1.00  2.04      2GMT 873
+ATOM    764  N   LYS   107      42.031  76.836  67.256  1.00  5.40      2GMT 874
+ATOM    765  CA  LYS   107      42.504  77.527  66.084  1.00  4.97      2GMT 875
+ATOM    766  C   LYS   107      41.318  78.296  65.480  1.00  3.65      2GMT 876
+ATOM    767  O   LYS   107      40.214  77.747  65.334  1.00  1.83      2GMT 877
+ATOM    768  CB  LYS   107      43.110  76.507  65.146  1.00  5.34      2GMT 878
+ATOM    769  CG  LYS   107      43.073  77.022  63.739  1.00  6.74      2GMT 879
+ATOM    770  CD  LYS   107      44.453  77.294  63.228  1.00  8.11      2GMT 880
+ATOM    771  CE  LYS   107      44.778  76.345  62.118  1.00  8.87      2GMT 881
+ATOM    772  NZ  LYS   107      44.004  76.683  60.912  1.00  9.34      2GMT 882
+ATOM    773  N   LEU   108      41.485  79.590  65.208  1.00  5.71      2GMT 883
+ATOM    774  CA  LEU   108      40.321  80.353  64.676  1.00  5.55      2GMT 884
+ATOM    775  C   LEU   108      40.076  80.117  63.210  1.00  6.45      2GMT 885
+ATOM    776  O   LEU   108      41.026  79.994  62.428  1.00  6.50      2GMT 886
+ATOM    777  CB  LEU   108      40.398  81.844  65.010  1.00  5.03      2GMT 887
+ATOM    778  CG  LEU   108      40.789  82.041  66.500  1.00  6.33      2GMT 888
+ATOM    779  CD1 LEU   108      41.253  83.481  66.715  1.00  6.02      2GMT 889
+ATOM    780  CD2 LEU   108      39.647  81.660  67.481  1.00  6.79      2GMT 890
+ATOM    781  N   SER   109      38.803  80.105  62.806  1.00  7.01      2GMT 891
+ATOM    782  CA  SER   109      38.517  79.926  61.411  1.00  9.74      2GMT 892
+ATOM    783  C   SER   109      38.663  81.318  60.748  1.00 12.74      2GMT 893
+ATOM    784  O   SER   109      39.056  81.492  59.594  1.00 13.11      2GMT 894
+ATOM    785  CB  SER   109      37.250  79.097  61.171  1.00 12.08      2GMT 895
+ATOM    786  OG  SER   109      36.153  79.968  61.241  1.00 12.52      2GMT 896
+ATOM    787  N   THR   110      38.489  82.341  61.558  1.00 12.98      2GMT 897
+ATOM    788  CA  THR   110      38.781  83.668  61.079  1.00 16.38      2GMT 898
+ATOM    789  C   THR   110      39.773  84.305  62.014  1.00 15.89      2GMT 899
+ATOM    790  O   THR   110      39.591  84.288  63.237  1.00 17.24      2GMT 900
+ATOM    791  CB  THR   110      37.601  84.633  61.019  1.00 21.91      2GMT 901
+ATOM    792  OG1 THR   110      36.410  83.949  60.584  1.00 25.27      2GMT 902
+ATOM    793  CG2 THR   110      38.084  85.706  60.053  1.00 22.96      2GMT 903
+ATOM    794  N   ALA   111      40.819  84.890  61.450  1.00 15.05      2GMT 904
+ATOM    795  CA  ALA   111      41.839  85.565  62.224  1.00 14.23      2GMT 905
+ATOM    796  C   ALA   111      41.328  86.771  63.000  1.00 10.97      2GMT 906
+ATOM    797  O   ALA   111      40.611  87.632  62.448  1.00  7.98      2GMT 907
+ATOM    798  CB  ALA   111      42.797  86.221  61.245  1.00 15.05      2GMT 908
+ATOM    799  N   ALA   112      41.735  86.878  64.272  1.00  9.70      2GMT 909
+ATOM    800  CA  ALA   112      41.349  88.074  65.021  1.00 11.03      2GMT 910
+ATOM    801  C   ALA   112      42.102  89.297  64.439  1.00  9.42      2GMT 911
+ATOM    802  O   ALA   112      43.194  89.155  63.892  1.00 11.06      2GMT 912
+ATOM    803  CB  ALA   112      41.617  87.969  66.524  1.00 12.06      2GMT 913
+ATOM    804  N   SER   113      41.459  90.463  64.456  1.00  7.11      2GMT 914
+ATOM    805  CA  SER   113      42.088  91.661  63.951  1.00  7.16      2GMT 915
+ATOM    806  C   SER   113      42.784  92.288  65.121  1.00  6.15      2GMT 916
+ATOM    807  O   SER   113      42.073  92.762  65.994  1.00  9.11      2GMT 917
+ATOM    808  CB  SER   113      41.083  92.701  63.485  1.00  8.21      2GMT 918
+ATOM    809  OG  SER   113      40.861  92.613  62.095  1.00  9.94      2GMT 919
+ATOM    810  N   PHE   114      44.104  92.357  65.194  1.00  4.71      2GMT 920
+ATOM    811  CA  PHE   114      44.687  92.948  66.370  1.00  6.48      2GMT 921
+ATOM    812  C   PHE   114      44.468  94.462  66.368  1.00  9.48      2GMT 922
+ATOM    813  O   PHE   114      44.335  95.085  65.312  1.00 11.21      2GMT 923
+ATOM    814  CB  PHE   114      46.169  92.589  66.685  1.00  7.26      2GMT 924
+ATOM    815  CG  PHE   114      46.334  91.180  67.183  1.00  7.72      2GMT 925
+ATOM    816  CD1 PHE   114      45.211  90.382  67.388  1.00  7.63      2GMT 926
+ATOM    817  CD2 PHE   114      47.580  90.655  67.507  1.00  6.62      2GMT 927
+ATOM    818  CE1 PHE   114      45.326  89.077  67.870  1.00  9.18      2GMT 928
+ATOM    819  CE2 PHE   114      47.713  89.327  67.935  1.00  7.65      2GMT 929
+ATOM    820  CZ  PHE   114      46.583  88.536  68.134  1.00  7.61      2GMT 930
+ATOM    821  N   SER   115      44.480  95.061  67.543  1.00  9.60      2GMT 931
+ATOM    822  CA  SER   115      44.219  96.495  67.651  1.00  8.07      2GMT 932
+ATOM    823  C   SER   115      44.721  97.036  68.984  1.00  5.93      2GMT 933
+ATOM    824  O   SER   115      45.375  96.291  69.696  1.00  3.24      2GMT 934
+ATOM    825  CB  SER   115      42.695  96.762  67.626  1.00  8.16      2GMT 935
+ATOM    826  OG  SER   115      41.940  96.075  68.637  1.00  7.03      2GMT 936
+ATOM    827  N   GLN   116      44.335  98.286  69.340  1.00  7.79      2GMT 937
+ATOM    828  CA  GLN   116      44.700  98.777  70.674  1.00  9.30      2GMT 938
+ATOM    829  C   GLN   116      44.119  97.833  71.762  1.00 10.12      2GMT 939
+ATOM    830  O   GLN   116      44.715  97.698  72.870  1.00  9.40      2GMT 940
+ATOM    831  CB  GLN   116      44.154 100.183  70.962  1.00 13.05      2GMT 941
+ATOM    832  CG  GLN   116      45.272 101.248  71.038  1.00 19.57      2GMT 942
+ATOM    833  CD  GLN   116      44.853 102.466  71.849  1.00 22.16      2GMT 943
+ATOM    834  OE1 GLN   116      43.702 102.854  71.670  1.00 23.83      2GMT 944
+ATOM    835  NE2 GLN   116      45.765 103.094  72.634  1.00 21.67      2GMT 945
+ATOM    836  N   THR   117      42.928  97.227  71.489  1.00  8.60      2GMT 946
+ATOM    837  CA  THR   117      42.271  96.406  72.501  1.00  8.05      2GMT 947
+ATOM    838  C   THR   117      42.257  94.906  72.324  1.00  8.00      2GMT 948
+ATOM    839  O   THR   117      41.507  94.159  72.997  1.00  9.25      2GMT 949
+ATOM    840  CB  THR   117      40.836  96.934  72.809  1.00  6.06      2GMT 950
+ATOM    841  OG1 THR   117      39.964  96.489  71.821  1.00  4.75      2GMT 951
+ATOM    842  CG2 THR   117      40.806  98.458  72.772  1.00  6.76      2GMT 952
+ATOM    843  N   VAL   118      43.046  94.412  71.367  1.00  8.61      2GMT 953
+ATOM    844  CA  VAL   118      43.018  92.979  71.063  1.00  7.79      2GMT 954
+ATOM    845  C   VAL   118      44.380  92.693  70.568  1.00  7.00      2GMT 955
+ATOM    846  O   VAL   118      44.618  93.158  69.506  1.00  7.12      2GMT 956
+ATOM    847  CB  VAL   118      41.947  92.688  69.990  1.00  7.80      2GMT 957
+ATOM    848  CG1 VAL   118      41.954  91.240  69.447  1.00  9.04      2GMT 958
+ATOM    849  CG2 VAL   118      40.571  92.971  70.579  1.00  9.05      2GMT 959
+ATOM    850  N   SER   119      45.202  92.015  71.357  1.00  6.33      2GMT 960
+ATOM    851  CA  SER   119      46.599  91.678  71.119  1.00  4.15      2GMT 961
+ATOM    852  C   SER   119      47.024  90.464  71.914  1.00  3.97      2GMT 962
+ATOM    853  O   SER   119      46.254  89.953  72.694  1.00  4.86      2GMT 963
+ATOM    854  CB  SER   119      47.572  92.784  71.297  1.00  4.32      2GMT 964
+ATOM    855  OG  SER   119      47.356  93.411  72.529  1.00  8.04      2GMT 965
+ATOM    856  N   ALA   120      48.221  90.001  71.687  1.00  2.60      2GMT 966
+ATOM    857  CA  ALA   120      48.618  88.725  72.242  1.00  3.95      2GMT 967
+ATOM    858  C   ALA   120      49.433  88.606  73.513  1.00  1.30      2GMT 968
+ATOM    859  O   ALA   120      50.239  89.460  73.861  1.00  2.03      2GMT 969
+ATOM    860  CB  ALA   120      49.153  87.890  71.112  1.00  4.92      2GMT 970
+ATOM    861  N   VAL   121      49.160  87.529  74.248  1.00  1.97      2GMT 971
+ATOM    862  CA  VAL   121      49.931  87.368  75.436  1.00  1.98      2GMT 972
+ATOM    863  C   VAL   121      51.251  86.705  75.019  1.00  1.52      2GMT 973
+ATOM    864  O   VAL   121      51.250  85.931  74.030  1.00  3.27      2GMT 974
+ATOM    865  CB  VAL   121      49.161  86.679  76.577  1.00  1.00      2GMT 975
+ATOM    866  CG1 VAL   121      49.246  85.180  76.414  1.00  1.00      2GMT 976
+ATOM    867  CG2 VAL   121      49.929  86.980  77.852  1.00  1.00      2GMT 977
+ATOM    868  N   CYS   122      52.318  86.949  75.783  1.00  1.00      2GMT 978
+ATOM    869  CA  CYS   122      53.601  86.267  75.589  1.00  1.40      2GMT 979
+ATOM    870  C   CYS   122      53.612  84.886  76.244  1.00  3.40      2GMT 980
+ATOM    871  O   CYS   122      53.072  84.702  77.302  1.00  4.47      2GMT 981
+ATOM    872  CB  CYS   122      54.872  86.928  76.136  1.00  1.00      2GMT 982
+ATOM    873  SG  CYS   122      55.307  88.389  75.208  1.00  4.00      2GMT 983
+ATOM    874  N   LEU   123      54.301  83.956  75.656  1.00  3.52      2GMT 984
+ATOM    875  CA  LEU   123      54.464  82.613  76.138  1.00  5.12      2GMT 985
+ATOM    876  C   LEU   123      55.908  82.434  76.716  1.00  2.21      2GMT 986
+ATOM    877  O   LEU   123      56.872  82.936  76.200  1.00  1.00      2GMT 987
+ATOM    878  CB  LEU   123      54.279  81.599  74.977  1.00  7.64      2GMT 988
+ATOM    879  CG  LEU   123      52.832  81.250  74.595  1.00  7.62      2GMT 989
+ATOM    880  CD1 LEU   123      52.911  80.380  73.339  1.00  4.16      2GMT 990
+ATOM    881  CD2 LEU   123      52.245  80.428  75.726  1.00 10.51      2GMT 991
+ATOM    882  N   PRO   124      56.101  81.655  77.783  1.00  4.51      2GMT 992
+ATOM    883  CA  PRO   124      57.439  81.492  78.408  1.00  4.85      2GMT 993
+ATOM    884  C   PRO   124      58.241  80.393  77.814  1.00  5.78      2GMT 994
+ATOM    885  O   PRO   124      57.736  79.527  77.129  1.00  6.30      2GMT 995
+ATOM    886  CB  PRO   124      57.171  81.053  79.854  1.00  4.89      2GMT 996
+ATOM    887  CG  PRO   124      55.794  80.353  79.793  1.00  4.15      2GMT 997
+ATOM    888  CD  PRO   124      55.094  80.920  78.543  1.00  4.07      2GMT 998
+ATOM    889  N   SER   125      59.519  80.393  78.033  1.00  7.28      2GMT 999
+ATOM    890  CA  SER   125      60.347  79.304  77.463  1.00  8.38      2GMT1000
+ATOM    891  C   SER   125      60.071  78.120  78.377  1.00  8.25      2GMT1001
+ATOM    892  O   SER   125      59.674  78.399  79.495  1.00  8.18      2GMT1002
+ATOM    893  CB  SER   125      61.861  79.643  77.614  1.00 10.97      2GMT1003
+ATOM    894  OG  SER   125      62.157  81.039  77.652  1.00 14.49      2GMT1004
+ATOM    895  N   ALA   126      60.274  76.841  77.946  1.00  9.05      2GMT1005
+ATOM    896  CA  ALA   126      60.035  75.696  78.856  1.00  9.50      2GMT1006
+ATOM    897  C   ALA   126      60.790  75.784  80.149  1.00 11.57      2GMT1007
+ATOM    898  O   ALA   126      60.373  75.151  81.154  1.00 12.73      2GMT1008
+ATOM    899  CB  ALA   126      60.398  74.328  78.287  1.00  8.86      2GMT1009
+ATOM    900  N   SER   127      61.901  76.504  80.093  1.00 13.00      2GMT1010
+ATOM    901  CA  SER   127      62.712  76.615  81.285  1.00 14.33      2GMT1011
+ATOM    902  C   SER   127      62.657  77.940  82.059  1.00 14.05      2GMT1012
+ATOM    903  O   SER   127      63.487  78.216  82.955  1.00 12.38      2GMT1013
+ATOM    904  CB  SER   127      64.123  76.024  81.133  1.00 15.66      2GMT1014
+ATOM    905  OG  SER   127      64.892  76.712  80.157  1.00 14.66      2GMT1015
+ATOM    906  N   ASP   128      61.701  78.790  81.743  1.00 12.31      2GMT1016
+ATOM    907  CA  ASP   128      61.698  80.004  82.547  1.00 13.87      2GMT1017
+ATOM    908  C   ASP   128      61.296  79.644  84.030  1.00 12.09      2GMT1018
+ATOM    909  O   ASP   128      60.414  78.817  84.269  1.00 10.49      2GMT1019
+ATOM    910  CB  ASP   128      60.756  81.071  81.950  1.00 15.50      2GMT1020
+ATOM    911  CG  ASP   128      61.178  81.744  80.679  1.00 16.24      2GMT1021
+ATOM    912  OD1 ASP   128      62.425  81.484  80.385  1.00 17.06      2GMT1022
+ATOM    913  OD2 ASP   128      60.412  82.443  79.979  1.00 15.22      2GMT1023
+ATOM    914  N   ASP   129      61.924  80.305  85.021  1.00 11.73      2GMT1024
+ATOM    915  CA  ASP   129      61.658  80.149  86.439  1.00 14.24      2GMT1025
+ATOM    916  C   ASP   129      60.752  81.275  86.955  1.00 14.27      2GMT1026
+ATOM    917  O   ASP   129      60.970  82.466  86.775  1.00 14.78      2GMT1027
+ATOM    918  CB  ASP   129      62.946  79.957  87.286  1.00 18.50      2GMT1028
+ATOM    919  CG  ASP   129      62.758  80.424  88.698  1.00 22.23      2GMT1029
+ATOM    920  OD1 ASP   129      61.694  80.344  89.305  1.00 23.17      2GMT1030
+ATOM    921  OD2 ASP   129      63.810  81.008  89.177  1.00 24.80      2GMT1031
+ATOM    922  N   PHE   130      59.664  80.907  87.587  1.00 12.27      2GMT1032
+ATOM    923  CA  PHE   130      58.764  81.885  88.086  1.00  9.16      2GMT1033
+ATOM    924  C   PHE   130      58.620  81.632  89.558  1.00  7.30      2GMT1034
+ATOM    925  O   PHE   130      57.909  80.738  90.003  1.00  8.51      2GMT1035
+ATOM    926  CB  PHE   130      57.499  81.683  87.280  1.00 10.47      2GMT1036
+ATOM    927  CG  PHE   130      57.526  82.353  85.915  1.00  9.20      2GMT1037
+ATOM    928  CD1 PHE   130      57.552  83.745  85.819  1.00  7.41      2GMT1038
+ATOM    929  CD2 PHE   130      57.478  81.591  84.746  1.00  6.91      2GMT1039
+ATOM    930  CE1 PHE   130      57.536  84.371  84.572  1.00  7.58      2GMT1040
+ATOM    931  CE2 PHE   130      57.420  82.210  83.492  1.00  8.48      2GMT1041
+ATOM    932  CZ  PHE   130      57.468  83.605  83.410  1.00  7.32      2GMT1042
+ATOM    933  N   ALA   131      59.394  82.394  90.352  1.00  7.78      2GMT1043
+ATOM    934  CA  ALA   131      59.512  82.204  91.808  1.00  9.36      2GMT1044
+ATOM    935  C   ALA   131      58.269  82.301  92.700  1.00  9.36      2GMT1045
+ATOM    936  O   ALA   131      57.533  83.267  92.530  1.00  8.60      2GMT1046
+ATOM    937  CB  ALA   131      60.574  83.155  92.382  1.00  7.17      2GMT1047
+ATOM    938  N   ALA   132      58.140  81.347  93.689  1.00  8.98      2GMT1048
+ATOM    939  CA  ALA   132      57.082  81.337  94.708  1.00  7.81      2GMT1049
+ATOM    940  C   ALA   132      57.214  82.675  95.481  1.00  7.48      2GMT1050
+ATOM    941  O   ALA   132      58.324  83.076  95.727  1.00 10.46      2GMT1051
+ATOM    942  CB  ALA   132      57.255  80.112  95.604  1.00  7.42      2GMT1052
+ATOM    943  N   GLY   133      56.126  83.468  95.689  1.00  4.83      2GMT1053
+ATOM    944  CA  GLY   133      56.232  84.764  96.265  1.00  6.18      2GMT1054
+ATOM    945  C   GLY   133      56.027  85.826  95.177  1.00  6.54      2GMT1055
+ATOM    946  O   GLY   133      55.582  86.943  95.416  1.00  8.45      2GMT1056
+ATOM    947  N   THR   134      56.349  85.529  93.938  1.00  5.24      2GMT1057
+ATOM    948  CA  THR   134      56.114  86.552  92.924  1.00  4.87      2GMT1058
+ATOM    949  C   THR   134      54.597  86.906  92.842  1.00  3.43      2GMT1059
+ATOM    950  O   THR   134      53.697  86.069  92.914  1.00  1.00      2GMT1060
+ATOM    951  CB  THR   134      56.719  86.120  91.557  1.00  5.90      2GMT1061
+ATOM    952  OG1 THR   134      58.062  85.604  91.603  1.00  4.70      2GMT1062
+ATOM    953  CG2 THR   134      56.587  87.153  90.441  1.00  5.53      2GMT1063
+ATOM    954  N   THR   135      54.318  88.174  92.668  1.00  2.68      2GMT1064
+ATOM    955  CA  THR   135      52.956  88.688  92.531  1.00  1.00      2GMT1065
+ATOM    956  C   THR   135      52.593  88.793  91.068  1.00  1.51      2GMT1066
+ATOM    957  O   THR   135      53.226  89.555  90.304  1.00  1.28      2GMT1067
+ATOM    958  CB  THR   135      52.910  90.087  93.202  1.00  1.35      2GMT1068
+ATOM    959  OG1 THR   135      53.158  89.949  94.608  1.00  2.48      2GMT1069
+ATOM    960  CG2 THR   135      51.496  90.625  93.093  1.00  4.17      2GMT1070
+ATOM    961  N   CYS   136      51.590  88.026  90.658  1.00  1.00      2GMT1071
+ATOM    962  CA  CYS   136      51.065  88.053  89.328  1.00  2.48      2GMT1072
+ATOM    963  C   CYS   136      49.582  88.530  89.333  1.00  1.92      2GMT1073
+ATOM    964  O   CYS   136      49.034  89.002  90.379  1.00  1.00      2GMT1074
+ATOM    965  CB  CYS   136      51.318  86.713  88.572  1.00  4.26      2GMT1075
+ATOM    966  SG  CYS   136      52.993  86.072  88.830  1.00  6.40      2GMT1076
+ATOM    967  N   VAL   137      48.971  88.349  88.142  1.00  1.00      2GMT1077
+ATOM    968  CA  VAL   137      47.663  88.863  87.831  1.00  1.00      2GMT1078
+ATOM    969  C   VAL   137      46.850  87.842  87.071  1.00  3.44      2GMT1079
+ATOM    970  O   VAL   137      47.404  87.133  86.212  1.00  6.55      2GMT1080
+ATOM    971  CB  VAL   137      47.846  90.148  87.004  1.00  2.43      2GMT1081
+ATOM    972  CG1 VAL   137      46.517  90.814  86.634  1.00  3.15      2GMT1082
+ATOM    973  CG2 VAL   137      48.695  91.121  87.814  1.00  1.00      2GMT1083
+ATOM    974  N   THR   138      45.594  87.745  87.521  1.00  2.77      2GMT1084
+ATOM    975  CA  THR   138      44.677  86.848  86.858  1.00  2.41      2GMT1085
+ATOM    976  C   THR   138      43.433  87.652  86.607  1.00  1.00      2GMT1086
+ATOM    977  O   THR   138      43.108  88.508  87.440  1.00  1.06      2GMT1087
+ATOM    978  CB  THR   138      44.441  85.533  87.652  1.00  1.00      2GMT1088
+ATOM    979  OG1 THR   138      43.553  84.789  86.877  1.00  1.08      2GMT1089
+ATOM    980  CG2 THR   138      43.697  85.735  88.942  1.00  1.00      2GMT1090
+ATOM    981  N   THR   139      42.710  87.399  85.508  1.00  1.52      2GMT1091
+ATOM    982  CA  THR   139      41.528  88.210  85.171  1.00  1.00      2GMT1092
+ATOM    983  C   THR   139      40.440  87.367  84.677  1.00  1.06      2GMT1093
+ATOM    984  O   THR   139      40.709  86.221  84.337  1.00  1.00      2GMT1094
+ATOM    985  CB  THR   139      41.945  89.140  84.017  1.00  2.92      2GMT1095
+ATOM    986  OG1 THR   139      42.487  88.313  82.956  1.00  1.61      2GMT1096
+ATOM    987  CG2 THR   139      42.972  90.198  84.502  1.00  1.00      2GMT1097
+ATOM    988  N   GLY   140      39.217  87.915  84.590  1.00  1.00      2GMT1098
+ATOM    989  CA  GLY   140      38.133  87.099  84.033  1.00  1.88      2GMT1099
+ATOM    990  C   GLY   140      36.752  87.594  84.377  1.00  1.94      2GMT1100
+ATOM    991  O   GLY   140      36.646  88.535  85.144  1.00  1.00      2GMT1101
+ATOM    992  N   TRP   141      35.729  86.927  83.850  1.00  1.00      2GMT1102
+ATOM    993  CA  TRP   141      34.353  87.285  84.149  1.00  2.67      2GMT1103
+ATOM    994  C   TRP   141      33.711  86.241  85.056  1.00  5.00      2GMT1104
+ATOM    995  O   TRP   141      32.481  86.111  85.099  1.00  3.48      2GMT1105
+ATOM    996  CB  TRP   141      33.539  87.391  82.831  1.00  2.57      2GMT1106
+ATOM    997  CG  TRP   141      33.832  88.592  81.998  1.00  1.00      2GMT1107
+ATOM    998  CD1 TRP   141      33.300  89.800  82.239  1.00  2.19      2GMT1108
+ATOM    999  CD2 TRP   141      34.747  88.733  80.861  1.00  2.27      2GMT1109
+ATOM   1000  NE1 TRP   141      33.736  90.700  81.269  1.00  2.83      2GMT1110
+ATOM   1001  CE2 TRP   141      34.654  90.060  80.429  1.00  4.09      2GMT1111
+ATOM   1002  CE3 TRP   141      35.668  87.899  80.163  1.00  1.17      2GMT1112
+ATOM   1003  CZ2 TRP   141      35.422  90.531  79.312  1.00  4.64      2GMT1113
+ATOM   1004  CZ3 TRP   141      36.445  88.358  79.096  1.00  1.82      2GMT1114
+ATOM   1005  CH2 TRP   141      36.307  89.706  78.634  1.00  1.73      2GMT1115
+ATOM   1006  N   GLY   142      34.520  85.402  85.735  1.00  6.65      2GMT1116
+ATOM   1007  CA  GLY   142      33.857  84.395  86.554  1.00  7.66      2GMT1117
+ATOM   1008  C   GLY   142      33.151  84.994  87.769  1.00  6.38      2GMT1118
+ATOM   1009  O   GLY   142      33.288  86.220  88.010  1.00  7.54      2GMT1119
+ATOM   1010  N   LEU   143      32.367  84.147  88.513  1.00  4.54      2GMT1120
+ATOM   1011  CA  LEU   143      31.642  84.668  89.726  1.00  4.56      2GMT1121
+ATOM   1012  C   LEU   143      32.562  85.532  90.598  1.00  7.18      2GMT1122
+ATOM   1013  O   LEU   143      33.731  85.194  90.744  1.00  7.39      2GMT1123
+ATOM   1014  CB  LEU   143      31.121  83.540  90.616  1.00  4.07      2GMT1124
+ATOM   1015  CG  LEU   143      29.940  82.739  90.053  1.00  4.93      2GMT1125
+ATOM   1016  CD1 LEU   143      29.815  81.401  90.830  1.00  6.33      2GMT1126
+ATOM   1017  CD2 LEU   143      28.627  83.492  90.288  1.00  5.75      2GMT1127
+ATOM   1018  N   THR   144      32.049  86.613  91.246  1.00  8.37      2GMT1128
+ATOM   1019  CA  THR   144      32.868  87.440  92.149  1.00  9.01      2GMT1129
+ATOM   1020  C   THR   144      32.348  87.248  93.549  1.00 11.29      2GMT1130
+ATOM   1021  O   THR   144      32.813  87.860  94.509  1.00  9.52      2GMT1131
+ATOM   1022  CB  THR   144      32.599  88.889  91.811  1.00 11.21      2GMT1132
+ATOM   1023  OG1 THR   144      31.180  89.053  91.767  1.00 12.40      2GMT1133
+ATOM   1024  CG2 THR   144      33.208  89.074  90.431  1.00 11.82      2GMT1134
+ATOM   1025  N   ARG   145      31.384  86.341  93.578  1.00 13.53      2GMT1135
+ATOM   1026  CA  ARG   145      30.622  85.899  94.749  1.00 15.14      2GMT1136
+ATOM   1027  C   ARG   145      30.150  84.460  94.596  1.00 11.40      2GMT1137
+ATOM   1028  O   ARG   145      29.437  84.143  93.644  1.00 10.15      2GMT1138
+ATOM   1029  CB  ARG   145      29.349  86.748  94.834  1.00 17.23      2GMT1139
+ATOM   1030  CG  ARG   145      29.284  87.488  96.144  1.00 19.90      2GMT1140
+ATOM   1031  CD  ARG   145      30.137  88.719  95.956  1.00 21.41      2GMT1141
+ATOM   1032  NE  ARG   145      30.322  89.623  97.078  1.00 23.81      2GMT1142
+ATOM   1033  CZ  ARG   145      30.637  90.857  96.777  1.00 27.01      2GMT1143
+ATOM   1034  NH1 ARG   145      30.803  91.236  95.476  1.00 28.63      2GMT1144
+ATOM   1035  NH2 ARG   145      30.851  91.748  97.745  1.00 27.79      2GMT1145
+ATOM   1036  N   TYR   146      30.439  83.649  95.609  1.00 11.05      2GMT1146
+ATOM   1037  CA  TYR   146      29.968  82.270  95.658  1.00 12.89      2GMT1147
+ATOM   1038  C   TYR   146      28.813  82.092  96.651  1.00 11.74      2GMT1148
+ATOM   1039  O   TYR   146      27.712  81.799  96.204  1.00 11.14      2GMT1149
+ATOM   1040  CB  TYR   146      31.007  81.199  95.977  1.00 14.14      2GMT1150
+ATOM   1041  CG  TYR   146      30.323  79.839  95.943  1.00 16.85      2GMT1151
+ATOM   1042  CD1 TYR   146      30.070  79.182  94.742  1.00 17.84      2GMT1152
+ATOM   1043  CD2 TYR   146      29.960  79.202  97.128  1.00 17.42      2GMT1153
+ATOM   1044  CE1 TYR   146      29.490  77.917  94.695  1.00 20.29      2GMT1154
+ATOM   1045  CE2 TYR   146      29.371  77.940  97.109  1.00 19.63      2GMT1155
+ATOM   1046  CZ  TYR   146      29.102  77.312  95.892  1.00 20.98      2GMT1156
+ATOM   1047  OH  TYR   146      28.502  76.070  95.839  1.00 21.30      2GMT1157
+ATOM   1048  N   THR   151      27.426  85.869  86.811  1.00 13.54      2GMT1158
+ATOM   1049  CA  THR   151      28.690  86.382  86.294  1.00 15.19      2GMT1159
+ATOM   1050  C   THR   151      28.664  87.882  86.373  1.00 13.98      2GMT1160
+ATOM   1051  O   THR   151      27.564  88.404  86.306  1.00 16.98      2GMT1161
+ATOM   1052  CB  THR   151      29.076  85.863  84.866  1.00 18.47      2GMT1162
+ATOM   1053  OG1 THR   151      27.999  85.708  83.941  1.00 20.03      2GMT1163
+ATOM   1054  CG2 THR   151      29.910  84.559  84.870  1.00 19.65      2GMT1164
+ATOM   1055  N   PRO   152      29.807  88.562  86.555  1.00  8.49      2GMT1165
+ATOM   1056  CA  PRO   152      29.721  90.001  86.595  1.00  7.98      2GMT1166
+ATOM   1057  C   PRO   152      29.684  90.436  85.143  1.00  5.90      2GMT1167
+ATOM   1058  O   PRO   152      30.079  89.643  84.301  1.00  2.19      2GMT1168
+ATOM   1059  CB  PRO   152      31.048  90.510  87.157  1.00  6.29      2GMT1169
+ATOM   1060  CG  PRO   152      32.026  89.369  86.970  1.00  4.06      2GMT1170
+ATOM   1061  CD  PRO   152      31.200  88.105  86.941  1.00  4.20      2GMT1171
+ATOM   1062  N   ASP   153      29.272  91.691  84.852  1.00  5.56      2GMT1172
+ATOM   1063  CA  ASP   153      29.267  92.064  83.466  1.00  5.25      2GMT1173
+ATOM   1064  C   ASP   153      30.657  92.560  83.082  1.00  5.57      2GMT1174
+ATOM   1065  O   ASP   153      31.145  92.459  81.940  1.00  5.79      2GMT1175
+ATOM   1066  CB  ASP   153      28.291  93.222  83.269  1.00  7.01      2GMT1176
+ATOM   1067  CG  ASP   153      26.846  92.836  83.280  1.00  8.60      2GMT1177
+ATOM   1068  OD1 ASP   153      26.550  91.554  83.275  1.00  8.45      2GMT1178
+ATOM   1069  OD2 ASP   153      25.995  93.654  83.405  1.00  9.61      2GMT1179
+ATOM   1070  N   ARG   154      31.299  93.244  83.969  1.00  3.86      2GMT1180
+ATOM   1071  CA  ARG   154      32.571  93.657  83.423  1.00  4.98      2GMT1181
+ATOM   1072  C   ARG   154      33.763  92.929  83.950  1.00  2.21      2GMT1182
+ATOM   1073  O   ARG   154      33.728  92.322  85.045  1.00  2.73      2GMT1183
+ATOM   1074  CB  ARG   154      32.822  95.101  83.104  1.00  9.25      2GMT1184
+ATOM   1075  CG  ARG   154      32.402  95.918  84.247  1.00 11.59      2GMT1185
+ATOM   1076  CD  ARG   154      31.394  96.953  83.808  1.00 16.74      2GMT1186
+ATOM   1077  NE  ARG   154      31.055  97.770  84.920  1.00 20.19      2GMT1187
+ATOM   1078  CZ  ARG   154      31.682  98.883  85.089  1.00 22.99      2GMT1188
+ATOM   1079  NH1 ARG   154      32.606  99.274  84.217  1.00 25.10      2GMT1189
+ATOM   1080  NH2 ARG   154      31.385  99.622  86.152  1.00 23.42      2GMT1190
+ATOM   1081  N   LEU   155      34.785  93.018  83.135  1.00  1.00      2GMT1191
+ATOM   1082  CA  LEU   155      36.004  92.332  83.366  1.00  2.15      2GMT1192
+ATOM   1083  C   LEU   155      36.697  92.614  84.668  1.00  1.00      2GMT1193
+ATOM   1084  O   LEU   155      36.940  93.771  85.003  1.00  3.20      2GMT1194
+ATOM   1085  CB  LEU   155      36.905  92.506  82.137  1.00  2.65      2GMT1195
+ATOM   1086  CG  LEU   155      38.125  91.647  82.258  1.00  4.12      2GMT1196
+ATOM   1087  CD1 LEU   155      37.681  90.173  82.095  1.00  5.73      2GMT1197
+ATOM   1088  CD2 LEU   155      39.088  92.125  81.158  1.00  6.12      2GMT1198
+ATOM   1089  N   GLN   156      37.063  91.590  85.402  1.00  2.98      2GMT1199
+ATOM   1090  CA  GLN   156      37.719  91.762  86.712  1.00  3.17      2GMT1200
+ATOM   1091  C   GLN   156      39.175  91.374  86.711  1.00  1.36      2GMT1201
+ATOM   1092  O   GLN   156      39.628  90.612  85.883  1.00  2.84      2GMT1202
+ATOM   1093  CB  GLN   156      37.077  91.005  87.928  1.00  4.57      2GMT1203
+ATOM   1094  CG  GLN   156      35.528  91.102  88.063  1.00  4.48      2GMT1204
+ATOM   1095  CD  GLN   156      35.122  92.434  88.711  1.00  4.70      2GMT1205
+ATOM   1096  OE1 GLN   156      35.649  92.823  89.759  1.00  2.68      2GMT1206
+ATOM   1097  NE2 GLN   156      34.205  93.180  88.038  1.00  6.72      2GMT1207
+ATOM   1098  N   GLN   157      39.868  91.744  87.717  1.00  1.00      2GMT1208
+ATOM   1099  CA  GLN   157      41.262  91.337  87.797  1.00  1.00      2GMT1209
+ATOM   1100  C   GLN   157      41.684  91.260  89.250  1.00  1.06      2GMT1210
+ATOM   1101  O   GLN   157      40.965  91.779  90.056  1.00  1.94      2GMT1211
+ATOM   1102  CB  GLN   157      42.175  92.394  87.113  1.00  1.00      2GMT1212
+ATOM   1103  CG  GLN   157      42.146  93.752  87.827  1.00  2.44      2GMT1213
+ATOM   1104  CD  GLN   157      42.968  94.937  87.318  1.00  4.98      2GMT1214
+ATOM   1105  OE1 GLN   157      43.181  95.085  86.101  1.00  5.48      2GMT1215
+ATOM   1106  NE2 GLN   157      43.192  95.910  88.221  1.00  4.12      2GMT1216
+ATOM   1107  N   ALA   158      42.853  90.706  89.535  1.00  2.30      2GMT1217
+ATOM   1108  CA  ALA   158      43.372  90.586  90.850  1.00  7.75      2GMT1218
+ATOM   1109  C   ALA   158      44.852  90.166  90.817  1.00 10.90      2GMT1219
+ATOM   1110  O   ALA   158      45.338  89.322  89.991  1.00 13.53      2GMT1220
+ATOM   1111  CB  ALA   158      42.561  89.580  91.568  1.00 10.07      2GMT1221
+ATOM   1112  N   SER   159      45.632  90.803  91.673  1.00  6.96      2GMT1222
+ATOM   1113  CA  SER   159      47.034  90.445  91.738  1.00  1.32      2GMT1223
+ATOM   1114  C   SER   159      47.112  89.456  92.890  1.00  2.08      2GMT1224
+ATOM   1115  O   SER   159      46.320  89.526  93.881  1.00  1.00      2GMT1225
+ATOM   1116  CB  SER   159      47.800  91.717  92.020  1.00  1.03      2GMT1226
+ATOM   1117  OG  SER   159      47.336  92.080  93.293  1.00  4.98      2GMT1227
+ATOM   1118  N   LEU   160      47.929  88.442  92.671  1.00  1.00      2GMT1228
+ATOM   1119  CA  LEU   160      48.045  87.351  93.626  1.00  2.61      2GMT1229
+ATOM   1120  C   LEU   160      49.413  86.677  93.568  1.00  2.84      2GMT1230
+ATOM   1121  O   LEU   160      50.166  86.888  92.616  1.00  3.00      2GMT1231
+ATOM   1122  CB  LEU   160      46.872  86.394  93.571  1.00  3.04      2GMT1232
+ATOM   1123  CG  LEU   160      46.920  85.455  92.358  1.00  2.78      2GMT1233
+ATOM   1124  CD1 LEU   160      45.622  84.623  92.331  1.00  4.52      2GMT1234
+ATOM   1125  CD2 LEU   160      47.115  86.313  91.098  1.00  1.00      2GMT1235
+ATOM   1126  N   PRO   161      49.781  85.919  94.636  1.00  1.35      2GMT1236
+ATOM   1127  CA  PRO   161      51.102  85.360  94.708  1.00  1.57      2GMT1237
+ATOM   1128  C   PRO   161      51.239  83.915  94.238  1.00  1.88      2GMT1238
+ATOM   1129  O   PRO   161      50.334  83.096  94.290  1.00  2.23      2GMT1239
+ATOM   1130  CB  PRO   161      51.406  85.426  96.195  1.00  1.78      2GMT1240
+ATOM   1131  CG  PRO   161      50.026  85.170  96.816  1.00  1.00      2GMT1241
+ATOM   1132  CD  PRO   161      49.088  85.903  95.907  1.00  1.00      2GMT1242
+ATOM   1133  N   LEU   162      52.369  83.617  93.724  1.00  1.00      2GMT1243
+ATOM   1134  CA  LEU   162      52.541  82.268  93.291  1.00  3.29      2GMT1244
+ATOM   1135  C   LEU   162      52.971  81.509  94.506  1.00  5.45      2GMT1245
+ATOM   1136  O   LEU   162      53.588  82.124  95.359  1.00  7.21      2GMT1246
+ATOM   1137  CB  LEU   162      53.619  82.218  92.182  1.00  1.57      2GMT1247
+ATOM   1138  CG  LEU   162      53.257  82.946  90.902  1.00  1.05      2GMT1248
+ATOM   1139  CD1 LEU   162      54.456  82.858  89.927  1.00  1.00      2GMT1249
+ATOM   1140  CD2 LEU   162      51.997  82.357  90.273  1.00  2.65      2GMT1250
+ATOM   1141  N   LEU   163      52.685  80.201  94.582  1.00  6.89      2GMT1251
+ATOM   1142  CA  LEU   163      53.151  79.427  95.737  1.00  8.50      2GMT1252
+ATOM   1143  C   LEU   163      54.020  78.245  95.231  1.00  8.01      2GMT1253
+ATOM   1144  O   LEU   163      54.123  78.020  94.034  1.00  6.90      2GMT1254
+ATOM   1145  CB  LEU   163      52.064  78.903  96.663  1.00  9.23      2GMT1255
+ATOM   1146  CG  LEU   163      51.145  79.900  97.392  1.00 12.06      2GMT1256
+ATOM   1147  CD1 LEU   163      51.815  80.899  98.307  1.00 13.51      2GMT1257
+ATOM   1148  CD2 LEU   163      50.037  80.533  96.559  1.00 13.52      2GMT1258
+ATOM   1149  N   SER   164      54.737  77.557  96.113  1.00  6.73      2GMT1259
+ATOM   1150  CA  SER   164      55.521  76.434  95.624  1.00  8.92      2GMT1260
+ATOM   1151  C   SER   164      54.584  75.252  95.591  1.00  6.59      2GMT1261
+ATOM   1152  O   SER   164      53.646  75.162  96.373  1.00  3.59      2GMT1262
+ATOM   1153  CB  SER   164      56.652  75.992  96.530  1.00  9.97      2GMT1263
+ATOM   1154  OG  SER   164      56.094  75.797  97.797  1.00 12.42      2GMT1264
+ATOM   1155  N   ASN   165      54.914  74.277  94.746  1.00  6.97      2GMT1265
+ATOM   1156  CA  ASN   165      54.083  73.123  94.731  1.00  6.99      2GMT1266
+ATOM   1157  C   ASN   165      54.103  72.430  96.106  1.00  9.91      2GMT1267
+ATOM   1158  O   ASN   165      53.137  71.997  96.688  1.00 10.59      2GMT1268
+ATOM   1159  CB  ASN   165      54.474  72.219  93.574  1.00  6.33      2GMT1269
+ATOM   1160  CG  ASN   165      53.784  72.634  92.277  1.00  7.20      2GMT1270
+ATOM   1161  OD1 ASN   165      53.406  73.811  92.044  1.00  8.56      2GMT1271
+ATOM   1162  ND2 ASN   165      53.590  71.623  91.428  1.00  7.52      2GMT1272
+ATOM   1163  N   THR   166      55.250  72.380  96.673  1.00 11.66      2GMT1273
+ATOM   1164  CA  THR   166      55.370  71.780  97.979  1.00 12.53      2GMT1274
+ATOM   1165  C   THR   166      54.490  72.437  99.001  1.00  9.95      2GMT1275
+ATOM   1166  O   THR   166      53.917  71.791  99.879  1.00 10.60      2GMT1276
+ATOM   1167  CB  THR   166      56.846  71.745  98.350  1.00 13.65      2GMT1277
+ATOM   1168  OG1 THR   166      57.476  70.648  97.700  1.00 15.40      2GMT1278
+ATOM   1169  CG2 THR   166      56.994  71.685  99.851  1.00 14.48      2GMT1279
+ATOM   1170  N   ASN   167      54.394  73.746  98.926  1.00  9.49      2GMT1280
+ATOM   1171  CA  ASN   167      53.529  74.493  99.860  1.00 10.98      2GMT1281
+ATOM   1172  C   ASN   167      52.078  74.270  99.557  1.00  7.49      2GMT1282
+ATOM   1173  O   ASN   167      51.258  73.917 100.412  1.00  7.67      2GMT1283
+ATOM   1174  CB  ASN   167      53.843  75.971  99.959  1.00 14.53      2GMT1284
+ATOM   1175  CG  ASN   167      53.344  76.653 101.234  1.00 18.65      2GMT1285
+ATOM   1176  OD1 ASN   167      52.918  76.037 102.212  1.00 20.88      2GMT1286
+ATOM   1177  ND2 ASN   167      53.406  77.986 101.253  1.00 20.48      2GMT1287
+ATOM   1178  N   CYS   168      51.754  74.321  98.273  1.00  5.68      2GMT1288
+ATOM   1179  CA  CYS   168      50.376  73.994  97.837  1.00  3.44      2GMT1289
+ATOM   1180  C   CYS   168      49.818  72.691  98.475  1.00  6.98      2GMT1290
+ATOM   1181  O   CYS   168      48.691  72.587  98.999  1.00 10.30      2GMT1291
+ATOM   1182  CB  CYS   168      50.358  73.940  96.311  1.00  3.35      2GMT1292
+ATOM   1183  SG  CYS   168      48.712  74.235  95.692  1.00  6.44      2GMT1293
+ATOM   1184  N   LYS   169      50.612  71.646  98.355  1.00  6.44      2GMT1294
+ATOM   1185  CA  LYS   169      50.292  70.370  98.836  1.00  5.34      2GMT1295
+ATOM   1186  C   LYS   169      49.874  70.292 100.289  1.00  4.25      2GMT1296
+ATOM   1187  O   LYS   169      49.136  69.455 100.708  1.00  1.50      2GMT1297
+ATOM   1188  CB  LYS   169      50.827  69.172  98.032  1.00 10.06      2GMT1298
+ATOM   1189  CG  LYS   169      52.224  69.372  97.520  1.00 13.20      2GMT1299
+ATOM   1190  CD  LYS   169      52.646  68.287  96.547  1.00 14.92      2GMT1300
+ATOM   1191  CE  LYS   169      53.718  67.352  97.052  1.00 17.91      2GMT1301
+ATOM   1192  NZ  LYS   169      53.981  66.298  96.039  1.00 20.08      2GMT1302
+ATOM   1193  N   LYS   170      50.226  71.273 101.076  1.00  7.16      2GMT1303
+ATOM   1194  CA  LYS   170      49.716  71.297 102.437  1.00 10.79      2GMT1304
+ATOM   1195  C   LYS   170      48.242  71.537 102.413  1.00 11.08      2GMT1305
+ATOM   1196  O   LYS   170      47.587  71.144 103.339  1.00 10.11      2GMT1306
+ATOM   1197  CB  LYS   170      50.484  72.346 103.211  1.00 14.96      2GMT1307
+ATOM   1198  CG  LYS   170      51.887  72.287 102.577  1.00 16.80      2GMT1308
+ATOM   1199  CD  LYS   170      53.027  72.944 103.320  1.00 18.36      2GMT1309
+ATOM   1200  CE  LYS   170      54.214  73.263 102.390  1.00 18.37      2GMT1310
+ATOM   1201  NZ  LYS   170      54.831  74.577 102.611  1.00 16.47      2GMT1311
+ATOM   1202  N   TYR   171      47.715  72.116 101.314  1.00 10.01      2GMT1312
+ATOM   1203  CA  TYR   171      46.311  72.380 101.134  1.00  8.92      2GMT1313
+ATOM   1204  C   TYR   171      45.585  71.374 100.234  1.00  8.51      2GMT1314
+ATOM   1205  O   TYR   171      44.381  71.097 100.440  1.00  9.23      2GMT1315
+ATOM   1206  CB  TYR   171      46.156  73.713 100.375  1.00  8.54      2GMT1316
+ATOM   1207  CG  TYR   171      46.575  74.970 101.105  1.00  7.70      2GMT1317
+ATOM   1208  CD1 TYR   171      47.881  75.457 101.019  1.00  7.14      2GMT1318
+ATOM   1209  CD2 TYR   171      45.622  75.705 101.810  1.00  8.25      2GMT1319
+ATOM   1210  CE1 TYR   171      48.226  76.658 101.649  1.00  7.95      2GMT1320
+ATOM   1211  CE2 TYR   171      45.942  76.869 102.505  1.00  7.30      2GMT1321
+ATOM   1212  CZ  TYR   171      47.255  77.326 102.401  1.00  7.72      2GMT1322
+ATOM   1213  OH  TYR   171      47.545  78.489 103.026  1.00 10.65      2GMT1323
+ATOM   1214  N   TRP   172      46.272  70.859  99.185  1.00  7.60      2GMT1324
+ATOM   1215  CA  TRP   172      45.617  69.937  98.218  1.00  8.18      2GMT1325
+ATOM   1216  C   TRP   172      46.240  68.568  98.026  1.00 10.26      2GMT1326
+ATOM   1217  O   TRP   172      45.936  67.897  97.054  1.00 10.06      2GMT1327
+ATOM   1218  CB  TRP   172      45.628  70.516  96.793  1.00  7.78      2GMT1328
+ATOM   1219  CG  TRP   172      44.900  71.782  96.669  1.00 10.09      2GMT1329
+ATOM   1220  CD1 TRP   172      45.385  73.020  96.503  1.00 11.36      2GMT1330
+ATOM   1221  CD2 TRP   172      43.512  71.890  96.788  1.00 12.40      2GMT1331
+ATOM   1222  NE1 TRP   172      44.366  73.907  96.454  1.00 11.41      2GMT1332
+ATOM   1223  CE2 TRP   172      43.202  73.252  96.679  1.00 12.98      2GMT1333
+ATOM   1224  CE3 TRP   172      42.543  70.968  97.036  1.00 12.93      2GMT1334
+ATOM   1225  CZ2 TRP   172      41.897  73.707  96.754  1.00 14.30      2GMT1335
+ATOM   1226  CZ3 TRP   172      41.265  71.392  97.118  1.00 15.42      2GMT1336
+ATOM   1227  CH2 TRP   172      40.939  72.758  96.951  1.00 15.66      2GMT1337
+ATOM   1228  N   GLY   173      47.160  68.204  98.904  1.00 11.32      2GMT1338
+ATOM   1229  CA  GLY   173      47.784  66.936  98.813  1.00 13.00      2GMT1339
+ATOM   1230  C   GLY   173      48.211  66.577  97.428  1.00 14.23      2GMT1340
+ATOM   1231  O   GLY   173      48.510  67.456  96.575  1.00 11.97      2GMT1341
+ATOM   1232  N   THR   174      48.169  65.241  97.274  1.00 15.93      2GMT1342
+ATOM   1233  CA  THR   174      48.551  64.569  96.068  1.00 15.21      2GMT1343
+ATOM   1234  C   THR   174      47.716  64.988  94.881  1.00 15.12      2GMT1344
+ATOM   1235  O   THR   174      47.951  64.511  93.748  1.00 17.60      2GMT1345
+ATOM   1236  CB  THR   174      48.503  63.033  96.216  1.00 14.39      2GMT1346
+ATOM   1237  OG1 THR   174      47.186  62.669  96.550  1.00 16.03      2GMT1347
+ATOM   1238  CG2 THR   174      49.460  62.517  97.282  1.00 13.95      2GMT1348
+ATOM   1239  N   LYS   175      46.703  65.828  95.072  1.00 10.80      2GMT1349
+ATOM   1240  CA  LYS   175      46.054  66.174  93.854  1.00 12.27      2GMT1350
+ATOM   1241  C   LYS   175      46.943  67.100  93.012  1.00 12.04      2GMT1351
+ATOM   1242  O   LYS   175      46.697  67.374  91.863  1.00 14.96      2GMT1352
+ATOM   1243  CB  LYS   175      44.659  66.681  94.069  1.00 15.34      2GMT1353
+ATOM   1244  CG  LYS   175      43.818  65.589  94.722  1.00 16.71      2GMT1354
+ATOM   1245  CD  LYS   175      43.120  66.031  96.006  1.00 17.85      2GMT1355
+ATOM   1246  CE  LYS   175      41.599  66.138  95.909  1.00 15.67      2GMT1356
+ATOM   1247  NZ  LYS   175      41.082  65.593  94.642  1.00 15.61      2GMT1357
+ATOM   1248  N   ILE   176      48.020  67.586  93.578  1.00  9.22      2GMT1358
+ATOM   1249  CA  ILE   176      48.894  68.511  92.933  1.00  6.49      2GMT1359
+ATOM   1250  C   ILE   176      49.974  67.880  92.077  1.00  7.91      2GMT1360
+ATOM   1251  O   ILE   176      50.792  67.094  92.561  1.00  9.30      2GMT1361
+ATOM   1252  CB  ILE   176      49.376  69.504  93.935  1.00  6.04      2GMT1362
+ATOM   1253  CG1 ILE   176      48.154  70.267  94.438  1.00  4.53      2GMT1363
+ATOM   1254  CG2 ILE   176      50.402  70.474  93.382  1.00  7.05      2GMT1364
+ATOM   1255  CD1 ILE   176      47.490  71.215  93.468  1.00  5.24      2GMT1365
+ATOM   1256  N   LYS   177      49.972  68.222  90.780  1.00  6.93      2GMT1366
+ATOM   1257  CA  LYS   177      50.926  67.587  89.884  1.00  9.04      2GMT1367
+ATOM   1258  C   LYS   177      51.939  68.521  89.339  1.00  8.58      2GMT1368
+ATOM   1259  O   LYS   177      51.869  69.755  89.485  1.00  7.17      2GMT1369
+ATOM   1260  CB  LYS   177      50.343  66.830  88.711  1.00 11.30      2GMT1370
+ATOM   1261  CG  LYS   177      48.963  66.266  88.928  1.00 11.55      2GMT1371
+ATOM   1262  CD  LYS   177      49.022  65.365  90.095  1.00 11.65      2GMT1372
+ATOM   1263  CE  LYS   177      48.821  63.907  89.693  1.00 13.79      2GMT1373
+ATOM   1264  NZ  LYS   177      48.082  63.146  90.742  1.00 15.70      2GMT1374
+ATOM   1265  N   ASP   178      52.912  67.903  88.702  1.00  7.95      2GMT1375
+ATOM   1266  CA  ASP   178      53.967  68.755  88.196  1.00  8.14      2GMT1376
+ATOM   1267  C   ASP   178      53.569  69.789  87.164  1.00  6.63      2GMT1377
+ATOM   1268  O   ASP   178      54.195  70.876  87.176  1.00  8.95      2GMT1378
+ATOM   1269  CB  ASP   178      55.198  67.999  87.726  1.00 13.42      2GMT1379
+ATOM   1270  CG  ASP   178      56.021  67.562  88.902  1.00 18.92      2GMT1380
+ATOM   1271  OD1 ASP   178      56.042  68.202  89.962  1.00 20.55      2GMT1381
+ATOM   1272  OD2 ASP   178      56.725  66.462  88.634  1.00 19.72      2GMT1382
+ATOM   1273  N   ALA   179      52.546  69.493  86.333  1.00  2.97      2GMT1383
+ATOM   1274  CA  ALA   179      52.068  70.402  85.299  1.00  4.00      2GMT1384
+ATOM   1275  C   ALA   179      50.990  71.433  85.789  1.00  3.26      2GMT1385
+ATOM   1276  O   ALA   179      50.285  72.092  84.993  1.00  2.90      2GMT1386
+ATOM   1277  CB  ALA   179      51.624  69.606  84.025  1.00  6.55      2GMT1387
+ATOM   1278  N   MET   180      50.943  71.602  87.125  1.00  1.00      2GMT1388
+ATOM   1279  CA  MET   180      50.069  72.523  87.792  1.00  2.24      2GMT1389
+ATOM   1280  C   MET   180      50.919  73.511  88.628  1.00  2.60      2GMT1390
+ATOM   1281  O   MET   180      52.005  73.206  89.104  1.00  1.45      2GMT1391
+ATOM   1282  CB  MET   180      49.172  71.840  88.838  1.00  2.92      2GMT1392
+ATOM   1283  CG  MET   180      47.964  71.106  88.304  1.00  2.68      2GMT1393
+ATOM   1284  SD  MET   180      47.372  69.900  89.526  1.00  2.65      2GMT1394
+ATOM   1285  CE  MET   180      47.066  68.697  88.185  1.00  1.63      2GMT1395
+ATOM   1286  N   ILE   181      50.349  74.667  88.828  1.00  2.63      2GMT1396
+ATOM   1287  CA  ILE   181      50.957  75.703  89.609  1.00  3.39      2GMT1397
+ATOM   1288  C   ILE   181      49.858  76.376  90.369  1.00  1.00      2GMT1398
+ATOM   1289  O   ILE   181      48.702  76.600  89.845  1.00  1.00      2GMT1399
+ATOM   1290  CB  ILE   181      51.801  76.649  88.768  1.00  6.38      2GMT1400
+ATOM   1291  CG1 ILE   181      52.294  77.818  89.637  1.00  6.39      2GMT1401
+ATOM   1292  CG2 ILE   181      51.054  77.095  87.520  1.00  6.33      2GMT1402
+ATOM   1293  CD1 ILE   181      53.613  78.458  89.113  1.00  4.84      2GMT1403
+ATOM   1294  N   CYS   182      50.190  76.593  91.628  1.00  1.00      2GMT1404
+ATOM   1295  CA  CYS   182      49.311  77.209  92.558  1.00  3.12      2GMT1405
+ATOM   1296  C   CYS   182      49.484  78.751  92.743  1.00  3.55      2GMT1406
+ATOM   1297  O   CYS   182      50.589  79.289  92.715  1.00  2.83      2GMT1407
+ATOM   1298  CB  CYS   182      49.473  76.541  93.922  1.00  3.25      2GMT1408
+ATOM   1299  SG  CYS   182      48.888  74.853  93.785  1.00  5.85      2GMT1409
+ATOM   1300  N   ALA   183      48.364  79.449  93.062  1.00  4.13      2GMT1410
+ATOM   1301  CA  ALA   183      48.404  80.894  93.355  1.00  1.51      2GMT1411
+ATOM   1302  C   ALA   183      47.201  81.298  94.222  1.00  2.09      2GMT1412
+ATOM   1303  O   ALA   183      46.106  80.712  94.128  1.00  4.67      2GMT1413
+ATOM   1304  CB  ALA   183      48.380  81.770  92.099  1.00  1.00      2GMT1414
+ATOM   1305  N   GLY   184      47.354  82.380  94.981  1.00  1.00      2GMT1415
+ATOM   1306  CA  GLY   184      46.228  82.779  95.776  1.00  4.00      2GMT1416
+ATOM   1307  C   GLY   184      46.430  82.598  97.261  1.00  6.01      2GMT1417
+ATOM   1308  O   GLY   184      47.532  82.777  97.757  1.00  4.99      2GMT1418
+ATOM   1309  N   ALA   185      45.340  82.146  97.918  1.00  7.26      2GMT1419
+ATOM   1310  CA  ALA   185      45.303  82.016  99.382  1.00  7.12      2GMT1420
+ATOM   1311  C   ALA   185      45.730  83.331  99.979  1.00  6.79      2GMT1421
+ATOM   1312  O   ALA   185      46.237  83.374 101.096  1.00 10.26      2GMT1422
+ATOM   1313  CB  ALA   185      46.048  80.853 100.027  1.00  7.04      2GMT1423
+ATOM   1314  N   SER   186      45.524  84.413  99.268  1.00  6.66      2GMT1424
+ATOM   1315  CA  SER   186      45.975  85.721  99.722  1.00  5.79      2GMT1425
+ATOM   1316  C   SER   186      44.842  86.747  99.878  1.00  5.32      2GMT1426
+ATOM   1317  O   SER   186      45.103  87.983  99.953  1.00  4.72      2GMT1427
+ATOM   1318  CB  SER   186      46.903  86.307  98.709  1.00  5.55      2GMT1428
+ATOM   1319  OG  SER   186      46.272  86.150  97.446  1.00  6.40      2GMT1429
+ATOM   1320  N   GLY   187      43.580  86.269  99.758  1.00  1.00      2GMT1430
+ATOM   1321  CA  GLY   187      42.413  87.119  99.943  1.00  1.00      2GMT1431
+ATOM   1322  C   GLY   187      41.473  87.380  98.775  1.00  2.86      2GMT1432
+ATOM   1323  O   GLY   187      40.570  88.222  98.852  1.00  3.47      2GMT1433
+ATOM   1324  N   VAL   188      41.802  86.733  97.688  1.00  5.59      2GMT1434
+ATOM   1325  CA  VAL   188      41.068  86.716  96.420  1.00  6.26      2GMT1435
+ATOM   1326  C   VAL   188      41.172  85.300  95.878  1.00  5.70      2GMT1436
+ATOM   1327  O   VAL   188      42.050  84.560  96.304  1.00  4.10      2GMT1437
+ATOM   1328  CB  VAL   188      41.718  87.629  95.383  1.00  6.28      2GMT1438
+ATOM   1329  CG1 VAL   188      42.057  88.955  96.061  1.00  4.15      2GMT1439
+ATOM   1330  CG2 VAL   188      43.055  87.002  94.986  1.00  6.33      2GMT1440
+ATOM   1331  N   SER   189      40.327  84.925  94.925  1.00  5.83      2GMT1441
+ATOM   1332  CA  SER   189      40.418  83.579  94.406  1.00  7.66      2GMT1442
+ATOM   1333  C   SER   189      39.757  83.568  93.067  1.00  4.30      2GMT1443
+ATOM   1334  O   SER   189      38.815  84.293  92.820  1.00  2.82      2GMT1444
+ATOM   1335  CB  SER   189      39.703  82.602  95.373  1.00  8.91      2GMT1445
+ATOM   1336  OG  SER   189      39.194  81.459  94.679  1.00  8.37      2GMT1446
+ATOM   1337  N   SER   190      40.214  82.650  92.253  1.00  4.30      2GMT1447
+ATOM   1338  CA  SER   190      39.603  82.448  90.939  1.00  3.61      2GMT1448
+ATOM   1339  C   SER   190      38.344  81.665  91.207  1.00  2.03      2GMT1449
+ATOM   1340  O   SER   190      38.286  80.971  92.159  1.00  2.95      2GMT1450
+ATOM   1341  CB  SER   190      40.550  81.703  90.017  1.00  6.72      2GMT1451
+ATOM   1342  OG  SER   190      41.598  82.634  89.612  1.00  7.68      2GMT1452
+ATOM   1343  N   CYS   191      37.252  81.827  90.488  1.00  1.00      2GMT1453
+ATOM   1344  CA  CYS   191      36.042  81.111  90.819  1.00  1.00      2GMT1454
+ATOM   1345  C   CYS   191      35.378  80.609  89.532  1.00  2.23      2GMT1455
+ATOM   1346  O   CYS   191      35.914  80.794  88.430  1.00  3.33      2GMT1456
+ATOM   1347  CB  CYS   191      35.152  82.104  91.521  1.00  3.80      2GMT1457
+ATOM   1348  SG  CYS   191      33.803  81.435  92.533  1.00  4.73      2GMT1458
+ATOM   1349  N   MET   192      34.255  79.902  89.622  1.00  2.78      2GMT1459
+ATOM   1350  CA  MET   192      33.581  79.371  88.434  1.00  5.69      2GMT1460
+ATOM   1351  C   MET   192      33.383  80.461  87.372  1.00  4.17      2GMT1461
+ATOM   1352  O   MET   192      32.941  81.590  87.627  1.00  4.83      2GMT1462
+ATOM   1353  CB  MET   192      32.261  78.632  88.786  1.00 10.02      2GMT1463
+ATOM   1354  CG 1MET   192      32.467  77.682  89.964  0.50 12.90      2GMT1464
+ATOM   1355  CG 2MET   192      32.408  77.524  89.853  0.50  8.06      2GMT1465
+ATOM   1356  SD 1MET   192      31.345  76.309  89.703  0.50 16.13      2GMT1466
+ATOM   1357  SD 2MET   192      32.117  78.162  91.523  0.50  6.34      2GMT1467
+ATOM   1358  CE 1MET   192      31.274  75.439  91.335  0.50 17.05      2GMT1468
+ATOM   1359  CE 2MET   192      30.919  77.016  92.232  0.50  7.53      2GMT1469
+ATOM   1360  N   GLY   193      33.727  80.107  86.129  1.00  2.72      2GMT1470
+ATOM   1361  CA  GLY   193      33.561  81.085  85.059  1.00  1.57      2GMT1471
+ATOM   1362  C   GLY   193      34.908  81.668  84.651  1.00  2.31      2GMT1472
+ATOM   1363  O   GLY   193      35.066  82.132  83.508  1.00  3.49      2GMT1473
+ATOM   1364  N   ASP   194      35.843  81.720  85.627  1.00  2.79      2GMT1474
+ATOM   1365  CA  ASP   194      37.204  82.149  85.369  1.00  1.72      2GMT1475
+ATOM   1366  C   ASP   194      38.034  81.103  84.631  1.00  2.35      2GMT1476
+ATOM   1367  O   ASP   194      39.089  81.410  84.075  1.00  1.00      2GMT1477
+ATOM   1368  CB  ASP   194      37.963  82.591  86.615  1.00  1.00      2GMT1478
+ATOM   1369  CG  ASP   194      37.463  83.840  87.262  1.00  1.17      2GMT1479
+ATOM   1370  OD1 ASP   194      37.475  84.844  86.413  1.00  1.99      2GMT1480
+ATOM   1371  OD2 ASP   194      37.399  83.962  88.511  1.00  1.05      2GMT1481
+ATOM   1372  N   SER   195      37.599  79.845  84.651  1.00  1.00      2GMT1482
+ATOM   1373  CA  SER   195      38.349  78.758  83.986  1.00  1.34      2GMT1483
+ATOM   1374  C   SER   195      38.690  78.991  82.531  1.00  1.39      2GMT1484
+ATOM   1375  O   SER   195      37.833  79.365  81.707  1.00  3.00      2GMT1485
+ATOM   1376  CB  SER   195      37.560  77.437  84.106  1.00  5.88      2GMT1486
+ATOM   1377  OG  SER   195      37.130  77.200  85.483  1.00  9.92      2GMT1487
+ATOM   1378  N   GLY   196      39.951  78.697  82.209  1.00  1.01      2GMT1488
+ATOM   1379  CA  GLY   196      40.519  78.797  80.853  1.00  1.05      2GMT1489
+ATOM   1380  C   GLY   196      41.211  80.146  80.629  1.00  2.14      2GMT1490
+ATOM   1381  O   GLY   196      41.885  80.392  79.633  1.00  5.11      2GMT1491
+ATOM   1382  N   GLY   197      40.929  81.039  81.540  1.00  2.71      2GMT1492
+ATOM   1383  CA  GLY   197      41.476  82.357  81.565  1.00  2.50      2GMT1493
+ATOM   1384  C   GLY   197      42.931  82.322  82.013  1.00  4.72      2GMT1494
+ATOM   1385  O   GLY   197      43.556  81.289  82.409  1.00  6.42      2GMT1495
+ATOM   1386  N   PRO   198      43.526  83.506  81.926  1.00  5.90      2GMT1496
+ATOM   1387  CA  PRO   198      44.959  83.584  82.240  1.00  3.15      2GMT1497
+ATOM   1388  C   PRO   198      45.400  83.940  83.640  1.00  2.14      2GMT1498
+ATOM   1389  O   PRO   198      44.773  84.802  84.314  1.00  3.07      2GMT1499
+ATOM   1390  CB  PRO   198      45.383  84.809  81.435  1.00  3.60      2GMT1500
+ATOM   1391  CG  PRO   198      44.168  85.734  81.421  1.00  4.10      2GMT1501
+ATOM   1392  CD  PRO   198      42.964  84.798  81.384  1.00  5.18      2GMT1502
+ATOM   1393  N   LEU   199      46.599  83.488  83.917  1.00  1.00      2GMT1503
+ATOM   1394  CA  LEU   199      47.380  83.921  85.091  1.00  1.00      2GMT1504
+ATOM   1395  C   LEU   199      48.693  84.480  84.478  1.00  1.44      2GMT1505
+ATOM   1396  O   LEU   199      49.452  83.763  83.853  1.00  5.36      2GMT1506
+ATOM   1397  CB  LEU   199      47.540  82.882  86.218  1.00  1.85      2GMT1507
+ATOM   1398  CG  LEU   199      48.807  83.073  87.105  1.00  5.12      2GMT1508
+ATOM   1399  CD1 LEU   199      48.415  84.039  88.217  1.00  5.23      2GMT1509
+ATOM   1400  CD2 LEU   199      49.213  81.715  87.731  1.00  2.99      2GMT1510
+ATOM   1401  N   VAL   200      48.921  85.757  84.551  1.00  1.00      2GMT1511
+ATOM   1402  CA  VAL   200      50.143  86.250  83.917  1.00  2.38      2GMT1512
+ATOM   1403  C   VAL   200      51.109  86.861  84.903  1.00  1.09      2GMT1513
+ATOM   1404  O   VAL   200      50.681  87.511  85.840  1.00  1.00      2GMT1514
+ATOM   1405  CB  VAL   200      49.881  87.331  82.822  1.00  1.15      2GMT1515
+ATOM   1406  CG1 VAL   200      49.316  86.713  81.552  1.00  1.00      2GMT1516
+ATOM   1407  CG2 VAL   200      49.042  88.510  83.346  1.00  1.00      2GMT1517
+ATOM   1408  N   CYS   201      52.411  86.814  84.524  1.00  4.38      2GMT1518
+ATOM   1409  CA  CYS   201      53.476  87.457  85.237  1.00  4.37      2GMT1519
+ATOM   1410  C   CYS   201      54.245  88.408  84.406  1.00  4.50      2GMT1520
+ATOM   1411  O   CYS   201      54.413  88.271  83.202  1.00  1.12      2GMT1521
+ATOM   1412  CB  CYS   201      54.389  86.577  86.084  1.00  5.73      2GMT1522
+ATOM   1413  SG  CYS   201      53.451  85.314  86.950  1.00  5.65      2GMT1523
+ATOM   1414  N   LYS   202      54.765  89.398  85.079  1.00  8.07      2GMT1524
+ATOM   1415  CA  LYS   202      55.521  90.365  84.317  1.00  9.00      2GMT1525
+ATOM   1416  C   LYS   202      56.985  89.878  84.165  1.00 10.00      2GMT1526
+ATOM   1417  O   LYS   202      57.594  89.397  85.086  1.00 11.49      2GMT1527
+ATOM   1418  CB  LYS   202      55.341  91.808  84.793  1.00  9.38      2GMT1528
+ATOM   1419  CG  LYS   202      55.699  92.844  83.708  1.00 14.28      2GMT1529
+ATOM   1420  CD  LYS   202      55.518  94.312  84.089  1.00 19.07      2GMT1530
+ATOM   1421  CE  LYS   202      54.623  95.121  83.110  1.00 21.69      2GMT1531
+ATOM   1422  NZ  LYS   202      55.350  96.022  82.152  1.00 22.10      2GMT1532
+ATOM   1423  N   LYS   203      57.555  89.934  82.996  1.00  7.83      2GMT1533
+ATOM   1424  CA  LYS   203      58.953  89.503  82.899  1.00 11.02      2GMT1534
+ATOM   1425  C   LYS   203      59.647  90.378  81.864  1.00 12.44      2GMT1535
+ATOM   1426  O   LYS   203      59.060  90.665  80.817  1.00 11.36      2GMT1536
+ATOM   1427  CB  LYS   203      59.096  88.047  82.533  1.00 11.18      2GMT1537
+ATOM   1428  CG  LYS   203      60.499  87.483  82.645  1.00 13.33      2GMT1538
+ATOM   1429  CD  LYS   203      60.532  86.217  83.489  1.00 12.07      2GMT1539
+ATOM   1430  CE  LYS   203      61.417  86.394  84.736  1.00 13.38      2GMT1540
+ATOM   1431  NZ  LYS   203      62.399  85.308  84.884  1.00 12.15      2GMT1541
+ATOM   1432  N   ASN   204      60.826  90.907  82.215  1.00 12.98      2GMT1542
+ATOM   1433  CA  ASN   204      61.465  91.784  81.262  1.00 13.87      2GMT1543
+ATOM   1434  C   ASN   204      60.449  92.732  80.584  1.00 12.43      2GMT1544
+ATOM   1435  O   ASN   204      60.531  92.960  79.382  1.00 12.61      2GMT1545
+ATOM   1436  CB  ASN   204      62.390  90.975  80.310  1.00 14.21      2GMT1546
+ATOM   1437  CG  ASN   204      63.624  90.537  81.096  1.00 15.66      2GMT1547
+ATOM   1438  OD1 ASN   204      64.703  91.029  80.840  1.00 15.84      2GMT1548
+ATOM   1439  ND2 ASN   204      63.464  89.735  82.185  1.00 16.46      2GMT1549
+ATOM   1440  N   GLY   205      59.546  93.266  81.443  1.00 11.56      2GMT1550
+ATOM   1441  CA  GLY   205      58.450  94.190  81.234  1.00 11.49      2GMT1551
+ATOM   1442  C   GLY   205      57.331  93.701  80.328  1.00 10.34      2GMT1552
+ATOM   1443  O   GLY   205      56.615  94.502  79.761  1.00 10.84      2GMT1553
+ATOM   1444  N   ALA   206      57.204  92.393  80.110  1.00 10.59      2GMT1554
+ATOM   1445  CA  ALA   206      56.155  91.911  79.198  1.00  8.66      2GMT1555
+ATOM   1446  C   ALA   206      55.264  90.892  79.893  1.00  7.73      2GMT1556
+ATOM   1447  O   ALA   206      55.735  90.046  80.682  1.00  9.88      2GMT1557
+ATOM   1448  CB  ALA   206      56.710  91.461  77.860  1.00  9.57      2GMT1558
+ATOM   1449  N   TRP   207      53.937  91.018  79.735  1.00  5.39      2GMT1559
+ATOM   1450  CA  TRP   207      53.071  90.036  80.406  1.00  4.56      2GMT1560
+ATOM   1451  C   TRP   207      53.243  88.684  79.754  1.00  4.18      2GMT1561
+ATOM   1452  O   TRP   207      53.236  88.620  78.514  1.00  3.44      2GMT1562
+ATOM   1453  CB  TRP   207      51.623  90.507  80.432  1.00  1.77      2GMT1563
+ATOM   1454  CG  TRP   207      51.481  91.790  81.265  1.00  3.76      2GMT1564
+ATOM   1455  CD1 TRP   207      51.509  93.086  80.806  1.00  3.08      2GMT1565
+ATOM   1456  CD2 TRP   207      51.290  91.896  82.683  1.00  3.30      2GMT1566
+ATOM   1457  NE1 TRP   207      51.384  93.981  81.879  1.00  3.56      2GMT1567
+ATOM   1458  CE2 TRP   207      51.219  93.284  83.028  1.00  3.37      2GMT1568
+ATOM   1459  CE3 TRP   207      51.266  90.942  83.722  1.00  5.46      2GMT1569
+ATOM   1460  CZ2 TRP   207      51.069  93.709  84.348  1.00  3.70      2GMT1570
+ATOM   1461  CZ3 TRP   207      51.096  91.365  85.021  1.00  3.64      2GMT1571
+ATOM   1462  CH2 TRP   207      51.031  92.743  85.324  1.00  3.47      2GMT1572
+ATOM   1463  N   THR   208      53.504  87.676  80.611  1.00  2.04      2GMT1573
+ATOM   1464  CA  THR   208      53.702  86.337  80.131  1.00  3.01      2GMT1574
+ATOM   1465  C   THR   208      52.810  85.308  80.779  1.00  1.80      2GMT1575
+ATOM   1466  O   THR   208      52.638  85.285  81.966  1.00  1.00      2GMT1576
+ATOM   1467  CB  THR   208      55.124  85.893  80.094  1.00  8.22      2GMT1577
+ATOM   1468  OG1 THR   208      55.304  85.022  81.142  1.00 13.58      2GMT1578
+ATOM   1469  CG2 THR   208      56.080  87.040  80.196  1.00  5.89      2GMT1579
+ATOM   1470  N   LEU   209      52.185  84.504  79.933  1.00  2.68      2GMT1580
+ATOM   1471  CA  LEU   209      51.200  83.490  80.334  1.00  1.00      2GMT1581
+ATOM   1472  C   LEU   209      51.918  82.399  81.119  1.00  1.29      2GMT1582
+ATOM   1473  O   LEU   209      52.552  81.498  80.559  1.00  1.00      2GMT1583
+ATOM   1474  CB  LEU   209      50.514  82.912  79.046  1.00  1.00      2GMT1584
+ATOM   1475  CG  LEU   209      49.283  82.096  79.321  1.00  2.76      2GMT1585
+ATOM   1476  CD1 LEU   209      48.196  82.929  80.066  1.00  4.05      2GMT1586
+ATOM   1477  CD2 LEU   209      48.634  81.619  78.032  1.00  1.50      2GMT1587
+ATOM   1478  N   VAL   210      51.746  82.447  82.433  1.00  1.01      2GMT1588
+ATOM   1479  CA  VAL   210      52.422  81.475  83.299  1.00  3.11      2GMT1589
+ATOM   1480  C   VAL   210      51.497  80.338  83.695  1.00  2.32      2GMT1590
+ATOM   1481  O   VAL   210      51.906  79.258  84.103  1.00  1.00      2GMT1591
+ATOM   1482  CB  VAL   210      52.943  82.317  84.478  1.00  3.64      2GMT1592
+ATOM   1483  CG1 VAL   210      52.977  81.688  85.881  1.00  2.91      2GMT1593
+ATOM   1484  CG2 VAL   210      54.223  83.060  84.113  1.00  2.43      2GMT1594
+ATOM   1485  N   GLY   211      50.234  80.637  83.700  1.00  1.43      2GMT1595
+ATOM   1486  CA  GLY   211      49.298  79.629  84.140  1.00  2.49      2GMT1596
+ATOM   1487  C   GLY   211      47.930  79.826  83.502  1.00  3.26      2GMT1597
+ATOM   1488  O   GLY   211      47.567  80.937  83.106  1.00  3.18      2GMT1598
+ATOM   1489  N   ILE   212      47.141  78.745  83.435  1.00  1.76      2GMT1599
+ATOM   1490  CA  ILE   212      45.802  78.901  82.906  1.00  1.00      2GMT1600
+ATOM   1491  C   ILE   212      44.838  78.557  84.036  1.00  2.08      2GMT1601
+ATOM   1492  O   ILE   212      45.061  77.531  84.680  1.00  1.00      2GMT1602
+ATOM   1493  CB  ILE   212      45.568  77.946  81.767  1.00  1.38      2GMT1603
+ATOM   1494  CG1 ILE   212      46.449  78.256  80.567  1.00  1.88      2GMT1604
+ATOM   1495  CG2 ILE   212      44.118  78.026  81.372  1.00  1.00      2GMT1605
+ATOM   1496  CD1 ILE   212      46.548  77.084  79.545  1.00  3.43      2GMT1606
+ATOM   1497  N   VAL   213      43.787  79.337  84.287  1.00  1.00      2GMT1607
+ATOM   1498  CA  VAL   213      42.858  79.039  85.369  1.00  1.24      2GMT1608
+ATOM   1499  C   VAL   213      42.292  77.633  85.224  1.00  1.67      2GMT1609
+ATOM   1500  O   VAL   213      41.600  77.261  84.231  1.00  1.43      2GMT1610
+ATOM   1501  CB  VAL   213      41.692  80.088  85.245  1.00  3.16      2GMT1611
+ATOM   1502  CG1 VAL   213      40.564  79.759  86.239  1.00  5.69      2GMT1612
+ATOM   1503  CG2 VAL   213      42.297  81.488  85.613  1.00  1.00      2GMT1613
+ATOM   1504  N   SER   214      42.535  76.806  86.227  1.00  1.58      2GMT1614
+ATOM   1505  CA  SER   214      42.109  75.389  86.129  1.00  4.10      2GMT1615
+ATOM   1506  C   SER   214      41.060  74.925  87.087  1.00  3.59      2GMT1616
+ATOM   1507  O   SER   214      39.963  74.576  86.639  1.00  5.36      2GMT1617
+ATOM   1508  CB  SER   214      43.317  74.423  85.957  1.00  5.42      2GMT1618
+ATOM   1509  OG  SER   214      42.990  73.032  86.100  1.00  7.18      2GMT1619
+ATOM   1510  N   TRP   215      41.419  74.860  88.362  1.00  3.10      2GMT1620
+ATOM   1511  CA  TRP   215      40.555  74.491  89.501  1.00  6.40      2GMT1621
+ATOM   1512  C   TRP   215      40.995  75.215  90.836  1.00  9.84      2GMT1622
+ATOM   1513  O   TRP   215      42.013  75.963  90.868  1.00  9.46      2GMT1623
+ATOM   1514  CB  TRP   215      40.313  72.963  89.646  1.00  5.49      2GMT1624
+ATOM   1515  CG  TRP   215      41.586  72.192  89.858  1.00  3.99      2GMT1625
+ATOM   1516  CD1 TRP   215      42.503  71.882  88.903  1.00  1.54      2GMT1626
+ATOM   1517  CD2 TRP   215      42.081  71.696  91.102  1.00  6.19      2GMT1627
+ATOM   1518  NE1 TRP   215      43.457  71.102  89.421  1.00  4.57      2GMT1628
+ATOM   1519  CE2 TRP   215      43.234  70.984  90.786  1.00  7.12      2GMT1629
+ATOM   1520  CE3 TRP   215      41.583  71.676  92.432  1.00  7.78      2GMT1630
+ATOM   1521  CZ2 TRP   215      43.987  70.371  91.797  1.00  7.50      2GMT1631
+ATOM   1522  CZ3 TRP   215      42.290  71.026  93.426  1.00  8.29      2GMT1632
+ATOM   1523  CH2 TRP   215      43.496  70.424  93.095  1.00  8.84      2GMT1633
+ATOM   1524  N   GLY   216      40.200  75.004  91.923  1.00 12.81      2GMT1634
+ATOM   1525  CA  GLY   216      40.403  75.592  93.252  1.00 11.43      2GMT1635
+ATOM   1526  C   GLY   216      39.243  75.220  94.156  1.00  9.65      2GMT1636
+ATOM   1527  O   GLY   216      38.585  74.245  93.838  1.00  9.99      2GMT1637
+ATOM   1528  N   SER   217      39.023  75.919  95.294  1.00  8.66      2GMT1638
+ATOM   1529  CA  SER   217      37.928  75.691  96.235  1.00  8.78      2GMT1639
+ATOM   1530  C   SER   217      36.567  75.601  95.603  1.00 10.17      2GMT1640
+ATOM   1531  O   SER   217      36.162  76.535  94.926  1.00  8.10      2GMT1641
+ATOM   1532  CB  SER   217      37.733  76.783  97.297  1.00  8.42      2GMT1642
+ATOM   1533  OG  SER   217      36.475  76.575  98.025  1.00 10.16      2GMT1643
+ATOM   1534  N   SER   218      35.813  74.558  95.994  1.00 12.76      2GMT1644
+ATOM   1535  CA  SER   218      34.467  74.370  95.546  1.00 10.66      2GMT1645
+ATOM   1536  C   SER   218      33.688  75.558  95.999  1.00  7.79      2GMT1646
+ATOM   1537  O   SER   218      32.577  75.816  95.522  1.00  9.25      2GMT1647
+ATOM   1538  CB  SER   218      33.861  73.112  96.132  1.00 12.75      2GMT1648
+ATOM   1539  OG  SER   218      33.920  73.305  97.525  1.00 15.32      2GMT1649
+ATOM   1540  N   THR   219      34.279  76.277  96.932  1.00  7.89      2GMT1650
+ATOM   1541  CA  THR   219      33.714  77.481  97.540  1.00  9.26      2GMT1651
+ATOM   1542  C   THR   219      34.347  78.823  97.088  1.00  5.63      2GMT1652
+ATOM   1543  O   THR   219      33.939  79.962  97.469  1.00  5.51      2GMT1653
+ATOM   1544  CB  THR   219      33.840  77.296  99.071  1.00 13.27      2GMT1654
+ATOM   1545  OG1 THR   219      32.638  76.672  99.478  1.00 16.34      2GMT1655
+ATOM   1546  CG2 THR   219      34.153  78.588  99.821  1.00 16.04      2GMT1656
+ATOM   1547  N   CYS   220      35.374  78.688  96.294  1.00  3.76      2GMT1657
+ATOM   1548  CA  CYS   220      36.048  79.872  95.908  1.00  4.51      2GMT1658
+ATOM   1549  C   CYS   220      36.634  80.567  97.128  1.00  4.52      2GMT1659
+ATOM   1550  O   CYS   220      36.780  81.792  97.140  1.00  4.07      2GMT1660
+ATOM   1551  CB  CYS   220      35.143  80.822  95.136  1.00  7.15      2GMT1661
+ATOM   1552  SG  CYS   220      34.633  79.953  93.663  1.00  6.00      2GMT1662
+ATOM   1553  N   SER   221      36.896  79.772  98.173  1.00  5.11      2GMT1663
+ATOM   1554  CA  SER   221      37.469  80.313  99.416  1.00  5.63      2GMT1664
+ATOM   1555  C   SER   221      38.654  81.246  99.155  1.00  4.43      2GMT1665
+ATOM   1556  O   SER   221      39.470  80.935  98.320  1.00  5.51      2GMT1666
+ATOM   1557  CB  SER   221      38.010  79.228 100.354  1.00  8.67      2GMT1667
+ATOM   1558  OG  SER   221      38.740  79.890 101.411  1.00  8.62      2GMT1668
+ATOM   1559  N   THR   222      38.772  82.372  99.822  1.00  3.79      2GMT1669
+ATOM   1560  CA  THR   222      39.934  83.160  99.472  1.00  4.37      2GMT1670
+ATOM   1561  C   THR   222      41.154  82.774 100.310  1.00  2.18      2GMT1671
+ATOM   1562  O   THR   222      42.185  83.420 100.160  1.00  5.91      2GMT1672
+ATOM   1563  CB  THR   222      39.637  84.640  99.682  1.00  4.34      2GMT1673
+ATOM   1564  OG1 THR   222      39.163  84.800 101.017  1.00  5.95      2GMT1674
+ATOM   1565  CG2 THR   222      38.678  85.179  98.601  1.00  5.78      2GMT1675
+ATOM   1566  N   SER   223      41.025  81.756 101.154  1.00  1.37      2GMT1676
+ATOM   1567  CA  SER   223      42.078  81.229 102.033  1.00  1.21      2GMT1677
+ATOM   1568  C   SER   223      42.723  79.998 101.529  1.00  1.75      2GMT1678
+ATOM   1569  O   SER   223      43.571  79.491 102.225  1.00  2.14      2GMT1679
+ATOM   1570  CB  SER   223      41.586  80.910 103.424  1.00  2.69      2GMT1680
+ATOM   1571  OG  SER   223      41.073  82.117 103.907  1.00  6.77      2GMT1681
+ATOM   1572  N   THR   224      42.278  79.536 100.378  1.00  3.00      2GMT1682
+ATOM   1573  CA  THR   224      42.797  78.323  99.779  1.00  5.50      2GMT1683
+ATOM   1574  C   THR   224      43.328  78.747  98.423  1.00  4.60      2GMT1684
+ATOM   1575  O   THR   224      42.729  79.564  97.698  1.00  6.44      2GMT1685
+ATOM   1576  CB  THR   224      41.562  77.410  99.556  1.00  6.29      2GMT1686
+ATOM   1577  OG1 THR   224      40.954  77.048 100.800  1.00  8.66      2GMT1687
+ATOM   1578  CG2 THR   224      41.838  76.255  98.612  1.00  5.95      2GMT1688
+ATOM   1579  N   PRO   225      44.355  78.099  98.012  1.00  1.87      2GMT1689
+ATOM   1580  CA  PRO   225      44.877  78.529  96.751  1.00  3.69      2GMT1690
+ATOM   1581  C   PRO   225      44.198  77.913  95.556  1.00  5.37      2GMT1691
+ATOM   1582  O   PRO   225      43.624  76.803  95.630  1.00  4.38      2GMT1692
+ATOM   1583  CB  PRO   225      46.335  78.115  96.721  1.00  4.99      2GMT1693
+ATOM   1584  CG  PRO   225      46.621  77.396  98.029  1.00  5.23      2GMT1694
+ATOM   1585  CD  PRO   225      45.305  77.264  98.803  1.00  1.89      2GMT1695
+ATOM   1586  N   GLY   226      44.301  78.709  94.481  1.00  5.58      2GMT1696
+ATOM   1587  CA  GLY   226      43.739  78.326  93.232  1.00  3.77      2GMT1697
+ATOM   1588  C   GLY   226      44.785  77.503  92.551  1.00  2.92      2GMT1698
+ATOM   1589  O   GLY   226      45.980  77.660  92.834  1.00  1.00      2GMT1699
+ATOM   1590  N   VAL   227      44.297  76.648  91.640  1.00  2.52      2GMT1700
+ATOM   1591  CA  VAL   227      45.178  75.794  90.924  1.00  1.43      2GMT1701
+ATOM   1592  C   VAL   227      45.091  76.165  89.462  1.00  1.23      2GMT1702
+ATOM   1593  O   VAL   227      44.049  76.382  88.811  1.00  3.61      2GMT1703
+ATOM   1594  CB  VAL   227      45.067  74.265  91.345  1.00  1.34      2GMT1704
+ATOM   1595  CG1 VAL   227      46.339  73.452  91.052  1.00  1.00      2GMT1705
+ATOM   1596  CG2 VAL   227      44.853  74.240  92.859  1.00  1.00      2GMT1706
+ATOM   1597  N   TYR   228      46.269  76.270  88.916  1.00  2.87      2GMT1707
+ATOM   1598  CA  TYR   228      46.381  76.648  87.522  1.00  3.17      2GMT1708
+ATOM   1599  C   TYR   228      47.194  75.697  86.648  1.00  2.78      2GMT1709
+ATOM   1600  O   TYR   228      48.186  75.135  87.170  1.00  1.08      2GMT1710
+ATOM   1601  CB  TYR   228      46.834  78.071  87.327  1.00  4.33      2GMT1711
+ATOM   1602  CG  TYR   228      46.148  79.065  88.230  1.00  3.92      2GMT1712
+ATOM   1603  CD1 TYR   228      46.102  78.945  89.619  1.00  2.96      2GMT1713
+ATOM   1604  CD2 TYR   228      45.499  80.120  87.603  1.00  4.42      2GMT1714
+ATOM   1605  CE1 TYR   228      45.432  79.942  90.332  1.00  1.00      2GMT1715
+ATOM   1606  CE2 TYR   228      44.838  81.124  88.303  1.00  4.19      2GMT1716
+ATOM   1607  CZ  TYR   228      44.807  81.003  89.684  1.00  1.51      2GMT1717
+ATOM   1608  OH  TYR   228      44.111  81.958  90.382  1.00  1.84      2GMT1718
+ATOM   1609  N   ALA   229      46.771  75.500  85.374  1.00  1.00      2GMT1719
+ATOM   1610  CA  ALA   229      47.642  74.633  84.549  1.00  3.24      2GMT1720
+ATOM   1611  C   ALA   229      49.022  75.344  84.375  1.00  2.89      2GMT1721
+ATOM   1612  O   ALA   229      49.037  76.488  83.927  1.00  2.70      2GMT1722
+ATOM   1613  CB  ALA   229      47.085  74.422  83.144  1.00  5.66      2GMT1723
+ATOM   1614  N   ARG   230      50.162  74.654  84.598  1.00  1.00      2GMT1724
+ATOM   1615  CA  ARG   230      51.479  75.263  84.457  1.00  1.00      2GMT1725
+ATOM   1616  C   ARG   230      52.003  75.348  83.001  1.00  1.00      2GMT1726
+ATOM   1617  O   ARG   230      52.383  74.346  82.390  1.00  3.24      2GMT1727
+ATOM   1618  CB  ARG   230      52.268  74.380  85.368  1.00  4.56      2GMT1728
+ATOM   1619  CG  ARG   230      53.640  74.755  85.788  1.00  5.82      2GMT1729
+ATOM   1620  CD  ARG   230      53.960  73.949  87.075  1.00  7.03      2GMT1730
+ATOM   1621  NE  ARG   230      55.096  74.603  87.689  1.00 10.48      2GMT1731
+ATOM   1622  CZ  ARG   230      55.194  75.067  88.917  1.00 12.51      2GMT1732
+ATOM   1623  NH1 ARG   230      54.303  74.897  89.918  1.00 10.98      2GMT1733
+ATOM   1624  NH2 ARG   230      56.348  75.684  89.166  1.00 16.56      2GMT1734
+ATOM   1625  N   VAL   231      52.007  76.555  82.404  1.00  1.00      2GMT1735
+ATOM   1626  CA  VAL   231      52.333  76.780  80.987  1.00  1.00      2GMT1736
+ATOM   1627  C   VAL   231      53.766  76.319  80.568  1.00  1.92      2GMT1737
+ATOM   1628  O   VAL   231      54.023  75.804  79.475  1.00  1.00      2GMT1738
+ATOM   1629  CB  VAL   231      51.878  78.140  80.466  1.00  1.00      2GMT1739
+ATOM   1630  CG1 VAL   231      52.289  78.328  78.977  1.00  1.50      2GMT1740
+ATOM   1631  CG2 VAL   231      50.367  78.322  80.590  1.00  1.00      2GMT1741
+ATOM   1632  N   THR   232      54.709  76.554  81.493  1.00  1.71      2GMT1742
+ATOM   1633  CA  THR   232      56.084  76.174  81.323  1.00  5.71      2GMT1743
+ATOM   1634  C   THR   232      56.189  74.698  80.978  1.00  6.23      2GMT1744
+ATOM   1635  O   THR   232      57.006  74.297  80.122  1.00  4.62      2GMT1745
+ATOM   1636  CB  THR   232      56.933  76.643  82.526  1.00  8.69      2GMT1746
+ATOM   1637  OG1 THR   232      58.114  77.402  82.251  1.00 16.62      2GMT1747
+ATOM   1638  CG2 THR   232      56.975  75.714  83.692  1.00  8.38      2GMT1748
+ATOM   1639  N   ALA   233      55.324  73.902  81.612  1.00  8.34      2GMT1749
+ATOM   1640  CA  ALA   233      55.327  72.484  81.336  1.00  8.78      2GMT1750
+ATOM   1641  C   ALA   233      54.536  72.219  80.117  1.00  7.07      2GMT1751
+ATOM   1642  O   ALA   233      54.621  71.094  79.572  1.00  8.62      2GMT1752
+ATOM   1643  CB  ALA   233      54.790  71.660  82.494  1.00 13.06      2GMT1753
+ATOM   1644  N   LEU   234      53.825  73.262  79.601  1.00  3.25      2GMT1754
+ATOM   1645  CA  LEU   234      53.027  72.928  78.424  1.00  1.38      2GMT1755
+ATOM   1646  C   LEU   234      53.449  73.524  77.127  1.00  2.37      2GMT1756
+ATOM   1647  O   LEU   234      52.996  73.059  76.048  1.00  4.49      2GMT1757
+ATOM   1648  CB  LEU   234      51.498  73.210  78.603  1.00  1.00      2GMT1758
+ATOM   1649  CG  LEU   234      51.027  72.643  79.934  1.00  3.55      2GMT1759
+ATOM   1650  CD1 LEU   234      49.615  73.171  80.330  1.00  3.42      2GMT1760
+ATOM   1651  CD2 LEU   234      51.114  71.115  79.872  1.00  4.76      2GMT1761
+ATOM   1652  N   VAL   235      54.309  74.495  77.219  1.00  2.26      2GMT1762
+ATOM   1653  CA  VAL   235      54.717  75.241  76.020  1.00  3.52      2GMT1763
+ATOM   1654  C   VAL   235      55.291  74.427  74.870  1.00  1.89      2GMT1764
+ATOM   1655  O   VAL   235      55.097  74.813  73.726  1.00  1.00      2GMT1765
+ATOM   1656  CB  VAL   235      55.518  76.498  76.405  1.00  6.75      2GMT1766
+ATOM   1657  CG1 VAL   235      56.965  76.206  76.778  1.00  9.79      2GMT1767
+ATOM   1658  CG2 VAL   235      55.413  77.669  75.427  1.00  6.85      2GMT1768
+ATOM   1659  N   ASN   236      56.004  73.327  75.176  1.00  1.17      2GMT1769
+ATOM   1660  CA  ASN   236      56.574  72.448  74.144  1.00  4.40      2GMT1770
+ATOM   1661  C   ASN   236      55.496  71.907  73.211  1.00  2.87      2GMT1771
+ATOM   1662  O   ASN   236      55.588  71.955  71.997  1.00  1.00      2GMT1772
+ATOM   1663  CB  ASN   236      57.646  71.394  74.639  1.00  6.85      2GMT1773
+ATOM   1664  CG  ASN   236      58.976  72.057  75.087  1.00 10.07      2GMT1774
+ATOM   1665  OD1 ASN   236      59.343  73.198  74.702  1.00 11.59      2GMT1775
+ATOM   1666  ND2 ASN   236      59.762  71.361  75.896  1.00  9.53      2GMT1776
+ATOM   1667  N   TRP   237      54.382  71.467  73.771  1.00  3.68      2GMT1777
+ATOM   1668  CA  TRP   237      53.247  70.960  72.979  1.00  5.60      2GMT1778
+ATOM   1669  C   TRP   237      52.588  72.099  72.277  1.00  6.52      2GMT1779
+ATOM   1670  O   TRP   237      52.174  71.933  71.157  1.00  6.58      2GMT1780
+ATOM   1671  CB  TRP   237      52.158  70.247  73.814  1.00  5.69      2GMT1781
+ATOM   1672  CG  TRP   237      50.848  70.013  73.124  1.00  5.47      2GMT1782
+ATOM   1673  CD1 TRP   237      50.519  68.987  72.303  1.00  6.06      2GMT1783
+ATOM   1674  CD2 TRP   237      49.661  70.785  73.230  1.00  5.05      2GMT1784
+ATOM   1675  NE1 TRP   237      49.204  69.014  71.904  1.00  4.33      2GMT1785
+ATOM   1676  CE2 TRP   237      48.633  70.095  72.497  1.00  6.11      2GMT1786
+ATOM   1677  CE3 TRP   237      49.343  71.924  73.982  1.00  5.53      2GMT1787
+ATOM   1678  CZ2 TRP   237      47.308  70.587  72.420  1.00  8.60      2GMT1788
+ATOM   1679  CZ3 TRP   237      48.007  72.409  73.920  1.00  8.28      2GMT1789
+ATOM   1680  CH2 TRP   237      47.018  71.763  73.104  1.00  9.18      2GMT1790
+ATOM   1681  N   VAL   238      52.508  73.247  72.953  1.00  6.90      2GMT1791
+ATOM   1682  CA  VAL   238      51.909  74.382  72.283  1.00  5.68      2GMT1792
+ATOM   1683  C   VAL   238      52.617  74.670  71.030  1.00  4.33      2GMT1793
+ATOM   1684  O   VAL   238      51.971  74.815  69.985  1.00  5.60      2GMT1794
+ATOM   1685  CB  VAL   238      51.841  75.681  73.102  1.00  5.16      2GMT1795
+ATOM   1686  CG1 VAL   238      51.346  76.772  72.123  1.00  7.00      2GMT1796
+ATOM   1687  CG2 VAL   238      50.799  75.567  74.223  1.00  4.73      2GMT1797
+ATOM   1688  N   GLN   239      53.949  74.719  71.089  1.00  2.20      2GMT1798
+ATOM   1689  CA  GLN   239      54.757  75.056  69.906  1.00  6.88      2GMT1799
+ATOM   1690  C   GLN   239      54.704  74.032  68.764  1.00  9.11      2GMT1800
+ATOM   1691  O   GLN   239      54.793  74.388  67.602  1.00 11.06      2GMT1801
+ATOM   1692  CB  GLN   239      56.210  75.294  70.340  1.00 10.69      2GMT1802
+ATOM   1693  CG  GLN   239      56.736  76.755  70.216  1.00 15.05      2GMT1803
+ATOM   1694  CD  GLN   239      55.715  77.905  70.212  1.00 17.16      2GMT1804
+ATOM   1695  OE1 GLN   239      55.776  78.847  70.995  1.00 18.07      2GMT1805
+ATOM   1696  NE2 GLN   239      54.772  77.871  69.300  1.00 18.03      2GMT1806
+ATOM   1697  N   GLN   240      54.683  72.727  69.083  1.00  8.50      2GMT1807
+ATOM   1698  CA  GLN   240      54.627  71.678  68.059  1.00  8.55      2GMT1808
+ATOM   1699  C   GLN   240      53.257  71.794  67.328  1.00  7.77      2GMT1809
+ATOM   1700  O   GLN   240      53.107  71.652  66.107  1.00  6.04      2GMT1810
+ATOM   1701  CB  GLN   240      54.633  70.291  68.809  1.00  9.16      2GMT1811
+ATOM   1702  CG  GLN   240      56.016  69.733  69.220  1.00  7.85      2GMT1812
+ATOM   1703  CD  GLN   240      56.936  69.378  68.041  1.00 10.27      2GMT1813
+ATOM   1704  OE1 GLN   240      58.078  69.845  67.999  1.00 14.83      2GMT1814
+ATOM   1705  NE2 GLN   240      56.532  68.506  67.130  1.00  9.86      2GMT1815
+ATOM   1706  N   THR   241      52.198  72.075  68.123  1.00  6.79      2GMT1816
+ATOM   1707  CA  THR   241      50.867  72.189  67.593  1.00  7.49      2GMT1817
+ATOM   1708  C   THR   241      50.758  73.283  66.608  1.00  6.94      2GMT1818
+ATOM   1709  O   THR   241      50.153  73.078  65.566  1.00  5.19      2GMT1819
+ATOM   1710  CB  THR   241      49.789  72.353  68.676  1.00  7.73      2GMT1820
+ATOM   1711  OG1 THR   241      49.851  71.227  69.519  1.00  7.39      2GMT1821
+ATOM   1712  CG2 THR   241      48.410  72.517  68.073  1.00  8.28      2GMT1822
+ATOM   1713  N   LEU   242      51.340  74.452  66.946  1.00  9.31      2GMT1823
+ATOM   1714  CA  LEU   242      51.262  75.554  65.991  1.00  9.28      2GMT1824
+ATOM   1715  C   LEU   242      52.022  75.231  64.705  1.00 10.53      2GMT1825
+ATOM   1716  O   LEU   242      51.583  75.482  63.561  1.00 10.80      2GMT1826
+ATOM   1717  CB  LEU   242      51.832  76.837  66.627  1.00  6.94      2GMT1827
+ATOM   1718  CG  LEU   242      50.713  77.736  67.161  1.00  5.62      2GMT1828
+ATOM   1719  CD1 LEU   242      49.795  76.967  68.079  1.00  5.98      2GMT1829
+ATOM   1720  CD2 LEU   242      51.223  79.029  67.837  1.00  3.96      2GMT1830
+ATOM   1721  N   ALA   243      53.157  74.570  64.952  1.00  9.32      2GMT1831
+ATOM   1722  CA  ALA   243      54.136  74.223  63.941  1.00  9.70      2GMT1832
+ATOM   1723  C   ALA   243      53.601  73.279  62.888  1.00 11.67      2GMT1833
+ATOM   1724  O   ALA   243      53.937  73.352  61.691  1.00 12.05      2GMT1834
+ATOM   1725  CB  ALA   243      55.412  73.662  64.612  1.00  7.27      2GMT1835
+ATOM   1726  N   ALA   244      52.754  72.373  63.335  1.00 12.66      2GMT1836
+ATOM   1727  CA  ALA   244      52.278  71.457  62.369  1.00 12.87      2GMT1837
+ATOM   1728  C   ALA   244      50.893  71.777  61.896  1.00 12.47      2GMT1838
+ATOM   1729  O   ALA   244      50.363  71.004  61.138  1.00 13.76      2GMT1839
+ATOM   1730  CB  ALA   244      52.499  70.007  62.778  1.00 12.36      2GMT1840
+ATOM   1731  N   ASN   245      50.270  72.861  62.389  1.00 13.08      2GMT1841
+ATOM   1732  CA  ASN   245      48.909  73.177  61.953  1.00 13.57      2GMT1842
+ATOM   1733  C   ASN   245      48.733  74.603  61.494  1.00 15.30      2GMT1843
+ATOM   1734  O   ASN   245      47.643  75.103  61.748  1.00 14.31      2GMT1844
+ATOM   1735  CB  ASN   245      47.749  72.854  62.924  1.00 14.01      2GMT1845
+ATOM   1736  CG  ASN   245      47.780  71.446  63.326  1.00 15.90      2GMT1846
+ATOM   1737  OD1 ASN   245      47.156  70.617  62.632  1.00 17.30      2GMT1847
+ATOM   1738  ND2 ASN   245      48.637  71.182  64.324  1.00 15.47      2GMT1848
+ATOM   1739  OXT ASN   245      49.627  75.174  60.803  1.00 19.82      2GMT1849
+TER    1740      ASN   245                                              2GMT1850
+HETATM 1741  C1  HIN   247      35.365  74.787  83.910  1.00 13.21      2GMT1851
+HETATM 1742  C2  HIN   247      36.490  74.319  84.893  1.00 12.22      2GMT1852
+HETATM 1743  C3  HIN   247      35.937  73.657  86.135  1.00 13.28      2GMT1853
+HETATM 1744  C4  HIN   247      35.717  74.527  87.331  1.00 15.74      2GMT1854
+HETATM 1745  N5  HIN   247      34.632  73.939  88.049  1.00 17.20      2GMT1855
+HETATM 1746  C6  HIN   247      33.386  74.388  88.012  1.00 21.63      2GMT1856
+HETATM 1747  C7  HIN   247      32.503  73.499  88.875  1.00 23.75      2GMT1857
+HETATM 1748  N8  HIN   247      31.074  73.711  88.753  1.00 26.80      2GMT1858
+HETATM 1749  C9  HIN   247      30.203  72.957  89.424  1.00 29.66      2GMT1859
+HETATM 1750  C10 HIN   247      28.697  73.285  89.253  1.00 30.06      2GMT1860
+HETATM 1751  C11 HIN   247      32.959  72.040  88.777  1.00 23.19      2GMT1861
+HETATM 1752  C12 HIN   247      36.932  74.363  88.248  1.00 17.20      2GMT1862
+HETATM 1753  C1' HIN   247      36.899  75.396  89.312  1.00 17.76      2GMT1863
+HETATM 1754  C2' HIN   247      36.623  76.712  88.929  1.00 19.03      2GMT1864
+HETATM 1755  C3' HIN   247      36.621  77.718  89.898  1.00 20.56      2GMT1865
+HETATM 1756  C4' HIN   247      36.889  77.392  91.240  1.00 19.29      2GMT1866
+HETATM 1757  C5' HIN   247      37.068  76.087  91.645  1.00 17.77      2GMT1867
+HETATM 1758  C6' HIN   247      37.107  75.092  90.664  1.00 17.25      2GMT1868
+HETATM 1759  O3  HIN   247      35.873  72.424  86.266  1.00 11.55      2GMT1869
+HETATM 1760  O6  HIN   247      32.983  75.384  87.353  1.00 22.37      2GMT1870
+HETATM 1761  O9  HIN   247      30.535  72.007  90.141  1.00 30.31      2GMT1871
+HETATM 1762  O   HOH   250      31.507  73.697  97.676  1.00 16.61      2GMT1872
+HETATM 1763  O   HOH   251      34.194  89.482  95.339  1.00  9.82      2GMT1873
+HETATM 1764  O   HOH   252      27.329  85.675  92.303  1.00  6.58      2GMT1874
+HETATM 1765  O   HOH   253      44.217  66.060  90.589  1.00 24.50      2GMT1875
+HETATM 1766  O   HOH   254      32.439  80.868  90.465  1.00 16.67      2GMT1876
+HETATM 1767  O   HOH   255      27.638  86.596  88.921  1.00  5.63      2GMT1877
+HETATM 1768  O   HOH   256      32.745  95.804  87.889  1.00 14.05      2GMT1878
+HETATM 1769  O   HOH   257      48.166  62.995  85.794  1.00 16.22      2GMT1879
+HETATM 1770  O   HOH   258      29.620  94.341  86.500  1.00 21.09      2GMT1880
+HETATM 1771  O   HOH   259      34.484  77.906  85.260  1.00 14.87      2GMT1881
+HETATM 1772  O   HOH   261      46.183  90.836  63.165  1.00 17.35      2GMT1882
+HETATM 1773  O   HOH   262      47.241  65.428  82.172  1.00 28.75      2GMT1883
+HETATM 1774  O   HOH   263      40.132  95.165  65.103  1.00  7.86      2GMT1884
+HETATM 1775  O   HOH   264      55.713  69.876  65.208  1.00 13.28      2GMT1885
+HETATM 1776  O   HOH   266      26.887  84.975  80.169  1.00  7.73      2GMT1886
+HETATM 1777  O   HOH   268      52.262  68.945  77.624  1.00  8.99      2GMT1887
+HETATM 1778  O   HOH   269      43.330  63.983  76.986  1.00 23.53      2GMT1888
+HETATM 1779  O   HOH   271      48.279 102.850  71.245  1.00 12.82      2GMT1889
+HETATM 1780  O   HOH   272      32.857  69.032  74.258  1.00  7.17      2GMT1890
+HETATM 1781  O   HOH   273      30.993  93.417  74.578  1.00 12.93      2GMT1891
+HETATM 1782  O   HOH   275      46.979  95.919  72.777  1.00  5.81      2GMT1892
+HETATM 1783  O   HOH   276      52.317  84.744  72.401  1.00  7.16      2GMT1893
+HETATM 1784  O   HOH   277      40.501  90.635  73.356  1.00  4.37      2GMT1894
+HETATM 1785  O   HOH   278      49.674 102.574  73.837  1.00 14.81      2GMT1895
+HETATM 1786  O   HOH   279      49.642  92.496  73.758  1.00  5.83      2GMT1896
+HETATM 1787  O   HOH   280      36.959  89.914  75.088  1.00 11.82      2GMT1897
+HETATM 1788  O   HOH   281      29.165  94.827  72.048  1.00 10.66      2GMT1898
+HETATM 1789  O   HOH   282      45.679  97.133  75.355  1.00  1.00      2GMT1899
+HETATM 1790  O   HOH   283      38.292  73.552  75.982  1.00  6.20      2GMT1900
+HETATM 1791  O   HOH   284      48.354  65.993  70.423  1.00  6.13      2GMT1901
+HETATM 1792  O   HOH   285      54.934  70.609  76.951  1.00  5.67      2GMT1902
+HETATM 1793  O   HOH   286      56.868  72.281  77.900  1.00 10.58      2GMT1903
+HETATM 1794  O   HOH   287      40.995  94.147  78.237  1.00  6.17      2GMT1904
+HETATM 1795  O   HOH   288      44.451  81.454  79.062  1.00  9.89      2GMT1905
+HETATM 1796  O   HOH   289      53.186  96.196  78.625  1.00 25.34      2GMT1906
+HETATM 1797  O   HOH   290      32.454  78.546  66.141  1.00  1.00      2GMT1907
+HETATM 1798  O   HOH   291      48.743  93.775  80.620  1.00 11.13      2GMT1908
+HETATM 1799  O   HOH   293      36.655  84.469  82.389  1.00  1.70      2GMT1909
+HETATM 1800  O   HOH   294      30.388  73.010  64.198  1.00 20.45      2GMT1910
+HETATM 1801  O   HOH   295      45.401  88.869  81.874  1.00  3.99      2GMT1911
+HETATM 1802  O   HOH   296      39.000  84.050  82.958  1.00  2.82      2GMT1912
+HETATM 1803  O   HOH   298      58.059  73.245  83.571  1.00 12.78      2GMT1913
+HETATM 1804  O   HOH   299      43.588  97.321  84.528  1.00  2.25      2GMT1914
+HETATM 1805  O   HOH   300      47.371  71.074  84.399  1.00  9.83      2GMT1915
+HETATM 1806  O   HOH   301      54.363  78.309  83.920  1.00  7.26      2GMT1916
+HETATM 1807  O   HOH   302      45.875  96.973  86.068  1.00 30.05      2GMT1917
+HETATM 1808  O   HOH   303      45.320  71.380  86.203  1.00  1.24      2GMT1918
+HETATM 1809  O   HOH   304      56.709  89.378  87.139  1.00 31.14      2GMT1919
+HETATM 1810  O   HOH   305      35.401  87.563  87.975  1.00  4.79      2GMT1920
+HETATM 1811  O   HOH   306      54.105  90.013  88.379  1.00 17.26      2GMT1921
+HETATM 1812  O   HOH   307      61.122  77.505  88.125  1.00 10.30      2GMT1922
+HETATM 1813  O   HOH   308      42.888  78.302  88.484  1.00 32.70      2GMT1923
+HETATM 1814  O   HOH   309      57.392  71.898  90.503  1.00 30.02      2GMT1924
+HETATM 1815  O   HOH   310      36.270  90.779  91.861  1.00  7.92      2GMT1925
+HETATM 1816  O   HOH   311      50.429  94.349  92.215  1.00 27.23      2GMT1926
+HETATM 1817  O   HOH   312      52.724  75.837  92.803  1.00  7.82      2GMT1927
+HETATM 1818  O   HOH   314      40.575  78.756  95.805  1.00  6.82      2GMT1928
+HETATM 1819  O   HOH   315      43.162  81.846  95.873  1.00  5.19      2GMT1929
+HETATM 1820  O   HOH   316      48.727  91.009  95.858  1.00 26.92      2GMT1930
+HETATM 1821  O   HOH   317      32.267  83.797  98.078  1.00 28.36      2GMT1931
+HETATM 1822  O   HOH   318      32.008  86.976  98.526  1.00 31.99      2GMT1932
+HETATM 1823  O   HOH   319      49.732  60.074  95.440  1.00 12.48      2GMT1933
+HETATM 1824  O   HOH   320      46.786  59.502  95.148  1.00 15.28      2GMT1934
+HETATM 1825  O   HOH   322      53.428  68.929  92.505  1.00 26.90      2GMT1935
+HETATM 1826  O   HOH   324      26.251  79.826  89.770  1.00 25.32      2GMT1936
+HETATM 1827  O   HOH   325      36.694  85.019  57.764  1.00 34.51      2GMT1937
+HETATM 1828  O   HOH   327      38.137  77.508  58.865  1.00 15.35      2GMT1938
+HETATM 1829  O   HOH   328      52.877  66.675  85.590  1.00 25.45      2GMT1939
+HETATM 1830  O   HOH   329      42.603  81.066  61.331  1.00 29.91      2GMT1940
+HETATM 1831  O   HOH   330      48.225  79.182  61.914  1.00 16.51      2GMT1941
+HETATM 1832  O   HOH   331      43.744  93.003  62.412  1.00 30.21      2GMT1942
+HETATM 1833  O   HOH   332      56.943  69.618  62.663  1.00 21.83      2GMT1943
+HETATM 1834  O   HOH   333      46.049  93.869  63.504  1.00 24.94      2GMT1944
+HETATM 1835  O   HOH   334      25.723  89.731  84.002  1.00 25.66      2GMT1945
+HETATM 1836  O   HOH   335      36.910  95.395  66.073  1.00 21.32      2GMT1946
+HETATM 1837  O   HOH   336      51.641  87.041  67.937  1.00 15.43      2GMT1947
+HETATM 1838  O   HOH   338      48.249  95.615  68.851  1.00 14.55      2GMT1948
+HETATM 1839  O   HOH   340      40.185  64.003  76.524  1.00 29.28      2GMT1949
+HETATM 1840  O   HOH   341      37.559  96.235  71.971  1.00  7.03      2GMT1950
+HETATM 1841  O   HOH   342      50.605 101.416  71.916  1.00 22.70      2GMT1951
+HETATM 1842  O   HOH   343      52.953  93.448  71.409  1.00 26.82      2GMT1952
+HETATM 1843  O   HOH   344      42.856  64.646  74.126  1.00 13.87      2GMT1953
+HETATM 1844  O   HOH   345      41.111 103.787  71.279  1.00 24.73      2GMT1954
+HETATM 1845  O   HOH   346      27.943  75.664  71.981  1.00 24.24      2GMT1955
+HETATM 1846  O   HOH   347      38.842  70.553  75.297  1.00  2.46      2GMT1956
+HETATM 1847  O   HOH   348      40.150  93.967  75.170  1.00  6.84      2GMT1957
+HETATM 1848  O   HOH   351      45.606  68.384  70.346  1.00 13.70      2GMT1958
+HETATM 1849  O   HOH   352      35.369  99.109  77.594  1.00 25.39      2GMT1959
+HETATM 1850  O   HOH   353      28.887  97.553  68.893  1.00 17.69      2GMT1960
+HETATM 1851  O   HOH   354      43.383  88.718  79.906  1.00 24.87      2GMT1961
+HETATM 1852  O   HOH   355      27.702  78.355  66.957  1.00 11.08      2GMT1962
+HETATM 1853  O   HOH   357      51.927  96.678  81.221  1.00 12.70      2GMT1963
+HETATM 1854  O   HOH   358      54.947 103.227  83.717  1.00 24.85      2GMT1964
+HETATM 1855  O   HOH   359      37.302 100.366  85.092  1.00 19.85      2GMT1965
+HETATM 1856  O   HOH   360      53.439  95.273  86.010  1.00  8.87      2GMT1966
+HETATM 1857  O   HOH   361      56.510  77.626  85.926  1.00 10.86      2GMT1967
+HETATM 1858  O   HOH   363      40.925  84.308  87.523  1.00  1.46      2GMT1968
+HETATM 1859  O   HOH   364      52.012  89.272  86.669  1.00 13.11      2GMT1969
+HETATM 1860  O   HOH   365      58.904  78.485  87.243  1.00 19.14      2GMT1970
+HETATM 1861  O   HOH   368      35.078  96.445  90.687  1.00 19.63      2GMT1971
+HETATM 1862  O   HOH   370      45.949  94.491  92.483  1.00 20.00      2GMT1972
+HETATM 1863  O   HOH   371      56.440  90.280  92.251  1.00 13.93      2GMT1973
+HETATM 1864  O   HOH   372      59.590  87.337  91.762  1.00 39.28      2GMT1974
+HETATM 1865  O   HOH   373      43.025  81.783  93.062  1.00 12.28      2GMT1975
+HETATM 1866  O   HOH   374      43.940  84.180 102.654  1.00 13.29      2GMT1976
+HETATM 1867  O   HOH   377      49.242  83.504  99.891  1.00  8.82      2GMT1977
+HETATM 1868  O   HOH   378      55.077  78.706  98.671  1.00 30.83      2GMT1978
+HETATM 1869  O   HOH   379      37.121  69.782  95.604  1.00 22.78      2GMT1979
+HETATM 1870  O   HOH   380      32.302  70.017  90.956  1.00 22.40      2GMT1980
+HETATM 1871  O   HOH   381      33.139  72.235  92.211  1.00 52.99      2GMT1981
+HETATM 1872  O   HOH   382      35.360  70.891  92.609  1.00 39.44      2GMT1982
+HETATM 1873  O   HOH   383      33.804  71.241  83.396  1.00 17.73      2GMT1983
+HETATM 1874  O   HOH   384      29.729  82.286  98.349  1.00 16.88      2GMT1984
+HETATM 1875  O   HOH   385      34.795  92.945  96.009  1.00 25.58      2GMT1985
+HETATM 1876  O   HOH   386      53.651  65.429 100.067  1.00 16.54      2GMT1986
+HETATM 1877  O   HOH   388      27.467  77.915  90.741  1.00 16.59      2GMT1987
+HETATM 1878  O   HOH   389      53.729  65.700  88.671  1.00 39.19      2GMT1988
+HETATM 1879  O   HOH   390      44.932  58.694  85.776  1.00 26.98      2GMT1989
+HETATM 1880  O   HOH   392      45.065  98.211  63.761  1.00 27.56      2GMT1990
+HETATM 1881  O   HOH   393      54.674  78.052  64.475  1.00 20.23      2GMT1991
+HETATM 1882  O   HOH   394      56.562  80.631  67.995  1.00 32.14      2GMT1992
+HETATM 1883  O   HOH   395      37.179  94.559  68.178  1.00 28.80      2GMT1993
+HETATM 1884  O   HOH   399      28.785  89.067  74.649  1.00 18.64      2GMT1994
+HETATM 1885  O   HOH   400      41.079 103.644  73.314  1.00 10.72      2GMT1995
+HETATM 1886  O   HOH   401      27.575  82.712  70.821  1.00 11.86      2GMT1996
+HETATM 1887  O   HOH   404      41.940  86.044  78.759  1.00 14.81      2GMT1997
+HETATM 1888  O   HOH   406      37.616  86.114  81.200  1.00  7.97      2GMT1998
+HETATM 1889  O   HOH   407      58.548  83.338  81.072  1.00 19.57      2GMT1999
+HETATM 1890  O   HOH   408      66.007  89.418  83.054  1.00 48.53      2GMT2000
+HETATM 1891  O   HOH   409      48.901 101.750  84.715  1.00 23.69      2GMT2001
+HETATM 1892  O   HOH   410      57.886  95.801  84.232  1.00 34.77      2GMT2002
+HETATM 1893  O   HOH   411      39.692  93.870  86.695  1.00 30.89      2GMT2003
+HETATM 1894  O   HOH   415      40.331  84.729 104.019  1.00 29.68      2GMT2004
+HETATM 1895  O   HOH   416      59.736  75.476 103.437  1.00 30.84      2GMT2005
+HETATM 1896  O   HOH   421      27.560  77.130  99.555  1.00 30.79      2GMT2006
+HETATM 1897  O   HOH   422      32.635  78.801  94.827  1.00 20.12      2GMT2007
+HETATM 1898  O   HOH   423      28.934  86.755  90.746  1.00 14.37      2GMT2008
+HETATM 1899  O   HOH   425      52.365  76.195  60.848  1.00 16.34      2GMT2009
+HETATM 1900  O   HOH   427      23.759  77.907  77.656  1.00 19.65      2GMT2010
+HETATM 1901  O   HOH   428      38.795  68.551  77.538  1.00 21.03      2GMT2011
+HETATM 1902  O   HOH   429      35.698  95.372  70.256  1.00 23.13      2GMT2012
+HETATM 1903  O   HOH   430      50.220  91.424  70.423  1.00 18.40      2GMT2013
+HETATM 1904  O   HOH   431      48.513  97.785  70.905  1.00 45.56      2GMT2014
+HETATM 1905  O   HOH   432      51.149  99.337  72.241  1.00 20.89      2GMT2015
+HETATM 1906  O   HOH   433      36.419  96.035  75.642  1.00 30.37      2GMT2016
+HETATM 1907  O   HOH   435      38.672  94.912  78.843  1.00 13.97      2GMT2017
+HETATM 1908  O   HOH   436      33.122  91.548  63.575  1.00 34.83      2GMT2018
+HETATM 1909  O   HOH   437      39.864  76.851  85.419  1.00 43.95      2GMT2019
+HETATM 1910  O   HOH   441      45.645  93.022  94.657  1.00 17.01      2GMT2020
+HETATM 1911  O   HOH   442      41.292  73.317 102.063  1.00 24.46      2GMT2021
+HETATM 1912  O   HOH   443      59.042  74.272  98.282  1.00 21.66      2GMT2022
+HETATM 1913  O   HOH   444      43.815  63.847  97.490  1.00 34.00      2GMT2023
+HETATM 1914  O   HOH   446      43.845  67.240 100.700  1.00 27.52      2GMT2024
+HETATM 1915  O   HOH   448      48.216  60.463  92.491  1.00 37.58      2GMT2025
+HETATM 1916  O   HOH   449      42.353  66.083  91.931  1.00 28.11      2GMT2026
+HETATM 1917  O   HOH   450      27.640  89.135  91.673  1.00 26.68      2GMT2027
+HETATM 1918  O   HOH   452      41.812  74.383  59.657  1.00 36.35      2GMT2028
+HETATM 1919  O   HOH   453      33.012  71.225  86.200  1.00 20.54      2GMT2029
+HETATM 1920  O   HOH   454      24.326  88.125  86.120  1.00 37.72      2GMT2030
+HETATM 1921  O   HOH   455      38.365  90.515  61.201  1.00 32.66      2GMT2031
+HETATM 1922  O   HOH   456      44.991  79.747  62.052  1.00 21.81      2GMT2032
+HETATM 1923  O   HOH   457      55.335  77.408  61.762  1.00 20.95      2GMT2033
+HETATM 1924  O   HOH   465      39.497  96.222  67.808  1.00 28.10      2GMT2034
+HETATM 1925  O   HOH   466      19.573  79.036  77.302  1.00 27.51      2GMT2035
+HETATM 1926  O   HOH   474      45.644 100.529  74.099  1.00 21.12      2GMT2036
+HETATM 1927  O   HOH   475      56.962  81.561  74.364  1.00 28.22      2GMT2037
+HETATM 1928  O   HOH   476      58.160  87.922  74.463  1.00 19.42      2GMT2038
+HETATM 1929  O   HOH   478      51.933 100.402  75.785  1.00 30.39      2GMT2039
+HETATM 1930  O   HOH   489      48.098  94.205  87.219  1.00 32.28      2GMT2040
+HETATM 1931  O   HOH   491      57.625  87.296  87.340  1.00 28.83      2GMT2041
+HETATM 1932  O   HOH   492      52.700  92.602  88.135  1.00 20.78      2GMT2042
+HETATM 1933  O   HOH   494      56.776  74.299  92.732  1.00 17.75      2GMT2043
+HETATM 1934  O   HOH   501      54.586  99.543  81.268  1.00 24.87      2GMT2044
+HETATM 1935  O   HOH   502      44.898 100.146  92.986  1.00 41.76      2GMT2045
+HETATM 1936  O   HOH   504      30.433  79.665  67.762  1.00 34.38      2GMT2046
+HETATM 1937  O   HOH   505      24.951  71.957  68.163  1.00 24.87      2GMT2047
+HETATM 1938  O   HOH   506      47.875  81.889  68.630  1.00 26.27      2GMT2048
+HETATM 1939  O   HOH   509      30.053  71.297  65.426  1.00 19.37      2GMT2049
+HETATM 1940  O   HOH   510      25.412  90.035  77.615  1.00 56.37      2GMT2050
+HETATM 1941  O   HOH   511      23.647  87.520  73.690  1.00 23.32      2GMT2051
+HETATM 1942  O   HOH   512      23.960  93.642  81.873  1.00 23.66      2GMT2052
+HETATM 1943  O   HOH   514      35.562 103.551  70.476  1.00 36.35      2GMT2053
+HETATM 1944  O   HOH   515      37.341 103.390  72.204  1.00 37.63      2GMT2054
+HETATM 1945  O   HOH   516      38.931 102.452  62.680  1.00 32.34      2GMT2055
+HETATM 1946  O   HOH   517      36.405 103.165  61.534  1.00 37.50      2GMT2056
+HETATM 1947  O   HOH   518      42.775  68.814  67.029  1.00 23.66      2GMT2057
+HETATM 1948  O   HOH   519      47.881  60.706  84.282  1.00 34.66      2GMT2058
+HETATM 1949  O   HOH   520      49.833  58.995  83.082  1.00 28.50      2GMT2059
+HETATM 1950  O   HOH   521      52.693  62.752  81.173  1.00 26.63      2GMT2060
+HETATM 1951  O   HOH   522      51.206  63.599  83.961  1.00 43.00      2GMT2061
+HETATM 1952  O   HOH   523      53.715  62.760  83.758  1.00 18.42      2GMT2062
+HETATM 1953  O   HOH   524      47.220  59.992  88.946  1.00 23.92      2GMT2063
+HETATM 1954  O   HOH   525      46.600  67.346  72.202  1.00 25.36      2GMT2064
+HETATM 1955  O   HOH   526      44.188  73.784  58.691  1.00 20.75      2GMT2065
+HETATM 1956  O   HOH   527      45.435  82.144  58.917  1.00 37.71      2GMT2066
+HETATM 1957  O   HOH   528      40.202  99.161  63.812  1.00 23.64      2GMT2067
+HETATM 1958  O   HOH   529      47.516  98.381  66.406  1.00 25.18      2GMT2068
+HETATM 1959  O   HOH   530      43.078  93.313  59.995  1.00 40.93      2GMT2069
+HETATM 1960  O   HOH   531      42.306 101.350  67.295  1.00 33.41      2GMT2070
+HETATM 1961  O   HOH   533      38.799 101.885  73.849  1.00 26.33      2GMT2071
+HETATM 1962  O   HOH   534      35.808 100.075  72.113  1.00 29.06      2GMT2072
+HETATM 1963  O   HOH   536      63.300  72.297  78.622  1.00 46.38      2GMT2073
+HETATM 1964  O   HOH   537      65.328  70.141  75.555  1.00 20.40      2GMT2074
+HETATM 1965  O   HOH   538      56.187  76.368  92.015  1.00 34.52      2GMT2075
+HETATM 1966  O   HOH   539      53.955  91.459  82.306  1.00 43.29      2GMT2076
+HETATM 1967  O   HOH   540      24.410  82.279  88.216  1.00 27.21      2GMT2077
+HETATM 1968  O   HOH   541      28.446  83.839  97.441  1.00 21.55      2GMT2078
+HETATM 1969  O   HOH   542      27.720  91.744  95.842  1.00 29.87      2GMT2079
+HETATM 1970  O   HOH   543      28.087  98.840  83.940  1.00 24.07      2GMT2080
+HETATM 1971  O   HOH   544      41.375  97.374  93.445  1.00 29.98      2GMT2081
+HETATM 1972  O   HOH   545      59.474  73.166 104.987  1.00 28.59      2GMT2082
+HETATM 1973  O   HOH   546      58.099  83.970  98.130  1.00 39.69      2GMT2083
+HETATM 1974  O   HOH   547      60.911  73.279 103.454  1.00 27.00      2GMT2084
+HETATM 1975  O   HOH   548      56.693  68.464 102.272  1.00 25.37      2GMT2085
+HETATM 1976  O   HOH   549      48.917  80.210 104.408  1.00 31.04      2GMT2086
+HETATM 1977  O   HOH   550      49.820  78.474 105.758  1.00 20.67      2GMT2087
+HETATM 1978  O   HOH   551      46.675  77.184 105.438  1.00 31.91      2GMT2088
+HETATM 1979  O   HOH   552      41.133  64.114 100.270  1.00 23.38      2GMT2089
+HETATM 1980  O   HOH   553      48.406  63.676 100.990  1.00 24.59      2GMT2090
+HETATM 1981  O   HOH   554      51.079  60.528 100.370  1.00 37.08      2GMT2091
+HETATM 1982  O   HOH   555      50.087  61.618  92.057  1.00 30.64      2GMT2092
+HETATM 1983  O   HOH   556      47.128  60.101 100.383  1.00 33.57      2GMT2093
+HETATM 1984  O   HOH   557      57.039  91.497  88.264  1.00 37.15      2GMT2094
+HETATM 1985  O   HOH   559      63.962  94.581  81.644  1.00 37.68      2GMT2095
+HETATM 1986  O   HOH   560      35.854  71.954  98.443  1.00 27.09      2GMT2096
+HETATM 1987  O   HOH   561      38.394  68.809  93.452  1.00 44.66      2GMT2097
+HETATM 1988  O   HOH   562      38.296  83.689 102.816  1.00 51.97      2GMT2098
+HETATM 1989  O   HOH   563      39.983  74.421 104.324  1.00 26.84      2GMT2099
+HETATM 1990  O   HOH   564      43.638  75.262 105.388  1.00 28.34      2GMT2100
+HETATM 1991  O   HOH   565      42.201  81.792 107.397  1.00 34.07      2GMT2101
+HETATM 1992  O   HOH   566      48.458  80.046 107.687  1.00 24.70      2GMT2102
+HETATM 1993  O   HOH   567      34.784  82.329  97.995  1.00 31.58      2GMT2103
+HETATM 1994  O   HOH   569      44.873  71.838  60.642  1.00 28.23      2GMT2104
+HETATM 1995  O   HOH   570      47.090  68.038  64.778  1.00 50.20      2GMT2105
+HETATM 1996  O   HOH   571      33.285  87.837 100.284  1.00 33.82      2GMT2106
+HETATM 1997  O   HOH   572      39.072  92.976 100.006  1.00 44.48      2GMT2107
+HETATM 1998  O   HOH   573      32.329  72.225  80.755  1.00 42.39      2GMT2108
+HETATM 1999  O   HOH   575      37.323  72.772  91.847  1.00 48.76      2GMT2109
+CONECT    6    5  873                                                   2GMT2110
+CONECT  282  281  398                                                   2GMT2111
+CONECT  392  390  391 1742                                              2GMT2112
+CONECT  398  282  397                                                   2GMT2113
+CONECT  873    6  872                                                   2GMT2114
+CONECT  966  965 1413                                                   2GMT2115
+CONECT 1183 1182 1299                                                   2GMT2116
+CONECT 1299 1183 1298                                                   2GMT2117
+CONECT 1348 1347 1552                                                   2GMT2118
+CONECT 1413  966 1412                                                   2GMT2119
+CONECT 1552 1348 1551                                                   2GMT2120
+CONECT 1741 1742                                                        2GMT2121
+CONECT 1742  392 1741 1743                                              2GMT2122
+CONECT 1743 1742 1744 1759                                              2GMT2123
+CONECT 1744 1743 1745 1752                                              2GMT2124
+CONECT 1745 1744 1746                                                   2GMT2125
+CONECT 1746 1745 1747 1760                                              2GMT2126
+CONECT 1747 1746 1748 1751                                              2GMT2127
+CONECT 1748 1747 1749                                                   2GMT2128
+CONECT 1749 1748 1750 1761                                              2GMT2129
+CONECT 1750 1749                                                        2GMT2130
+CONECT 1751 1747                                                        2GMT2131
+CONECT 1752 1744 1753                                                   2GMT2132
+CONECT 1753 1752 1754 1758                                              2GMT2133
+CONECT 1754 1753 1755                                                   2GMT2134
+CONECT 1755 1754 1756                                                   2GMT2135
+CONECT 1756 1755 1757                                                   2GMT2136
+CONECT 1757 1756 1758                                                   2GMT2137
+CONECT 1758 1753 1757                                                   2GMT2138
+CONECT 1759 1743                                                        2GMT2139
+CONECT 1760 1746                                                        2GMT2140
+CONECT 1761 1749                                                        2GMT2141
+MASTER       43    0    1    1   14    0    1    6 1998    1   32   19  2GMT2142
+END                                                                     2GMT2143

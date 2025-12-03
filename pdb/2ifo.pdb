@@ -1,0 +1,408 @@
+HEADER    VIRUS                                   08-AUG-94   2IFO      2IFO   2
+COMPND    INOVIRUS (FILAMENTOUS BACTERIOPHAGE) STRAIN XF MAJOR          2IFO   3
+COMPND   2 COAT PROTEIN ASSEMBLY IN THE CANONICAL ASSEMBLY              2IFO   4
+COMPND   3 (FIBER DIFFRACTION)                                          2IFO   5
+SOURCE    INOVIRUS STRAIN XF GROWN IN (XANTHOMONAS ORYZAE)              2IFO   6
+EXPDTA    FIBER DIFFRACTION                                             2IFO   7
+AUTHOR    D.A.MARVIN                                                    2IFO   8
+REVDAT   1   30-NOV-94 2IFO    0                                        2IFO   9
+JRNL        AUTH   D.A.MARVIN                                           2IFO  10
+JRNL        TITL   MODEL-BUILDING STUDIES OF INOVIRUS: GENETIC          2IFO  11
+JRNL        TITL 2 VARIATIONS ON A GEOMETRIC THEME                      2IFO  12
+JRNL        REF    INT.J.BIOL.MACROMOL.          V.  12   125 1990      2IFO  13
+JRNL        REFN   ASTM IJBMDR  UK ISSN 0141-8130                 0708  2IFO  14
+REMARK   1                                                              2IFO  15
+REMARK   1 REFERENCE 1                                                  2IFO  16
+REMARK   1  AUTH   D.A.MARVIN                                           2IFO  17
+REMARK   1  TITL   DYNAMICS OF TELESCOPING INOVIRUS: A MECHANISM        2IFO  18
+REMARK   1  TITL 2 FOR ASSEMBLY AT MEMBRANE ADHESIONS                   2IFO  19
+REMARK   1  REF    INT.J.BIOL.MACROMOL.          V.  11   159 1989      2IFO  20
+REMARK   1  REFN   ASTM IJBMDR  UK ISSN 0141-8130                 0708  2IFO  21
+REMARK   1 REFERENCE 2                                                  2IFO  22
+REMARK   1  AUTH   D.A.MARVIN,R.L.WISEMAN,E.J.WACHTEL                   2IFO  23
+REMARK   1  TITL   FILAMENTOUS BACTERIAL VIRUSES XII. MOLECULAR         2IFO  24
+REMARK   1  TITL 2 ARCHITECTURE OF THE CLASS II (PF1, XF) VIRION        2IFO  25
+REMARK   1  REF    J.MOL.BIOL.                   V.  82   121 1974      2IFO  26
+REMARK   1  REFN   ASTM JMOBAK  UK ISSN 0022-2836                 0070  2IFO  27
+REMARK   2                                                              2IFO  28
+REMARK   2 RESOLUTION. NOT APPLICABLE.  SEE REMARK 4.                   2IFO  29
+REMARK   3                                                              2IFO  30
+REMARK   3 REFINEMENT.                                                  2IFO  31
+REMARK   3   PROGRAM                    EREF                            2IFO  32
+REMARK   3   AUTHORS                    JACK,LEVITT                     2IFO  33
+REMARK   4                                                              2IFO  34
+REMARK   4 THE COORDINATES IN THIS ENTRY WERE GENERATED FROM FIBER      2IFO  35
+REMARK   4 DIFFRACTION DATA.  PROTEIN DATA BANK CONVENTIONS REQUIRE     2IFO  36
+REMARK   4 THAT *CRYST1* AND *SCALE* RECORDS BE INCLUDED, BUT THE       2IFO  37
+REMARK   4 VALUES ON THESE RECORDS ARE MEANINGLESS.                     2IFO  38
+REMARK   5                                                              2IFO  39
+REMARK   5 THIS IS A MOLECULAR REPLACEMENT AND MODEL-BUILDING STUDY.    2IFO  40
+REMARK   5 THE STARTING MODEL WAS PDB ENTRY 1IFN.  SEE RELATED PDB      2IFO  41
+REMARK   5 ENTRY 1IFD FOR FURTHER REFINEMENT DETAILS.  PDB ENTRIES      2IFO  42
+REMARK   5 1IFI THROUGH 1IFO ARE ALL RELATED INOVIRUS FIBER             2IFO  43
+REMARK   5 DIFFRACTION STUDIES.                                         2IFO  44
+REMARK   6                                                              2IFO  45
+REMARK   6 THE INDEXING OF UNITS ALONG THE BASIC HELIX IS ILLUSTRATED   2IFO  46
+REMARK   6 IN REFERENCE 1.  TO GENERATE COORDINATES X(K), Y(K), Z(K)    2IFO  47
+REMARK   6 OF UNIT K FROM THE GIVEN COORDINATES X(0), Y(0), Z(0) OF     2IFO  48
+REMARK   6 UNIT 0 IN A UNIT CELL WITH HELIX PARAMETERS (TAU, P) =       2IFO  49
+REMARK   6 (66.667, 2.90), APPLY THE MATRIX AND VECTOR:                 2IFO  50
+REMARK   6                                                              2IFO  51
+REMARK   6     |    COS(TAU*K)  -SIN(TAU*K)    0 |    |   0         |   2IFO  52
+REMARK   6     |    SIN(TAU*K)   COS(TAU*K)    0 | +  |   0         |   2IFO  53
+REMARK   6     |    0            0             1 |    |   P*K       |   2IFO  54
+REMARK   6                                                              2IFO  55
+REMARK   6 THE NEIGHBORS IN CONTACT WITH UNIT 0 ARE UNITS K = +/-1,     2IFO  56
+REMARK   6 +/-5, +/-6, +/-11 AND +/-17.  THESE SYMMETRY-RELATED COPIES  2IFO  57
+REMARK   6 ARE USED TO DETERMINE INTERCHAIN NON-BONDED CONTACTS DURING  2IFO  58
+REMARK   6 THE REFINEMENT.                                              2IFO  59
+REMARK   7                                                              2IFO  60
+REMARK   7 THE ANALOG OF THE CRYSTALLOGRAPHIC SPACE GROUP FOR HELICAL   2IFO  61
+REMARK   7 STRUCTURES IS THE LINE GROUP (A.KLUG, F.H.C.CRICK,           2IFO  62
+REMARK   7 H.W.WYCKOFF, ACTA CRYSTALLOG. V.11, 199, 1958).  THE         2IFO  63
+REMARK   7 LINE GROUP OF XF IS S.  THE UNIT CELL DIMENSIONS             2IFO  64
+REMARK   7 ARE THE HELIX PARAMETERS (UNIT TWIST T, UNIT HEIGHT P).      2IFO  65
+REMARK   7 FOR THE "CANONICAL" FORM OF XF, T = 66.667 DEGREES,          2IFO  66
+REMARK   7 P = 2.90 ANGSTROMS.                                          2IFO  67
+REMARK   8                                                              2IFO  68
+REMARK   8 THE MODEL OF THE VIRION HELIX ASYMMETRIC UNIT IS AN          2IFO  69
+REMARK   8 ALPHA-HELIX APPROXIMATION TO THE STRUCTURE.  COORDINATES     2IFO  70
+REMARK   8 ARE GIVEN FOR A SINGLE ASYMMETRIC UNIT OF THE COAT PROTEIN   2IFO  71
+REMARK   8 ASSEMBLY.  THE COMPLETE PROTEIN ASSEMBLY CONTAINS SEVERAL    2IFO  72
+REMARK   8 THOUSAND ASYMMETRIC UNITS; THE EXACT NUMBER DEPENDS ON THE   2IFO  73
+REMARK   8 LENGTH OF THE DNA.  THE PROTEIN ASSEMBLY FORMS A             2IFO  74
+REMARK   8 CYLINDRICAL SHELL SURROUNDING A DNA CORE.                    2IFO  75
+REMARK   9                                                              2IFO  76
+REMARK   9 THE TEMPERATURE FACTOR WAS NOT REFINED AND IS GIVEN THE      2IFO  77
+REMARK   9 ARBITRARY VALUE OF 10.                                       2IFO  78
+REMARK  10                                                              2IFO  79
+REMARK  10 THE SEQUENCE USED IS AN UNPUBLISHED SEQUENCE CITED BY        2IFO  80
+REMARK  10 DAY ET AL., ANN. REV. BIOPHYS. BIOPHYS. CHEM. V. 17, 509,    2IFO  81
+REMARK  10 1988.                                                        2IFO  82
+SEQRES   1     46  SER GLY GLY GLY GLY VAL ASP VAL GLY ASP VAL VAL SER  2IFO  83
+SEQRES   2     46  ALA ILE GLN GLY ALA ALA GLY PRO ILE ALA ALA ILE GLY  2IFO  84
+SEQRES   3     46  GLY ALA VAL LEU THR VAL MET VAL GLY ILE LYS VAL TYR  2IFO  85
+SEQRES   4     46  LYS TRP VAL ARG ARG ALA MET                          2IFO  86
+HELIX    1   A GLY      4  ALA     45  1                                2IFO  87
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1  2IFO  88
+ORIGX1      1.000000  0.000000  0.000000        0.00000                 2IFO  89
+ORIGX2      0.000000  1.000000  0.000000        0.00000                 2IFO  90
+ORIGX3      0.000000  0.000000  1.000000        0.00000                 2IFO  91
+SCALE1      1.000000  0.000000  0.000000        0.00000                 2IFO  92
+SCALE2      0.000000  1.000000  0.000000        0.00000                 2IFO  93
+SCALE3      0.000000  0.000000  1.000000        0.00000                 2IFO  94
+ATOM      1  N   SER     1      -1.894 -27.399  33.312  1.00 10.00      2IFO  95
+ATOM      2  CA  SER     1      -2.555 -28.505  32.572  1.00 10.00      2IFO  96
+ATOM      3  C   SER     1      -3.908 -28.076  32.007  1.00 10.00      2IFO  97
+ATOM      4  O   SER     1      -4.021 -27.822  30.810  1.00 10.00      2IFO  98
+ATOM      5  CB  SER     1      -2.695 -29.735  33.475  1.00 10.00      2IFO  99
+ATOM      6  OG  SER     1      -1.418 -30.256  33.810  1.00 10.00      2IFO 100
+ATOM      7  N   GLY     2      -4.906 -27.927  32.876  1.00 10.00      2IFO 101
+ATOM      8  CA  GLY     2      -6.231 -27.527  32.428  1.00 10.00      2IFO 102
+ATOM      9  C   GLY     2      -6.282 -26.193  31.700  1.00 10.00      2IFO 103
+ATOM     10  O   GLY     2      -6.373 -26.150  30.473  1.00 10.00      2IFO 104
+ATOM     11  N   GLY     3      -6.195 -25.106  32.461  1.00 10.00      2IFO 105
+ATOM     12  CA  GLY     3      -6.241 -23.776  31.881  1.00 10.00      2IFO 106
+ATOM     13  C   GLY     3      -5.187 -23.520  30.822  1.00 10.00      2IFO 107
+ATOM     14  O   GLY     3      -5.505 -23.095  29.716  1.00 10.00      2IFO 108
+ATOM     15  N   GLY     4      -3.930 -23.781  31.161  1.00 10.00      2IFO 109
+ATOM     16  CA  GLY     4      -2.850 -23.565  30.215  1.00 10.00      2IFO 110
+ATOM     17  C   GLY     4      -2.913 -24.431  28.968  1.00 10.00      2IFO 111
+ATOM     18  O   GLY     4      -3.281 -23.960  27.896  1.00 10.00      2IFO 112
+ATOM     19  N   GLY     5      -2.599 -25.713  29.123  1.00 10.00      2IFO 113
+ATOM     20  CA  GLY     5      -2.591 -26.632  27.996  1.00 10.00      2IFO 114
+ATOM     21  C   GLY     5      -3.882 -26.810  27.218  1.00 10.00      2IFO 115
+ATOM     22  O   GLY     5      -3.924 -26.580  26.009  1.00 10.00      2IFO 116
+ATOM     23  N   VAL     6      -4.940 -27.213  27.910  1.00 10.00      2IFO 117
+ATOM     24  CA  VAL     6      -6.227 -27.452  27.268  1.00 10.00      2IFO 118
+ATOM     25  C   VAL     6      -6.859 -26.207  26.643  1.00 10.00      2IFO 119
+ATOM     26  O   VAL     6      -7.143 -26.190  25.439  1.00 10.00      2IFO 120
+ATOM     27  CB  VAL     6      -7.224 -28.115  28.242  1.00 10.00      2IFO 121
+ATOM     28  CG1 VAL     6      -8.544 -28.404  27.543  1.00 10.00      2IFO 122
+ATOM     29  CG2 VAL     6      -6.628 -29.401  28.798  1.00 10.00      2IFO 123
+ATOM     30  N   ASP     7      -7.036 -25.151  27.434  1.00 10.00      2IFO 124
+ATOM     31  CA  ASP     7      -7.652 -23.924  26.925  1.00 10.00      2IFO 125
+ATOM     32  C   ASP     7      -6.868 -23.312  25.773  1.00 10.00      2IFO 126
+ATOM     33  O   ASP     7      -7.457 -22.904  24.771  1.00 10.00      2IFO 127
+ATOM     34  CB  ASP     7      -7.863 -22.899  28.041  1.00 10.00      2IFO 128
+ATOM     35  CG  ASP     7      -9.085 -23.200  28.897  1.00 10.00      2IFO 129
+ATOM     36  OD1 ASP     7     -10.184 -22.709  28.565  1.00 10.00      2IFO 130
+ATOM     37  OD2 ASP     7      -8.944 -23.914  29.911  1.00 10.00      2IFO 131
+ATOM     38  N   VAL     8      -5.544 -23.261  25.899  1.00 10.00      2IFO 132
+ATOM     39  CA  VAL     8      -4.708 -22.709  24.829  1.00 10.00      2IFO 133
+ATOM     40  C   VAL     8      -4.838 -23.582  23.583  1.00 10.00      2IFO 134
+ATOM     41  O   VAL     8      -4.858 -23.082  22.453  1.00 10.00      2IFO 135
+ATOM     42  CB  VAL     8      -3.234 -22.581  25.267  1.00 10.00      2IFO 136
+ATOM     43  CG1 VAL     8      -2.328 -22.331  24.067  1.00 10.00      2IFO 137
+ATOM     44  CG2 VAL     8      -3.107 -21.433  26.251  1.00 10.00      2IFO 138
+ATOM     45  N   GLY     9      -5.014 -24.882  23.804  1.00 10.00      2IFO 139
+ATOM     46  CA  GLY     9      -5.180 -25.801  22.696  1.00 10.00      2IFO 140
+ATOM     47  C   GLY     9      -6.416 -25.394  21.923  1.00 10.00      2IFO 141
+ATOM     48  O   GLY     9      -6.405 -25.336  20.688  1.00 10.00      2IFO 142
+ATOM     49  N   ASP    10      -7.463 -25.045  22.668  1.00 10.00      2IFO 143
+ATOM     50  CA  ASP    10      -8.729 -24.603  22.092  1.00 10.00      2IFO 144
+ATOM     51  C   ASP    10      -8.498 -23.324  21.295  1.00 10.00      2IFO 145
+ATOM     52  O   ASP    10      -9.110 -23.118  20.246  1.00 10.00      2IFO 146
+ATOM     53  CB  ASP    10      -9.768 -24.345  23.193  1.00 10.00      2IFO 147
+ATOM     54  CG  ASP    10     -10.417 -25.623  23.718  1.00 10.00      2IFO 148
+ATOM     55  OD1 ASP    10     -11.326 -26.148  23.041  1.00 10.00      2IFO 149
+ATOM     56  OD2 ASP    10     -10.042 -26.080  24.817  1.00 10.00      2IFO 150
+ATOM     57  N   VAL    11      -7.597 -22.477  21.788  1.00 10.00      2IFO 151
+ATOM     58  CA  VAL    11      -7.283 -21.213  21.124  1.00 10.00      2IFO 152
+ATOM     59  C   VAL    11      -6.781 -21.500  19.716  1.00 10.00      2IFO 153
+ATOM     60  O   VAL    11      -7.261 -20.925  18.742  1.00 10.00      2IFO 154
+ATOM     61  CB  VAL    11      -6.185 -20.424  21.878  1.00 10.00      2IFO 155
+ATOM     62  CG1 VAL    11      -5.971 -19.076  21.230  1.00 10.00      2IFO 156
+ATOM     63  CG2 VAL    11      -6.549 -20.251  23.333  1.00 10.00      2IFO 157
+ATOM     64  N   VAL    12      -5.861 -22.450  19.615  1.00 10.00      2IFO 158
+ATOM     65  CA  VAL    12      -5.281 -22.819  18.336  1.00 10.00      2IFO 159
+ATOM     66  C   VAL    12      -6.343 -23.308  17.356  1.00 10.00      2IFO 160
+ATOM     67  O   VAL    12      -6.610 -22.648  16.351  1.00 10.00      2IFO 161
+ATOM     68  CB  VAL    12      -4.208 -23.910  18.520  1.00 10.00      2IFO 162
+ATOM     69  CG1 VAL    12      -3.614 -24.307  17.178  1.00 10.00      2IFO 163
+ATOM     70  CG2 VAL    12      -3.121 -23.412  19.462  1.00 10.00      2IFO 164
+ATOM     71  N   SER    13      -7.044 -24.375  17.722  1.00 10.00      2IFO 165
+ATOM     72  CA  SER    13      -8.064 -24.942  16.847  1.00 10.00      2IFO 166
+ATOM     73  C   SER    13      -9.202 -23.989  16.501  1.00 10.00      2IFO 167
+ATOM     74  O   SER    13      -9.634 -23.925  15.351  1.00 10.00      2IFO 168
+ATOM     75  CB  SER    13      -8.628 -26.228  17.455  1.00 10.00      2IFO 169
+ATOM     76  OG  SER    13      -7.632 -27.232  17.527  1.00 10.00      2IFO 170
+ATOM     77  N   ALA    14      -9.668 -23.234  17.488  1.00 10.00      2IFO 171
+ATOM     78  CA  ALA    14     -10.771 -22.304  17.272  1.00 10.00      2IFO 172
+ATOM     79  C   ALA    14     -10.387 -21.088  16.438  1.00 10.00      2IFO 173
+ATOM     80  O   ALA    14     -11.122 -20.688  15.536  1.00 10.00      2IFO 174
+ATOM     81  CB  ALA    14     -11.353 -21.861  18.605  1.00 10.00      2IFO 175
+ATOM     82  N   ILE    15      -9.224 -20.519  16.730  1.00 10.00      2IFO 176
+ATOM     83  CA  ILE    15      -8.755 -19.336  16.028  1.00 10.00      2IFO 177
+ATOM     84  C   ILE    15      -8.344 -19.580  14.575  1.00 10.00      2IFO 178
+ATOM     85  O   ILE    15      -8.918 -18.978  13.661  1.00 10.00      2IFO 179
+ATOM     86  CB  ILE    15      -7.632 -18.617  16.829  1.00 10.00      2IFO 180
+ATOM     87  CG1 ILE    15      -8.245 -17.734  17.926  1.00 10.00      2IFO 181
+ATOM     88  CG2 ILE    15      -6.776 -17.748  15.910  1.00 10.00      2IFO 182
+ATOM     89  CD1 ILE    15      -9.190 -18.436  18.895  1.00 10.00      2IFO 183
+ATOM     90  N   GLN    16      -7.406 -20.492  14.340  1.00 10.00      2IFO 184
+ATOM     91  CA  GLN    16      -6.978 -20.747  12.964  1.00 10.00      2IFO 185
+ATOM     92  C   GLN    16      -8.053 -21.504  12.195  1.00 10.00      2IFO 186
+ATOM     93  O   GLN    16      -8.125 -21.431  10.967  1.00 10.00      2IFO 187
+ATOM     94  CB  GLN    16      -5.613 -21.451  12.906  1.00 10.00      2IFO 188
+ATOM     95  CG  GLN    16      -5.445 -22.672  13.794  1.00 10.00      2IFO 189
+ATOM     96  CD  GLN    16      -5.862 -23.971  13.129  1.00 10.00      2IFO 190
+ATOM     97  OE1 GLN    16      -6.884 -24.561  13.474  1.00 10.00      2IFO 191
+ATOM     98  NE2 GLN    16      -5.053 -24.436  12.191  1.00 10.00      2IFO 192
+ATOM     99  N   GLY    17      -8.920 -22.181  12.942  1.00 10.00      2IFO 193
+ATOM    100  CA  GLY    17     -10.013 -22.921  12.345  1.00 10.00      2IFO 194
+ATOM    101  C   GLY    17     -11.072 -21.964  11.832  1.00 10.00      2IFO 195
+ATOM    102  O   GLY    17     -11.498 -22.067  10.685  1.00 10.00      2IFO 196
+ATOM    103  N   ALA    18     -11.479 -21.017  12.675  1.00 10.00      2IFO 197
+ATOM    104  CA  ALA    18     -12.487 -20.028  12.295  1.00 10.00      2IFO 198
+ATOM    105  C   ALA    18     -11.905 -19.137  11.203  1.00 10.00      2IFO 199
+ATOM    106  O   ALA    18     -12.638 -18.514  10.429  1.00 10.00      2IFO 200
+ATOM    107  CB  ALA    18     -12.905 -19.190  13.496  1.00 10.00      2IFO 201
+ATOM    108  N   ALA    19     -10.580 -19.077  11.148  1.00 10.00      2IFO 202
+ATOM    109  CA  ALA    19      -9.902 -18.274  10.141  1.00 10.00      2IFO 203
+ATOM    110  C   ALA    19      -9.970 -18.932   8.761  1.00 10.00      2IFO 204
+ATOM    111  O   ALA    19      -9.833 -18.245   7.745  1.00 10.00      2IFO 205
+ATOM    112  CB  ALA    19      -8.476 -18.031  10.547  1.00 10.00      2IFO 206
+ATOM    113  N   GLY    20     -10.197 -20.240   8.736  1.00 10.00      2IFO 207
+ATOM    114  CA  GLY    20     -10.301 -20.958   7.473  1.00 10.00      2IFO 208
+ATOM    115  C   GLY    20     -11.333 -20.277   6.587  1.00 10.00      2IFO 209
+ATOM    116  O   GLY    20     -11.028 -19.920   5.443  1.00 10.00      2IFO 210
+ATOM    117  N   PRO    21     -12.570 -20.074   7.089  1.00 10.00      2IFO 211
+ATOM    118  CA  PRO    21     -13.619 -19.411   6.304  1.00 10.00      2IFO 212
+ATOM    119  C   PRO    21     -13.203 -18.018   5.854  1.00 10.00      2IFO 213
+ATOM    120  O   PRO    21     -13.695 -17.533   4.832  1.00 10.00      2IFO 214
+ATOM    121  CB  PRO    21     -14.780 -19.367   7.284  1.00 10.00      2IFO 215
+ATOM    122  CG  PRO    21     -14.646 -20.668   7.941  1.00 10.00      2IFO 216
+ATOM    123  CD  PRO    21     -13.162 -20.707   8.273  1.00 10.00      2IFO 217
+ATOM    124  N   ILE    22     -12.316 -17.387   6.612  1.00 10.00      2IFO 218
+ATOM    125  CA  ILE    22     -11.806 -16.062   6.272  1.00 10.00      2IFO 219
+ATOM    126  C   ILE    22     -11.026 -16.222   4.942  1.00 10.00      2IFO 220
+ATOM    127  O   ILE    22     -11.179 -15.429   4.008  1.00 10.00      2IFO 221
+ATOM    128  CB  ILE    22     -10.894 -15.504   7.429  1.00 10.00      2IFO 222
+ATOM    129  CG1 ILE    22     -11.605 -14.392   8.195  1.00 10.00      2IFO 223
+ATOM    130  CG2 ILE    22      -9.553 -15.052   6.896  1.00 10.00      2IFO 224
+ATOM    131  CD1 ILE    22     -12.779 -14.887   9.019  1.00 10.00      2IFO 225
+ATOM    132  N   ALA    23     -10.253 -17.302   4.843  1.00 10.00      2IFO 226
+ATOM    133  CA  ALA    23      -9.472 -17.584   3.639  1.00 10.00      2IFO 227
+ATOM    134  C   ALA    23     -10.432 -17.926   2.511  1.00 10.00      2IFO 228
+ATOM    135  O   ALA    23     -10.116 -17.723   1.337  1.00 10.00      2IFO 229
+ATOM    136  CB  ALA    23      -8.510 -18.766   3.875  1.00 10.00      2IFO 230
+ATOM    137  N   ALA    24     -11.612 -18.428   2.872  1.00 10.00      2IFO 231
+ATOM    138  CA  ALA    24     -12.614 -18.773   1.872  1.00 10.00      2IFO 232
+ATOM    139  C   ALA    24     -13.061 -17.507   1.151  1.00 10.00      2IFO 233
+ATOM    140  O   ALA    24     -13.258 -17.524  -0.065  1.00 10.00      2IFO 234
+ATOM    141  CB  ALA    24     -13.800 -19.475   2.516  1.00 10.00      2IFO 235
+ATOM    142  N   ILE    25     -13.189 -16.409   1.898  1.00 10.00      2IFO 236
+ATOM    143  CA  ILE    25     -13.576 -15.131   1.312  1.00 10.00      2IFO 237
+ATOM    144  C   ILE    25     -12.488 -14.781   0.299  1.00 10.00      2IFO 238
+ATOM    145  O   ILE    25     -12.761 -14.188  -0.740  1.00 10.00      2IFO 239
+ATOM    146  CB  ILE    25     -13.613 -13.984   2.352  1.00 10.00      2IFO 240
+ATOM    147  CG1 ILE    25     -14.339 -14.414   3.622  1.00 10.00      2IFO 241
+ATOM    148  CG2 ILE    25     -14.335 -12.783   1.764  1.00 10.00      2IFO 242
+ATOM    149  CD1 ILE    25     -14.198 -13.420   4.746  1.00 10.00      2IFO 243
+ATOM    150  N   GLY    26     -11.258 -15.176   0.617  1.00 10.00      2IFO 244
+ATOM    151  CA  GLY    26     -10.128 -14.922  -0.259  1.00 10.00      2IFO 245
+ATOM    152  C   GLY    26     -10.329 -15.551  -1.625  1.00 10.00      2IFO 246
+ATOM    153  O   GLY    26     -10.102 -14.915  -2.656  1.00 10.00      2IFO 247
+ATOM    154  N   GLY    27     -10.779 -16.801  -1.627  1.00 10.00      2IFO 248
+ATOM    155  CA  GLY    27     -11.026 -17.489  -2.877  1.00 10.00      2IFO 249
+ATOM    156  C   GLY    27     -12.138 -16.793  -3.644  1.00 10.00      2IFO 250
+ATOM    157  O   GLY    27     -11.976 -16.481  -4.826  1.00 10.00      2IFO 251
+ATOM    158  N   ALA    28     -13.250 -16.515  -2.964  1.00 10.00      2IFO 252
+ATOM    159  CA  ALA    28     -14.398 -15.848  -3.589  1.00 10.00      2IFO 253
+ATOM    160  C   ALA    28     -14.064 -14.456  -4.112  1.00 10.00      2IFO 254
+ATOM    161  O   ALA    28     -14.568 -14.034  -5.151  1.00 10.00      2IFO 255
+ATOM    162  CB  ALA    28     -15.555 -15.758  -2.605  1.00 10.00      2IFO 256
+ATOM    163  N   VAL    29     -13.232 -13.737  -3.371  1.00 10.00      2IFO 257
+ATOM    164  CA  VAL    29     -12.830 -12.399  -3.771  1.00 10.00      2IFO 258
+ATOM    165  C   VAL    29     -12.001 -12.499  -5.049  1.00 10.00      2IFO 259
+ATOM    166  O   VAL    29     -12.120 -11.668  -5.954  1.00 10.00      2IFO 260
+ATOM    167  CB  VAL    29     -12.019 -11.724  -2.652  1.00 10.00      2IFO 261
+ATOM    168  CG1 VAL    29     -11.207 -10.591  -3.200  1.00 10.00      2IFO 262
+ATOM    169  CG2 VAL    29     -12.952 -11.203  -1.576  1.00 10.00      2IFO 263
+ATOM    170  N   LEU    30     -11.196 -13.555  -5.122  1.00 10.00      2IFO 264
+ATOM    171  CA  LEU    30     -10.346 -13.794  -6.274  1.00 10.00      2IFO 265
+ATOM    172  C   LEU    30     -11.159 -14.071  -7.536  1.00 10.00      2IFO 266
+ATOM    173  O   LEU    30     -10.800 -13.592  -8.612  1.00 10.00      2IFO 267
+ATOM    174  CB  LEU    30      -9.355 -14.936  -6.003  1.00 10.00      2IFO 268
+ATOM    175  CG  LEU    30      -8.091 -14.576  -5.206  1.00 10.00      2IFO 269
+ATOM    176  CD1 LEU    30      -7.251 -15.816  -4.918  1.00 10.00      2IFO 270
+ATOM    177  CD2 LEU    30      -7.273 -13.552  -5.977  1.00 10.00      2IFO 271
+ATOM    178  N   THR    31     -12.278 -14.783  -7.397  1.00 10.00      2IFO 272
+ATOM    179  CA  THR    31     -13.111 -15.097  -8.560  1.00 10.00      2IFO 273
+ATOM    180  C   THR    31     -13.554 -13.807  -9.243  1.00 10.00      2IFO 274
+ATOM    181  O   THR    31     -13.421 -13.648 -10.456  1.00 10.00      2IFO 275
+ATOM    182  CB  THR    31     -14.365 -15.945  -8.188  1.00 10.00      2IFO 276
+ATOM    183  OG1 THR    31     -15.178 -15.251  -7.235  1.00 10.00      2IFO 277
+ATOM    184  CG2 THR    31     -13.955 -17.281  -7.599  1.00 10.00      2IFO 278
+ATOM    185  N   VAL    32     -14.017 -12.865  -8.432  1.00 10.00      2IFO 279
+ATOM    186  CA  VAL    32     -14.486 -11.584  -8.934  1.00 10.00      2IFO 280
+ATOM    187  C   VAL    32     -13.373 -10.680  -9.479  1.00 10.00      2IFO 281
+ATOM    188  O   VAL    32     -13.435 -10.217 -10.620  1.00 10.00      2IFO 282
+ATOM    189  CB  VAL    32     -15.248 -10.827  -7.837  1.00 10.00      2IFO 283
+ATOM    190  CG1 VAL    32     -15.411  -9.375  -8.227  1.00 10.00      2IFO 284
+ATOM    191  CG2 VAL    32     -16.608 -11.480  -7.594  1.00 10.00      2IFO 285
+ATOM    192  N   MET    33     -12.362 -10.437  -8.652  1.00 10.00      2IFO 286
+ATOM    193  CA  MET    33     -11.252  -9.567  -9.031  1.00 10.00      2IFO 287
+ATOM    194  C   MET    33     -10.557  -9.921 -10.339  1.00 10.00      2IFO 288
+ATOM    195  O   MET    33     -10.333  -9.046 -11.173  1.00 10.00      2IFO 289
+ATOM    196  CB  MET    33     -10.265  -9.435  -7.875  1.00 10.00      2IFO 290
+ATOM    197  CG  MET    33     -10.839  -8.583  -6.755  1.00 10.00      2IFO 291
+ATOM    198  SD  MET    33      -9.870  -8.411  -5.262  1.00 10.00      2IFO 292
+ATOM    199  CE  MET    33     -11.104  -7.584  -4.184  1.00 10.00      2IFO 293
+ATOM    200  N   VAL    34     -10.207 -11.188 -10.525  1.00 10.00      2IFO 294
+ATOM    201  CA  VAL    34      -9.573 -11.574 -11.782  1.00 10.00      2IFO 295
+ATOM    202  C   VAL    34     -10.618 -11.449 -12.895  1.00 10.00      2IFO 296
+ATOM    203  O   VAL    34     -10.297 -11.140 -14.050  1.00 10.00      2IFO 297
+ATOM    204  CB  VAL    34      -9.046 -13.015 -11.730  1.00 10.00      2IFO 298
+ATOM    205  CG1 VAL    34     -10.197 -13.982 -11.555  1.00 10.00      2IFO 299
+ATOM    206  CG2 VAL    34      -8.268 -13.339 -13.001  1.00 10.00      2IFO 300
+ATOM    207  N   GLY    35     -11.881 -11.584 -12.501  1.00 10.00      2IFO 301
+ATOM    208  CA  GLY    35     -12.987 -11.503 -13.434  1.00 10.00      2IFO 302
+ATOM    209  C   GLY    35     -13.066 -10.146 -14.077  1.00 10.00      2IFO 303
+ATOM    210  O   GLY    35     -13.166 -10.042 -15.301  1.00 10.00      2IFO 304
+ATOM    211  N   ILE    36     -13.045  -9.096 -13.277  1.00 10.00      2IFO 305
+ATOM    212  CA  ILE    36     -13.087  -7.772 -13.844  1.00 10.00      2IFO 306
+ATOM    213  C   ILE    36     -11.877  -7.458 -14.695  1.00 10.00      2IFO 307
+ATOM    214  O   ILE    36     -11.982  -6.683 -15.644  1.00 10.00      2IFO 308
+ATOM    215  CB  ILE    36     -13.346  -6.665 -12.790  1.00 10.00      2IFO 309
+ATOM    216  CG1 ILE    36     -12.909  -7.114 -11.397  1.00 10.00      2IFO 310
+ATOM    217  CG2 ILE    36     -14.795  -6.242 -12.827  1.00 10.00      2IFO 311
+ATOM    218  CD1 ILE    36     -11.697  -6.416 -10.877  1.00 10.00      2IFO 312
+ATOM    219  N   LYS    37     -10.740  -8.071 -14.431  1.00 10.00      2IFO 313
+ATOM    220  CA  LYS    37      -9.611  -7.751 -15.292  1.00 10.00      2IFO 314
+ATOM    221  C   LYS    37      -9.507  -8.576 -16.554  1.00 10.00      2IFO 315
+ATOM    222  O   LYS    37      -8.853  -8.146 -17.493  1.00 10.00      2IFO 316
+ATOM    223  CB  LYS    37      -8.278  -7.684 -14.574  1.00 10.00      2IFO 317
+ATOM    224  CG  LYS    37      -7.139  -7.038 -15.394  1.00 10.00      2IFO 318
+ATOM    225  CD  LYS    37      -6.414  -6.024 -14.522  1.00 10.00      2IFO 319
+ATOM    226  CE  LYS    37      -5.000  -5.820 -14.999  1.00 10.00      2IFO 320
+ATOM    227  NZ  LYS    37      -4.491  -4.605 -14.344  1.00 10.00      2IFO 321
+ATOM    228  N   VAL    38     -10.126  -9.755 -16.595  1.00 10.00      2IFO 322
+ATOM    229  CA  VAL    38     -10.122 -10.552 -17.820  1.00 10.00      2IFO 323
+ATOM    230  C   VAL    38     -10.844  -9.622 -18.801  1.00 10.00      2IFO 324
+ATOM    231  O   VAL    38     -10.521  -9.569 -19.987  1.00 10.00      2IFO 325
+ATOM    232  CB  VAL    38     -10.866 -11.899 -17.636  1.00 10.00      2IFO 326
+ATOM    233  CG1 VAL    38     -12.357 -11.708 -17.481  1.00 10.00      2IFO 327
+ATOM    234  CG2 VAL    38     -10.568 -12.857 -18.795  1.00 10.00      2IFO 328
+ATOM    235  N   TYR    39     -11.714  -8.789 -18.226  1.00 10.00      2IFO 329
+ATOM    236  CA  TYR    39     -12.479  -7.782 -18.958  1.00 10.00      2IFO 330
+ATOM    237  C   TYR    39     -11.498  -6.678 -19.372  1.00 10.00      2IFO 331
+ATOM    238  O   TYR    39     -11.524  -6.210 -20.521  1.00 10.00      2IFO 332
+ATOM    239  CB  TYR    39     -13.638  -7.285 -18.059  1.00 10.00      2IFO 333
+ATOM    240  CG  TYR    39     -13.854  -5.775 -17.933  1.00 10.00      2IFO 334
+ATOM    241  CD1 TYR    39     -14.018  -4.963 -19.059  1.00 10.00      2IFO 335
+ATOM    242  CD2 TYR    39     -13.911  -5.162 -16.677  1.00 10.00      2IFO 336
+ATOM    243  CE1 TYR    39     -14.226  -3.592 -18.932  1.00 10.00      2IFO 337
+ATOM    244  CE2 TYR    39     -14.117  -3.798 -16.544  1.00 10.00      2IFO 338
+ATOM    245  CZ  TYR    39     -14.273  -3.016 -17.669  1.00 10.00      2IFO 339
+ATOM    246  OH  TYR    39     -14.470  -1.660 -17.525  1.00 10.00      2IFO 340
+ATOM    247  N   LYS    40     -10.562  -6.344 -18.483  1.00 10.00      2IFO 341
+ATOM    248  CA  LYS    40      -9.563  -5.317 -18.767  1.00 10.00      2IFO 342
+ATOM    249  C   LYS    40      -8.576  -5.726 -19.854  1.00 10.00      2IFO 343
+ATOM    250  O   LYS    40      -8.192  -4.907 -20.705  1.00 10.00      2IFO 344
+ATOM    251  CB  LYS    40      -8.810  -4.911 -17.494  1.00 10.00      2IFO 345
+ATOM    252  CG  LYS    40      -7.900  -3.685 -17.666  1.00 10.00      2IFO 346
+ATOM    253  CD  LYS    40      -7.367  -3.189 -16.330  1.00 10.00      2IFO 347
+ATOM    254  CE  LYS    40      -6.550  -1.919 -16.502  1.00 10.00      2IFO 348
+ATOM    255  NZ  LYS    40      -6.018  -1.398 -15.214  1.00 10.00      2IFO 349
+ATOM    256  N   TRP    41      -8.146  -6.982 -19.848  1.00 10.00      2IFO 350
+ATOM    257  CA  TRP    41      -7.199  -7.457 -20.848  1.00 10.00      2IFO 351
+ATOM    258  C   TRP    41      -7.861  -7.668 -22.197  1.00 10.00      2IFO 352
+ATOM    259  O   TRP    41      -7.218  -7.513 -23.235  1.00 10.00      2IFO 353
+ATOM    260  CB  TRP    41      -6.483  -8.720 -20.373  1.00 10.00      2IFO 354
+ATOM    261  CG  TRP    41      -5.358  -8.411 -19.421  1.00 10.00      2IFO 355
+ATOM    262  CD1 TRP    41      -5.302  -8.684 -18.090  1.00 10.00      2IFO 356
+ATOM    263  CD2 TRP    41      -4.147  -7.709 -19.746  1.00 10.00      2IFO 357
+ATOM    264  NE1 TRP    41      -4.141  -8.197 -17.550  1.00 10.00      2IFO 358
+ATOM    265  CE2 TRP    41      -3.407  -7.584 -18.546  1.00 10.00      2IFO 359
+ATOM    266  CE3 TRP    41      -3.615  -7.167 -20.916  1.00 10.00      2IFO 360
+ATOM    267  CZ2 TRP    41      -2.168  -6.948 -18.486  1.00 10.00      2IFO 361
+ATOM    268  CZ3 TRP    41      -2.382  -6.529 -20.865  1.00 10.00      2IFO 362
+ATOM    269  CH2 TRP    41      -1.675  -6.422 -19.652  1.00 10.00      2IFO 363
+ATOM    270  N   VAL    42      -9.149  -8.001 -22.183  1.00 10.00      2IFO 364
+ATOM    271  CA  VAL    42      -9.881  -8.187 -23.419  1.00 10.00      2IFO 365
+ATOM    272  C   VAL    42      -9.913  -6.828 -24.103  1.00 10.00      2IFO 366
+ATOM    273  O   VAL    42      -9.395  -6.700 -25.190  1.00 10.00      2IFO 367
+ATOM    274  CB  VAL    42     -11.314  -8.714 -23.192  1.00 10.00      2IFO 368
+ATOM    275  CG1 VAL    42     -12.098  -8.708 -24.492  1.00 10.00      2IFO 369
+ATOM    276  CG2 VAL    42     -11.262 -10.130 -22.652  1.00 10.00      2IFO 370
+ATOM    277  N   ARG    43     -10.333  -5.787 -23.383  1.00 10.00      2IFO 371
+ATOM    278  CA  ARG    43     -10.405  -4.441 -23.966  1.00 10.00      2IFO 372
+ATOM    279  C   ARG    43      -9.054  -3.897 -24.451  1.00 10.00      2IFO 373
+ATOM    280  O   ARG    43      -9.006  -2.973 -25.265  1.00 10.00      2IFO 374
+ATOM    281  CB  ARG    43     -11.086  -3.444 -23.016  1.00 10.00      2IFO 375
+ATOM    282  CG  ARG    43     -10.446  -3.318 -21.642  1.00 10.00      2IFO 376
+ATOM    283  CD  ARG    43     -11.185  -2.340 -20.758  1.00 10.00      2IFO 377
+ATOM    284  NE  ARG    43     -10.793  -2.465 -19.357  1.00 10.00      2IFO 378
+ATOM    285  CZ  ARG    43     -11.246  -1.676 -18.382  1.00 10.00      2IFO 379
+ATOM    286  NH1 ARG    43     -12.090  -0.694 -18.668  1.00 10.00      2IFO 380
+ATOM    287  NH2 ARG    43     -10.906  -1.923 -17.126  1.00 10.00      2IFO 381
+ATOM    288  N   ARG    44      -7.966  -4.448 -23.917  1.00 10.00      2IFO 382
+ATOM    289  CA  ARG    44      -6.612  -4.055 -24.307  1.00 10.00      2IFO 383
+ATOM    290  C   ARG    44      -6.493  -4.591 -25.740  1.00 10.00      2IFO 384
+ATOM    291  O   ARG    44      -6.271  -3.867 -26.709  1.00 10.00      2IFO 385
+ATOM    292  CB  ARG    44      -5.621  -4.775 -23.387  1.00 10.00      2IFO 386
+ATOM    293  CG  ARG    44      -4.228  -4.210 -23.393  1.00 10.00      2IFO 387
+ATOM    294  CD  ARG    44      -3.993  -3.393 -22.141  1.00 10.00      2IFO 388
+ATOM    295  NE  ARG    44      -2.659  -2.808 -22.107  1.00 10.00      2IFO 389
+ATOM    296  CZ  ARG    44      -2.040  -2.422 -20.997  1.00 10.00      2IFO 390
+ATOM    297  NH1 ARG    44      -2.626  -2.573 -19.816  1.00 10.00      2IFO 391
+ATOM    298  NH2 ARG    44      -0.840  -1.872 -21.072  1.00 10.00      2IFO 392
+ATOM    299  N   ALA    45      -6.730  -5.886 -25.816  1.00 10.00      2IFO 393
+ATOM    300  CA  ALA    45      -6.765  -6.723 -27.013  1.00 10.00      2IFO 394
+ATOM    301  C   ALA    45      -8.211  -6.644 -27.522  1.00 10.00      2IFO 395
+ATOM    302  O   ALA    45      -8.661  -7.578 -28.180  1.00 10.00      2IFO 396
+ATOM    303  CB  ALA    45      -6.406  -8.161 -26.661  1.00 10.00      2IFO 397
+ATOM    304  N   MET    46      -8.863  -5.499 -27.292  1.00 10.00      2IFO 398
+ATOM    305  CA  MET    46     -10.310  -5.249 -27.458  1.00 10.00      2IFO 399
+ATOM    306  C   MET    46     -11.232  -6.440 -27.701  1.00 10.00      2IFO 400
+ATOM    307  O   MET    46     -12.129  -6.603 -26.842  1.00 10.00      2IFO 401
+ATOM    308  CB  MET    46     -10.587  -4.338 -28.643  1.00 10.00      2IFO 402
+ATOM    309  CG  MET    46      -9.580  -3.324 -29.030  1.00 10.00      2IFO 403
+ATOM    310  SD  MET    46     -10.401  -2.461 -30.358  1.00 10.00      2IFO 404
+ATOM    311  CE  MET    46     -11.408  -3.807 -31.183  1.00 10.00      2IFO 405
+ATOM    312  OXT MET    46     -11.062  -7.163 -28.694  1.00 10.00      2IFO 406
+TER     313      MET    46                                              2IFO 407
+MASTER       68    0    0    1    0    0    0    6  312    1    0    4  2IFO 408
+END                                                                     2IFO 409
