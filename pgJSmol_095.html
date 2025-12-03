@@ -1,0 +1,1006 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Clasificación estructural</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Proteinas.html" ><B>&Iacute;ndice Proteínas</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Clasificación estructural de prote&iacute;nas</B></font></center>
+<br /><br />
+<p>
+<p>
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+//-->
+</script>
+
+
+<UL>
+<li><a href= "#alfa"><b>Proteínas preferentemente <font face="symbol">a</font></b></a>
+<li><a href= "#beta"><b>Proteínas preferentemente <font face="symbol">b</font></b></a>
+<li><a href= "#albet"><b>Proteínas <font face="symbol">a</font> y <font face="symbol">b</font></b></a>
+<li><a href= "#sin"><b>Proteínas con escasa estructura secundaria</b></a>
+</ul>
+<br />
+<hr />
+<br />
+
+
+<P align="justify">La enorme diversidad de secuencias que presentan las proteínas haría pensar, en principio, que las posibilidades estructurales de las mismas son asimismo enormes. Sin embargo, el rápido progreso en el conocimiento de estructuras tridimensionales nos ha hecho ver que en la estructura de proteínas hay mucha más regularidad que la esperada. De esta forma, hay ya varios intentos de clasificación de proteínas según su estructura tridimensional; según sus autores, más del 90 % de las proteínas actualmente conocidas caben dentro de estas clasificaciones. En Internet disponemos de varias clasificaciones estructurales de proteínas. Entre otras, están SCOP y CATH.</p>
+
+<P align="justify">La clasificación <A HREF="http://scop.mrc-lmb.cam.ac.uk/scop/ ">SCOP (Structural Classification of Proteins) </A> mantenida por los Dres. Alexey G. Murzin, Bartlett G. Ailey, Steven E. Brenner, Tim J.P. Hubbard, and Cyrus Chothia , de la Universidad de Cambridge (MRC Laboratory of Molecular Biology and Centre for Protein Engineering, Hills Road, Cambridge, CB2 2QH, England), muy completa y que suele ser la utilizada por otras bases de datos, como el Protein Data Bank; y</p>
+
+<P align="justify">La clasificación  <A HREF="http://www.biochem.ucl.ac.uk/bsm/cath/ ">CATH (Protein Structure Classification) </A>, creada por los Dres.  C.A. Orengo,  A.D. Michie, . S. Jones,  M.B. Swindells,  G. Hutchinson,  A. Martin, D.T. Jones, y J.M. Thornton, del University College de Londres (Biomolecular Structure and Modelling Unit, University College, London), muy parecida a la anterior en los grandes apartados, pero que por su mayor sencillez se adapta mejor a un entorno docente. En esta presentación seguiremos la sistemática CATH.</p>
+
+<P align="justify">El objeto de la clasificación CATH (así como en SCOP) es el <B>dominio</B>, es decir, la unidad básica de estructura terciaria en las proteínas. La jerarquía "taxonómica" en esta clasificación es la siguiente:</p>
+
+<UL><LI><B>I. Clase</B> (nivel C): Es la jerarquía mayor en la clasificación, y corresponde a una descripción de la estructura secundaria globalmente considerada; así, hay tres clases básicas: (C1) Pricipalmente  <FONT FACE="symbol">a</FONT>; (C2) Principalmente  <FONT FACE="symbol">b</FONT>; (C3)  <FONT FACE="symbol">a-b</FONT>, más otro apartado que engloba a proteínas con poca o ninguna estructura secundaria.
+<LI><B>II. Arquitectura</B> (nivel A): Describe la forma global de empaquetamiento de las estructuras secundarias dentro del dominio, pero sin ofrecer distinciones en cuanto a conectividad de los distintos elementos. Así, por ejemplo, el barril de la Triosa fosfato isomerasa que hemos visto en módulos anteriores correspondería a una arquitectura específica dentro de la clase  <FONT FACE="symbol">a-b</FONT>. 
+<LI><B>III. Topología</B> (nivel T): En este nivel describimos la conectividad de los distintos elementos dentro de las diversas arquitecturas. No entraremos en este nivel en esta presentación.
+<LI><B>IV. Superfamilia de homología </B> (nivel H): Aquí entraríamos en consideraciones de homología de estructura primaria; las distintas categorías en este nivel se refieren a grupos de proteínas (superfamilias) con una homología de secuencias tal que remiten a un antepasado filogenético común. Tampoco entraremos en este nivel. </UL>
+
+
+
+<P align="justify">Pasamos por lo tanto a enumerar, con ejemplos, las clases y arquitecturas descritas en la clasificación CATH.</p>
+<HR>
+<A NAME="alfa"></A>
+<P><H3>Clase: Proteínas preferentemente <FONT FACE="symbol">a</FONT></H3>
+                               
+<P align="justify">En estas proteínas la estructura secundaria en  <FONT FACE="symbol">a</FONT>-helicoide es predominante (Más de un 50 %  <FONT FACE="symbol">a</FONT> y menos de un 5 %  <FONT FACE="symbol">b</FONT>). Se distinguen tres arquitecturas distintas en esta clase:</p>
+
+<P align="justify"><B>Arquitectura: No fasciculada</B>. Los  <FONT FACE="symbol">a</FONT>-helicoides no están dispuestas en <I>haces</I>, sino que se agrupan libremente dentro de una estructura globular. El ejemplo es la <i>Eritrocruorina</i>, una proteína que pertenece a la misma familia que las hemoglobinas y la mioglobina.</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1eca.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Proteína G</b>
+  </button>
+</center>
+<br>
+
+
+
+<p align="justify">En la que podemos ver:</p>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3eca-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	su estructura secundaria, y 
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3eca-steps"
+             onchange="jrun('select ligand; wireframe 40; spacefill 100; color cpk; select all')">
+	el grupo hemo propio de estas proteínas. 
+    </label>
+</fieldset>	
+</div>
+
+
+<P align="justify"><B>Arquitectura: Fasciculada</B>. Los <FONT FACE="symbol">a</FONT>-helicoides  están dispuestas en <I>haces</I>, de manera que forman entre sí ángulos de 0º o 180º. Tenemos un ejemplo en  el <i>Citocromo C'</i>, proteína implicada en el transporte electrónico mitocondrial:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2ccy.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Citocromo C'</b>
+  </button>
+</center>
+<br>
+
+
+<p align="justify">En la que podemos ver:</p>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2ccy-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	su estructura secundaria, y 
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2ccy-steps"
+             onchange="jrun('select ligand; wireframe 40; spacefill 100; color cpk; select all')">
+	con su grupo hemo. 
+    </label>
+</fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Proteínas pequeñas helicoidales</B>.  Estas proteínas constan solamente de uno o dos helicoides. Un ejemplo es la <i>Proteína de cubierta de Inovirus (ICP)</i>. El inovirus es un virus bacteriano (bacteriófago) filamentoso.</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2ifo.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>ICP</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2ifo-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+
+<HR>
+<A NAME="beta"></A>
+
+<P><H3>Clase: Proteínas preferentemente <FONT FACE="symbol">b</FONT></H3>
+
+<P align="justify">En esta clase la estructura secundaria fundamental es la <FONT FACE="symbol">b</FONT>, agrupada en láminas. Se define con los siguientes valores límite: más del 50 % en  <FONT FACE="symbol">b</FONT> y menos del 5 % en  <FONT FACE="symbol">a</FONT>. Comprende 17 arquitecturas distintas, que pasamos a presentar:</p>
+
+<P align="justify"><B>Arquitectura: Cinta </B>. Es una clase amplia, que comprende una serie de láminas <FONT FACE="symbol">b</FONT>, con una forma global elongada.  Un ejemplo es el <i>Activador del Plasminógeno</i>, proteína implicada en el proceso de <i>fibrinolisis</i>.</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1tpm.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Activador del plasminógeno</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1tpm-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Lámina simple</B>. Se trata de proteínas cuya estructura es una simple lámina <FONT FACE="symbol">b</FONT>, con una pequeña curvatura. Un ejemplo es la <i>Heregulina</i>, factor de crecimiento relacionado con el Factor de Crecimiento Epidérmico o EGF</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1hre.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Heregulina</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1hre-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Rollo</B>. Se trata de una sola lámina muy curvada, pero que no llega a formar un barril. Tenemos un ejemplo en la <i>Fosfatidil Inositol 3-kinasa</i>, enzima implicada en el sistema de transducción de señales de los inositol fosfatos.</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1pht.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Fosfatidil inositol kinasa</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1pht-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+
+
+<P align="justify"><B>Arquitectura: Barril</B>. Consta de una lámina <FONT FACE="symbol">b</FONT> antiparalela formando una estructura cerrada; contiene de 6 a 16 tramos en <FONT FACE="symbol">b</FONT>. Un ejemplo es la <i>Porina</i>, proteína integral de membrana que forma poros en la misma con un límite de exclusión de 600 Da:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2por.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Porina</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2por-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+
+<P align="justify"><B>Arquitectura: Concha</B>. Es una gran lámina <FONT FACE="symbol">b</FONT> doblada en forma de concha, con unas pocas <FONT FACE="symbol">a</FONT>-hélices alrededor. Esta curiosa estructura aparece en la <i>Proteína A portadora de bacterioclorofila</i>, presente en bacterias fotoautotrofas:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/4bcl.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Proteína A</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="4bcl-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Multicapa <FONT FACE="symbol">bb</FONT></B>. Dos láminas empaquetadas formando un <i>"sandwich"</i> de dos capas. Es el motivo típico de los dominios de las inmunoglobulinas. Tenemos un ejemplo en la <i><font face="Symbol">b</font>-2-Microglobulina</i>, antígeno humano de histocompatibilidad Clase I  Aw 68.1 (Hla-Aw 68.1, Antígeno Leucocitario Humano):</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2hla.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b><font face="Symbol">b</font>-2-Microglobulina</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2hla-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+
+<P align="justify"><B>Arquitectura: Multicapa distorsionada</B>. Dos láminas empaquetadas formando un <i>"sandwich"</i> de dos capas, como en el caso anterior, pero con mayor desorden y una curvatura significativa.  Un ejemplo sería la <i>Proteína Reguladora del Complemento</i>, que participa en la activación de este sistema de defensa.</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1cdq.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Proteína reguladora del complemento</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1cdq-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+
+<P align="justify"><B>Arquitectura: Trifolio</B>. Tres horquillas <FONT FACE="symbol">b</FONT> dobladas en torno a su punto medio, que se combinan en parte para formar una estructura de barril <FONT FACE="symbol">b</FONT> central. Por ejemplo, el <i>Factor de Crecimiento del Fibroblasto</i>, importante factor de crecimiento tisular.</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1afc.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Factor de crecimiento del fibroblasto</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1afc-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Prisma Ortogonal</B>. 3 láminas paralelas dispuestas como las caras de un prisma trigonal. Los tramos <FONT FACE="symbol">b</FONT> de cada lámina discurren perpendicularmente al eje del prisma. Un ejemplo es la <i>Aglutinina de Galanthus nivalis</i>, lectina vegetal capaz de fijar manósidos.</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1msa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Aglutinina de <i>Galanthus nivalis</i></b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1msa-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Prisma Alineado</B>. 3 láminas paralelas dispuestas como las caras de un prisma trigonal. Los tramos <FONT FACE="symbol">b</FONT> de cada lámina discurren paralelamente al eje del prisma. Tenemos un ejemplo en la <i>Proteína de membrana vitelina</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1vmo.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Proteína de membrana vitelina</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1vmo-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Hélice de cuatro aspas</B>. Se trata de cuatro láminas <FONT FACE="symbol">b</FONT> dispuestas radialmente como las aspas de una hélice. Cada una de las aspas aparece retorcida incluso hasta 90º. Es el caso de la <i>Hemopexina</i>, proteína plasmática encargada del transporte de porfirinas en la sangre.</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1hxn.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Hemopexina</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1hxn-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+
+<P align="justify"><B>Arquitectura: Hélice de seis aspas</B>. Se trata de seis láminas <FONT FACE="symbol">b</FONT> dispuestas radialmente como las aspas de una hélice. Es el caso de la <i>Neuraminidasa</i>, enzima que elimina residuos de ácido siálico a partir de oligosacáridos.</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1nsc.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Neuraminidasa</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1nsc-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+
+
+<P align="justify"><B>Arquitectura: Hélice de siete aspas</B>. Se trata de siete láminas <FONT FACE="symbol">b</FONT> dispuestas radialmente como las aspas de una hélice. Es el caso de la enzima <i>Metilamina deshidrogenasa</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2bbk.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Metilamina deshidrogenasa</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2bbk-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Hélice de ocho aspas</B>. Se trata de ocho láminas <FONT FACE="symbol">b</FONT> dispuestas radialmente como las aspas de una hélice.  Es el caso de la enzima <i>Metanol deshidrogenasa</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/4aah.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Metanol deshidrogenasa</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="4aah-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+
+
+
+<P align="justify"><B>Arquitectura: Solenoide (2)</B>. Se trata de dos láminas <FONT FACE="symbol">b</FONT> planas empaquetadas de manera muy próxima. Se distingue de las estructuras multicapa por su conectividad, dado que la cadena alterna continuamente entre las dos láminas, y de ahí el término solenoide. Recibe a veces también el nombre de hélice <FONT FACE="symbol">b</FONT>. Un ejemplo es la enzima <i>Proteasa alcalina</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1kap.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Proteasa alcalina</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1kap-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Solenoide (3)</B>. Se trata de tres láminas <FONT FACE="symbol">b</FONT> planas en las que la cadena alterna continuamente entre las tres láminas, dando vueltas en torno al eje principal. Tenemos un ejemplo en la enzima <i>Pectato liasa</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2pec.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Pectato liasa</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2pec-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Compleja</B>. En este caso es una estructura predominantemente <FONT FACE="symbol">b</FONT>, pero de complejidad tal que no puede ser clasificada en ninguna de las categorías anteriores. Es el caso de la <i>Proteinasa ácida</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1ppk.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Proteinasa ácida</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1ppk-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+
+
+
+<A NAME="albet"></A>
+<P><H3>Clase: Proteínas <FONT FACE="symbol">a</FONT> y <FONT FACE="symbol">b</FONT></H3>
+
+<P align="justify">Se trata de proteínas que contienen zonas en <FONT FACE="symbol">a</FONT>-hélice (entre un 15 % y un 55 %) y zonas en estructura <FONT FACE="symbol">b</FONT> (entre un 10 % y un 45 %). Dentro de esta clase, otras clasificaciones, como SCOP, hacen distinción entre <B>proteínas <FONT FACE="symbol">a/b</FONT></B>, en las que ambas estructuras presentan una conectividad grande, y <B>proteínas <FONT FACE="symbol">a</FONT> y <FONT FACE="symbol">b</FONT></B>, en las que aparecen separadas dentro del mismo dominio las zonas en <FONT FACE="symbol">a</FONT> y las zonas en <FONT FACE="symbol">b</FONT>. Veamos a continuación las principales arquitecturas de esta clase.</p>
+
+
+<P align="justify"><B>Arquitectura: Rollo</B>. Suele haber una lámina <FONT FACE="symbol">b</FONT> con cierta curvatura, que a veces rodea a la estructura en <FONT FACE="symbol">a</FONT>-hélice. Por ejemplo, la enzima <i>Escitalona dehidratasa</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1std.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Escitalona dehidratasa</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1std-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+<P align="justify"><B>Arquitectura: Barril</B>. Una lámina <FONT FACE="symbol">b</FONT> paralela formando un cilindro central y cuyos tramos están unidos por <FONT FACE="symbol">a</FONT>-hélices. Es el conocido "barril <FONT FACE="symbol">b</FONT>" de la triosa fosfato isomerasa. Otro ejemplo es la enzima <i>endo-1,4-<font face="Symbol">b</font>-Glucanasa</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1tml.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>endo-1,4-<font face="Symbol">b</font>-Glucanasa</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1tml-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+
+<P align="justify"><B>Arquitectura: Multicapa (2 capas, <FONT FACE="symbol">ba</FONT>)</B>. Si la lámina <FONT FACE="symbol">b</FONT> es suficientemente plana, podemos describir la estructura como dos capas: una es la lámina <FONT FACE="symbol">b</FONT> y la otra las <FONT FACE="symbol">a</FONT>-hélices. Por ejemplo, el inhibidor natural <i>Barstar</i></A> de la ribonucleasa <i>Barnasa</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1brs.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Barnasa</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1brs-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+
+<P align="justify"><B>Arquitectura: Multicapa (3 capas, <FONT FACE="symbol">aba</FONT>)</B>. Se trata de tres capas <FONT FACE="symbol">a-b-a</FONT>. Podemos poner como ejemplo la <i>Gen Regulatory Protein</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1ntr.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Gen Regulatgory Protein</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1ntr-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Multicapa (3 capas, <FONT FACE="symbol">bba</FONT>)</B>. Estructura multicapa en la que sucesivamente hay una lámina <FONT FACE="symbol">b</FONT>, otra lámina <FONT FACE="symbol">b</FONT> y una tercera capa con <FONT FACE="symbol">a</FONT>-hélices, por este orden. Por ejemplo, la subunidad B de la enzima <i>Carboxi liasa</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1pya.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Subunidad B, Carboxi liasa</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1pya-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Multicapa (4 capas, <FONT FACE="symbol">abba</FONT>)</B>. Como en los casos anteriores, pero con cuatro capas: dos de <FONT FACE="symbol">a</FONT>-hélices en los extremos y dos láminas <FONT FACE="symbol">b</FONT> en el centro. Con esta arquitectura tenemos la <i>Desoxirribonucleasa I</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2dnj.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Desorribonucleasa I</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2dnj-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+
+<P align="justify"><B>Arquitectura: Caja</B>. Se trata de una lámina <FONT FACE="symbol">b</FONT> extensa, algo curvada, y en cuyos extremos hay dos láminas más pequeñas, dando al conjunto una forma de caja. En el centro de la misma hay varias <FONT FACE="symbol">a</FONT>-hélices. Es el caso del <i>Antígeno nuclear de células proliferantes</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1plq.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Antígeno nuclear de células proliferantes</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1plq-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Herradura</B>. Es una estructura con una lámina <FONT FACE="symbol">b</FONT> muy ordenada, y curvada como una herradura, con <FONT FACE="symbol">a</FONT>-hélices flanqueantes dispuestas asimismo de una forma muy ordenada. Por ejemplo, el <i>Inhibidor de Ribonucleasa</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2bnh.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Inhibidor de Ribonucleasa</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2bnh-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Compleja</B>. En este tipo agrupamos aquellas proteínas <FONT FACE="symbol">a-b</FONT> cuya estructura es demasiado compleja como para entrar en cualquiera de las categorías anteriores. Así, el <i>Citocromo P450 CAM</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/3cpp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Citocromo P450 CAM</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3cpp-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<P align="justify"><B>Arquitectura: Péptidos pequeños <FONT FACE="symbol">b</FONT></B>. Agrupamos aquí a péptidos pequeños Estructura secundaria principalmente <FONT FACE="symbol">b</FONT>. Por ejemplo, la subunidad A  de la enzima <i>Carboxi liasa</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1pyas.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Subunidad A, Carboxiliasa</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1pyas-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+<HR>
+<A NAME="sin"></A>
+<P><H3>Clase: Proteínas con estructura secundaria escasa</H3></p>
+<P align="justify">Se trata de proteínas con poca o ninguna estructura secundaria. Todas las proteínas de esta clase se agrupan en una sola arquitectura:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2ltn.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Subunidad B de lectina de guisante</b>
+  </button>
+</center>
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2ltn-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color structure')">
+	Estructura secundaria 
+    </label>
+
+    </fieldset>	
+</div>
+
+
+
+
+
+
+
+<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_094.html" ><B>Anterior: Estructura cuaternaria</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_096.html" ><B>Siguiente: Hemoglobina</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

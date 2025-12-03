@@ -1,0 +1,340 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Monosacáridos D-Cetosas</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Carbohidratos.html" ><B>&Iacute;ndice Carbohidratos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>D-Cetosas: Configuraci&oacute;n</B></font></center>
+<br /><br />
+<p>
+
+
+<p align="justify">Cuando la funci&oacute;n carbonilo es una cetona, los monosac&aacute;ridos correspondientes reciben el nombre de cetosas.</p>
+
+
+<br />
+
+
+<p align="justify">La <b>Dihidroxiacetona</b> (Glicerona) es la m&aacute;s sencilla de las cetosas (es una <i>cetotriosa</i>):</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/glicerona.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Dihidroxiacetona</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración sn-  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="Dgliceraldehido-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=3; label 1; select atomno=2; label 2; select atomno=1; label 3; select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">La dihidroxiacetona no tiene carbonos asim&eacute;tricos.Los carbonos 1 y 3 son equivalentes. En proyecci&oacute;n de Fischer, su estructura es la siguiente:</P>
+
+
+
+<P><CENTER><img SRC="../gif/glicerona.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+<br />
+
+
+
+
+<p align="justify">La siguiente en la serie es la <b>D-Eritrulosa</b> que, junto con su enantiómero L-eritrulosa, es la representante de las <i>cetotetrosas</i> (cetosas de cuatro &aacute;tomos de carbono). Se representa a continuaci&oacute;n su estructura:</p>
+<br />
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/eritrulosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>D-Eritrulosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="eritrulosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=3; label 2; select atomno=4; label 3; select atomno=5; label 4; select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">La D-eritrulosa tiene un solo carbono asimétrico, el carbono 3. Obs&eacute;rvese que tiene las misma configuraci&oacute;n que el D-gliceraldehido. En proyecci&oacute;n de Fischer, la eritrulosa se representa as&iacute:</p>
+
+
+<P><CENTER><img SRC="../gif/eritrulosa.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+
+
+
+
+
+<p align="justify">De las cuatro cetopentosas posibles: D- y L- ribulosa, D- y L-xilulosa, se presenta a continuaci&oacute;n la estructura de la <b>D-Ribulosa</b>:</p>
+<br />
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ribulosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>D-Ribulosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ribulosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=3; label 2; select atomno=4; label 3; select atomno=5; label 4; select atomno=6; label 5; select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">La D-ribulosa tiene dos carbonos asim&eacute;tricos: 3 y 4. Puede observarse que las configuraciones de los carbonos 3 y 4 son las mismas que en el D-gliceraldehido.En proyecci&oacute;n de Fischer, se representa as&iacute;:</p>
+
+<p><CENTER><img SRC="../gif/ribulosa.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+
+
+<p align="justify">La <b>D-Fructosa</b> es una <I>cetohexosa</I>, esto es, una cetosa de seis &aacute;tomos de carbono:</p> 
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/fructosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>D-Fructosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="fructosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=3; label 2; select atomno=4; label 3; select atomno=6; label 4; select atomno=7; label 5; select atomno=8; label 6; select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+<!--
+<script type="text/javascript"><!--
+jmolRadioGroup([
+["colour labels [255,255,0]; select atomno=1; label 1; select atomno=3; label 2; select atomno=4; label 3; select atomno=6; label 4; select atomno=7; label 5; select atomno=8; label 6; select all","Numeraci&oacute;n"]],
+"<br /><br />")
+//-->
+</script>
+</center>
+<br /><br />
+
+<p align="justify">La configuraci&oacute;n de la D-fructosa es tal que los carbonos 4 y 5 tienen la misma orientaci&oacute;n que el D-gliceraldehido mientras que el 3 tiene la configuraci&oacute;n contraria (lo cual hace que los carbonos 3, 4 y 5 de la D-fructosa tengan la misma configuraci&oacute;n que los carbonos 3, 4 y 5 de la D-glucosa (y 2, 3 y 4 de la D-arabinosa).</p> 
+
+
+<p align="justify">La representaci&oacute;n de la D-fructosa en proyecci&oacute;n de Fischer es la siguiente:
+
+<P><CENTER><img SRC="../gif/fructosa.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+			<hr />
+
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=left width=30%>
+				<A HREF="pgJSmol_011.html" ><B>Anterior: D-Aldosas</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_013.html" ><B>Siguiente: Formas c&iacute;clicas</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

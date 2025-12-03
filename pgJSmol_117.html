@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Serin proteinasas</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodar&aacute;; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.15; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar mol&eacute;cula y aplicar representaci&oacute;n (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque seg&uacute;n la representaci&oacute;n aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representaci&oacute;n para la mol&eacute;cula indicada (si no est&aacute; cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por mol&eacute;cula (SCROLL) -->
+    <div class="panel">
+
+
+
+
+
+<BODY bgcolor="#DDDDDD" text="#000000" link="#FF0000" vlink="#AA0000" alink="#00FF00">
+<FONT FACE="Arial">
+<P align="justify"><A TARGET="_top" HREF="Distr_Enzimas.html" >&Iacute;ndice Enzimas</A>
+<A NAME="ind"></A>
+<CENTER><h3><B>Estudio estructural de las serin proteinasas</B></h3></CENTER>
+
+
+
+<P align="justify"><UL>
+<LI><A HREF="#quimo" ><B>1. Quimotripsina</B></A>
+<LI><A HREF="#tromb " ><B>2. Trombina</B></A>
+<LI><A HREF="#subt" ><B>3. Subtilisina</B></A>
+<LI><A HREF="#meccat" ><B>4. Mecanismo catal&Iacute;tico</B></A>
+<!--
+
+<LI><A HREF="#aet" ><B></B></A>
+<LI><A HREF="#dodec" ><B></B></A>
+-->
+</UL>
+
+
+<A NAME="quimo"></A>
+<P align="justify"><CENTER><B>1. Quimotripsina</B></CENTER>
+
+<P>La quimotripsina que vamos a estudiar es la forma <B><FONT FACE="Symbol">g</FONT>-quimotripsina</B>:
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/2gmt.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitcat 57,102,195; define cha 1-10; define chb 16-146; define chc 151-245; define ssb 1,122,42,58,136,201,168,182,191,220')"></label>
+
+<P>La <FONT FACE="Symbol">g</FONT>-quimotripsina es el producto primario de la acci&oacute;n de la tripsina sobre el correspondiente zim&oacute;geno, quimotripsin&oacute;geno, en la activaci&oacute;n de la quimotripsina pancre&aacute;tica. Esta activaci&oacute;n consiste en la rotura proteol&iacute;tica, con p&eacute;rdida de algunos amino&aacute;cidos, en los residuos 14-15 y 146-147, de lo que resulta que la <FONT FACE="Symbol">g</FONT>-quimotripsina consta de tres cadenas unidas por puentes disulfuro: 
+La cadena A, de 13 amino&aacute;cidos:  
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select cha; colour red; select all')"></label>, 
+
+la cadena B, de 130:
+ <label><input type="radio" name="1rcn-steps"onchange="jrun('select chb; colour green; select all ')"></label>
+
+y la cadena C, de 194:
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select chc; colour blue; select all ')"></label>
+
+
+<P align="justify">El sitio catal&Iacute;tico est&aacute; formado por la tr&Iacute;ada Ser-His-Asp: 
+<label><input type="radio" name="1rcn-steps"onchange="jrun('colour chain; select sitcat; spacefill; colour cpk; select all')"></label>
+
+<P align="justify">Al que est&aacute; unido el marcador de afinidad N-Acetil-L-Ala-L-Phe-cloroetilcetona: 
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select sitcat; colour white; select 247; spacefill; colour cpk; select all')"></label>
+
+<P align="justify">La estructura de la <FONT FACE="Symbol">g</FONT>-quimotripsina est&aacute; estabilizada por diversos enlaces disulfuro (lo que es bastante com&uacute;n en prote&Iacute;nas extracelulares): 
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('spacefill off; cartoons off; backbone; colour chain; select sitcat; spacefill; colour white; select 247; spacefill; colour red; select ssb; spacefill 200; wireframe 60; colour cpk; select all')"></label>
+
+
+<P align="justify"><A HREF="#ind " >Vuelta al &Iacute;ndice</A>
+<A NAME="tromb"></A>
+<P align="justify"><CENTER><B>2. Trombina</B></CENTER>
+
+<P align="justify">La rotura de la protrombina por el complejo protrombinasa da lugar a la enzima <B>Trombina</B>:
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/1bb0.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitcat 57,102,195; define cha 1-10; define chb 16-246; define chc 656-663; define ssb 1,122,42,58,168,182,191,220; restrict not chc')"></label>
+, que a su vez escinde la mol&eacute;cula de fibrin&oacute;geno para producir el mon&oacute;mero de fibrina, todo ello en el proceso de coagulaci&oacute;n de la sangre.
+
+<P align="justify">El sitio catal&Iacute;tico: 
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select sitcat; spacefill; colour cpk; select all')"></label>
+
+<P align="justify">Marcador de afinidad unido al sitio catal&Iacute;tico: 
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select sitcat; spacefill; colour white; select 4 and ligand; spacefill; colour cpk;select all')"></label>
+
+<P align="justify">Otros ligandos:  
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select 4 and ligand; colour white; select pms,ron; spacefill; colour cpk;select all')"></label>
+
+<P align="justify">Iones de sodio:  
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select pms,ron; colour white; select na; spacefill; colour yellow; select all')"></label>
+
+<P align="justify">P&eacute;ptido inhibitorio:  
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select chc; spacefill;  colour cpk;select all')"></label>
+
+<P align="justify">Puentes disulfuro:  
+<label><input type="radio" name="1rcn-steps"onchange="jrun('restrict not chc;  spacefill off; cartoons off;  select cha; backbone; colour red; select chb; backbone; colour green;  select ssb and not hetero; spacefill 200; wireframe 60; colour cpk; select all')"></label>
+
+<P align="justify"><A HREF="#ind " >Vuelta al &Iacute;ndice</A>
+<A NAME="subt"></A>
+<P align="justify"><CENTER><B>3. Subtilisina</B></CENTER>
+
+<P align="justify">Una serin proteinasa de origen bacteriano es la <b>Subtilisina</b>:
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/1st3.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitcat 32, 65, 215; define sitcal 2,40,73,75,77,79')"></label>
+
+<P align="justify">El sitio catal&Iacute;tico: 
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select sitcat; spacefill; colour cpk; select all')"></label>
+
+<P align="justify">Iones de calcio fundamentales en la acci&oacute;n catal&Iacute;tica:  
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select 270,271; spacefill; colour cpk; select all')"></label>
+
+<P align="justify">Residuos que interaccionan con el Ca<SUP>++</SUP>:  
+<label><input type="radio" name="1rcn-steps"onchange="jrun('select sitcat; colour white; select sitcal; spacefill; colour cpk; select all')"></label>
+
+<P align="justify"><A HREF="#ind " >Vuelta al &Iacute;ndice</A><BR><BR><BR><BR>
+<A NAME="meccat"></A>
+<P align="justify"><CENTER><B>4. Mecanismo catal&Iacute;tico de las serin proteinasas</B></CENTER>
+
+<P align="justify"><CENTER><img SRC="../gif/f01.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+
+
+
+<P align="justify">Las serin proteinasas presentan un mecanismo catal&Iacute;tico bien conocido, compartido por otras enzimas no necesariamente proteol&Iacute;ticas. Este mecanismo consiste en una <B>fase de acilaci&oacute;n</B> en la que se forma un intermediario covalente acil-enzima, con liberaci&oacute;n del primer producto, y una <B>fase de desacilaci&oacute;n</B> en la que una mol&eacute;cula de agua rompe el intermediario con liberaci&oacute;n del segundo producto. Todas estas enzimas tienen un centro activo formado por tres amino&aacute;cidos absolutamente conservados, Serina, Histidina y Aspartato, conjunto que recibe el nombre de <B>tr&Iacute;ada catal&Iacute;tica</B>:
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f01.pdb; wireframe 50; colour cpk; select atomno=3; label Ser 195; select atomno=36; label His 57; select atomno=14; label Asp 102; select all')"></label>
+
+<P  align="justify">Al centro activo de la enzima se une el <B>substrato</B>. En este caso, se representa como substrato un crom&oacute;geno muy utilizado en los ensayos de quimotripsina, la N-succinil-L-fenilalanina 4-nitroanilida:
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/subst.pdb; wireframe 50; colour cpk')"></label>
+
+<P align="justify"><CENTER><img SRC="../gif/subst.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P align="justify>Se trata de un amino&aacute;cido arom&aacute;tico (Phe) N-sustitu&Iacute;do (lo que remeda el resto de la cadena polipept&Iacute;dica hacia el N-t&eacute;rmino) unido por enlace amida a 4-nitroanilina. Este &uacute;ltimo enlace es el susceptible al ataque por quimotripsina, lo que libera el crom&oacute;geno (4-nitroanilina) de forma que la reacci&oacute;n puede seguirse f&aacute;cilmente por fotometr&Iacute;a.
+
+<P align="justify">La uni&oacute;n da lugar al <B>complejo enzima-substrato</B></A>. La especificidad se logra dado que el anillo arom&aacute;tico de la fenilalanina va a ocupar un sitio espec&Iacute;fico sobre la superficie de la enzima (no representado):
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f02.pdb; wireframe 50; colour cpk; select atomno=49; label Ser 195; select atomno=82; label His 57; select atomno=60; label Asp 102; select atomno=40; label Substrato; select all')"></label>
+
+<P align="justify"><CENTER><img SRC="../gif/f02.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P align="justify">La acci&oacute;n catal&Iacute;tica comienza cuando His 57 retira un prot&oacute;n del grupo alcoh&oacute;lico de la serina, quedando la histidina en forma de imidazolio, con carga positiva (en azul en el modelo) y la serina como enolato, con carga negativa (en rojo en el modelo), tal como puede apreciarse en la imagen del complejo <B>Substrato, serin-enolato e imidazolio</B>:
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f03.pdb; wireframe 50; colour cpk; select atomno=67, atomno=81; dots 500; select atomno=79; label Ser 195; select atomno=72; label His 57; select atomno=49; label Asp 102; select atomno=40; label Substrato; select all')"></label>
+ 
+<P align="justify"><CENTER><img SRC="../gif/f03.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P align="justify">El enolato es un nucle&oacute;filo potente que va a atacar al grupo carbonilo (C=O) del enlace escindible, dando lugar al <B>Estado de transici&oacute;n 1 (fase de acilaci&oacute;n)</B>:
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f04.pdb; wireframe 50; colour cpk; select atomno=19, atomno=77; dots 500; select atomno=51; label Ser 195; select atomno=82; label His 57; select atomno=59; label Asp 102; select atomno=40; label Estado de transicion; select all')"></label>
+ en el que se observa un intermediario tetra&eacute;drico (as&iacute; llamado porque el carbono sp2 del grupo carbonilo del enlace escindible se convierte transitoriamente en un carbono sp3, tetra&eacute;drico). 
+
+<P align="justify"><CENTER><img SRC="../gif/f04.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P align="justify">A continuaci&oacute;n, la histidina 57 cede su prot&oacute;n a este complejo, con lo que se separa el primer producto (4-nitroanilina) y el complejo queda como <B>Acilenzima y primer producto</B>: 
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f05.pdb; wireframe 50; colour cpk; select atomno=85; label Ser 195; select atomno=40; label His 57; select atomno=18; label Asp 102; select atomno=11; label 4-Nitroanilina; select atomno=74; label Acilenzima; select all')"></label>
+
+<P align="justify"><CENTER><img SRC="../gif/f05.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P align="justify">Tras la retirada del primer producto, el complejo <B>Acilenzima</B></A> queda listo para comenzar la segunda fase de la reacci&oacute;n.
+
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f06.pdb; wireframe 50; colour cpk; select atomno=70; label Ser 195; select atomno=25; label His 57; select atomno=3; label Asp 102; select atomno=59; label Acilenzima; select all')"></label>
+
+<P align="justify"><CENTER><img SRC="../gif/f06.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P align="justify">&eacute;sta tiene lugar por la entrada de una mol&eacute;cula de agua (el segundo substrato) al centro activo, dando lugar al <B>Complejo Acilenzima - H<SUB>2</SUB>O</B>:
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f07.pdb; wireframe 50; colour cpk; select atomno=73; label Ser 195; select atomno=28; label His 57; select atomno=6; label Asp 102; select atomno=62; label Acilenzima; select atomno=443; label agua; select all')"></label>
+	
+<P align="justify"><CENTER><img SRC="../gif/f07.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P align="justify">La histidina 57 retira entonces un prot&oacute;n de la mol&eacute;cula de agua, que queda convertida en un ion hidroxilo (OH<SUP>-</SUP>); el conjunto <B>Acilenzima, imidazolio e hidroxilo</B>: 
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f08.pdb; wireframe 50; colour cpk; select atomno=441, atomno=21; dots 500; select atomno=71; label Ser 195; select atomno=26; label His 57; select atomno=3; label Asp 102; select atomno=442; label OH-; select atomno=60; label Acilenzima; select all')"></label>
+
+ que se forma es an&aacute;logo al conjunto substrato, imidazolio y enolato que ve&iacute;amos en la fase de acilaci&oacute;n.
+
+<P align="justify"><CENTER><img SRC="../gif/f08.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P align="justify">El ion hidroxilo es un nucle&oacute;filo que ataca al acilenzima dando lugar al <B>Estado de transici&oacute;n 2 (fase de desacilaci&oacute;n)</B>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f09.pdb; wireframe 50; colour cpk; select atomno=21, atomno=49; dots 500; select atomno=72; label Ser 195; select atomno=26; label His 57; select atomno=3; label Asp 102; select atomno=65; label Estado de transicion; select all')"></label>
+ en el que nuevamente vemos que el grupo carbonilo del enlace escindible pasa transitoriamente a ser sp3, de geometr&Iacute;a tetra&eacute;drica.
+
+<P align="justify"><CENTER><img SRC="../gif/f09.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P align="justify">Este segundo estado de transici&oacute;n se resuelve con la <B>Salida del producto 2</B></A> (N-succinil-L-fenilalanina). 
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f10.pdb; wireframe 50; colour cpk; select atomno=67, atomno=53; dots 500; select atomno=65; label Ser 195; select atomno=58; label His 57; select atomno=35; label Asp 102; select atomno=29; label Succinil-Phe; select all')"></label>
+
+<P align="justify"><CENTER><img SRC="../gif/f10.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P align="justify">Por &uacute;ltimo, el grupo imidazolio de la histidina cede su prot&oacute;n al enolato de la serina, con lo cual tiene lugar la <B>vuelta al estado inicial</B>:
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f01.pdb; wireframe 50; colour cpk; select atomno=3; label Ser 195; select atomno=36; label His 57; select atomno=14; label Asp 102; select all')"></label>
+<P align="justify"><center><img SRC="../gif/f11.gif" ALIGN="TOP"  BORDER="0"></center>
+
+<P align="justify">El papel del aspartato, seg&uacute;n se cree, es la estabilizaci&oacute;n del imidazolio de la histidina. <BR><BR><BR><BR><BR><BR>
+
+<P align="justify"><A HREF="#ind " >Vuelta al &Iacute;ndice</A>
+</FONT>
+
+				<center><table border=0 WIDTH=90%><tr>
+				<td align=center >
+				<A HREF="pgJSmol_116.html" ><B>Anterior: Ribonucleasa pancreática</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#ind" ><B>Indice</B></A>	
+				</td>
+				
+			</tr></table></center>
+
+
+
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

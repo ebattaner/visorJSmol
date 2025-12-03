@@ -1,0 +1,399 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Lípidos anfipáticos: Glicolípidos</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+<a name="inicio"></a>
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Lipidos.html" ><B>&Iacute;ndice Lípidos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>L&iacute;pidos Anfip&aacute;ticos: Glicol&iacute;pidos</B></font></center>
+<br /><br />
+<p>
+<p>
+
+
+
+<p align="center"><font size="+1"><b>Glicolípidos</b></font></center></p>
+
+
+<P align="justify">En los <i>Glicol&iacute;pidos</i> la parte polar est&aacute; constitu&iacute;da por un monosac&aacute;rido o un oligosac&aacute;rido, unido por un enlace, normalmente <font face="symbol">b</font>-glicos&iacute;dico, a un alcohol, que en la gran mayor&iacute;a de los casos es la <i>Esfingosina</i>: Veamos la estructura de un glicolípido típico, un <i>cerebrósido</i>:<p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/cerebrosido.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Cerebrósido</b>
+  </button>
+</center>
+<br>
+
+
+<p align="justify">En esta estructura podemos ver: 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="cerebrosido-steps"
+        onchange="jrun('colour green; select 2; colour cpk; select all')">
+      	la esfingosina, que consta de una cadena hidrocarbonada en la cual hay un doble enlace en <I>trans-</I>, y que est&aacute; sustitu&iacute;da por un grupo amino y un grupo hidroxi, teniendo como puede apreciarse una estructura muy parecida a un glicerol sustitu&iacute;do en sn-1. El grupo amino se une a un &aacute;cido graso a trav&eacute;s de un enlace amida <B>-CO-NH-</B>, y el compuesto resultante es 
+    </label>
+
+   <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="cerebrosido-steps"
+        onchange="jrun('select not 1; colour cpk')">
+      	una <i>N-acil esfingosina</i> o <i>Ceramida</i>, que constituye la porci&oacute;n hidrof&oacute;bica de estos l&iacute;pidos. Por su parte, la ceramida se une a trav&eacute;s del grupo -OH de la esfingosina a un monosac&aacute;rido mediante un enlace <font face="symbol">b</font>-glicos&iacute;dico. Si el monosac&aacute;rido es la galactosa, tendremos
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="cerebrosido-steps"
+        onchange="jrun('select all; colour cpk')">
+      	la estructura denominada <i>Cerebr&oacute;sido</i>
+    </label>
+</fieldset>
+</div>
+
+
+<P><CENTER><img SRC="../gif/cerebrosido.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+
+
+
+
+			<P align="justify">Los distintos glicol&iacute;pidos se diferencian en la naturaleza del aminoalcohol, aunque en la mayor&iacute;a de los casos es la citada <i>esfingosina</i>; en la naturaleza del &aacute;cido graso N-ligado al mismo; y sobre todo, en el oligosac&aacute;rido unido a la ceramida, que puede alcanzar grados importantes de complejidad.</P>
+
+
+
+			<P align="justify">En estos oligosac&aacute;ridos se han encontrado ciertas regularidades que permiten clasificarlos en series. En la tabla que se presenta a continuaci&oacute;n se describen algunas de estas series. En todos ellos la parte hidrof&oacute;bica es una ceramida como la descrita anteriormente.</P>
+
+
+<CENTER><TABLE BORDER=1 WIDTH=95%>
+<CAPTION><H3><B>Glicol&iacute;pidos</B></H3></CAPTION> <TR>
+<TD>Serie</TD> <TD>SECUENCIA</TD>
+</TR> 
+
+<TR>
+<TD>
+<center>
+<button onClick="loadMolecule ('../pdb/gala.pdb', 'ballstick')",<b>Gala</b></button>
+</center>		
+<br />
+</td>
+
+<TD>Gal <FONT FACE="Symbol">b</FONT>(1,4)Gal <FONT FACE="Symbol">b</FONT>(1,1)-Cer
+					</TD>
+					</tr>
+
+					<TR>
+					<TD>
+<center>
+<button onClick="loadMolecule ('../pdb/globo.pdb', 'ballstick')",<b>Globo</b></button>
+</center>
+
+
+					<br />
+					</td>
+
+					<TD>GalNAc <FONT FACE="Symbol">b</FONT>(1,3)-Gal <FONT FACE="Symbol">a</FONT>(1,4)-Gal <FONT FACE="Symbol">b</FONT>(1,4)-Glc <FONT FACE="Symbol">b</FONT>(1,1)-Cer
+					</TD>
+					</tr>
+
+
+					<TR>
+					<TD>
+<center>
+<button onClick="loadMolecule ('../pdb/ganglio.pdb', 'ballstick')",<b>Ganglio</b></button>
+</center>
+
+					<br />
+					</td>
+
+					<TD>Gal <FONT FACE="Symbol">b</FONT>(1,3)-GalNAc <FONT FACE="Symbol">b</FONT>(1,4)-Gal <FONT FACE="Symbol">b</FONT>(1,4)-Glc <FONT FACE="Symbol">b</FONT>(1,1)-Cer
+					</TD>
+					</tr>
+
+
+
+					<TR>
+					<TD>
+<center>
+<button onClick="loadMolecule ('../pdb/lacto.pdb', 'ballstick')",<b>Lacto</b></button>
+</center>
+					<br />
+					</td>
+
+					<TD>Gal <FONT FACE="Symbol">b</FONT>(1,3)-GlcNAc <FONT FACE="Symbol">b</FONT>(1,3)-Gal <FONT FACE="Symbol">b</FONT>(1,4)-Glc <FONT FACE="Symbol">b</FONT>(1,1)-Cer
+					</TD>
+					</tr>
+
+
+
+					<TR>
+					<TD>
+<center>
+<button onClick="loadMolecule ('../pdb/neolacto.pdb', 'ballstick')",<b>Neolacto</b></button>
+</center>
+
+					<br />
+					</td>
+
+					<TD>Gal <FONT FACE="Symbol">b</FONT>(1,4)-GlcNac <FONT FACE="Symbol">b</FONT>(1,3)-Gal <FONT FACE="Symbol">b</FONT>(1,4)-Glc <FONT FACE="Symbol">b</FONT>(1,1)-Cer
+					</TD>
+					</tr>
+
+
+
+			</TABLE></CENTER>
+			<br /><br />
+
+			<P align="justify">Dentro de los glicol&iacute;pidos tienen particular inter&eacute;s los <i>Gangli&oacute;sidos</i>. En general podemos considerarlos como glicol&iacute;pidos de la serie <I>ganglio-</I> en la que la galactosa que ocupa la posici&oacute;n 2 a partir de la ceramida est&aacute; sustitu&iacute;da por uno o varios residuos de <i>&aacute;cido si&aacute;lico</i> o <i>N-acetil neuram&iacute;nico (NANA)</i>. Hay muchas variantes estructurales de los mismos, en las que no entraremos.</P>
+
+<P align="justify">Vamos a analizar a continuaci&oacute;n la estructura de un gangli&oacute;sido.</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/gangliosido_gd1.pdb&quot;; \
+    set antialiasDisplay on; \
+    select all; color cpk; center all; zoom 100;')">
+    <b>Gangliósido GD1</b>
+  </button>
+</center>
+<br>
+<br />
+
+
+<p align="justify">En esta estructura podemos ver, en primer lugar, 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="gangliosido_gd1-steps"
+        onchange="jrun('colour green; select 7; colour cpk; select all')">
+      	la ceramida; el primer residuo unido a &eacute;sta es una beta-glucosa:
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="gangliosido_gd1-steps"
+        onchange="jrun('select 6-7; colour cpk; select all')">
+      	a la que se añade una galactosa en enlace beta-(1,4):    
+</label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="gangliosido_gd1-steps"
+        onchange="jrun('select 3, 6-7; colour cpk; select all')">
+      	 a la que como veremos, se une el &aacute;cido si&aacute;lico; a &eacute;sta se une una N-acetil galactosamina en enlace beta-(1,4):    
+</label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="gangliosido_gd1-steps"
+        onchange="jrun('select 2-3, 6-7; colour cpk;select all')">
+      	 y a continuaci&oacute;n, una galactosa en beta-(1,3):    
+</label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="gangliosido_gd1-steps"
+        onchange="jrun('select 1-3, 6-7; colour cpk;select all')">
+      	dando lugar a la cadena base de la serie <I>ganglio-</I>.  A la galactosa que ocupa la posici&oacute;n 2 del oligosac&aacute;rido se une un residuo de &aacute;cido si&aacute;lico en uni&oacute;n alfa-(2,3), dando lugar al <i>Gangli&oacute;sido GM1</i>:    
+</label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="gangliosido_gd1-steps"
+        onchange="jrun('select 1-4, 6-7; colour cpk')">
+      	 al cual puede unirse otro residuo de &aacute;cido si&aacute;lico en enlace alfa-(2,8) 
+</label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="gangliosido_gd1-steps"
+        onchange="jrun('select all; colour cpk')">
+      	 dando lugar al <i>Gangli&oacute;sido GD1</i>:    Gangli&oacute;sido GD1</i>:    
+</label>
+
+
+
+</fieldset>
+</div>
+
+					 
+			<P align="justify">Puede observarse el gran volumen de la porci&oacute;n polar de estos l&iacute;pidos, constitu&iacute;da por el oligosac&aacute;rido. Los gangli&oacute;sidos forman parte importante de la membrana plasm&aacute;tica (hojilla externa) en numerosos tejidos; son abundantes en el tejido nervioso, donde poseen importantes funciones en la transmisi&oacute;n del impulso nervioso.</P>
+
+
+
+			<hr />
+
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_052.html" ><B>Anterior: Fosfolípidos</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_054.html" ><B>Siguiente: Estructuras anfipáticas</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

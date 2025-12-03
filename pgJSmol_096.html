@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Hemoglobina</title>
+<style>
+  :root{ --gap:16px; --vh:500px; --textH:300px; }
+  *{box-sizing:border-box} body{margin:0;font-family:Arial, Helvetica, sans-serif;background:#ccc}
+  #superior{padding:10px}
+  .fila{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+  .panel{background:#f5f5f5;border:1px solid #999;border-radius:8px;padding:8px}
+  .visor{height:var(--vh);border:1px dashed #666;border-radius:6px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  #inferior{margin:10px;background:#e5e5e5;border:1px solid #999;border-radius:8px;padding:10px;height:var(--textH);overflow:auto}
+  @media (max-width:900px){.fila{grid-template-columns:1fr}}
+  .btn{padding:6px 10px;border:1px solid #666;border-radius:8px;background:#fff;cursor:pointer;margin-right:6px}
+  .btn:hover{background:#f0f0f0}
+  .molblock{border-top:1px dashed #aaa;margin-top:12px;padding-top:10px}
+  fieldset.molfs{border:1px solid #999;border-radius:8px;padding:6px 10px;margin:8px 0}
+  fieldset.molfs legend{font-size:12px;color:#333;padding:0 6px}
+  .row{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0;align-items:center}
+  .row label{cursor:pointer}
+  .note{font-size:12px;color:#444}
+</style>
+<!-- Cargar JSmol (ojo: carpeta con mayúscula) -->
+<script id="jsmolLib" src="../JSmol/JSmol.min.js"></script>
+</head>
+<body>
+  <div id="superior">
+    <div class="fila">
+      <div class="panel"><div class="visor" id="viewerA">Visor IZQUIERDO</div></div>
+      <div class="panel"><div class="visor" id="viewerB">Visor DERECHO</div></div>
+    </div>
+  </div>
+
+  <div id="inferior">
+
+
+
+<body>
+
+
+
+	
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Proteinas.html" ><B>&Iacute;ndice Proteínas</B></A></font>
+</center>
+<p>
+<hr />
+<p>
+			<br />
+			<center><font size="+2"><b>Estructura y función de la Hemoglobina</b><br /></font></center>
+			</br />
+			<font face="Arial" size="3">
+			<hr />
+
+
+
+
+			
+
+
+
+			<A NAME="ind"></A>
+
+			<p align="justify"><UL>
+			<LI><A HREF="#intro" ><B>1. Introducción</B></A>
+			<LI><A HREF="#caa " ><B>2. El contacto <FONT FACE=Symbol>a</FONT> -  <FONT FACE=Symbol>a</FONT></B></A>
+			<LI><A HREF="#cab" ><B>3. El contacto <FONT FACE=Symbol>a</FONT> -  <FONT FACE=Symbol>b</FONT></B></A>
+			<LI><A HREF="#cbb" ><B>4. El contacto <FONT FACE=Symbol>b</FONT> -  <FONT FACE=Symbol>b</FONT></B></A>
+			<LI><A HREF="#enthem" ><B>5. Entorno del grupo hemo</B></A>
+			</UL>
+			<br />
+			<A NAME="intro"></A>
+
+			<p align="center"><font size="+1"><b>1. Introducci&oacute;n</b></font></center></p>
+
+</br></br>
+<center><table border=0 WIDTH=90%><tr>
+	<td align=center width=45%>	
+      	<button class="btn" data-path="../pdb/1b86.pdb" data-target="A"><b>Desoxihemoglobina (estado T)</b></button>
+	</td>
+	<td align=center width=45%>
+      	<button class="btn" data-path="../pdb/1rvw.pdb" data-target="B"><b>Oxihemoglobina (estado R)</button>
+	</td>
+     </tr>
+	
+     </tr>
+<tr><td align=center width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="restrict not solvent; spacefill; colour chain; select ddh, hem; color cpk; select not solvent">Visión <i>spacefill</i></label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="restrict not solvent; spacefill; color chain; select hem; color cpk; select *; rotate x 70; rotate y -20; zoom 90">Visión <i>spacefill</i></label>
+	</td></tr>
+</table>
+</center>
+
+</br>
+
+
+
+			<p align="justify">La hemoglobina es el ejemplo clásico de sistema alostérico al que puede aplicarse el modelo de Monod-Wyman-Changeux. La proteína es un tetrámero formado por cuatro subunidades iguales dos a dos. En el caso de la hemoglobina más abundante en mamíferos, la hemoglobina A1, estas subunidades reciben el nombre de <FONT FACE="Symbol">a</FONT> y <FONT FACE="Symbol">b</FONT>. Por eso la estructura cuaternaria de la hemoglobina se describe como <FONT FACE="Symbol">a<SUB>2</SUB>b<SUB>2</SUB></FONT>.</p>
+
+			<p align="justify">La subunidad <FONT FACE="Symbol">a</FONT> consta de 141 aminoácidos, y la subunidad <FONT FACE="Symbol">b</FONT>, de 146. A pesar de ser distintas, presentan una amplia homología de secuencia entre sí y con otro transportador de oxígeno, la mioglobina, presente en grandes cantidades en la célula muscular. Las tres presentan un grupo prostético hemo consistente en una protoporfirina IX a cuyos cuatro nitrógenos aparece coordinado un ion ferroso de geometría octaédrica. Los dos enlaces de coordinación restantes del ion se establecen (a) con el nitrógeno de His 87 (cadena <FONT FACE="Symbol">a</FONT>) o His 92 (cadena <FONT FACE="Symbol">b</FONT>); (b) una molécula de oxígeno, que es el ligando fisiológico, en el caso de la oxihemoglobina, o bien queda vacante en el caso de la desoxihemoglobina. La proteína cumple su función cargándose de oxígeno en los alvéolos pulmonares y descargándolo en los tejidos periféricos.</p>
+
+			<p align="justify">La hemoglobina es, por otra parte, un sistema alostérico:
+
+			<p align="justify">1. Presenta cooperatividad positiva en la fijación de oxígeno, lo que se traduce en curvas sigmoides de saturación (efecto homotrópico). Esta cooperatividad positiva no se aprecia estudiando las subunidades aisladas o la mioglobina, por lo que se deduce que deriva de su estructura cuaternaria y de las relaciones entre las cuatro cadenas. </p>
+
+			<p align="justify">2. La cooperatividad se ve afectada por otros ligandos (efectos heterotrópicos). Así, el protón H<SUP>+</SUP>, el CO<SUB>2</SUB> y el 2,3-bisfosfoglicerato acentúan el carácter sigmoide de la curva de disociación, comportándose, pues, como inhibidores alostéricos.</p>
+
+			<p align="justify">3. El sistema tiene estructura cuaternaria y está formado por cuatro protómeros (las cuatro cadenas). Aun con ser distintas, las subunidades <FONT FACE="Symbol">a</FONT> y <FONT FACE="Symbol">b</FONT> se comportan a estos efectos como si fueran idénticas.</p>
+
+			<p align="justify">4. El estado T corresponde a la desoxihemoglobina, esto es, a la hemoglobina descargada de oxígeno; el estado R, a la oxihemoglobina, la que tiene una molécula de oxígeno en la sexta posición de coordinación del ion ferroso. A este respecto se debe hacer notar que ligandos distintos del oxígeno (monóxido de carbono CO, ion cianuro CN-), tienen el mismo efecto que el oxígeno. Así, la carbomonoxihemoglobina (hemoglobina con CO fijado al hemo) equivale estructuralmente a la oxihemoglobina. De hecho, el modelo que tenemos en la pantalla izquierda es carbomonoxihemoglobina.</p>
+
+
+			<p align="justify">Gracias a los estudios clásicos de Perutz tenemos una idea bastante clara de las transiciones conformacionales en la hemoglobina, entre los estados T y R. De ellos se deduce que en la forma T hay una serie de contactos mucho más estrechos entre las distintas subunidades que en la forma R. Muchos de estos contactos, como veremos, son enlaces de tipo iónico entre grupos laterales de aminoácidos con carga eléctrica. De ahí deriva precisamente el nombre de los estados T (<I>Tenso</I>) y R (<I>Relajado</I>).</p>
+
+<p align="justify">Toda la demostración que sigue va a hacerse sobre estos dos modelos: En la pantalla izquierda aparece un modelo de <b>Desoxihemoglobina</b>, que representa el estado T del sistema. A la derecha, un modelo de <b>Carbomonoxihemoglobina</b> que es estructuralmente idéntica a la <b>Oxihemoglobina</b>, el estado R del sistema. Los botones "Subunidades" muestran la estructura cuaternaria de ambos modelos según el código de color "chain"</p>
+
+
+<!-- SUBUNIDADES -->
+
+
+<p> Veamos en primer lugar las subunidades una a una:</p>
+
+
+<center>
+<table border=0 WIDTH=90%>
+	<tr><td><p align="center" width=45%><b>Estado T</b></td><td><p align="center"><b>Estado R</b></td></tr>
+	<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="restrict not solvent; colour cpk; wireframe .15; spacefill 20%; select :a; spacefill 100%; colour chain; select ddh and :a; colour cpk; select not solvent">Subunidad <font face="Symbol">a</font><sub>1</sub></label>
+	</td>
+
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="restrict not solvent; colour cpk; wireframe .15; spacefill 20%; select :a; spacefill 100%; colour chain; select hem and :a; spacefill; colour cpk; select not solvent">Subunidad <font face="Symbol">a</font><sub>1</sub></label>
+	</td></tr>
+
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="restrict not solvent; colour cpk; wireframe .15; spacefill 20%; select :b; spacefill 100%; colour chain; select hem and :b; colour cpk; select not solvent">Subunidad <font face="Symbol">a</font><sub>2</sub></label>
+	</td>
+
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="restrict not solvent; colour cpk; wireframe .15; spacefill 20%; select :b; spacefill 100%; colour chain; select hem and :b; spacefill; colour cpk; select not solvent">Subunidad <font face="Symbol">a</font><sub>2</sub></label>
+	</td></tr>
+
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="restrict not solvent; colour cpk; wireframe .15; spacefill 20%; select :c; spacefill 100%; colour chain; select ddh and :c; colour cpk; select not solvent">Subunidad <font face="Symbol">b</font><sub>1</sub></label>
+	</td>
+
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="restrict not solvent; colour cpk; wireframe .15; spacefill 20%; select :c; spacefill 100%; colour chain; select hem and :c; spacefill; colour cpk; select not solvent">Subunidad <font face="Symbol">b</font><sub>1</sub></label>
+	</td></tr>
+
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="restrict not solvent; colour cpk; wireframe .15; spacefill 20%; select :d; spacefill 100%; colour chain; select hem and :d; colour cpk; select not solvent">Subunidad <font face="Symbol">b</font><sub>2</sub></label>
+	</td>
+
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="restrict not solvent; colour cpk; wireframe .15; spacefill 20%; select :d; spacefill 100%; colour chain; select hem and :d; colour cpk; select not solvent">Subunidad <font face="Symbol">b</font><sub>2</sub></label>
+	</td></tr>
+</table>
+</center>
+
+
+<p align="justify">Volvemos a la representación original:</p>
+
+<center>
+<table border=0 WIDTH=90%>
+	<tr><td><p align="center" width=45%><b>Estado T</b></td><td><p align="center"><b>Estado R</b></td></tr>
+	<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="restrict not solvent; spacefill; colour chain; select ddh, hem; colour 	cpk; select 	not solvent">Desoxihemoglobina, holoproteína</label>
+	</td>
+
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="restrict not solvent; spacefill; colour chain; select ddh, hem; colour 	cpk; select 	not solvent">Oxihemoglobina, holoproteína</label>
+	</td></tr>
+</table>
+</center>
+
+
+<p align="justify">A continuación pasamos a ver las diferencias estructurales entre los dos estados, centrándonos en las zonas de contacto entre las distintas subunidades. 
+
+<p align="justify"><A HREF="#ind " >Vuelta al índice</A>
+
+<!-- CONTACTO ALFA-ALFA -->
+
+<A NAME="caa"></A>
+<p align="center"><font size="+1"><b>2. El contacto <FONT FACE=Symbol>a</FONT> -  <FONT FACE=Symbol>a</FONT></b></font></center></p>
+
+<center>
+<table border=0 WIDTH=90%>
+	<tr><td><p align="center" width=45%><b>Estado T</b></td><td><p align="center"><b>Estado R</b></td></tr>
+	<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="zoom 120; labels off; colour labels [0,0,0];wireframe off; spacefill off; select :a; cartoons; colour chain; select :c; cartoons; colour chain; restrict :a,:c; center :a,:c; select not hetero; select 141,526; spacefill 150; wireframe 60; colour cpk; select atomno=1062; label Arg 141; select atomno=3141; label Asp 126; zoom 250; select not hetero">Las interacciones que se establecen entre las dos subunidades son las siguientes: (a) la cadena lateral de Arg 141 (C-terminal) de una subunidad, con la del residuo Asp 126 de la otra</label>
+	</td>
+
+	<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="labels off; colour labels [0,0,0];wireframe off; spacefill off; select :a;cartoons; colour chain;select :c;cartoons;colour chain;select 1,126,141;  spacefill 150; wireframe 60; colour cpk; restrict :a,:c; center :a,:c; select atomno=3 and not hetero, atomno=2295; label Val 1; select atomno=954,atomno=3244; label Asp 126; select atomno=1070,atomno=3359; label Arg 141; select :a,:c; zoom 250; select not hetero">Por el contrario, en el estado R, estas interacciones no existen o son mucho más débiles. Nótese la distancia a la que aparecen, por ejemplo, los residuos Arg 141 y Asp 126 en este último estado </label>
+	</td></tr>
+
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour labels [0,0,0];select 401; spacefill 150; wireframe 60; colour cpk; select atomno=2201; label Val 1; select not hetero">(b) el grupo carboxilo de Arg 141 con el amino N-terminal de la otra cadena:</label>
+	</td>
+
+	<td align=left width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="restrict :a,:c; spacefill; select not hetero">En visión <i>spacefill</i></label>
+	</td></tr>
+
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour labels [0,0,0];select 1,541,126; spacefill 150; wireframe 60; colour cpk; select atomno=5 and not hetero; label Val 1; select atomno=3258; label Arg 141; select atomno=947; label Asp 126; select alfalfa and not hetero; select not hetero; zoom 250; restrict not solvent">y (c) las mismas interacciones en los extremos contrarios de las dos cadenas:</label>
+	</td>
+
+	<td align=center width=45%>
+	
+	</td></tr>
+
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="restrict :a,:c; spacefill; select not hetero">En visión <i>spacefill</i></label>
+	</td>
+
+	<td align=center width=45%>
+	
+	</td></tr>
+
+
+
+</table>
+</center>
+
+<p align="justify"><A HREF="#ind " >Vuelta al índice</A>
+
+<A NAME="cab"></A>
+
+<p align="center"><font size="+1"><b>3. El contacto <FONT FACE=Symbol>a</FONT> - <FONT FACE=Symbol>b</FONT></font></b></center></p>
+
+<!-- CONTACTO ALFA-BETA -->
+
+<center>
+<table border=0 WIDTH=90%>
+	<tr><td><p align="center" width=45%><b>Estado T</b></td><td><p align="center"><b>Estado R</b></td></tr>
+	<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="zoom 120; labels off; colour labels [0,0,0];wireframe off; spacefill off; select :a;cartoons; colour chain;select :d; cartoons; colour chain;  restrict :a,:d; center atomno=314; select not hetero">Contacto <FONT FACE=Symbol>a</FONT> - <FONT FACE=Symbol>b</FONT></font>. Se establecen las siguientes interacciones:</label>
+	</td>
+
+	<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="labels off; colour labels [0,0,0];wireframe off; spacefill off; select :a;cartoons; colour chain; select :d;cartoons;colour chain;select  92 and :a,40 and :a,  43 and :d, 146 and :d;  spacefill 150; wireframe 60; colour cpk; center atomno=730; select atomno=689; label Arg 92; select atomno=297; label Lys 40; select atomno=3751; label Glu 43; select atomno=4529; label His 146; restrict :a,:d; select not hetero">Mientras que en el estado R estas interacciones prácticamente no existen.</label>
+	</td></tr>
+
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select 92, 586; colour labels [0,0,0];spacefill 150; wireframe 60; colour cpk; select atomno=691; label Arg 92; select atomno=3604; label Glu 43; restrict :a,:d; zoom 250; select not hetero">(a) Arg 92 de la cadena <FONT FACE="Symbol">a</FONT> con Glu 43 de la cadena  <FONT FACE="Symbol">b</FONT>"</label>
+	<td align=left width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="restrict :a,:d; spacefill; select not hetero">En visión <i>spacefill</i></label>
+	</td></tr>
+
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour labels [0,0,0];select 40,689; spacefill 150; wireframe 60; colour cpk; select atomno=297; label Lys 40; select atomno=4382; label His 146; restrict :a,:d; select not hetero">(b) Lys 40 de la cadena <FONT FACE="Symbol">a</FONT> con el carboxilo C-terminal de His 146  de la cadena  <FONT FACE="Symbol">b</FONT>:</label>
+	</td>
+	<td align=center width=45%>
+	</td></tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="restrict :a,:d; spacefill; select not hetero">En visión <i>spacefill</i></label>
+	</td>
+	<td align=center width=45%>
+	</td></tr>
+</table>
+</center>
+
+
+<!-- CONTACTO BETA-BETA -->
+
+
+			<A NAME="cbb"></A>
+			<p align="center"><font size="+1"><b>4. El contacto <FONT FACE=Symbol>b</FONT> -  <FONT FACE=Symbol>b</FONT></b></font></center></p>
+
+<center>
+<table border=0 WIDTH=90%>
+	<tr><td><p align="center" width=45%><b>Estado T</b></td><td><p align="center"><b>Estado R</b></td></tr>
+	<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="labels off; colour labels [0,0,0];wireframe off; spacefill off; select :b;cartoons; colour chain;select :d;cartoons;colour chain; select 144, 145, 225, 286, 544, 545, 625, 686;  spacefill 150; wireframe 60; colour cpk; select atomno=1082, atomno=3276; label His2; select atomno=1694, atomno=3891; label Lys 82; select atomno=2160, atomno=4358; label His 143; restrict :b,:d; center atomno=3894; rotate y 90">En el contacto <FONT FACE=Symbol>b</FONT> -  <FONT FACE=Symbol>b</FONT> observamos que la distancia entre ambas subunidades es mayor en el estado T</label>
+	</td>
+
+	<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="zoom 100; labels off; colour labels [0,0,0]; wireframe off; spacefill off; select :b;cartoons; colour chain;select :d; cartoons;colour chain;select  2, 82, 143;  spacefill 150; wireframe 60; colour cpk; select atomno=1136, atomno=3420; label His 2; select atomno=1745, atomno=4034; label Lys 82; select atomno=2205, atomno=4498; label His 143; restrict :b,:d; center atomno=4165; rotate y 90">En el estado R, la distancia entre subunidades se hace menor y no permite la unión del 2,3-bisfosfoglicerato</label>
+	</td></tr>
+
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select 701; wireframe 60; spacefill 150; colour cpk; select :b,:d">El compuesto 2,3 bisfosfoglicerato (2,3-BPG) es un inhibidor alostérico y solamente puede fijarse al estado T</label>
+
+	<td align=left width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="restrict :b,:d, 701; color chain; spacefill; select not hetero">En visión <i>spacefill</i></label>
+	</td></tr>
+
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd=" select :b, :d; spacefill; select DG2; spacefill; select *">a través de interacciones electrostáticas con His 2, Lys 82 e His 143,  debido a que en el estado R no hay espacio suficiente para alojar la molécula en la hendidura entre ambas subunidades en el estado T, lo que se aprecia mejor con la representación <i>spacefill</i></label>
+	</td>
+
+</table>
+</center>
+
+
+
+
+
+
+
+
+
+			<p align="justify"><A HREF="#ind " >Vuelta al índice</A>
+
+
+<!-- ENTORNO DEL GRUPO HEMO -->
+
+
+			<A NAME="enthem"></A>
+			<p align="center"><font size="+1"><b>5. Entorno del grupo hemo</b></font></p>
+
+
+<center>
+<table border=0 WIDTH=90%>
+	<tr><td><p align="center" width=45%><b>Estado T</b></td><td><p align="center"><b>Estado R</b></td></tr>
+	<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="zoom 120; labels off;  colour labels [0,0,0]; reset; cartoons off; wireframe off; spacefill off; select :b; spacefill; colour chain; select hem and :b;  spacefill;  colour cpk; center atomno=4438; rotate y 90; select not hetero">El grupo hemo se encuentra en una cavidad hidrofóbica de la molécula, de la que sólo interaccionan con el solvente las dos cadenas laterales de propionato de la protoporfirina IX</label>
+	</td>
+
+	<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="zoom 100; labels off; colour labels [0,0,0];wireframe; reset; cartoons off; wireframe off; spacefill off;  select :b; spacefill; colour chain; select hem and :b;  spacefill;  colour cpk; center atomno=2245; select not hetero">En el estado R</label>
+	</td></tr>
+
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour labels [0,0,0]; zoom 300; select :b; spacefill off; cartoons; colour chain; select hem and :b; wireframe 60; spacefill 150; colour cpk; select atomno=4438; spacefill; select not hetero">Cambiamos la representación a <i>cartoons</i></label>
+
+	<td align=left width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="colour labels [0,0,0];zoom 300; select :b; spacefill off; cartoons; colour chain; select hem and :b; wireframe 60; spacefill 150; colour cpk; select atomno=2245; spacefill 300; select not hetero"></i>Cambiamos la representación a <i>cartoons</i></label>
+	</td></tr>
+
+</table>
+</center>
+
+<p align="justify">Tanto en un estado como en otro, el ion ferroso del grupo hemo se encuentra coordinado a los cuatro nitrógenos de la porfirina y a la histidina 92 (perteneciente a la hélice F) en la cadena <FONT FACE="Symbol">b</FONT> (His 87 en la cadena <FONT FACE="Symbol">a</FONT>); recibe también el nombre de <i>histidina proximal</i>. Una segunda histidina interacciona, aunque más débilmente, con el grupo hemo desde el lado opuesto. Se trata de la histidina 63 (perteneciente a la hélice E) en la cadena <FONT FACE="Symbol">b</FONT> (His 58 en la cadena <FONT FACE="Symbol">a</FONT>). Recibe el nombre de <i>Histidina distal</i>:</p>
+
+<center>
+<table border=0 WIDTH=90%>
+	<tr><td><p align="center" width=45%><b>Estado T</b></td><td><p align="center"><b>Estado R</b></td></tr>
+	<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour labels [0,0,0];select 235; spacefill 150; wireframe 60; colour cpk; select :b, hem and :b; select not hetero">Histidina proximal en el estado T</label>
+	</td>
+
+	<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="colour labels [0,0,0];select 92 and :b; spacefill 150; wireframe 60; colour cpk; select :b, hem and :b; select not hetero">Histidina proximal en el estado R</label>
+	</td></tr>
+
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour labels [0,0,0];select 206; spacefill 150; wireframe 60; colour cpk; select :b, hem and :b; select not hetero">Histidina distal en el estado T</label>
+
+	<td align=left width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="colour labels [0,0,0];select 63 and :b; spacefill 150; wireframe 60; colour cpk; select :b, hem and :b; select not hetero">Histidina distal en el estado R</label>
+	</td><tr>
+
+	<td align=left width=45%>
+	</td>
+
+	<td align=left width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select cmo and :b; spacefill 300; colour cpk; select :b, hem and :b; select not hetero">En el estado R podemos ver el ligando unido a la sexta posición de coordinación (que en este caso es monóxido de carbono, CO, en lugar de oxígeno molecular, O<SUB>2</SUB>, pero para estos efectos es lo mismo)</label>
+	</td></tr>
+
+
+
+</table>
+</center>
+
+
+
+
+
+
+<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_095.html" ><B>Anterior: Clasificación estructural</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_097.html" ><B>Siguiente: Inmunoglobulinas</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+
+			</font>
+
+						
+		</div>
+	</form>
+
+<script>
+  // === Configuración mínima JSmol ===
+  const JSMOL_PATH = '../JSmol';
+  const Info = {
+    width: '100%', height: '100%', use: 'HTML5',
+    j2sPath: JSMOL_PATH + '/j2s',
+    serverURL: JSMOL_PATH + '/php/jsmol.php', // opcional
+    disablePopupMenu: false,
+    disableJ2SLoadMonitor: true,
+    disableInitialConsole: true,
+    color: '0xFFFFFF'
+  };
+
+  // Referencias a los applets creadas por JSmol al montar con nombre
+  let jsmolA = null; // window.jsmolA
+  let jsmolB = null; // window.jsmolB
+
+  function mountApplets(){
+    if (typeof window.Jmol !== 'object') {
+      console.error('[JSmol] No disponible. Asegura JSmol/JSmol.min.js y abrir por http(s)://');
+      return false;
+    }
+    // Firma canónica: crea window.jsmolA / window.jsmolB
+    document.getElementById('viewerA').innerHTML = Jmol.getAppletHtml('jsmolA', Info);
+    document.getElementById('viewerB').innerHTML = Jmol.getAppletHtml('jsmolB', Info);
+    jsmolA = window.jsmolA; jsmolB = window.jsmolB;
+    console.log('[JSmol] Montados A y B.');
+    return true;
+  }
+
+  function j(cmd, app){ Jmol.script(app, cmd); }
+  function loadMol(app, path){
+    j(`load '${path}'; set antialiasDisplay true; select *; spacefill 20%; wireframe 0.15; cartoon off; backbone off; hbonds off; spin off; reset; zoom 110;`, app);
+  }
+  function applyStyle(app, mode){
+    if (!app) return;
+    if (mode === 'spacefill') {
+      j("select *; spacefill 100%; wireframe off; cartoon off; backbone off;", app);
+    } else {
+      j("select *; spacefill 20%; wireframe 0.15; cartoon off; backbone off;", app);
+    }
+  }
+  function runScript(app, script){ if (app && script) j(script, app); }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const ok = mountApplets();
+
+    // Delegación: clics de botones de carga y tests
+    document.getElementById('inferior').addEventListener('click', (ev)=>{
+      const btn = ev.target.closest('button');
+      if (!btn) return;
+      if (btn.id === 'testJmol') { alert(typeof window.Jmol === 'object' ? 'JSmol está cargado.' : 'JSmol NO está cargado.'); return; }
+      if (btn.id === 'testCargaA') { if (jsmolA) loadMol(jsmolA, btn.getAttribute('data-path')); return; }
+      if (btn.id === 'testCargaB') { if (jsmolB) loadMol(jsmolB, btn.getAttribute('data-path')); return; }
+
+      const path = btn.getAttribute('data-path');
+      const target = btn.getAttribute('data-target');
+      if (!path || !target) return;
+      if (target === 'A' && jsmolA) loadMol(jsmolA, path);
+      if (target === 'B' && jsmolB) loadMol(jsmolB, path);
+    });
+
+    // Delegación: radios (estilos y scripts) por bloque y visor
+    document.getElementById('inferior').addEventListener('change', (ev)=>{
+      const el = ev.target;
+      if (!(el instanceof HTMLInputElement) || el.type !== 'radio') return;
+      const target = el.getAttribute('data-target');
+      const app = target === 'A' ? jsmolA : target === 'B' ? jsmolB : null;
+      if (!app) return;
+      const style = el.getAttribute('data-style');
+      const script = el.getAttribute('data-cmd');
+      if (style) { applyStyle(app, style); return; }
+      if (script) { runScript(app, script); return; }
+    });
+  });
+</script>
+
+</body>
+
+	
+
+</html>

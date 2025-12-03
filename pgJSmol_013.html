@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Formas cíclicas de monosacáridos</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Carbohidratos.html" ><B>&Iacute;ndice Carbohidratos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Formas c&iacute;clicas de monosac&aacute;ridos</B></font></center>
+<br /><br />
+<p>
+
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+</script>
+
+<br />
+<p align="justify">El grupo aldehido de las aldosas puede formar un <i>hemiacetal interno</i> con los grupos -OH alcoh&oacute;licos. En general, &eacute;sta es la configuraci&oacute;n normal de las pentosas y de las hexosas. En la glucosa, el aldehido forma habitualmente un hemiacetal con el carbono 5, dando lugar a un forma c&iacute;clica, llamada <i>glucopiranosa</i> porque el ciclo es similar al &eacute;ter c&iacute;clico <i>pirano</i>.</p>
+<p align="justify">Al formarse el ciclo aparece un nuevo centro de asimetr&iacute;a en el carbono 1, dando lugar a dos is&oacute;meros que reciben el nombre de <b><font face="Symbol">a</font></b>, si el C1 (que pasa a llamarse <i>carbono anom&eacute;rico</i>) tiene la misma configuraci&oacute;n que el D-gliceraldehido, y <b><font face="Symbol">b</font></b> si tiene la del L-gliceraldehido.</p>
+
+<p align="justify"> Se presenta a continuación la estructura molecular de la <b><font face="Symbol">a</font>-D-Glucopiranosa</b>:</p>
+<br />
+
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/aDglucopiranosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b><font face="symbol">a</font>-D-Glucopiranosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="aDglucopiranosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=2; label 2; select atomno=3; label 3; select atomno=5; label 4; select atomno=6; label 5; select atomno=7; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">En la proyecci&oacute;n de Fischer la <font face="symbol">a</font>-D-glucopiranosa se representa como aparece en la siguiente figura, con el -OH que sustituye al carbono anom&eacute;rico situado hacia la derecha:</p>
+
+<P><CENTER><img SRC="../gif/aDglucopiranosa_F.gif" ALIGN="TOP" BORDER="0"></CENTER></p>
+
+<p align="justify">En general, para las formas c&iacute;clicas se prefiere la <i>Perspectiva de Haworth</i>. En la misma, el ciclo piran&oacute;sico se representa como un hex&aacute;gono en perspectiva, con el borde inferior realzado dando a entender que se encuentra m&aacute;s cerca del observador. Por otra parte, los sustituyentes que en la proyecci&oacute;n de Fischer aparecen a la derecha (esto es, en la configuraci&oacute;n del D-gliceraldehido), en la de Haworth se representan hacia abajo; y los que en la de Fischer aparecen a la izquierda (esto es, como en el L-gliceraldehido), en la de Haworth lo hacen hacia arriba. Se representa a continuación la <font face="symbol">a</font>-D-glucopiranosa en perspectiva de Haworth:</p>
+
+<P><CENTER><img SRC="../gif/aDglucopiranosa.gif" ALIGN="TOP" BORDER="0"></CENTER></p>
+
+<p align="justify">Puede observarse que la representaci&oacute;n de Haworth reproduce mejor la forma real de la mol&eacute;cula que la de Fischer. En general, las aldohexosas, cetohexosas y aldopentosas siempre se representan en perspectiva de Haworth.</p>
+
+<p align="justify">Veamos a continuación la estructura molecular de la <b><font face="symbol">b</font>-D-Glucopiranosa</b>:</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/bDglucopiranosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b><font face="symbol">b</font>-D-Glucopiranosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="bDglucopiranosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=7; label 2; select atomno=6; label 3; select atomno=4; label 4; select atomno=3; label 5; select atomno=10; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">En la proyecci&oacute;n de Fischer, el -OH del carbono anom&eacute;rico aparece situado a la izquierda:</p>
+
+<P><CENTER><img SRC="../gif/bDglucopiranosa_F.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<p align="justify">En la perspectiva de Haworth, el -OH aparece situado por encima del plano piran&oacute;sico:</p>
+<P><CENTER><img SRC="../gif/bDglucopiranosa.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<br /><br /><br />
+
+<p align="justify">Las cetohexosas tambi&eacute;n puen formar hemiacetal interno con los grupos alcohólicos de la propia mol&eacute;cula. En el caso de las cetohexosas, el carbono anom&eacute;rico es el 2 y forma el hemiacetal con el carbono 5. Resulta as&iacute; un ciclo de cinco &aacute;tomos, cuatro carbonos y un ox&iacute;geno. Estas formas c&iacute;clicas reciben el nombre de <i>furanosas</i> por analog&iacute;a con el &eacute;ter c&iacute;clico <i>furano</i>. Al igual que en el caso de las aldosas, aparece un nuevo centro de asimetr&iacute;a en el carbono anom&eacute;rico (C2), dando lugar a formas <b><font face="Symbol">a</font></b> y <b><font face="Symbol">b</font></b>, definidas igual que en el caso de las aldosas. Veamos en primer lugar la estructura de la <b><font face="Symbol">a</font>-D-Fructofuranosa</b>:</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/aDfructofuranosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b><font face="symbol">a</font>-D-Fructofuranosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="aDfructofuranosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=11; label 1; select atomno=2; label 2; select atomno=7; label 3; select atomno=5; label 4; select atomno=4; label 5; select atomno=9; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+
+<p align="justify">En proyecci&oacute;n de Fischer, la <font face="Symbol">a</font>-D-Fructofuranosa se representa as&iacute;:</p>
+
+<P><CENTER><img SRC="../gif/aDfructofuranosa_F.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<p align="justify">Obs&eacute;rvese que el grupo -OH del carbono anom&eacute;rico aparece situado a la derecha del mismo.</p>
+
+<p align="justify">Y en la perspectiva de Haworth (que es la representaci&oacute;n usual), as&iacute;:</p>
+<P><CENTER><img SRC="../gif/aDfructofuranosa.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<br />
+
+<p align="justify">Al igual que en el caso de la glucosa (glucopiranosa), la fructosa (fructofuranosa) presenta un an&oacute;mero <font face="Symbol">b</font>, la <b><font face="Symbol">b</font>-D-Fructofuranosa</b>:</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/bDfructofuranosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b><font face="symbol">b</font>-D-Fructofuranosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="bDfructofuranosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=2; label 2; select atomno=7; label 3; select atomno=5; label 4; select atomno=4; label 5; select atomno=9; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">En la proyecci&oacute;n de Fischer, el -OH del carbono anom&eacute;rico se sit&uacute;a a la izquierda:</p>
+<P><CENTER><img SRC="../gif/bDfructofuranosa_F.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<p align="justify">Y en la perspectiva de Haworth, el -OH se sit&uacute;a hacia arriba:</p>
+<P><CENTER><img SRC="../gif/bDfructofuranosa.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+<br /><br />
+<p align="justify">Las aldopentosas tambi&eacute;n presentan usualmente formas c&iacute;clicas de tipo furan&oacute;sico, con el hemiacetal establecido entre el carbono 1 (que es el carbono anom&eacute;rico en este caso) y el carbono 4. Igualmente presentan formas <font face="symbol">a</font> y <font face="symbol">b</font>. Se presenta a continuaci&oacute;n la estructura molecular de la <b><font face="symbol">a</font>-D-Ribofuranosa</b>:</p>
+<br />
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/aDribofuranosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b><font face="symbol">a</font>-D-Ribofuranosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="aDribofuranosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=2; label 2; select atomno=3; label 3; select atomno=4; label 4; select atomno=5; label 5; select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+
+
+<p align="justify">Que en perspectiva de Haworth se representa as&iacute;:</p>
+<P><CENTER><img SRC="../gif/aDribofuranosa.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<br />
+
+
+<p align="justify">Por lo que respecta a la <b><font face="symbol">b</font>-D-Ribofuranosa</b>, su estructura molecular es:</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/bDribofuranosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b><font face="symbol">b</font>-D-Ribofuranosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="bDribofuranosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=6; label 2; select atomno=4; label 3; select atomno=3; label 4; select atomno=8; label 5; select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">Que en perspectiva de Haworth se representa as&iacute;:</p>
+<P><CENTER><img SRC="../gif/bDribofuranosa.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<br /><br /><br />
+
+			<hr />
+
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=left width=30%>
+				<A HREF="pgJSmol_012.html" ><B>Anterior: D-Cetosas</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_014.html" ><B>Siguiente: Derivados de Monosac&aacute;ridos</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

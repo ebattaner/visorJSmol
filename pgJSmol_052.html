@@ -1,0 +1,430 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Lìpidos anfipáticos: Fosfolípidos</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 100;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 100;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Lipidos.html" ><B>&Iacute;ndice Lípidos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>L&iacute;pidos Anfip&aacute;ticos: Fosfol&iacute;pidos</B></font></center>
+<br /><br />
+<p>
+<p>
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+//-->
+</script>
+
+<P align="justify">Con el nombre de <i>Lípidos Anfipáticos</i> conocemos una extensa familia de l&iacute;pidos que se caracterizan por tener, en la misma mol&eacute;cula, una <B>zona polar</B>, que interacciona f&aacute;cilmente con el agua, y una <B>zona hidrof&oacute;bica</B>, de la cual el agua, y otros compuestos polares, quedan exclu&iacute;dos.</P>
+
+<P align="justify">La caracter&iacute;stica m&aacute;s relevante de los l&iacute;pidos anfip&aacute;ticos es su capacidad de <B>autoestructuraci&oacute;n</B>: las interacciones entre zonas polares y zonas hidrof&oacute;bicas de unas mol&eacute;culas con otras dan lugar a agregados supramoleculares como las <B>micelas</B>, <B>monocapas</B> y <B>bicapas</B>, adem&aacute;s de otras. La estructura en <B> bicapa</B> es el motivo b&aacute;sico de todas las <B>membranas biol&oacute;gicas</B>. Por ello, los l&iacute;pidos anfip&aacute;ticos son los componentes b&aacute;sicos de todas las membranas, y de ah&iacute; su enorme importancia.</P>
+
+
+<P align="justify">Los l&iacute;pidos anfip&aacute;ticos se estructuran a partir de un alcohol (glicerol o esfingosina, generalmente) esterificado a uno o dos &aacute;cidos grasos, que constituyen la zona hidrof&oacute;bica de la mol&eacute;cula. Al tiempo, el alcohol se esterifica por otra parte a un
+grupo polar. Dependiendo de la naturaleza de este grupo polar, clasificamos los l&iacute;pidos anfip&aacute;ticos en <b>Fosfol&iacute;pidos</b> y <b>Glicol&iacute;pidos</b>.</p> 
+
+
+
+<p align="center"><font size="+1"><b>Fosfolípidos</b></font></center></p>
+
+
+<P align="justify">La estructura general de los fosfolípidos se ilustra claramente en el caso de la <i>Fosfatidilcolina</i> o <i>Lecitina</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/lecitina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Lecitina</b>
+  </button>
+</center>
+<br>
+
+
+<p align="justify">En esta estructura podemos ver: (a) el glicerol:
+
+</p>
+
+<!-- Grupo de radios: todos comparten el mismo name para exclusividad -->
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- (a) Glicerol -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="lecitina-steps"
+             onchange="jrun('colour green; select gll; colour cpk')">
+      (a) El glicerol
+    </label>
+
+    <!-- (b) Ácido graso sn-1 (generalmente saturado) -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="lecitina-steps"
+             onchange="jrun('select aga; colour cpk')">
+      (b) Un ácido graso (generalmente saturado) esterificado a la posición sn-1
+    </label>
+
+    <!-- (c) Ácido graso sn-2 (generalmente insaturado) -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="lecitina-steps"
+             onchange="jrun('select agb; colour cpk')">
+      (c) Un segundo ácido graso (generalmente insaturado) esterificado a la posición sn-2
+    </label>
+
+    <!-- (d) Fosfato en sn-3 -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="lecitina-steps"
+             onchange="jrun('select fos; colour cpk')">
+      (d) La posición sn-3 del glicerol aparece esterificada a un grupo fosfato
+    </label>
+
+    <!-- (e) Colina y resumen final -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="lecitina-steps"
+             onchange="jrun('select col; colour cpk; select all')">
+      (e) El cual a su vez se esterifica a un segundo alcohol, <i>Colina</i>. \
+      En conjunto: <i>Lecitina</i> o <i>Fosfatidilcolina</i>
+    </label>
+  </fieldset>
+</div>
+
+
+
+
+<P><CENTER><img SRC="../gif/lecitina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+
+
+<p align="justify">En la que R<sub>1</sub> y R<sub>2</sub> representan los ácidos grasos esterificados a sn-1 y sn-2 respectivamente</p>
+
+<P align="justify">En su estructura podemos ver la<B> parte hidrof&oacute;bica</B> de la mol&eacute;cula: 
+ 
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- (a) Parte hidrofobica de la lecitina -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="lecitina-steps"
+             onchange="jrun('colour green; select gll,aga,agb; colour cpk;select all')">
+      constitu&iacute;da por los dos radicales acilo sustituyendo al glicerol, y la <B>parte polar</B> de la misma:
+    </label>
+
+    <!-- (b) Parte polar de la lecitina -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="lecitina-steps"
+             onchange="jrun('colour green; select fos,col; colour cpk;select all')">
+      compuesta por el grupo fosfocolina. La polaridad de este &uacute;ltimo est&aacute; determinada por la carga electronegativa del fosfato y la carga electropositiva del grupo trimetilamonio de la colina. El conjunto de los dos ácidos grasos, el glicerol y el fosfato:
+    </label>
+
+    <!-- (c) Ácido fosfatídico -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="lecitina-steps"
+             onchange="jrun('colour green; select aga,agb,gll,fos; colour cpk;select all')">
+      recibe el nombre de <i>ácido fosfatídico</i>.
+    </label>
+    </fieldset>
+</div>
+
+		 
+
+<P><CENTER><img SRC="../gif/fosfatidico.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+
+
+<P align="justify">Los diferentes fosfol&iacute;pidos se forman seg&uacute;n sea la naturaleza del segundo alcohol. As&iacute;, tenemos la <i>Fosfatidil etanolamina </i></A> (cefalina), en la que el segundo alcohol es <i>etanolamina</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/fosfatidiletanolamina.pdb', 'ballstick')",<b>Fosfatidiletanolamina o Cefalina</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/fosfatidiletanolamina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+
+
+<p align="justify">O bien el ácido fosfatídico se esterifica al grupo alcohólico del aminoácido <i>serina</i>, dando lugar a la <i>Fosfatidil serina</i>: </p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/fosfatidilserina.pdb', 'ballstick')",<b>Fosfatidilserina</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/fosfatidilserina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+
+
+<P align="justify">El segundo alcohol puede ser asimismo otra mol&eacute;cula de glicerol, en cuyo caso tenemos el <i>Fosfatidil glicerol</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/fosfatidilglicerol.pdb', 'ballstick')",<b>Fosfatidilglicerol</b></button>
+</center>
+
+ 
+<P><CENTER><img SRC="../gif/fosfatidilglicerol.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+
+
+
+
+<p align="justify">Cuyo -OH en sn-3 puede estar esterificado a otro residuo de &aacute;cido fosfat&iacute;dico, dando lugar al <i>Difosfatidilglicerol o Cardiolipina</i></p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/difosfatidilglicerol.pdb', 'ballstick')",<b>Difosfatidilglicerol</b></button>
+</center>
+
+
+ 
+<P><CENTER><img SRC="../gif/difosfatidilglicerol.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+
+
+
+
+<p align="justify">También podemos encontrar como segundo alcohol el <i>mio-Inositol</i>:</p>
+ 
+<center>
+<button onClick="loadMolecule ('../pdb/inositol.pdb', 'ballstick')",<b>Inositol</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/inositol.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+
+
+<p align="justify">el cual da lugar a los <i>Fosfatidil inositoles</i> o <i>Fosfoinosítidos</i>:</p>
+
+
+<center>
+<button onClick="loadMolecule ('../pdb/fosfatidilinositol.pdb', 'ballstick')",<b>Fosfatidilinositol</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/fosfatidilinositol.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+
+<p align="justify">los cuales muy frecuentemente aparecen fosforilados en algunos de los grupos hidroxi del inositol.</p>
+
+<p align="justify">Otro tipo de fosfol&iacute;pidos son los <i>Plasmal&oacute;genos</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/plasmalogeno.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Plasmalógeno</b>
+  </button>
+</center>
+<br>
+
+<!--
+<center>
+<button onClick="loadMolecule ('../pdb/plasmalogeno.pdb', 'ballstick')",<b>Plasmalógeno</b></button>
+</center>
+-->
+
+<P><CENTER><img SRC="../gif/plasmalogeno.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+
+
+
+<p align="justify">En &eacute;stos, el grupo acilo sustituyente en 1 <I>sn-</I> est&aacute; unido en forma <I>vinil-&eacute;ter</I>: 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Grupo vinil-éter del plasmalógeno -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="plasmalogeno-steps"
+      onchange="jrun('colour green; center atomno=16;select vin;colour cpk;zoom 300;select all')">en lugar de la uni&oacute;n &eacute;ster que hemos visto hasta ahora. N&oacute;tese asimismo que el doble enlace est&aacute; en la forma geom&eacute;trica <I>trans-</I>.</P><br />
+    </label>
+    </fieldset>
+</div>
+
+
+
+<P align="justify">Si el alcohol primario, en vez de glicerol, es la <i>Esfingosina</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/esfingosina.pdb', 'ballstick')",<b>Esfingosina</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/esfingosina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+
+
+
+<p align="justify">cuya estructura ser&aacute; tratada m&aacute;s adelante, tendremos los <i>Esfingofosfol&iacute;pidos</i>. El grupo amino de la esfingosina es sustitu&iacute;do por un radical graso en uni&oacute;n N-acil; y el grupo alcoh&oacute;lico , por una fosfocolina en la mol&eacute;cula de <i>Esfingomielina</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/esfingomielina.pdb', 'ballstick')",<b>Esfingomielna</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/esfingomielina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+
+
+<hr />
+
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_051.html" ><B>Anterior: Lípidos Neutros</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_053.html" ><B>Siguiente: Glicolípidos</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

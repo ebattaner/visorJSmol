@@ -1,0 +1,292 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Estereoisomería de aminoácidos</title>
+<style>
+  :root{ --gap:16px; --vh:500px; --textH:300px; }
+  *{box-sizing:border-box} body{margin:0;font-family:Arial, Helvetica, sans-serif;background:#ccc}
+  #superior{padding:10px}
+  .fila{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+  .panel{background:#f5f5f5;border:1px solid #999;border-radius:8px;padding:8px}
+  .visor{height:var(--vh);border:1px dashed #666;border-radius:6px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  #inferior{margin:10px;background:#e5e5e5;border:1px solid #999;border-radius:8px;padding:10px;height:var(--textH);overflow:auto}
+  @media (max-width:900px){.fila{grid-template-columns:1fr}}
+  .btn{padding:6px 10px;border:1px solid #666;border-radius:8px;background:#fff;cursor:pointer;margin-right:6px}
+  .btn:hover{background:#f0f0f0}
+  .molblock{border-top:1px dashed #aaa;margin-top:12px;padding-top:10px}
+  fieldset.molfs{border:1px solid #999;border-radius:8px;padding:6px 10px;margin:8px 0}
+  fieldset.molfs legend{font-size:12px;color:#333;padding:0 6px}
+  .row{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0;align-items:center}
+  .row label{cursor:pointer}
+  .note{font-size:12px;color:#444}
+</style>
+<!-- Cargar JSmol (ojo: carpeta con mayúscula) -->
+<script id="jsmolLib" src="../JSmol/JSmol.min.js"></script>
+</head>
+<body>
+  <div id="superior">
+    <div class="fila">
+      <div class="panel"><div class="visor" id="viewerA">Visor IZQUIERDO</div></div>
+      <div class="panel"><div class="visor" id="viewerB">Visor DERECHO</div></div>
+    </div>
+  </div>
+
+  <div id="inferior">
+
+
+
+			<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Aminoacidos.html" ><B>&Iacute;ndice Aminoácidos y Oligop&eacute;ptidos</B></A></font>
+</center>
+<p>
+<hr />
+<p>
+			<br />
+			<center><font size="+2"><b>Aminoácidos: Estereoisomería</b><br /></font></center>
+			</br />
+			<font face="Helvetica" size="3">
+			<hr />
+
+<P align="justify">Todos los aminoácidos proteicos tienen una estructura com&uacute;n. Veamos el caso de la <b>L-Alanina</b>, que consta de:</p> 
+
+<center><table border=0 WIDTH=90%><tr>
+	<td align=left width=45%>	
+      	<button class="btn" data-path="../pdb/a.pdb" data-target="A"><b>L-Alanina</b></button>
+	</td></tr>
+	<tr><td align=left width=45%>	
+	<br /><br />
+      	<img SRC="../gif/a.gif" align="top"  border="0">
+	</td></tr>
+</table>
+</center>
+
+<center><table border=0 WIDTH=90%><tr>
+	<tr><td align=left width=45%>
+	<label><input type="radio" name="hlA_a" data-target="A" data-cmd="colour green; rotate y -90; rotate x -90;select 1; colour cpk"> Un carbono 	saturado, que recibe el nombre de <b>Carbono <font face="symbol">a</font></b>, sustituido por:</label>
+	</td></tr>
+	<tr><td align=left width=45%>
+	<label><input type="radio" name="hlA_a" data-target="A" data-cmd="select atomno=3,atomno=11, atomno=12,atomno=13; colour cpk">  (1) Un grupo 	amino, <B>-NH<SUB>2</SUB></B>, que aparece como su forma protonada <B>-NH<SUB>3</SUB><SUP>+</SUP></B></label>
+	</td></tr>
+	<tr><td align=left width=45%>
+	<label><input type="radio" name="hlA_a" data-target="A" data-cmd="select atomno=4,atomno=5, atomno=6; colour cpk"> (2) Un grupo carboxilo, 	<B>-COOH</B>, que aparece como su forma disociada <B>-COO<SUP>-</SUP></B></label>
+	</td></tr>
+	<tr><td align=left width=45%>
+	<label><input type="radio" name="hlA_a" data-target="A" data-cmd="select atomno=7; colour cpk"> (3) Un hidrógeno <B>-H</B></label>
+	</td></tr>
+	<tr><td align=left width=45%>
+	<label><input type="radio" name="hlA_a" data-target="A" data-cmd="select *;colour cpk"> y (4) Una cadena lateral, que es la que distingue 	unos amino&aacute;cidos de otros. En este caso es un grupo metilo <B>-CH<SUB>3</SUB></B>, correspondiente al amino&aacute;cido <B>L-	Alanina</B>:</label>
+	</td></tr>
+</table>
+</center>
+
+<P align="justify">Obs&eacute;rvese que tanto el grupo amino como el carboxilo aparecen ionizados; amino como <B>-NH<SUB>3</SUB><SUP>+</SUP></B> y carboxilo como <B>-COO<SUP>-</SUP></B>.</P>
+
+<P align="justify">En un caso, el grupo amino aparece sustitu&iacute;do asimismo por la cadena lateral, formando pues una <B>amina secundaria</B>; es el caso de la <i>L-Prolina</i>:</p> 
+
+<center><table border=0 WIDTH=90%><tr>
+	<td align=center width=45%>
+	</td>
+	<td align=center width=45%>	
+      	<button class="btn" data-path="../pdb/p.pdb" data-target="B"><b>L-Prolina</b></button>
+	</td></tr>
+	<br /><br /><br />
+	<tr><td align=center width=45%>
+	</td>
+	><td align=center width=45%>	
+      	<img SRC="../gif/p.gif" align="top"  border="0">
+</td></tr>
+</table>
+</center>
+
+<P align="justify">Con una &uacute;nica excepci&oacute;n entre los veinte amino&aacute;cidos, el carbono <FONT FACE="symbol">a</FONT> aparece sustitu&iacute;do por cuatro grupos diferentes. Se trata, por lo tanto, de un carbono asim&eacute;trico o quiral, y presenta isomer&iacute;a &oacute;ptica. Convencionalmente, los is&oacute;meros en torno al carbono <FONT FACE="symbol">a</FONT> se denominan L- y D-, por similitud con el gliceraldehido. Veamos las estructuras de ambos:</p> 
+
+<center><table border=0 WIDTH=90%><tr>
+	<td align=center width=45%>	
+      	<button class="btn" data-path="../pdb/Lgliceraldehido.pdb" data-target="A"><b>L-Gliceraldehido</b></button>
+	</td>
+	<td align=center width=45%>
+      	<button class="btn" data-path="../pdb/a.pdb" data-target="B"><b>L-Alanina</button>
+	</td>
+     </tr>
+	
+     </tr>
+<tr><td align=center width=45%>
+	<label><input type="radio" name="hlA_Lgliceraldehido" data-target="A" data-cmd="colour green; rotate y -45; rotate x 120; rotate y -15; select atomno=2; colour cpk">Carbono 2</label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_a" data-target="B" data-cmd="colour green; rotate y -90; rotate x -90; select atomno=1; colour cpk"> Carbono <font face="symbol">a</font></label>
+	</td></tr>
+
+	<tr><td align=center width=45%>
+	<label><input type="radio" name="hlB_Lgliceraldehido" data-target="A" data-cmd="select atomno=6, atomno=12; colour cpk"> Grupo -OH</label></td>
+	<td align=center width=45%><label><input type="radio" name="hlB_a" data-target="B" data-cmd="select atomno=3, atomno=11, atomno=12, atomno=13; colour cpk"> Grupo -NH<sub>3</sub><sup>+</sup>:</label>
+	</td></tr>
+
+<tr><td align=center width=45%>
+	<label><input type="radio" name="hlB_Lgliceraldehido" data-target="A" data-cmd="select atomno=3, atomno=4, atomno=10; colour cpk"> Grupo aldehido</label></td>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlB_a" data-target="B" data-cmd="select atomno=4, atomno=5, atomno=6; colour cpk"> Grupo -carboxilo:</label>
+	</td></tr>
+
+<tr><td align=center width=45%>
+	<label><input type="radio" name="hlB_Lgliceraldehido" data-target="A" data-cmd="select atomno=9; colour cpk"> Hidrógeno</label></td>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlB_a" data-target="B" data-cmd="select atomno=7; colour cpk"> Hidrógeno</label>
+	</td></tr>
+
+<tr><td align=center width=45%>
+	<label><input type="radio" name="hlB_Lgliceraldehido" data-target="A" data-cmd="select atomno=1, atomno=5, atomno=7, atomno=8, atomno=11; colour cpk"> Grupo -CH<sub>2</sub>OH</label></td>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlB_a" data-target="B" data-cmd="select atomno=2, atomno=9, atomno=9, atomno=10; colour cpk"> Cadena lateral, -CH<sub>3</sub></label>
+	</td></tr>
+
+</table>
+</center>
+
+
+		<P align="justify">Comparemos ahora la estructura de la <i>L-Alanina</i> (izq.) con la <i>D-Alanina</i> (dcha.):</p>
+
+<center><table border=0 WIDTH=90%>
+	<tr>
+	<td align=center width=45%>	
+      	<button class="btn" data-path="../pdb/a.pdb" data-target="A"><b>L-Alanina</b></button>
+	</td>
+	<td align=center width=45%>
+      	<button class="btn" data-path="../pdb/d_ala.pdb" data-target="B"><b>D-Alanina</button>
+	</td></tr>
+
+	<tr>	
+     	<tr><td align=center width=45%>
+	<label><input type="radio" name="hlA_a" data-target="A" data-cmd="rotate y -90; rotate x -90">Simetría</label>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_d_ala" data-target="B" data-cmd="rotate y 90; rotate x 90; rotate z 180">Simetría</label>
+	</td></tr>
+	<tr>
+	<td align=center width=45%>	
+      	<img SRC="../gif/L_ala_sn.gif" align="top"  border="0">
+	</td>
+	<td align=center width=45%>
+      	<img SRC="../gif/D_ala_sn.gif" align="top"  border="0">
+	</td></tr>
+</table>
+</center>
+
+			<P align="justify">La &uacute;nica excepci&oacute;n a esta regla est&aacute; constitu&iacute;da por la <i>Glicina</i>, el m&aacute;s simple de todos los amino&aacute;cidos, en el que la cadena lateral es un &aacute;tomo de hidr&oacute;geno, y por tanto, su carbono <FONT FACE="symbol">a</FONT> no es quiral. </P> 
+
+<center><table border=0 WIDTH=90%>
+	<tr>
+	<td align=left width=45%>	
+      	<button class="btn" data-path="../pdb/g.pdb" data-target="A"><b>Glicina</b></button>
+	</td></tr>
+	<tr><td align=left width=45%>
+      	<img SRC="../gif/g.gif" align="top"  border="0">
+	</td></tr>
+	</table>
+</center>
+
+			<P align="justify">Todos los amino&aacute;cidos proteicos pertenecen a la <B>serie L-</B>. Se encuentran D-amino&aacute;cidos en la pared celular de las bacterias y en algunos antibi&oacute;ticos pept&iacute;dicos.</P>
+
+			<P align="justify">En adelante, mientras no se especifique lo contrario, se entiende que todos los amino&aacute;cidos nombrados pertenecen a la serie L-.</P>
+
+
+
+<hr />
+			<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=left width=30%>
+				<A HREF="pgJSmol_062.html" ><B>Anterior: Vitaminas liposolubles</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_082.html" ><B>Siguiente: Aminoácidos: Estructura química</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+    
+<script>
+  // === Configuración mínima JSmol ===
+  const JSMOL_PATH = '../JSmol';
+  const Info = {
+    width: '100%', height: '100%', use: 'HTML5',
+    j2sPath: JSMOL_PATH + '/j2s',
+    serverURL: JSMOL_PATH + '/php/jsmol.php', // opcional
+    disablePopupMenu: false,
+    disableJ2SLoadMonitor: true,
+    disableInitialConsole: true,
+    color: '0xFFFFFF'
+  };
+
+  // Referencias a los applets creadas por JSmol al montar con nombre
+  let jsmolA = null; // window.jsmolA
+  let jsmolB = null; // window.jsmolB
+
+  function mountApplets(){
+    if (typeof window.Jmol !== 'object') {
+      console.error('[JSmol] No disponible. Asegura JSmol/JSmol.min.js y abrir por http(s)://');
+      return false;
+    }
+    // Firma canónica: crea window.jsmolA / window.jsmolB
+    document.getElementById('viewerA').innerHTML = Jmol.getAppletHtml('jsmolA', Info);
+    document.getElementById('viewerB').innerHTML = Jmol.getAppletHtml('jsmolB', Info);
+    jsmolA = window.jsmolA; jsmolB = window.jsmolB;
+    console.log('[JSmol] Montados A y B.');
+    return true;
+  }
+
+  function j(cmd, app){ Jmol.script(app, cmd); }
+  function loadMol(app, path){
+    j(`load '${path}'; set antialiasDisplay true; select *; spacefill 20%; wireframe 0.15; cartoon off; backbone off; hbonds off; spin off; reset; zoom 110;`, app);
+  }
+  function applyStyle(app, mode){
+    if (!app) return;
+    if (mode === 'spacefill') {
+      j("select *; spacefill 100%; wireframe off; cartoon off; backbone off;", app);
+    } else {
+      j("select *; spacefill 20%; wireframe 0.15; cartoon off; backbone off;", app);
+    }
+  }
+  function runScript(app, script){ if (app && script) j(script, app); }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const ok = mountApplets();
+
+    // Delegación: clics de botones de carga y tests
+    document.getElementById('inferior').addEventListener('click', (ev)=>{
+      const btn = ev.target.closest('button');
+      if (!btn) return;
+      if (btn.id === 'testJmol') { alert(typeof window.Jmol === 'object' ? 'JSmol está cargado.' : 'JSmol NO está cargado.'); return; }
+      if (btn.id === 'testCargaA') { if (jsmolA) loadMol(jsmolA, btn.getAttribute('data-path')); return; }
+      if (btn.id === 'testCargaB') { if (jsmolB) loadMol(jsmolB, btn.getAttribute('data-path')); return; }
+
+      const path = btn.getAttribute('data-path');
+      const target = btn.getAttribute('data-target');
+      if (!path || !target) return;
+      if (target === 'A' && jsmolA) loadMol(jsmolA, path);
+      if (target === 'B' && jsmolB) loadMol(jsmolB, path);
+    });
+
+    // Delegación: radios (estilos y scripts) por bloque y visor
+    document.getElementById('inferior').addEventListener('change', (ev)=>{
+      const el = ev.target;
+      if (!(el instanceof HTMLInputElement) || el.type !== 'radio') return;
+      const target = el.getAttribute('data-target');
+      const app = target === 'A' ? jsmolA : target === 'B' ? jsmolB : null;
+      if (!app) return;
+      const style = el.getAttribute('data-style');
+      const script = el.getAttribute('data-cmd');
+      if (style) { applyStyle(app, style); return; }
+      if (script) { runScript(app, script); return; }
+    });
+  });
+</script>
+</body>
+</html>

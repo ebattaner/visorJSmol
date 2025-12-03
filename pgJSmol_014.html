@@ -1,0 +1,813 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Derivados de monosacáridos</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Carbohidratos.html" ><B>&Iacute;ndice Carbohidratos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Derivados de monosac&aacute;ridos</B></font></center>
+<br /><br />
+<p>
+
+<A NAME="ind"></A>
+<CENTER><H3><B>&Iacute;ndice</B></H3></CENTER>
+
+<UL>
+<LI><A HREF="#oxid" ><B>Derivados por oxidación</B></A>
+<LI><A HREF="#red" ><B>Derivados por reducción</B></A>
+<LI><A HREF="#desoxi" ><B>Desoxiderivados</B></A>
+<LI><A HREF="#amino" ><B>Aminoderivados</B></A>
+<LI><A HREF="#fosfo" ><B>Ésteres fosfóricos</B></A>
+</UL>
+<HR>
+
+
+
+
+<A NAME="oxid"></A>
+
+<p align="center"><font size="+1"><b>Derivados por oxidaci&oacute;n</b></font></p>
+
+
+<br />
+
+<p align="justify">Un importante grupo de derivados de monosacáridos son los derivados por oxidación. Si la oxidación se produce sobre el carbono 1 de las aldosas, tenemos los <b>&Aacute;cidos Ald&oacute;nicos</b>. El derivado de la oxidaci&oacute;n de la glucosa, es el</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/gluconico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Ácido glucónico</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="gluconico-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=4; label 2; select atomno=7; label 3;select atomno=10; label 4; select atomno=13; label 5;select atomno=16; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">que se presenta aquí en forma de <i>gluconato</i>. En proyecci&oacute;n de Fischer, su estructura es la siguiente:</p>
+
+<P><CENTER><img SRC="../gif/gluconico.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<p align="justify">Los &aacute;cidos ald&oacute;nicos pueden formar &eacute;steres intramoleculares o <i>lactonas</i>. En el caso del gluconato, el &eacute;ster formado entre el carboxilo en C1 y el alcohol en C5 es la</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/gluconolactona.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>5-Gluconolactona</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="gluconolactona-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=3; label 2; select atomno=6; label 3;select atomno=9; label 4; select atomno=12; label 5;select atomno=14; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">En perspectiva de Haworth, su estructura se representa así:</p>
+
+<P><CENTER><img SRC="../gif/gluconolactona.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<p align="justify">Podemos considerar entre este tipo de derivados al </p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ascorbico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Ácido ascórbico</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ascorbico-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=3; label 2; select atomno=5; label 3;select atomno=7; label 4; select atomno=8; label 5;select atomno=11; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">Tambi&eacute;n conocido como <i>Vitamina C</i>.Su estructura es la siguiente:</p>
+
+<P><CENTER><img SRC="../gif/ascorbico.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<br /><br />
+<p align="justify">Cuando la oxidaci&oacute;n tiene lugar sobre el carbono 6, los derivados resultantes son los <b>&Aacute;cidos Ur&oacute;nicos</b>. En el caso de la D-Glucosa, el &aacute;cido ur&oacute;nico resultante es el </p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/glucuronico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Ácido glucurónico</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="glucuronico-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=2; label 2; select atomno=3; label 3;select atomno=4; label 4; select atomno=5; label 5;select atomno=6; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">De gran importancia en los procesos bioqu&iacute;micos de <i>destoxificaci&oacute;n</i>. Su estructura es la siguiente:</p>
+
+
+<P><CENTER><img SRC="../gif/glucuronico.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<br />
+
+
+
+<p align="justify">El ep&iacute;mero en C6 del &aacute;cido glucur&oacute;nico es el </p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/iduronico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Ácido idurónico</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="iduronico-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=2; label 2; select atomno=3; label 3;select atomno=4; label 4; select atomno=5; label 5;select atomno=6; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">Estos dos &aacute;cidos entran a formar parte de diversos <i>glicosaminoglicanos</i>. La estructura del &aacute;cido idur&oacute;nico es la siguiente:</p>
+
+
+
+
+<P><CENTER><img SRC="../gif/iduronico.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+<br /><br />
+
+<A NAME="red"></A>
+
+<p align="center"><font size="+1"><b>Derivados por reducci&oacute;n</b></font></p>
+
+<p align="justify">El grupo aldehido de las aldosas o el grupo ceto de las cetosas puede reducirse, resultando un <i>polialcohol</i>. En el caso de la D-glucosa, el polialcohol resultante es el </p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/sorbitol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Sorbitol</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="sorbitol-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=3; label 2; select atomno=6; label 3;select atomno=9; label 4; select atomno=12; label 5;select atomno=15; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+
+<p align="justify">Su estructura en proyecci&oacute;n de Fischer es la siguiente:</p>
+
+<P><CENTER><img SRC="../gif/sorbitol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<p align="justify">Si la reducción tiene lugar sobre la manosa, el polialcohol resultantes es el </p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/manitol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Manitol</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="manitol-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=3; label 2; select atomno=6; label 3;select atomno=9; label 4; select atomno=12; label 5;select atomno=15; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">En proyección de Fischer, su estructura se representa así:</p>
+
+<P><CENTER><img SRC="../gif/manitol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+<p align="justify">Si la reducci&oacute;n afecta a las triosas (gliceraldehido o glicerona) obtenemos el</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/glicerol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Glicerol</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="glicerol-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label sn-1; select atomno=2; label sn-2; select atomno=3; label sn-3; select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">Al no tener ning&uacute;n carbono asim&eacute;trico, el glicerol se numera seg&uacute;n la convenci&oacute;n <i>sn</i>: colocada la mol&eacute;cula de forma que el carbono 2 tenga la misma configuraci&oacute;n que el L-gliceraldehido, denominamos carbono sn-1 al que queda arriba, sn-3 al que queda abajo y sn-2 al alcohol secundario. Su estructura en proyecci&oacute;n de Fischer es la siguiente:</p>
+
+<P><CENTER><img SRC="../gif/glicerol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+<br /><br /><br />
+
+<A NAME="desoxi"></A>
+<p align="center"><font size="+1"><b>Desoxiderivados</b></font></p>
+
+<br />
+
+<p align="justify">Cuando uno de los grupos -OH de un monosac&aacute;rido se sustituye por un -H, resulta un <b>Desoxiderivado</b>. Uno particularmente importante es el 2-desoxiderivado de la D-Ribosa, la</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2desoxirribosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>2-D-Desoxirribosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2desoxirribosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=6; label 2; select atomno=4; label 3;select atomno=3; label 4; select atomno=7; label 5;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">que forma parte de los <i>desoxirribonucle&oacute;tidos</i>, elementos monoméricos del DNA (&Aacute;cido Desoxirribonucleico). Su estructura es la siguiente:</p>
+
+
+<P><CENTER><img SRC="../gif/2Ddesoxirribosa.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+<br />
+<p align="justify">Otros desoxiderivados de interés son la</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ramnosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Ramnosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ramnosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=2; label 2; select atomno=3; label 3;select atomno=4; label 4; select atomno=5; label 5;select atomno=6; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">Ramnosa o 6-desoxi-L-manosa, cuya estructura es</p>
+
+
+<P><CENTER><img SRC="../gif/ramnosa.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<p align="justify">Así como la</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/fucosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Fucosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ramnosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=2; label 2; select atomno=3; label 3;select atomno=4; label 4; select atomno=5; label 5;select atomno=6; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">Fucosa o 6-desoxi-L-galactosa, cuya estructura es la siguiente:</p>
+
+<P><CENTER><img SRC="../gif/fucosa.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<p align="justify">ambos forman parte de oligo- y polisac&aacute;ridos complejos.</p>
+
+
+<br /><br /><br />
+
+
+
+<A NAME="amino"></A>
+<p align="center"><font size="+1"><b>Aminoderivados</b></font></p>
+
+<br />
+
+
+
+<p align="justify">Estos derivados se obtienen al sustituir un grupo -OH de un monosac&aacute;rido por el grupo amino -NH2. &Eacute;ste aparece normalmente acetilado. Tal es el caso de la</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/acetilglucosamina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>N-Acetilglucosamina</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="acetilglucosamina-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=2; label 2; select atomno=3; label 3;select atomno=4; label 4; select atomno=5; label 5;select atomno=6; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">cuya estructura se representa as&iacute;:</p>
+
+
+<P><CENTER><img SRC="../gif/Nacetilglucosamina.gif" ALIGN="TOP" BORDER="0"></CENTER></p>
+
+<p align="justify">Junto con la</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/acetilgalactosamina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>N-Acetilgalactosamina</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="acetilgalactosamina-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=2; label 2; select atomno=3; label 3;select atomno=4; label 4; select atomno=5; label 5;select atomno=6; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">cuya estructura es</p>
+
+<P><CENTER><img SRC="../gif/Nacetilgalactosamina.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<p align="justify">Forman parte de oligo- y polisac&aacute;ridos nitrogenados.</p>
+
+<br />
+<p align="justify">Un derivado nitrogenado de gran importancia es el </p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/sialico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Ácido siálico</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="sialico-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=2; label 2; select atomno=3; label 3;select atomno=4; label 4; select atomno=5; label 5;select atomno=6; label 6;select atomno=7; label 7; select atomno=8; label 8;select atomno=9; label 9;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">Tambi&eacute;n conocido como &aacute;cido N-Acetilneuram&iacute;nico (NAN), constituyente de oligosac&aacute;ridos presentes en glicoconjugados (glicol&iacute;pidos, glicoprote&iacute;nas). Su estructura es la siguiente:</p>
+
+<P><CENTER><img SRC="../gif/sialico.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<br /><br /><br />
+
+<A NAME="fosfo"></A>
+<p align="center"><font size="+1"><b>&Eacute;steres fosf&oacute;ricos</b></font></p>
+
+<br />
+
+
+<p align="justify">Normalmente, las formas metab&oacute;licamente activas de los monosac&aacute;ridos son sus &eacute;steres fosf&oacute;ricos. As&iacute; la glucosa forma el &eacute;ster </p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/g6p.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Glucosa-6-fosfato</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="g6p-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=4; label 2; select atomno=7; label 3;select atomno=10; label 4; select atomno=13; label 5;select atomno=15; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">Cuya estructura es la siguiente:</p>
+<P><CENTER><img SRC="../gif/g6p.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<br />
+<p align="justify">Otra forma es el hemiacetal fosfato</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/g1p.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Glucosa-1-fosfato</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="g1p-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=8; label 2; select atomno=11; label 3;select atomno=14; label 4; select atomno=17; label 5;select atomno=19; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">Cuya estructura es:</p>
+<P><CENTER><img SRC="../gif/g1p.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<br />
+
+<p align="justify">La fructosa, por su parte, adopta las formas</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/f6p.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Fructosa-6-fosfato</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="f6p-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=3; label 1; select atomno=1; label 2; select atomno=5; label 3;select atomno=8; label 4; select atomno=11; label 5;select atomno=13; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">Que representamos como:</p>
+<P><CENTER><img SRC="../gif/f6p.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<br />
+<p align="justify">O bien el bisfosfato</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/fbp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Fructosa-1,6-bisfosfato</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="fbp-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=3; label 1; select atomno=1; label 2; select atomno=9; label 3;select atomno=12; label 4; select atomno=15; label 5;select atomno=17; label 6;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">Que representada en perspectiva de Haworth es:</p>
+<P><CENTER><img SRC="../gif/fbp.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<br /><br />
+<p align="justify">Otro &eacute;ster fosf&oacute;rico de gran inter&eacute;s es la</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ribulosabisfosfato.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Ribulosa-1,5-bisfosfato</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ribulosabisfosfato-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=7; label 2; select atomno=9; label 3;select atomno=12; label 4; select atomno=15; label 5;select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">Cuya representaci&oacute;n bidimensional es:</p>
+<P><CENTER><img SRC="../gif/ribulosabisfosfato.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<p align="justify">Tiene una gran importancia en la asimilaci&oacute;n de carbono en la fase oscura de la fotos&iacute;ntesis.</p>
+<br /><br />
+
+
+			<hr />
+
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_013.html" ><B>Anterior: Formas c&iacute;clicas</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_021.html" ><B>Siguiente: Glic&oacute;sidos Heter&oacute;sidos</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

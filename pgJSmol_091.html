@@ -1,0 +1,696 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Introducción</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Proteinas.html" ><B>&Iacute;ndice Proteínas</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Prote&iacute;nas: Introducci&oacute;n</B></font></center>
+<br /><br />
+<p>
+<p>
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+//-->
+</script>
+
+<ul>
+<li><a href ="#inicio"><b>Introducción: Ubicuitina</b></a>
+<li><a href ="#conjugadas"><b>Proteínas conjugadas: Citocromo c</b></a>
+<li><a href ="#metal"><b>Átomos metálicos: Rubredoxina</b></a>
+<li><a href ="#oligo"><b>Proteínas oligoméricas: Concanavalina A y Aspartato transcarbamilasa</b></a>
+<li><a href ="#formas"><b>Formas de representación de estructuras proteicas</b></a>
+</ul>
+<br /><br />
+
+<P align="center"><font size="+1"><B>Introducción</B></font></center>
+
+<P align="justify">Las prote&iacute;nas son mol&eacute;culas que pueden llegar a tener un enorme grado de complejidad estructural. Pensando en la variedad casi ilimitada de funciones que las prote&iacute;nas desempe&ntilde;an, no es de extra&ntilde;ar dicha complejidad estructural. Sin embargo, por lo que ahora sabemos, la estructura de las prote&iacute;nas presenta una serie de regularidades que facilitan el estudio sistem&aacute;tico de las mismas. En esta introducci&oacute;n veremos algunos aspectos generales de la estructura de las prote&iacute;nas, para pasar a continuaci&oacute;n a temas m&aacute;s espec&iacute;ficos de la misma.</p>
+
+<P align="justify">El concepto m&aacute;s sencillo que podemos tener de una prote&iacute;na es que se trata de <B>un pol&iacute;mero lineal de amino&aacute;cidos</B>. Por <I>lineal</I> entendemos que los amino&aacute;cidos est&aacute;n unidos a lo largo de una sola l&iacute;nea, con un principio (que convencionalmente asignamos al <B>N-t&eacute;rmino</B>  y un final (que es el <B>C-t&eacute;rmino</B>). Es decir, la cadena no presenta ramificaciones, y la uni&oacute;n entre amino&aacute;cidos se hace mediante enlaces pept&iacute;dicos establecidos entre el grupo  <FONT FACE="symbol">a</FONT>-carboxilo de un amino&aacute;cido con el  <FONT FACE="symbol">a</FONT>-amino del siguiente.</p>
+
+<P align="justify">Como ejemplo de este concepto sencillo de proteína veremos la estructura de la <i>Ubicuitina</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ubicuitina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent; select all; color cpk; center all; zoom 100;')">
+    <b>Ubicuitina</b>
+  </button>
+</center>
+<br>
+
+
+<p align="justify">Se trata de una proteína muy pequeña (76 aminoácidos) implicada en la proteolisis intracelular. </p>
+
+<P align="justify">La proteína aparece en representación de bolas y varillas. Los colores corresponden al código Corey-Pauling-Kultun (colores <B>CPK</B>) que hemos visto en todos los módulos anteriores. Hemos de tener en cuenta que en las representaciones tridimensionales de las proteínas no suelen aparecer los átomos de hidrógeno. Dada la gran cantidad de átomos de una proteína (aun cuando sea pequeña, como es el caso), esta representación es algo confusa. Trataremos de aclararla.</p>
+
+<P align="justify">Podemos limitar la visión únicamente al continuo -NCCNCCNCC... de la proteína (<i>backbone</i>) suprimiendo la representación de las cadenas laterales:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ubicuitina-steps"
+             onchange="jrun('restrict backbone')">
+      Vemos que la estructura global es como un ovillo con dos cabos; de ellos, uno es el N-término y otro el C-término. Para distinguirlos, utilizamos el comando <i>color group</i>:
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ubicuitina-steps"
+             onchange="jrun('restrict backbone;colour group')">
+      En esta representación, el polímero que es la proteína aparece con un código de colores según el cual lo más cercano al N-término aparece coloreado en azul, mientras que el C-término está en rojo, pasando por toda la gama intermedia de colores según sea la proximidad a cualquiera de los dos términos (azul-cian-verde-amarillo-naranja-rojo). Nótese que en la ubicuitina el C-término aparece como una protuberancia algo aparte del resto de la estructura. Los aminoácidos que ocupan los términos son: <i>Metionina</i>
+    </label>
+
+				
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ubicuitina-steps"
+             onchange="jrun('restrict not solvent; select 1 and met; wireframe 40; spacefill 100; color cpk')">
+      en el N-término y <i>Glicina</i></i>:
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ubicuitina-steps"
+             onchange="jrun('restrict not solvent; select 76 and gly; wireframe 40; spacefill 100; colour cpk; select not solvent')">
+      en el C-término. Si volvemos a la representación inicial,
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ubicuitina-steps"
+             onchange="jrun('colour cpk; wireframe 40; spacefill 100; select not solvent')">
+      veremos asimismo representadas las cadenas laterales de los aminoácidos.
+    </label>
+
+<P align="justify">La estructura tridimensional de una proteína no queda determinada al azar. Es decir, las moléculas de ubicuitina tienen siempre exactamente la misma forma a igualdad de condiciones del entorno. La estructura tridimensional se mantiene generalmente gracias a interacciones de tipo débil (efecto hidrofóbico, enlaces de hidrógeno, puentes salinos, etc.)</p>
+
+<P align="justify">El <B>efecto hidrofóbico</B> tiene una gran importancia en la determinación de la estructura de una proteína. Para verlo, seleccionamos los residuos polares de la proteína:</p>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ubicuitina-steps"
+             onchange="jrun('wireframe 40; spacefill 100; select polar; spacefill; colour cpk; select not solvent')">
+      y vemos que ocupan el <i>exterior</i> de la molécula (véase que el interior está hueco). Por su parte, los residuos hidrofóbicos:
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ubicuitina-steps"
+             onchange="jrun('wireframe 40; spacefill 100; select hydrophobic; spacefill; colour cpk; select not solvent')">
+      ocupan el <i>interior</i> de la misma. Volviendo a la representación inicial:
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ubicuitina-steps"
+             onchange="jrun('colour cpk; wireframe 40; spacefill 100; select not solvent')">
+      Esto hace que la estructura de una proteína sea comparable a una <i>Micela</i>, con los grupos hidrofóbicos hacia dentro y los polares       hacia fuera.
+    </label>
+
+
+<P align="justify">Otras interacciones débiles que participan en la determinación de la estructura proteica son los <B>enlaces de hidrógeno</B>. En las proteínas se establecen multitud de dichos enlaces, bien sea entre grupos peptídicos (-CO-, -NH-) del esqueleto o bien entre grupos donadores y aceptores de las cadenas laterales. Para verlos, coloreamos en verde la proteína y en amarillo los enlaces de hidrógeno:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ubicuitina-steps"
+             onchange="jrun('colour green; calculate hbonds; hbonds 30; color hbonds yellow; select not solvent')">
+      Volviendo a la representación inicial:
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ubicuitina-steps"
+             onchange="jrun('hbonds off; color cpk')">
+    </label>
+</fieldset>
+</div>
+<P align="justify">En la determinación de la estructura tridimensional de una proteína participan muchos otros tipos de enlaces, covalentes o no, que estudiaremos más adelante.</p>
+
+<P align="justify">Como veremos, este concepto inicial de estructura proteica es muy restringido. En primer lugar la Ubicuitina es una proteína muy pequeña; pero hay además muchos otros factores que añaden a la complejidad de una proteína, que veremos a continuación.</p>
+
+<p align="center"><a href="#inicio"><b>Índice</b></a></center></p>
+<br /><br />
+
+
+
+<a name="conjugadas"></a>
+
+<P align="center"><font size="+1"><B>Proteínas conjugadas</B></font></center>
+
+<P align="justify">En muchas prote&iacute;nas no toda la estructura es polipept&iacute;dica, sino que aparecen grupos moleculares distintos, llamados <B>grupos prost&eacute;ticos</B>, con funciones muy bien definidas. Las prote&iacute;nas con grupos prost&eacute;ticos reciben el nombre de <B>Proteínas conjugadas</B>, a diferencia de las <B>Proteínas simples</B>, cuya estructura es enteramente polipeptídica. Veremos a continuación la estructura de otra proteína pequeña, pero conjugada: el <i>Citocromo c</i>.</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2frc.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent; select all; color cpk; center all; zoom 100;')">
+    <b>Citocromo c</b>
+  </button>
+</center>
+<br>
+
+<P align="justify">El citocromo c es una proteína pequeña (104 aminoácidos el aquí representado), que funciona como transportador electrónico mitocondrial entre los complejos respiratorios III y IV.</p>
+
+<p align="justify">Formando parte de esta estructura hay un grupo prostético constituído por un <B>hemo C</B>, es decir, una protoporfirina IX con un ion de hierro coordinado:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2frc-steps"
+             onchange="jrun('colour green; select ligand; color cpk; select not solvent; select not hydrogen')">
+      El grupo prostético porfirínico está unido a la proteína covalentemente a través de dos cisteínas:
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2frc-steps"
+             onchange="jrun('select cys; color cpk; select not solvent; select not hydrogen')">
+      La complejidad de una proteína, por simple que sea (como lo es el citocromo c) puede ser apreciada cuando la vemos en modelo espacial (que es una buena aproximación a la forma real de la molécula):
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2frc-steps"
+             onchange="jrun('color cpk; spacefill')">
+      Podemos añadir a esta representación los átomos de hidrógeno:
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2frc-steps"
+             onchange="jrun('select not solvent; spacefill; color cpk')">
+      El grupo prostético  aparece inmerso en el interior de la estructura, en un entorno hidrofóbico:
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2frc-steps"
+             onchange="jrun('color green; select ligand; color cpk')">
+      Este grupo es un <i>Hemo C</i>.
+    </label>
+</fieldset>
+</div>
+
+
+<p align="center"><a href="#inicio"><b>Índice</b></a></center>
+
+<br /><br />
+
+
+<a name="metal"></a>
+
+
+<P align="center"><font size="+1"><B>Átomos metálicos</B></font></center>
+
+<P align="justify">Es también muy frecuente la asociación de proteínas con <B>átomos o iones metálicos</B>, a través de enlaces de coordinación. Para ilustrarlo vamos a ver una tercera proteína, también muy pequeña, como las dos anteriores, que es la <i>Rubredoxina</i>:</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/rubredoxina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent; restrict not hydrogen;')">
+    <b>Rubredoxina</b>
+  </button>
+</center>
+<br>
+
+
+
+<P align="justify">Se trata también de una proteína de transporte electrónico, perteneciente a las ferredoxinas (ferrosulfoproteínas, proteínas NHI).</p>
+
+
+<p align="justify">En ella podemos ver un ion de hierro: 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="rubredoxina-steps"
+             onchange="jrun('colour green; select fe; color cpk; spacefill 150')">
+      coordinado a cuatro átomos de azufre de otras tantas cisteínas:
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="rubredoxina-steps"
+             onchange="jrun('select cys; color cpk')">
+      Rubredoxina.
+    </label>
+
+</fieldset>
+</div>
+
+
+
+<p align="center"><a href="#inicio"><b>Índice</b></a></center>
+<br /><br />
+
+
+<a name="oligo"></a>
+
+<P align="center"><font size="+1"><B>Proteínas oligoméricas</B></font></center>
+
+<P align="justify">Las proteínas que hemos visto hasta ahora (ubicuitina, citocromo c y rubredoxina) constan de una sola cadena polipeptídica: Se trata de <i>proteínas monoméricas</i>. Sin embargo, muchas prote&iacute;nas posee m&aacute;s de una cadena polipept&iacute;dica, lo cual es más bien regla que excepción; se trata de <B>prote&iacute;nas oligom&eacute;ricas</B>, compuestas por varias <B>subunidades</B>, a veces iguales entre sí y otras veces diferentes. De estas proteínas oligom&eacute;ricas decimos que presentan <B>estructura cuaternaria</B> (v. m&aacute;s adelante).</p>
+
+<P align="justify">El ejemplo que vamos a ver en esta introducción es la <i>Concanavalina A</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/concanavalina_A.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent; restrict not hydrogen;')">
+    <b>Concanavalina A</b>
+  </button>
+</center>
+<br>
+
+<P align="justify">La concanavalina A es una <I>lectina</I>. Las lectinas son proteínas de origen generalmente vegetal capaces de fijar específicamente mono- u oligosacáridos de receptores celulares de superficie, desencadenando en la célula determinadas acciones. En este caso la concanavalina A induce la proliferación de los linfocitos T al fijarse a un determinado receptor celular que contiene un manopiranósido.</p>
+
+<P  align="justify">La concanavalina A es una proteína compuesta por cuatro subunidades idénticas (es por lo tanto un <I>homotetrámero</I>). Las subunidades (se presentan en colores cpk) son las siguientes: 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="concanavalina_A-steps"
+             onchange="jrun('color green; select :A; color cpk; select not solvent')">
+      Subunidad A
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="concanavalina_A-steps"
+             onchange="jrun('color green; select :B; color cpk; select not solvent')">
+      Subunidad B
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="concanavalina_A-steps"
+             onchange="jrun('color green; select :C; color cpk; select not solvent')">
+      Subunidad C
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="concanavalina_A-steps"
+             onchange="jrun('color green; select :D; color cpk; select not solvent')">
+      Subunidad D.
+    </label>
+
+<P>Las cuatro subunidades son idénticas y se disponen según los vértices de un tetraedro. Esta proteína ya tiene un grado de complejidad mayor que las vistas hasta ahora. Cada subunidad en este caso es un polipéptido de 237 aminoácidos. La proteína completa (<I>holoproteína</I>, presentada en código de colores <i>chain</i> para distinguir las cuatro subunidades) tendrá 948 aminoácidos:
+
+Las cuatro subunidades son idénticas y se disponen según los vértices de un tetraedro. Esta proteína ya tiene un grado de complejidad mayor que las vistas hasta ahora. Cada subunidad en este caso es un polipéptido de 237 aminoácidos. La proteína completa (<I>holoproteína</I>, presentada en código de colores <i>chain</i> para distinguir las cuatro subunidades) tendrá 948 aminoácidos:
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="concanavalina_A-steps"
+             onchange="jrun('color chain')">
+	Concanavalina A, representada en <i>color chain</i>. Pasemos a ver únicamente la subunidad A:
+          </label>
+	
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="concanavalina_A-steps"
+             onchange="jrun('color cpk; restrict :A; center :A; color cpk; zoom 150')">
+	Se trata de un polipéptido bastante más grande que las proteínas vistas anteriormente. La concanavalina A presenta también en su estructura átomos o iones metálicos:
+          </label>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="concanavalina_A-steps"
+             onchange="jrun('select 239 and :A; spacefill')">
+	un ion Mn<SUP>++</SUP> y
+          </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="concanavalina_A-steps"
+             onchange="jrun('select 240 and :A; spacefill')">
+	un ion Ca<SUP>++</SUP>. La concanavalina A fija específicamente manopiranósidos. Se presenta una molécula de manosa fijada a su sitio específico:
+          </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="concanavalina_A-steps"
+             onchange="jrun('select :A; colour green; select 238 and :A; color cpk')">
+	Volviendo a la molécula completa,
+          </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="concanavalina_A-steps"
+             onchange="jrun('reset; select not solvent; wireframe 40; spacefill 100; color cpk')">
+	Concavalina A.
+          </label>
+</fieldset>
+</div>
+
+<P align="justify">Otro ejemplo de proteína oligomérica, más compleja que la concanavalina A es la <i>Aspartato transcarbamilasa</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/atcasa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Aspartato transcarbamilasa</b>
+  </button>
+</center>
+<br>
+
+<p align="justify">Se trata de una enzima regulatoria, de comportamiento alostérico, que cataliza el paso clave de la síntesis de pirimidinas.</p>
+
+<p align="justify">Podemos ver que 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="atcasa-steps"
+             onchange="jrun('spacefill; color chain')">
+	la molécula es un <i>dodecámero</i>, constituido por dos tipos de subunidades:
+          </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="atcasa-steps"
+             onchange="jrun('color green; select :A,:C,:E,:G,:I,:K; color chain')">
+	seis de tipo catalítico (C) y
+          </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="atcasa-steps"
+             onchange="jrun('color green; select :B,:D,:F,:H,:J,:L; color chain')">
+	seis de tipo regulatorio (R).
+          </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="atcasa-steps"
+             onchange="jrun('select all;wireframe 40; spacefill 100; color cpk')">
+	Volviendo a la representación original.
+          </label>
+
+
+</fieldset>
+</div>
+
+ 
+<center><A HREF="#inicio" ><B>Índice</B></A></center>
+<br /><br />
+
+<a name="formas"></a>
+
+<P align="center"><font size="+1"><B>Formas de representación de estructuras proteicas</B></font></center>
+
+
+<p align="justify">La compleja estructura de las proteínas, como hemos visto, no se presta fácilmente a las representaciones tridimensionales. La abundancia de átomos no permite la apreciación de la estructura general de la proteína. Por ello se emplean formas específicas de representación, en las que no se presentan los átomos individuales, sino el continuo -NCCNCCNCC-... como una cinta sobre la que se sobreponen las distintas <i>Estructuras secundarias</i>. Análogamente, existen códigos de color que nos ayudan en la interpretación de la estructura.</p>
+
+<p align="justify">Para ilustrar estos tipos de representación, analizaremos la estructura del <i>citocromo P450 CAM</i> (<b>3cpp</b> en el código del Protein Data Bank):</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/3cpp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Citocromo P450 CAM</b>
+  </button>
+</center>
+<br>
+
+
+<p align="justify">En primer lugar, vemos la estructura que aparece por defecto (bolas y varillas) en la que llama la atención una cierta cantidad de átomos de oxígeno (rojos) que aparecen <i>aislados</i> en torno a la estructura. Se trata de átomos de oxígeno que pertenecen a moléculas de agua que forman parte de la estructura cristalina de la proteína. Para eliminarlos, utilizamos el comando <i>restrict not solvent</i>:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3cpp-steps"
+             onchange="jrun('restrict not solvent')">
+	La representación sigue siendo compleja. La mejor visión de la proteína se consigue mediante el comando <i>cartoons</i>:
+          </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3cpp-steps"
+             onchange="jrun('wireframe off; spacefill off; cartoons')">
+	con el que la proteína aparece representada como una cinta. En esta cinta hay zonas más anchas que otras: son las que tienen <i>estructura secundaria</i> en <b>helicoide</b> o en <b>lámina</b>. Las distintas estructuras secundarias tienen un código de color específico (<i>color structure</i>) que distingue zonas en helicoide (rojo) en lámina (amarillo) o en giro (azul). Las zonas en blanco son las que no tienen estructura secundaria.
+          </label>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3cpp-steps"
+             onchange="jrun('color structure')">
+	Igualmente podemos colorear según sea la cercanía de la estructura al N-término (azul) o al C-término (rojo) pasando por la gama intermedia de colores (azul-cian-verde-amarillo-naranja-rojo) (<i>color group</i>):
+          </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3cpp-steps"
+             onchange="jrun('color group')">
+	Existen otras formas de colorear en las que no entraremos por el momento. La estructura original es
+          </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3cpp-steps"
+             onchange="jrun('select not solvent; cartoons off; wireframe 40; spacefill 100; color cpk')">
+	Pero hemos de tener en cuenta que las proteínas habitualmente se presentan como <i>cartoons</i> y <i>color structure</i>:
+          </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3cpp-steps"
+             onchange="jrun('wireframe off; spacefill off; cartoons; color structure')">
+	La <i>Estructura Secundaria</i> será objeto de estudio en el siguiente módulo.
+          </label>
+
+
+
+</fieldset>
+</div>
+
+<center><A HREF="#inicio" ><B>Índice</B></A></center>
+<br /><br />
+
+<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_083.html" ><B>Anterior: Oligopéptidos</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_092.html" ><B>Siguiente: Estructura secundaria</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

@@ -1,0 +1,444 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Oligopéptidos</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Aminoacidos.html" ><B>&Iacute;ndice Aminoácidos y Oligopéptidos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Oligop&eacute;ptidos</B></font></center>
+<br /><br />
+<p>
+<p>
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+//-->
+</script>
+
+
+<UL>
+<LI><A HREF="#pept" ><B>El Enlace Peptídico</B></A>
+<LI><A HREF="#oligo" ><B>Oligopéptidos de interés biológico</B></A>
+</UL>
+
+
+
+
+<a name="pept"></a>
+
+<center><font size="+1"><b>El Enlace Peptídico</b></font></center>
+<br /><br />
+
+<P align="justify">La condensación del grupo <FONT FACE="symbol">a</FONT>-carboxilo de un aminoácido con el grupo <FONT FACE="symbol">a</FONT>-amino de otro, con pérdida de una molécula de agua, hace que los dos aminoácidos queden unidos por un <B>Enlace peptídico</B> o <B>Enlace amida</B> (en Bioquímica preferimos la primera de estas dos denominaciones). Los compuestos resultantes reciben el nombre de <B>Péptidos</B>, con un prefijo indicativo del número de aminoácidos que entran en su composición. Así, hablamos de  <B>dipéptidos</B> (2 aminoácidos), <B>tripéptidos</B> (3 aminoácidos), <B>tetrapéptidos</B> (4 aminoácidos), etc. En general, denominamos <B>oligopéptidos</B> cuando se trata de un número relativamente pequeño (en la práctica, hasta unos 40 aminoácidos) y de <B>polipéptidos</B> cuando el grado de polimerización es mucho mayor (que puede llegar hasta miles de aminoácidos).</p>
+
+<P align="justify">Todas las proteínas tienen una estructura polipeptídica, es decir, todas están compuestas por uno o varios polipéptidos. Pero conviene no confundir el término<I> polipéptido</I> con <I>proteína</I>. Éstas, como veremos, pueden estar formadas por uno o varios polipéptidos.</p>
+
+<P align="justify">El enlace peptídico establecido tiene una serie de propiedades interesantes. Para ilustrarlas veamos el tripéptido <B> Alanil-alanil-alanina</B>:</p> 
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/3ala.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Alanil-alanil-alanina</b>
+  </button>
+</center>
+<br>
+
+
+<p align="justify">La unión peptídica tiene <I>polaridad</I>, dado que se establece entre grupos distintos (un amino y un carboxilo). Por lo tanto, en un extremo del péptido queda un grupo amino (-NH<SUB>2</SUB>) libre: 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3ala-steps"
+             onchange="jrun('colour green; select atomno=1,atomno=20,atomno=21;colour cpk; select all')">
+      es el <B>N-término</B> o <B>término amino</B>. Mientras que al lado contrario queda un carboxilo libre:
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3ala-steps"
+             onchange="jrun('colour green; select atomno=17, atomno=18, atomno=19, atomno=33;colour cpk;select all')">
+      es el <B>C-término</B> o <B>término carboxilo</B>. Convencionalmente, las cadenas polipeptídicas se numeran desde el N-término, dando el número 1 al aminoácido que lo ocupa, y así sucesivamente hasta llegar al C-término. En el caso de este tripéptido tendríamos:
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3ala-steps"
+             onchange="jrun('colour green; select 1; colour cpk; select all')">
+      Residuo 1
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3ala-steps"
+             onchange="jrun('colour green; select 2; colour cpk; select all')">
+      Residuo 2
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3ala-steps"
+             onchange="jrun('colour green; select 3; colour cpk; select all')">
+      Residuo 3. (Cuando están formando parte de un polipéptido, los aminoácidos reciben el nombre de <I>residuos</I> o <I>restos</I>). Veamos ahora de forma pormenorizada la estructura del enlace peptídico. En primer lugar vemos que el enlace peptídico -CO-NH- es una estructura <B>plana</B>:
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3ala-steps"
+             onchange="jrun('colour green; reset; center atomno=7; zoom 300')">
+      Esto se debe a que el enlace peptídico tiene carácter de <B>doble enlace</B> y está impedida por tanto la rotación en torno al mismo. Los dos carbonos alfa:
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3ala-steps"
+             onchange="jrun('select atomno=2, atomno=8; colour cpk')">
+      Se sitúan en <B>trans-</B> respecto al enlace peptídico, siendo esta disposición general en todas las proteínas (con algunas excepciones que ya veremos). El plano determinado por los dos carbonos alfa, el grupo -CO- y el grupo -NH-, es decir, seis átomos, recibe el nombre de <B>plano peptídico</B>:
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3ala-steps"
+             onchange="jrun('select atomno=5, atomno=6,  atomno=7,  atomno=25; colour cpk')">
+      Podemos observar que las cadenas laterales de dos residuos consecutivos (en este caso, los grupos metilo de la alanina) 
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3ala-steps"
+             onchange="jrun('select atomno=4, atomno=10, atomno=22, atomno=23, atomno=24, atomno=26, atomno=27, atomno=28; colour cpk; select all')">
+      se sitúan asimismo en<I> trans-</I> unas con otras.
+    </label>
+    </fieldset>
+</div>
+
+
+					&nbsp; La cadena lateral tiene una importancia muy grande en cuanto a la configuración del péptido.
+					</p>
+
+
+<center><a href="#inicio"><b>Índice</b></a></center>
+
+
+<hr />
+
+
+
+<a name="oligo"></a>
+
+<center><font size="+1"><b>Oligopéptidos de interés biológico</b></font></center>
+<br /><br />
+
+<P align="justify">Dejando aparte las proteínas, que veremos en los siguientes módulos, los oligopéptidos suelen cumplir en el organismo funciones de  señalización química. Presentaremos algunos a título de ejemplo.</p>
+
+<p align="justify">Un tripéptido característico es la <i>Hormona liberadora de tirotropina (TRH)</i>, péptido hipotalámico que induce la liberación de <i>Tirotropina (TSH)</i> por parte de la hipófisis anterior:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/trh.pdb&quot;; \
+              set antialiasDisplay on; \
+              select all; color cpk; center all; zoom 100;')">
+    <b>TRH</b>
+  </button>
+</center>
+<br>
+
+<P><CENTER><img SRC="../gif/trh.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+
+<p align="justify">Es un factor hipotalámico de secuencia <i>piroglutamil-histidil-prolinamida</i>. En este oligopéptido podemos ver una característica muy común entre los mismos: el bloqueo del grupo -NH<SUB>2</SUB> terminal por la propia cadena lateral de ácido glutámico (<i>ácido piroglutámico</i>) y el bloqueo del grupo -COOH terminal, que aparece como <i>amida</i> -CONH<SUB>2</SUB>.</P>
+
+
+<P align="justify">Muchas otras hormonas tienen naturaleza peptídica. Así, por ejemplo, la <i>Oxitocina</i>, nonapéptido neurohipofisario estimulador de la contracción uterina:
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/oxitocina.pdb&quot;; \
+              set antialiasDisplay on; \
+              select all; color cpk; center all; zoom 100;')">
+    <b>Oxitocina</b>
+  </button>
+</center>
+<br>
+
+
+<p align="justify">También es de naturaleza peptídica la <i>Insulina</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/insulina.pdb&quot;; \
+              set antialiasDisplay on; \
+              restrict not solvent; color cpk; center all; zoom 100;')">
+    <b>Insulina</b>
+  </button>
+</center>
+<br>
+
+<p align="justify">Hormona pancreática que consta de dos cadenas polipeptídicas:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="insulins-steps"
+             onchange="jrun('colour chain')">
+      unidas por dos disulfuros:
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3ala-steps"
+             onchange="jrun('select sulfur; colour cpk; select protein')">
+ 	y encargada de la homeostasis de la glucosa junto con otra hormona pancreática, el <i>Glucagon</i>:
+    </label>
+    </fieldset>
+</div>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/glucagon.pdb&quot;; \
+              set antialiasDisplay on; \
+              select all; color cpk; center all; zoom 100;')">
+    <b>Glucagon</b>
+  </button>
+</center>
+<br>
+
+
+<P align="justify">También son oligopéptidos muchos <B>neutrotransmisores</B>, como las <B>encefalinas</B>:</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/leu_encefalina.pdb&quot;; \
+              set antialiasDisplay on; \
+              select all; color cpk; center all; zoom 100;')">
+    <b>Leu-Encefalina</b>
+  </button>
+</center>
+<br>
+
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/met_encefalina.pdb&quot;; \
+              set antialiasDisplay on; \
+              select all; color cpk; center all; zoom 100;')">
+    <b>Met-Encefalina</b>
+  </button>
+</center>
+<br>
+
+
+
+<p align="justify">De secuencias respectivas YGGFL e YGGFM. Son los agonistas fisiológicos de los receptores opiáceos. Las drogas opiáceas de abuso (morfina, heroína, etc.) lo son por su parecido estructural con estos péptidos.</p>
+
+
+<P align="justify">Otro oligopéptido de gran importancia funcional es el Glutatión:</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/gsh.pdb&quot;; \
+              set antialiasDisplay on; \
+              select all; color cpk; center all; zoom 100;')">
+    <b>Glutatión reducido, GSH</b>
+  </button>
+</center>
+<br>
+
+<P><CENTER><img SRC="../gif/gsh.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+			
+<p align="justify">cuya forma reducida <i>GSH</i> es el tripéptido <i><FONT FACE="symbol">g</FONT>-glutamil-cisteinil-glicina</i>. El papel reductor se debe al grupo -SH libre de la cisteína central. Cuando se oxida, dos moléculas de glutatión se unen para formar el <i>Glutatión oxidado (GSSG)</i>:</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/gssg.pdb&quot;; \
+              set antialiasDisplay on; \
+              select all; color cpk; center all; zoom 100;')">
+    <b>Glutatión oxidado, GSSG/b>
+  </button>
+</center>
+<br>
+
+
+<P><CENTER><img SRC="../gif/gssg.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+				
+
+
+<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_082.html" ><B>Anterior: Estructura de Aminoácidos</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_091.html" ><B>Siguiente: Proteínas: Introducción</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

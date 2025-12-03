@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Glosario A-B</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+<a name="inicio"></a>
+
+<A NAME="a"> </A>
+
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center>
+					<font size="+2"><b>A</b></font>
+				</td>
+				<td align=center>
+					<A HREF="../Index.html" ><B>&Iacute;ndice General</B></A>
+				</td>
+			</tr></table></center>
+
+
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/acetico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Acético, ácido</b>
+  </button>
+</center>
+
+	<P><CENTER><img SRC="../gif/acetico.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/accoa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Acetil coenzima A</b>
+  </button>
+</center>
+
+	<P><CENTER><img SRC="../gif/acetil_CoA.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/accol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Acetilcolina</b>
+  </button>
+</center>
+
+	<P><CENTER><img SRC="../gif/acetilcolina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/acetilgalactosamina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Acetilgalactosamina, N-</b>
+  </button>
+</center>
+
+	<P><CENTER><img SRC="../gif/Nacetilgalactosamina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/acetilglucosamina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Acetilglucosamina, N-</b>
+  </button>
+</center>
+
+	<P><CENTER><img SRC="../gif/Nacetilglucosamina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/aclipoam.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Acetil lipoamida</b>
+  </button>
+</center>
+
+	<P><CENTER><img SRC="../gif/acetillipoamida.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/Nacetilserotonina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Acetilserotonina, N-</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/Nacetilserotonina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/acetoac.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Acetoacetato</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/acetoacetato.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/acaccoa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Acetoacetil-CoA</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/acetoacetil_CoA.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/acetona.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Acetona</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/acetona.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/cisacon.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Aconitato, cis-</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/cisaconitato.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adamant.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Adamantano</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/adamantano.gif"></CENTER>
+<br /><br /><br /><HR>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adesuc.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Adenilosuccinato</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/adenilosuccinato.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adenina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Adenina</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/adenina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adenosil_homocisteina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Adenosil homocisteína</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/Sadenosilhomocisteina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adenosil_metionina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Adenosil metionina, S-</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/Sadenosilmetionina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adenosin.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Adenosina, conformación <i>anti-</i></b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/adenosina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adosyn.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Adenosina, conformación <i>syn-</i></b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/adenosina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Adenosina-5'-difosfato</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/adp.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2amp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Adenosina-2'-monofosfato</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/2amp.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/3amp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Adenosina-3'-monofosfato</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/3amp.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/camp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Adenosina-3',5'-monofosfato cíclico</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/camp.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/amp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Adenosina-5'-monofosfato</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/amp.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/atp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Adenosina-5'-trifosfato</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/atp.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adrenali.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Adrenalina</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/adrenali.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/agua.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Agua</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/agua.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/beta_alanina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Alanina, <font face="symbol">b-</font></b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/beta_alanina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/d_ala.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Alanina, D-</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/D_alanina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/a.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Alanina, L-</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/a.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/aldosterona.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Aldosterona</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/aldosterona.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/amilopectina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Amilopectina</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/amilopectina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/amilosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Amilosa</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/amilosa.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/gaba.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Aminobutírico, <font face="symbol">g-</font></b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/gaba.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/aicar.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Aminoimidazol carboxamida ribonucleótido, AICAR</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/aicar.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/aicr.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Aminoimidazol carboxilato ribonucleótido, AICR</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/aicr.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/air.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Aminoimidazol, AIR</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/air.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/aiscar.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Aminoimidazol succinocarboxamida ribonucleótido, AISCAR</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/aiscar.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/aminolevulinato.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Aminolevulinato, <font face="symbol">d-</font></b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/aminolevulinato.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/antracen.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Antraceno</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/antracen.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/arabinosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Arabinosa, D-</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/arabinosa.gif"></CENTER>
+<br /><br /><br /><HR>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/araquidico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Araquídico, ácido</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/araquidico.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/araquidonico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Araquidónico, ácido</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/araquidonico.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/arginosuccinato.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Arginosuccinato, L-</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/arginosuccinato.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ascorbico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Ascórbico, ácido</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/ascorbico.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/n.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Asparragina, L-</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/n.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/d.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Aspártico, ácido</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/d.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/atropina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Atropina</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/atropina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+
+
+
+
+
+
+<A NAME="b"> </A> 
+
+<br /><br /><br /><HR>
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center>
+					<font size="+2"><b>B</b></font>
+				</td>
+				<td align=center>
+					<A HREF="../Index.html" ><B>&Iacute;ndice</B></A>
+				</td>
+			</tr></table></center>
+
+
+<br /><br /><br /><HR>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1bad.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Bacteriorrodopsina</b>
+  </button>
+</center>
+	
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/behenico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Behénico, ácido</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/behenico.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/benceno.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>benceno</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/benceno.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/bilirrubina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Bilirrubina</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/bilirrubina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+o    onclick="jrun('load &quot;../pdb/bilirrubina_diglucuronido.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Bilirrubina, diglucurónido</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/bilirrubina_diglucuronido.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/biotina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Biotina</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/biotina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/13bpg.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Bisfosfoglicerato, 1,3</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/13bpg.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/23bpg.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Bisfosfoglicerato, 2,3</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/23bpg.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/bufoten.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Bufotenina</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/bufotenina.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/butano.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Butano</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/butano.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1buteno.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Buteno, 1-</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/1buteno.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/cis2b.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Buteno, cis 2-</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/cis2b.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/trans2b.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Buteno, trans 2-</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/trans2b.gif"></CENTER>
+<br /><br /><br /><HR>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/butirico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Butírico, ácido</b>
+  </button>
+</center>
+	<P><CENTER><img SRC="../gif/butirico.gif"></CENTER>
+<br /><br /><br /><HR>
+
+
+
+
+
+
+<hr />
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=45%>
+				<A HREF="../Index.html" ><B>&Iacute;ndice</B></A>	
+				</td>
+				
+
+			</tr></table></center>
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

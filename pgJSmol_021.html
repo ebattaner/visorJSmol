@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Glicósidos heterósidos</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Carbohidratos.html" ><B>&Iacute;ndice Carbohidratos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Glic&oacute;sidos heter&oacute;sidos</B></font></center>
+<br /><br />
+<p>
+
+
+<p align="justify">El hemiacetal interno de los monosac&aacute;ridos puede reaccionar con grupos -OH, -NH<SUB>2</SUB> y -SH con p&eacute;rdida de agua para formar un <I>enlace glicos&iacute;dico</I>. Los compuestos as&iacute; formados reciben el nombre de <I>glic&oacute;sidos</I>. El compuesto que reacciona con el monosac&aacute;rido recibe el nombre de <I>aglicona</I>.</P>
+
+
+<p align="justify">Cuando la aglicona es otro monosac&aacute;rido, el glic&oacute;sido resultante recibe el nombre de <I>hol&oacute;sido</I>; si es un compuesto diferente, <I>heter&oacute;sido</I>. Los hol&oacute;sidos se estudian m&aacute;s adelante; en realidad, son olig&oacute;meros o pol&iacute;meros de los monosac&aacute;ridos, y los conocemos, respectivamente, como <I>Oligosac&aacute;ridos</I> y <I>Polisac&aacute;ridos</I>. Aunque no sea del todo correcto, el t&eacute;rmino <I>glic&oacute;sidos</I> suele reservarse para los heter&oacute;sidos.</P>
+
+
+<p align="justify">Para ilustrar el concepto de enlace glicos&iacute;dico, vamos a ver la estructura del glic&oacute;sido resultante de la reacci&oacute;n entre la D-glucosa y el metanol. Si &eacute;ste reacciona con la forma anom&eacute;rica <FONT FACE="symbol">a</FONT>, obtenemos el </p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/ametilglucosido.pdb', 'ballstick')",<b><FONT FACE="symbol">a</FONT>-Metilglucósido</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/ametilglucosido.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">que en este caso es un grupo metil-, y el <I>residuo glicos&iacute;dico</I>, que es un <FONT FACE="symbol">a</FONT>-gluc&oacute;sido : 
+</p>
+
+
+<p align=justify>Si reacciona con la forma anom&eacute;rica <FONT FACE="symbol">b</FONT>-, tendremos el </p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/bmetilglucosido.pdb', 'ballstick')",<b><FONT FACE="symbol">b</FONT>-Metilglucósido</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/bmetilglucosido.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+
+<p align="justify">Ambos compuestos son diferentes, y uno no se transforma espont&aacute;neamente en el otro. La formaci&oacute;n de un enlace glicos&iacute;dico estabiliza la forma anom&eacute;rica del monosac&aacute;rido.</p>
+
+
+<p align="justify">Los glic&oacute;sidos heter&oacute;sidos son compuestos ampliamente difundidos en la naturaleza. En general, la <I>glicosilaci&oacute;n</I> es un proceso que los seres vivos llevan a cabo para aumentar la solubilidad en agua de la aglicona. Por otra parte, muchas biomol&eacute;culas tienen estructura de glic&oacute;sido: los <I>nucle&oacute;sidos</I>, <I>cerebr&oacute;sidos</I>, <I>gangli&oacute;sidos</I>, etc. Presentamos a continuaci&oacute;n la estructura de un <i>Cerebr&oacute;sido</i>, <font face="Symbol">b</font>-galactosil ceramida:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/cerebrosido.pdb', 'ballstick')",<b>Cerebrósido</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/cerebrosido.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+<p align="justify">Donde <b>R-</b> es un &aacute;cido graso.</p>
+
+<p align="justify">En muchas ocasiones, los <i>productos naturales</i> de Plantas u Hongos se presentan en forma de glic&oacute;sidos. Tal es el caso del <i>vainill&oacute;sido</i>, componente principal de la vainilla:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/vainillosido.pdb', 'ballstick')",<b>Vainillósido</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/vainillosido.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+
+<p align="justify">El enlace glicos&iacute;dico puede formarse tambi&eacute;n, como vimos antes, por reacci&oacute;n de un carbono anom&eacute;rico con un grupo -NH<SUB>2</SUB>: son los <B>N-glic&oacute;sidos</B>. Tienen inter&eacute;s en Bioqu&iacute;mica los <B>Nucle&oacute;sidos</B>, formados por D-ribosa o 2-D-desoxirribosa y una base p&uacute;rica o pirim&iacute;dica. Se presenta la estructura de la <i>uridina</i>, <FONT FACE="symbol">b</FONT>-D-ribofuranosil uracilo:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/uridina.pdb', 'ballstick')",<b>Uridina</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/uridina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify">As&iacute; como la de <i>Adenosina</i>, <FONT FACE="symbol">b</FONT>-D-ribofuranosil adenina:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/adenosina.pdb', 'ballstick')",<b>Adenosina</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/adenosina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">Si la glicosilaci&oacute;n tiene lugar sobre un grupo tiol -SH, obtenemos los <B>S-glic&oacute;sidos</B>, de los cuales se presenta la estructura del <i>Sinigr&oacute;sido</i>:</p> 
+
+<center>
+<button onClick="loadMolecule ('../pdb/sinigrosido.pdb', 'ballstick')",<b>Sinigrósido</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/sinigrosido.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">producto natural presente en la pimienta.</p>
+
+
+
+
+
+
+
+<br /><br />
+
+			<hr />
+
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=left width=30%>
+				<A HREF="pgJSmol_014.html" ><B>Anterior: Derivados de Monosac&aacute;ridos</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_022.html" ><B>Siguiente: Oligosac&aacute;ridos</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

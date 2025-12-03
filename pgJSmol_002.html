@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Isomería</title>
+<style>
+  :root{ --gap:16px; --vh:500px; --textH:300px; }
+  *{box-sizing:border-box} body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+  #superior{padding:10px}
+  .fila{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+  .panel{background:#f5f5f5;border:1px solid #999;border-radius:8px;padding:8px}
+  .visor{height:var(--vh);border:1px dashed #666;border-radius:6px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  #inferior{margin:10px;background:#e5e5e5;border:1px solid #999;border-radius:8px;padding:10px;height:var(--textH);overflow:auto}
+  @media (max-width:900px){.fila{grid-template-columns:1fr}}
+  .btn{padding:6px 10px;border:1px solid #666;border-radius:8px;background:#fff;cursor:pointer;margin-right:6px}
+  .btn:hover{background:#f0f0f0}
+  .molblock{border-top:1px dashed #aaa;margin-top:12px;padding-top:10px}
+  fieldset.molfs{border:1px solid #999;border-radius:8px;padding:6px 10px;margin:8px 0}
+  fieldset.molfs legend{font-size:12px;color:#333;padding:0 6px}
+  .row{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0;align-items:center}
+  .row label{cursor:pointer}
+  .note{font-size:12px;color:#444}
+</style>
+<!-- Cargar JSmol (ojo: carpeta con mayúscula) -->
+<script id="jsmolLib" src="../JSmol/JSmol.min.js"></script>
+</head>
+<body>
+  <div id="superior">
+    <div class="fila">
+      <div class="panel"><div class="visor" id="viewerA">Visor IZQUIERDO</div></div>
+      <div class="panel"><div class="visor" id="viewerB">Visor DERECHO</div></div>
+    </div>
+  </div>
+
+  <div id="inferior">
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<A HREF="Distr_Organicas.html" ><B>Índice Estructuras Orgánicas</B></A>
+</center>
+<hr /></p>
+
+
+    <p>
+			<br />
+			<center><font size="+2"><b>Isomer&iacute;a </b><br /></font></center>
+			</br />
+			<font face="Arial" size="2">
+			<br /><br />
+
+
+
+
+<p align="justify">Denominamos compuestos <i>is&oacute;meros</i> aqu&eacute;llos que, teniendo la misma composici&oacute;n qu&iacute;mica, difieren en su estructura tridimensional. Dado que la estructura tridimensional tiene una importancia capital en Bioqu&iacute;mica conviene tener un concepto claro de los distintos tipos de isomer&iacute;a.</p>
+
+<p align="justify">En primer lugar, tenemos los <b>Is&oacute;meros esqueletales</b>, cuando dos compuestos de la misma composici&oacute;n qu&iacute;mica difieren en el esqueleto carbonado. Por ejemplo, Butano y Metilpropano:</p>
+
+<center><table border=0 WIDTH=90%><tr>
+	<td align=center width=45%>	
+      	<button class="btn" data-path="../pdb/butano.pdb" data-target="A">Butano</button>
+	</td>
+	<td align=center width=45%>
+      	<button class="btn" data-path="../pdb/2meprop.pdb" data-target="B">Metilpropano</button>
+	</td>
+     </tr>
+	<td align=center width=45%>	
+      	<img SRC="../gif/butano.gif" align="top"  border="0">
+	</td>
+	<td align=center width=45%>
+      	<img SRC="../gif/2meprop.gif" align="top"  border="0">
+	</td>
+</table>
+</center>
+
+<p align="justify">An&aacute;logamente, dos compuestos de la misma composici&oacute;n qu&iacute;mica pueden diferir en la situaci&oacute;n de un determinado grupo funcional: son los denominados <b>Is&oacute;meros posicionales</b>. Como ejemplo, tenemos el 1-Propanol y el 2-Propanol:</p>
+
+<center><table border=0 WIDTH=90%><tr>
+	<td align=center width=45%>	
+      	<button class="btn" data-path="../pdb/prop1ol.pdb" data-target="A">1-Propanol</button>
+	</td>
+	<td align=center width=45%>
+      	<button class="btn" data-path="../pdb/prop2ol.pdb" data-target="B">2-Propanol</button>
+	</td>
+     </tr>
+	<td align=center width=45%>	
+      	<img SRC="../gif/prop1ol.gif" align="top"  border="0">
+	</td>
+	<td align=center width=45%>
+      	<img SRC="../gif/prop2ol.gif" align="top"  border="0">
+	</td>
+</table>
+</center>
+
+<p align="justify">La posici&oacute;n relativa respecto a un doble enlace da lugar a los <b>Is&oacute;meros geom&eacute;tricos</b>, como el cis-2-Buteno y el trans-2-buteno:</p>
+
+
+<center><table border=0 WIDTH=90%><tr>
+	<td align=center width=45%>	
+      	<button class="btn" data-path="../pdb/cis2b.pdb" data-target="A">cis-2-Buteno</button>
+	</td>
+	<td align=center width=45%>
+      	<button class="btn" data-path="../pdb/trans2b.pdb" data-target="B">trans-2-Buteno</button>
+	</td>
+     </tr>
+	<td align=center width=45%>	
+      	<img SRC="../gif/cis2b.gif" align="top"  border="0">
+	</td>
+	<td align=center width=45%>
+      	<img SRC="../gif/trans2b.gif" align="top"  border="0">
+	</td>
+</table>
+</center>
+
+<p align="justify">La naturaleza tetra&eacute;drica del &aacute;tomo de carbono saturado permite un cuarto tipo de isomer&iacute;a, la <B>Isomer&iacute;a &oacute;ptica</B>. Cuando cuatro grupos distintos sustituyen a un mismo carbono, se pueden disponer en torno al mismo de dos maneras diferentes, siendo una la imagen especular de la otra. Tal es el caso del <b>Gliceraldehido</b>, que puede presentarse en dos formas distintas, que llamamos D- y L-. </p>
+
+<center><table border=0 WIDTH=90%><tr>
+	<td align=center width=45%>	
+      	<button class="btn" data-path="../pdb/lglicer.pdb" data-target="A">L-Gliceraldehido</button>
+	</td>
+	<td align=center width=45%>
+      	<button class="btn" data-path="../pdb/dglicer.pdb" data-target="B">D-Gliceraldehido</button>
+	</td>
+     </tr>
+	<td align=center width=45%>	
+      	<img SRC="../gif/lglicer.gif" align="top"  border="0">
+	</td>
+	<td align=center width=45%>
+      	<img SRC="../gif/dglicer.gif" align="top"  border="0">
+	</td>
+     </tr>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_lglicer" data-target="A" data-cmd="rotate y -45; rotate x 120; rotate y -15; colour labels [0,0,0]; select atomno=3; label 1; select atomno=2; label 2; select atomno=1; label 3;select all"> Numeración</label>
+	
+	</td>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlB_dglicer" data-target="B" data-cmd="rotate y 45; rotate x 120; rotate y 15;colour labels [0,0,0]; select atomno=3; label 1; select atomno=2; label 2; select atomno=1; label 3; select all"> Numeración</label>
+	</td>
+     </tr>
+</table>
+</center>
+
+<p align="justify">Se llaman is&oacute;meros <I>&oacute;pticos</I> porque los compuestos con carbonos asim&eacute;tricos, como el D- y el L-gliceraldehido, son capaces de desviar el plano de polarizaci&oacute;n de la luz. Una pareja enantiom&eacute;rica, como los dos citados, desv&iacute;an dicho plano en una magnitud igual pero de signo opuesto. En este caso, el is&oacute;mero D- es <I>dextrorrotatorio</I> (+), mientras que el L- es <I>levorrotatorio</I> (-).</P>
+
+<p align="justify">La Naturaleza suele tener preferencia por uno de los enanti&oacute;meros. En el caso de los monosac&aacute;ridos naturales, pertenecen por lo general a la serie D. En el caso de los amino&aacute;cidos, son mayoritariamente de la serie L.</p>
+
+<p align="justify">Veamos la estructura del amino&aacute;cido <b>Alanina</b>. En este caso, como en el Gliceraldehido, el carbono asim&eacute;trico es el 2. Cargamos en la pantalla izquierda la L-Alanina y en la derecha la D-Alanina:</p>
+
+<center><table border=0 WIDTH=90%><tr>
+	<td align=center width=45%>	
+      	<button class="btn" data-path="../pdb/alanina.pdb" data-target="A">L-Alanina</button>
+	</td>
+	<td align=center width=45%>
+      	<button class="btn" data-path="../pdb/d_ala.pdb" data-target="B">D-Alanina</button>
+	</td>
+     </tr>
+	<td align=center width=45%>	
+      	<img SRC="../gif/alanina.gif" align="top"  border="0">
+	</td>
+	<td align=center width=45%>
+      	<img SRC="../gif/d_ala.gif" align="top"  border="0">
+	</td>
+     </tr>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_alanina" data-target="A" data-cmd="rotate z 90; rotate y -120;colour labels [0,0,0]; select atomno=4; label 1; select atomno=1; label 2; select atomno=2; label 3;select all">L-Alanina, numeración</label>
+	
+	</td>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlB_d_ala" data-target="B" data-cmd="rotate x 180; rotate z -90; rotate y 120; colour labels [0,0,0]; select atomno=4; label 1; select atomno=1; label 2; select atomno=2; label 3; select all"> D-Alanina, numeración</label>
+	</td>
+     </tr>
+</table>
+</center>
+
+<p align="justify">Se trata, pues, de un par enantiom&eacute;rico. Las prote&iacute;nas naturales est&aacute;n formadas por amino&aacute;cidos de la serie L-.</p>
+
+
+<p align="justify">Un caso particular de isomer&iacute;a en torno a un carbono tetra&eacute;drico, tiene lugar en la fusi&oacute;n de dos anillos alic&iacute;clicos. Tal es el caso de la <B>decalina</B>, formada por la fusi&oacute;n de dos anillos de ciclohexano. T&eacute;ngase en cuenta que estos dos anillos no son planares (como ser&iacute;a en el caso de ciclos arom&aacute;ticos, como en el naftaleno, por ejemplo) y sus carbonos est&aacute;n en conformaci&oacute;n de <i>silla</i>. Esta fusi&oacute;n puede tener lugar de dos maneras, <i>cis-Decalina</i> y <i>trans-Decalina</i>:</p>
+
+<center>
+<table border=0 WIDTH=90%><tr>
+	<td align=center width=45%>	
+      	<button class="btn" data-path="../pdb/cisdecal.pdb" data-target="A">cis-Decalina</button>
+	</td>
+	<td align=center width=45%>
+      	<button class="btn" data-path="../pdb/tradecal.pdb" data-target="B">trans-Decalina</button>
+	</td>
+    	 </tr>
+
+	<tr>
+	<td align=center width=45%>	
+      	<img SRC="../gif/cisdecal.gif" align="top"  border="0">
+	</td>
+	<td align=center width=45%>
+      	<img SRC="../gif/tradecal.gif" align="top"  border="0">
+	</td>
+     	</tr>
+
+	<tr>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_cisdecal" data-target="A" data-cmd="colour labels [0.0,0]; select atomno=3; label 1; select atomno=9; 	label 6; select all">Carbonos 1 y 6</label>
+	<label><input type="radio" name="hlA_cisdecal" data-target="A" data-cmd="select *; label off; select *; color cpk; select *"> 	Restablecer</label>
+	</td>
+
+	<td align=center width=45%>
+	<label><input type="radio" name="hlB_tradecal" data-target="B" data-cmd="colour labels [0,0,0]; select atomno=3; label 1; select atomno=9; 	label 6; select all"> Carbonos 1 y 6</label>
+	<label><input type="radio" name="hlB_tradecal" data-target="B" data-cmd="select *; label off; select *; color cpk; select *"> 	Restablecer</label>
+	</td>
+     	</tr>
+</table>
+</center>
+
+
+			<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=left width=30%>
+				<A HREF="pgJSmol_001.html" ><B>Anterior: Estructuras org&aacute;nicas</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_011.html" ><B>Siguiente: D-Aldosas</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+    
+<script>
+  // === Configuración mínima JSmol ===
+  const JSMOL_PATH = '../JSmol';
+  const Info = {
+    width: '100%', height: '100%', use: 'HTML5',
+    j2sPath: JSMOL_PATH + '/j2s',
+    serverURL: JSMOL_PATH + '/php/jsmol.php', // opcional
+    disablePopupMenu: false,
+    disableJ2SLoadMonitor: true,
+    disableInitialConsole: true,
+    color: '0xFFFFFF'
+  };
+
+  // Referencias a los applets creadas por JSmol al montar con nombre
+  let jsmolA = null; // window.jsmolA
+  let jsmolB = null; // window.jsmolB
+
+  function mountApplets(){
+    if (typeof window.Jmol !== 'object') {
+      console.error('[JSmol] No disponible. Asegura JSmol/JSmol.min.js y abrir por http(s)://');
+      return false;
+    }
+    // Firma canónica: crea window.jsmolA / window.jsmolB
+    document.getElementById('viewerA').innerHTML = Jmol.getAppletHtml('jsmolA', Info);
+    document.getElementById('viewerB').innerHTML = Jmol.getAppletHtml('jsmolB', Info);
+    jsmolA = window.jsmolA; jsmolB = window.jsmolB;
+    console.log('[JSmol] Montados A y B.');
+    return true;
+  }
+
+  function j(cmd, app){ Jmol.script(app, cmd); }
+  function loadMol(app, path){
+    j(`load '${path}'; set antialiasDisplay true; select *; spacefill 20%; wireframe 0.15; cartoon off; backbone off; hbonds off; spin off; reset; zoom 110;`, app);
+  }
+  function applyStyle(app, mode){
+    if (!app) return;
+    if (mode === 'spacefill') {
+      j("select *; spacefill 100%; wireframe off; cartoon off; backbone off;", app);
+    } else {
+      j("select *; spacefill 20%; wireframe 0.15; cartoon off; backbone off;", app);
+    }
+  }
+  function runScript(app, script){ if (app && script) j(script, app); }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const ok = mountApplets();
+
+    // Delegación: clics de botones de carga y tests
+    document.getElementById('inferior').addEventListener('click', (ev)=>{
+      const btn = ev.target.closest('button');
+      if (!btn) return;
+      if (btn.id === 'testJmol') { alert(typeof window.Jmol === 'object' ? 'JSmol está cargado.' : 'JSmol NO está cargado.'); return; }
+      if (btn.id === 'testCargaA') { if (jsmolA) loadMol(jsmolA, btn.getAttribute('data-path')); return; }
+      if (btn.id === 'testCargaB') { if (jsmolB) loadMol(jsmolB, btn.getAttribute('data-path')); return; }
+
+      const path = btn.getAttribute('data-path');
+      const target = btn.getAttribute('data-target');
+      if (!path || !target) return;
+      if (target === 'A' && jsmolA) loadMol(jsmolA, path);
+      if (target === 'B' && jsmolB) loadMol(jsmolB, path);
+    });
+
+    // Delegación: radios (estilos y scripts) por bloque y visor
+    document.getElementById('inferior').addEventListener('change', (ev)=>{
+      const el = ev.target;
+      if (!(el instanceof HTMLInputElement) || el.type !== 'radio') return;
+      const target = el.getAttribute('data-target');
+      const app = target === 'A' ? jsmolA : target === 'B' ? jsmolB : null;
+      if (!app) return;
+      const style = el.getAttribute('data-style');
+      const script = el.getAttribute('data-cmd');
+      if (style) { applyStyle(app, style); return; }
+      if (script) { runScript(app, script); return; }
+    });
+  });
+</script>
+</body>
+</html>

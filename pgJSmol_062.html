@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Vitaminas liposolubles</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Lipidos.html" ><B>&Iacute;ndice L&iacute;pidos</B></A></font>
+</center>
+<p>
+<hr />
+<p>
+
+
+<p align="center"><font size="+2"><b>Vitaminas Liposolubles</b></font></center></p>
+
+
+<P align="justify">Las vitaminas liposolubles son los <B>Retinoides o vitaminas A</B>, los <B>Calciferoles o vitaminas D</B>, los <B>Tocoferoles o vitaminas E</B> y las <B>Naftoquinonas o vitaminas K</B>. Cumplen funciones bastante heterogéneas en el organismo: transductores del estímulo visual (retinoides); antioxidantes (tocoferoles); promotores de la absorción intestinal de calcio (calciferoles) y procoagulantes (naftoquinonas). Todas tienen en común una estructura química poliprenoide. Los calciferoles pertenecen al grupo de los esteroles.</p>
+
+<P align="justify">Los <B>Retinoides o vitaminas A</B> derivan de la escisi&oacute;n de una mol&eacute;cula de <font face="symbol">b</font>-caroteno mediante una oxigenasa. En la mol&eacute;cula de <i>Retinol</i> podemos ver las caracter&iacute;sticas principales de estos compuestos:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/retinol.pdb', 'ballstick')",<b>Retinol</b></button>
+</center>
+			<br />
+
+			<P><CENTER><img SRC="../gif/retinol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<p align="justify">Se trata de derivados tetraprenoides (es decir, constan de 20 &aacute;tomos de carbono) que forman, por un lado, un sistema c&iacute;clico (<i><font face="symbol">b</font>-ionona</i>) y por otro una cadena poliprenoide que termina en una funci&oacute;n oxigenada; en este caso es un alcohol primario. Los distintos retinoides se diferencian en la naturaleza de esta funci&oacute;n; si es un aldehido, tendremos el <i>Retinal</i>; si es un &aacute;cido, el <i>&Aacute;cido Retinoico</i>.</P>
+
+<P align="justify">Los retinoides tienen un papel importante en la transcripci&oacute;n de determinados genes; sin embargo, su papel mejor conocido radica en la transducci&oacute;n del est&iacute;mulo visual en la retina. En los fotorreceptores, el grupo prost&eacute;tico de la <i>rodopsina</i> y de las diferentes <i>conopsinas</i> es el <i>11-cis-Retinal</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/cisretinal.pdb', 'ballstick')",<b>11-cis Retinal</b></button>
+</center>
+
+			<br />
+
+			<P><CENTER><img SRC="../gif/cisretinal.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+
+<p align="justify">Al incidir un fot&oacute;n de luz visible sobre el mismo, se isomeriza a <i>todo-trans Retinal</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/transretinal.pdb', 'ballstick')",<b>todo-trans Retinal</b></button>
+</center>
+			<br />
+
+			<P><CENTER><img SRC="../gif/transretinal.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+<p align="justify">Esta isomerizaci&oacute;n es la causa desencadenante del impulso nervioso visual, a través de un sistema de transducción de señal relativamente complejo, que implica proteínas G y canales iónicos.</i>
+
+
+
+<P align="justify">Otro retinoide es el <i>&Aacute;cido retinoico</i>:</P>
+
+<center>
+<button onClick="loadMolecule ('../pdb/retinoico.pdb', 'ballstick')",<b>Ácido retinoico</b></button>
+</center>
+
+			<br />
+
+			<P><CENTER><img SRC="../gif/retinoico.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<br /><br /><br />
+
+<P align="justify">Los <b>Calciferoles</b> o vitaminas D son compuestos poliprenoides esteroideos. Se forman a partir del colesterol a través de la irradiación ultravioleta de la piel y una serie de transformaciones químicas en el hígado y el riñón. El metabolito activo es el <i>1,25-Dihidroxicolecalciferol</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/125_dihidroxicolecalciferol.pdb', 'ballstick')",<b>1,25 Dihidroxicolecalciferol</b></button>
+</center>
+
+			<br />
+
+			<P><CENTER><img SRC="../gif/125_dihidroxicolecalciferol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+
+<p align="justify">Este compuesto interviene en el proceso de  absorci&oacute;n intestinal del calcio.</P>
+
+
+<br /><br /><br />
+
+
+
+<P align="justify">Los<B> Tocoferoles o vitaminas E</B> son asimismo derivados poliprenoides, cuya funci&oacute;n en el organismo parece ser la protecci&oacute;n antioxidante. Se presenta la estructura del <i><font face="symbol">a</font>-Tocoferol</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/tocoferol.pdb', 'ballstick')",<b><font face="symbol">a</font>-Tocoferol</b></button>
+</center>
+			
+			<br />
+
+			<P><CENTER><img SRC="../gif/tocoferol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+<p align="justify">El <FONT FACE="Symbol">a</FONT>-Tocoferol</B>, consta de un sistema c&iacute;clico, el <i>cromano</i>, y una cadena lateral poliprenoide.</P>
+
+
+<br /><br /><br />
+
+<P align="justify">Las <b>Vitaminas K</B> son cofactores en el proceso de carboxilaci&oacute;n del &aacute;cido glut&aacute;mico para dar &aacute;cido <i><FONT FACE="Symbol">g</FONT>-carboxi glut&aacute;mico</i>, modificaci&oacute;n postraduccional indispensable en la s&iacute;ntesis de determinados factores de la coagulaci&oacute;n, como la protrombina. Se presenta la estructura de la <i>naftoquinona</i> (vitamina K1):</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/naftoquinona.pdb', 'ballstick')",<b>Naftoquinona</b></button>
+</center>
+
+			<center>
+			<script type="text/javascript"><!--
+			jmolButton("load Lipidos/estructuras/naftoquinona.pdb","Naftoquinona")
+			//-->
+			</script>
+			</center>
+			<br />
+
+			<P><CENTER><img SRC="../gif/naftoquinona.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+<p align="justify">Consta de un sistema cíclico naftoquin&oacute;nico y una cadena lateral poliprenoide.</P>
+
+
+			<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_061.html" ><B>Anterior: Esteroides</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_081.html" ><B>Siguiente: Aminoácidos: Estereoisomería</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

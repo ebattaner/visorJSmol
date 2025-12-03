@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>JSmol - Aldolasa</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodar ; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.15; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar mol cula y aplicar representaci n (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque seg n la representaci n aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representaci n para la mol cula indicada (si no est  cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por mol cula (SCROLL) -->
+    <div class="panel">
+
+
+<FONT FACE="Arial">
+<P align="center"><A TARGET="_top" HREF="Distr_Enzimas.html" ><b>Índice Enzimas</b></A></p>
+<A NAME="ind"></A>
+<CENTER><h3><B>Estudio estructural de la Fructosa-1,6-bisfosfato aldolasa</B></h3></CENTER>
+
+<A NAME="ind"></A>
+<P><B>&Iacute;NDICE</B>
+<P><A HREF="#estmol" ><B>1. Estructura molecular</B></A>
+<P><A HREF="#meccat" ><B>2. Mecanismo catalítico</B></A>
+<br/><br/>
+<hr>
+<A NAME="estmol"></A>
+<P><B>1. Estructura molecular de la aldolasa</B>
+<P>Una enzima muy bien conocida en sus relaciones estructura-funci&oacute;n es la </p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/4ald.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   background grey; wireframe off; spacefill off; cartoons; color structure; define sitcat 33,146,229,363')">
+    <b>Fructosa-1,6-bisfosfato aldolasa</b>
+  </button>
+</center>
+<br/><br/>
+
+ 
+
+<p align="justify">Su estructura global es caracter&iacute;stica de muchas enzimas glicol&iacute;ticas, un barril <FONT FACE="Symbol">a/b</FONT>. 
+
+
+<p>Esta estructura consta de un "barril" formado por: </p>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="4nuc-steps"
+             onchange="jrun('restrict sheet; select all')">
+	Una l&aacute;mina <FONT FACE="Symbol">b</FONT> paralela formando un cilindro
+    </label>
+
+ <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="4nuc-steps"
+             onchange="jrun('cartoons; colour structure')">
+	cuyos tramos est&aacute;n unidos por  <FONT FACE="Symbol">a</FONT>-helicoides.  
+    </label>
+
+</fieldset>
+</div>
+
+
+<P>La aldolasa cataliza la reacci&oacute;n f&aacute;cilmente reversible</P>
+
+<P><CENTER><img SRC="../gif/reac.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<P align="justify">En la cual la mol&eacute;cula de fructosa-1,6-bisfosfato se escinde a dos triosas fosfato, glicerona fosfato (dihidroxiacetona fosfato) y gliceraldehido-3-fosfato (en sentido glicol&iacute;tico). O bien la reacci&oacute;n inversa, consistente en la condensaci&oacute;n del aldehido de &eacute;ste con el alcohol primario de aqu&eacute;lla, que es una <I>condensaci&oacute;n ald&oacute;lica</I>, de donde la enzima recibe su nombre (en sentido neoglucog&eacute;nico).</p>
+
+<P align="justify">Por experimentos de mutag&eacute;nesis dirigida, se sabe que los residuos fundamentales en la actividad catal&iacute;tica de la enzima son Asp 33, Lys 146, Lys 229 y Tyr 363: <embed type="application/x-spt" width=12 height=12 button=push target="mol01" script="colour chain; select sitcat; spacefill; colour cpk; select all ">. La estructura que tenemos en pantalla ha sido cocristalizada con el substrato fructosa-1,6-bisfosfato: <embed type="application/x-spt" width=12 height=12 button=push target="mol01" script="select sitcat; spacefill off; wireframe 50; select ligand; spacefill; colour cpk; select all ">. El residuo fundamental es Lys 229, que forma un intermediario covalente con el substrato en forma de base de Schiff.</p>
+
+
+
+
+<P><A  HREF="#ind" >Vuelta al &iacute;ndice</A>
+
+<A NAME="meccat"></A>
+<P><B>2. Mecanismo catal&iacute;tico de la aldolasa</B>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="4ald-steps"
+             onchange="jrun('load ../pdb/ald01a.pdb; wireframe 50; color cpk; color labels [0,0,0]; select atomno=34; label Asp 33; select atomno=53; label Lys 146; select atomno=78; label Lys 229; select atomno=21; label Tyr 363; select atomno=9; dots 300; select all')">El <B>centro catal&iacute;tico</B></A> consta de cuatro amino&aacute;cidos, Lys 229, Lys 146, Asp 33 y Tyr 363.	 
+    </label>
+
+<P><CENTER><img SRC="../gif/ald01a.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<br/><br/>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="4ald-steps"
+             onchange="jrun('load ../pdb/ald01b.pdb; wireframe  50; colour cpk; color labels [0,0,0]; select atomno=44; label Asp 33; select atomno=61; label Lys 146; select atomno=82; label Lys 229; select atomno=34; label Tyr 363; select atomno=436; label DHAP; select atomno=24; dots 300; select all')">A esta configuraci&oacute;n se une el <B>primer substrato, dihidroxiacetona fosfato</B>	 
+    </label>
+
+<P><CENTER><img SRC="../gif/ald01b.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="4ald-steps"
+             onchange="jrun('load ../pdb/ald02.pdb; wireframe  50; colour cpk; color labels [0,0,0]; select atomno=73; label Asp 33; select atomno=93; label Lys 146; select atomno=22; label Lys 229;select atomno=60; label Tyr 363; select atomno=48; dots 300; select all')">Que se une a la Lys 229 formando un <B>complejo covalente carbinolamina</B></B>	 
+    </label>
+
+
+<P><CENTER><img SRC="../gif/ald02.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="4ald-steps"
+             onchange="jrun('load ../pdb/ald03.pdb;  wireframe  50; colour cpk; color labels [0,0,0]; select atomno=70; label Asp 33; select atomno=89; label Lys 146;select atomno=21; label Lys 229; select atomno=57; label Tyr 363; select atomno=45, atomno=64, atomno=81; dots 300; select all')">Que se transforma en <B>Base de Schiff</B>	 
+    </label>
+
+<P><CENTER><img SRC="../gif/ald03.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="4ald-steps"
+             onchange="jrun('load ../pdb/ald04a.pdb; wireframe  50; colour cpk; color labels [0,0,0]; select atomno=70; label Asp 33; select atomno=90; label Lys 146;select atomno=21; label Lys 229; select atomno=57; label Tyr 363; select atomno=64; dots 300; select all')">La cual se tautomeriza a la correspondiente <B>Enamina</B>	 
+    </label>
+
+<P><CENTER><img SRC="../gif/ald04a.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="4ald-steps"
+             onchange="jrun('load ../pdb/ald04b.pdb; wireframe  50; colour cpk; color labels [0,0,0]; select atomno=78; label Asp 33; select atomno=94; label Lys 146;select atomno=35; label Lys 229; select atomno=68; label Tyr 363; select atomno=73; dots 300; select all')">Entra entonces al centro activo el segundo substrato, <b>Gliceraldehido-3-fosfato</b>	 
+    </label>
+
+<P><CENTER><img SRC="../gif/ald04b.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="4ald-steps"
+             onchange="jrun('load ../pdb/ald05.pdb; wireframe  50; colour cpk; color labels [0,0,0]; select atomno=85; label Asp 33; select atomno=106; label Lys 146;select atomno=35; label Lys 229; select atomno=72; label Tyr 363; select atomno=96, atomno=79,atomno=60; dots 300; select all')">Que se condensa con el complejo dando lugar a una segunda <B>Base de Schiff</B>	 
+    </label>
+
+<P><CENTER><img SRC="../gif/ald05.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="4ald-steps"
+             onchange="jrun('load ../pdb/ald06.pdb; wireframe  50; colour cpk; color labels [0,0,0]; select atomno=88; label Asp 33; select atomno=107; label Lys 146;select atomno=35; label Lys 229; select atomno=75; label Tyr 363; select atomno=63; dots 300; select all')">Que a su vez se convierte en una segunda <B>carbinolamina</B>	 
+    </label>
+
+<P><CENTER><img SRC="../gif/ald06.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="4ald-steps"
+             onchange="jrun('load ../pdb/ald07.pdb; wireframe  50; colour cpk; color labels [0,0,0]; select atomno=59; label Asp 33; select atomno=76; label Lys 146;select atomno=95; label Lys 229; select atomno=49; label Tyr 363; select atomno=25; label FBP;select atomno=39; dots 300; select all')">De la cual se desprende <B>el producto, fructosa-1,6-bisfosfato</B>	 
+    </label>
+
+<P><CENTER><img SRC="../gif/ald07.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+</fieldset>
+</div>
+
+</hr>
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center >
+				<A HREF="pgJSmol_105.html" ><B>Anterior: Estructuras Nucleoproteicas</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A  HREF="#ind" ><b>&Iacute;ndice</b></A>	
+				</td>
+				<td align=center>
+				<A HREF="pgJSmol_112.html" ><B>Siguiente: Aspartato transcarbamilasa</B></A>	
+				</td>
+			</tr></table></center>
+
+
+</FONT>
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

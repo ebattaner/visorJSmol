@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Ácido Ribonucleico, RNA</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Acidos_Nucleicos.html" ><B>&Iacute;ndice Ácidos Nucleicos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Ácido Ribonucleico (RNA, ARN)</B></font></center>
+<br /><br />
+<p>
+<p>
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+//-->
+</script>
+
+<ul>
+<li><A HREF="#trna"><b>RNA de transferencia, tRNA</b></A>
+<li><A HREF="#rrna"><b>RNA ribosómico, rRNA</b></A>
+<li><A HREF="#otros"><b>Otros RNAs</b></A>
+</ul>
+
+<A NAME="trna">
+<P align="center"><font size="+1"><B>RNA de transferencia, tRNA</B></font></center></p>
+
+<p align="justify">Es la molécula encargada de unirse a los aminoácidos para su entrada en la biosíntesis de proteína. Se trata de una molécula pequeña, que consta de 75-90 nucleótidos, y es la encargada de asociar al aminoácido con su codificación genética sobre la superficie del ribosoma. Vamos a ver la estructura del <i>tRNA<sup>Ser</sup></i>, esto es, el tRNA encargado de activar e incorporar al aminoácido <i>Serina</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/trnaser.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent; color labels white; color green; rotate x -90; select atomno=1; label 5´; select atomno=1807; label 3´; select all')">
+    <b>tRNA, serina</b>
+  </button>
+</center>
+
+<p align="justify">La molécula que tenemos en pantalla es el tRNA del aminoácido serina en la levadura <I>Saccharomyces cerevisiae</I>. Hemos de tener en cuenta que, debido a la degeneración del Código Genético, pueden existir en la célula varios tRNAs distintos para un mismo aminoácido (tRNAs <I>isoaceptores</I>). Se trata de una molécula pequeña, de 85 nucleótidos, cuya estructura tridimensional asemeja a una L. Téngase en cuenta que esta forma resulta del plegamiento en el espacio del modelo clásico en "hoja de trébol". Las dos ramas de la L son las siguientes:</p>
+
+<p align="justify">
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="trnaser-steps"
+             onchange="jrun('color green; select 1-18,47-76; color cpk; select all')">
+	Una, el <i>brazo aceptor</i>, así llamado por contener el lugar de unión del aminoácido (que es el término 3')
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="trnaser-steps"
+             onchange="jrun('color green; select 19-46; color cpk; select all')">
+	Otra, el <i>brazo anticodon</i>, que contiene el <B>anticodon</B>, es decir, la secuencia de nucleótidos complementaria al código genético del aminoácido en cuestión (en este caso serina)
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="trnaser-steps"
+             onchange="jrun('color green; select 1; color cpk; center atomno=12; zoom 400;select all')">
+	En el extremo 5', el tRNA presenta invariablemente un residuo de G fosforilado en 5'
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="trnaser-steps"
+             onchange="jrun('color green; select 74-76; color cpk; center atomno=1792; zoom 400; select all')">
+	En el extremo 3', al que se une el aminoácido mediante un enlace éster al -OH en 2', el tRNA presenta invariablemente la secuencia CCA
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="trnaser-steps"
+             onchange="jrun('reset; rotate x -90; color group')">
+	Se trata de un solo polinucleótido que podemos colorear mediante el patrón <I>group</I>, al igual que las proteínas, de manera que el término 5' aparece coloreado en azul y el 3' en rojo, pasando por toda la gama intermedia de colores.
+    </label>
+
+<p align="justify">Aproximadamente el 50 % de esta estructura está formando una doble hélice a través de autocomplementaridad en la misma molécula. Determinadas porciones no están en doble hélice, sino que forman los llamados <B>lazos</B> o <B>bucles</B>, que tienen una serie de características comunes en todos los tRNAs. En sentido 5' a 3', serían: </p>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="trnaser-steps"
+             onchange="jrun('color green; select 15-20; color cpk; select all')">
+	1. El <b>lazo DHU</b>, así llamado por tener varios restos de la base anómala <i>dihidrouracilo</i>:
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="trnaser-steps"
+             onchange="jrun('color green; select 32-38; color cpk; select all')">
+	2. El <b>Lazo anticodon</b>, que contiene la secuencia complementaria al código genético del aminoácido:
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="trnaser-steps"
+             onchange="jrun('color green; select 47-48; color cpk; select all')">
+	3. El <b>Lazo variable</b>, diferente entre los distintos tRNAs; en este caso contiene nueve nucleótidos:
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="trnaser-steps"
+             onchange="jrun('color green; select 52-56; color cpk; select all')">
+	4. El <b>Lazo T-Psi-C</b>, que contiene invariablemente la secuencia Ribotimidina-Pseudouridina-Citidina:
+    </label>
+</fieldset>
+</div>
+
+<br /><br />
+<A NAME="rrna">
+<P align="center"><font size="+1"><B>RNA ribosómico, rRNA</B></font></center></p>
+
+<p align="justify">Se presenta a continuación la estructura del rRNA 5s. Es un ribopolinucleótido de 118 residuos. Puede apreciarse la presencia de zonas autocomplementarias, como en el tRNA:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/5srna.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent; color labels black; color cpk; select atomno=1; label 5´; select atomno=2510; label 3´; select all')">
+    <b>rRNA 5s</b>
+  </button>
+</center>
+
+<p align="justify">Se trata de una de las dos moléculas de rRNA que integran la subunidad ribosómica mayor (50s en procariotas, 60s en eucariotas).</p>
+
+
+
+<br /><br />
+<A NAME="otros">
+<P align="center"><font size="+1"><B>Otros RNAs</B></font></center></p>
+
+<p align="justify">Se presentan a continuación la estructura de dos <i>ribozimas</i>, esto es, moléculas de RNA dotadas de actividad catalítica.</p>
+
+<p align="justify">Una es una ribozima de pequeño tamaño, perteneciente a las llamadas ribozimas <i>hammerhead</i>:<p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ribozyme.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent; color labels black; color cpk; select atomno=1; label 5´; select atomno=1042; label 3´; select all')">
+    <b>Ribozima <i>hammerhead</i></b>
+  </button>
+</center>
+
+<p align="justify">Otra es una ribozima de <i>Tetrahymena</i>, encargada el procesamiento de intrones en la transcripción del DNA:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1grz.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Ribozima de <i>Tetrahymena</i></b>
+  </button>
+</center>
+
+
+				<center>
+				<script type="text/javascript"><!--
+				jmolButton("load Acidos_Nucleicos/estructuras/1grz.pdb; restrict not solvent","Ribozima de Tetrahymena")
+				//-->
+				</script>
+				</center>
+
+<p align="justify">
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="trnaser-steps"
+             onchange="jrun('color chain')">
+	Se trata de dos polinucleótidos de 414 nucleótidos cada uno.
+    </label>
+
+
+<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_103.html" ><B>Anterior: DNA</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_105.html" ><B>Siguiente: Estructuras Nucleoproteicas</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

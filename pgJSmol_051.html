@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Lípidos neutros</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.15; spacefill 20%; color cpk; center all; zoom 100;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 100;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Lipidos.html" ><B>&Iacute;ndice L&iacute;pidos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>L&iacute;pidos neutros</B></font></center>
+<br /><br />
+<p>
+<p>
+<a name="inicio"></a>
+
+
+<P align="justify">Denominamos lípidos neutros los que son ésteres de ácidos grasos con un alcohol.</p>
+<A NAME="satur"></A>
+
+
+<P align="justify">Tienen particular importancia en Bioquímica los ésteres de ácidos grasos con el alcohol <i>glicerol</i>.</p>
+
+<P align="justify">El glicerol no tiene carbonos asimétricos. Pero cuando se presenta esterificado a ácidos grasos, el carbono 2 puede convertirse en asimétrico. Por ello utilizamos para el glicerol la nomenclatura <i>sn-</i>, que podemos ilustrar así:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/glicerol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 120;')">
+    <b>Glicerol</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración sn-  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="glicerol-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label sn-1; select atomno=2; label sn-2; select atomno=3; label sn-3; select all')">
+      Numeración <b>sn-</b>
+    </label>
+  </fieldset>
+</div>
+
+
+
+<p align="justify">Al no tener ning&uacute;n carbono asim&eacute;trico, el glicerol se numera seg&uacute;n la convenci&oacute;n <i>sn</i>: colocada la mol&eacute;cula de forma que el carbono 2 tenga la misma configuraci&oacute;n que el L-gliceraldehido, denominamos carbono sn-1 al que queda arriba, sn-3 al que queda abajo y sn-2 al alcohol secundario. Su estructura en proyecci&oacute;n de Fischer es la siguiente:</p>
+
+<P><CENTER><img SRC="../gif/glicerol_sn.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+<p align="justify">Los ésteres de ácidos grasos con glicerol reciben genéricamente el nombre de <i>Acilgliceroles</i> o <i>Glicéridos</i>. Dependiendo del número de ácidos grasos esterificados tendremos los <i>Monoacilgliceroles</i> o <i>Monoglicéridos</i> cuando sólo está esterificado uno de los grupos alcohólicos. Se presenta a continuación la estructura del <i>sn-1 palmitil glicerol</i>, en el que el alcohol en sn-1 está esterificado a ácido palmítico, quedando libres los -OH en sn-2 y sn-3:<p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/monoacilglicerol_1.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Monoacilglicerol</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Spacefill  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="monoacilglicerol_1-steps"
+      onchange="jrun('spacefill')">
+      Spacefill
+    </label>
+  </fieldset>
+</div>
+
+<P><CENTER><img SRC="../gif/monoacilglicerol_1.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+
+
+<p align="justify">Si se esterifican dos de los grupos alcohólicos del glicerol, tendremos los <i>Diacilgliceroles</i> o <i>Diglicéridos</i>. Se presenta la estructura del <i>sn-1 palmitil sn-2 linoleil glicerol</i>, en el que el -OH en sn-1 está esterificado a ácido palmítico y el -OH en sn-2 a ácido linoleico:</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/diacilglicerol_12.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Diacilglicerol</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Spacefill -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="diacilglicerol_12-steps"
+      onchange="jrun('spacefill')">
+      Spacefill
+    </label>
+  </fieldset>
+</div>
+
+
+<P><CENTER><img SRC="../gif/diacilglicerol_12.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+
+<p align=justify">Al tener uno o dos grupos alcohólicos libres, los mono- y diacilgliceroles conservan un cierto carácter polar: son moléculas <i>anfipáticas</i>.
+
+<p align="justify">Cuando están los tres grupos -OH esterificados a otros tantos ácidos grasos, tendremos los <i>Triacilgliceroles</i> o <i>Triglicéridos</i>. Se presenta la estructura del <i>sn-1 palmitil sn-2 linoleil sn-3 lauril glicerol</i>:</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/triacilglicerol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Triacilglicerol</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración sn-  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="triacilglicerol-steps"
+      onchange="jrun('spacefill')">
+      Spacefill
+    </label>
+  </fieldset>
+</div>
+
+
+<P><CENTER><img SRC="../gif/triacilglicerol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<p align="justify">Los triacilgliceroles, son, con diferencia, los acilgliceroles más abundantes en el organismo, donde cumplen una función de reserva energética, y se almacenan en el tejido adiposo. Tienen un fuerte carácter hidrofóbico al no tener grupos polares libres.</p>
+
+<hr />
+
+<p align="justify">Otros lípidos neutros son las <i>ceras</i>, formadas por esterificación de un ácido grasos con un <i>alcohol graso</i>, esto es, un alcohol alifático de cadena larga. Se presenta la estructura del <i>palmitato de cetilo</i>, formado por ácido palmítico esterificado a alcohol cetílico (alcohol de 16 átomos de carbono):</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/palmitatocetilo.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Palmitato de cetilo</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Spacefill -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="monoacilglicerol_1-steps"
+      onchange="jrun('spacefill')">
+      Spacefill
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">Las ceras son muy hidrofóbicas y cumplen una función eminentemente protectora. Son muy poco reactivas desde el punto de vista químico.</p>
+
+			<hr />
+
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_041.html" ><B>Anterior: Ácidos grasos</B></A>
+				</td> 
+
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>					
+				</td>
+
+				<td align=center width=30%>
+				<A HREF="pgJSmol_052.html" ><B>Siguiente: Fosfolípidos</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Ácidos grasos</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.15; spacefill 20%; color cpk; center all; zoom 100;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 100;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Lipidos.html" ><B>&Iacute;ndice Lípidos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>&Aacute;cidos Grasos</B></font></center>
+<br /><br />
+<p>
+<p>
+
+<A NAME="ind"></A>
+<CENTER><H3><B>&Iacute;ndice</B></H3></CENTER>
+
+<UL>
+<LI>1. <A HREF="#satur" ><B>Ácidos grasos saturados</B></A>
+<LI>2. <A HREF="#insat" ><B>Ácidos grasos insaturados</B></A>
+<LI>3. <A HREF="#eicosa" ><B>Eicosanoides</B></A>
+</UL>
+<HR>
+
+
+
+<P align="justify">Los &aacute;cidos grasos son &aacute;cidos monocarbox&iacute;licos de n&uacute;mero par de &aacute;tomos de carbono. El n&uacute;mero par deriva del modo de bios&iacute;ntesis, que se realiza a trav&eacute;s de aposiciones sucesivas de unidades de dos &aacute;tomos de carbono (-C-C-). Podemos distinguir (a) el <B>grupo carboxilo -COOH</B>, que al pH de los medios biol&oacute;gicos aparece normalmente disociado como <B>-COO<SUP>-</SUP></B> y (b) la cadena hidrocarbonada <B>CH<SUB>3</SUB>-CH<SUB>2</SUB>-CH<SUB>2</SUB>-...</B>. Esta &uacute;ltima es fuertemente hidrof&oacute;bica, mientras que el grupo carboxilo interacciona f&aacute;cilmente con el agua. Esto da a los &aacute;cidos grasos un cierto car&aacute;cter anfip&aacute;tico (es decir, que en la misma mol&eacute;cula coexisten zonas hidrof&iacute;licas e hidrof&oacute;bicas).</P>
+
+<A NAME="satur"></A>
+
+<p align="center"><b>Ácidos grasos saturados</b></p>
+
+<P align="justify">Cuando la cadena hidrocarbonada est&aacute; constitu&iacute;da solamente por carbonos sp<SUP>3</SUP>, es decir, est&aacute; plenamente saturada, hablamos de <B>&aacute;cidos grasos saturados</B>; pero muy a menudo se presentan insaturaciones en forma de dobles enlaces C=C: hablamos entonces de <B>&aacute;cidos grasos insaturados</B>. Estos &uacute;ltimos tienen puntos de fusi&oacute;n m&aacute;s bajos que los saturados. Por eso los l&iacute;pidos ricos en &aacute;cidos grasos saturados suelen ser s&oacute;lidos a la temperatura ambiente (grasas) mientras que los ricos en insaturados son l&iacute;quidos (aceites). </P>
+
+<P align="justify">Veamos en primer lugar los &aacute;cidos grasos saturados. Veremos unas mol&eacute;culas lineales, rectas, de acuerdo con la conformaci&oacute;n alternante de las cadenas hidrocarbonadas saturadas. Es conveniente ver las mol&eacute;culas con la opci&oacute;n <I>Spacefill</I>.</P>
+
+<center>
+<button onClick="loadMolecule ('../pdb/acetico.pdb', 'ballstick; zoom 50')",<b>Ácido acético</b></button>
+</center>
+
+
+
+<P><CENTER><img SRC="../gif/acetico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onClick="loadMolecule ('../pdb/butirico.pdb', 'ballstick')",<b>Ácido butírico</b></button>
+</center>
+<br />
+
+
+
+<P><CENTER><img SRC="../gif/butirico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onClick="loadMolecule ('../pdb/caproico.pdb', 'ballstick')",<b>Ácido caproico</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/caproico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onClick="loadMolecule ('../pdb/caprilico.pdb', 'ballstick')",<b>Ácido caprílico</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/caprilico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onClick="loadMolecule ('../pdb/caprico.pdb', 'ballstick')",<b>Ácido cáprico</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/caprico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onClick="loadMolecule ('../pdb/laurico.pdb', 'ballstick')",<b>Ácido láurico</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/laurico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onClick="loadMolecule ('../pdb/miristico.pdb', 'ballstick')",<b>Ácido mirístico</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/miristico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onClick="loadMolecule ('../pdb/palmitico.pdb', 'ballstick')",<b>Ácido palmítico</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/palmitico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onClick="loadMolecule ('../pdb/estearico.pdb', 'ballstick')",<b>Ácido esteárico</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/estearico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onClick="loadMolecule ('../pdb/araquidico.pdb', 'ballstick')",<b>Ácido araquídico</b></button>
+</center>
+
+
+
+<P><CENTER><img SRC="../gif/araquidico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<A HREF="#ind" ><B>Vuelta al Índice</B></A>
+
+<hr />
+<A NAME="insat"></A>
+
+<p align="center"><b>Ácidos grasos insaturados</b></p>
+
+<p align="justify">Por su parte, los &aacute;cidos grasos insaturados presentan dobles enlaces, que casi invariablemente son del tipo geom&eacute;trico <I>cis-</I >. Si hay una sola insaturaci&oacute;n en la mol&eacute;cula, hablamos de <B>Monoinsaturados</B>; si hay varias, de <B>Poliinsaturados</B>. En este &uacute;ltimo caso, las insaturaciones nunca se presentan en conjugaci&oacute;n, sino cada tres &aacute;tomos de carbono.</P>
+
+<P align="justify">Desde el punto de vista estructural, la presencia de una insaturaci&oacute;n en <I>cis-</I> hace que la mol&eacute;cula presente una angulaci&oacute;n, a diferencia de las cadenas rectas de los &aacute;cidos saturados. Esta angulaci&oacute;n es la causa del menor punto de fusi&oacute;n de estos &aacute;cidos.Cuando hay varias angulaciones, la mol&eacute;cula puede llegar a tener una forma de herradura (caso del &aacute;cido araquid&oacute;nico). Los tres &aacute;cidos poliinsturados que se presentan (linoleico, linol&eacute;nico y araquid&oacute;nico) son <I>esenciales</I> en la dieta humana.</P>
+
+<center>
+<button onClick="loadMolecule ('../pdb/palmitoleico.pdb', 'ballstick')",<b>Ácido palmitoleico</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/palmitoleico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+
+<center>
+<button onClick="loadMolecule ('../pdb/oleico.pdb', 'ballstick')",<b>Ácido oleico</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/oleico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onClick="loadMolecule ('../pdb/linoleico.pdb', 'ballstick')",<b>Ácido linoleico</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/linoleico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+
+<center>
+<button onClick="loadMolecule ('../pdb/linolenico.pdb', 'ballstick')",<b>Ácido linolénico</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/linolenico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onClick="loadMolecule ('../pdb/araquidonico.pdb', 'ballstick')",<b>Ácido araquidónico</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/araquidonico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<A HREF="#ind" ><B>Vuelta al Índice</B></A>
+
+
+<hr />
+<A NAME="eicosa"></A>
+
+<p align="center"><b>Eicosanoides</b></p>
+
+<p align="justify"> Los Eicosanoides son derivados de ácidos grasos poliinsaturados que operan en el organismo como señales químicas locales.</p>
+
+<p align="justify"> Ser distinguen tres órdenes de eicosanoides: Prostaglandinas, Tromboxanos y Leucotrienos. Se presentan a continuación las estructuras de los más representativos</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/prostaglandina_e.pdb', 'ballstick')",<b>Prostaglandina E</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/prostaglandina_e.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onClick="loadMolecule ('../pdb/prostaglandina_f2a.pdb', 'ballstick')",<b>Prostaglandina F2a</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/prostaglandina_F2a.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+
+<center>
+<button onClick="loadMolecule ('../pdb/tromboxano_b2.pdb', 'ballstick')",<b>Tromboxano B2</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/tromboxano_b2.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onClick="loadMolecule ('../pdb/leucotrieno_c4.pdb', 'ballstick')",<b>Leucotrieno_C4</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/leucotrieno_c4.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<A HREF="#ind" ><B>Vuelta al Índice</B></A>
+			<hr />
+
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_031.html" ><B>Anterior: Polisacáridos</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_051.html" ><B>Siguiente: Lípidos Neutros</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+<hr />
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

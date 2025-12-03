@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Monosacáridos - D-Aldosas</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.15; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Carbohidratos.html" ><B>&Iacute;ndice Carbohidratos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>D-Aldosas: Configuraci&oacute;n</B></font></center>
+<br /><br />
+<p>
+
+<p align="justify">Definimos como pertenecientes a la serie D- aquellos monosac&aacute;ridos que tienen el &uacute;ltimo carbono asim&eacute;trico con la misma configuraci&oacute;n que el carbono 2 del D-gliceraldehido. Por lo tanto, es importante que tengamos una idea clara de c&oacute;mo es esta configuraci&oacute;n.</P> 
+
+
+<p align="justify">Veamos en primer lugar la estructura y representaci&oacute;n del <b>D-Gliceraldehido</b>, aldosa de tres &aacute;tomos de carbono (<i>aldotriosa</i>):</P>
+<br />
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/Dgliceraldehido.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 120;')">
+    <b>D-Gliceraldehido</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración sn-  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="Dgliceraldehido-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 3; select atomno=2; label 2; select atomno=3; label 1; select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+
+<p align ="justify">Col&oacute;quese con el puntero la mol&eacute;cula de forma que el carbono 1 est&eacute; hacia arriba y el carbono 3 hacia abajo. G&iacute;rese la mol&eacute;cula de manera que los sustituyentes del carbono 2 se dirijan hacia el observador. Obs&eacute;rvese que en esta posici&oacute;n el gupo -OH est&aacute; situado hacia la derecha. Cualquier carbono con esta configuraci&oacute;n se dice que es la misma que la del D-gliceraldehido.</p>
+
+
+<p align="justify">A efectos de la representaci&oacute;n en dos dimensiones, se acepta convencionalmente que la configuraci&oacute;n tridimensional del D-gliceraldehido se representa como aparece en la siguiente figura, es decir, con el -OH del carbono 2 a la <I>derecha</I> del mismo. &Eacute;sta es la llamada <I>Proyecci&oacute;n de <B>Fischer</B></I>.</P> 
+
+
+<P><CENTER><img SRC="../gif/dglicer.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+
+<p>Veamos ahora la estructura del <b>L-Gliceraldehido</b>:</p>
+<br />
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/Lgliceraldehido.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Gliceraldehido</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración sn- -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="Lgliceraldehido-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 3; select atomno=2; label 2; select atomno=3; label 1; select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+
+<p align="justify">Coloquemos ahora la mol&eacute;cula en la misma posici&oacute;n que definimos para el D-Gliceraldehido. Podemos observar que el grupo -OH est&aacute; ahora dirigido hacia la izquierda:</p>
+
+<p align="justify">En la proyecci&oacute;n de Fischer, representamos esta configuraci&oacute;n con el -OH hacia la <i>izquierda</i>:<p>
+
+<P><CENTER><img SRC="../gif/lglicer.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br/><br/>
+
+<P>La <b>D-eritrosa</b> es la aldosa siguiente en la serie D-, con cuatro &aacute;tomos de carbono (una <I>aldotetrosa</I>):</p> 
+<br />
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/eritrosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 120;')">
+    <b>D-Eritrosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración sn-  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="eritrosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=2; label 2; select atomno=3; label 3; select atomno=4; label 4; select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">La eritrosa tiene dos carbonos asim&eacute;tricos, el 2 y el 3, ambos con la misma configuraci&oacute;n que el D-gliceraldehido. Podemos comprobarlo colocando la mol&eacute;cula en la misma posici&oacute;n que en el caso del gliceraldehido (carbono 1 hacia arriba y carbono 4 hacia abajo). Obs&eacute;rvese que seg&uacute;n la convenci&oacute;n de Fischer, los -OH de los carbonos 2 y 3 se representan hacia la <I>derecha</I>; sin embargo, en la mol&eacute;cula, los dos -OH est&aacute;n hacia lados contrarios. Esta contradicci&oacute;n aparente se resuelve al darnos cuenta de que la proyecci&oacute;n de Fischer es meramente una forma de representaci&oacute;n; un -OH hacia la derecha significa una configuraci&oacute;n id&eacute;ntica a la del D-gliceraldehido, y no la disposici&oacute;n espacial real del -OH en la mol&eacute;cula.</P>
+
+
+
+<P><CENTER><img SRC="../gif/eritrosa.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+
+
+
+
+
+<p align="justify">Veamos a continuaci&oacute;n la estructura de la <b>D-Arabinosa</b>, una aldosa de cinco &aacute;tomos de carbono (una <I>aldopentosa</I>)</p> 
+<br />
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/arabinosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 120;')">
+    <b>D-Arabinosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración sn-  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="eritrosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=2; label 2; select atomno=4; label 3; select atomno=5; label 4; select atomno=6; label 5; select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">La D-arabinosa tiene tres carbonos asim&eacute;tricos: 2, 3 y 4. colocando la mol&eacute;cula en posici&oacute;n vertical, como hicimos antes, puede observarse que las configuraciones de los carbonos 3 y 4 son las mismas que en el D-gliceraldehido (esto es, igual que las de los carbonos 2 y 3 de la D-eritrosa), mientras que en el 2 es la configuraci&oacute;n contraria.<p>
+
+
+<P><CENTER><img SRC="../gif/arabinosa.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+
+
+<p align="justify">La <b>D-glucosa</b> es una <I>aldohexosa</I>, esto es, una aldosa de seis &aacute;tomos de carbono:</p> 
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/glucosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 120;')">
+    <b>D-Glucosa</b>
+  </button>
+</center>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Numeración sn-  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="eritrosa-steps"
+      onchange="jrun('colour labels [0,0,0]; select atomno=1; label 1; select atomno=2; label 2; select atomno=3; label 3; select atomno=5; label 4; select atomno=6; label 5; select atomno=7; label 6; select all')">
+      Numeración 
+    </label>
+  </fieldset>
+</div>
+
+
+<p align="justify">La configuraci&oacute;n de la D-glucosa es tal que los carbonos 2, 4 y 5 tienen la misma orientaci&oacute;n que el D-gliceraldehido mientras que el 3 tienen la configuraci&oacute;n contraria (lo cual hace que los carbonos 3, 4 y 5 de la D-glucosa tengan la misma configuraci&oacute;n que los carbonos 2, 3 y 4 de la D-arabinosa.</p> 
+
+
+<P><CENTER><img SRC="../gif/glucosa.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<hr />
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=left width=30%>
+				<A HREF="pgJSmol_002.html" ><B>Anterior: Isomer&iacute;a</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_012.html" ><B>Siguiente: D-Cetosas</B></A>					
+				</td>
+
+			</tr></table></center>
+
+	</body>
+</html>

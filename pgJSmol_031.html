@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol -Polisacáridos</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Carbohidratos.html" ><B>&Iacute;ndice Carbohidratos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Polisac&aacute;ridos</B></font></center>
+<br /><br />
+<p>
+<p>
+
+
+<A NAME="ind"></A>
+<CENTER><H3><B>&Iacute;ndice</B></H3></CENTER>
+
+<UL>
+<LI><A HREF="#glucanos" ><B>Glucanos</B></A>
+<LI><A HREF="#gag" ><B>Glicosaminoglicanos</B></A>
+</UL>
+<HR>
+
+
+
+
+<p align="justify">La uni&oacute;n de muchas mol&eacute;culas de monosac&aacute;ridos a trav&eacute;s de enlace glicos&iacute;dico da lugar a los polisac&aacute;ridos. &Eacute;stos alcanzan un grado de polimerizaci&oacute;n extremadamente alto. A diferencia de otros pol&iacute;meros biol&oacute;gicos, como los &aacute;cidos nucleicos o las prote&iacute;nas, los polisac&aacute;ridos no son portadores, en general , de informaci&oacute;n. Su estructura suele ser la de homopol&iacute;mero AAAAAA... o la de copol&iacute;mero ABABABAB... (que puede ser considerado como la repetici&oacute;n de un disac&aacute;rido AB). No es infrecuente en los polisac&aacute;ridos la estructura ramificada (a diferencia, una vez m&aacute;s, de los &aacute;cidos nucleicos y las prote&iacute;nas, que siempre son lineales).</P>
+
+
+
+<p align="justify">Los polisac&aacute;ridos pueden cumplir dos funciones en el medio biol&oacute;gico: la de reserva energ&eacute;tica o la estructural. En este sentido, el tipo anom&eacute;rico de enlace suele ser decisivo. Mientras que los polisac&aacute;ridos con az&uacute;cares unidos en <FONT FACE="symbol">a</FONT>- suelen ser reserva energ&eacute;tica, los formados por enlaces de tipo <FONT FACE="symbol">b</FONT>- suelen cumplir funciones estructurales. Esta diferencia la vemos claramente en los <i>glucanos</i>, es decir, los polisac&aacute;ridos compuestos por unidades de glucosa. En general, los polisac&aacute;ridos se denominan con el nombre radical del monosac&aacute;rido o monosac&aacute;ridos constituyentes seguido del sufijo <i>-ano</i>: <I>glucanos, galactanos, mananos, arabinogalactanos</I>, etc.</P>
+
+<br />
+<p align="center"><font size="+1"><b>Glucanos</b></font></p>
+
+
+<br />
+
+
+<a name="glucanos"></a>
+
+<p align="justify"><B><FONT FACE="symbol">a</FONT>-Glucanos</B>.</p> 
+<br />
+
+<p align="justify">El almid&oacute;n constituye el principal polisac&aacute;rido de reserva energ&eacute;tica en los vegetales. En realidad, el almid&oacute;n es una mezcla, en distintas proporciones seg&uacute;n sea la fuente biol&oacute;gica, de dos polisac&aacute;ridos: <i>amilosa y amilopectina</i>.</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/amilosa.pdb', 'ballstick')",<b>Amilosa</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/amilosa.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">La amilosa es un polisac&aacute;rido lineal formado por unidades de glucosa unidas en enlace <FONT FACE="symbol">a</FONT> (1,4). Seg&uacute;n ve&iacute;amos al tratar la estructura de la maltosa, este enlace determina que cada residuo de glucosa ocupe un plano aproximado que forma un &aacute;ngulo de 120 grados con el del residuo de glucosa anterior, dando lugar a una estructura helicoidal que se repite aproximadamente cada seis residuos. Precisamente la coloraci&oacute;n azul que el almid&oacute;n forma con el ion yoduro se debe al complejo formado por este ion ocupando una vuelta entera del polisac&aacute;rido. En la figura se presenta un fragmento de amilosa de 24 residuos; en realidad, el grado de polimerizaci&oacute;n es bastante m&aacute;s grande, llegando a algunos centenares de restos de glucosa.</p>
+
+<p align="justify">El otros componente del almid&oacute;n es la <i>amilopectina</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/amilopectina.pdb', 'ballstick')",<b>Amilopectina</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/amilopectina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify">El <i>Gluc&oacute;geno</i>, principal polisac&aacute;rido de reserva energ&eacute;tica en los tejidos animales, tiene una estructura similar a la amilopectina, pero ambos con un peso molecular mucho mayor que la amilosa. El glucógeno se diferencia de la amilopectina en que presenta un grado de ramificaci&oacute;n bastante mayor, teniendo por t&eacute;rmino medio entre 8 y 15 residuos por cada ramificaci&oacute;n (10-20 en amilopectina). Su peso molecular es asimismo muy elevado.</p>
+
+
+
+<p align="justify">En determinadas bacterias, el polisac&aacute;rido de reserva es el <i>Dextrano</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/dextrano.pdb', 'ballstick')",<b>Dextrano</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/dextrano.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">El dextrano est&aacute; constituido fundamentalmente por residuos de glucosa unidos en <FONT FACE="symbol">a</FONT>-(1,6) y con grados variables de ramificaci&oacute;n.</p>
+<br />
+
+<p align="justify"> <B><FONT FACE="symbol">b</FONT>-Glucanos</B></p>
+
+
+<p align="justify">A diferencia de los anteriores, los <FONT FACE="symbol">b</FONT>-glucanos, es decir, polisac&aacute;ridos formados por glucosa o sus derivados en enlaces de tipo <FONT FACE="symbol">b</FONT>- tienen generalmente una funci&oacute;n estructural. Tal es el caso de la <i>Celulosa</i>.</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/celulosa.pdb', 'ballstick')",<b>Celulosa</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/celulosa.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">La celulosa es un polisac&aacute;rido formado por glucosas unidas por enlaces de tipo <FONT FACE="symbol">b</FONT> (1,4). Tal como ve&iacute;amos en el caso de la celobiosa, los planos de residuos contiguos de glucosa con este tipo de enlace son aproximadamente paralelos, presentando cada residuo una ligera rotaci&oacute;n sobre el anterior en torno al enlace glicos&iacute;dico. Esto hace que los <FONT FACE="symbol">b</FONT>-glucanos tengan una disposici&oacute;n lineal, dando lugar a fibras extendidas, como es el caso de la celulosa, y con un grado de polimerizaci&oacute;n elevad&iacute;simo.</p>
+
+
+<p align="justify">La <i>Quitina</i> es un polisac&aacute;rido estructural que encontramos en el exoesqueleto de los Artr&oacute;podos (Insectos, Crust&aacute;ceos, etc. ), as&iacute; como en paredes celulares de hongos.</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/quitina.pdb', 'ballstick')",<b>Quitina</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/quitina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">Se trata de un polisac&aacute;rido lineal formado por residuos de N-acetilglucosamina en enlace <FONT FACE="symbol">b</FONT>-(1,4). El bloqueo del grupo amino en C2 por el resto acetilo hace que la quitina tenga menor reactividad qu&iacute;mica a&uacute;n que la celulosa.</p>
+<br/ >
+
+
+
+<a name="gag"></a>
+
+<p align="center"><font size="+1"><b>Glicosaminoglicanos</b></font></p>
+
+
+<p align="justify">Son polisac&aacute;ridos estructurales que forman gran parte de la matriz intercelular de tejidos mesod&eacute;rmicos (conjuntivo, cart&iacute;lago, m&uacute;sculo, hueso) y que muy frecuentemente se presentan unidos a un n&uacute;cleo de prote&iacute;na, formando los llamados <I>proteoglicanos</I> (que no hay que confundir con <I>glicoprote&iacute;nas</I>). La estructura de los glicosaminoglicanos es la de copol&iacute;mero ABABAB..., con diferentes grados de polimerizaci&oacute;n, en el que A es un &aacute;cido ur&oacute;nico (&aacute;cido D-glucur&oacute;nico o &aacute;cido L-idur&oacute;nico) mientras que B es un aminoderivado, bien sea N-acetilglucosamina o N-acetilgalactosamina. En muchas ocasiones esta &uacute;ltima aparece unida a residuos de sulfato. Los enlaces entre A y B son de tipo <FONT FACE="symbol">b</FONT>-(1,3) y el enlace B-A es de tipo <FONT FACE="symbol">b</FONT>-(1,4), alternando pues ambos tipos de enlace a lo largo del polisac&aacute;rido, que invariablemente es de estructura lineal. Tanto el &aacute;cido ur&oacute;nico como los restos sulfato presentan carga negativa, lo que da a los glicosaminoglicanos un car&aacute;cter poliani&oacute;nico, con elevada densidad de carga negativa.</p>
+
+
+<p align="justify">El <i>&aacute;cido hialur&oacute;nico</i> es un glicosaminoglicano constitu&iacute;do por residuos alternantes de &aacute;cido glucur&oacute;nico y N-acetilglucosamina.</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/hialuronico.pdb', 'ballstick')",<b>Ácido hialurónico</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/hialuronico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">Es muy abundante en todos los tejidos mesod&eacute;rmicos, en el humor v&iacute;treo y en la gelatina de Wharton del cord&oacute;n umbilical. A diferencia de los polisac&aacute;ridos vistos anteriormente, el &aacute;cido hialur&oacute;nico no tiene una forma definida en el espacio, sino que se extiende aleatoriamente tendiendo a ocupar un volumen muy grande debido a la repulsi&oacute;n electrost&aacute;tica de los grupos carboxilo del &aacute;cido ur&oacute;nico. Al mismo tiempo, forma mallas que retienen una gran cantidad de agua.</p>
+
+
+<p align="justify">Los <B>condroitinsulfatos</B>  son glicosaminoglicanos formados por restos alternantes de &aacute;cido glucur&oacute;nico y N-acetilgalactosamina. &Eacute;sta puede presentarse sulfatada en C4, dando lugar al <i>condroitin-4-sulfato</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/condroitin4sulfato.pdb', 'ballstick')",<b>Condroitin-4-sulfato</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/condroitin4sulfato.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify">Si la sulfataci&oacute;n tiene lugar en C6, tenemos el <i>Condroitin-6-sulfato</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/condroitin6sulfato.pdb', 'ballstick')",<b>Condroitin-6-sulfato</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/condroitin6sulfato.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+<p align="justify">Otros glicosaminoglicanos son el <i>Dermatan sulfato</i> y el <i>Queratan sulfato</i>.</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/dermatansulfato.pdb', 'ballstick')",<b>Dermatan sulfato</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/dermatansulfato.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">El dermatansulfato tiene una estructura an&aacute;loga al condroitin-6-sulfato, excepto que contiene <i>&aacute;cido L-idur&oacute;nico</i> en vez de &aacute;cido glucur&oacute;nico; su disac&aacute;rido constituyente es, por lo tanto ...L-idur&oacute;nico <FONT FACE="symbol">b</FONT>-(1,3) N-acetilgalactosamina 6-sulfato <FONT FACE="symbol">b</FONT>-(1,4)...</p>
+
+<p align="justify">El queratansulfato es el &uacute;nico glicosaminoglicano que no contiene &aacute;cidos ur&oacute;nicos; su estructura es ...D-Galactosa <FONT FACE="symbol">b</FONT>-(1,3) N-acetilgalactosamina 6-sulfato <FONT FACE="symbol">b</FONT>-(1,4)....</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/queratansulfato.pdb', 'ballstick')",<b>Queratan sulfato</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/queratansulfato.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">Todos ellos, en distintas proporciones, aparecen en la sustancia fundamental de tejidos de origen mesod&eacute;rmico, constituyendo complejos con prote&iacute;nas que reciben el nombre de <i>Proteoglicanos</i>.
+
+
+
+
+
+<br /><br />
+
+			<hr />
+
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_022.html" ><B>Anterior: Oligosac&aacute;ridos</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_041.html" ><B>Siguiente: &Aacute;cidos Grasos</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

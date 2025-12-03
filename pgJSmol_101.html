@@ -1,0 +1,1131 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Bases, nucleósidos y nucleótidos</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Acidos_Nucleicos.html" ><B>&Iacute;ndice Ácidos Nucleicos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Bases, Nucle&oacute;sidos y Nucle&oacute;tidos</B></font></center>
+<br /><br />
+<p>
+<p>
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+//-->
+</script>
+
+<P align="justify">La hidrólisis enzimática completa de un ácido nucleico da lugar a una mezcla de <B>nucleótidos</B>. La hidrólisis completa de un nucleótido da lugar a una mezcla equimolar de:</p>
+<UL><LI>Una <B>Base nitrogenada heterocíclica</B>, que puede ser de dos tipos: <B>Purina</B> o <B>Pirimidina</B>
+<LI>Una <B>Pentosa</B>, que puede ser <B>Ribosa</B> o bien <B>2-desoxirribosa</B>
+<LI><B>Ortofosfato</B>
+</UL>
+
+<p align="justify">la unión de la base con la pentosa da lugar a un tipo de glicósidos que reciben el nombre de <i>Nucleósidos</i>. La esterificación por fosfatos de los grupos alcohólicos de la pentosa en los nucleósidos da lugar a los <i>Nucleótidos</i>.</p>
+
+
+
+
+
+<UL>
+<LI><a href="#bases"><b>Bases nitrogenadas</b></a>
+<LI><a href="#osidos"><b>Nucleósidos</b></a>
+<LI><a href="#otidos"><b>Nucleótidos</b></a>
+</UL>
+
+
+
+
+
+<A NAME="bases"></A>
+<P align="justify">
+
+
+
+<P align="center"><font size="+1"><B>Bases nitrogenadas</B></font></center>
+
+
+<P align="justify">Las bases nitrogenadas de los ácido nucleicos son bases heterocíclicas que pertenecen a una de dos familias, <i>Pirimidinas</i> y <i>Purinas</i>.
+
+
+<P align="justify">Las primeras están basadas en el <i>Anillo pirimidínico</i>:</p>
+
+<CENTER><TABLE BORDER=0 WIDTH=100%>
+
+<TR>
+<TD align="center">
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/pirimid.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Pirimidina</b>
+  </button>
+</center>
+<br>
+
+</TD>
+<TD><img SRC="../gif/pirimidina.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR>
+</table></center>
+
+<p align="justify">Se trata de un sistema plano de seis átomos, cuatro carbonos y dos nitrógenos. Los átomos del anillo pirimidínico tienen la siguiente numeración:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="pirimid-steps"
+             onchange="jrun('select atomno=1; label 1')">
+	<b>N1</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="pirimid-steps"
+             onchange="jrun('select atomno=2; label 2')">
+	<b>C2</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="pirimid-steps"
+             onchange="jrun('select atomno=3; label 3')">
+	<b>N3</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="pirimid-steps"
+             onchange="jrun('select atomno=4; label 4')">
+	<b>C4</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="pirimid-steps"
+             onchange="jrun('select atomno=5; label 5')">
+	<b>C5</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="pirimid-steps"
+             onchange="jrun('select atomno=6; label 6')">
+	<b>C6</b>
+    </label>
+</fieldset>
+</div>
+
+<P align="justify">Las distintas bases pirimidínicas se obtienen por sustitución de este anillo con grupos oxo (=O), grupos amino (-NH<SUB>2</SUB>) o grupos metilo (-CH<SUB>3</SUB>).</p>
+
+<P align="justify">La otra familia de bases nitrogenadas está basada en el <i>Anillo purínico</i>:</p>
+
+<CENTER><TABLE BORDER=0 WIDTH=100%>
+
+<TR>
+<TD align="center">
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/purina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Purina</b>
+  </button>
+</center>
+<br>
+
+</TD>
+<TD><img SRC="../gif/purina.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR>
+</table></center>
+<p align="justify">Puede observarse que se trata de un sistema plano de nueve átomos, cinco carbonos y cuatro nitrógenos. El anillo purínico pùede considerarse como la fusión de un anillo pirimidínico con un anillo imidazólico. Los átomos del anillo purínico se numeran de la forma siguiente:    
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="purina-steps"
+             onchange="jrun('select atomno=2; label 1')">
+	<b>N1</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="purina-steps"
+             onchange="jrun('select atomno=1; label 2')">
+	<b>C2</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="purina-steps"
+             onchange="jrun('select atomno=6; label 3')">
+	<b>N3</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="purina-steps"
+             onchange="jrun('select atomno=5; label 4')">
+	<b>C4</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="purina-steps"
+             onchange="jrun('select atomno=4; label 5')">
+	<b>C5</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="purina-steps"
+             onchange="jrun('select atomno=3; label 6')">
+	<b>C6</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="purina-steps"
+             onchange="jrun('select atomno=9; label 7')">
+	<b>N7</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="purina-steps"
+             onchange="jrun('select atomno=8; label 8')">
+	<b>C8</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="purina-steps"
+             onchange="jrun('select atomno=7; label 9')">
+	<b>N9</b>
+    </label>
+</fieldset>
+</div>
+
+
+<P>Veamos a continuación la estructura de las principales bases:</p>
+
+<CENTER><TABLE BORDER=0 WIDTH=100%>
+<TR>
+<TD colspan = "2"><B>Pirimidinas</B></TD>
+</TR> 
+<TR>
+<TD align="center">
+<br>
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/citosina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Citosina</b>
+  </button>
+</center>
+
+
+<p>2-oxo 4-amino pirimidina</p>
+
+
+</TD>
+<TD><center><img SRC="../gif/citosina.gif" ALIGN="TOP"  BORDER="0"></center></td>
+</TR> 
+<TR>
+<TD align="center">
+<br>
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/uracilo.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Uracilo</b>
+  </button>
+</center>
+
+<p>2,4 dioxo pirimidina</p>
+
+
+</TD>
+<TD><center><img SRC="../gif/uracilo.gif" ALIGN="TOP"  BORDER="0"></center></td>
+
+</TR>
+ <TR>
+<TD>
+<br>
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/timina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Timina</b>
+  </button>
+
+<p>2,4-dioxo 5-metil pirimidina</p>
+</center>
+
+</TD>
+<TD><center><img SRC="../gif/timina.gif" ALIGN="TOP"  BORDER="0"></center></TD>
+</TR>
+</TABLE>
+
+<br>
+
+
+
+
+
+<CENTER><TABLE BORDER=0 WIDTH=100%>
+<TR>
+<TD colspan = "2"><B>Purinas</B></TD>
+</TR>
+<TR>
+<TD align= "center">
+<br>
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adenina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Adenina</b>
+  </button>
+
+
+<p>6-amino purina</p>
+</center>
+</TD>
+<TD><center><img SRC="../gif/adenina.gif" ALIGN="TOP"  BORDER="0"></center></td>
+</TR>
+
+
+
+
+<TR>
+<TD align="center">
+<br>
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/guanina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Guanina</b>
+  </button>
+
+<p>2-amino 6-oxo purina</p>
+</center>
+
+</TD>
+<TD><center><img SRC="../gif/guanina.gif" ALIGN="TOP"  BORDER="0"></center>
+</TD>
+
+<TD align = "center">
+<br>
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/hipoxant.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Hipoxantina</b>
+  </button>
+
+<p>6-oxo purina</p>
+</center>
+
+</TD>
+<TD><center><img SRC="../gif/hipoxantina.gif" ALIGN="TOP"  BORDER="0"></center>
+</TD>
+<TR>
+<TD align="center">
+<br>
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/xantina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Xantina</b>
+  </button>
+
+<p>2,6-dioxo purina</p>
+</center>
+
+</TD>
+<TD><center><img SRC="../gif/xantina.gif" ALIGN="TOP"  BORDER="0"></center>
+</TD>
+</TR>
+</TABLE>
+
+<P align="justify">De todas estas bases, aparecen en los ácidos nucleicos: citosina, timina, guanina y adenina en el DNA; citosina, uracilo, guanina y adenina en el RNA. Xantina e hipoxantina son formas metabólicas de las purinas, aunque ocasionalmente la segunda puede formar parte de algunos RNAs.</p>
+
+<p align="justify">La forma degradativa final de las purinas en los primates es el <i>Ácido Úrico</i>:</p>
+
+<CENTER><TABLE BORDER=0 WIDTH=90%>
+
+<TR>
+<TD>
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/urico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Ácido úrico</b>
+  </button>
+
+<p>2,6,8-trioxo purina</p>
+</center>
+
+</TD>
+<TD><center><img SRC="../gif/urico.gif" ALIGN="TOP"  BORDER="0"></center>
+</TD>
+</TR>
+</table></center>
+
+<p align="justify">Las pirimidinas son degradadas completamente a agua, anhídrido carbónico y urea.</p>
+
+<P align="justify">Un fenómeno estructural importante en las bases nitrogenadas es la <B>tautomería</B> o <B>isomería ceto-enol</B>. Hasta ahora hemos visto que el grupo oxo de las bases nitrogenadas se representa como ceto (=O). Ocasionalmente este grupo se presenta como enol (-OH), constituyendo una <B>forma tautomérica</B> anómala de la base en cuestión. Así, por ejemplo, la <i>Timina</i> puede presentar dos formas tautoméricas, <i>Ceto-</i> y <i>Enol-</i>. La estructura der la forma ceto- es la siguiente:</p>
+
+
+<CENTER><TABLE BORDER=0 WIDTH=90%>
+
+<TR>
+<TD align="center">
+<br>
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/timina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Timina, forma ceto</b>
+  </button>
+
+</TD>
+<TD><img SRC="../gif/timina.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR>
+</table></center>
+
+<p align="justify">Esta forma es mayoritaria. La forma enol- es:</p>
+
+
+<CENTER><TABLE BORDER=0 WIDTH=90%>
+
+<TR>
+<TD align="center">
+
+<br>
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/timenol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Timina, forma enol</b>
+  </button>
+</TD>
+<TD><img SRC="../gif//timenol.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR>
+</table></center>
+
+
+<p align="justify">Y es la forma menos frecuente de ambas. Parece ser que la presencia de formas tautoméricas anómalas en las bases podría explicar algunas <B>mutaciones espontáneas</B> del material genético a través de apareamientos Watson-Crick anómalos.</p>
+
+<br /><br />
+<A NAME="osidos"></A>
+<P align="center"><font size="+1"><B>Nucleósidos</B></font></center>
+
+<P align="justify">La unión de una base nitrogenada a una pentosa da lugar a los compuestos llamados <B>nucleósidos</B>. Obsérvese el sufijo <I>ósido</I>, característico de todos los compuestos que llamamos <i>glicósidos</i>. La pentosa puede ser <i>D-Ribosa (D-Ribofuranosa)</i>, en cuyo caso hablamos de <B>Ribonucleósidos</B>, o bien <i>2-D-Desoxirribosa (2-D-Desoxirribofuranosa)</i>, constituyendo los <B>Desoxirribonucleósidos</B>. Esto nos introduce ya la distinción básica entre DNA (constituído por desoxirribonucleótidos) y RNA (por ribonucleótidos).</p>
+
+<P align="justify">Todos los nucleósidos son del tipo anomérico <font face="Symbol"><b>b</b></font>. Podemos ver como ejemplo la estructura de la <i>Adenosina</i> que es el ribonucleósido correspondiente a la base <i>adenina</i> (esto es, la <font face="Symbol">b</font>-D-ribofuranosil adenina):</p>
+
+<CENTER><TABLE BORDER=0 WIDTH=100%>
+
+<TR>
+<TD align="center">
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adenosin.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Adenosina</b>
+  </button>
+
+
+</center>
+
+</TD>
+<TD><img SRC="../gif//adenosina.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR>
+</table></center>
+
+
+<p align="justify">Los átomos de la pentosa se numeran como 1', 2', 3', 4' y 5', para diferenciarlos de los átomos de la base. Estos átomos son:  
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="adenosin-steps"
+             onchange="jrun('select atomno=1; label 1´')">
+	<b>1'</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="adenosin-steps"
+             onchange="jrun('select atomno=6; label 2´')">
+	<b>2'</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="adenosin-steps"
+             onchange="jrun('select atomno=4; label 3´')">
+	<b>3'</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="adenosin-steps"
+             onchange="jrun('select atomno=3; label 4´')">
+	<b>4'</b>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="adenosin-steps"
+             onchange="jrun('select atomno=8; label 5´' )">
+	<b>5'</b>
+    </label>
+</fieldset>
+</div>
+
+<P align="justify">El enlace glicosídico permite la rotación de la base, originando distintas conformaciones. La adenosina aquí representada aparece en la conformación <B><I>anti-</I></B>, en la que el anillo furanósico de la pentosa y el anillo purínico están a <I>lados contrarios</I> del enlace glicosídico.</p> 
+
+<p align="justify">Ocasionalmente, y en particular en el DNA-Z, la base se sitúa en conformación <I>syn-</I></B></A> en la que base y pentosa aparecen <I>del mismo lado</I> del enlace glicosídico:</p>
+<br>
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adosyn.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Adenosina, conformación <i>syn-</i></b>
+  </button>
+
+
+<br>
+<P align="justify">Veremos en la siguiente tabla las estructuras de los distintos <B>Ribonucleósidos</B>. Obsérvese la nomenclatura: se utiliza el sufijo <I>osina</I> sobre el nombre radical de la base en el caso de las purinas, y el sufijo <I>-idina</I> en el de las pirimidinas. El ribonucleósido de timina recibe el nombre de <B>ribotimidina</B>. Por su parte, el ribonucleósido de hipoxantina recibe el nombre de <B>inosina</B>.</p>
+
+
+
+
+
+
+
+<CENTER><TABLE BORDER=0 WIDTH=100%>
+<TR>
+<TD colspan="2"><B>Nucleósidos pirimidínicos</B></TD>
+</TR> 
+<TR>
+<br>
+<TD align="center">
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/citidina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Citidina</b>
+  </button>
+
+</center>
+
+
+</TD>
+<TD><img SRC="../gif/citidina.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR> 
+<TR>
+<br>
+<TD align="center">
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/uridina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Uridina</b>
+  </button>
+
+</center>
+</TD>
+<TD><img SRC="../gif/uridina.gif" ALIGN="TOP"  BORDER="0"></td>
+
+</TR>
+<br>
+ <TR>
+<TD align="center">
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ribotim.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Ribotimidina</b>
+  </button>
+
+</center>
+
+</TD>
+<TD><img SRC="../gif/ribotimidina.gif" ALIGN="TOP"  BORDER="0"></td>
+ 
+
+
+
+
+
+</TR>
+<TD colspan="2"><B>Nucleósidos purínicos</B></TD>
+</TR>
+<TR>
+<TD>
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adenosin.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Adenosina</b>
+  </button>
+
+</center>
+</TD>
+<TD><img SRC="../gif/adenosina.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR>
+<TR>
+<TD>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/guanosin.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Guanosina</b>
+  </button>
+</center>
+
+</TD>
+<TD><img SRC="../gif/guanosina.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR>
+<TR>
+<TD>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/inosina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Inosina</b>
+  </button>
+
+</center>
+</TD>
+<TD><img SRC="../gif/inosina.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR>
+
+</TABLE></CENTER>
+
+
+<P align="justify">Por su parte, los desoxinucleósidos se denominan con el prefijo <I>desoxi-</I> delante del nombre del nucleósido. Se exceptúa el desoxirribonucleósido de timina, que recibe el nombre de <B>timidina</B>. Sus estructuras se presentan a continuación:</p>
+
+<CENTER><TABLE BORDER=0 WIDTH=100%>
+<TR>
+<TD colspan="2"><B>Desoxinucleósidos pirimidínicos</B></TD>
+</TR> 
+<TR>
+<TD align="center">
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/deocit.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>2-Desoxicitidina</b>
+  </button>
+
+</center>
+</TD>
+<TD><img SRC="../gif/desoxicitidina.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR> 
+<TR>
+<TD align="center">
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/deourid.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>2-Desoxiuridina</b>
+  </button>
+
+</center>
+
+</TD>
+<TD><img SRC="../gif/desoxiuridina.gif" ALIGN="TOP"  BORDER="0"></td>
+
+</TR>
+ <TR>
+<TD>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/timidina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>Timidina</b>
+  </button>
+
+</center>
+
+</TD>
+<TD><img SRC="../gif//timidina.gif" ALIGN="TOP"  BORDER="0"></td>
+ 
+
+
+
+
+
+</TR>
+<TD colspan="2"><B>Desoxinucleósidos purínicos</B></TD>
+</TR>
+<TR>
+<TD>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/deoxiado.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>2-Desoxiadenosina</b>
+  </button>
+
+</center>
+
+</TD>
+<TD><img SRC="../gif//desoxiadenosina.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR>
+<TR>
+<TD>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/deoxiguo.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>2-Desoxiguanosina</b>
+  </button>
+
+</center>
+
+</TD>
+<TD><img SRC="../gif/desoxiguanosina.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR>
+
+</TABLE></CENTER>
+
+
+<br /><br />
+<A NAME="otidos"></A>
+<P align="center"><font size="+1"><B>Nucleótidos</B></font></center>
+
+<P align="justify">Cuando un grupo ortofosfato se esterifica a alguno de los -OH de la pentosa de un nucleósido, la estructura resultante se llama <B>nucleótido</B>. En los ribonucleósidos, el ortofosfato puede esterificarse en tres posiciones distintas: 2', 3' y 5'. Veamos un ejemplo con los monofosfatos de adenosina:</p>
+
+
+<CENTER><TABLE BORDER=0 WIDTH=100%>
+ 
+<TR>
+<TD align="center">
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/amp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>AMP</b>
+  </button>
+
+</center>
+
+<p>Adenosina 5'-monofosfato (AMP)</p>
+
+</TD>
+<TD><img SRC="../gif/amp.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR> 
+<TR>
+<TD align="center">
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/3amp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>3'-AMP</b>
+  </button>
+
+</center>
+<p>Adenosina 3'-monofosfato (3'-AMP)</p>
+
+</TD>
+<TD><img SRC="../gif/3amp.gif" ALIGN="TOP"  BORDER="0"></td>
+
+</TR>
+ <TR>
+<TD>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2amp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>2'-AMP</b>
+  </button>
+
+</center>
+
+<p>Adenosina 2'-monofosfato (2'-AMP)</p>
+<TD><img SRC="../gif/2amp.gif" ALIGN="TOP"  BORDER="0"></td>
+</TD>
+</tr>
+<TR>
+<TD align="center">
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/camp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>cAMP</b>
+  </button>
+
+</center>
+
+<p>Adenosina 3',5'-monofosfato cíclico (cAMP)</p>
+
+</TD>
+<TD><img SRC="../gif/camp.gif" ALIGN="TOP"  BORDER="0"></td>
+
+</TR>
+
+ 
+</TR>
+
+</table>
+</center>
+
+<p align="justify">En este último caso, el fosfato esterifica simultáneamente a los hidroxilos en 3' y 5'. En ese caso reciben el nombre de <B>nucleótidos cíclicos</B>.</p>
+
+
+<P align="justify">Hasta ahora hemos visto los nucleótidos formados por un ortofosfato. Muy a menudo, sin embargo, aparecen entre las biomoléculas nucleótidos formados con un <B>polifosfato</B>. Veamos los polifosfatos de adenosina:</p>
+
+
+
+
+<CENTER><TABLE BORDER=0 WIDTH=100%>
+ 
+<TR>
+<TD align="center">
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/amp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>AMP</b>
+  </button>
+
+</center>
+<p>Adenosina 5'-monofosfato (AMP)</p>
+
+</TD>
+<TD><img SRC="../gif//amp.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR> 
+<TR>
+<TD align="center">
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>ADP</b>
+  </button>
+
+</center>
+
+<p>Adenosina 5'-difosfato (ADP)</p>
+
+</TD>
+<TD><img SRC="../gif/adp.gif" ALIGN="TOP"  BORDER="0"></td>
+
+</TR>
+ <TR>
+<TD>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/atp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>ATP</b>
+  </button>
+
+</center>
+<p>Adenosina 5'-trifosfato (ATP)</p>
+<TD><img SRC="../gif//atp.gif" ALIGN="TOP"  BORDER="0"></td>
+</TD>
+</tr>
+
+</table>
+</center>
+
+<P align="justify">En lo que se refiere a los desoxinucleótidos, la diferencia es que no pueden formarse en el carbono 2' por no haber grupo -OH. Sólo puede haber 3' y 5'-desoxinucleótidos. Veremos a título de ejemplo los desoxinucleótidos de las cuatro bases que forman parte del DNA:</p>
+
+
+<CENTER><TABLE BORDER=0 WIDTH=95%>
+ 
+<TR>
+<TD align="center">
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/damp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>dAMP</b>
+  </button>
+
+</center>
+
+<p>Desoxiadenosina 5'-monofosfato (dAMP)</p>
+
+</TD>
+<TD><img SRC="../gif/damp.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR> 
+<TR>
+<TD align="center">
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/dgmp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>dGMP</b>
+  </button>
+
+</center>
+
+<p>Desoxiguanosina 5'-monofosfato (dGMP)</p>
+
+</TD>
+<TD><img SRC="../gif/dgmp.gif" ALIGN="TOP"  BORDER="0"></td>
+
+</TR>
+ <TR>
+<TD>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/dcmp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>dCMP</b>
+  </button>
+
+</center>				
+<p>Desoxicitidina 5'-monofosfato (dCMP)</p>
+<TD><img SRC="../gif//dcmp.gif" ALIGN="TOP"  BORDER="0"></td>
+</TR> 
+<TR>
+<TD align="center">
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/tmp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   color labels black')">
+    <b>TMP</b>
+  </button>
+
+</center>
+
+<p>Timidina 5'-monofosfato (TMP)</p>
+
+</TD>
+<TD><img SRC="../gif//tmp.gif" ALIGN="TOP"  BORDER="0"></td>
+
+</TR>
+</tr>
+
+</table>
+</center>
+
+
+
+
+<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_098.html" ><B>Anterior: Colágeno</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_102.html" ><B>Siguiente: Polinucleótidos</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

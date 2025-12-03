@@ -1,0 +1,380 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Estructura cuaternaria</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Proteinas.html" ><B>&Iacute;ndice Proteínas</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Estructura cuaternaria</B></font></center>
+<br /><br />
+<p>
+<p>
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+//-->
+</script>
+
+
+<ul>
+<li><a href ="#conc"><b>Concepto de estructura cuaternaria</b></a>
+<li><a href ="#fuerzas"><b>Fuerzas que mantienen la estructura cuaternaria</b></a>
+<li><a href ="#ejemplos"><b>Ejemplos</b></a>
+</ul>
+
+<hr />
+<br /><br />
+
+
+
+<a name="conc"></a>
+<P align="center"><font size="+1"><B>Concepto de Estructura Cuaternaria</B></font></center>
+
+<p align="justify">Decimos que una proteína tiene <B>Estructura cuaternaria</B> cuando está constituida por más de un polipéptido. En este caso, los polipéptidos individuales reciben el nombre de <i>subunidades</i> o <i>Monómeros</i>. Así hablamos de <i>Dímeros</i> cuando hay dos subunidades, <i>Trímeros</i> si hay tres, <i>Tetrámeros</i> si son cuatro, y así sucesivamente. La presencia de estructura cuaternaria es muy frecuente, sobre todo en proteínas intracelulares. La estructura cuaternaria está frecuentemente relacionada (aunque no siempre) con las propiedades <i>regulatorias</i> de las proteínas, y muy especialmente de las que están sometidas a <i>comportamiento alostérico</i>. Podremos comprobarlo en el caso de la <a href="pagina_096.html">Hemoglobina</a>, que es el transportador normal de oxígeno en sangre</a>.</p>
+
+
+<p align="justify">Podemos ver un ejemplo de estructura cuaternaria en la <i>Concanavalina A</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/concanavalina_A.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   wireframe off; spacefill off; cartoons; color chain')">
+    <b>Concanavalina A</b>
+  </button>
+</center>
+<br>
+
+
+<p align="justify">Se trata de una proteína constituida por cuatro subunidades, que en este caso son idénticas entre sí. Por esa razón decimos que la concanavalina A es un <i>Homotetrámero</i> (se representan las subunidades esquemáticamente y en distintos colores).
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="concanavalina_A-steps"
+             onchange="jrun('restrict :A; center :A; zoom 200; color structure; select not solvent')">
+	Podemos restringir la visión a una sola de las subunidades, en la que vemos un predominio de la estructura en lámina beta. 
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="concanavalina_A-steps"
+             onchange="jrun('reset; cartoons; color chain')">
+	Volviendo a la molécula completa, apreciamos las cuatro subunidades agrupadas según los vértices de un tetraedro.
+    </label>
+
+</fieldset>	
+</div>
+
+<br /><br />
+<A NAME="fuerzas"></A>
+<P align="center"><font size="+1"><B>Fuerzas que mantienen la estructura cuaternaria</B></font></center>
+<br />
+
+
+<p align="justify">En general, la estructura cuaternaria está mantenida por los mismos tipos de enlace que la estructura terciaria.</p>
+
+<p align="justify">Entre las interacciones débiles, tenemos en primer lugar los <b>Contactos hidrofóbicos</b> entre las superficies de las distintas subunidades. Asimismo, los <b>Enlaces de hidrógeno</b>. Tienen también importancia las <b>Interacciones iónicas o salinas</b> que veremos ilustradas en el caso de la <a href="pgJSmol_096.html"><b>Hemoglobina</b></a>, en la que las distintas subunidades interaccionan entre sí mediante este tipo de enlaces.</p>
+
+<p aling="justify">Asimismo, podemos encontrar <b>Enlaces covalentes</b> uniendo las distintas subunidades. Un caso particularmente interesante es el de las <a href="pagina_097.html"><b>Inmunoglobulinas</b></a> en las que, como veremos, las distintas cadenas se unen entre sí mediante <b>Enlaces disulfuro</b>.</p>
+<br /><br />
+
+
+<A NAME="ejemplos"></A>
+<P align="center"><font size="+1"><B>Ejemplos</B></font></center>
+<br />
+
+
+<p align="justify">La estructura cuaternaria tiene diversos grados de complejidad. Podemos ver un ejemplo de <i>Homodímero</i> en la estructura de la <i>Glucógeno fosforilasa</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/5gpb.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   wireframe off; spacefill off; cartoons; color chain')">
+    <b>Glucógeno fosforilasa</b>
+  </button>
+</center>
+<br>
+
+
+<p align="justify">Se trata de una proteína grande, constituida por dos subunidades idénticas (<i>Homodímero</i>): 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="5gpb-steps"
+             onchange="jrun('restrict :A; center :A;color structure; zoom 200; select not solvent')">
+	Esta sería una subunidad aislada, en la que vemos una arquitectura compleja.
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="5gpb-steps"
+             onchange="jrun('reset; cartoons; color chain')">
+	Volviendo a la molécula completa. 
+    </label>
+</fieldset>	
+</div>
+
+<br /><br />
+
+
+<p align="justify">Otro ejemplo podemos verlo en las <i>Proteínas G</i>, que participan en muchos procesos de <i>Transducción de señales</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1gp2.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Proteína G</b>
+  </button>
+</center>
+<br>
+
+
+<p align="justify">Está constituida por tres subunidades distintas (<i>Heterotrímero</i>): 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="5gbp-steps"
+             onchange="jrun('wireframe off; spacefill off; cartoons; select :A; color chain; select not solvent')">
+	La subunidad <font face=symbol>a</font>
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="5gbp-steps"
+             onchange="jrun('color cpk; select :B; color chain; select not solvent')">
+	La subunidad <font face=symbol>b</font>
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="5gbp-steps"
+             onchange="jrun('color cpk; select :G; color chain; select not solvent')">
+	La subunidad <font face=symbol>g</font>
+    </label>
+</fieldset>	
+</div>
+
+
+<br /><br />
+<p align="justify">Un ejemplo de gran complejidad es la enzima <i>Aspartato transcarbamilasa</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/atcasa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Aspartato transcarbamilasa</b>
+  </button>
+</center>
+<br>
+
+
+<p align="justify">Está constituida por doce subunidades: 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="atcasa-steps"
+             onchange="jrun('wireframe off; spacefill off; cartoons; select :A, :C, :E, :G, :I, :K; color chain; select not solvent')">
+	seis de tipo catalítico, 
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="atcasa-steps"
+             onchange="jrun('color cpk; select :B, :D, :F, :H, :J, :L; color chain; select not solvent')">
+	y seis de tipo regulatorio. 
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="atcasa-steps"
+             onchange="jrun('color chain')">
+	La molécula completa. 
+    </label>
+
+
+
+<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_093.html" ><B>Anterior: Estructura Terciaria</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_095.html" ><B>Siguiente: Clasificación Estructural de Proteínas</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

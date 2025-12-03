@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Oligosacáridos</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.15; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+<A NAME="inicio"></A>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Carbohidratos.html" ><B>&Iacute;ndice Carbohidratos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Oligosac&aacute;ridos</B></font></center>
+<br /><br />
+<p>
+<p>
+
+<A NAME="ind"></A>
+<CENTER><H3><B>&Iacute;ndice</B></H3></CENTER>
+
+<UL>
+<LI><A HREF="#disac" ><B>Disac&aacute;ridos</B></A>
+<LI><A HREF="#otros" ><B>Otros oligosac&aacute;ridos</B></A>
+</UL>
+<HR>
+
+
+
+
+
+<a name="disac"></a>
+
+<p align="center"><font size="+1"><b>Disac&aacute;ridos</b></font></p>
+
+
+<br />
+
+
+
+
+<p align="justify">Los hol&oacute;sidos constitu&iacute;dos por dos monosac&aacute;ridos reciben el nombre de <I>disac&aacute;ridos</I>. La uni&oacute;n a trav&eacute;s de enlace glicos&iacute;dico de dos monosac&aacute;ridos puede tener lugar de dos maneras:</p>
+
+
+<p align="justify">1.El carbono anom&eacute;rico de uno con un grupo alcoh&oacute;lico del otro. En ese caso, el segundo monosac&aacute;rido queda como aglicona; su carbono anom&eacute;rico queda libre y mostrar&aacute; por tanto las propiedades reductoras propias del mismo. En este caso, hablamos de <I>disac&aacute;ridos reductores</I>. </p>
+
+
+<p align="justify">2. La uni&oacute;n puede tener lugar asimismo a trav&eacute;s de los dos carbonos anom&eacute;ricos. En este caso, ambos carbonos pierden sus propiedades reductoras al estar implicados en el enlace glicos&iacute;dico, y los denominamos por tanto <i>disac&aacute;ridos no reductores</i>.</p> 
+
+
+<p align="justify">Veremos a continuaci&oacute;n las estructuras de tres disac&aacute;ridos reductores: <I>Maltosa</I>, <I>Celobiosa</I> y <I>Lactosa</I>; y de dos disac&aacute;ridos no reductores, <I>Trehalosa</I> y <I>Sacarosa</I>.</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/maltosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Maltosa</b>
+  </button>
+</center>
+
+<P><CENTER><img SRC="../gif/maltosa.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">Este disac&aacute;rido resulta de la uni&oacute;n de dos glucosas de manera que el carbono anom&eacute;rico de una se une al grupo -OH en el carbono 4 de otra, quedando la primera de ellas en configuraci&oacute;n <FONT FACE="symbol">a</FONT>-. Por eso el nombre sistem&aacute;tico de la maltosa es <I><FONT FACE="symbol">a</FONT>-D-glucopiranosil- (1,4)-D-glucopiranosa</I>. Al quedar el carbono anom&eacute;rico libre en la segunda, la maltosa tendr&aacute; propiedades reductoras y formas anom&eacute;ricas <FONT FACE="symbol">a</FONT>- y <FONT FACE="symbol">b</FONT>-. La maltosa se obtiene por hidr&oacute;lisis del almid&oacute;n.</p>
+
+
+<p align="justify">Podemos ver la situaci&oacute;n de ambos residuos de glucosa: ambos est&aacute;n colocados formando los planos piran&oacute;sicos un &aacute;ngulo de aproximadamente 120 grados: </P>
+
+		 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Maltosa  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="maltosa-steps"
+      onchange="jrun('colour labels [0,0,0]; colour red; select 1; colour cpk; select all')">
+      El residuo <font face="Symbol">a</font>-glicosilo, que se muestra en colores CPK, 
+    </label>
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="maltosa-steps"
+      onchange="jrun('colour red; select 2; colour cpk; colour labels [0,0,0]; select atomno=24; label CA; select all')">
+      y el residuo aglicona. Se marca el carbono anomérico libre (CA):
+    </label>
+
+  </fieldset>
+</div>
+
+
+<p align="justify">La celobiosa tiene la misma composici&oacute;n qu&iacute;mica que la maltosa, excepto que el residuo glicos&iacute;dico del enlace est&aacute; en configuraci&oacute;n anom&eacute;rica <FONT FACE="symbol">b</FONT>-. Por ello, el nombre sistem&aacute;tico de la celobiosa es <FONT FACE="symbol">b</FONT>-D-glucopiranosil (1,4) D-glucopiranosa. Como en el caso anterior, tendr&aacute;  propiedades reductoras y formas anom&eacute;ricas. Se obtiene por hidr&oacute;lisis de la celulosa.</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/celobiosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Celobiosa</b>
+  </button>
+</center>
+
+
+
+<P><CENTER><img SRC="../gif/celobiosa.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+
+<p align="justify">La diferencia estructural con la maltosa es bastante marcada. Los residuos glicos&iacute;dicos en la celobiosa est&aacute;n aproximadamente paralelos:</p>
+
+		<p align="justify">  
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Celobiosa  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="celobiosa-steps"
+      onchange="jrun('colour red; select 1; colour cpk; select all')">
+      El residuo <font face="Symbol">b</font>-glicosilo, en colores CPK,
+    </label>
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="maltosa-steps"
+      onchange="jrun('colour red; select 2; colour cpk; colour labels [0,0,0]; select atomno=24; label CA; select all')">
+      y el residuo aglicona. Se marca el carbono anomérico libre (CA):
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">Este hecho tiene una gran importancia estructural. Si unimos seis glucosas en una cadena lineal en enlaces <FONT FACE="symbol">a</FONT> (1,4), como en el caso de la maltosa, obtenemos la maltohexaosa; si las unimos en enlace <FONT FACE="symbol">b</FONT> (1,4), la celohexaosa. Podemos comparar ambas estructuras:</p> 
+
+<center>
+<button onClick="loadMolecule ('../pdb/maltohexaosa.pdb', 'ballstick')",<b>Maltohexaosa</b></button>
+</center>
+<br />
+<center>
+<button onClick="loadMolecule ('../pdb/celohexaosa.pdb', 'ballstick')",<b>Celohexaosa</b></button>
+</center>
+
+<p align="justify">Como puede verse, las estructuras de ambos oligosac&aacute;ridos son muy distintas. Mientras que las glucosas unidas en <FONT FACE="symbol">a</FONT> (1,4) dan lugar a cadenas helicoidales, con un per&iacute;odo de aproximadamente seis residuos, las estructuras formadas por enlaces <FONT FACE="symbol">b</FONT> (1,4) dan estructuras lineales, fibrosas.</p>
+
+
+<p align="justify">Otro disac&aacute;rido reductor es la <i>Lactosa</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/lactosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Lactosa</b>
+  </button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/lactosa.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify">La lactosa es un disac&aacute;rido reductor cuyo nombre sistem&aacute;tico es <I><FONT FACE="symbol">b</FONT>-D-galactopiranosil (1,4) D-glucopiranosa</I>. Est&aacute;  formado por un residuo de galactosa en <FONT FACE="symbol">b</FONT>- unida a una glucosa a trav&eacute;s del grupo -OH en el carbono 4 de &eacute;sta. Es el az&uacute;car m&aacute;s abundante de la leche. Podemos ver los dos monosac&aacute;ridos constituyentes:  
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Celobiosa  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="lactosa-steps"
+      onchange="jrun('colour red; select 1; colour cpk; select all')">
+      <FONT FACE="symbol">b</FONT>-D-galactopiranosilo, en colores CPK,
+    </label>
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="lactosa-steps"
+      onchange="jrun('colour red; select 2; colour cpk; colour labels [0,0,0]; select atomno=24; label CA; select all')">
+      y el residuo aglicona (glucosa). Se marca el carbono anom&eacute;rico libre:
+    </label>
+  </fieldset>
+</div>
+
+<p align="justify">Cuando la uni&oacute;n de dos monosac&aacute;ridos tiene lugar entre ambos carbonos an&oacute;ricos, tenemos los <i>Disac&aacute;ridos no reductores</i>, como por ejemplo la <i>Trehalosa</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/trehalosa.pdb', 'ballstick')",<b>Trehalosa</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/trehalosa.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+
+<p align="justify">A diferencia de los tres anteriores, la trehalosa es un disac&aacute;rido formado por dos glucosas unidas por su carbonos anom&eacute;ricos respectivos. Al no quedar ning&uacute;n carbono anom&eacute;rico libre, la trehalosa recibe el siguiente nombre sistem&aacute;tico:<I> <FONT FACE="symbol">a</FONT>-D-glucopiranosil -<FONT FACE="symbol">a</FONT>-D-glucopiran&oacute;sido</I>. Obs&eacute;rvese el sufijo <I>&oacute;sido</I> para indicar su car&aacute;cter no reductor; igualmente, al hacer la denominaci&oacute;n sistem&aacute;tica hay que nombrar el car&aacute;cter anom&eacute;rico de ambos residuos (<FONT FACE="symbol">a</FONT>- y <FONT FACE="symbol">a</FONT>- en este caso).</p>
+
+<br /><br />
+
+<p align="justify">Otro disac&aacute;rido no redutor es la <i>Sacarosa</i> (az&uacute;car com&uacute;n), formado por la uni&oacute;n de glucosa y fructosa:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/sacarosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Sacarosa</b>
+  </button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/sacarosa.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">La sacarosa es un disac&aacute;rido no reductor formado por la uni&oacute;n de un residuo de glucosa en <FONT FACE="symbol">a</FONT>- a uno de fructosa en <FONT FACE="symbol">b</FONT>-. Su nombre sistem&aacute;tico, por tanto, ser&aacute; <I><FONT FACE="symbol">a</FONT>-D-glucopiranosil-<FONT FACE="symbol">b</FONT>-D-fructofuran&oacute;sido</I>.</p>
+
+<p align="justify">Podemos visualizar ambos residuos: 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <!-- Sacarosa  -->
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="sacarosa-steps"
+      onchange="jrun('colour red; select 1; colour cpk; select all')">
+      <FONT FACE="symbol">a</FONT>-gluc&oacute;sido
+    </label>
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="lactosa-steps"
+      onchange="jrun('colour red; select 2; colour cpk; select all')">
+      y <FONT FACE="symbol">b</FONT>-fruct&oacute;sido.
+    </label>
+  </fieldset>
+</div>
+
+
+<br />
+
+<a name="otros"></a>
+
+<p align="center"><font size="+1"><b>Otros oligosac&aacute;ridos</b></font></p>
+
+
+<br />
+
+
+<p align="justify">Los oligosac&aacute;ridos unidos a prote&iacute;nas y l&iacute;pidos tienen una gran importancia como se&ntilde;ales de reconocimiento en superficie. De esta manera, (1) las prote&iacute;nas sintetizadas en la c&eacute;lula adquieren se&ntilde;ales que marcan su destino celular (secreci&oacute;n, compartimentos, etc.) (2) las prote&iacute;nas y l&iacute;pidos presentes en la hojilla externa de la membrana plasm&aacute;tica adquieren "etiquetas" mediante las cuales la c&eacute;lula reconoce una gran cantidad de est&iacute;mulos: factores de crecimiento, lectinas, anticuerpos, virus, etc.</p>
+
+
+<p align="justify">Los oligosac&aacute;ridos unidos a l&iacute;pidos (glicol&iacute;pidos) y a prote&iacute;nas (glicoprote&iacute;nas) presentan en su estructura determinados derivados de monosac&aacute;ridos, como N-acetilglucosamina, N-acetilgalactosamina, &aacute;cido si&aacute;lico, ramnosa y fucosa, cuya estructura vimos en el apartado <A HREF="pgJSmol_014.html">Derivados de monosac&aacute;ridos</A>.</p>
+
+
+<p align="justify">Los oligosac&aacute;ridos unidos a prote&iacute;na son, en general de dos tipos: N-ligados, que se unen por enlace N-glicos&iacute;dico al nitr&oacute;geno am&iacute;dico de un residuo del amino&aacute;cido <i>asparragina</i>; y los oligosac&aacute;ridos O-ligados, unidos en enlace O-glicos&iacute;dico al -OH alcoh&oacute;lico de los amino&aacute;cidos <i>serina</i> o <i>treonina</i>.</p>
+
+
+<p align="justify">Las prote&iacute;nas producidas en los ribosomas del ret&iacute;culo endopl&aacute;smico rugoso pasan a la luz del mismo, en donde se unen un oligosac&aacute;rido complejo, llamado <i>Oligosac&aacute;rido nuclear</i>, del que derivan todos los dem&aacute;s:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/nuclear.pdb', 'ballstick')",<b>Oligosacárido nuclear</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/nuclear.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify">A trav&eacute;s de distintas transformaciones enzim&aacute;ticas, consistentes en la p&eacute;rdida de algunos residuos y la adici&oacute;n de otros, el oligosac&aacute;rido nuclear se modifica dando lugar a distintas marcas de destino celular. As&iacute;, las prote&iacute;nas destinadas al lisosoma van marcadas con un <i>oligosac&aacute;rido de destino lisos&oacute;mico</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/lisosomico.pdb', 'ballstick')",<b>Oligosacárido de destino lisosómico</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/lisosomico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">Mientras que las destinadas a ser secretadas al exterior de la c&eacute;lula se unen a un <i>Oligosac&aacute;rido de secreci&oacute;n</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/secrecion.pdb', 'ballstick')",<b>Oligosacárido de secreción</b></button>
+</center>
+
+<center>
+<script type="text/javascript"><!--
+jmolButton("load ../pdb/secrecion.pdb","Oligosac&aacute;rido de secreci&oacute;n")
+//-->
+</script>
+</center>
+
+<P><CENTER><img SRC="../gif/secrecion.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">Tanto el uno como el otro son modificaciones del oligosac&aacute;rido nuclear.</p>
+
+
+
+<br /><br />
+			<hr />
+
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_021.html" ><B>Anterior: Glic&oacute;sidos Heter&oacute;sidos</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_031.html" ><B>Siguiente: Polisac&aacute;ridos</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

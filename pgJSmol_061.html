@@ -1,0 +1,481 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Esteroides</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Lipidos.html" ><B>&Iacute;ndice Lípidos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>L&iacute;pidos Isoprenoides: Esteroides</B></font></center>
+<br /><br />
+<p>
+<p>
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+/-->
+</script>
+
+
+
+<P align="justify">Con este nombre conocemos a los l&iacute;pidos formados por la condensaci&oacute;n lineal de <i>unidades isoprenoides</i>. Desde un punto de vista experimental, corresponden a los llamados <i>l&iacute;pidos insaponificables</i>, que quedan en la fase org&aacute;nica despu&eacute;s de una saponificaci&oacute;n. Las unidades prenoides est&aacute;n te&oacute;ricamente basadas en el isopreno o isopenteno:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/isopreno.pdb', 'ballstick')",<b>Isopreno</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/isopreno.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<p align="justify">Seg&uacute;n el n&uacute;mero de unidades prenoides que entran a constituir la mol&eacute;cula, tendremos l&iacute;pidos <i>monoprenoides</i>, <i>diprenoides</i>, <i>triprenoides</i>, <i>tetraprenoides</i>, etc. Otra nomenclatura para estos l&iacute;pidos se basa en la <i>unidad terp&eacute;nica</i>, que equivale a un diprenoide; as&iacute;, tendr&iacute;amos los <i>hemiterpenos</i> (monoprenoides), los <i>monoterpenos</i> (diprenoides), los <i>sesquiterpenos</i> (triprenoides), los <i>diterpenos</i> (tetraprenoides), etc.</P>
+
+
+<p align="justify">Así, tenemos como representante de lípidos diprenoides (monoterpenos) el <i>Geraniol</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/geraniol.pdb', 'ballstick')",<b>Geraniol</b></button>
+</center>
+						<br />
+
+<P><CENTER><img SRC="../gif/geraniol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+<p align="justify">Un compuesto triprenoide (sesquiterpeno) es el <i>Farnesol</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/farnesol.pdb', 'ballstick')",<b>Farnesol</b></button>
+</center>
+			<br />
+
+<P><CENTER><img SRC="../gif/farnesol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<p align="justify">Como ejemplo de los compuestos tetraprenoides (diterpenos) tenemos el <i>Retinol</i>, de la familia de los <i>retinoides</i> o vitaminas A:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/retinol.pdb', 'ballstick')",<b>Retinol</b></button>
+</center>
+			
+			<br />
+
+<P><CENTER><img SRC="../gif/retinol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+<p align="justify">Obsérvese que en este caso, parte de la molécula aparece ciclada (ciclo de la <font face="symbol">b</font>-Ionona).</p>
+
+<p align="justify">Un compuesto hexaprenoide es el <i>Escualeno</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/escualeno.pdb', 'ballstick')",<b>Escualeno</b></button>
+</center>
+<br />
+
+<P><CENTER><img SRC="../gif/escualeno.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<p align="justify">Como octaprenoide se presenta el <i><font face="symbol">b</font>-Caroteno</i> o <i>Provitamina A</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/bcaroteno.pdb', 'ballstick')",<b><font face="Symbol">b</font>-Caroteno</b></button>
+</center>
+			<br />
+
+<P><CENTER><img SRC="../gif/bcaroteno.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+
+<P align="justify">Un grupo particularmente importante de l&iacute;pidos isoprenoides est&aacute; constitu&iacute;do por los <i>Esteroides</i> , que son derivados hexaprenoides y que estudiaremos a continuación. Son asimismo l&iacute;pidos isoprenoides multitud de productos naturales y aceites esenciales; y de especial inter&eacute;s para nosotros, las <i>Vitaminas Liposolubles</i> (A, D, E y K).</P>
+<br /><br />
+
+<p align="center"><font size="+1"><b>Esteroides</b></font></center></p>
+
+
+<P align="justify">Los esteroides son compuestos hexaprenoides derivados del <i>Escualeno</i>. Este compuesto sufre una serie de transformaciones metab&oacute;licas, dando lugar a un sistema polialic&iacute;clico, el <i>ciclopentanofenantreno</i>. Vamos a estudiar la estructura general de los esteroides con la molécula de <i>Colestanol</i>:
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/colestanol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   define ciclo atomno=1, atomno=2, atomno=3, atomno=4, atomno=5, atomno=26, atomno=28, atomno=29, atomno=30, atomno=31, atomno=32, atomno=33')">
+    <b>Colestanol</b>
+  </button>
+</center>
+<br>
+
+
+
+			<P><CENTER><img SRC="../gif/colestanol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<p align="justify">
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="colestanol-steps"
+        onchange="jrun('restrict 1; center 1; colour cpk; zoom 200; select all')">
+      	Vemos en primer lugar el sistema polialicíclico (ciclopentano fenantreno)
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="colestanol-steps"
+        onchange="jrun('restrict 1,2; colour cpk; wireframe 50; spacefill 100; select all')">
+      	En los diversos esteroides este sistema aparece sustitu&iacute;do y modificado; dos grupos metilo en C-10 y C-13:   
+</label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="colestanol-steps"
+        onchange="jrun('restrict 1,2,3; colour cpk; wireframe 50; spacefill 100; select all')">
+      y por una cadena lateral en C-17:	     
+</label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="colestanol-steps"
+        onchange="jrun('restrict 1,2,3,4; colour cpk; wireframe 50; spacefill 100; select all')">
+      	 y suele haber una funci&oacute;n oxigenada, hidroxi- o ceto-, en C-3   
+</label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="colestanol-steps"
+        onchange="jrun('reset; select all; colour cpk;zoom 100; wireframe 40; spacefill 20%')">
+      	 La molécula entera es Colestanol, un <I>Esterol</I> o <I>Alcohol esteroideo</I>, con una cadena lateral de ocho átomos de carbono. El colestanol pertenece a la llamada <B>serie <I>allo-</I></B>, en la que los dos primeros anillos (A y B) del sistema c&iacute;clico est&aacute;n unidos en <I>trans-</I>:  
+</label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="colestanol-steps"
+        onchange="jrun('select all; wireframe 50; spacefill 100;  restrict ciclo; center ciclo; zoom 250; colour labels [0,0,0]; select atomno=3; label 10; select atomno=30; label 5; select all')">
+      Puede observarse que los sustituyentes en C-10 (metilo) y en C-5 (hidr&oacute;geno) est&aacute;n dirigidos hacia lados contrarios del sistema. Los sustituyentes que se dirigen igual que el metilo, se llaman sustituyentes en <I><FONT FACE="Symbol">b</FONT></I>; los que lo hacen en la direcci&oacute;n del hidr&oacute;geno, se llaman sustituyentes en <I><FONT FACE="Symbol">a</FONT></I>. Sobre el plano, los sustituyentes en <I><FONT FACE="Symbol">a</FONT></I> se representan con un trazo discontinuo, tal como aparece en la figura:	    
+</label>
+
+</fieldset>
+</div>
+
+<p align="justify"> </P>
+
+
+<P><CENTER><img SRC="../gif/cicloalfa.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+
+<p align="justify">El <i>Coprostanol</i> es un is&oacute;mero del colestanol: </p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/coprostanol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   define ciclo atomno=1, atomno=2, atomno=3, atomno=4, atomno=5, atomno=26, atomno=28, atomno=29, atomno=30, atomno=31, atomno=32, atomno=3')">
+    <b>Coprostanol</b>
+  </button>
+</center>
+<br>
+
+			<P><CENTER><img SRC="../gif/coprostanol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<p align="justify">El coprostanol pertenece a la <B>serie <I>normal-</I></B>, en la que los dos primeros anillos (A y B) est&aacute;n unidos en <I>cis-</I>: 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="coprostanol-steps"
+        onchange="jrun('wireframe off; restrict ciclo; center ciclo; wireframe 40; spacefill 80; zoom 250; colour labels [0,0,0]; select atomno=3; label 10; select atomno=30; label 5; select all')">
+     Puede observarse que los sustituyentes en C10 (metilo) y C5 (hidr&oacute;geno) est&aacute;n situados del mismo lado del sistema; es decir, los dos en <I><FONT FACE="Symbol">b</FONT></I>. En el plano, este tipo de sustituyente se representa por un trazo continuo:
+
+    </label>
+</fieldset>
+</div>
+
+					
+<P><CENTER><img SRC="../gif/ciclobeta.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<P align="justify">Colestanol y Coprostanol son ambos derivados por reducci&oacute;n del <i>Colesterol</i>:</p>
+
+
+<center>
+<button onClick="loadMolecule ('../pdb/colesterol.pdb', 'ballstick')",<b>Colesterol</b></button>
+</center>
+
+						<br />
+
+<P><CENTER><img SRC="../gif/colesterol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<p align="justify">Se trata del esterol m&aacute;s abundante en tejidos animales, donde es un constituyente esencial de las membranas plasm&aacute;ticas, en las que contribuye a su fluidez. El colesterol es asimismo abundante en las lipoprote&iacute;nas del plasma sangu&iacute;neo, y tiende a depositarse en los <I>ateromas</I>, lesiones t&iacute;picas de la <I>arteriosclerosis</I>. Nótese que en la molécula de colesterol no cabe isomería <b><i>normal-</i></b> o <b><i>allo-</i></b> al tener un doble enlace entre C5 y C6.</P >
+
+
+
+<P align="justify">Otra serie de esteroides est&aacute; constitu&iacute;da por los &aacute;cidos biliares, que poseen una cadena lateral m&aacute;s corta que los esteroles y funciones hidroxi- situadas en <FONT FACE="Symbol">a</FONT>, adem&aacute;s de un grupo carboxilo terminal en la cadena lateral. Son los detergentes de la bilis; se presenta la estructura del <i>Ácido Cólico</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/colico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   define ciclo atomno=1, atomno=2, atomno=3, atomno=4, atomno=5, atomno=26, atomno=28, atomno=29, atomno=30, atomno=31, atomno=32, atomno=33')">
+    <b>Ácido cólico</b>
+  </button>
+</center>
+<br>
+
+<!--
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/colico.pdb&quot;; \
+                   set antialiasDisplay on; \">
+    <b>Ácido cólico</b>
+  </button>
+</center>
+<br>
+-->
+			<P><CENTER><img SRC="../gif/colico.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<P align="justify">El ácido cólico es una molécula anfipática <i>plana</i>, 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="colico-steps"
+        onchange="jrun('spacefill;')">
+	en la que hay una <i>cara polar</i> y una <i>cara hidrofóbica</i>, a diferencia de otros lípidos anfipáticos, como la lecitina, que son moléculas anfipáticas <i>lineales</i>.
+         </label>
+</fieldset>
+</div>
+<br /><br />
+
+
+<P align="justify">Otras series de esteroides tienen importancia como <B>hormonas</B>. Tenemos, por ejemplo, entre las hormonas de la corteza suprarrenal (<B>corticoides</B>), el <i>Cortisol</i> como representante de los <i>glucocorticoides</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/cortisol.pdb', 'ballstick')",<b>Cortisol</b></button>
+</center>
+			<br />
+
+			<P><CENTER><img SRC="../gif/cortisol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<p align="justify">O bien, como representante de los <i>mineralocorticoides</i>, la <i>Aldosterona</i>:</P>
+<center>
+<button onClick="loadMolecule ('../pdb/aldosterona.pdb', 'ballstick')",<b>Aldosterona</b></button>
+</center>
+
+			<br />
+
+			<P><CENTER><img SRC="../gif/aldosterona.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<p align="justify">Son también esteroides las <i>Hormonas sexuales</i>. Veamos a continuación la estructura de la <i>Progesterona</i>, representante de los <i>Gestágenos</i>, hormonas propias de la fase luteínica del ciclo sexual femenino:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/progesterona.pdb', 'ballstick')",<b>Progesterona</b></button>
+</center>
+			<br />
+
+			<P><CENTER><img SRC="../gif/progesterona.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+
+<p align="justify">Así como el <i>17-<font face="symbol">b</font>-Estradiol</i>, representante de los <i>Estrógenos</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/17b_estradiol.pdb', 'ballstick')",<b>17-<font face="symbol">b</font>-Estradiol</b></button>
+</center>
+
+			<br />
+
+			<P><CENTER><img SRC="../gif/17b_estradiol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+
+<p align="justify">Obsérvese la naturaleza aromática del anillo A (lo que diferencia a los estrógenos del resto de los esteroides).</p>
+
+
+<p align="justify">Y la <i>Testosterona</i>, representante de las hormonas masculinas o <i>Andrógenos</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/testosterona.pdb', 'ballstick')",<b>Testosterona</b></button>
+</center>
+			<br />
+
+			<P><CENTER><img SRC="../gif/testosterona.gif" ALIGN="TOP" BORDER="0"></CENTER></p>
+
+
+
+			<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_054.html" ><B>Anterior: Estructuras Anfipáticas</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_062.html" ><B>Siguiente: Vitaminas liposolubles</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

@@ -1,0 +1,525 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - DNA</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Acidos_Nucleicos.html" ><B>&Iacute;ndice Ácidos Nucleicos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Ácido Desoxirribonucleico (DNA, ADN)</B></font></center>
+<br /><br />
+<p>
+<p>
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+//-->
+</script>
+
+<ul>
+<li><A HREF="#conb"><b>Conformación B</b></A>
+<li><A HREF="#cona"><b>Conformación A</b></A>
+<li><A HREF="#conz"><b>Conformación Z</b></A>
+<li><A HREF="#cuad"><b>DNA <i>cuadruplex</i></b></A>
+</ul>
+
+<A NAME="conb">
+<P align="center"><font size="+1"><B>DNA: conformación B</B></font></center></p>
+
+<p align="justify">La conformación B del DNA es la que aparece con un grado importante de hidratación y es la que presenta el DNA <I>in vivo</I>. Esta estructura fue propuesta por <B>Watson</B> y <B>Crick</B> en su trabajo original de 1953. Vamos a ver a continuación sus principales características.</p>
+
+<p align="justify">Se presenta en pantalla un fragmento de DNA de 12 pares de nucleótidos:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/dnab.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent; color labels black; rotate x 90')">
+    <b>DNA, conformación B</b>
+  </button>
+</center>
+
+<p align="justify">
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('color chain')">
+	Se trata de dos polinucleótidos en forma de helicoides dextrógiros entrelazados <i>plectonémicamente</i> (lo cual quiere decir que para separarlos es necesario desenrollar previamente los helicoides)
+
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('select 5-9, 16-20; color cpk; zoom 200; select not solvent')">
+	Puede observarse que las bases están en planos aproximadamente perpendiculares al eje mayor del doble helicoide y dirigidas hacia el interior de la estructura
+    </label>
+
+<P align="justify">mientras que el continuo desoxirribosa-fosfato se dirige hacia el exterior. Los dos polinucleótidos así estructurados tienen <i>polaridad opuesta</i>. 
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('zoom 100; color chain')">
+	Para ilustrar este concepto, volvamos a ver la estructura original
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('color green; select :A; color cpk; select not solvent')">
+	y realzamos uno de los dos polinucleótidos
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('select atomno=5; label Extremo 5´; select not solvent')">
+	En uno de sus extremos hay un grupo 5'-OH libre, el <B>extremo 5'</B>
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('select atomno=234; label Extremo 3´; select not solvent')">
+	Mientras que en el otro extremo hay un grupo 3'-OH libre, el <B>extremo 3'</B>
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('colour green; select :B; color cpk')">
+	Tanto el 5'-OH como el 3'-OH pueden en ocasiones aparecer esterificados a un ortofosfato o a un polifosfato. En cuanto al otro polinucleótido
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('select atomno=254; label Extremo 5´; select not solvent')">
+	presenta una polaridad opuesta. Su extremo 5'
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('select atomno=483; label Extremo 3´; select not solvent')">
+	está del mismo lado que el 3' del otro polinucleótido, mientras que el extremo 3' está del lado del 5' del otro polinucleótido. Ambos son, por lo tanto, <i>antiparalelos</i>.
+    </label>
+
+<P align="justify">Los dos polinucleótidos interaccionan entre sí mediante enlaces de hidrógeno establecidos entre las bases nitrogenadas de uno y de otro. </p>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('reset; wireframe off; spacefill off; hbonds off; restrict 8,17; wireframe 40; spacefill 100; color cpk; zoom 200')">
+	Esta interacción sólo puede tener lugar entre adenina y timina, el <B>par A-T</B>
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('calculate hbonds; color hbonds black; hbonds; select not solvent')">
+	entre las que se establecen <B>dos</B> enlaces de hidrógeno.
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('reset; wireframe off; spacefill off; hbonds off; restrict 9,16; wireframe 40; spacefill 100; color cpk; zoom 200')">
+	así como  entre guanina y citosina, el <B>par G-C</B>.
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('calculate hbonds; color hbonds black; hbonds; select not solvent')">
+	entre las que se establecen <B>tres</B> enlaces de hidrógeno.
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('hbonds off; reset; rotate x 90; zoom 100; spacefill; color cpk')">
+	La estructura del DNA se mantiene gracias a los enlaces de hidrógeno establecidos entre las bases, por una parte, y a una interacción de naturaleza hidrofóbica que se da entre pares de bases contiguos, la <B>interacción de apilamiento</B> o <I>stacking</I>, que podemos apreciar en una visión <i>spacefill</i> de la molécula.
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('select atomno=330; label surco estrecho; select atomno=431; label surco ancho; select not solvent')">
+	Esta visión nos vale asimismo para distinguir el <B>surco estrecho</B> y el <B>surco ancho</B>.
+    </label>
+
+
+<P align="justify">Otras características estructurales del DNA-B son las siguientes:</p>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnab-steps"
+             onchange="jrun('labels off; hbonds off; spacefill off; wireframe off; restrict 6; center atomno=116; zoom 300; wireframe 40; spacefill 100; color cpk; select atomno=114; label 2´; select not solvent')">
+	la forma del anillo furanósico de la pentosa es la llamada <i>endo-2'</i>.lo cual quiere decir que el carbono 2' está claramente fuera del plano que aproximadamente marcan los carbonos 1', 3', 4' y el oxígeno hemiacetálico; y por otra parte, que la situación de la base respecto a la pentosa es <i>anti</i>, es decir, base y pentosa se sitúan hacia <i>lados opuestos</i> del enlace glicosídico.
+    </label>
+</fieldset>
+</div>
+
+<br /><br />
+<A NAME="cona">
+<P align="center"><font size="+1"><B>DNA: conformación A</B></font></center></p>
+
+
+<p align="justify"> La <i>Conformación A del DNA</i> aparece en cristales de baja hidratación y menor grado de polimerización que el DNA-B. Asimismo es la conformación favorecida en el RNA de doble hélice y en los híbridos DNA-RNA:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/213d.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent; color labels black')">
+    <b>DNA, conformación A</b>
+  </button>
+</center>
+
+
+<P align="justify">Se trata de una estructura ligeramente más ancha y corta que el DNA-B, y consta, al igual que éste, de  
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="213d-steps"
+             onchange="jrun('color chain')">
+	un doble helicoide dextrógiro formado por  dos polinucleótidos enrollados plectonémicamente.
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="213d-steps"
+             onchange="jrun('color green; select :A; color cpk; select atomno=1; label 5´; select atomno=188; label 3´; select not solvent')">
+	que cursan asimismo con polaridades opuestas. Podemos ver un polinucleótido
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="213d-steps"
+             onchange="jrun('color green; select :B; color cpk; select atomno=204; label 5´; select atomno=391; label 3´; select not solvent')">
+	y el otro polinucleótido.
+    </label>
+
+<P align="justify">El DNA-A muestra el mismo patrón de apareamiento de bases que el DNA-B (A-T y G-C). pero a diferencia de éste, los planos de los pares de bases están situados oblicuamente respecto al eje mayor del doble helicoide.</p>
+ 
+
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="213d-steps"
+             onchange="jrun('labels off; spacefill; color cpk; select atomno=301; label surco ancho; select atomno=136; label surco estrecho')">
+	En el DNA-A los surcos  tienen aproximadamente la misma anchura, aunque el "estrecho" es mucho más profundo:
+    </label>
+</fieldset>
+</div>
+
+<p>Las bases púricas se sitúan en <I>anti-</I>, como en el DNA-B. A diferencia de éste la disposición del anillo furanósico de la pentosa es <I>endo-3'</I></p>
+					
+
+
+<br /><br />
+<A NAME="conz">
+<P align="center"><font size="+1"><B>DNA: conformación Z</B></font></center></p>
+
+
+<p align="justify">La <i>conformación Z del DNA</i> aparece fundamentalmente en zonas ricas en el par G-C:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/dnaz.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent; color labels black')">
+    <b>DNA, conformación Z</b>
+  </button>
+</center>
+
+<P align="justify">Se trata también de un doble polinucleótido:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnaz-steps"
+             onchange="jrun('color chain')">
+	en enrollamiento plectonémico, con polaridades opuestas; uno de los helicoides es:
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnaz-steps"
+             onchange="jrun('color green; select :A; color cpk; select atomno=1; label 5´; select atomno=106; label 3´; select not solvent')">
+	y el otro:
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnaz-steps"
+             onchange="jrun('color green; select :B; color cpk; select atomno=123; label 5´; select atomno=228; label 3´; select not solvent')">
+	y en el que el patrón de apareamiento de bases es el mismo. Por ejemplo, el par G-C:
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnaz-steps"
+             onchange="jrun('reset; wireframe off; spacefill off; hbonds off; restrict 5,8; wireframe 40; spacefill 100; color cpk; zoom 150; calculate hbonds; hbonds; select not solvent')">
+	en el que podemos ver la situación <i>syn-</i> de la base y la pentosa en el caso de la guanina; y el par A-T:
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnaz-steps"
+             onchange="jrun('reset; wireframe off; spacefill off; hbonds off; restrict 4,9; wireframe 40; spacefill 100; color cpk; zoom 150; calculate hbonds; hbonds; select not solvent')">
+	en el que la adenina y la pentosa están asimismo en situación <i>syn-</i>.
+    </label>
+
+<p align="justify">No obstante, hay algunas importantes diferencias entre la conformación Z y las otras dos. En primer lugar, los helicoides son <B>levógiros</B>:
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnaz-steps"
+             onchange="jrun('reset; hbonds off; labels off; wireframe 40; spacefill 100; restrict backbone; color chain; select not solvent')">
+	a diferencia del DNA-B y del DNA-A. El conjunto es una doble hélice más estrecha y alargada que el DNA-B. En visión <i>spacefill</i>:
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnaz-steps"
+             onchange="jrun('color cpk; spacefill')">
+	podemos ver que en el DNA-Z desaparece por completo el surco ancho mientras que el surco estrecho se hace aún más estrecho y profundo.
+    </label>
+
+<br /><br />
+<A NAME="cuad">
+<P align="center"><font size="+1"><B>DNA <i>cuadruplex</i></B></font></center></p>
+
+
+<p align="justify">Los <i>telómeros</i> son las regiones terminales de los cromosomas, y cumplen un papel fundamental en el control de la división celular. Se sabe que a medida que una célula sufre divisiones sucesivas, los telómeros se van acortando hasta que llega un punto que la división se hace imposible. Pero existen células en las que la estructura telomérica es reparada por la enzimna <i>telomerasa</i>, permitiendo así que la célula pueda dividirse indefinidamente.</p>
+
+<p align="justify">El DNA de los telómeros adopta habitualmente una estructura especial, denominada <i>DNA cuadruplex</i>, en el que en vez de dos polinucleótidos interaccionando vamos a encontrar cuatro (aunque como veremos, es el mismo polinucleótido curvado sobre sí mismo). Veamos a continuación la estructura de un DNA cuadruplex:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/186d.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent; color labels black')">
+    <b>DNA cuadruplex</b>
+  </button>
+</center>
+
+<p align="justify">En realidad se trata de un solo polinucleótido de 24 residuos curvado sobre sí mismo (esta estructura es la que se repite a lo largo del telómero). Para verlo mejor, suprimimos las bases de la visión y nos restringimos al eje ribosa-fosfato, marcando los extremos 5' y 3': 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnaz-steps"
+             onchange="jrun('restrict backbone; select atomno=1; label 5´; select atomno=758; label 3´; select not solvent')">
+	Las bases nitrogenadas están hacia el interior, interaccionando de cuatro en cuatro guaninas a través de enlaces de hidrógeno formando los llamados llamado <i>planos de guaninas</i>:
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnaz-steps"
+             onchange="jrun('color green; select 3,12,16,21; wireframe 40; spacefill 20%; color cpk; select not solvent')">
+	Otro plano de guaninas sería el siguiente:
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnaz-steps"
+             onchange="jrun('color green; select 4,11,17,22; wireframe 40; spacefill 20%; color cpk; select not solvent')">
+	y otro:
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnaz-steps"
+             onchange="jrun('color green; select 5,10,18,23; wireframe 40; spacefill 20%; color cpk; select not solvent')">
+	La estructura de un solo plano de guaninas sería:
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnaz-steps"
+             onchange="jrun('restrict 3,12,16,21; color cpk')">
+	Estas bases interaccionan a través de enlaces de hidrógeno (no representados) tipo Hogsten, distintos del apareamiento Watson-Crick habitual. Obsérvese también que tres de los nucleótidos de guanina están en conformacion <i>syn-</I> y el otro en <i>anti-</i>. Volviendo a la estructura original:
+    </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="dnaz-steps"
+             onchange="jrun('select not solvent; wireframe 40; spacefill 20%; color cpk')">
+	Estas bases interaccionan a través de enlaces de hidrógeno (no representados) tipo Hogsten, distintos del apareamiento Watson-Crick habitual. Obsérvese también que tres de los nucleótidos de guanina están en conformacion <i>syn-</I> y el otro en <i>anti-</i>. Volviendo a la estructura original:
+    </label>
+</fieldset>
+</div>
+
+
+
+
+<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_102.html" ><B>Anterior: Polinucleótidos</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_104.html" ><B>Siguiente: RNA</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

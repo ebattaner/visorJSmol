@@ -1,0 +1,800 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Aminoácidos: Estructura química</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Aminoacidos.html" ><B>&Iacute;ndice Aminoácidos y Oligopéptidos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Amino&aacute;cidos: Estructura qu&iacute;mica</B></font></center>
+<br /><br />
+<p>
+<p>
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+//-->
+</script>
+
+<p align="justify">Clasificamos a los aminoácidos según su estructura química:</p>
+
+<UL>
+<LI>1. <A HREF="#alif " ><B>Aminoácidos alifáticos o neutros</B></A>
+<LI>2. <A HREF="#arom " ><B>Aminoácidos aromáticos</B></A>
+<LI>3. <A HREF="#hidroxi " ><B>Hidroxiaminoácidos</B></A>
+<LI>4. <A HREF="#tio " ><B>Tioaminoácidos</B></A>
+<LI>5. <A HREF="#sec " ><B>Aminas secundarias</B></A>
+<LI>6. <A HREF="#dicarb " ><B>Aminoácidos dicarboxílicos y sus amidas</B></A>
+<LI>7. <A HREF="#dibas " ><B>Aminoácidos dibásicos</B></A>
+</UL>
+
+<p align="justify">Se presenta asimismo en esta demostración la estructura de algunos <a href="#noprot"><b>Aminoácidos no proteicos</b></a> de interés, tanto <i>Intermediarios Metabólicos</i> como <i>Modificaciones postraduccionales</i>.</p>
+
+<p align="justify">Los modelos de aminoácidos aparecen en su forma iónica más usual a pH 7.4, es decir en forma de <i>zwitterion</i>, con los grupos -NH<sub>3</sub><sup>+</sup> y -COO<sup>-</sup> ionizados.</p>
+
+<hr />
+<a name="alif"></a>
+<p align="center"><font size="+1"><b>Aminoácidos Alifáticos o Neutros</b></font></center></p>
+
+
+<P align="justify">Son aquellos aminoácidos cuya cadena lateral es alifática. Se incluye en este grupo la <i>Glicina</i>, el más simple de los aminoácidos, cuya cadena lateral es un hidrógeno:</p>
+
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>								
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/g.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Glicina, Gly, G</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/g.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>									
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/a.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Alanina, Ala, A</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/a.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>								
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/v.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Valina, Val, V</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/v.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/l.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Leucina, Leu, L</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/l.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/i.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Isoleucina, Ile, I</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/i.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+<br /><br />
+<center><A HREF="#inicio" ><B>Índice</B></A></center>
+
+
+<a name="arom"></a>
+<p align="center"><font size="+1"><b>Aminoácidos Aromáticos</b></font></center></p>
+
+
+<P align="justify">Son aquellos aminoácidos cuya cadena lateral es aromática: un grupo benceno en la <i>Fenilalanina</i>, un grupo fenol en la <i>Tirosina</i> y un grupo indol en el <i>Triptófano</i>.</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/f.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Fenilalanina, Phe, F</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/f.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/y.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Tirosina, Tyr, Y</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/y.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/w.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Triptófano, Trp, W</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/w.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+
+<center><A HREF="#inicio" ><B>Índice</B></A></center>
+
+
+<a name="hidroxi"></a>
+<p align="center"><font size="+1"><b>Hidroxiaminoácidos</b></font></center></p>
+
+
+<P align="justify">Tienen un grupo alcohólico en la cadena lateral.</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/s.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Serina, Ser, S</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/s.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/t.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Treonina, Thr, T</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/t.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+
+			<br /><br />
+
+<center><A HREF="#inicio" ><B>Índice</B></A></center>
+
+<a name="tio"></a>
+<p align="center"><font size="+1"><b>Tioaminoácidos</b></font></center></p>
+
+
+<P align="justify">Contienen azufre en la cadena lateral.</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/c.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Cisteína, Cys, C</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/c.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/m.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Metionina, Met, M</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/m.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+			<br /><br />
+
+<center><A HREF="#inicio" ><B>Índice</B></A></center>
+
+<a name="sec"></a>
+<p align="center"><font size="+1"><b>Aminas secundarias</b></font></center></p>
+
+
+<P align="justify">Tienen el grupo <font face="symbol">a</font>-amino sustituido por la cadena lateral. Sólo hay un representante de este grupo, la <i>Prolina</i>.</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/p.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Prolina, Pro, P</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/p.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+			<br /><br />
+
+<center><A HREF="#inicio" ><B>Índice</B></A></center>
+
+<a name="dicarb"></a>
+<p align="center"><font size="+1"><b>Aminoácidos dicarboxílicos y sus amidas</b></font></center></p>
+
+
+<P align="justify">Tienen un grupo carboxilo -COOH o un grupo amida -CONH<sub>2</sub> en la cadena lateral:</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/d.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Ácido L-Aspártico, Asp, D</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/d.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center><br />
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/n.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Asparragina, Asn, N</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/n.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/e.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Ácido L-Glutámico, Glu, E</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/e.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/q.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Glutamina, Gln, Q</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/q.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+			<br /><br />
+
+
+
+<center><A HREF="#inicio" ><B>Índice</B></A></center>
+
+
+<a name="dibas"></a>
+<p align="center"><font size="+1"><b>Aminoácidos dibásicos</b></font></center></p>
+
+
+<P align="justify">Poseen un grupo básico en la cadena lateral; Amino en la <i>Lisina</i>, guanidino en la <i>Arginina</i> e imidazol en la <i>Histidina</i></p>
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/k.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Lisina, Lys, K</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/k.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/r.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Arginina, Arg, R</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/r.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/h.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Histidina, His, H</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/h.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>					
+</td></tr></table></center>
+<br />
+
+
+
+<center><A HREF="#inicio" ><B>Índice</B></A></center>
+
+<A NAME="noprot"></A>
+<p align="center"><font size="+1"><b>Aminoácidos No Proteicos</b></font></center></p>
+
+<P align="justify">Algunos intermediarios metab&oacute;licos, as&iacute; como ciertos neurotransmisores, tienen estructura de amino&aacute;cido aunque no aparecen en las prote&iacute;nas. Son los llamados <B>Amino&aacute;cidos No Proteicos</B>.</P>
+
+<p align="justify">Como ejemplo de intermediarios metabólicos, tenemos <i>Ornitina</i>, <i>Citrulina</i>, <i>Homocisteína</i> y <i>Homoserina</i>:</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ornitina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Ornitina</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/ornitina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>				
+</td></tr></table></center>
+<br />
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/citrulina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Citrulina</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/citrulina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>				
+</td></tr></table></center>
+<br />
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/homocisteina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Homocisteína</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/homocisteina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>			
+</td></tr></table></center>
+<br />
+
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/homoserina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Homoserina</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/homoserina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>				
+</td></tr></table></center>
+<br />
+
+
+
+<p align="justify">Así como la <i>Dihidroxifenilalanina (DOPA)</i>, precursor metabólico de catecolaminas, hormonas tiroideas y melanina:</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/dopa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-DOPA, Dihidroxifenilalanina</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/dopa.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>				
+</td></tr></table></center>
+<br />
+
+
+
+<P align="justify">Se conocen tambi&eacute;n entre las biomol&eacute;culas los llamados <B><FONT FACE="symbol">w</FONT>-amino&aacute;cidos</B> (<I>omega</I>-aminoácidos), en los que el grupo amino sustituye al <I>&uacute;ltimo</I> carbono en lugar de sustituir al carbono <font face="symbol">a</font>. Por ejemplo, la  <i><font face="symbol">b</font>-Alanina</i> y el <i>Ácido <font face="symbol">g</font>-Aminobutírico (GABA)</i>, neurotranmisores inhibitorios en el sistema nervioso central:</p>
+
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/beta_Alanina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b><font face="symbol">b</font>-Alanina</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/beta_alanina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>			
+</td></tr></table></center>
+<br />
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/gaba.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>GABA, Ácido <font face="symbol">g</font>-Aminobutírico</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/gaba.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>				
+</td></tr></table></center>
+<br />
+
+<P align="justify">Algunos amino&aacute;cidos son modificados qu&iacute;micamente despu&eacute;s de haber sido integrados en la cadena polipept&iacute;dica, y a veces estos amino&aacute;cidos modificados aparecen en los hidrolizados de prote&iacute;na. Se trata de las llamadas <B>modificaciones postraduccionales</B>, ya que se realizan despu&eacute;s del proceso de <B>traducci&oacute;n</B> o s&iacute;ntesis proteica.</P>
+<P align="justify">Muy a menudo se obtiene en los hidrolizados de prote&iacute;na el amino&aacute;cido <i>Cistina</i>, que en realidad se trata de dos ciste&iacute;nas unidas a trav&eacute;s de un disulfuro:</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/cistina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>L-Cistina</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/cistina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>				
+</td></tr></table></center>
+<br />
+
+
+
+<P align="justify">En el <B>col&aacute;geno</B> tiene lugar habitualmente la hidroxilaci&oacute;n de residuos de prolina y lisina, dando lugar, respectivamente a <i>4-Hidroxiprolina</i> y <i>5-Hidroxilisina</i>:</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/4_hidroxiprolina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>4-Hidroxiprolina</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/4_hidroxiprolina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>			
+</td></tr></table></center>
+
+<br />
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/5_hidroxilisina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>5-Hidroxilisina</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/5_hidroxilisina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>			
+</td></tr></table></center>
+<br />
+
+
+
+
+
+
+<P align="justify">Algunos factores de la coagulaci&oacute;n sangu&iacute;nea presentan una modificaci&oacute;n postraduccional consistente en un residuo de &aacute;cido glut&aacute;mico carboxilado, el <i>Ácido <font face="symbol">g</font>-Carboxiglutámico</i>. Esta modificaci&oacute;n a&ntilde;ade carga negativa adicional a dichos factores. Entre ellos destaca particularmente la <i>protrombina</i>.</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<td align=center width=45%>							
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/g_carboxiglutamico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;')">
+    <b>Ácido <font face="symbol">g</font>-Carboxiglutámico</b>
+  </button>
+</center>
+<td align=center width=30%>
+<P><CENTER><img SRC="../gif/g_carboxiglutamico.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>			
+</td></tr></table></center>
+<br />
+
+
+<center><A HREF="#inicio" ><B>Índice</B></A></center>
+
+
+<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_081.html" ><B>Anterior: Aminoácidos: Estereoisomería</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_083.html" ><B>Siguiente: Oligopéptidos</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+-->
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Estructuras Orgánicas</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.15; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<A HREF="Distr_Organicas.html" ><B>Índice Estructuras Orgánicas</B></A>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Estructuras org&aacute;nicas</B></font></center>
+<br /><br />
+<p>
+
+<p align="justify">En esta demostraci&oacute;n se pretende un repaso de las principales funciones org&aacute;nicas que tienen relevancia en el estudio de la Bioqu&iacute;mica, y est&aacute; destinada a alumnos de un curso de Bioqu&iacute;mica general de las diversas licenciaturas. </P>
+
+<p align="justify">Es conveniente seguir la exposici&oacute;n de forma sistem&aacute;tica. Los botones</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/6ipchex.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b>Molécula</b>
+  </button>
+</center>
+<br>
+
+<p align="justify">cargan mol&eacute;culas en la pantalla izquierda y los botones de tipo radio:</p>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+      <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="6ipchex-steps"
+             onchange="jrun('spacefill')">
+	ejecutan acciones sobre la misma.
+    </label>
+
+<p align="justify">Normalmente se representa a continuaci&oacute;n la estructura semidesarrollada del compuesto:</p>
+
+<P><CENTER><img SRC="../gif/6ipchex.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+
+      <a name="ind"></a>
+
+      <center><h3><b>Índice</b></h3></center>
+      <ul>
+        <li>1. <a href="#satur"><b>Hidrocarburos saturados</b></a></li>
+        <li>2. <a href="#insat"><b>Hidrocarburos insaturados</b></a></li>
+        <li>3. <a href="#alic"><b>Hidrocarburos alicíclicos</b></a></li>
+        <li>4. <a href="#arom"><b>Compuestos aromáticos</b></a></li>
+        <li>5. <a href="#oxig"><b>Funciones oxigenadas</b></a></li>
+        <li>6. <a href="#nitro"><b>Funciones nitrogenadas</b></a></li>
+        <li>7. <a href="pgJSmol_002.html"><b>Isomería</b></a></li>
+      </ul>
+      <hr>
+
+      <a name="satur"></a>
+      <p align="center"><font size="+1"><b>1. Hidrocarburos saturados</b></font></p>
+
+      <p align="justify">El carbono en hibridación sp<sup>3</sup> dirige sus cuatro orbitales moleculares según los vértices de un tetraedro regular...</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/metano.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 120;')">
+    <b>Metano</b>
+  </button>
+</center>
+<p><center><img src="../gif/metano.gif" align="top" border="0" /></center></p>
+<p align="justify">El siguiente hidrocarburo de la serie es el Etano:</p>
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/etano.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 120;')">
+    <b>Etano, conformación alternante</b>
+  </button>
+<p align="justify">cuya representación es la siguiente:</p>
+</center>
+<p><center><img src="../gif/etano.gif" align="top" border="0" /></center></p>
+
+
+
+<p align="justify">con dos &aacute;tomos de carbono. A diferencia del metano, el etano tiene un enlace C-C adem&aacute;s de seis enlaces equivalentes C-H.</P>
+
+<p align="justify">Si colocamos la mol&eacute;cula de forma que el enlace C-C est&eacute; en la direcci&oacute;n de la vista, podremos observar entonces que el principio de que los &aacute;tomos se mantengan lo m&aacute;s apartados posible unos de otros se ve asimismo en el etano. Los seis hidr&oacute;genos se dirigen como los v&eacute;rtices de un hex&aacute;gono regular. Esta disposici&oacute;n recibe el nombre de <I><B>conformaci&oacute;n alternante</B></I>, y vamos a verla en todas las estructuras org&aacute;nicas.</P>
+
+<p align="justify">Por el contrario, la conformaci&oacute;n energ&eacute;ticamente m&aacute;s desfavorable es la</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/etanoecl.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 120;')">
+    <b>Etano, conformación eclipsada</b>
+  </button>
+</center>
+
+
+<p align="justify">En esta conformaci&oacute;n unos &aacute;tomos de hidr&oacute;geno <i>eclipsan</i> a los otros; por ello decimos que est&aacute; en <i>conformaci&oacute;n eclipsada</i>.</p>
+
+
+
+
+<p align="justify">El hidrocarburo saturado de tres &aacute;tomos de carbono es el</p>
+
+
+<center>
+<button onclick="loadMolecule('../pdb/propano.pdb', 'ballstick')"><b>Propano</b></button>
+</center>
+
+<p align="justify">cuya representaci&oacute;n es:</p>
+
+<P><CENTER><img SRC="../gif/propano.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+<p align="justify">Rotando la mol&eacute;cula podemos observar asimismo el principio de conformaci&oacute;n alternante entre dos carbonos contiguos.</p>
+
+
+
+<p align="justify">El siguiente hidrocarburo en la serie es el</p>
+<center>
+<button onclick="loadMolecule('../pdb/butano.pdb', 'ballstick')"><b>Butano</b></button>
+</center>
+
+<p align="justify">que representamos como:</p>
+
+<P><CENTER><img SRC="../gif/butano.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+
+
+<p align="justify">En esta mol&eacute;cula podemos observar asimismo el principio de conformaci&oacute;n alternante.</p>
+
+
+
+<p align="justify">Con la misma composici&oacute;n que el butano (C<SUB>4</SUB>H<SUB>10</SUB>), tenemos el</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/2meprop.pdb', 'ballstick')"><b>Metilpropano</b></button>
+</center>
+
+
+<p align="justify">que representamos como:</p>
+
+<P><CENTER><img SRC="../gif/2meprop.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">Se trata de un <I>is&oacute;mero esqueletal</I> del mismo, en el que uno de los carbonos presenta tres enlaces C-C. R&oacute;tese la mol&eacute;cula de manera que podamos apreciar la conformaci&oacute;n alternante como en los casos anteriores.</p>
+
+
+<p align="justify">El hidrocarburo de cinco &aacute;tomos de carbono es el</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/pentano.pdb', 'ballstick')"><b>Pentano</b></button>
+</center>
+
+
+<p align="justify">cuya representaci&oacute;n es:</p>
+
+<P><CENTER><img SRC="../gif/pentano.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<center>
+<p align="justify">Si cambiamos su representaci&oacute;n al tipo espacial (Esferas CPK):</p>
+
+<label>
+<input type="radio" name="molecula" id="r-molecula.pdb-space"
+                   onchange="setRepresentationFor('../pdb/pentano.pdb','spacefill')">
+            Spacefill
+</label>
+</center>
+
+
+
+
+<p align= "justify"> tendremos una idea de c&oacute;mo se disponen en el espacio las cadenas saturadas de hidrocarburos.</P>
+
+<p align="justify">El pentano presenta dos is&oacute;meros esqueletales, el Metilbutano:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/2mebut.pdb', 'ballstick')"><b>Metilbutano</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/2mebut.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">Y el Dimetilpropano:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/22dimep.pdb', 'ballstick')"><b>Dimetilpropano</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/22dimep.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">Es conveniente tener un concepto claro de la disposici&oacute;n de las cadenas hidrocarbonadas saturadas. Para ello, veremos sucesivamente las estructuras de 
+
+<br />
+<center>
+<button onclick="loadMolecule('../pdb/hexano.pdb', 'ballstick')"><b>Hexano</b></button>
+</center>
+
+<br />
+<center>
+<button onclick="loadMolecule('../pdb/heptano.pdb', 'ballstick')"><b>Heptano</b></button>
+</center>
+
+<br />
+<center>
+<button onclick="loadMolecule('../pdb/octano.pdb', 'ballstick')"><b>Octano</b></button>
+</center>
+
+<br />
+<center>
+<button onclick="loadMolecule('../pdb/nonano.pdb', 'ballstick')"><b>Nonano</b></button>
+</center>
+
+<br />
+<center>
+<button onclick="loadMolecule('../pdb/decano.pdb', 'ballstick')"><b>Decano</b></button>
+</center>
+
+<p align="justify">Con el bot&oacute;n derecho del rat&oacute;n, (comandos Jmol), podremos ver una representaci&oacute;n espacial (<I>Esferas CPK</I>) de los mismos, para tener una idea general de la disposici&oacute;n de las cadenas hidrocarbonadas.</P>
+
+
+
+
+
+
+
+
+<HR>
+
+<A NAME="insat"></A>
+
+<p align="center"><font size="+1"><b>2. Hidrocarburos insaturados</b></font></p>
+
+
+
+
+
+
+
+<p align="justify">La uni&oacute;n de dos carbonos en hibridaci&oacute;n sp<SUP>2</SUP> da lugar a un doble enlace. Los hidrocarburos con dobles enlaces pertenecen a la llamada <I>serie etil&eacute;nica</I>, cuyo representante m&aacute;s sencillo es el</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/eteno.pdb', 'ballstick')"><b>Eteno o Etileno</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/eteno.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+
+<p align="justify">El enlace doble establecido entre ambos carbonos, al tener orbitales moleculares <FONT FACE="Symbol">s</FONT> y  <FONT FACE="Symbol">p</FONT>, no permite la rotaci&oacute;n en torno al mismo, a diferencia del enlace sencillo que ve&iacute;amos en los hidrocarburos saturados. Por ello, los cuatro sustituyentes (en este caso, hidr&oacute;genos) yacen en el mismo plano. Para observarlo r&oacute;tese el modelo con el puntero.</P>
+
+<p align="justify">El siguiente hidrocarburo de la serie etil&eacute;nica es el</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/propeno.pdb', 'ballstick')"><b>Propeno o Propileno</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/propeno.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+
+<p align="justify">Al pasar al siguiente hidrocarburo, nos encontramos con que el doble enlace puede estar en dos posiciones distintas. Se trata en este caso de <I>Is&oacute;meros posicionales</I>, a saber, el</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/1buteno.pdb', 'ballstick')"><b>1-Buteno</b></button>
+</center>
+<P><CENTER><img SRC="../gif/1buteno.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+
+<p>y el <B> 2-buteno</B>.</p>
+
+<p align="justify">Respecto a este &uacute;ltimo, dada la imposibilidad de rotaci&oacute;n en torno al doble enlace, los dos grupos metilo de los extremos de la cadena pueden situarse de dos maneras distintas, dando lugar a dos <I>Is&oacute;meros geom&eacute;tricos</I>, el </p>
+
+<center>
+<button onclick="loadMolecule('../pdb/cis2b.pdb', 'ballstick')"><b>cis-2-buteno</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/cis2b.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+<p>y el </p>
+
+<center>
+<button onclick="loadMolecule('../pdb/trans2b.pdb', 'ballstick')"><b>trans-2-Buteno</b></button>
+</center>
+<center>
+
+<P><CENTER><img SRC="../gif/trans2b.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+
+
+<p align="justify">Esta diferencia estructural entre is&oacute;meros geom&eacute;tricos tiene su importancia en determinadas biomol&eacute;culas, y en particular en los <I>&aacute;cidos grasos</I>. En los &aacute;cidos grasos insaturados naturales, la disposici&oacute;n geom&eacute;trica es casi invariablemente del tipo cis-. Esto crea una angulaci&oacute;n en la mol&eacute;cula que podemos ver en el </p>
+
+<center>
+<button onclick="loadMolecule('../pdb/oleico.pdb', 'ballstick')"><b>Ácido Oleico</b></button>
+</center>
+
+
+<p align=justify"> que es el &aacute;cido 9-cis octadecenoico, a diferencia del correspondiente &aacute;cido graso saturado, el </p>
+
+<center>
+<button onclick="loadMolecule('../pdb/estearic.pdb', 'ballstick')"><b>Ácido Esteárico</b></button>
+</center>
+
+<p align="justify">O del correspondiente &aacute;cido en trans-, el</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/elaidico.pdb', 'ballstick')"><b>Ácido Elaídico</b></button>
+</center>
+
+<p align="justify">En los que podemos ver que se trata de mol&eacute;culas rectas, no anguladas.</p>
+
+<br /><br />
+
+<p align="justify">La uni&oacute;n de dos carbonos en hibridaci&oacute;n sp da lugar a un triple enlace. Un ejemplo de hidrocarburo en triple enlace es el</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/acetilen.pdb', 'ballstick')"><b>Etino o Acetileno</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/acetilen.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+<p align="justify">Los compuestos de la serie acetil&eacute;nica son muy poco frecuentes en los medios biol&oacute;gicos.</P>
+
+<HR>
+
+
+
+
+<A NAME="alic"></A>
+<p align="center"><font size="+1"><b>3. Hidrocarburos alic&iacute;clicos</b></font></p>
+<br /><br />
+
+
+
+<p align="justify">Cuando una cadena de carbonos saturados se cierra sobre s&iacute; misma, los compuestos resultantes reciben el nombre de <I>Hidrocarburos alic&iacute;clicos</I>, llamados as&iacute;  para diferenciarlos de los <I>Hidrocarburos arom&aacute;ticos</I>, que veremos m&aacute;s adelante.</P>
+
+<p align="justify">El hidrocarburo aclic&iacute;clico m&aacute;s sencillo es el </p>
+
+<center>
+<button onclick="loadMolecule('../pdb/ciclopro.pdb', 'ballstick')"><b>Ciclopropano</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/ciclopro.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+<p align="justify">con tres &aacute;tomos de carbono. N&oacute;tese la desviaci&oacute;n de los &aacute;ngulos C-C-C  (60 grados), bastante alejada del valor de aproximadamente 110 grados que presentar&iacute;a en un hidrocarburo lineal. Algo menos distorsionado, aunque todav&iacute;a bastante, es el &aacute;ngulo en el</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/ciclobut.pdb', 'ballstick')"><b>Ciclobutano</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/ciclobut.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+<p>(90 grados), y a&uacute;n menos en el</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/ciclopen.pdb', 'ballstick')"><b>Ciclopentano</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/ciclopen.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify">En el </p>
+
+<center>
+<button onclick="loadMolecule('../pdb/ciclhexs.pdb', 'ballstick')"><b>Ciclohexano, forma silla</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/ciclhexs.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify">los &aacute;ngulos C-C-C tienen ya aproximadamente el mismo valor que en las cadenas de hidrocarburos saturados lineales. Esta estructura nos vale para ilustrar el concepto de <I>conformaci&oacute;n</I>: la libertad de rotaci&oacute;n en torno a un enlace simple permite a una mol&eacute;cula adoptar m&uacute;ltiples situaciones en el espacio; pero siempre habr&aacute; alguna m&aacute;s favorecida que las dem&aacute;s. Tal es el caso de la estructura que se presenta, en el que la energ&iacute;a es m&iacute;nima y por ello es la conformaci&oacute;n m&aacute;s estable.</p>
+
+<p align="justify">Por el contrario, en el</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/ciclhexb.pdb', 'ballstick')"><b>Ciclohexano, forma bote</b></button>
+</center>
+
+
+<p <lign="justify">la conformaci&oacute;n entre los carbonos contiguos es <I>eclipsada</I>, siendo el conf&oacute;rmero de energ&iacute;a m&aacute;xima. </p>
+
+<p align="justify">Una disposici&oacute;n an&aacute;loga a la que vemos en el ciclohexano, forma silla,  es la que aparece en las formas c&iacute;clicas de las aldohexosas como la</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/aDglucopiranosa.pdb', 'ballstick')"><b><font face="symbol">a</font>-D-Glucosa, forma cíclica</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/adglp.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+ 
+
+<HR>
+
+
+
+
+<br />
+
+<A NAME="arom"></A>
+
+<p align="center"><font size="+1"><b>4. Compuestos arom&aacute;ticos</b></font></p>
+<br /><br />
+
+
+<p align="justify">Cuando se forman estructuras c&iacute;clicas a partir de carbonos en hibridaci&oacute;n sp<SUP>2</SUP>, cuyos orbitales moleculares son coplanares y dirigidos seg&uacute;n los v&eacute;rtices de un tri&aacute;ngulo equil&aacute;tero, se forman los  llamados compuestos <I> arom&aacute;ticos</I>. El representante m&aacute;s caracter&iacute;stico de este grupo es el </p>
+
+<center>
+<button onclick="loadMolecule('../pdb/benceno.pdb', 'ballstick')"><b>Benceno</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/benceno.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+
+<p align="justify">Podemos observar en su estructura que los seis enlaces C-C y los seis enlaces C-H son equivalentes, siendo toda la mol&eacute;cula coplanar (los doce &aacute;tomos de la misma est&aacute;n en el mismo plano). La equivalencia de todos los enlaces se debe a que los orbitales <font face="Symbol">p</font> de toda la mol&eacute;cula forman un sistema deslocalizado.</P>
+
+
+<p align="justify">Los compuestos arom&aacute;ticos pueden estar formados por varios ciclos a la vez, dando una gran variedad de estructuras. As&iacute;, la fusi&oacute;n de dos anillos benc&eacute;nicos da lugar al </p>
+
+<center>
+<button onclick="loadMolecule('../pdb/naftalen.pdb', 'ballstick')"><b>Naftaleno</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/naftalen.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onclick="loadMolecule('../pdb/antracen.pdb', 'ballstick')"><b>Antraceno</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/antracen.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+<center>
+<button onclick="loadMolecule('../pdb/fenantre.pdb', 'ballstick')"><b>Fenantreno</b></button>
+</center>
+<center>
+<script type="text/javascript"><!--
+jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
+//-->
+</script>
+</center>
+
+<P><CENTER><img SRC="../gif/fenantre.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+
+
+
+<p align="justify">Los compuestos arom&aacute;ticos no est&aacute;n necesariamente formados &uacute;nicamente por carbono. Pueden entrar otros &aacute;tomos en el ciclo, dando lugar a lo que conocemos como <I>heterociclos</I>. En el medio biol&oacute;gico son particularmente interesantes algunos heterociclos, como las <B>pirimidinas</B>, con dos &aacute;tomos de nitr&oacute;geno formando parte del ciclo. Como ejemplo de las mismas, veremos la estructura de la </p>
+
+<center>
+<button onclick="loadMolecule('../pdb/citosina.pdb', 'ballstick')"><b>Citosina</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/citosina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+
+
+<p align="justify">Otras bases heteroc&iacute;clicas son  las <B>purinas</B>, de las cuales veremos la estructura de la</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/adenina.pdb', 'ballstick')"><b>Adenina</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/adenina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+<p align="justify">Otro sistema planar, con electrones deslocalizados,  de gran inter&eacute;s en Bioqu&iacute;mica est&aacute; constitu&iacute;do por las <B>porfirinas</B>, de las cuales presentamos la estructura de la</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/protoix.pdb', 'ballstick')"><b>Protoporfirina IX</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/protoix.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+
+
+<HR>
+<A NAME="oxig"></A>
+<p align="center"><font size="+1"><b>5. Funciones oxigenadas</b></font></p>
+<br /><br />
+
+<p align="justify">5.1 <B>Alcoholes y fenoles</B></P>
+
+<p align="justify">La sustituci&oacute;n de un hidr&oacute;geno de un hidrocarburo por el grupo <I>hidroxilo</I>, -OH, da lugar a los compuestos denominados <B>alcoholes</B>. Si la sustituci&oacute;n tiene lugar en un hidrocarburo arom&aacute;tico, obtenemos los <B>fenoles</B>.</P>
+
+<p align="justify">El alcohol alif&aacute;tico m&aacute;s sencillo de la serie es el Metanol:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/metanol.pdb', 'ballstick')"><b>Metanol</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/metanol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify"> al que le sigue el Etanol: </p>
+
+<center>
+<button onclick="loadMolecule('../pdb/etanol.pdb', 'ballstick')"><b>Etanol</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/etanol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify">o <B>alcohol et&iacute;lico</B></A>. En ambos casos, hay una funci&oacute;n <I>alcohol primario</I>,  -CH<SUB>2</SUB>OH. Aparecen sustitu&iacute;dos en el etano los dos carbonos, en el caso del Etilenglicol:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/etglicol.pdb', 'ballstick')"><b>Etilenglicol</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/etglicol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify">La sustituci&oacute;n en el propano puede ocurrir de dos maneras, dando lugar a is&oacute;meros posicionales. Por una parte, el 1-propanol,</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/prop1ol.pdb', 'ballstick')"><b>1-Propanol</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/prop1ol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+<p align="justify">Alcohol primario como los dos anteriores, y por otra, el 2-Propanol:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/prop2ol.pdb', 'ballstick')"><b>2-Propanol</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/prop2ol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+<p align="justify">en el que la funci&oacute;n es un <I>alcohol secundario</I> -CHOH-. Otro alcohol alif&aacute;tico interesante en Bioqu&iacute;mica es el Propanotriol o Glicerol:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/glicerol.pdb', 'ballstick')"><b>Glicerol</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/glicerol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify">Cuando el grupo -OH sustituye a un hidrocarburo arom&aacute;tico, tenemos los <B>fenoles</B>. La mol&eacute;cula m&aacute;s representativa en el Fenol:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/fenol.pdb', 'ballstick')"><b>Fenol</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/fenol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br /><br />
+
+
+
+<p align="justify">5.2 <B>Aldehidos y cetonas</B></P>
+
+<p align="justify">Un grado mayor de oxidaci&oacute;n que en los alcoholes se presenta en estos compuestos, cuyo grupo funcional definitorio es el <I>carbonilo</I>, -C=O. Cuando este grupo se presenta en un carbono primario, los compuestos resultantes son los <B>aldehidos</B>; si aparece en un carbono secundario, tendremos las <B>cetonas</B>. A efectos de la estructura resultante, hemos de tener en cuenta que el carbono carbon&iacute;lico es un h&iacute;brido sp<SUP>2</SUP>.</P>
+
+
+
+<p align="justify">El aldehido m&aacute;s sencillo de la serie es el Metanal o Formaldehido:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/Metanal.pdb', 'ballstick')"><b>Metanal o Formaldehido</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/metanal.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+<p align="justify">El siguiente en la serie es el Etanal o Acetaldehido:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/etanal.pdb', 'ballstick')"><b>Etanal o Acetaldehido</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/etanal.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+<p align="justify">Obs&eacute;rvese la planaridad del grupo aldehido (los dos carbonos, ox&iacute;geno e hidr&oacute;geno est&aacute;n en el mismo plano).</p>
+
+
+<p align="justify">Cuando el grupo carbonilo est&aacute; en el interior de la cadena, los compuestos correspondientes son las <B>cetonas</B>. Podemos ver un ejemplo de las mismas en la Propanona o Acetona:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/acetona.pdb', 'ballstick')"><b>Acetona o Propanona</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/acetona.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify">Un grupo de biomol&eacute;culas muy importante, los <B>Hidratos de Carbono</B> o <B>Gl&uacute;cidos</B>, son compuestos <I>Polihidroxicarbon&iacute;licos</I>, es decir, funciones aldehido o acetona coexistiendo con funciones alcoh&oacute;licas en una misma mol&eacute;cula.</P>
+<br /><br /><br />
+
+<p align="justify">5.3 <B>&Aacute;cidos carbox&iacute;licos</B></P>
+<br />
+
+<p align="justify">Un grado mayor de oxidaci&oacute;n es el que presentan los <b>&aacute;cidos carbox&iacute;licos</b>, en los que la funci&oacute;n caracter&iacute;stica es el grupo carboxilo, -COOH. Se trata, como en el caso anterior, de un carbono sp<sup>2</sup>. Es un grupo carbonilo -CO sustitu&iacute;do por un hidroxi -OH.</P>
+
+<p align="justify">El m&aacute;s sencillo de la serie es el Metanoico o &Aacute;cido F&oacute;rmico:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/formico.pdb', 'ballstick')"><b>Metanoico o Ácido Fórmico</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/formico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">El siguiente en la serie es el</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/acetico.pdb', 'ballstick')"><b>Etanoico o Ácido Acético</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/acetico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify">Los &aacute;cidos carbox&iacute;licos de n&uacute;mero par de &aacute;tomos de carbono tienen una gran importancia en Bioqu&iacute;mica, donde son conocidos como <B>&aacute;cidos grasos</B>. As&iacute;, por ejemplo, el &Aacute;cido Palm&iacute;tico (C16), de 16 &aacute;tomos de carbono:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/palmitic.pdb', 'ballstick')"><b>Ácido Palmítico</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/palmitic.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify">Con mucha frecuencia se presentan insaturados, como es el caso del 9-cis-Octadecenoico o &Aacute;cido Oleico:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/oleico.pdb', 'ballstick')"><b>9-cis-Octadecenoico o Ácido Oleico</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/oleico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+<p align="justify">Que al presentar una insaturaci&oacute;n en cis- da lugar a una mol&eacute;cula angulada.</p>
+
+
+<HR>
+<A NAME="nitro"></A>
+<p align="center"><font size="+1"><b>6. Funciones nitrogenadas</b></font></p>
+<br /><br />
+
+
+
+
+
+
+<p align="justify">Cuando sustitu&iacute;mos el -OH de un alcohol por un grupo amino -NH<SUB>2</SUB>, los compuestos resultantes son las <B>aminas primarias</B>. La amina primaria m&aacute;s sencilla es la Metilamina:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/metamina.pdb', 'ballstick')"><b>Metilamina</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/metamina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">La siguiente en la serie es la Etilamina:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/etamina.pdb', 'ballstick')"><b>Etilamina</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/etamina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+<p align="justify">Cuando uno de los hidr&oacute;genos del grupo amino queda sustitu&iacute;do por otro radical, tendremos las <B>aminas secundarias</B>. Es el caso de la Piperidina:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/piperidi.pdb', 'ballstick')"><b>Piperidina</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/piperidi.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+
+<p align="justify">El grupo amino tiene una gran importancia entre las biomol&eacute;culas. Es el caso de los <B>amino&aacute;cidos</B>, mon&oacute;meros de las prote&iacute;nas. En los amino&aacute;cidos proteicos, un mismo carbono aparece sustitu&iacute;do por un grupo amino y un grupo carboxilo. Podemos verlo en la mol&eacute;cula de L-Alanina:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/alanina.pdb', 'ballstick')"><b>L-Alanina</b></button>
+</center>
+
+<P><CENTER><img SRC="../gif/alanina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+
+<p align="justify">Podemos ver que el grupo amino de esta &uacute;ltima aparece protonado, en forma de -NH<SUB>3</SUB><SUP>+</SUP>, que es la forma en la que habitualmente se presenta el grupo amino al pH de los medios biol&oacute;gicos. Igualmente podemos observar que el grupo carboxilo aparece disociado, en forma de -COO<SUP>-</SUP>.</P>
+
+<p align="justify">Otro grupo importante de aminas son las <B>catecolaminas</B>, un importante conjunto de neurotransmisores y hormonas. Podemos ver la estructura de una de ellas, la L-Adrenalina:</p>
+
+<center>
+<button onclick="loadMolecule('../pdb/adrenali.pdb', 'ballstick')"><b>L-Adrenalina</b></button>
+</center>
+
+
+<P><CENTER><img SRC="../gif/adrenali.gif" ALIGN="TOP"  BORDER="0"></CENTER>
+<br /><br />
+
+<p align="justify">El grupo amino secundario de la mol&eacute;cula aparece protonado: -NH<sub>2</sub><sup>+</sup>-.</p>
+
+
+
+
+
+<br /><br />
+
+<hr />
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=45%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=45%>
+
+				<A HREF="pgJSmol_002.html" ><B>Siguiente: Isomer&iacute;a</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+      </body>
+</html>

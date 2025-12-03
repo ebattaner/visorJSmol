@@ -1,0 +1,451 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Estructura terciaria</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Proteinas.html" ><B>&Iacute;ndice Proteínas</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Estructura terciaria</B></font></center>
+<br /><br />
+<p>
+<p>
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+//-->
+</script>
+
+
+<ul>
+<li><a href ="#conc"><b>Concepto de estructura terciaria</b></a>
+<li><a href ="#fuerzas"><b>Fuerzas que mantienen la estructura terciaria</b></a>
+<li><a href ="#dominios"><b>Dominios estructurales</b></a>
+</ul>
+
+<hr />
+<br /><br />
+
+
+
+<a name="conc"></a>
+<P align="center"><font size="+1"><B>Concepto de Estructura Terciaria</B></font></center>
+
+<p align="justify">Llamamos <B>Estructura terciaria</B> de una proteína a la disposición espacial de todos sus átomos. De los conceptos estructurales propios de las macromoléculas, el de estructura terciaria es el más cercano a lo que en pequeñas moléculas solemos llamar <i>configuración absoluta</i>. Es decir, la estructura terciaria queda definida cuando conocemos las tres coordenadas espaciales X, Y, Z de todos y cada uno de sus átomos.</p>
+
+<p align="justify">El concepto de estructura terciaria surge al considerar que una cadena polipeptídica, a pesar de ser un polímero lineal, se comporta en solución como una estructura compacta, globular (lo cual puede ser evidenciado a través de mediciones hidrodinámicas, como la viscosidad intrínseca o el coeficiente de difusión, ver texto).
+
+<p align="justify">Consideremos el caso de la <i>Mioglobina</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/myog02.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Mioglobina</b>
+  </button>
+</center>
+<br>
+
+
+
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="myog02-steps"
+             onchange="jrun('wireframe off; spacefill off; cartoons; color structure')">
+	Se trata de una proteína de 153 aminoácidos, que posee una gran cantidad de estructura secundaria en  <FONT FACE="symbol">a</FONT>-helicoide:
+          </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="myog02-steps"
+             onchange="jrun('select ligand; wireframe 40; spacefill 100; color cpk; select not solvent')">
+	con un grupoprostético <b>Hemo B</b>. Como podemos ver, los helicoides forman un ovillo dando a la estructura un aspecto compacto, globular. Volviendo a la representación inicial:
+          </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="myog02-steps"
+             onchange="jrun('cartoons off; wireframe 40; spacefill 100; color cpk')">
+	vemos todos los átomos de la estructura en su posición espacial precisa (recuérdese que no se representan los átomos de hidrógeno). Esto es la <b>Estructura Terciaria</b>.
+</label>
+
+</fieldset>	
+</div>
+
+<br /><br />
+<A NAME="fuerzas"></A>
+<P align="center"><font size="+1"><B>Fuerzas que mantienen la estructura terciaria</B></font></center>
+<br />
+
+
+<p align="justify">La estructura terciaria de una proteína está mantenida fundamentalmente por interacciones de tipo débil, aunque también participan, como veremos, algunos enlaces covalentes, en particular el enlace disulfuro -S-S- establecido entre cadenas laterales de cisteína.</p>
+
+
+<p><b>El efecto hidrofóbico</b></p>
+<br />
+
+<p align="justify">Entre las interacciones débiles, sin duda las más importantes, al menos en proteínas globulares, son las determinadas por el <B>Efecto hidrofóbico</B>, que ya vimos en la introducción, pero que volveremos a discutir aquí.</p>
+
+<p align="justify">En un entorno acuoso, los residuos hidrofóbicos de una proteína tienden a excluírse del agua, y por lo tanto, se concentran en el interior de la molécula, de la cual queda a su vez excluída el agua. Para ver este efecto veamos la molécula de la enzima <i>Triosa fosfato isomerasa</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/tpi02.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Triosa fosfato isomerasa</b>
+  </button>
+</center>
+<br>
+
+<p align="justify">Si seleccionamos las cadenas laterales hidrofóbicas y las representamos a su radio de van der Waals: 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="tpi02-steps"
+             onchange="jrun('select hydrophobic and sidechain; spacefill')">
+	podemos apreciar que prácticamente todas ellas están situadas en el interior de la molécula. Nótese que las cadenas laterales polares, que siguen representadas en modelo de barras, están situadas al exterior. Para verlo más claramente, invertiremos la representación de modo que sean las cadenas laterales polares las que aparezcan como modelo espacial manteniendo las hidrofóbicas en modelo de bolas y barras:
+          </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="myog02-steps"
+             onchange="jrun('spacefill off; select polar; spacefill; select not solvent')">
+	observamos que los residuos polares están situados hacia el exterior, en contacto con el solvente, mientras que el interior de la molécula aparece prácticamente hueco.
+          </label>
+
+lign="justify">Esto hace que la estructura  de una proteína sea asimilable a la de una <i>micela</i>. Las interacciones de van der Waals generadas en el interior a través de este efecto hidrofóbico son una fuerza básica en el mantenimiento de la estructura tridimensional de la proteína.</p>
+
+
+<A NAME="hidro"></A>
+<p><b>Enlaces de hidrógeno</b></p>
+<p align="justify"> Los enlaces de hidrógeno son asimismo fundamentales en el mantenimiento no sólo de la estructura secundaria, sino también de la terciaria. Podemos apreciarlo en esta misma proteína:
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="myog02-steps"
+             onchange="jrun('spacefill off; wireframe 40; spacefill 100; color cyan; calculate hbonds; color hbonds black; hbonds 40')">
+	en la que representamos en negro los enlaces de hidrógeno y en cyan el resto de la estructura..
+          </label>
+
+</fieldset>
+</div>
+
+<br /><br />
+
+<A NAME="disulf"></A>
+<p><b>Enlaces disulfuro</b></p>
+<p align="justify">En el mantenimiento de la estructura terciaria tienen mucha importancia algunos enlaces covalentes, y en particular el <i>Enlace disulfuro</i>:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ssb02.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   wireframe 40; spacefill 100')">
+    <b>Enlace disulfuro, 1</b>
+  </button>
+</center>
+<br>
+
+<p align="justify">Tenemos en esta imagen dos tramos consecutivos en  <FONT FACE="symbol">a</FONT>-helicoide, unidos por un enlace disulfuro establecido entre las cadenas laterales de dos cisteínas: 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ssb02-steps"
+             onchange="jrun('restrict backbone; select cys; wireframe 40; spacefill 100')">
+	  La presencia de este enlace introduce en la molécula una curvatura sobre el eje principal.
+          </label>
+</fieldset>
+</div>
+
+
+<p align="justify">Veamos otro ejemplo de Enlace disulfuro:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ssb03.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent; wireframe 40; spacefill 100')">
+    <b>Enlace disulfuro, 2</b>
+  </button>
+</center>
+<br>
+
+<p align="justify">
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="ssb03-steps"
+             onchange="jrun('restrict backbone; select cys; wireframe 40; spacefill 100')">
+	  Aquí aparecen dos tramos sin estructura secundaria unidos por un enlace disulfuro:
+          </label>
+</fieldset>
+</div>
+
+<br /><br />
+
+<A NAME="dominios"></A>
+<P align="center"><font size="+1"><B>Dominios estructurales</B></font></center>
+<br />
+
+<p align="justify">Hemos visto anteriormente que las diferentes estructuras secundarias (hélices, láminas y giros) se combinan para dar motivos estructurales. La asociación de varios motivos en una única cadena polipeptídica da lugar a la estructura terciaria. Ahora bien, la estructura terciaria suele agruparse en forma de <i>Dominios</i>, concepto que vamos a analizar a continuación.</p>
+
+
+<p align="justify">La enzima <i>Papaína</i> es una <I>tiol-proteinasa</I>, es decir, una enzima proteolítica cuyo centro activo posee un grupo -SH. Se extrae del látex de la papaya. Se emplea ampliamente en la industria de la alimentación. Su estructura es la siguiente:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1pad.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   wireframe off; spacefill off; cartoons')">
+    <b>Papaína</b>
+  </button>
+</center>
+<br>
+
+<p align="justify">En su estructura, podemos apreciar dos "ovillos" (dominios) separados por una zona sin estructura secundaria en particular. 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1pad-steps"
+             onchange="jrun('select 1-111; color structure; select all')">
+	  El dominio 1 corresponde aproximadamente a la mitad N-terminal de la molécula y presenta una estructura secundaria de tres alfa-helicoides.
+          </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1pad-steps"
+             onchange="jrun('color cpk; select 112-212; color structure; select all')">
+	  mientras que el dominio 2 o C-terminal tiene una estructura secundaria distinta (dos tramos <font face="symbol">b</font> antiparalelos y dos <font face="symbol">a</font>-helicoides).
+          </label>
+
+</fieldset>
+</div>
+
+
+<p align="justify">A menudo los dominios corresponden a diferentes funciones dentro de la misma proteína (por ejemplo, regiones catalíticas y regiones regulatorias) y casi siempre corresponden a tramos genéticos codificantes (<i>exones</i>) diferentes.</p>
+
+<p align="justify">La estructura de la papaína presenta dos dominios estructuralmente diferentes. En otras proteínas, sin embargo, los dominios tienen una estructura muy parecida. Es el caso de la <i>Elastasa</i>, otra enzima proteolítica:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/3est.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   wireframe off; spacefill off; cartoons')">
+    <b>Elastasa</b>
+  </button>
+</center>
+<br>
+
+<p align="justify">En su estructura podemos apreciar dos dominios bastante parecidos:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3est-steps"
+             onchange="jrun('select 16-123; color structure; select all')">
+	  El dominio N-terminal, y
+          </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3est-steps"
+             onchange="jrun('color cpk; select 124-245; color structure; select all')">
+	  el dominio C-terminal. Puede apreciarse que en ambos casos hay una estructuración en lámina <FONT FACE="symbol">b</FONT>.
+          </label>
+
+</fieldset>
+</div>
+<br /><br />
+
+<p>Como veremos, la estructuración en dominios es característica de las <a href="pgJSmol_097.html"><b>Inmunoglobulinas</b></a>, que serán estudiadas más adelante.</p>
+
+
+
+
+<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_092.html" ><B>Anterior: Estructura Secundaria</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_094.html" ><B>Siguiente: Estructura Cuaternaria</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

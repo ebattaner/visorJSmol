@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Inmunoglobulinas</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Proteinas.html" ><B>&Iacute;ndice Proteínas</B></A></font>
+</center>
+<p>
+<hr />
+<p>
+<P align="center"><font size="+2"><B>Inmunoglobulinas</B></font></center>
+<br /><br />
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+//-->
+</script>
+
+
+<ul>
+<li><a href ="#intro"><b>Introducción</b></a>
+<li><a href ="#estr"><b>Estructura general de las inmunoglobulinas</b></a>
+<li><a href ="#fragm"><b>Fragmentos Fab y Fc</b></a>
+<li><a href ="#disulf"><b>Enlaces disulfuro</b></a>
+</ul>
+
+<hr />
+<br /><br />
+
+
+<a name="intro"></a>
+<P align="center"><font size="+1"><B>Introducción</B></font></center>
+<br /><br />
+
+<p align="justify">Las <i>Inmunoglobulinas</i> constituyen una extensa superfamilia de proteínas a la cual pertenecen todos los <i>Anticuerpos</i>. Su estructura (ver texto, capítulo 11) es lo suficientemente interesante para que la analicemos con detenimiento.</p>
+
+
+<p align="justify">Todas las inmunoglobulinas tienen una misma estructura, que consta de dos cadenas pesadas (<i>heavy</i>, cadenas H) y dos cadenas ligeras (<i>light</i>, cadenas L) unidas por puentes disulfuro. Las dos cadenas pesadas y las dos cadenas ligeras son siempre iguales en cada molécula. Las cadenas pesadas pueden ser de cinco tipos, <b><font face="symbol">g</font></b>, <b><font face="symbol">a</font></b>, <b><font face="symbol">m</font></b>, <b><font face="symbol">d</font></b> y <b><font face="symbol">e</font></b>. A su vez, las cadenas ligeras pueden ser de dos tipos, <b><font face="symbol">k</font></b> y <b><font face="symbol">l</font></b>.</p>
+
+
+
+<p align="justify">Los diferentes tipos de inmunoglobulina se distinguen por la cadena pesada. Así, tenemos la <i>Inmunoglobulina G</i> o <i>IgG</i>, <font face="symbol">g<sub>2</sub>k<sub>2</sub></font> o <font face="symbol">g<sub>2</sub>l<sub>2</sub></font>, la <i>Inmunoglobulina A</i> o <i>IgA</i>, <font face="symbol">a<sub>2</sub>k<sub>2</sub></font> o <font face="symbol">a<sub>2</sub>l<sub>2</sub></font>, la <i>Inmunoglobulina M</i> o <i>IgM</i>, <font face="symbol">m<sub>2</sub>k<sub>2</sub></font> o <font face="symbol">m<sub>2</sub>l<sub>2</sub></font>, la <i>Inmunoglobulina D</i> o <i>IgD</i>, <font face="symbol">d<sub>2</sub>k<sub>2</sub></font> o <font face="symbol">d<sub>2</sub>l<sub>2</sub></font>, y la <i>Inmunoglobulina E</i> o <i>IgE</i>, <font face="symbol">e<sub>2</sub>k<sub>2</sub></font> o <font face="symbol">e<sub>2</sub>l<sub>2</sub></font>.</p>
+
+
+<br /><br />
+<a name="estr"></a>
+<P align="center"><font size="+1"><B>Estructura general de las inmunoglobulinas</B></font></center>
+<br /><br />
+
+
+
+
+<p align="justify">La inmunoglobulina G, la más abundante de todas, nos vale para ilustrar la estructura general de las inmunoglobulinas</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1igt.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   restrict not solvent')">
+    <b>Inmunoglobulina G</b>
+  </button>
+</center>
+<br>
+
+
+<p align="justify">Si representamos de manera esquemática la molécula, diferenciando cada una de las cuatro cadenas (2L y 2H) con un código de color:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('spacefill off; wireframe off; cartoons; color chain')">
+	(Cadenas pesadas verde y amarillo; cadenas ligeras azul y rosa) podemos apreciar que se trata de una estructura en Y. Los brazos de la misma corresponden a una cadena ligera y la mitad N-terminal de la pesada, y el tallo de la Y está formado por las mitades C-terminales de las cadenas pesadas. Veamos la estructura de una de las cadenas ligeras:
+    </label>
+
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('restrict :A; center :A; color structure; zoom 300; color labels black; select atomno=11;label N-t; select        atomno=2031;label C-t; select all')">
+	Vemos que consta de dos dominios bien diferenciados de estructura similar, una <i>doble lámina beta antiparalela</i>, que veremos en todas las cadenas, L y H, de las inmunoglobulinas.
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('select atomno=607; label VL; select atomno= 1945; label CL; select all')">
+	Los dominios son VL (dominio variable, N-terminal, de cadena ligera) y CL (dominio constante, C-terminal, de cadena ligera.
+    </label>
+
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('reset; rotate y -90; labels off; wireframe off; spacefill off; restrict :B; cartoons; color structure; color labels black; select atomno=2041; label N-t; select atomno= 6252; label C-t; select all')">
+	La estructura de la cadena pesada es similar, pero con cuatro dominios en lugar de dos. Todos ellos tienen la misma estructura de doble lámina beta antiparalela. Son los dominios VH (variable de cadena pesada, N-terminal) y CH1, CH2 y CH3 (constantes de cadena pesada 1,2 y 3, siendo este último C-terminal).
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('select atomno=2575; label VH; select atomno=3247; label CH1; select atomno=4873; label CH2; select atomno=5303; label CH3')">
+	Obsérvese que los dominios CH1 y CH2 aparecen separados por una zona relativamente extensa sin estructura secundaria: 
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('select atomno=4128; label Hinge; select protein')">
+	es la Región Bisagra o <i>Hinge Region</i>. 
+    </label>
+
+</fieldset>	
+</div>
+
+
+<br /><br />
+<a name="fragm"></a>
+<P align="center"><font size="+1"><B>Fragmentos Fab y Fc</B></font></center>
+<br /><br />
+
+
+<p align="justify">La digestión por la enzima proteolítica <i>Papaína</i> destruye la región <i>Hinge</i> (que carece de estructura secundaria) y divide la molécula en tres fragmentos, dos fragmentos <b>Fab</b> (<i>Fragment Antigen Binding</i>, fijación de antígeno), y un fragmento <b>Fc</b>, (<i>Fragment constant</i>, constante). Para verlo volvamos a la representación inicial de la molécula:
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('select protein; cartoons; color chain; define hingeb :B and 227-250; define hinged :D and 227-250; select protein')">
+	La digestión por papaína destruye la región <i>Hinge</i> de las dos cadenas pesadas, dividiéndose la molécula en tres fragmentos: Dos fragmentos Fab idénticos, constituidos cada uno por una cadena ligera y la mitad N-terminal de la pesada: 
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('restrict not hingeb and not hinged; wireframe off; spacefill off; cartoons; color chain; color labels white; select atomno=136; label Fab; select atomno=7492; label Fab; select atomno=11481; label Fc; select protein ')">
+	 y un fragmento Fc. La unión del antígeno tiene lugar en los dominios N-terminales (dominios variables) de los fragmentos Fab, representados en color <i>structure</i>: 
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('select 1-110; color structure; select protein')">
+	 Por su parte, el fragmento Fc  contiene los dominios CH2 y CH3 de ambas cadenas pesadas: 
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('select 1-110; color chain; select 251-474; color structure; select protein')">
+	 (en color <i>structure</i>). Unidos a los dominios CH2 de las cadenas pesadas, en el fragmento Fc, 
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('select ligand; wireframe 40; spacefill 100; color cpk; select all')">
+	 aparece un oligosacárido complejo, como suele ser la norma en proteínas extracelulares. 
+    </label>
+
+
+<br /><br />
+<a name="disulf"></a>
+<P align="center"><font size="+1"><B>Enlaces disulfuro</B></font></center>
+<br /><br />
+
+
+<p align="justify">La estructura cuaternaria de las inmunoglobulinas está mantenida por <b>Enlaces disulfuro</b> establecidos entre cisteínas. Partiendo de la estructura original: </p>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('select protein; cartoons off; wireframe 40; spacefill 100; color cpk; select all')">
+	 Estos enlaces son los siguientes: (1) Las dos cadenas pesadas se unen entre sí mediante tres enlaces disulfuro, establecidos entre las cisteínas 237, 240 y 242 de ambas cadenas pesadas. Todos estos residuos se encuentran en la región <i>Hinge</i>: 
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('restrict :B, :D; restrict backbone; wireframe 40; spacefill 100; color chain; select 237,240,242; spacefill 50%; wireframe 60; color cpk; center atomno=10630; zoom 300; select protein')">
+	 (2) Las cadenas pesadas están unidas a las ligeras a través de un disulfuro establecido entre la cisteína 214 de la cadena ligera y la cisteína 128 de la cadena pesada:
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('reset; select 214 and :A, 128 and :B, 214 and :C, 128 and :D; spacefill 50%; wireframe 60; color cpk; center atomno=10579; zoom 300; select protein')">
+	 (3) Hay además enlaces disulfuro <i>intracatenarios</i>, uno por cada dominio,     </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1igt-steps"
+             onchange="jrun('reset; select cys; spacefill 50%; wireframe 60; color cpk; select protein')">
+	 (4) es decir, dos en la cadena ligera y cuatro en la pesada.
+    </label>
+
+<!--
+
+				<script type="text/javascript"><!--
+					jmolRadioGroup([
+					["load Proteinas/estructuras/1igt.pdb; select protein","Estos enlaces son los siguientes: (1) Las dos cadenas pesadas se unen entre sí mediante tres enlaces disulfuro, establecidos entre las cisteínas 237, 240 y 242 de ambas cadenas pesadas. Todos estos residuos se encuentran en la región <i>Hinge</i>:"],
+
+      					["restrict *b,*d; restrict backbone; wireframe 40; spacefill 100; color chain; select 237,240,242; spacefill 50%; wireframe 60; color cpk; center atomno=10630; zoom 300; select protein","(2) Las cadenas pesadas están unidas a las ligeras a través de un disulfuro establecido entre la cisteína 214 de la cadena ligera y la cisteína 128 de la cadena pesada:"],
+ 
+     					["reset; select 214 and *a, 128 and *b, 214 and *c, 128 and *d; spacefill 50%; wireframe 60; color cpk; center atomno=10579; zoom 300; select protein","(3) Hay además enlaces disulfuro <i>intracatenarios</i>, uno por cada dominio (es decir, dos en la cadena ligera y cuatro en la pesada:"],
+      					["reset; select cys; spacefill 50%; wireframe 60; color cpk; select protein",""]],
+					"")
+					//
+					</script>
+					</p>
+-->
+
+
+<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_096.html" ><B>Anterior: Hemoglobina</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_098.html" ><B>Siguiente: Colágeno</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

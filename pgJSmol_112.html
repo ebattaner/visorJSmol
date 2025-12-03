@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Aspartato transcarbamilasa</title>
+<style>
+  :root{ --gap:16px; --vh:500px; --textH:300px; }
+  *{box-sizing:border-box} body{margin:0;font-family:Arial, Helvetica, sans-serif;background:#ccc}
+  #superior{padding:10px}
+  .fila{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+  .panel{background:#f5f5f5;border:1px solid #999;border-radius:8px;padding:8px}
+  .visor{height:var(--vh);border:1px dashed #666;border-radius:6px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  #inferior{margin:10px;background:#e5e5e5;border:1px solid #999;border-radius:8px;padding:10px;height:var(--textH);overflow:auto}
+  @media (max-width:900px){.fila{grid-template-columns:1fr}}
+  .btn{padding:6px 10px;border:1px solid #666;border-radius:8px;background:#fff;cursor:pointer;margin-right:6px}
+  .btn:hover{background:#f0f0f0}
+  .molblock{border-top:1px dashed #aaa;margin-top:12px;padding-top:10px}
+  fieldset.molfs{border:1px solid #999;border-radius:8px;padding:6px 10px;margin:8px 0}
+  fieldset.molfs legend{font-size:12px;color:#333;padding:0 6px}
+  .row{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0;align-items:center}
+  .row label{cursor:pointer}
+  .note{font-size:12px;color:#444}
+</style>
+<!-- Cargar JSmol (ojo: carpeta con mayúscula) -->
+<script id="jsmolLib" src="../JSmol/JSmol.min.js"></script>
+</head>
+<body>
+  <div id="superior">
+    <div class="fila">
+      <div class="panel"><div class="visor" id="viewerA">Visor IZQUIERDO</div></div>
+      <div class="panel"><div class="visor" id="viewerB">Visor DERECHO</div></div>
+    </div>
+  </div>
+
+  <div id="inferior">
+
+
+
+
+<FONT FACE="Arial">
+<P align="center"><A TARGET="_top" HREF="Distr_Enzimas.html" ><b>&Iacute;ndice Enzimas</b></A>
+<A NAME="ind"></A>
+<CENTER><h3><B>Estudio estructural de la aspartato transcarbamilasa</B></h3></CENTER>
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align=center width=45%>
+	<label><input type="radio" name="hlA_1rai_12a" data-target="A" data-cmd="load ../pdb/1rai_12a.pdb; restrict not solvent; spacefill; colour chain; select not solvent"><b>ATCasa, estado T</b></label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="load ../pdb/7at1_12a.pdb; restrict not solvent; spacefill; color chain; "><b>ATCasa, estado R</b></label>
+	</td></tr>
+</table>
+</center>
+
+
+
+<P align="justify"><UL>
+<LI><A HREF="#monreg" ><B>1. El mon&oacute;mero regulatorio</B></A>
+<LI><A HREF="#moncat " ><B>2. El mon&oacute;mero catal&iacute;tico</B></A>
+<LI><A HREF="#subreg" ><B>3. La subunidad regulatoria</B></A>
+<LI><A HREF="#subcat" ><B>4. La subunidad catal&iacute;tica</B></A>
+<LI><A HREF="#aet" ><B>5. Un an&aacute;logo de estado de transici&oacute;n: Fosfonoacetil-L-aspartato (PALA)</B></A>
+<LI><A HREF="#dodec" ><B>6. Estudio de la mol&eacute;cula completa</B></A>
+</UL>
+
+<P align="justify">La s&iacute;ntesis de pirimidinas comienza con la uni&oacute;n de carbamilfosfato a aspartato, con liberaci&oacute;n de fosfato inorg&aacute;nico, para dar carbamilaspartato. Se trata del primer paso comprometido en la bios&iacute;ntesis de pirimidinas, y est&aacute; catalizado por la enzima Aspartato transcarbamilasa (Carbamil fosfato: L-aspartato carbamil transferasa, EC 2.1.3.2). 
+
+<P align="justify">Esta enzima tiene un interesant&iacute;simo comportamiento regulatorio. Ya desde los estudios de Gerhart y Pardee en los '50 se sabe que su actividad se inhibe por el nucle&oacute;tido CTP, que es uno de los productos finales de la bios&iacute;ntesis de pirimidinas. De esta forma, la ATCasa es un sistema t&iacute;pico de retroalimentaci&oacute;n negativa. Pero al mismo tiempo, la ATCasa es activada por ATP, producto final de la bios&iacute;ntesis de purinas. De esta forma, s&iacute;ntesis de purinas y pirimidinas quedan reguladas mutuamente. Por otra parte, la enzima muestra una cin&eacute;tica an&oacute;mala respecto a sus dos substratos, carbamilfosfato y aspartato, dando lugar a una dependencia sigmoide de la velocidad respecto a la concentraci&oacute;n de substrato.
+
+<P align="justify">La enzima consta de dos tipos de subunidades, catal&iacute;tica y regulatoria, habiendo dos subunidades catal&iacute;ticas y tres regulatorias por mol&eacute;cula. Cada subunidad catal&iacute;tica consta de tres polip&eacute;ptidos (c<SUB>3</SUB>) y la regulatoria de dos (r<SUB>2</SUB>), por lo que la enzima completa es un dodec&aacute;mero (c<SUB>3</SUB>)<SUB>2</SUB> (r<SUB>2</SUB>)<SUB>3</SUB>. Las subunidades catal&iacute;ticas fijan y transforman a los substratos, mientras que las regulatorias fijan a los efectores (CTP y ATP).
+
+</br></br>
+
+
+
+<P align="justify">La enzima mejor estudiada es la de <I>Escherichia coli</I>, a partir de trabajos llevados a cabo por W.Lipscomb y colaboradores en la universidad de Harvard. En esta demostraci&oacute;n nos basamos sobre todo en estos trabajos; un buen resumen est&aacute; en Kantrowitz,E.R. y Lipscomb,W.N., Science, 241 (1988), 669-674.
+
+<P align="justify"><A HREF="#ind " >Vuelta al &iacute;ndice</A>
+
+<A NAME="monreg"></A>
+<P align="justify"><CENTER><B>1. El mon&oacute;mero regulatorio</B></CENTER>
+
+<P align="justify">La subunidad regulatoria de la aspartato transcarbamilasa est&aacute; formada por dos mon&oacute;meros id&eacute;nticos, y hay tres subunidades regulatorias por mol&eacute;cula de holoenzima. En primer lugar, vamos a examinar el 
+<center><table border=0 WIDTH=90%><tr>
+
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="load ../pdb/1rai_r1.pdb;spacefill off; wireframe  off;cartoons;colour chain;define sitreg 9-12,17,19,20,52,56,58,60,82,84,86,89,91,94;define sitzn 109,114,138,141">Monómero regulatorio, estado T</label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="load ../pdb/7at1_r1.pdb; spacefill off; wireframe off; cartoons; colour chain;define sitreg 9-12,17,19,20,52,56,58,60,82,84,86,89,91,94;define sitzn 109,114,138,141">Monómero regulatorio, estado R</label>
+	</td></tr>
+</table>
+</center>
+
+<p align="justify">A efectos de recordar la situaci&oacute;n, la forma R se carga en la pantalla derecha (ingl&eacute;s <I><B>R</B>ight</I>). Se representan en colores <i>chain</i>.</p>
+
+<P align="justify">Los sitios propios de esta subunidad son:</p>
+
+<P align="justify">(a). El sitio alost&eacute;rico est&aacute; constitu&iacute;do por una l&aacute;mina <FONT FACE="Symbol">b</FONT> que fija nucle&oacute;tidos, 
+
+<center><table border=0 WIDTH=90%>
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="spacefill off; wireframe off; cartoons;colour chain; select sitreg; spacefill; colour cpk ">En el estado T</label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="spacefill off; wireframe off; cartoons;colour chain; select sitreg; spacefill; colour cpk">Y en el estado R</label>
+	</td></tr>
+</table>
+</center>
+
+<p align="justify">En este sitio encontramos nucle&oacute;tidos fijados:  </p>
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour white; select ctp; spacefill; colour cpk ">CTP, inhibidor alost&eacute;rico, en el estado T</label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="colour white; select atp; spacefill; colour cpk ">y ATP, activador alost&eacute;rico, en el estado R:</label>
+	</td></tr>
+</table>
+</center>
+
+<p align="justify">(b). El sitio del zinc, con un &aacute;tomo de zinc tetracoordinado a los azufres de cuatro ciste&iacute;nas:</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select sitzn; spacefill; colour cpk">En el estado T</label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select sitzn; spacefill; colour cpk">Y en el estado R:</label>
+	</td></tr>
+</table>
+</center>
+
+<p align="justify"Dando un complejo tetra&eacute;drico parecido al conjunto Fe-S de ferrosulfoprote&iacute;nas como la rubredoxina.<(p>
+
+
+
+<P align="justify"><A HREF="#ind " >Vuelta al &iacute;ndice</A>
+
+<A NAME="moncat"></A>
+<P align="justify"><CENTER><B>2. El mon&oacute;mero catal&iacute;tico</B></CENTER>
+
+<P align="justify">La subunidad catal&iacute;tica de la aspartato transcarbamilasa est&aacute; formada por tres mon&oacute;meros id&eacute;nticos, y hay dos subunidades catal&iacute;ticas  por mol&eacute;cula de holoenzima. En primer lugar, vamos a examinar el 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="load ../pdb/1rai_c1.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitcat 51-55,80,84,105,134,137,167,168,229,231,234,266,267,268; select not solvent"><B>Mon&oacute;mero catal&iacute;tico, estado T</B></A> (en la pantalla izquierda)</label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="load ../pdb/7at1_c1.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitcat 51-55,80,84,105,134,137,167,168,229,231,234,266,267,268; select not solvent">y en la pantalla derecha el <B> mon&oacute;mero catal&iacute;tico, estado R</B></label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<p>Podemos visualizar los residuos del centro catal&iacute;tico</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select sitcat; spacefill;colour cpk ">En el estado T</label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select sitcat; spacefill;colour cpk">y el mismo sitio en la forma R</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+
+
+
+
+<P align="justify">Rotando convenientemente la mol&eacute;cula podemos apreciar c&oacute;mo el centro activo est&aacute; "abierto" en la forma T y "cerrado" en la forma R. Es la fijaci&oacute;n de los substratos lo que determina este cierre de la mol&eacute;cula. En la subunidad catal&iacute;tica, cada centro activo est&aacute; formado por amino&aacute;cidos procedentes de dos mon&oacute;meros contiguos; &eacute;sa es la raz&oacute;n por la que los residuos Ser 80 y Lys 84 est&aacute;n separados del n&uacute;cleo principal del centro.
+
+<P align="justify"> 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="center" width=45%>
+<td align="left" width=45%>Los ligandos presentes en el centro activo en la forma R son:</td></tr>
+<tr><td align="center" width=45%>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="colour white; select pam; spacefill; colour cpk">(a) Fosfonoacetamida</label>
+	</td></tr>
+<tr><td align="center" width=45%>
+<td align="center" width=45%>
+<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd=" select mal; spacefill; colour cpk">y (b) Malonato</label>
+
+</table>
+</center>
+</br></br>
+
+
+<P align="justify"><A HREF="#ind " >Vuelta al &iacute;ndice</A>
+
+<A NAME="subreg"></A>
+<P align="justify"><CENTER><B>3. La subunidad regulatoria</B></CENTER>
+
+<P align="justify">La subunidad regulatoria propiamente dicha de la aspartato transcarbamilasa consta de dos mon&oacute;meros r como el que vimos m&aacute;s arriba. La asociaci&oacute;n de  da lugar a la
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="load ../pdb/1rai_r2.pdb; wireframe  off; spacefill off; cartoons; colour chain; define r1 atomno>2439 and atomno<3637; define r2 atomno>3678 and atomno<4818; define sitreg 9-12,17,19,20,52,56,58,60,82,84,86,89,91,94; define sitzn 109,114,138,141"><B>subunidad regulatoria, d&iacute;mero, estado T</B>en la pantalla izquierda</label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="load ../pdb/7at1_r2.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitreg 9-12,17,19,20,52,56,58,60,82,84,86,89,91,94; define sitzn 109,114,138,14"><B>subunidad regulatoria, d&iacute;mero, estado R</B> en la pantalla derecha.</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<P align="justify">En esta representaci&oacute;n podemos ver:
+
+<P align="justify">(a) la situaci&oacute;n relativa de ambos mon&oacute;meros difieren en los estados R y T. Se puede apreciar que en el estado R el &aacute;ngulo que forman los ejes mayores de ambos d&iacute;meros est&aacute; m&aacute;s abierto que en la forma T.
+
+<P align="justify">(b) El sitio alost&eacute;rico que fija  nucle&oacute;tidos 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour chain; select sitreg; spacefill; colour cpk">En el estado T</label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="colour chain; select sitreg; spacefill; colour cpk">y lo mismo en el estado R</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+
+<P align="justify">(c) Los nucle&oacute;tidos fijados: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select sitreg; colour white; select ctp; spacefill; colour cpk ">CTP en el estado T</label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select sitreg; colour white; select atp; spacefill; colour cpk ">y ATP (una sola mol&eacute;cula) en el estado R:</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<P align="justify">(d) El sitio del zinc:</p> 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select sitzn; spacefill; colour cpk "> en el estado T</label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select sitzn; spacefill; colour cpk"> y lo mismo en el estado R</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+
+<P align="justify"><A HREF="#ind " >Vuelta al &iacute;ndice</A>
+
+<A NAME="subcat"></A>
+<P align="justify"><CENTER><B>4. La subunidad catal&iacute;tica</B></CENTER>
+
+<P align="justify">La subunidad catal&iacute;tica propiamente dicha de la aspartato transcarbamilasa consta de tres mon&oacute;meros c como el que vimos m&aacute;s arriba. La asociaci&oacute;n de los tres da lugar a la
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="load ../pdb/1rai_c3.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitcat 51-55,80,84,105,134,137,167,168,229,231,234,266,267,268"><B>subunidad catal&iacute;tica, tr&iacute;mero, estado T</B></label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="load ../pdb/7at1_c3.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitcat 51-55,80,84,105,134,137,167,168,229,231,234,266,267,268"><B>subunidad catal&iacute;tica, tr&iacute;mero, estado R</B></label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<P align="justify">Los sitios catal&iacute;ticos est&aacute;n formados por amino&aacute;cidos que pertenecen a mon&oacute;meros distintos, tal como podemos ver
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="center" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="cartoons off; backbone; colour chain; select sitcat; spacefill "> en el estado T</label>
+<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="cartoons off; backbone; colour chain; select sitcat; spacefill"> y lo mismo en el estado R</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<p align="justify">Aqu&iacute; hemos utilizado el colour <I>Chain</I> para apreciar la participaci&oacute;n en dicho centro de amino&aacute;cidos de otros mon&oacute;meros.</p>
+
+
+<P align="justify">Aparecen ligandos unidos solamente en el estado R:</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="center" width=45%></td>
+	<td align="center" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="colour white; select pam; spacefill; colour cpk ">Por un lado, fosfonoacetamida, an&aacute;logo de carbamilfosfato</label></td></tr>
+<tr><td align="center" width=45%></td>
+	<td align="center" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select mal; spacefill; colour cpk "> y por otro malonato, an&aacute;logo de aspartato</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<p lign="justify">Ob&eacute;rvese c&oacute;mo los substratos aparecen ocultos bajo los distintos residuos del centro activo, lo cual es una caracter&iacute;stica del estado R. En el estado T los centros activos permanecen abiertos.</p>
+
+
+<P align="justify"><A HREF="#ind " >Vuelta al &iacute;ndice</A>
+
+<A NAME="aet"></A>
+<P align="justify"><CENTER><B>5. Un an&aacute;logo de estado de transici&oacute;n: Fosfonoacetil-L-aspartato (PALA)</B></CENTER>
+
+<P align="justify">Gran parte de los estudios sobre la ATCasa se han llevado a cabo mediante el uso del fosfonoacetil-L-aspartato (PALA), an&aacute;logo de estado de transici&oacute;n de la enzima y que se fija con una enorme afinidad al estado R. Para examinar el concepto de an&aacute;logo de estado de transici&oacute;n procedemos a la demostraci&oacute;n siguiente: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="load ../pdb/8atc_c1.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitcat 51-55,80,84,105,134,137,167,168,229,231,234,266,267,268">  Cargamos en la pantalla izquierda un <b>mon&oacute;mero catal&iacute;tico, estado R</B>, con fosfonoacetil-L-aspartato (PALA)  cargado en el centro activo</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="load ../pdb/7at1_c1.pdb; wireframe  off; spacefill off;cartoons; colour chain; define c1 atomno>0 and atomno<2416; define c2 atomno>7173 and atomno<9589; define sitcat 51-55,80,84,105,134,137,167,168,229,231,234,266,267,268"> Y en la pantalla derecha el <B>mon&oacute;mero catal&iacute;tico, estado R</B>, con fosfonoacetamida (PAM) y malonato (MAL) ocupando asimismo el centro activo.</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+
+<P align="justify">Por la visi&oacute;n de los centros activos nos damos cuenta que ambas subunidades est&aacute;n en el estado R (ambas tienen "cerrado" el centro activo); por una parte,  la que tiene PALA fijado: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select sitcat; spacefill; colour cpk ">por una parte,  la que tiene PALA fijado</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select sitcat; spacefill; colour cpk">y por otra la que tiene PAM y MAL</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+
+Podemos ver la fijaci&oacute;n de ligandos: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour white; select pal; spacefill; colour cpk ">PALA en un caso</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="colour white; select pam,mal; spacefill; colour cpk">y  PAM y MAL en otro: </label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<P align="justify">Es interesante comprobar la analog&iacute;a que presenta PALA con el <I>conjunto</I> de los dos substratos. 
+Para ello, restringimos la visi&oacute;n al ligando en la ventana izquierda: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="center atomno=2422;  zoom 300; restrict pal;  spacefill; colour cpk"> PALA en la ventana izquierda</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="center atomno=2422; restrict ligand; zoom 300; spacefill; colour cpk"> Y PAM y MAL en la derecha</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+
+<p align="justify">podemos representar asimismo los residuos del centro activo: </p>
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select sitcat; spacefill; colour white "> En la pantalla derecha</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select sitcat; spacefill; colour white"> Y en la pantalla izquierda</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+
+
+
+<P align="justify"><A HREF="#ind " >Vuelta al &iacute;ndice</A>
+
+<A NAME="dodec"></A>
+<P align="justify"><CENTER><B>6. Estudio de la mol&eacute;cula completa</B></CENTER>
+
+<P align="justify">La aspartato transcarbamilasa tiene una estructura cuaternaria (c<SUB>3</SUB>)<SUB>2</SUB>(r<SUB>2</SUB>)<SUB>3</SUB>, esto es, consta de dos subunidades catal&iacute;ticas compuestas por tres mon&oacute;meros cada una, y tres subunidades regulatorias formadas a su vez por dos mon&oacute;meros cada una. El conjunto es una mol&eacute;cula altamente sim&eacute;trica, con un eje ternario de simetr&iacute;a y tres ejes binarios perpendiculares al anterior. Vamos a continuaci&oacute;n a ver una panor&aacute;mica de la mol&eacute;cula entera.
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="load ../pdb/1rai_12a.pdb; wireframe off; spacefill off; cartoons; colour chain; define sitcat 51-55,80,84,105,134,137,167,168,229,231,234,266,267,268; define sitreg 9-12,17,19,20,52,56,58,60,82,84,86,89,91,94; define sitzn 109,114,138,141">Cargamos en la pantalla izquierda <B>ATCasa, dodec&aacute;mero completo, estado T</B></A></label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="load ../pdb/7at1_12a.pdb; wireframe off; spacefill off; cartoons; colour chain; define sitcat 51-55,80,84,105,134,137,167,168,229,231,234,266,267,268; define sitreg 9-12,17,19,20,52,56,58,60,82,84,86,89,91,94; define sitzn 109,114,138,141">y en la pantalla derecha <B>ATCasa, dodec&aacute;mero completo, estado R</B></label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<P align="justify">La visi&oacute;n que se obtiene es a lo largo del eje ternario de simetr&iacute;a. Lo m&aacute;s cercano al observador es una de  las dos subunidades catal&iacute;ticas c<SUB>3</SUB>. Podemos verla asimismo a lo largo de uno de los ejes binarios: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="reset; rotate x 90; rotate y 35">La forma T</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="reset; rotate x 90; rotate y 35">y en la forma R, con lo que lo m&aacute;s cercano al observador es uno de los tres d&iacute;meros regulatorios r<SUB>2</SUB></label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<P align="justify">Se puede apreciar que la forma R aparece m&aacute;s expandida que la T, dando lugar a un interior hueco, mientras que en la forma T este interior es m&aacute;s compacto.
+
+<P align="justify">Vista as&iacute;, las subunidades catal&iacute;ticas est&aacute;n en los "polos" de la mol&eacute;cula
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select :a,:e,:i,:c,:h,:l; spacefill "> En el estado T</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select :a,:e,:i,:c,:h,:l; spacefill "> y en el estado R</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<P align= "justify">mientras que las subunidades regulatorias ocupan el "ecuador" de la misma:</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select all; spacefill off; select :b,:d,:f,:g,:j,:k; spacefill ">En el estado T</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select all; spacefill off; select :b,:d,:f,:g,:j,:k; spacefill">Y en el estado R</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<P align="justify">Podemos ver los ligandos alost&eacute;ricos fijados a las distintas subunidades: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select all; cartoons off; spacefill;  select ctp; spacefill; colour cpk ">CTP a la forma T</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select all; cartoons off; spacefill; select atp; spacefill; colour cpk ">Y ATP a la forma R</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<p>Hemos de tener en cuenta que s&oacute;lo hay un ATP fijado a cada una de las subunidades catal&iacute;ticas (podr&iacute;a haber dos).</p>
+
+<P align="justify">El lugar del substrato s&oacute;lo est&aacute; ocupado  en el estado R por  fosfonoacetamida (PAM) y malonato (MAL), tal como hemos visto en los apartados anteriores de esta demostraci&oacute;n. En la representaci&oacute;n actual de  la mol&eacute;cula (<I>spacefill</I>) ser&iacute;a imposible ver los substratos fijados; para verlos, cambiamos la representaci&oacute;n a <I>cartoons</I>:</p> 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%></td>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="zoom 100; select all; spacefill off; cartoons; select pam, mal; spacefill; colour cpk "> En el estado R.</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+
+<p align="justify">Puede verse c&oacute;mo en este &uacute;ltimo la parte central de la mol&eacute;cula est&aacute; m&aacute;s hueca que en el estado T.</p>
+
+<P align="justify">Volviendo a la mol&eacute;cula original,</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="slab 100 "> Estado T</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select not solvent; spacefill; color chain ">Y en el estado R</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+				<center><table border=0 WIDTH=90%><tr>
+				<td align=center >
+				<A HREF="pgJSmol_111.html" ><B>Anterior: Fructosa-1,5-bisfosfato aldolasa</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#ind" ><B>Indice</B></A>	
+				</td>
+				<td align=center>
+				<A HREF="pgJSmol_113.html" ><B>Siguiente: Glucógeno fosforilasa</B></A>	
+				</td>
+			</tr></table></center>
+
+
+
+</FONT>
+
+
+<script>
+  // === Configuración mínima JSmol ===
+  const JSMOL_PATH = '../JSmol';
+  const Info = {
+    width: '100%', height: '100%', use: 'HTML5',
+    j2sPath: JSMOL_PATH + '/j2s',
+    serverURL: JSMOL_PATH + '/php/jsmol.php', // opcional
+    disablePopupMenu: false,
+    disableJ2SLoadMonitor: true,
+    disableInitialConsole: true,
+    color: '0xFFFFFF'
+  };
+
+  // Referencias a los applets creadas por JSmol al montar con nombre
+  let jsmolA = null; // window.jsmolA
+  let jsmolB = null; // window.jsmolB
+
+  function mountApplets(){
+    if (typeof window.Jmol !== 'object') {
+      console.error('[JSmol] No disponible. Asegura JSmol/JSmol.min.js y abrir por http(s)://');
+      return false;
+    }
+    // Firma canónica: crea window.jsmolA / window.jsmolB
+    document.getElementById('viewerA').innerHTML = Jmol.getAppletHtml('jsmolA', Info);
+    document.getElementById('viewerB').innerHTML = Jmol.getAppletHtml('jsmolB', Info);
+    jsmolA = window.jsmolA; jsmolB = window.jsmolB;
+    console.log('[JSmol] Montados A y B.');
+    return true;
+  }
+
+  function j(cmd, app){ Jmol.script(app, cmd); }
+  function loadMol(app, path){
+    j(`load '${path}'; set antialiasDisplay true; select *; spacefill 20%; wireframe 0.15; cartoon off; backbone off; hbonds off; spin off; reset; zoom 110;`, app);
+  }
+  function applyStyle(app, mode){
+    if (!app) return;
+    if (mode === 'spacefill') {
+      j("select *; spacefill 100%; wireframe off; cartoon off; backbone off;", app);
+    } else {
+      j("select *; spacefill 20%; wireframe 0.15; cartoon off; backbone off;", app);
+    }
+  }
+  function runScript(app, script){ if (app && script) j(script, app); }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const ok = mountApplets();
+
+    // Delegación: clics de botones de carga y tests
+    document.getElementById('inferior').addEventListener('click', (ev)=>{
+      const btn = ev.target.closest('button');
+      if (!btn) return;
+      if (btn.id === 'testJmol') { alert(typeof window.Jmol === 'object' ? 'JSmol está cargado.' : 'JSmol NO está cargado.'); return; }
+      if (btn.id === 'testCargaA') { if (jsmolA) loadMol(jsmolA, btn.getAttribute('data-path')); return; }
+      if (btn.id === 'testCargaB') { if (jsmolB) loadMol(jsmolB, btn.getAttribute('data-path')); return; }
+
+      const path = btn.getAttribute('data-path');
+      const target = btn.getAttribute('data-target');
+      if (!path || !target) return;
+      if (target === 'A' && jsmolA) loadMol(jsmolA, path);
+      if (target === 'B' && jsmolB) loadMol(jsmolB, path);
+    });
+
+    // Delegación: radios (estilos y scripts) por bloque y visor
+    document.getElementById('inferior').addEventListener('change', (ev)=>{
+      const el = ev.target;
+      if (!(el instanceof HTMLInputElement) || el.type !== 'radio') return;
+      const target = el.getAttribute('data-target');
+      const app = target === 'A' ? jsmolA : target === 'B' ? jsmolB : null;
+      if (!app) return;
+      const style = el.getAttribute('data-style');
+      const script = el.getAttribute('data-cmd');
+      if (style) { applyStyle(app, style); return; }
+      if (script) { runScript(app, script); return; }
+    });
+  });
+</script>
+
+</body>
+
+	
+
+</html>
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

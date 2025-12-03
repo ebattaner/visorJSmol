@@ -1,0 +1,967 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Estructura Secundaria</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Proteinas.html" ><B>&Iacute;ndice Proteínas</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Estructura secundaria</B></font></center>
+<br /><br />
+<p>
+<p>
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+//-->
+</script>
+
+
+<ul>
+<li><a href ="#conf"><b>Ángulos de conformación o torsión</b></a>
+<li><a href ="#helic"><b>Estructuras secundarias helicoidales</b></a>
+	<ul>
+	<li><a href ="#alfa"><b><font face="symbol">a</font>-Helicoide</b></a>
+	<li><a href ="#otras"><b>Otras estructuras helicoidales</b></a>
+	</ul>
+<li><a href ="#lamin"><b>Estructuras secundarias laminares</b></a>
+<li><a href ="#giros"><b>Giros</b></a>
+<li><a href ="#resumen"><b>Resumen</b></a>
+</b></a>
+</ul>
+
+<hr />
+<br /><br />
+
+
+
+<a name="conf"></a>
+<P align="center"><font size="+1"><B>Ángulos de conformación o torsión</B></font></center>
+
+
+<P align="justify">Veamos la estructura de un tripéptido en el que las cadenas laterales se representan como átomos de color verde:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/3gly.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   define phi atomno=3,atomno=4,atomno=5, atomno=6; define psi atomno=4, atomno=5, atomno=6, atomno=7')">
+    <b>Tripéptido</b>
+  </button>
+</center>
+<br>
+
+
+<p align="justify">Los átomos de los dos enlaces peptídicos se encuentran en el mismo plano (el enlace peptídico no permite rotación). Sin embargo, 
+es posible la rotación en el enlace N-C<font face="symbol">a</font> y C-C<font face="symbol">a</font>, conocidos como 
+ <i>ángulos de torsión</i> or <i>conformación</i>. El ángulo <font face="Symbol">Y</font> (Psi) es la torsión en torno al enlace entre 
+ C<font face="Symbol">a</font> y el carbono del grupo -C=O; el ángulo <font face="Symbol">F</font> (Phi) 
+es la torsión entre el nitrógeno (N) y el C<font face="Symbol">a</font>.</p>
+
+
+<p align="justify">El tripéptido aparece en pantalla con los valores <FONT FACE="symbol"><B>F</B></FONT>=60º y 
+<FONT FACE="symbol"><B>Y</B></FONT>=180º.</p>
+
+<p align="justify">El ángulo <FONT FACE="symbol"><B>F</B></FONT> es la torsión entre el N del enlace peptídico y el 
+ C<FONT FACE="symbol"><B>a</B></FONT> siguiente:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3gly-steps"
+             onchange="jrun('color labels black; select atomno=3; label C=O; select atomno=4; label N-H; select atomno=5; label C-alfa;       	select atomno=6; label C=O; zoom 100; measure 3 4 5 6')">
+	Que en este caso es de 60º
+          </label>
+
+<p align="justify">El ángulo <FONT FACE="symbol"><B>Y</B></FONT> es la torsión entre el C del enlace peptídico y  
+el C<FONT FACE="symbol"><B>a</B></FONT> previo:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3gly-steps"
+             onchange="jrun('labels off; measurement off; color labels yellow; select atomno=4; label N-H; select atomno=5; label C-alfa; select atomno=6; label C=O; select atomno=7; label N-H; measure 4 5 6 7')">
+	siendo su valor 180º (o -180º)
+          </label>
+
+
+
+</fieldset>
+</div>
+
+
+
+<p align="justify">No todos los valores posibles aparecen en las proteínas. Por ejemplo, valores de <FONT FACE="symbol"><B>F</B></FONT>=0º y 
+<FONT FACE="symbol"><B>Y</B></FONT>=0º, <FONT FACE="symbol"><B>F</B></FONT>=180º y <FONT FACE="symbol"><B>Y</B></FONT>=0º 
+o <FONT FACE="symbol"><B>F</B></FONT>=0º y <FONT FACE="symbol"><B>Y</B></FONT>=180º nunca se ven en las proteínas. Estos valores muestran  
+<i>Impedimento estérico</i>, esto es, solapamiento entre átomos. Por el contrario, algunos valores son muy frecuentes, por ejemplo:</p>
+
+<P>
+<B>(a). </b>Valores de <FONT FACE="symbol"><B>F</B></FONT> = -57º, <FONT FACE="symbol"><B>Y</B></FONT>= -47º. 
+Son los valores del <B><FONT FACE="symbol">a</FONT>-helicoide dextrógiro</B>:
+<br><br>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/3galfa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   define phi atomno=3,atomno=5,atomno=6, atomno=7; define psi atomno=5, atomno=6, atomno=7, atomno=9')">
+    <b>Tripéptido - <FONT FACE="symbol">a</FONT>-helicoide</b>
+  </button>
+</center>
+<br>
+Los valores angulares son:
+<br>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3galfa-steps"
+        onchange="jrun('color labels black; select atomno=3; label C=O; select atomno=5; label N-H; select atomno=6; label C-alfa; select atomno=7; label C=O; measurement 3 5 6 7; center atomno=6; zoom 200')">
+	Ángulo <font face=symbol>F</font>
+         </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3galfa-steps"
+        onchange="jrun('select all; labels off; measurement off; color labels black; select atomno=5; label N-H; select atomno=6; label C-alfa; select atomno=7; label C=O; select atomno=9; label N-H; measurement 5 6 7 9; center atomno=7')">
+	y ángulo <font face=symbol>Y</font>.
+          </label>
+</fieldset>
+</div>
+<br><br>
+
+<b>(b). </b>Valores de <FONT FACE="symbol"><B>F</B></FONT> = -119º, <FONT FACE="symbol"><B>Y</B></FONT>= 113º. Estos valores corresponden a la  <B>Lámina <FONT FACE="symbol">b</FONT> paralela</B>:
+<br><br>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/3gbp.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   define phi atomno=3,atomno=5,atomno=6, atomno=7; define psi atomno=5, atomno=6, atomno=7, atomno=9')">
+    <b>Tripéptido - <font face="symbol">b</font>-Paralela</b>
+  </button>
+</center>
+<br>
+Los valores angulares son:
+<br>
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3gbp-steps"
+        onchange="jrun('color labels black; select atomno=3; label C=O; select atomno=5; label N-H; select atomno=6; label C-alfa; select atomno=7; label C=O; measurement 3 5 6 7; center atomno=6; zoom 200')">
+	Ángulo <font face=symbol>F</font>
+         </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3gbp-steps"
+        onchange="jrun('select all; labels off; measurement off; color labels black; select atomno=5; label N-H; select atomno=6; label C-alfa; select atomno=7; label C=O; select atomno=9; label N-H; measurement 5 6 7 9; center atomno=7')">
+	y ángulo <font face=symbol>Y</font>.
+          </label>
+</fieldset>
+</div>
+
+
+<b>(c).</b> Valores de <FONT FACE="symbol"><B>F</B></FONT> = -139º, <FONT FACE="symbol"><B>Y</B></FONT>= 135º. Estos valores corresponden a la <B>Lámina <FONT FACE="symbol">b</FONT> antiparalela</B>:
+<br><br>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/3gbap.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   define phi atomno=3,atomno=5,atomno=6, atomno=7; define psi atomno=5, atomno=6, atomno=7, atomno=9')">
+    <b>Tripéptido - <font face="symbol">b</font>-Antiparalela</b>
+  </button>
+</center>
+<br>
+Los valores angulares son:
+<br>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3gbap-steps"
+        onchange="jrun('color labels black; select atomno=3; label C=O; select atomno=5; label N-H; select atomno=6; label C-alfa; select atomno=7; label C=O; measurement 3 5 6 7; center atomno=6; zoom 200')">
+	Ángulo <font face=symbol>F</font>
+          </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3gbap-steps"
+        onchange="jrun('select all; labels off; measurement off;color labels black; select atomno=5; label N-H; select atomno=6; label C-alfa; select atomno=7; label C=O; select atomno=9; label N-H; measurement 5 6 7 9; center atomno=7')">
+	Ángulo <font face=symbol>Y</font>
+          </label>
+
+</fieldset>
+</div>
+
+
+
+<p align="justify">La conformación espacial de una proteína es tal que algunos ángulos de conformación son preferidos (ver <i>Representación de Ramachandran</i> 
+en el texto). Estos valores representan no sólo un mínimo de impedimento estérico, sino tambiénj la conformación que maximiza la   
+formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferentes enlaces peptídicos. La estructura resultante es lo que llamamos <b>Estructura Secundaria</b>. La estructura secundaria puede ser de tres tipos principales: <b>Helicoides</b>, <b>Láminas</b> y <b>Giros</b>.</p>
+
+
+<br /><br /><br />
+
+
+<A NAME="helic"></A>
+<P align="center"><font size="+1"><B>Estructuras secundarias helicoidales</B></font></center>
+<br />
+<a name="alfa"></a>
+<P><B>El <FONT FACE="symbol">a</FONT>-helicoide o <FONT FACE="symbol">a</FONT>-hélice</B></p>
+
+
+<P align="justify">Para valores de <FONT FACE="symbol"><B>F</B></FONT>=-57º y <FONT FACE="symbol"><B>Y</B></FONT>=-47º, se maximiza la posibilidad de formación de enlaces de hidrógeno entre los grupos de la unión peptídica, dando lugar a una estructura helicoidal dextrógira. Sea un <B>hexadecapéptido</B> teórico, en el cual  vamos sucesivamente rotando <FONT FACE="symbol"><B>F</B></FONT>= -57º y <FONT FACE="symbol"><B>Y</B></FONT>= -47º en torno a cada carbono <FONT FACE="symbol">a</FONT>. La estructura que se obtiene es el <FONT FACE="symbol"><B>a</B></FONT>-helicoide o <FONT FACE="symbol"><B>a</B></FONT>-hélice:</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/16j_a.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   ')">
+    <b><font face="symbol">a</font>-Helicoide</b>
+  </button>
+</center>
+<br>
+
+<p align="justify">en la cual los aminoácidos se disponen según un helicoide dextrógiro regular, con las cadenas laterales (representadas por átomos de color verde) dirigidas hacia el exterior de la hélice, con las siguientes características:</p>
+
+
+
+
+<UL>
+<LI>Un <B>paso de rosca</B> de 0.54 nm
+<LI>Una <B>traslación media por residuo</B> de 0.15 nm, medidos a lo largo del eje principal de la hélice.
+<LI>Un número de <B>residuos por vuelta</B> igual a 3.6
+</UL>
+
+<P align="justify">De esta manera, el grupo -C=O del aminoácido <B>n</B> forma un enlace de hidrógeno con el -N-H del aminoácido situado en la posición <B>n+4</B>: 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="16j_a-steps"
+        onchange="jrun('calculate hbonds;color hbonds black')">
+	estructura que esquemáticamente representamos como
+          </label>
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="16j_a-steps"
+        onchange="jrun('wireframe off; spacefill off;hbonds off; cartoons; color structure')">
+	una cinta roja formando un helicoide.
+          </label>
+
+</fieldset>
+</div>
+
+<P align="justify">El <FONT FACE="symbol">a</FONT>-helicoide recibió su nombre a partir de los estudios de <B>Pauling</B> y <B>Corey</B>, que propusieron esta estructura para las <B><FONT FACE="symbol">a</FONT>-queratinas</B>, proteínas fibrosas que constituyen el principal contingente del pelo, de las uñas y de otros derivados dérmicos. Una proteína del citoesqueleto de estructura análoga a las <font face="symbol">a</font>-queratinas es la <i>Vimentina</i>:</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1GK4.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   wireframe off;spacefill off; cartoons; color structure')">
+    <b>Vimentina</b>
+  </button>
+</center>
+<br>
+
+
+
+
+<p align="justify">Otras proteínas fibrosas cuya estructura es en gran parte <FONT FACE="symbol">a</FONT>-helicoidal son la <i>Miosina</i> del músculo </p>
+<br><br>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/3BAS.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   wireframe off;spacefill off; cartoons; color structure')">
+    <b>Miosina, dominio fibroso</b>
+  </button>
+</center>
+<br><br>
+
+<p>y el <i>Fibrinógeno</i> del plasma sanguíneo:</p>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1EI3.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   wireframe off;spacefill off; cartoons; color structure')">
+    <b>Fibrinógeno</b>
+  </button>
+</center>
+<br><br>
+
+
+<P align="justify">Ahora bien, hay que tener en cuenta que el <FONT FACE="symbol">a</FONT>-helicoide no es en modo alguno exclusivo de las proteínas fibrosas; las proteínas globulares presentan asimismo tramos de estructura en <FONT FACE="symbol">a</FONT>-helicoide. De hecho es la estructura secundaria más frecuente en todas las proteínas. Podemos ver un ejemplo en la <i>Mioglobina</i>, proteína de almacenamiento de oxígeno en el músculo y de estructura análoga a las subunidades de la hemoglobina:</p>
+<br><br>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/myog02.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   wireframe off;spacefill off; cartoons; color structure')">
+    <b>Mioglobina</b>
+  </button>
+</center>
+<br><br>
+
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="myog02-steps"
+        onchange="jrun('select ligand; spacefill 100; wireframe 40; color cpk')">
+	Con su grupo prostético <i>hemo B</i>.
+          </label>
+
+</fieldset>
+</div>
+
+
+<p align="justify">Veamos asimismo la hormona peptídica <i>Glucagon</i>, cuya estructura secundaria consiste en un único <FONT FACE="symbol">a</FONT>-helicoide:</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/glucagon.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   wireframe off;spacefill off; cartoons; color structure')">
+    <b>Glucagon</b>
+  </button>
+</center>
+<br><br>
+
+<P align="justify">Aun cuando las cadenas laterales de los aminoácidos se dirigen hacia fuera de la estructura, según veíamos, tienen sin embargo un papel importantísimo en el mantenimiento de la estructura en <FONT FACE="symbol">a</FONT>-helicoide, de manera que hay cadenas laterales que <i>estabilizan</i> la estructura y otras que la <i>desestabilizan</i> (Ver texto, capítulo 9).</p>
+
+<P align="justify">Un caso particularmente interesante es el del aminoácido <i>Prolina</i>. Al ser una amina secundaria, carece de grupo donador -NH para la formación de enlaces de hidrógeno cuando forma parte de una cadena peptídica. Por otra parte, y a diferencia del resto de los aminoácidos, que siempre lo hacen en <I>trans-</I>, la prolina forma enlaces peptídicos en <I>cis-</I> con cierta frecuencia. Por estas razones, la prolina interrumpe la estructura en <FONT FACE="symbol">a</FONT>-helicoide, dando lugar a un <i>punto de inflexión</i> en la dirección general del helicoide:</p>
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/alfapro.pdb&quot;; \
+    set antialiasDisplay on; \
+    restrict backbone; color green; select pro; wireframe 40; spacefill 100; color cpk; select all; calculate hbonds;color hbonds black')">
+   <b>Prolina y <font face=symbol>a</font>-helicoide</b>
+  </button>
+</center>
+<br><br>
+
+<p align="justify">En la imagen vemos cómo una prolina interrumpe la estructura en <FONT FACE="symbol">a</FONT>-helicoide. Se representa únicamente el esqueleto proteico (en verde) y la prolina (en colores cpk), así como los enlaces de hidrógeno (en blanco).</p>
+<br />
+
+<A NAME="otras"></A>
+<P><B>Otras estructuras helicoidales</B></p>
+
+
+<p align="justify">Con mucha menor frecuencia que el <FONT FACE="symbol">a</FONT>-helicoide aparece en las proteínas el llamado <i>Helicoide 3.10</i>:</p> 
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/16j_310.pdb&quot;; \
+    set antialiasDisplay on; \
+    calculate hbonds;color hbonds black')">
+   <b>Helicoide 3.10</b>
+  </button>
+</center>
+<br><br>
+
+<p align="justify">que corresponde a valores de <FONT FACE="symbol"><B>F</B></FONT>= -49 y <FONT FACE="symbol"><B>Y</B></FONT>=-26, dando lugar a un helicoide más estrecho y alargado, con tres residuos de aminoácido por vuelta y que se repite cada 10 residuos. El patrón de enlaces de hidrógeno se forma de manera que el grupo -C=O del aminoácido <B>n</B> enlaza con el -N-H del aminoácido <B>n+3</B>.
+
+
+<P align="justify">Otra estructura helicoidal, teóricamente posible, pero no observada en la práctica, es el <i>Helicoide <font face="symbol">p</font></i>: </p>
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/12glypi.pdb&quot;; \
+    set antialiasDisplay on; \
+    calculate hbonds;color hbonds black')">
+   <b>Helicoide <font face="symbol">p</font></b>
+  </button>
+</center>
+<br><br>
+
+<p align="justify">más ancho y corto que el <FONT FACE="symbol">a</FONT>-helicoide, y que corresponde a valores de <FONT FACE="symbol"><B>F</B></FONT>=-57 y <FONT FACE="symbol"><B>Y</B></FONT>=-70. Los enlaces de hidrógeno se establecen entre <B>n</B> y <B>n+5</B>.
+
+
+
+<P align="justify">Mucha mayor importancia tienen los helicoides basados en el aminoácido <B>prolina</B>. La estructura del péptido sintético <i>poliprolina</i> muestra un helicoide levógiro, más ancho que el <FONT FACE="symbol">a</FONT>-helicoide:</P>
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/12pro.pdb&quot;; \
+    set antialiasDisplay on; \
+    calculate hbonds;color hbonds black')">
+   <b>Poliprolina</b>
+  </button>
+</center>
+<br><br>
+
+
+<P align="justify">Una estructura parecida a la poliprolina, aunque no idéntica, la encontramos en el <i>Colágeno</i>. El <i>Tropocolágeno</i> o <i>Monómero de colágeno</i> presenta un dominio central fibroso formado por tres helicoides levógiros entrelazados similares a la poliprolina:</p>
+
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/1BKV.pdb&quot;; \
+    set antialiasDisplay on; \
+    restrict protein')">
+   <b>Monómero de colágeno</b>
+  </button>
+</center>
+<br><br>
+				
+<p align="justify">Esta estructura es la base de las fibras colágenas, de amplísima distribución en los tejidos animales de origen mesoblástico. Podemos distinguir los tres helicoides:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="1BKV-steps"
+        onchange="jrun('color chain')">
+	Fibrilla colágena
+          </label>
+
+</fieldset>
+</div>
+<br /><br />
+
+<A NAME="lamin"></A>
+<P align="center"><font size="+1"><B>Estructuras secundarias laminares</B></font></center>
+<br />
+
+<p align="justify">Los estudios primitivos sobre cristalografía de rayos X de las  <FONT FACE="symbol">a</FONT>-queratinas llevados a cabo por <B>Astbury</B> y su grupo  mostraron que el estiramiento en un ambiente húmedo de éstas hacía variar su estructura, por lo que dieron a esta nueva conformación el nombre de <B>Estructura  <FONT FACE="symbol">b</FONT></B>, y a la proteína así modificada, el nombre de <B> <FONT FACE="symbol">b</FONT>-queratina</B>.</p> 
+
+<p align="justify">Los estudios posteriores de <B>Pauling</B> y <B>Corey</B> mostraron que las cadenas polipeptídicas en  <FONT FACE="symbol">b</FONT>- no están plenamente extendidas, sino que corresponden a valores de <FONT FACE="symbol"><B>F</B></FONT> entre -115 y -140 y <FONT FACE="symbol"><B>Y</B></FONT> entre 110 y 140. El estudio de muchas otras proteínas mediante la representación de Ramachandran mostró que se trata de estructuras muy frecuentes no sólo en las proteínas fibrosas, sino también en las globulares, cuestión plenamente corroborada por el estudio cristalográfico de muchas proteínas.</p>
+
+<p align="justify">Las estructuras  <FONT FACE="symbol">b</FONT> corresponden a dos tipos generales; para <FONT FACE="symbol"><b>F</B></FONT>=-119º y <FONT FACE="symbol"><B>Y</B></FONT>=113º, tenemos la <i>Cadena <FONT FACE="symbol">b</FONT> paralela</i>:</p>
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/11j_bp.pdb&quot;; \
+    set antialiasDisplay on; \
+    restrict protein')">
+   <b>Cadena <font face="symbol">b</font>-paralela</b>
+  </button>
+</center>
+<br><br>
+	
+
+<p align="justify">Y para <FONT FACE="symbol"><B>F</B></FONT>=-139º y <FONT FACE="symbol"><B>Y</B></FONT>=135º la <i>Cadena <FONT FACE="symbol">b</FONT> antiparalela</i>:</p>
+
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/11j_bap.pdb&quot;; \
+    set antialiasDisplay on; \
+    restrict protein')">
+   <b>Cadena <font face="symbol">b</font>-antiparalela</b>
+  </button>
+</center>
+<br><br>
+
+<p align="justify">Los calificativos "paralela" y "antiparalela" aluden al patrón de establecimiento de enlaces de hidrógeno, como veremos a continuación. En ambos casos, la cadena polipeptídica aparece extendida a lo largo del eje N-C.
+
+
+<p align="justify">Mientras que en el  <FONT FACE="symbol">a</FONT>-helicoide los enlaces de hidrógeno se establecen dentro de la propia estructura, las cadenas en  <FONT FACE="symbol">b</FONT> interaccionan con <I>otras</I> cadenas, que pueden pertenecer al mismo polipéptido o a un polipéptido distinto. La interacción tiene lugar con enlaces de hidrógeno establecidos de forma aproximadamente perpendicular al eje principal de la cadena polipeptídica extendida. La interacción puede tener lugar de dos formas:</p>
+
+<p align="justify">En un caso, la cadena polipeptídica interacciona con otra, en la misma disposición  <FONT FACE="symbol">b</FONT>, y en las que la dirección N-C es la misma (paralela). La interacción de varias cadenas da lugar a lo que se llama <i>lámina <FONT FACE="symbol">b</FONT> paralela</i> u <i>Hoja plegada paralela</i>:</p>
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/44j_bp.pdb&quot;; \
+    set antialiasDisplay on; \
+    rotate y 30; rotate x 60')">
+   <b>Hoja plegada paralela</b>
+  </button>
+</center>
+<br><br>
+
+<p align="justify">En la figura aparecen cuatro cadenas polipeptídicas (las cadenas laterales no se representan) y dirigidas en el mismo sentido (es decir, los términos N están todos al mismo lado y lo mismo para los términos C). Podemos ver cómo 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="44j_bp-steps"
+        onchange="jrun('calculate hbonds; color hbonds black')">
+	se establecen los enlaces de hidrógeno.
+          </label>
+</fieldset>
+</div>
+
+
+<p align="justify">La estructura general es la de una hoja o lámina plegada alternativamente; o bien una escalera en la que los carbonos  <FONT FACE="symbol">a</FONT> ocupan los vértices de los diedros sucesivos, y los planos peptídicos ocupan los planos de los escalones.  No tiene por qué tener necesariamente cuatro cadenas; pueden ser más o menos. Igualmente, las cadenas que interaccionan para dar esta estructura pueden pertenecer al mismo o distintos polipéptidos.</p>
+
+<p align="justify"> la representación convencional de las estructuras laminares <font face="symbol">b</font> es de cintas de color amarillo :
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="44j_bp-steps"
+        onchange="jrun('wireframe off; spacefill off; hbonds off; cartoons; color structure')">
+	con la punta de la flecha señalando la dirección N - C.
+          </label>
+</fieldset>
+</div>
+
+
+<p align="justify">Cuando las cadenas en  <FONT FACE="symbol">b</FONT> interaccionan de manera que su polaridad es opuesta (es decir, que el término N de una está enfrentado al término C de otra, y así sucesivamente), la estructura que resulta es la <i>Hoja plegada antiparalela:</i></p>
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/44j_bap.pdb&quot;; \
+    set antialiasDisplay on; \
+    rotate y 30; rotate x 60')">
+   <b>Hoja plegada antiparalela</b>
+  </button>
+</center>
+<br><br>
+
+<p align="justify">En la figura aparecen cuatro cadenas polipeptídicas (las cadenas laterales no se representan) y dirigidas en sentido inverso. Podemos ver cómo 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="44j_bap-steps"
+        onchange="jrun('calculate hbonds; color hbonds black')">
+	se establecen los enlaces de hidrógeno:
+          </label>
+</fieldset>
+</div>
+
+
+<p align="justify">Podemos ver que en la representación convencional de la hoja antiparalela las flechas aparecen en sentidos alternativamente inversos:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="44j_bap-steps"
+        onchange="jrun('wireframe off; spacefill off; hbonds off; cartoons; color structure')">
+	con la punta de la flecha señalando la dirección N - C.
+          </label>
+</fieldset>
+</div>
+
+
+<p align="justify">Las estructuras  <FONT FACE="symbol">b</FONT> aparecen, como hemos visto, tanto en proteínas fibrosas como globulares. Entre las primeras tenemos a la <i>Fibroína</i> de la seda:</p>
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/2slk.pdb&quot;; \
+    set antialiasDisplay on; \
+    ')">
+   <b>Fibroína</b>
+  </button>
+</center>
+<br><br>
+
+<p align="justify">Se trata de una estructura de varias láminas  <FONT FACE="symbol">b</FONT> antiparalelas superpuestas. Su representación esquemática es:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2slk-steps"
+        onchange="jrun('wireframe off; spacefill off; cartoons; color structure')">
+	con la punta de la flecha señalando la dirección N - C.
+          </label>
+</fieldset>
+</div>
+
+
+<br /><br />
+
+<p align="justify">Un ejemplo de estructura  <FONT FACE="symbol">b</FONT> paralela en proteínas globulares es el llamado <i>Barril  <FONT FACE="symbol">b</FONT></i>:
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/beta01.pdb&quot;; \
+    set antialiasDisplay on; \
+    ')">
+   <b>Barril beta</b>
+  </button>
+</center>
+<br><br>
+
+<p align="justify">Cuya representación esquemática es:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="beta01-steps"
+        onchange="jrun('wireframe off; spacefill off; cartoons; color structure')">
+	Representación esquemática
+          </label>
+</fieldset>
+</div>
+
+<p align="justify">Como ejemplo de una proteína globular con una gran cantidad de estructura <FONT FACE="symbol">b</FONT> tenemos una cualquiera de las subunidades de la <i>Concanavalina A</i>:</p>
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/concanavalina_A.pdb&quot;; \
+    set antialiasDisplay on; \
+    restrict :A; center :A; zoom 150')">
+   <b>Subunidad de concanavalina A</b>
+  </button>
+</center>
+<br><br>
+
+<p align="justify">En la que apreciamos el predominio de la estructura <font face="symbol">b</font>:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="concanavalina_A-steps"
+        onchange="jrun('wireframe off; spacefill off; cartoons; color structure')">
+	Representación esquemática
+          </label>
+</fieldset>
+</div>
+
+
+<br /><br />
+
+
+
+<A NAME="giros"></A>
+<P align="center"><font size="+1"><B>Giros</B></font></center>
+<br />
+
+<p align="justify">Con mucha frecuencia la cadena peptídica en las proteínas sufre una inflexión brusca, de aproximadamente 180 grados. Estas inflexiones corresponden a una estructura secundaria determinada, estabilizada, como las anteriores, por enlaces de hidrógeno. Dado que con gran frecuencia se presenta asociada a cadenas  <FONT FACE="symbol">b</FONT>, representando un segmento intermedio entre dos tractos sucesivos, recibe el nombre de <i>Giro <font face="symbol">b</font></i>:</p>
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/turn01.pdb&quot;; \
+    set antialiasDisplay on; \
+    ')">
+   <b>Péptido NVDN</b>
+  </button>
+</center>
+<br><br>
+
+
+<p align="justify">Téngase en cuenta que en estas imágenes no se representan los átomos de hidrógeno. Podemos ver el enlace de hidrógeno que estabiliza el giro:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="turn01-steps"
+        onchange="jrun('calculate hbonds; color hbonds black')">
+	Giro <font face="symbol">b</font>
+          </label>
+</fieldset>
+</div>
+
+<p align="justify">Tenemos en pantalla un giro  <FONT FACE="symbol">b</FONT> típico (clase I) constituído por la secuencia <b>NVDN</b>, con un enlace de hidrógeno entre el primero y el cuarto aminoácido.</p>
+
+<p align="justify">Algo parecido tenemos en el péptido <B>FHGR</B>:</p>
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/turn02.pdb&quot;; \
+    set antialiasDisplay on; \
+    ')">
+   <b>Péptido FHGR</b>
+  </button>
+</center>
+<br><br>
+
+<p align="justify">Con el enlace de hidrógeno que estabiliza el giro:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="turn02-steps"
+        onchange="jrun('calculate hbonds; color hbonds black')">
+	Giro <font face="symbol">b</font> FHGR
+          </label>
+</fieldset>
+</div>
+
+
+<p align="justify">En este último la tercera posición está ocupada por <i>glicina</i>, aminoácido muy frecuente en los giros  <FONT FACE="symbol">b</FONT> dado su pequeño volumen.</p>
+
+
+<p align="justify">Los giros  <FONT FACE="symbol">b</FONT> se presentan generalmente intercalados entre tractos peptídicos en  <FONT FACE="symbol">b</FONT>. Podemos ver un ejemplo en la siguiente estructura:</p>
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/2por.pdb&quot;; \
+    set antialiasDisplay on; \
+    restrict 226-272; center atomno=1831; zoom 200')">
+   <b>Giros <FONT FACE="symbol">b</FONT> intercalados</b>
+  </button>
+</center>
+<br><br>
+
+
+<p align="justify">Los giros <FONT FACE="symbol">b</FONT> se representan en color azul:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="2por-steps"
+        onchange="jrun('wireframe off; spacefill off; cartoons; color structure')">
+	Giro <font face="symbol">b</font> FHGR
+          </label>
+</fieldset>
+</div>
+<br /><br />
+
+
+
+<A NAME="resumen"></A>
+<P align="center"><font size="+1"><B>Resumen</B></font></center>
+<br />
+
+<p align="justify">Como compendio de todo lo que acabamos de ver, veremos la estructura del <i>Citocromo P450 CAM</i>:</p>
+
+<center>
+  <button type="button"
+   onclick="jrun('load &quot;../pdb/3cpp.pdb&quot;; \
+    set antialiasDisplay on; \
+    restrict not solvent')">
+   <b>Citocromo P450 CAM</b>
+  </button>
+</center>
+<br><br>
+
+<p align="justify">En la que podemos ver las diferentes estructuras secundarias que hemos estudiado:</p>
+
+<UL>
+<LI>Los <font face="symbol">a</font>-helicoides:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3cpp-steps"
+        onchange="jrun('wireframe off; spacefill off; cartoons; select helix; color structure')">
+	en rojo
+          </label>
+</fieldset>
+</div>
+
+<LI>Las láminas <font face="symbol">b</font>:
+
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3cpp-steps"
+        onchange="jrun('wireframe off; spacefill off; cartoons; select sheet; color structure')">
+	en amarillo
+          </label>
+</fieldset>
+</div>
+
+<LI>Los Giros <font face="symbol">b</font>:
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+  <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="3cpp-steps"
+        onchange="jrun('wireframe off; spacefill off; cartoons; select turn; color structure')">
+	en azul
+          </label>
+</fieldset>
+</div>
+</UL></p>
+
+<p align="justify">Y en gris las zonas que no tienen estructura secundaria.</p>
+
+
+<hr />
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_091.html" ><B>Anterior: Introducción</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_093.html" ><B>Siguiente: Estructura Terciaria</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>

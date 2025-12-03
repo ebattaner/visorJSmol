@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Gluc&oacute;geno fosforilasa</title>
+<style>
+  :root{ --gap:16px; --vh:500px; --textH:300px; }
+  *{box-sizing:border-box} body{margin:0;font-family:Arial, Helvetica, sans-serif;background:#ccc}
+  #superior{padding:10px}
+  .fila{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+  .panel{background:#f5f5f5;border:1px solid #999;border-radius:8px;padding:8px}
+  .visor{height:var(--vh);border:1px dashed #666;border-radius:6px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  #inferior{margin:10px;background:#e5e5e5;border:1px solid #999;border-radius:8px;padding:10px;height:var(--textH);overflow:auto}
+  @media (max-width:900px){.fila{grid-template-columns:1fr}}
+  .btn{padding:6px 10px;border:1px solid #666;border-radius:8px;background:#fff;cursor:pointer;margin-right:6px}
+  .btn:hover{background:#f0f0f0}
+  .molblock{border-top:1px dashed #aaa;margin-top:12px;padding-top:10px}
+  fieldset.molfs{border:1px solid #999;border-radius:8px;padding:6px 10px;margin:8px 0}
+  fieldset.molfs legend{font-size:12px;color:#333;padding:0 6px}
+  .row{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0;align-items:center}
+  .row label{cursor:pointer}
+  .note{font-size:12px;color:#444}
+</style>
+<!-- Cargar JSmol (ojo: carpeta con may&uacute;scula) -->
+<script id="jsmolLib" src="../JSmol/JSmol.min.js"></script>
+</head>
+<body>
+  <div id="superior">
+    <div class="fila">
+      <div class="panel"><div class="visor" id="viewerA">Visor IZQUIERDO</div></div>
+      <div class="panel"><div class="visor" id="viewerB">Visor DERECHO</div></div>
+    </div>
+  </div>
+
+  <div id="inferior">
+
+
+
+
+
+
+<FONT FACE="Arial">
+<P align="justify"><A TARGET="_top" HREF="Distr_Enzimas.html" ><b>&Iacute;ndice Enzimas</b></A>
+<A NAME="ind"></A>
+<P align="justify"><CENTER> <A HREF="#gp " ><h3><B>I. Estudio estructural de la gluc&oacute;geno fosforilasa</B></h3></A></CENTER>
+<P align="justify"><UL>
+<LI>I.1 <A HREF="#rt " ><B>Comparaci&oacute;n entre estados R y T</B></A>
+<LI>I.2 <A HREF="#sitios " ><B>Sitios de uni&oacute;n a los substratos y efectores</B></A>
+<LI>I.3 <A HREF="#ab " ><B>Diferencias entre fosforilasa b y fosforilasa a</B></A>
+</UL>
+<P align="justify"><CENTER><A HREF="pgJSmol_113b.html" ><h3><B>II. Otras actividades relacionadas con el sistema de la gluc&oacute;geno fosforilasa</B></h3></A></CENTER>
+<P align="justify"><UL>
+<LI>II.1 <A HREF="pgJSmol_113b.html#phk" ><B>Fosforilasa kinasa</B></A>
+<LI>II.2 <A HREF="pgJSmol_113b.html#cal" ><B>Calmodulina</B></A>
+<LI>II.3 <A HREF="pgJSmol_113b.html#pka" ><B>Protein kinasa A</B></A>
+<LI>II.4 <A HREF="pgJSmol_113b.html#ac" ><B>Adenilato ciclasa</B></A>
+<LI>II.5 <A HREF="pgJSmol_113b.html#pg" ><B>Prote&iacute;nas G</B></A>
+</UL>
+
+<A NAME="gp"></A>
+<P align="justify"><CENTER><B>I. Estudio estructural de la gluc&oacute;geno fosforilasa</B></CENTER>
+
+<P align="justify">Gracias a los estudios del grupo de L.N.Johnson, de la universidad de Oxford,  tenemos una visi&oacute;n bastante clara de las relaciones estructura-funci&oacute;n en la gluc&oacute;geno fosforilasa. Podemos encontrar unos buenos res&uacute;menes de todos estos trabajos en Sprang, S.R et al.. Nature, 336 (1988), 215-221 y en Barford,D. y Johnson, L.N.  Nature, 340 (1989), 609-616. Estos estudios se refieren a la gluc&oacute;geno fosforilasa muscular del conejo.
+
+
+<P align="justify">La gluc&oacute;geno fosforilasa es una enzima de estructura bastante compleja. Normalmente se presenta como un homotetr&aacute;mero, pero la forma funcional se cree que es el homod&iacute;mero, esto es, formada por dos subunidades iguales, cada una de 842 amino&aacute;cidos y un peso molecular de aprox. 96.000.  Puede presentarse en dos formas, <B>fosforilasa a</B>, que aparece fosforilada en el residuo Ser 14, y <B>fosforilasa b</B>, que no est&aacute; fosforilada. La fosforilasa a es mucho m&aacute;s activa y la fosforilaci&oacute;n depende de una serie de se&ntilde;ales qu&iacute;micas que recibe la c&eacute;lula, constituyendo un ejemplo cl&aacute;sico de regulaci&oacute;n por modificaci&oacute;n covalente.
+
+<P align="justify">Pero al mismo tiempo, la gluc&oacute;geno fosforilasa es tambi&eacute;n una enzima alost&eacute;rica. Cuando est&aacute; en forma b (desfosforilada) la enzima presenta cooperatividad positiva en la fijaci&oacute;n de los substratos, fosfato inorg&aacute;nico y gluc&oacute;geno (efectos homotr&oacute;picos). Pero adem&aacute;s la enzima puede ser activada por AMP (d&eacute;bilmente por IMP)  e inhibida por ATP, ADP, glucosa-6-fosfato y glucosa (efectos heterotr&oacute;picos).  El sistema se aproxima bastante, aunque con ciertos matices, al modelo de Monod-Wyman-Changeux. Ha podido ser cristalizada tanto en forma R como en forma T por el equipo de L.N.Johnson citado arriba. 
+
+<P align="justify"><A HREF="#ind " >Vuelta al &iacute;ndice</A>
+
+<A NAME="rt"></A>
+<P align="justify"><CENTER><B>I.1  Comparaci&oacute;n entre estados R y T</B></CENTER>
+
+<P align="justify">Vamos a estudiar las principales diferencias entre las formas R y T. Para ello cargamos en la pantalla izquierda el d&iacute;mero en el estado T y en la derecha el d&iacute;mero en estado R.
+
+</br></br>
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="load ../pdb/5gpb_dim.pdb; wireframe  off; spacefill off;spin 0; cartoons; colour chain; define sita 262,266,267,270,274; define sitb 133-135,165,281,568,569,571,573,574,680; define sitc 14,15,36,42-45,68-75; zoom 80; rotate x 90; rotate y 120"><b>Gluc&oacute;geno fosforilasa, d&iacute;mero, estado T</b></label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="load ../pdb/7gpb_dim.pdb; wireframe  off; spacefill off; spin 0; cartoons; colour chain; define sita 262,266,267,270,274; define sitb 133-135,165,281,568,569,571,573,574,680; define sitc 14,15,36,42-45,68-75; zoom 80; rotate x 30; rotate y 60; rotate z -90"><b>Gluc&oacute;geno fosforilasa, d&iacute;mero, estado R</b></label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<p aling="justify">Estamos viendo el d&iacute;mero aproximadamente a lo largo del eje di&aacute;dico de simetr&iacute;a. A efectos de recordar la situaci&oacute;n, la forma R se carga en la pantalla derecha (ingl&eacute;s <I><B>R</B>ight</I>).
+
+<P align="justify">Seleccionamos residuos 14 y 43 en la forma T: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select 14,43; spacefill;colour cpk">Seleccionamos residuos 14 y 43 en la forma T</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select 14,43;spacefill;colour cpk">y los mismos en la forma R</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<p>Estos residuos son importantes: la Ser 14 es que se queda fosforilada en la fosforilasa a, creando carga electronegativa adicional que va a ser estabilizada por la presencia del residuo Arg 43 del <I>otro</I> mon&oacute;mero. En el estado T podemos observar que ambos residuos quedan muy separados, mientras que en la forma R son contiguos. Esto implica un reagrupamiento molecular bastante intenso en la transici&oacute;n de una a otra forma.
+
+<P align="justify">Una zona cercana a los residuos mencionados en el p&aacute;rrafo anterior y en la que son bastante apreciables los cambios es en helicoides <FONT FACE="SYMBOL">a</FONT>-7 (<I>tower helix</I>) y <FONT FACE="SYMBOL">a</FONT>-8. Vemos acontinuaci&oacute;n dicha zona : 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select all; cartoons off; spacefill off; restrict 262-309; cartoons; colour chain; select 14,43; spacefill; colour cpk; zoom 100 ">En el estado T</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select all; cartoons off; spacefill off; restrict 262-309; cartoons;colour chain; select 14,43; spacefill; colour cpk;zoom 100 ">Y en el estado R</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<p align="justify">A efectos de comparaci&oacute;n con la imagen anterior, se mantienen en forma <I>spacefill</I> los residuos Ser 14 y Arg 43. Puede observarse como las cadenas laterales de los amino&aacute;cidos Tyr 262, Val 266, Leu 267, Asn 270, Asn 274, integrantes de la h&eacute;lice  <FONT FACE="SYMBOL">a</FONT>-7 interaccionan
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour chain; select sita; spacefill;colour cpk">En el estado T</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="colour chain; select sita; spacefill; colour cpk; rotate y -90 ">y en el estado R</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<p>Para mayor claridad, los residuos Ser 14 y Arg 43 pasan a color <I>chain</I>. </p>
+
+<P align="justify">Otro lugar donde se aprecian cambios entre el estado T y el estado R son las proximidades del N-t&eacute;rmino de ambas cadenas, en las cercan&iacute;as del centro alost&eacute;rico: en el estado T: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="reset; rotate x 90; rotate y 45; select all; spacefill off; cartoons off; backbone; colour chain; select sitc; spacefill; colour cpk; zoom 100">en el estado T:</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="reset; rotate x 105; rotate y 30; rotate z -15; select all; spacefill off; cartoons off; backbone; colour chain;select sitc; spacefill; colour cpk; zoom 100">y en el estado R</label>
+	</td></tr>
+</table>
+</center>
+</br></br>
+
+<p align= "justify">Puede apreciarse que el sitio alost&eacute;rico est&aacute; m&aacute;s "cerrado" en el estado R, debido a la uni&oacute;n del efector alost&eacute;rico AMP: <embed type="application/x-spt" width=12 height=12 button=push target="mol02" script="select amp; spacefill; colour chain "> que se representa en colores verde y rojo.</p>
+
+
+
+<P align="justify"><A HREF="#ind " >Vuelta al &iacute;ndice</A>
+
+<A NAME="sitios"></A>
+<P align="justify"><CENTER><B>I.2  Sitios de uni&oacute;n a los substratos y efectores</B></CENTER>
+<P align="justify">La gluc&oacute;geno fosforilasa es un magn&iacute;fico ejemplo de la separaci&oacute;n de sitios entre los substratos y los efectores alost&eacute;ricos. Para ilustrar este concepto, 
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="load ../pdb/5gpb_mon.pdb; wireframe off; spacefill off; cartoons; color chain; define sita 262,266,267,270,274; define sitb 133-135,165,281,568,569,571,573,574,680; define sitc 14,15,36,42-45,68-75">cargamos en la pantalla izquierda la <B>fosforilasa b, mon&oacute;mero, estado T</B></label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="load ../pdb/7gpb_mon.pdb; wireframe off; spacefill off; cartoons; color chain; define sita 262,266,267,270,274; define sitb 133-135,165,281,568,569,571,573,574,680; define sitc 14,15,36,42-45,68-75">y en la pantalla derecha la <B>fosforilasa b, mon&oacute;mero, estado R</B></label>
+	</td></tr>
+</table>
+</center>
+</br>
+
+<P align="justify">La enzima utiliza piridoxal fosfato como cofactor. Por lo tanto, &eacute;ste se encontrar&aacute; en las proximidades del centro catal&iacute;tico. As&iacute;,
+ 
+
+<P align="justify">(a). Sitio del piridoxal fosfato: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select PLP; spacefill; color cpk; zoom 100 ">En la forma T</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select PLP; spacefill; color cpk;zoom 100">y en la forma R</label>
+	</td></tr>
+</table>
+</center>
+</br>
+
+
+
+<P align="justify">Seg&uacute;n puede apreciarse, el centro catal&iacute;tico de la enzima se encuentra en el interior del mon&oacute;mero. Los substratos de la enzima son gluc&oacute;geno y fosfato; o bien, en la reacci&oacute;n inversa (la reacci&oacute;n es f&aacute;cilmente reversible), glucosa-1-fosfato y gluc&oacute;geno. </p>
+
+<P align="justify">(b). Sitio del substrato:  
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select 901; spacefill; color cpk">en la forma T</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select 901; spacefill; color cpk">y en la forma R</label>
+	</td></tr>
+</table>
+</center>
+</br>
+
+
+<p align="justify">En la forma T, el centro catal&iacute;tico est&aacute; ocupado por  un an&aacute;logo de glucosa-1-fosfato (glucosa-1-metilen fosfato); en la forma R es un ion sulfato (SO<SUB>4</SUB><SUP>2-</SUP>) que act&uacute;a como an&aacute;logo del fosfato. El ion sulfato procede del medio de cristalizaci&oacute;n, pero se comporta a  efectos de fijaci&oacute;n al centro catal&iacute;tico como si fuera fosfato.</p>
+
+
+<P align="justify">(c). Sitio alost&eacute;rico principal: Para distinguirlo del sitio del substrato, haremos que los ligandos de este &uacute;ltimo pasen a color verde y se muestran a continuaci&oacute;n los ligandos del sitio alost&eacute;rico:</p>
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select PLP, 901; colour green; rotate x 90; select 909; spacefill; colour cpk">En la forma T</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select PLP, 901; colour green; rotate x 90; select amp; spacefill; colour cpk">y en la forma R</label>
+	</td></tr>
+</table>
+</center>
+</br>
+
+
+
+
+<p align="justify">En la forma R tenemos fijado el nucle&oacute;tido AMP al sitio alost&eacute;rico; en la forma T se trata de una segunda mol&eacute;cula de glucosa-1-metilen fosfato que ocupa el mismo lugar, pero que no puede provocar la transici&oacute;n de T a R. 
+
+<P align="justify">(d). Residuos del sitio catal&iacute;tico: Pasamos los ligandos del sitio alost&eacute;rico a color blanco y mostramos los amino&aacute;cidos implicados en el sitio catal&iacute;tico: </p>
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour white;  zoom 100; select sitb; spacefill; colour cpk ">En la forma T</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="colour white; zoom 100; select sitb; spacefill; colour cpk"> Y en la forma R</label>
+	</td></tr>
+</table>
+</center>
+</br>
+
+<P align="justify">(e). Residuos del sitio alost&eacute;rico: Pasamos a blanco los residuos del centro catal&iacute;tico y representamos en color cpk normal los residuos del centro alost&eacute;rico: </p>
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour white; zoom 100; rotate x 90; rotate y 90;select sitc; spacefill; colour cpk ">En la forma T</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="colour white; zoom 100; rotate x 90; rotate y 90; select sitc; spacefill; colour cpk">Y en la forma R</label>
+	</td></tr>
+</table>
+</center>
+</br>
+
+
+<p align="justify">T&eacute;ngase en cuenta que los residuos implicados en el centro alost&eacute;rico proceden de los dos mon&oacute;meros y que el residuo de Ser 14 aparece alejado de este &uacute;ltimo en la forma T. N&oacute;tese adem&aacute;s que el centro alost&eacute;rico est&aacute; situado en la superficie del mon&oacute;mero, a diferencia del centro catal&iacute;tico, que est&aacute; sepultado en el interior del mismo.
+
+<P align="justify">(f). Sitio del gluc&oacute;geno:
+
+<P align="justify">En la forma T hay un otro ligando en la mol&eacute;cula, maltohexaosa, que ocupa el lugar de parte de la cadena de gluc&oacute;geno cuya extensi&oacute;n ser&aacute; atacada en el sitio catal&iacute;tico por el fosfato; para distinguirlo pasamos a color blanco los residuos del centro alost&eacute;rico y la maltohexaosa se representa en color cpk: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour white; zoom 100; rotate y 90; select glc; spacefill ">Sitio del gluc&oacute;geno</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd=""></label>
+	</td></tr>
+</table>
+</center>
+</br>
+
+
+<P align="justify"><A HREF="#ind " >Vuelta al &iacute;ndice</A>
+
+<A NAME="ab"></A>
+<P align="justify"><CENTER><B>I.3  Diferencias entre fosforilasa b y fosforilasa a</B></CENTER>
+
+<P align="justify">La gluc&oacute;geno fosforilasa puede ser fosforilada en el residuo de Ser 14 s expensas de ATP mediante otra enzima, la fosforilasa kinasa. La forma fosforilada recibe el nombre de <B>fosforilasa a</B>,  y tiene un alto nivel de actividad. Una de las consecuencias de la fosforilaci&oacute;n es que la enzima pasa a estar, pr&aacute;cticamente en su totalidad, en estado R. Como esta modificaci&oacute;n es covalente, la enzima queda, por as&iacute; decirlo, bloqueada en estado R; para volver al T requiere ser desfosforilada, lo que a su vez necesita otra enzima, una protein fosfatasa. Para verlo, compararemos la estructura de la fosforilasa a con la forma R de la fosforilasa b
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="load ../pdb/1gpa_dim.pdb; wireframe off; spacefill off; cartoons; colour chain; define sita 262,266,267,270,274; define sitb 133-135,165,281,568,569,571,573,574,680; define sitc 14,15,36,42-45,68-75">Cargamos en la pantalla izquierda la <B>fosforilasa a, d&iacute;mero, estado R</B></label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="load ../pdb/7gpb_dim.pdb; wireframe off; spacefill off; cartoons; colour chain; define sita 262,266,267,270,274; define sitb 133-135,165,281,568,569,571,573,574,680; define sitc 14,15,36,42-45,68-75"> y en la pantalla derecha la fosforilasa b, d&iacute;mero, estado R</B</label>
+	</td></tr>
+</table>
+</center>
+
+<p>Recordemos que la pantalla izquierda contiene a la fosforilasa a y la derechaa la fosforilasa b. Podemos apreciar que las dos formas en pantalla son virtualmente id&eacute;nticas.</p>
+
+<P align="justify">Veamos el sitio alost&eacute;rico: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select sitc; spacefill; colour cpk; zoom 100">En la fosforilasa a</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select sitc; spacefill; colour cpk; zoom 100">y en la fosforilasa b, forma R</label>
+	</td></tr>
+</table>
+</center>
+
+<P align="justify">La serina fosforilada ocupa  este sitio 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour chain; select 14; colour cpk">En la fosforilasa a</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="colour chain; select 14; colour cpk">y en la fosforilasa b, forma R</label>
+	</td></tr>
+</table>
+</center>
+
+<P align="justify">La carga electronegativa del fosfato interacciona con  dos cadenas laterales electropositivas; una, la de Arg 43 (que pertenece al otro d&iacute;mero, ya que este sitio est&aacute; en la zona de contacto) y la de Arg 69, que pertenece al mismo d&iacute;mero. Para visualizarlos,
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select 43,69; colour cpk">en la fosforilasa a</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select 43,69; colour cpk">y en la fosforilasa b, forma R</label>
+	</td></tr>
+</table>
+</center>
+
+<P align="justify">En la fosforilasa b, por tanto, no hay fosfato en esta posici&oacute;n. Sin embargo est&aacute; en forma R, que es activa gracias a la fijaci&oacute;n del activador alost&eacute;rico AMP al sitio que estamos estudiando: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label></label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select 14,43,69; colour chain; select amp; spacefill; colour cpk ">AMP en la fosforilasa b, forma R</label>
+	</td></tr>
+</table>
+</center>
+
+
+<p align="justify">Puede observarse que el AMP no ocupa exactamente el mismo sitio que el fosfato en la fosforilasa a, pero su efecto viene a ser el mismo. La fosforilaci&oacute;n de serina 14 y la ocupaci&oacute;n por AMP del sitio alost&eacute;rico producen los cambios conformacionales que hemos visto m&aacute;s arriba, adquiriendo la enzima su configuraci&oacute;n activa. Ahora bien, la fijaci&oacute;n de AMP es m&aacute;s d&eacute;bil que la uni&oacute;n covalente de fosfato a serina; por tanto, es m&aacute;s f&aacute;cil la inactivaci&oacute;n de la fosforilasa b (por disociaci&oacute;n de AMP) que la de fosforilasa a (que requerir&iacute;a una protein fosfatasa).</p>
+
+<P align="justify">Para comparar la fosforilasa a con el estado T de la enzima, cerramos la pantalla de la derecha (fosforilasa b activa)  y abrimos en la misma la estructura equivalente en estado T: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label></label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="load ../pdb/5gpb_dim.pdb; wireframe off; spacefill off; cartoons; colour chain; define sita 262,266,267,270,274; define sitb 133-135,165,281,568,569,571,573,574,680; define sitc 14,15,36,42-45,68-75"><B>fosforilasa b, d&iacute;mero, estado T</B></label>
+	</td></tr>
+</table>
+</center>
+
+
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label></label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="select sitc; spacefill; colour cpk; zoom 100">y obtenemos la visi&oacute;n equivalente del sitio alost&eacute;rico: 
+</label>
+	</td></tr>
+</table>
+</center>
+
+
+Con ello podemos comparar las muy notables diferencias en el sitio alost&eacute;rico en las formas R (la que presenta la fosforilasa a, pantalla izquierda) y la forma T. En concreto, obs&eacute;rvese la situaci&oacute;n de la serina 14 en ambas ventanas: 
+
+<center><table border=0 WIDTH=90%><tr>
+<tr><td align="left" width=45%>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour chain; select 14; colour cpk">en la forma R</label>
+<td align="left" width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="colour chain; select 14; colour cpk">y en la forma T</label>
+	</td></tr>
+</table>
+</center>
+
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_112.html" ><B>Anterior: Aspartato transcarbamilasa</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#ind" ><B>Índice</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_113b.html" ><B>Siguiente: Glucógeno fosforilasa, página B</B></A>					
+				</td>
+
+
+
+
+
+</FONT>
+
+<script>
+  // === Configuraci&oacute;n m&iacute;nima JSmol ===
+  const JSMOL_PATH = '../JSmol';
+  const Info = {
+    width: '100%', height: '100%', use: 'HTML5',
+    j2sPath: JSMOL_PATH + '/j2s',
+    serverURL: JSMOL_PATH + '/php/jsmol.php', // opcional
+    disablePopupMenu: false,
+    disableJ2SLoadMonitor: true,
+    disableInitialConsole: true,
+    color: '0xFFFFFF'
+  };
+
+  // Referencias a los applets creadas por JSmol al montar con nombre
+  let jsmolA = null; // window.jsmolA
+  let jsmolB = null; // window.jsmolB
+
+  function mountApplets(){
+    if (typeof window.Jmol !== 'object') {
+      console.error('[JSmol] No disponible. Asegura JSmol/JSmol.min.js y abrir por http(s)://');
+      return false;
+    }
+    // Firma can&oacute;nica: crea window.jsmolA / window.jsmolB
+    document.getElementById('viewerA').innerHTML = Jmol.getAppletHtml('jsmolA', Info);
+    document.getElementById('viewerB').innerHTML = Jmol.getAppletHtml('jsmolB', Info);
+    jsmolA = window.jsmolA; jsmolB = window.jsmolB;
+    console.log('[JSmol] Montados A y B.');
+    return true;
+  }
+
+  function j(cmd, app){ Jmol.script(app, cmd); }
+  function loadMol(app, path){
+    j(`load '${path}'; set antialiasDisplay true; select *; spacefill 20%; wireframe 0.15; cartoon off; backbone off; hbonds off; spin off; reset; zoom 110;`, app);
+  }
+  function applyStyle(app, mode){
+    if (!app) return;
+    if (mode === 'spacefill') {
+      j("select *; spacefill 100%; wireframe off; cartoon off; backbone off;", app);
+    } else {
+      j("select *; spacefill 20%; wireframe 0.15; cartoon off; backbone off;", app);
+    }
+  }
+  function runScript(app, script){ if (app && script) j(script, app); }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const ok = mountApplets();
+
+    // Delegaci&oacute;n: clics de botones de carga y tests
+    document.getElementById('inferior').addEventListener('click', (ev)=>{
+      const btn = ev.target.closest('button');
+      if (!btn) return;
+      if (btn.id === 'testJmol') { alert(typeof window.Jmol === 'object' ? 'JSmol est&aacute; cargado.' : 'JSmol NO est&aacute; cargado.'); return; }
+      if (btn.id === 'testCargaA') { if (jsmolA) loadMol(jsmolA, btn.getAttribute('data-path')); return; }
+      if (btn.id === 'testCargaB') { if (jsmolB) loadMol(jsmolB, btn.getAttribute('data-path')); return; }
+
+      const path = btn.getAttribute('data-path');
+      const target = btn.getAttribute('data-target');
+      if (!path || !target) return;
+      if (target === 'A' && jsmolA) loadMol(jsmolA, path);
+      if (target === 'B' && jsmolB) loadMol(jsmolB, path);
+    });
+
+    // Delegaci&oacute;n: radios (estilos y scripts) por bloque y visor
+    document.getElementById('inferior').addEventListener('change', (ev)=>{
+      const el = ev.target;
+      if (!(el instanceof HTMLInputElement) || el.type !== 'radio') return;
+      const target = el.getAttribute('data-target');
+      const app = target === 'A' ? jsmolA : target === 'B' ? jsmolB : null;
+      if (!app) return;
+      const style = el.getAttribute('data-style');
+      const script = el.getAttribute('data-cmd');
+      if (style) { applyStyle(app, style); return; }
+      if (script) { runScript(app, script); return; }
+    });
+  });
+</script>
+
+
+</BODY>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>JSmol - Estructuras anfipáticas</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
+
+  /* === CLAVE: fijar el panel izquierdo (visor) === */
+  #viewerWrap {
+    position: fixed;          /* anclado */
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);     /* mismo ancho que estabas usando */
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    z-index: 1;
+  }
+
+  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewer {
+    width: 100%;
+    height: var(--left-h);    /* alto grande del visor */
+    border: 1px solid #999; border-radius: 8px; background: #fff;
+  }
+
+  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  .panel {
+    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-right: var(--gap);
+    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+  }
+
+  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  @media (max-width: 980px){
+    #viewerWrap { position: static; width: auto; margin: var(--gap); }
+    .panel { margin: var(--gap); }
+    #viewer { height: 380px; }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null; // nombre del archivo actualmente cargado
+  Jmol.setDocument(0);
+
+  function visorSize() {
+    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+    var el = document.getElementById('viewer');
+    var w = el ? el.clientWidth : 600;
+    return Math.max(400, Math.min(800, w));
+  }
+
+  var Info = {
+    width: visorSize(),
+    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    var s = visorSize();
+    Info.width = s; Info.height = s;
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    var s = visorSize();
+    Jmol.resizeApplet(jmolApplet0, s, s);
+  });
+
+  function cmd(s) { Jmol.script(jmolApplet0, s); }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+  }
+
+  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    // Marcar radios de su bloque según la representación aplicada (si existen)
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor (FIJO) -->
+    <div id="viewerWrap">
+      <h3 style="margin:4px 0 10px;">Visor</h3>
+      <div id="viewer"></div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+<a name="inicio"></a>
+<hr /><p><center>
+<font face="Arial"><A HREF="Distr_Lipidos.html" ><B>&Iacute;ndice Lípidos</B></A></font>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Estructuras anfip&aacute;ticas</B></font></center>
+<br /><br />
+<p>
+<p>
+
+
+<script type="text/javascript"><!--
+jmolSetTarget(1)
+//-->
+</script>
+
+
+<P align="justify">Los l&iacute;pidos anfip&aacute;ticos tienen capacidad de <i>autoestructuraci&oacute;n</i>. En un medio acuoso, las cadenas hidrof&oacute;bicas tienden a exclu&iacute;rse del mismo interaccionando entre s&iacute; (el efecto hidrof&oacute;bico) mientras que las partes polares interaccionan con el medio. Por esa raz&oacute;n, los l&iacute;pidos anfip&aacute;ticos son las estructuras id&oacute;neas para las <I>interfases</I>, y de ah&iacute; su presencia b&aacute;sica en las membranas celulares.</P>
+
+
+<P align="justify">En un medio acuoso, compuestos anfipáticos con determinadas características moleculares: por ejemplo, el Hexil sulfato:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/hexilsulfato.pdb', 'ballstick')",<b>Hexil sulfato</b></button>
+</center>
+					<br />
+
+					<p align="justify">tienden a formar <i>Micelas</i>, que son agregados esféricos en los que la parte hidrofóbica del lípido (un grupo hexil-)  se dirige hacia dentro, mientras que la parte polar (un grupo sulfato) está hacia fuera en contacto con el agua, mientras que las colas hidrofóbicas (el grupo hexil-) se dirigen hacia el interior de la estructura:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/micela.pdb', 'spacefill')",<b>Micela</b></button>
+</center>
+
+<br />
+
+
+					<p align="justify">En un medio hidrofóbico (benceno, hexano, cloroformo, etc.), este mismo lípido anfipático formaría <i>Micelas inversas</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/micela_inversa.pdb', 'spacefill')",<b>Micela inversa</b></button>
+</center>
+
+					<br />
+
+
+					<p align="justify">En las que los grupos hidrofóbicos estarían dirigidos hacia el solvente, mientras que los grupos polares sulfato estarían en el interior rodeando una cavidad en la que se podrían alojar compuestos polares como el agua.</p>
+
+					<hr />
+
+					<P align="justify">Esta propiedad de autoestructuración puede dar lugar también a formas laminares, que como veremos son la base de la estructura de las membranas biológicas.</p>
+
+					<P align="justify"><h6><B>NOTA</B>: Las im&aacute;genes que se presentan a continuaci&oacute;n  han sido producidas por los Dres. H.Heller, M.Schaefer y K. Schulten de la Universidad Ludwig Maximilian de Munich, Alemania.</h6></P>
+
+					<P align="justify">Sea un l&iacute;pido anfip&aacute;tico como la lecitina (no se representan los átomos de hidrógeno):</p>
+
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/crystal.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   spacefill; rotate y 30; rotate x 30')">
+    <b>Bicapa, fase cristal líquido</b>
+  </button>
+</center>
+<br>
+
+					<p align="justify">: 
+
+<div style="max-width:48rem;margin:0 auto;">
+  <fieldset style="border:0;margin:8px 0;padding:0">
+    <label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="crystal-steps"
+        onchange="jrun('restrict 1-100; center 50; spacefill; zoom 100')">
+      Al extender un conjunto de mol&eacute;culas de la misma en una interfase (agua-aire, o polar-hidrof&oacute;bica), las colas hidrof&oacute;bicas del l&iacute;pido se orientan hacia el aire, mientras que las polares interaccionan con el agua, dando lugar a la estructura conocida como <i>Monocapa</i>	 
+    </label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="crystal-steps"
+        onchange="jrun('restrict 1-200; center; spacefill; zoom 100')">
+      Las membranas biol&oacute;gicas se forman mediante la aposici&oacute;n de dos monocapas lip&iacute;dicas como la mostrada, de manera que las colas hidrof&oacute;bicas quedan hacia el interior de la estructura y las cabezas polares hacia el exterior, dando lugar a la estructura conocida como <i>Bicapa</i>:	 
+    
+</label>
+
+<label style="display:block;margin:.35rem 0;">
+      <input type="radio" name="cerebrosido-steps"
+        onchange="jrun('select all; spacefill; rotate x 30; rotate y 30')">
+      	En esta imagen podemos ver c&oacute;mo las cabezas polares quedan solvatadas con agua, dando una idea de lo que son las membranas biológicas.    
+</label>
+
+</fieldset>
+</div>
+
+					<P align="justify">Dependiendo de muchos factores, pero sobre todo de la temperatura, las bicapas pueden estar en diferentes estados f&iacute;sicos. La estructura que hemos visto hasta ahora es la que presenta el ordenamiento m&aacute;ximo, y se llama fase de <i>Cristal l&iacute;quido</i>. Un estado de mucho mayor desorden se encuentra en la fase <i>Fluida</i>:</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/fluid.pdb', 'spacefill')",<b>Bicapa, fase fluida</b></button>
+</center>
+
+
+
+					<br />
+
+					<P align="justify">En general, podemos considerar las membranas celulares como bicapas lipídicas, pero conteniendo prote&iacute;nas y una composici&oacute;n lip&iacute;dica mucho m&aacute;s heterog&eacute;nea que la mostrada.</P>
+
+					<P align="justify">Son mol&eacute;culas anfip&aacute;ticas asimismo los <B>Detergentes</B>, cuya acci&oacute;n se debe a su facilidad para formar <i>micelas</i>. Se muestra a continuaci&oacute;n la estructura del <i>Dodecil sulfato</i> (<i>Lauril sulfato, SDS</i>):</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/sds.pdb', 'ballstick')",<b>Dodecil sulfato</b></button>
+</center>
+
+					<br />
+
+					<P><CENTER><img SRC="../gif/sds.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+
+
+					<p align="justify">Y la del <i>Cetil trimetilamonio</i> (<i>CTAB, Cetavlon</i>):</p>
+
+<center>
+<button onClick="loadMolecule ('../pdb/ctab.pdb', 'ballstick')",<b>Cetil trimetilamonio</b></button>
+</center>
+
+
+
+					
+					<br />
+
+					<P><CENTER><img SRC="../gif/ctab.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
+
+
+
+
+			<hr />
+
+
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=30%>
+				<A HREF="pgJSmol_053.html" ><B>Anterior: Glicolípidos</B></A>
+				</td> 
+				<td align=center width=30%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=30%>
+
+				<A HREF="pgJSmol_061.html" ><B>Siguiente: Esteroides</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+
+				</font>
+
+						
+			</div>
+		</form>
+	</body>
+
+	
+
+</html>
