@@ -1,0 +1,12 @@
+HEADER       Acetamida                                                          
+AUTHOR      E.Battaner dbbm usal                                                
+ATOM      1  N           1       0.327  -1.317   0.000
+ATOM      2  C           1       0.327   0.023   0.000
+ATOM      3  O           1       1.513   0.708   0.000
+ATOM      4  C           1      -0.995   0.786   0.000
+ATOM      5  H           1      -0.609  -1.857   0.000
+ATOM      6  H           1       1.262  -1.857   0.000
+ATOM      7  H           1      -1.567   0.522   0.890
+ATOM      8  H           1      -1.567   0.522  -0.890
+ATOM      9  H           1      -0.796   1.857   0.000
+END                                                                             

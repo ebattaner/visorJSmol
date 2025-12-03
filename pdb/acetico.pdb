@@ -1,0 +1,11 @@
+HEADER       Ácido acético                                                      
+AUTHOR      E.Battaner  dbbm  usal                                              
+ATOM      1  C           1       0.053   0.206   0.000
+ATOM      2  O           1       0.053   1.576   0.000
+ATOM      3  O           1       1.274  -0.499   0.000
+ATOM      4  C           1      -1.269  -0.557   0.000
+ATOM      5  H           1       1.840  -0.238   0.882
+ATOM      6  H           1      -1.840  -0.294  -0.890
+ATOM      7  H           1      -1.840  -0.294   0.890
+ATOM      8  H           1      -1.070  -1.629   0.000
+END                                                                             

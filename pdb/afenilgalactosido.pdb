@@ -1,0 +1,37 @@
+HEADER alfa-fenil galactosido                                                   
+AUTHOR  E.Battaner   dbbm   usal                                                
+ATOM      1  C01 adga    1       1.374  -0.843   0.163
+ATOM      2  C02 adga    1       0.732  -0.633   1.531
+ATOM      3  C03 adga    1      -0.774  -0.827   1.489
+ATOM      4  C04 adga    1      -1.383  -0.008   0.373
+ATOM      5  C05 adga    1      -0.678  -0.325  -0.946
+ATOM      6  C06 adga    1      -1.184   0.452  -2.142
+ATOM      7  O07 adga    1       1.310  -1.554   2.447
+ATOM      8  O08 adga    1      -1.327  -0.399   2.740
+ATOM      9  O09 adga    1       0.712   0.002  -0.787
+ATOM     10  O10 adga    1      -1.053   1.853  -1.957
+ATOM     11  H11 adga    1       2.087  -1.135   3.086
+ATOM     12  H12 adga    1      -1.646  -1.335   3.200
+ATOM     13  H13 adga    1      -0.537   2.574  -2.590
+ATOM     14  O14 adga    1       1.334  -2.177  -0.328
+ATOM     15  O15 adga    1      -1.232   1.349   0.769
+ATOM     16  H17 adga    1      -1.746   1.512   1.716
+ATOM     17  H18 adga    1      -0.817  -1.344  -1.181
+ATOM     18  H19 adga    1      -1.016   0.327  -3.117
+ATOM     19  H20 adga    1      -2.205   0.241  -2.273
+ATOM     20  H21 adga    1       2.439  -0.615   0.222
+ATOM     21  H22 adga    1       0.959   0.386   1.842
+ATOM     22  H23 adga    1      -0.989  -1.883   1.324
+ATOM     23  H24 adga    1      -2.439  -0.224   0.209
+ATOM     24  C01 phen    2       2.288  -2.528  -1.335
+ATOM     25  C02 phen    2       3.548  -3.014  -0.966
+ATOM     26  C03 phen    2       4.481  -3.357  -1.952
+ATOM     27  C04 phen    2       4.154  -3.213  -3.306
+ATOM     28  C05 phen    2       2.894  -2.727  -3.674
+ATOM     29  C06 phen    2       1.961  -2.384  -2.688
+ATOM     30  H09 phen    2       3.800  -3.124   0.078
+ATOM     31  H10 phen    2       5.453  -3.732  -1.668
+ATOM     32  H11 phen    2       4.874  -3.478  -4.066
+ATOM     33  H12 phen    2       2.642  -2.617  -4.718
+ATOM     34  H13 phen    2       0.989  -2.009  -2.973
+END                                                                             

@@ -1,0 +1,39 @@
+HEADER    Acido 5.hidroxiindolacético                                           
+AUTHOR    E.Battaner dbbm usal                                                  
+ATOM      1  C           0       2.853  -0.686   0.201
+ATOM      2  O           0       2.467  -0.394   1.324
+ATOM      3  O           0       3.834  -1.403   0.058
+ATOM      4  C           0       2.117  -0.168  -1.007
+ATOM      5  C           0       0.953   0.679  -0.561
+ATOM      6  C           0       0.968   2.002  -0.335
+ATOM      7  N           0      -0.273   2.423   0.057
+ATOM      8  C           0      -1.141   1.352   0.094
+ATOM      9  C           0      -2.487   1.225   0.417
+ATOM     10  C           0      -3.096  -0.009   0.359
+ATOM     11  C           0      -2.375  -1.138  -0.022
+ATOM     12  O           0      -2.991  -2.349  -0.075
+ATOM     13  C           0      -1.038  -1.032  -0.347
+ATOM     14  C           0      -0.412   0.215  -0.298
+ATOM     15  H           0       2.793   0.435  -1.614
+ATOM     16  H           0       1.750  -1.007  -1.598
+ATOM     17  H           0       1.833   2.640  -0.446
+ATOM     18  H           0      -0.507   3.339   0.276
+ATOM     19  H           0      -3.056   2.094   0.715
+ATOM     20  H           0      -4.142  -0.102   0.612
+ATOM     21  H           0      -3.345  -2.444  -0.970
+ATOM     22  H           0      -0.480  -1.909  -0.643
+CONECT    1    2    3    4    0
+CONECT    2    1    0    0    0
+CONECT    3    1    0    0    0
+CONECT    4    1    5   15   16
+CONECT    5    4    6   14    0
+CONECT    6    5    7   17    0
+CONECT    7    6    8   18    0
+CONECT    8    7    9   14    0
+CONECT    9    8   10   19    0
+CONECT   10    9   11   20    0
+CONECT   11   10   12   13    0
+CONECT   12   11   21    0    0
+CONECT   13   11   14   22    0
+CONECT   14   13    8    5    0
+END                                                                             
