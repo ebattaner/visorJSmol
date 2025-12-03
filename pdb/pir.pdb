@@ -1,0 +1,18 @@
+HEADER     Piruvato                                                             
+AUTHOR     E.Battaner  dbbm  usal                                               
+ATOM    185  C          10       1.953  -1.293  -0.009
+ATOM    186  O          10       1.341  -2.354  -0.016
+ATOM    187  O          10       3.179  -1.294  -0.015
+ATOM    188  C          10       1.207   0.000   0.000
+ATOM    189  O          10       0.000   0.000   0.000
+ATOM    190  C          10       1.961   1.305   0.008
+ATOM    191  H          10       1.253   2.133   0.014
+ATOM    192  H          10       2.588   1.356   0.898
+ATOM    193  H          10       2.588   1.368  -0.882
+CONECT  185  186  187  188     
+CONECT  186  185               
+CONECT  187  185               
+CONECT  188  185  189  190     
+CONECT  189  188               
+CONECT  190  188  191  192  193
+END                                                                             

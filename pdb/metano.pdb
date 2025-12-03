@@ -1,0 +1,8 @@
+HEADER       Metano                                                             
+AUTHOR      E.Battaner dbbm usal                                                
+ATOM      1  C           1       0.257  -0.363   0.000
+ATOM      2  H           1       0.257   0.727   0.000
+ATOM      3  H           1       0.771  -0.727   0.890
+ATOM      4  H           1       0.771  -0.727  -0.890
+ATOM      5  H           1      -0.771  -0.727   0.000
+END                                                                             

@@ -1,0 +1,10 @@
+HEADER       Metilamina                                                         
+AUTHOR      E.Battaner dbbm usal                                                
+ATOM      1  C           1       0.257  -0.735   0.000
+ATOM      2  N           1       0.257   0.735   0.000
+ATOM      3  H           1       0.771  -1.099   0.890
+ATOM      4  H           1       0.771  -1.099  -0.890
+ATOM      5  H           1      -0.771  -1.099   0.000
+ATOM      6  H           1       0.771   1.099   0.890
+ATOM      7  H           1      -0.771   1.099   0.000
+END                                                                             

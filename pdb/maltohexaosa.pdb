@@ -1,0 +1,265 @@
+AUTHOR  Sweet Program 2.0
+REMARK  This file was generated from the SWEET-programm.
+REMARK  Molecular: 
+REMARK  [][a-D-Glcp]{[(1-4)][a-D-Glcp]{[(1-4)][a-D-Glcp]{[(1-4)][a-D
+REMARK  -Glcp]{[(1-4)][a-D-Glcp]{[(1-4)][a-D-Glcp]{}}}}}}
+ATOM      1  C01 adgl    1       1.803  -0.843   0.163  0.00  0.00
+ATOM      2  C02 adgl    1       1.161  -0.633   1.531  0.00  0.00
+ATOM      3  C03 adgl    1      -0.346  -0.827   1.489  0.00  0.00
+ATOM      4  C04 adgl    1      -0.954  -0.008   0.373  0.00  0.00
+ATOM      5  C05 adgl    1      -0.250  -0.325  -0.946  0.00  0.00
+ATOM      6  C06 adgl    1      -0.755   0.452  -2.142  0.00  0.00
+ATOM      7  O07 adgl    1       1.739  -1.554   2.447  0.00  0.00
+ATOM      8  O08 adgl    1      -0.898  -0.399   2.740  0.00  0.00
+ATOM      9  O09 adgl    1      -2.335  -0.300   0.221  0.00  0.00
+ATOM     10  O10 adgl    1       1.141   0.002  -0.787  0.00  0.00
+ATOM     11  O11 adgl    1      -0.625   1.853  -1.957  0.00  0.00
+ATOM     12  H12 adgl    1       2.516  -1.135   3.086  0.00  0.00
+ATOM     13  H13 adgl    1      -1.217  -1.335   3.200  0.00  0.00
+ATOM     14  H14 adgl    1      -2.926   0.433   0.768  0.00  0.00
+ATOM     15  H15 adgl    1      -0.108   2.574  -2.590  0.00  0.00
+ATOM     16  O16 adgl    1       1.763  -2.177  -0.328  0.00  0.00
+ATOM     17  H18 adgl    1      -0.388  -1.344  -1.181  0.00  0.00
+ATOM     18  H19 adgl    1      -0.588   0.327  -3.117  0.00  0.00
+ATOM     19  H20 adgl    1      -1.776   0.241  -2.273  0.00  0.00
+ATOM     20  H21 adgl    1       2.867  -0.615   0.222  0.00  0.00
+ATOM     21  H22 adgl    1      -0.560  -1.883   1.324  0.00  0.00
+ATOM     22  H23 adgl    1      -0.831   1.044   0.629  0.00  0.00
+ATOM     23  H24 adgl    1       1.388   0.386   1.842  0.00  0.00
+ATOM     24  C01 adgl    2       4.461  -4.837  -2.080  0.00  0.00
+ATOM     25  C02 adgl    2       4.977  -4.017  -0.901  0.00  0.00
+ATOM     26  C03 adgl    2       3.846  -3.382  -0.109  0.00  0.00
+ATOM     27  C04 adgl    2       2.906  -2.640  -1.031  0.00  0.00
+ATOM     28  C05 adgl    2       2.436  -3.569  -2.150  0.00  0.00
+ATOM     29  C06 adgl    2       1.503  -2.933  -3.157  0.00  0.00
+ATOM     30  O07 adgl    2       5.736  -4.872  -0.055  0.00  0.00
+ATOM     31  O08 adgl    2       4.407  -2.459   0.832  0.00  0.00
+ATOM     32  O10 adgl    2       3.600  -4.007  -2.870  0.00  0.00
+ATOM     33  O11 adgl    2       2.099  -1.818  -3.801  0.00  0.00
+ATOM     34  H12 adgl    2       6.816  -4.801  -0.184  0.00  0.00
+ATOM     35  H13 adgl    2       4.235  -2.950   1.790  0.00  0.00
+ATOM     36  H15 adgl    2       2.236  -1.646  -4.869  0.00  0.00
+ATOM     37  O16 adgl    2       3.743  -6.014  -1.732  0.00  0.00
+ATOM     38  H18 adgl    2       1.905  -4.380  -1.733  0.00  0.00
+ATOM     39  H19 adgl    2       0.939  -3.343  -3.871  0.00  0.00
+ATOM     40  H20 adgl    2       0.647  -2.590  -2.654  0.00  0.00
+ATOM     41  H21 adgl    2       5.304  -5.204  -2.665  0.00  0.00
+ATOM     42  H22 adgl    2       3.299  -4.167   0.413  0.00  0.00
+ATOM     43  H23 adgl    2       3.449  -1.789  -1.443  0.00  0.00
+ATOM     44  H24 adgl    2       5.620  -3.236  -1.306  0.00  0.00
+ATOM     45  C01 adgl    3       3.736 -10.014  -2.925  0.00  0.00
+ATOM     46  C02 adgl    3       5.101  -9.356  -2.748  0.00  0.00
+ATOM     47  C03 adgl    3       5.011  -8.059  -1.962  0.00  0.00
+ATOM     48  C04 adgl    3       3.947  -7.158  -2.548  0.00  0.00
+ATOM     49  C05 adgl    3       2.624  -7.917  -2.649  0.00  0.00
+ATOM     50  C06 adgl    3       1.479  -7.126  -3.244  0.00  0.00
+ATOM     51  O07 adgl    3       5.957 -10.269  -2.073  0.00  0.00
+ATOM     52  O08 adgl    3       6.278  -7.393  -2.029  0.00  0.00
+ATOM     53  O10 adgl    3       2.839  -9.055  -3.499  0.00  0.00
+ATOM     54  O11 adgl    3       1.772  -6.677  -4.558  0.00  0.00
+ATOM     55  H12 adgl    3       6.644 -10.815  -2.720  0.00  0.00
+ATOM     56  H13 adgl    3       6.659  -7.487  -1.012  0.00  0.00
+ATOM     57  H15 adgl    3       1.208  -6.849  -5.474  0.00  0.00
+ATOM     58  O16 adgl    3       3.144 -10.515  -1.733  0.00  0.00
+ATOM     59  H18 adgl    3       2.309  -8.202  -1.683  0.00  0.00
+ATOM     60  H19 adgl    3       0.501  -7.320  -3.275  0.00  0.00
+ATOM     61  H20 adgl    3       1.310  -6.277  -2.647  0.00  0.00
+ATOM     62  H21 adgl    3       3.836 -10.894  -3.561  0.00  0.00
+ATOM     63  H22 adgl    3       4.762  -8.291  -0.927  0.00  0.00
+ATOM     64  H23 adgl    3       4.285  -6.845  -3.535  0.00  0.00
+ATOM     65  H24 adgl    3       5.494  -9.152  -3.744  0.00  0.00
+ATOM     66  C01 adgl    4       1.257 -14.043  -0.545  0.00  0.00
+ATOM     67  C02 adgl    4       2.505 -14.193  -1.409  0.00  0.00
+ATOM     68  C03 adgl    4       3.318 -12.911  -1.465  0.00  0.00
+ATOM     69  C04 adgl    4       2.434 -11.740  -1.831  0.00  0.00
+ATOM     70  C05 adgl    4       1.238 -11.677  -0.882  0.00  0.00
+ATOM     71  C06 adgl    4       0.261 -10.556  -1.160  0.00  0.00
+ATOM     72  O07 adgl    4       3.301 -15.243  -0.873  0.00  0.00
+ATOM     73  O08 adgl    4       4.339 -13.057  -2.460  0.00  0.00
+ATOM     74  O10 adgl    4       0.512 -12.911  -1.013  0.00  0.00
+ATOM     75  O11 adgl    4      -0.283 -10.639  -2.468  0.00  0.00
+ATOM     76  H12 adgl    4       3.201 -16.199  -1.387  0.00  0.00
+ATOM     77  H13 adgl    4       5.253 -13.110  -1.868  0.00  0.00
+ATOM     78  H15 adgl    4      -1.331 -10.683  -2.764  0.00  0.00
+ATOM     79  O16 adgl    4       1.498 -13.870   0.845  0.00  0.00
+ATOM     80  H18 adgl    4       1.580 -11.526   0.104  0.00  0.00
+ATOM     81  H19 adgl    4      -0.494 -10.199  -0.614  0.00  0.00
+ATOM     82  H20 adgl    4       0.770  -9.639  -1.085  0.00  0.00
+ATOM     83  H21 adgl    4       0.664 -14.957  -0.600  0.00  0.00
+ATOM     84  H22 adgl    4       3.767 -12.736  -0.488  0.00  0.00
+ATOM     85  H23 adgl    4       2.100 -11.885  -2.859  0.00  0.00
+ATOM     86  H24 adgl    4       2.175 -14.459  -2.413  0.00  0.00
+ATOM     87  C01 adgl    5       0.006 -15.479   4.396  0.00  0.00
+ATOM     88  C02 adgl    5       0.263 -16.460   3.256  0.00  0.00
+ATOM     89  C03 adgl    5       1.142 -15.859   2.173  0.00  0.00
+ATOM     90  C04 adgl    5       0.603 -14.514   1.739  0.00  0.00
+ATOM     91  C05 adgl    5       0.416 -13.613   2.960  0.00  0.00
+ATOM     92  C06 adgl    5      -0.143 -12.240   2.659  0.00  0.00
+ATOM     93  O07 adgl    5       0.886 -17.621   3.791  0.00  0.00
+ATOM     94  O08 adgl    5       1.154 -16.744   1.046  0.00  0.00
+ATOM     95  O10 adgl    5      -0.514 -14.264   3.843  0.00  0.00
+ATOM     96  O11 adgl    5      -1.413 -12.311   2.029  0.00  0.00
+ATOM     97  H12 adgl    5       0.214 -18.464   3.958  0.00  0.00
+ATOM     98  H13 adgl    5       2.169 -17.141   1.057  0.00  0.00
+ATOM     99  H15 adgl    5      -2.352 -11.855   2.343  0.00  0.00
+ATOM    100  O16 adgl    5       1.143 -15.156   5.186  0.00  0.00
+ATOM    101  H18 adgl    5       1.349 -13.452   3.424  0.00  0.00
+ATOM    102  H19 adgl    5      -0.210 -11.425   3.231  0.00  0.00
+ATOM    103  H20 adgl    5       0.512 -11.746   2.002  0.00  0.00
+ATOM    104  H21 adgl    5      -0.692 -15.922   5.106  0.00  0.00
+ATOM    105  H22 adgl    5       2.151 -15.736   2.566  0.00  0.00
+ATOM    106  H23 adgl    5      -0.350 -14.685   1.240  0.00  0.00
+ATOM    107  H24 adgl    5      -0.706 -16.726   2.832  0.00  0.00
+ATOM    108  C01 adgl    6       2.018 -14.880   9.257  0.00  0.00
+ATOM    109  C02 adgl    6       1.173 -16.073   8.819  0.00  0.00
+ATOM    110  C03 adgl    6       1.232 -16.292   7.317  0.00  0.00
+ATOM    111  C04 adgl    6       0.937 -15.005   6.582  0.00  0.00
+ATOM    112  C05 adgl    6       1.861 -13.896   7.085  0.00  0.00
+ATOM    113  C06 adgl    6       1.647 -12.545   6.440  0.00  0.00
+ATOM    114  O07 adgl    6       1.645 -17.232   9.493  0.00  0.00
+ATOM    115  O08 adgl    6       0.252 -17.274   6.957  0.00  0.00
+ATOM    116  O10 adgl    6       1.621 -13.735   8.493  0.00  0.00
+ATOM    117  O11 adgl    6       0.325 -12.068   6.634  0.00  0.00
+ATOM    118  H12 adgl    6       1.058 -17.525  10.364  0.00  0.00
+ATOM    119  H13 adgl    6       0.858 -18.136   6.679  0.00  0.00
+ATOM    120  H15 adgl    6       0.003 -11.126   7.078  0.00  0.00
+ATOM    121  O16 adgl    6       3.423 -15.045   9.111  0.00  0.00
+ATOM    122  H17 adgl    6       3.661 -15.224   8.062  0.00  0.00
+ATOM    123  H18 adgl    6       2.863 -14.158   6.886  0.00  0.00
+ATOM    124  H19 adgl    6       2.202 -11.716   6.465  0.00  0.00
+ATOM    125  H20 adgl    6       1.803 -12.638   5.404  0.00  0.00
+ATOM    126  H21 adgl    6       1.881 -14.711  10.325  0.00  0.00
+ATOM    127  H22 adgl    6       2.230 -16.642   7.052  0.00  0.00
+ATOM    128  H23 adgl    6      -0.106 -14.748   6.769  0.00  0.00
+ATOM    129  H24 adgl    6       0.145 -15.868   9.116  0.00  0.00
+TER
+CONNECT    1    2   16   10   20
+CONNECT    2    3    7    1   23
+CONNECT    3    4    8    2   21
+CONNECT    4    9    5    3   22
+CONNECT    5    4   10    6   17
+CONNECT    6    5   18   19   11
+CONNECT    7    2   12
+CONNECT    8    3   13
+CONNECT    9   14    4
+CONNECT   10    1    5
+CONNECT   11    6   15
+CONNECT   12    7
+CONNECT   13    8
+CONNECT   14    9
+CONNECT   15   11
+CONNECT   16    1   27
+CONNECT   17    5
+CONNECT   18    6
+CONNECT   19    6
+CONNECT   20    1
+CONNECT   21    3
+CONNECT   22    4
+CONNECT   23    2
+CONNECT   24   25   37   32   41
+CONNECT   25   26   30   24   44
+CONNECT   26   27   31   25   42
+CONNECT   27   28   26   43   16
+CONNECT   28   27   32   29   38
+CONNECT   29   28   39   40   33
+CONNECT   30   25   34
+CONNECT   31   26   35
+CONNECT   32   24   28
+CONNECT   33   29   36
+CONNECT   34   30
+CONNECT   35   31
+CONNECT   36   33
+CONNECT   37   24   48
+CONNECT   38   28
+CONNECT   39   29
+CONNECT   40   29
+CONNECT   41   24
+CONNECT   42   26
+CONNECT   43   27
+CONNECT   44   25
+CONNECT   45   46   58   53   62
+CONNECT   46   47   51   45   65
+CONNECT   47   48   52   46   63
+CONNECT   48   49   47   64   37
+CONNECT   49   48   53   50   59
+CONNECT   50   49   60   61   54
+CONNECT   51   46   55
+CONNECT   52   47   56
+CONNECT   53   45   49
+CONNECT   54   50   57
+CONNECT   55   51
+CONNECT   56   52
+CONNECT   57   54
+CONNECT   58   45   69
+CONNECT   59   49
+CONNECT   60   50
+CONNECT   61   50
+CONNECT   62   45
+CONNECT   63   47
+CONNECT   64   48
+CONNECT   65   46
+CONNECT   66   67   79   74   83
+CONNECT   67   68   72   66   86
+CONNECT   68   69   73   67   84
+CONNECT   69   70   68   85   58
+CONNECT   70   69   74   71   80
+CONNECT   71   70   81   82   75
+CONNECT   72   67   76
+CONNECT   73   68   77
+CONNECT   74   66   70
+CONNECT   75   71   78
+CONNECT   76   72
+CONNECT   77   73
+CONNECT   78   75
+CONNECT   79   66   90
+CONNECT   80   70
+CONNECT   81   71
+CONNECT   82   71
+CONNECT   83   66
+CONNECT   84   68
+CONNECT   85   69
+CONNECT   86   67
+CONNECT   87   88  100   95  104
+CONNECT   88   89   93   87  107
+CONNECT   89   90   94   88  105
+CONNECT   90   91   89  106   79
+CONNECT   91   90   95   92  101
+CONNECT   92   91  102  103   96
+CONNECT   93   88   97
+CONNECT   94   89   98
+CONNECT   95   87   91
+CONNECT   96   92   99
+CONNECT   97   93
+CONNECT   98   94
+CONNECT   99   96
+CONNECT  100   87  111
+CONNECT  101   91
+CONNECT  102   92
+CONNECT  103   92
+CONNECT  104   87
+CONNECT  105   89
+CONNECT  106   90
+CONNECT  107   88
+CONNECT  108  109  121  116  126
+CONNECT  109  110  114  108  129
+CONNECT  110  111  115  109  127
+CONNECT  111  112  110  128  100
+CONNECT  112  111  116  113  123
+CONNECT  113  112  124  125  117
+CONNECT  114  109  118
+CONNECT  115  110  119
+CONNECT  116  108  112
+CONNECT  117  113  120
+CONNECT  118  114
+CONNECT  119  115
+CONNECT  120  117
+CONNECT  121  108  122
+CONNECT  122  121
+CONNECT  123  112
+CONNECT  124  113
+CONNECT  125  113
+CONNECT  126  108
+CONNECT  127  110
+CONNECT  128  111
+CONNECT  129  109
+END

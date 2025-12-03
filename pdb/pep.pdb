@@ -1,0 +1,25 @@
+HEADER     Fosfoenolpiruvato                                                    
+AUTHOR     E.Battaner  dbbm  usal                                               
+ATOM    173  C           9       3.722   0.482   0.024
+ATOM    174  O           9       4.746  -0.374  -0.096
+ATOM    175  O           9       3.958   1.793   0.159
+ATOM    176  C           9       2.390   0.000   0.000
+ATOM    177  O           9       1.350   0.869   0.122
+ATOM    178  P           9       0.000   0.000   0.000
+ATOM    179  O           9      -0.046  -0.658  -1.325
+ATOM    180  O           9      -0.022  -1.121   1.156
+ATOM    181  O           9      -1.277   0.966   0.164
+ATOM    182  C           9       2.153  -1.313  -0.141
+ATOM    183  H           9       1.140  -1.671  -0.257
+ATOM    184  H           9       2.975  -2.014  -0.140
+CONECT  173  174  175  176     
+CONECT  174  173               
+CONECT  175  173               
+CONECT  176  173  177  182     
+CONECT  177  176  178          
+CONECT  178  177  179  180  181
+CONECT  179  178               
+CONECT  180  178               
+CONECT  181  178               
+CONECT  182  176  183  184     
+END                                                                             
