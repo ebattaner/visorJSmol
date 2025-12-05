@@ -5,7 +5,7 @@
 <title>Distr. Enzimas</title>
 
 <!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
-<script src="JSmol/JSmol.min.js"></script>
+<script src="../JSmol/JSmol.min.js"></script>
 
 <style>
   :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
@@ -77,7 +77,7 @@
     debug: false,
     color: "white",
     use: "HTML5",
-    j2sPath: "JSmol/j2s",
+    j2sPath: "../JSmol/j2s",
     disableInitialConsole: true,
     script: "background white; set antialiasDisplay true;"
   };
@@ -87,6 +87,8 @@
     Info.width = s; Info.height = s;
     jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
     document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+	loadMolecule("../pdb/2gmt.pdb", "ballstick");
+
   }
 
   window.addEventListener('resize', function() {
@@ -99,7 +101,7 @@
 
   // Representaciones
   function applyBallStick() {
-    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.15; spacefill 20%; color cpk; center all; zoom 120;");
+    cmd("restrict not solvent; cartoons off; ribbons off; backbone off; wireframe 0.15; spacefill 20%; color cpk; center all; zoom 120;");
   }
   function applySpacefill() {
     cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
@@ -200,6 +202,7 @@
 	
 
 </html>
+
 
 
 
