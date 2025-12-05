@@ -80,6 +80,7 @@
     j2sPath: "JSmol/j2s",  // AQUI
     disableInitialConsole: true,
     script: "background white; set antialiasDisplay true;"
+	loadMolecule("pdb/adesuc.pdb", "ballstick");
   };
 
   function initJSmol() {
@@ -203,7 +204,27 @@
 </UL>
 <HR>
 
-<p align="justify"> Esta demostración ha sido desarrollada por el Dr. Enrique Battaner Arias, catedrático de Bioquímica y Biología Molecular de la Universidad de Salamanca y es una modificación de la demo primitiva de 2002 adaptada gracias a ChatGPT.</p>
+<!-- Créditos de software -->
+<section style="margin-top:40px; padding:15px; border-top:1px solid #aaa; font-size:14px; line-height:1.5;">
+  <h3>Créditos de software</h3>
+  <p>
+    Esta demo utiliza <strong>JSmol</strong>, la versión HTML5/JavaScript del proyecto <strong>Jmol</strong>, 
+    un visor molecular de código abierto distribuido bajo licencia <strong>LGPL 2.1</strong>.
+  </p>
+  <p>
+    Jmol/JSmol es desarrollado por el <em>Jmol Development Team</em>.  
+    Página oficial del proyecto: 
+    <a href="https://jmol.sourceforge.net/" target="_blank">https://jmol.sourceforge.net/</a>
+  </p>
+  <p>
+    Se agradece y reconoce públicamente la labor de sus desarrolladores al hacer posible la visualización interactiva 
+    de estructuras moleculares en entornos educativos y de investigación.
+  </p>
+<p>Esta demostración ha sido desarrollada por el Dr. Enrique Battaner Arias, catedrático de Bioquímica y Biología Molecular de la Universidad de Salamanca, España, y es una adaptación de la demo primitiva de 2002.
+ </p>
+<p>Se agradece asimismo la inestimable ayuda de ChatGPT en la adaptación.</p>
+</section>
+
 
 				</font>
 
@@ -215,6 +236,7 @@
 	
 
 </html>
+
 
 
 
