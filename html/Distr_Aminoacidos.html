@@ -5,7 +5,7 @@
 <title>JSmol - Distribución Aminoácidos</title>
 
 <!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
-<script src="JSmol/JSmol.min.js"></script>
+<script src="../JSmol/JSmol.min.js"></script>
 
 <style>
   :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
@@ -77,9 +77,10 @@
     debug: false,
     color: "white",
     use: "HTML5",
-    j2sPath: "JSmol/j2s",
+    j2sPath: "../JSmol/j2s",
     disableInitialConsole: true,
     script: "background white; set antialiasDisplay true;"
+	loadMolecule("pdb/w.pdb", "ballstick");
   };
 
   function initJSmol() {
@@ -185,6 +186,7 @@
 	
 
 </html>
+
 
 
 
