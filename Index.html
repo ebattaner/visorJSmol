@@ -80,7 +80,6 @@
     j2sPath: "JSmol/j2s",  // AQUI
     disableInitialConsole: true,
     script: "background white; set antialiasDisplay true;"
-	loadMolecule("pdb/adesuc.pdb", "ballstick");
   };
 
   function initJSmol() {
@@ -88,6 +87,7 @@
     Info.width = s; Info.height = s;
     jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
     document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+	loadMolecule("pdb/adesuc.pdb", "ballstick");
   }
 
   window.addEventListener('resize', function() {
@@ -236,6 +236,7 @@
 	
 
 </html>
+
 
 
 
