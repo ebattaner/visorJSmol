@@ -80,7 +80,7 @@
     j2sPath: "../JSmol/j2s",
     disableInitialConsole: true,
     script: "background white; set antialiasDisplay true;"
-	loadMolecule("pdb/w.pdb", "ballstick");
+	loadMolecule("../pdb/w.pdb", "ballstick");
   };
 
   function initJSmol() {
@@ -100,7 +100,7 @@
 
   // Representaciones
   function applyBallStick() {
-    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120; spin on;");
   }
   function applySpacefill() {
     cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
@@ -186,6 +186,7 @@
 	
 
 </html>
+
 
 
 
