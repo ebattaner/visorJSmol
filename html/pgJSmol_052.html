@@ -182,7 +182,7 @@ grupo polar. Dependiendo de la naturaleza de este grupo polar, clasificamos los 
   <button type="button"
     onclick="jrun('load &quot;../pdb/lecitina.pdb&quot;; \
                    set antialiasDisplay on; \
-                   select all; color cpk; center all; zoom 100;')">
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Lecitina')">
     <b>Lecitina</b>
   </button>
 </center>
@@ -277,7 +277,12 @@ grupo polar. Dependiendo de la naturaleza de este grupo polar, clasificamos los 
 <P align="justify">Los diferentes fosfol&iacute;pidos se forman seg&uacute;n sea la naturaleza del segundo alcohol. As&iacute;, tenemos la <i>Fosfatidil etanolamina </i></A> (cefalina), en la que el segundo alcohol es <i>etanolamina</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/fosfatidiletanolamina.pdb', 'ballstick')",<b>Fosfatidiletanolamina o Cefalina</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/lecitina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Fosfatidil etanolamina')">
+    <b>Fosfatidil etanolamina o Cefalina</b>
+  </button>
 </center>
 
 <P><CENTER><img SRC="../gif/fosfatidiletanolamina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
@@ -286,9 +291,13 @@ grupo polar. Dependiendo de la naturaleza de este grupo polar, clasificamos los 
 <p align="justify">O bien el ácido fosfatídico se esterifica al grupo alcohólico del aminoácido <i>serina</i>, dando lugar a la <i>Fosfatidil serina</i>: </p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/fosfatidilserina.pdb', 'ballstick')",<b>Fosfatidilserina</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/fosfatidilserina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Fosfatidil serina')">
+    <b>Fosfatidil serina</b>
+  </button>
 </center>
-
 
 <P><CENTER><img SRC="../gif/fosfatidilserina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
 
@@ -296,10 +305,14 @@ grupo polar. Dependiendo de la naturaleza de este grupo polar, clasificamos los 
 <P align="justify">El segundo alcohol puede ser asimismo otra mol&eacute;cula de glicerol, en cuyo caso tenemos el <i>Fosfatidil glicerol</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/fosfatidilglicerol.pdb', 'ballstick')",<b>Fosfatidilglicerol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/fosfatidilglicerol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Fosfatidil glicerol')">
+    <b>Fosfatidil glicerol</b>
+  </button>
 </center>
 
- 
 <P><CENTER><img SRC="../gif/fosfatidilglicerol.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
 
 
@@ -308,31 +321,42 @@ grupo polar. Dependiendo de la naturaleza de este grupo polar, clasificamos los 
 <p align="justify">Cuyo -OH en sn-3 puede estar esterificado a otro residuo de &aacute;cido fosfat&iacute;dico, dando lugar al <i>Difosfatidilglicerol o Cardiolipina</i></p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/difosfatidilglicerol.pdb', 'ballstick')",<b>Difosfatidilglicerol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/difosfatidilglicerol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Difosfatidil glicerol')">
+    <b>Difosfatidil glicerol o cardiolipina</b>
+  </button>
 </center>
 
-
- 
 <P><CENTER><img SRC="../gif/difosfatidilglicerol.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
 
 
 
 
 <p align="justify">También podemos encontrar como segundo alcohol el <i>mio-Inositol</i>:</p>
- 
-<center>
-<button onClick="loadMolecule ('../pdb/inositol.pdb', 'ballstick')",<b>Inositol</b></button>
-</center>
 
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/inositol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Inositol')">
+    <b>Inositol</b>
+  </button>
+</center>
 
 <P><CENTER><img SRC="../gif/inositol.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
 
 
 <p align="justify">el cual da lugar a los <i>Fosfatidil inositoles</i> o <i>Fosfoinosítidos</i>:</p>
 
-
 <center>
-<button onClick="loadMolecule ('../pdb/fosfatidilinositol.pdb', 'ballstick')",<b>Fosfatidilinositol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/fosfatidilinositol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Fosfatidil inositol')">
+    <b>Fosfatidil inositol</b>
+  </button>
 </center>
 
 <P><CENTER><img SRC="../gif/fosfatidilinositol.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
@@ -345,17 +369,11 @@ grupo polar. Dependiendo de la naturaleza de este grupo polar, clasificamos los 
   <button type="button"
     onclick="jrun('load &quot;../pdb/plasmalogeno.pdb&quot;; \
                    set antialiasDisplay on; \
-                   select all; color cpk; center all; zoom 100;')">
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Plasmalógeno')">
     <b>Plasmalógeno</b>
   </button>
 </center>
 <br>
-
-<!--
-<center>
-<button onClick="loadMolecule ('../pdb/plasmalogeno.pdb', 'ballstick')",<b>Plasmalógeno</b></button>
-</center>
--->
 
 <P><CENTER><img SRC="../gif/plasmalogeno.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
 
@@ -378,7 +396,12 @@ grupo polar. Dependiendo de la naturaleza de este grupo polar, clasificamos los 
 <P align="justify">Si el alcohol primario, en vez de glicerol, es la <i>Esfingosina</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/esfingosina.pdb', 'ballstick')",<b>Esfingosina</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/esfingosina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Esfingosina')">
+    <b>Esfingosina</b>
+  </button>
 </center>
 
 <P><CENTER><img SRC="../gif/esfingosina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
@@ -388,10 +411,13 @@ grupo polar. Dependiendo de la naturaleza de este grupo polar, clasificamos los 
 <p align="justify">cuya estructura ser&aacute; tratada m&aacute;s adelante, tendremos los <i>Esfingofosfol&iacute;pidos</i>. El grupo amino de la esfingosina es sustitu&iacute;do por un radical graso en uni&oacute;n N-acil; y el grupo alcoh&oacute;lico , por una fosfocolina en la mol&eacute;cula de <i>Esfingomielina</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/esfingomielina.pdb', 'ballstick')",<b>Esfingomielna</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/esfingomielina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Esfingomielina')">
+    <b>Esfingomielina</b>
+  </button>
 </center>
-
-
 <P><CENTER><img SRC="../gif/esfingomielina.gif" ALIGN="TOP"  BORDER="0"></CENTER></p>
 
 

@@ -50,22 +50,17 @@
 			<font face="Helvetica" size="3">
 			<hr />
 
-<P align="justify">Todos los aminoácidos proteicos tienen una estructura com&uacute;n. Veamos el caso de la <b>L-Alanina</b>, que consta de:</p> 
+<p align="justify">Todos los aminoácidos naturales presentan un único tipo de isomería óptica en torno al <b>carbono <font face="symbol">a</font></b>, que de la misma manera que en el Gliceraldedhido, denominamos D- y L-. Veamos a continuación la estructura tridimensional de un L-aminoácido, la <b>L-Alanina</b>:
 
 <center><table border=0 WIDTH=90%><tr>
-	<td align=left width=45%>	
-      	<button class="btn" data-path="../pdb/a.pdb" data-target="A"><b>L-Alanina</b></button>
-	</td></tr>
-	<tr><td align=left width=45%>	
-	<br /><br />
-      	<img SRC="../gif/a.gif" align="top"  border="0">
-	</td></tr>
-</table>
-</center>
+<td align=left width=45%>	
+<label><input type="radio" name="hlA_a" data-target="A" data-cmd="load ../pdb/a.pdb; rotate y -90; rotate x -90; set echo off; set echo top left; color echo black; echo L-Alanina"><b>L-Alanina</b></label></td></tr>		
+<tr><td><img SRC="../gif/a.gif" align="top"  border="0"></td></tr>
+</table></center>	
 
 <center><table border=0 WIDTH=90%><tr>
 	<tr><td align=left width=45%>
-	<label><input type="radio" name="hlA_a" data-target="A" data-cmd="colour green; rotate y -90; rotate x -90;select 1; colour cpk"> Un carbono 	saturado, que recibe el nombre de <b>Carbono <font face="symbol">a</font></b>, sustituido por:</label>
+	<label><input type="radio" name="hlA_a" data-target="A" data-cmd="colour green; select 1; colour cpk"> Un carbono saturado, que recibe el nombre de <b>Carbono <font face="symbol">a</font></b>, sustituido por:</label>
 	</td></tr>
 	<tr><td align=left width=45%>
 	<label><input type="radio" name="hlA_a" data-target="A" data-cmd="select atomno=3,atomno=11, atomno=12,atomno=13; colour cpk">  (1) Un grupo 	amino, <B>-NH<SUB>2</SUB></B>, que aparece como su forma protonada <B>-NH<SUB>3</SUB><SUP>+</SUP></B></label>
@@ -82,17 +77,17 @@
 </table>
 </center>
 
-<P align="justify">Obs&eacute;rvese que tanto el grupo amino como el carboxilo aparecen ionizados; amino como <B>-NH<SUB>3</SUB><SUP>+</SUP></B> y carboxilo como <B>-COO<SUP>-</SUP></B>.</P>
+<P align="justify">Obs&eacute;rvese que tanto el grupo amino como el carboxilo aparecen ionizados; amino como <B>-NH<SUB>3</SUB><SUP>+</SUP></B> y carboxilo como <B>-COO<SUP>-</SUP></B>.
+<br/><br/></p>
 
-<P align="justify">En un caso, el grupo amino aparece sustitu&iacute;do asimismo por la cadena lateral, formando pues una <B>amina secundaria</B>; es el caso de la <i>L-Prolina</i>:</p> 
-
+<p align="justify">En un caso, el grupo amino aparece sustitu&iacute;do asimismo por la cadena lateral, formando pues una <b>amina secundaria</b>; es el caso de la <b>L-Prolina</b>:</p>
 <center><table border=0 WIDTH=90%><tr>
 	<td align=center width=45%>
 	</td>
 	<td align=center width=45%>	
-      	<button class="btn" data-path="../pdb/p.pdb" data-target="B"><b>L-Prolina</b></button>
+      	<label><input type="radio" name="hlA_a" data-target="B" data-cmd="load ../pdb/p.pdb; rotate x 180; set echo off; set echo top left; color echo black; echo L-Prolina"><b>L-Prolina</b></label>
 	</td></tr>
-	<br /><br /><br />
+	<br/><br/><br/>
 	<tr><td align=center width=45%>
 	</td>
 	><td align=center width=45%>	
@@ -104,12 +99,12 @@
 <P align="justify">Con una &uacute;nica excepci&oacute;n entre los veinte amino&aacute;cidos, el carbono <FONT FACE="symbol">a</FONT> aparece sustitu&iacute;do por cuatro grupos diferentes. Se trata, por lo tanto, de un carbono asim&eacute;trico o quiral, y presenta isomer&iacute;a &oacute;ptica. Convencionalmente, los is&oacute;meros en torno al carbono <FONT FACE="symbol">a</FONT> se denominan L- y D-, por similitud con el gliceraldehido. Veamos las estructuras de ambos:</p> 
 
 <center><table border=0 WIDTH=90%><tr>
-	<td align=center width=45%>	
-      	<button class="btn" data-path="../pdb/Lgliceraldehido.pdb" data-target="A"><b>L-Gliceraldehido</b></button>
-	</td>
 	<td align=center width=45%>
-      	<button class="btn" data-path="../pdb/a.pdb" data-target="B"><b>L-Alanina</button>
-	</td>
+	<label><input type="radio" name="hlA_a" data-target="A" data-cmd="load ../pdb/Lgliceraldehido.pdb; set echo off; set echo top left; color echo black; echo L-Gliceraldehido"><b>L-Gliceraldehido</b></label>	
+      	</td>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_a" data-target="B" data-cmd="load ../pdb/a.pdb; set echo off; set echo top left; color echo black; echo L-Alanina"><b>L-Alanina</b></label>
+      	</td>
      </tr>
 	
      </tr>
@@ -146,23 +141,16 @@
 </center>
 
 
-		<P align="justify">Comparemos ahora la estructura de la <i>L-Alanina</i> (izq.) con la <i>D-Alanina</i> (dcha.):</p>
+<P align="justify">Comparemos ahora la estructura de la <b>L-Alanina</b> (izq.) con la <b>D-Alanina</b> (dcha.):</p>
 
 <center><table border=0 WIDTH=90%>
 	<tr>
 	<td align=center width=45%>	
-      	<button class="btn" data-path="../pdb/a.pdb" data-target="A"><b>L-Alanina</b></button>
-	</td>
+	<label><input type="radio" name="hlA_a" data-target="A" data-cmd="load ../pdb/a.pdb; rotate y -90; rotate x -90; set echo off; set echo top left; color echo black; echo L-Alanina"><b>L-Alanina</b></label>
+      	</td>
 	<td align=center width=45%>
-      	<button class="btn" data-path="../pdb/d_ala.pdb" data-target="B"><b>D-Alanina</button>
-	</td></tr>
-
-	<tr>	
-     	<tr><td align=center width=45%>
-	<label><input type="radio" name="hlA_a" data-target="A" data-cmd="rotate y -90; rotate x -90">Simetría</label>
-	<td align=center width=45%>
-	<label><input type="radio" name="hlA_d_ala" data-target="B" data-cmd="rotate y 90; rotate x 90; rotate z 180">Simetría</label>
-	</td></tr>
+	<label><input type="radio" name="hlA_a" data-target="B" data-cmd="load ../pdb/d_ala.pdb; rotate y 90; rotate x 90; rotate z 180; set echo off; set echo top left; color echo black; echo D-Alanina"><b>D-Alanina</b></label>
+      	</td></tr>
 	<tr>
 	<td align=center width=45%>	
       	<img SRC="../gif/L_ala_sn.gif" align="top"  border="0">
@@ -173,13 +161,13 @@
 </table>
 </center>
 
-			<P align="justify">La &uacute;nica excepci&oacute;n a esta regla est&aacute; constitu&iacute;da por la <i>Glicina</i>, el m&aacute;s simple de todos los amino&aacute;cidos, en el que la cadena lateral es un &aacute;tomo de hidr&oacute;geno, y por tanto, su carbono <FONT FACE="symbol">a</FONT> no es quiral. </P> 
+<P align="justify">La &uacute;nica excepci&oacute;n a esta regla est&aacute; constitu&iacute;da por la <b>Glicina</b>, el m&aacute;s simple de todos los amino&aacute;cidos, en el que la cadena lateral es un &aacute;tomo de hidr&oacute;geno, y por tanto, su carbono <FONT FACE="symbol">a</FONT> no es quiral. </P> 
 
 <center><table border=0 WIDTH=90%>
 	<tr>
-	<td align=left width=45%>	
-      	<button class="btn" data-path="../pdb/g.pdb" data-target="A"><b>Glicina</b></button>
-	</td></tr>
+	<td align=left width=45%>
+<label><input type="radio" name="hlA_a" data-target="A" data-cmd="load ../pdb/g.pdb; rotate x 30; rotate y 30; set echo off; set echo top left; color echo black; echo Glicina"><b>Glicina</b></label>	
+      	</td></tr>
 	<tr><td align=left width=45%>
       	<img SRC="../gif/g.gif" align="top"  border="0">
 	</td></tr>
@@ -290,4 +278,3 @@
 </script>
 </body>
 </html>
-

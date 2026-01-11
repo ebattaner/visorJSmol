@@ -170,14 +170,25 @@ jmolSetTarget(1)
 <P align="justify">En un medio acuoso, compuestos anfipáticos con determinadas características moleculares: por ejemplo, el Hexil sulfato:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/hexilsulfato.pdb', 'ballstick')",<b>Hexil sulfato</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/hexilsulfato.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Hexil sulfato')">
+    <b>Hexil sulfato</b>
+  </button>
 </center>
+
 					<br />
 
 					<p align="justify">tienden a formar <i>Micelas</i>, que son agregados esféricos en los que la parte hidrofóbica del lípido (un grupo hexil-)  se dirige hacia dentro, mientras que la parte polar (un grupo sulfato) está hacia fuera en contacto con el agua, mientras que las colas hidrofóbicas (el grupo hexil-) se dirigen hacia el interior de la estructura:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/micela.pdb', 'spacefill')",<b>Micela</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/micela.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; spacefill; set echo off; set echo top left; color echo black; echo Micela')">
+    <b>Micela</b>
+  </button>
 </center>
 
 <br />
@@ -186,8 +197,14 @@ jmolSetTarget(1)
 					<p align="justify">En un medio hidrofóbico (benceno, hexano, cloroformo, etc.), este mismo lípido anfipático formaría <i>Micelas inversas</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/micela_inversa.pdb', 'spacefill')",<b>Micela inversa</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/micela_inversa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; spacefill; set echo off; set echo top left; color echo black; echo Micela inversa')">
+    <b>Micela inversa</b>
+  </button>
 </center>
+
 
 					<br />
 
@@ -207,13 +224,13 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/crystal.pdb&quot;; \
                    set antialiasDisplay on; \
-                   spacefill; rotate y 30; rotate x 30')">
+                   spacefill; rotate y 30; rotate x 30; set echo off; set echo top left; color echo black; echo Bicapa, fase cristal líquido')">
     <b>Bicapa, fase cristal líquido</b>
   </button>
 </center>
 <br>
 
-					<p align="justify">: 
+					<p align="justify">
 
 <div style="max-width:48rem;margin:0 auto;">
   <fieldset style="border:0;margin:8px 0;padding:0">
@@ -242,9 +259,14 @@ jmolSetTarget(1)
 					<P align="justify">Dependiendo de muchos factores, pero sobre todo de la temperatura, las bicapas pueden estar en diferentes estados f&iacute;sicos. La estructura que hemos visto hasta ahora es la que presenta el ordenamiento m&aacute;ximo, y se llama fase de <i>Cristal l&iacute;quido</i>. Un estado de mucho mayor desorden se encuentra en la fase <i>Fluida</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/fluid.pdb', 'spacefill')",<b>Bicapa, fase fluida</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/fluid.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   rotate y 30; rotate x 30; set echo off; set echo top left; color echo black; echo Bicapa, fase fluida')">
+    <b>Bicapa, fase fluida</b>
+  </button>
 </center>
-
+<br>
 
 
 					<br />
@@ -254,8 +276,15 @@ jmolSetTarget(1)
 					<P align="justify">Son mol&eacute;culas anfip&aacute;ticas asimismo los <B>Detergentes</B>, cuya acci&oacute;n se debe a su facilidad para formar <i>micelas</i>. Se muestra a continuaci&oacute;n la estructura del <i>Dodecil sulfato</i> (<i>Lauril sulfato, SDS</i>):</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/sds.pdb', 'ballstick')",<b>Dodecil sulfato</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/sds.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   rotate y 120; rotate x 30; set echo off; set echo top left; color echo black; echo Dodecil sulfato, SDS')">
+    <b>Dodecil sulfato, SDS</b>
+  </button>
 </center>
+<br>
+
 
 					<br />
 
@@ -265,9 +294,14 @@ jmolSetTarget(1)
 					<p align="justify">Y la del <i>Cetil trimetilamonio</i> (<i>CTAB, Cetavlon</i>):</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/ctab.pdb', 'ballstick')",<b>Cetil trimetilamonio</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ctab.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   rotate y 30; rotate x 30; set echo off; set echo top left; color echo black; echo CTAB, Cetavlon')">
+    <b>CTAB, Cetavlon</b>
+  </button>
 </center>
-
+<br>
 
 
 					

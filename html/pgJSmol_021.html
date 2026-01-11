@@ -169,9 +169,13 @@
 <p align="justify">Para ilustrar el concepto de enlace glicos&iacute;dico, vamos a ver la estructura del glic&oacute;sido resultante de la reacci&oacute;n entre la D-glucosa y el metanol. Si &eacute;ste reacciona con la forma anom&eacute;rica <FONT FACE="symbol">a</FONT>, obtenemos el </p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/ametilglucosido.pdb', 'ballstick')",<b><FONT FACE="symbol">a</FONT>-Metilglucósido</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ametilglucosido.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo alfa-Metilglucósido')">
+    <b><FONT FACE="symbol">a</FONT>-Metilglucósido</b></b>
+  </button>
 </center>
-
 
 <P><CENTER><img SRC="../gif/ametilglucosido.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -184,14 +188,17 @@
 <p align=justify>Si reacciona con la forma anom&eacute;rica <FONT FACE="symbol">b</FONT>-, tendremos el </p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/bmetilglucosido.pdb', 'ballstick')",<b><FONT FACE="symbol">b</FONT>-Metilglucósido</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/bmetilglucosido.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo beta-Metilglucósido')">
+    <b><FONT FACE="symbol">b</FONT>-Metilglucósido</b></b>
+  </button>
 </center>
+
 
 <P><CENTER><img SRC="../gif/bmetilglucosido.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
-
-
-
 
 <p align="justify">Ambos compuestos son diferentes, y uno no se transforma espont&aacute;neamente en el otro. La formaci&oacute;n de un enlace glicos&iacute;dico estabiliza la forma anom&eacute;rica del monosac&aacute;rido.</p>
 
@@ -199,7 +206,12 @@
 <p align="justify">Los glic&oacute;sidos heter&oacute;sidos son compuestos ampliamente difundidos en la naturaleza. En general, la <I>glicosilaci&oacute;n</I> es un proceso que los seres vivos llevan a cabo para aumentar la solubilidad en agua de la aglicona. Por otra parte, muchas biomol&eacute;culas tienen estructura de glic&oacute;sido: los <I>nucle&oacute;sidos</I>, <I>cerebr&oacute;sidos</I>, <I>gangli&oacute;sidos</I>, etc. Presentamos a continuaci&oacute;n la estructura de un <i>Cerebr&oacute;sido</i>, <font face="Symbol">b</font>-galactosil ceramida:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/cerebrosido.pdb', 'ballstick')",<b>Cerebrósido</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/cerebrosido.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Cerebrósido')">
+    <b>Cerebrósido</b></b>
+  </button>
 </center>
 
 <P><CENTER><img SRC="../gif/cerebrosido.gif" ALIGN="TOP"  BORDER="0"></CENTER>
@@ -210,7 +222,12 @@
 <p align="justify">En muchas ocasiones, los <i>productos naturales</i> de Plantas u Hongos se presentan en forma de glic&oacute;sidos. Tal es el caso del <i>vainill&oacute;sido</i>, componente principal de la vainilla:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/vainillosido.pdb', 'ballstick')",<b>Vainillósido</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/vainillosido.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Vainillósido')">
+    <b>Vainillósido</b>
+  </button>
 </center>
 
 <P><CENTER><img SRC="../gif/vainillosido.gif" ALIGN="TOP"  BORDER="0"></CENTER>
@@ -222,7 +239,12 @@
 <p align="justify">El enlace glicos&iacute;dico puede formarse tambi&eacute;n, como vimos antes, por reacci&oacute;n de un carbono anom&eacute;rico con un grupo -NH<SUB>2</SUB>: son los <B>N-glic&oacute;sidos</B>. Tienen inter&eacute;s en Bioqu&iacute;mica los <B>Nucle&oacute;sidos</B>, formados por D-ribosa o 2-D-desoxirribosa y una base p&uacute;rica o pirim&iacute;dica. Se presenta la estructura de la <i>uridina</i>, <FONT FACE="symbol">b</FONT>-D-ribofuranosil uracilo:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/uridina.pdb', 'ballstick')",<b>Uridina</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/uridina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Uridina')">
+    <b>Uridina</b>
+  </button>
 </center>
 
 <P><CENTER><img SRC="../gif/uridina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
@@ -233,7 +255,12 @@
 <p align="justify">As&iacute; como la de <i>Adenosina</i>, <FONT FACE="symbol">b</FONT>-D-ribofuranosil adenina:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/adenosina.pdb', 'ballstick')",<b>Adenosina</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adenosina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Adenosina')">
+    <b>Adenosina</b>
+  </button>
 </center>
 
 <P><CENTER><img SRC="../gif/adenosina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
@@ -243,11 +270,13 @@
 <p align="justify">Si la glicosilaci&oacute;n tiene lugar sobre un grupo tiol -SH, obtenemos los <B>S-glic&oacute;sidos</B>, de los cuales se presenta la estructura del <i>Sinigr&oacute;sido</i>:</p> 
 
 <center>
-<button onClick="loadMolecule ('../pdb/sinigrosido.pdb', 'ballstick')",<b>Sinigrósido</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/sinigrosido.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Sinigrósido')">
+    <b>Sinigrósido</b>
+  </button>
 </center>
-
-<P><CENTER><img SRC="../gif/sinigrosido.gif" ALIGN="TOP"  BORDER="0"></CENTER>
-<br /><br />
 
 
 <p align="justify">producto natural presente en la mostaza negra.</p>
@@ -288,7 +317,6 @@
 	</body>
 
 </html>
-
 
 
 

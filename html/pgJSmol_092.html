@@ -193,7 +193,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/3gly.pdb&quot;; \
                    set antialiasDisplay on; \
-                   define phi atomno=3,atomno=4,atomno=5, atomno=6; define psi atomno=4, atomno=5, atomno=6, atomno=7')">
+                   define phi atomno=3,atomno=4,atomno=5, atomno=6; define psi atomno=4, atomno=5, atomno=6, atomno=7;  set echo off; set echo top left; color echo black; echo Tripéptido')">
     <b>Tripéptido</b>
   </button>
 </center>
@@ -217,7 +217,7 @@ es la torsión entre el nitrógeno (N) y el C<font face="Symbol">a</font>.</p>
   <fieldset style="border:0;margin:8px 0;padding:0">
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="3gly-steps"
-             onchange="jrun('color labels black; select atomno=3; label C=O; select atomno=4; label N-H; select atomno=5; label C-alfa; select atomno=6; label C=O; zoom 100; measure 3 4 5 6')">
+             onchange="jrun('color labels black; select atomno=3; label C=O; select atomno=4; label N-H; select atomno=5; label C-alfa;       	select atomno=6; label C=O; zoom 100; measure 3 4 5 6')">
 	Que en este caso es de 60º
           </label>
 
@@ -228,7 +228,7 @@ el C<FONT FACE="symbol"><B>a</B></FONT> previo:
   <fieldset style="border:0;margin:8px 0;padding:0">
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="3gly-steps"
-             onchange="jrun('labels off; measurements off; color labels black; select atomno=4; label N-H; select atomno=5; label C-alfa; select atomno=6; label C=O; select atomno=7; label N-H; measure 4 5 6 7')">
+             onchange="jrun('labels off; measurement off; color labels yellow; select atomno=4; label N-H; select atomno=5; label C-alfa; select atomno=6; label C=O; select atomno=7; label N-H; measure 4 5 6 7')">
 	siendo su valor 180º (o -180º)
           </label>
 
@@ -253,7 +253,7 @@ Son los valores del <B><FONT FACE="symbol">a</FONT>-helicoide dextrógiro</B>:
   <button type="button"
     onclick="jrun('load &quot;../pdb/3galfa.pdb&quot;; \
                    set antialiasDisplay on; \
-                   define phi atomno=3,atomno=5,atomno=6, atomno=7; define psi atomno=5, atomno=6, atomno=7, atomno=9')">
+                   define phi atomno=3,atomno=5,atomno=6, atomno=7; define psi atomno=5, atomno=6, atomno=7, atomno=9;  set echo off; set echo top left; color echo black; echo Tripéptido alfa-helicoide')">
     <b>Tripéptido - <FONT FACE="symbol">a</FONT>-helicoide</b>
   </button>
 </center>
@@ -288,7 +288,7 @@ Los valores angulares son:
   <button type="button"
     onclick="jrun('load &quot;../pdb/3gbp.pdb&quot;; \
                    set antialiasDisplay on; \
-                   define phi atomno=3,atomno=5,atomno=6, atomno=7; define psi atomno=5, atomno=6, atomno=7, atomno=9')">
+                   define phi atomno=3,atomno=5,atomno=6, atomno=7; define psi atomno=5, atomno=6, atomno=7, atomno=9;  set echo off; set echo top left; color echo black; echo Tripéptido beta-paralela')">
     <b>Tripéptido - <font face="symbol">b</font>-Paralela</b>
   </button>
 </center>
@@ -323,7 +323,7 @@ Los valores angulares son:
   <button type="button"
     onclick="jrun('load &quot;../pdb/3gbap.pdb&quot;; \
                    set antialiasDisplay on; \
-                   define phi atomno=3,atomno=5,atomno=6, atomno=7; define psi atomno=5, atomno=6, atomno=7, atomno=9')">
+                   define phi atomno=3,atomno=5,atomno=6, atomno=7; define psi atomno=5, atomno=6, atomno=7, atomno=9;   set echo off; set echo top left; color echo black; echo Tripéptido beta-antiparalela')">
     <b>Tripéptido - <font face="symbol">b</font>-Antiparalela</b>
   </button>
 </center>
@@ -373,8 +373,8 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
 <center>
   <button type="button"
     onclick="jrun('load &quot;../pdb/16j_a.pdb&quot;; \
-                   set antialiasDisplay on; \
-                   ')">
+                   set antialiasDisplay on;\
+                     set echo off; set echo top left; color echo black; echo alfa-Helicoide ')">
     <b><font face="symbol">a</font>-Helicoide</b>
   </button>
 </center>
@@ -419,7 +419,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
     onclick="jrun('load &quot;../pdb/1GK4.pdb&quot;; \
                    set antialiasDisplay on; \
-                   wireframe off;spacefill off; cartoons; color structure')">
+                   wireframe off;spacefill off; cartoons; color structure;  set echo off; set echo top left; color echo black; echo Vimentina ')">
     <b>Vimentina</b>
   </button>
 </center>
@@ -435,7 +435,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
     onclick="jrun('load &quot;../pdb/3BAS.pdb&quot;; \
                    set antialiasDisplay on; \
-                   wireframe off;spacefill off; cartoons; color structure')">
+                   wireframe off;spacefill off; cartoons; color structure;  set echo off; set echo top left; color echo black; echo Miosina, dominio fibroso ')">
     <b>Miosina, dominio fibroso</b>
   </button>
 </center>
@@ -447,7 +447,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
     onclick="jrun('load &quot;../pdb/1EI3.pdb&quot;; \
                    set antialiasDisplay on; \
-                   wireframe off;spacefill off; cartoons; color structure')">
+                   wireframe off;spacefill off; cartoons; color structure;  set echo off; set echo top left; color echo black; echo Fibrinógeno ')">
     <b>Fibrinógeno</b>
   </button>
 </center>
@@ -461,7 +461,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
     onclick="jrun('load &quot;../pdb/myog02.pdb&quot;; \
                    set antialiasDisplay on; \
-                   wireframe off;spacefill off; cartoons; color structure')">
+                   wireframe off;spacefill off; cartoons; color structure;  set echo off; set echo top left; color echo black; echo Mioglobina ')">
     <b>Mioglobina</b>
   </button>
 </center>
@@ -488,7 +488,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
     onclick="jrun('load &quot;../pdb/glucagon.pdb&quot;; \
                    set antialiasDisplay on; \
-                   wireframe off;spacefill off; cartoons; color structure')">
+                   wireframe off;spacefill off; cartoons; color structure; set echo off; set echo top left; color echo black; echo Glucagon ')">
     <b>Glucagon</b>
   </button>
 </center>
@@ -502,7 +502,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/alfapro.pdb&quot;; \
     set antialiasDisplay on; \
-    restrict backbone; color green; select pro; wireframe 40; spacefill 100; color cpk; select all; calculate hbonds;color hbonds black')">
+    restrict backbone; color green; select pro; wireframe 40; spacefill 100; color cpk; select all; rotate y 90; calculate hbonds; color hbonds black; set echo off; set echo top left; color echo black; echo Prolina y alfa-helicoide')">
    <b>Prolina y <font face=symbol>a</font>-helicoide</b>
   </button>
 </center>
@@ -521,7 +521,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/16j_310.pdb&quot;; \
     set antialiasDisplay on; \
-    calculate hbonds;color hbonds black')">
+    calculate hbonds;color hbonds black; set echo off; set echo top left; color echo black; echo Helicoide 3.10')">
    <b>Helicoide 3.10</b>
   </button>
 </center>
@@ -536,7 +536,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/12glypi.pdb&quot;; \
     set antialiasDisplay on; \
-    calculate hbonds;color hbonds black')">
+    calculate hbonds;color hbonds black; set echo off; set echo top left; color echo black; echo Helicoide pi')">
    <b>Helicoide <font face="symbol">p</font></b>
   </button>
 </center>
@@ -552,7 +552,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/12pro.pdb&quot;; \
     set antialiasDisplay on; \
-    calculate hbonds;color hbonds black')">
+    calculate hbonds;color hbonds black; set echo off; set echo top left; color echo black; echo Poliprolina')">
    <b>Poliprolina</b>
   </button>
 </center>
@@ -566,7 +566,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/1BKV.pdb&quot;; \
     set antialiasDisplay on; \
-    restrict protein')">
+    restrict protein;  set echo off; set echo top left; color echo black; echo Monómero de colágeno (fragmento)')">
    <b>Monómero de colágeno</b>
   </button>
 </center>
@@ -600,7 +600,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/11j_bp.pdb&quot;; \
     set antialiasDisplay on; \
-    restrict protein')">
+    restrict protein; set echo off; set echo top left; color echo black; echo Cadena beta-paralela')">
    <b>Cadena <font face="symbol">b</font>-paralela</b>
   </button>
 </center>
@@ -614,7 +614,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/11j_bap.pdb&quot;; \
     set antialiasDisplay on; \
-    restrict protein')">
+    restrict protein;  set echo off; set echo top left; color echo black; echo Cadena beta-antiparalela')">
    <b>Cadena <font face="symbol">b</font>-antiparalela</b>
   </button>
 </center>
@@ -631,7 +631,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/44j_bp.pdb&quot;; \
     set antialiasDisplay on; \
-    rotate y 30; rotate x 60')">
+    rotate y 30; rotate x 60; set echo off; set echo top left; color echo black; Hoja plegada paralela')">
    <b>Hoja plegada paralela</b>
   </button>
 </center>
@@ -672,7 +672,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/44j_bap.pdb&quot;; \
     set antialiasDisplay on; \
-    rotate y 30; rotate x 60')">
+    rotate y 30; rotate x 60; set echo off; set echo top left; color echo black; echo Hoja plegada antiparalela')">
    <b>Hoja plegada antiparalela</b>
   </button>
 </center>
@@ -710,7 +710,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/2slk.pdb&quot;; \
     set antialiasDisplay on; \
-    ')">
+     set echo off; set echo top left; color echo black; echo Fibroína')">
    <b>Fibroína</b>
   </button>
 </center>
@@ -737,7 +737,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/beta01.pdb&quot;; \
     set antialiasDisplay on; \
-    ')">
+     set echo off; set echo top left; color echo black; echo Barril beta')">
    <b>Barril beta</b>
   </button>
 </center>
@@ -761,7 +761,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/concanavalina_A.pdb&quot;; \
     set antialiasDisplay on; \
-    restrict :A; center :A; zoom 150')">
+    restrict :A; center :A; zoom 150;  set echo off; set echo top left; color echo black; echo Subunidad de concanavalina A')">
    <b>Subunidad de concanavalina A</b>
   </button>
 </center>
@@ -794,7 +794,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/turn01.pdb&quot;; \
     set antialiasDisplay on; \
-    ')">
+     set echo off; set echo top left; color echo black; echo Péptido NVDN')">
    <b>Péptido NVDN</b>
   </button>
 </center>
@@ -821,7 +821,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/turn02.pdb&quot;; \
     set antialiasDisplay on; \
-    ')">
+     set echo off; set echo top left; color echo black; echo Péptido FHGR')">
    <b>Péptido FHGR</b>
   </button>
 </center>
@@ -849,7 +849,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/2por.pdb&quot;; \
     set antialiasDisplay on; \
-    restrict 226-272; center atomno=1831; zoom 200')">
+    restrict 226-272; center atomno=1831; zoom 100; set echo off; set echo top left; color echo black; echo Giros beta intercalados')">
    <b>Giros <FONT FACE="symbol">b</FONT> intercalados</b>
   </button>
 </center>
@@ -862,8 +862,8 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <fieldset style="border:0;margin:8px 0;padding:0">
   <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="2por-steps"
-        onchange="jrun('wireframe off; spacefill off; cartoons; color structure')">
-	Giro <font face="symbol">b</font> FHGR
+        onchange="jrun('wireframe off; spacefill off; cartoons; rotate x 45; rotate y 180; color structure')">
+	Representación esquemática
           </label>
 </fieldset>
 </div>
@@ -881,7 +881,7 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
   <button type="button"
    onclick="jrun('load &quot;../pdb/3cpp.pdb&quot;; \
     set antialiasDisplay on; \
-    restrict not solvent')">
+    restrict not solvent; set echo off; set echo top left; color echo black; echo Citocromo P450 CAM')">
    <b>Citocromo P450 CAM</b>
   </button>
 </center>
@@ -965,4 +965,3 @@ formación de enlaces de hidrógeno entre los grupos -C=O y -N-H de los diferent
 	
 
 </html>
-

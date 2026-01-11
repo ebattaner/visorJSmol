@@ -165,7 +165,7 @@
   <button type="button"
     onclick="jrun('load &quot;../pdb/4ald.pdb&quot;; \
                    set antialiasDisplay on; \
-                   background grey; wireframe off; spacefill off; cartoons; color structure; define sitcat 33,146,229,363')">
+                   background grey; wireframe off; spacefill off; cartoons; color structure; define sitcat 33,146,229,363; set echo off; set echo top left; color echo black; echo Fructosa-1,6-bisfosfato aldolasa')">
     <b>Fructosa-1,6-bisfosfato aldolasa</b>
   </button>
 </center>
@@ -216,7 +216,7 @@
   <fieldset style="border:0;margin:8px 0;padding:0">
 <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="4ald-steps"
-             onchange="jrun('load ../pdb/ald01a.pdb; wireframe 50; color cpk; color labels [0,0,0]; select atomno=34; label Asp 33; select atomno=53; label Lys 146; select atomno=78; label Lys 229; select atomno=21; label Tyr 363; select atomno=9; dots 300; select all')">El <B>centro catal&iacute;tico</B></A> consta de cuatro amino&aacute;cidos, Lys 229, Lys 146, Asp 33 y Tyr 363.	 
+             onchange="jrun('load ../pdb/ald01a.pdb; wireframe 50; color cpk; color labels [0,0,0]; set echo off; set echo top left; color echo black; echo Centro catalítico; select atomno=34; label Asp 33; select atomno=53; label Lys 146; select atomno=78; label Lys 229; select atomno=21; label Tyr 363; select atomno=9; dots 300; select all')">El <B>centro catal&iacute;tico</B></A> consta de cuatro amino&aacute;cidos, Lys 229, Lys 146, Asp 33 y Tyr 363.	 
     </label>
 
 <P><CENTER><img SRC="../gif/ald01a.gif" ALIGN="TOP"  BORDER="0"></CENTER>
@@ -225,14 +225,14 @@
 
 <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="4ald-steps"
-             onchange="jrun('load ../pdb/ald01b.pdb; wireframe  50; colour cpk; color labels [0,0,0]; select atomno=44; label Asp 33; select atomno=61; label Lys 146; select atomno=82; label Lys 229; select atomno=34; label Tyr 363; select atomno=436; label DHAP; select atomno=24; dots 300; select all')">A esta configuraci&oacute;n se une el <B>primer substrato, dihidroxiacetona fosfato</B>	 
+             onchange="jrun('load ../pdb/ald01b.pdb; wireframe  50; colour cpk; color labels [0,0,0]; set echo off; set echo top left; color echo black; echo primer substrato, dihidroxiacetona fosfato; select atomno=44; label Asp 33; select atomno=61; label Lys 146; select atomno=82; label Lys 229; select atomno=34; label Tyr 363; select atomno=436; label DHAP; select atomno=24; dots 300; select all')">A esta configuraci&oacute;n se une el <B>primer substrato, dihidroxiacetona fosfato</B>	 
     </label>
 
 <P><CENTER><img SRC="../gif/ald01b.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="4ald-steps"
-             onchange="jrun('load ../pdb/ald02.pdb; wireframe  50; colour cpk; color labels [0,0,0]; select atomno=73; label Asp 33; select atomno=93; label Lys 146; select atomno=22; label Lys 229;select atomno=60; label Tyr 363; select atomno=48; dots 300; select all')">Que se une a la Lys 229 formando un <B>complejo covalente carbinolamina</B></B>	 
+             onchange="jrun('load ../pdb/ald02.pdb; wireframe  50; colour cpk; color labels [0,0,0]; set echo off; set echo top left; color echo black; echo Complejo covalente carbinolamina; select atomno=73; label Asp 33; select atomno=93; label Lys 146; select atomno=22; label Lys 229;select atomno=60; label Tyr 363; select atomno=48; dots 300; select all')">Que se une a la Lys 229 formando un <B>complejo covalente carbinolamina</B></B>	 
     </label>
 
 
@@ -240,7 +240,7 @@
 
 <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="4ald-steps"
-             onchange="jrun('load ../pdb/ald03.pdb;  wireframe  50; colour cpk; color labels [0,0,0]; select atomno=70; label Asp 33; select atomno=89; label Lys 146;select atomno=21; label Lys 229; select atomno=57; label Tyr 363; select atomno=45, atomno=64, atomno=81; dots 300; select all')">Que se transforma en <B>Base de Schiff</B>	 
+             onchange="jrun('load ../pdb/ald03.pdb;  wireframe  50; colour cpk; color labels [0,0,0]; set echo off; set echo top left; color echo black; echo Base de Schiff; select atomno=70; label Asp 33; select atomno=89; label Lys 146;select atomno=21; label Lys 229; select atomno=57; label Tyr 363; select atomno=45, atomno=64, atomno=81; dots 300; select all')">Que se transforma en <B>Base de Schiff</B>	 
     </label>
 
 <P><CENTER><img SRC="../gif/ald03.gif" ALIGN="TOP"  BORDER="0"></CENTER>
@@ -248,35 +248,35 @@
 
 <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="4ald-steps"
-             onchange="jrun('load ../pdb/ald04a.pdb; wireframe  50; colour cpk; color labels [0,0,0]; select atomno=70; label Asp 33; select atomno=90; label Lys 146;select atomno=21; label Lys 229; select atomno=57; label Tyr 363; select atomno=64; dots 300; select all')">La cual se tautomeriza a la correspondiente <B>Enamina</B>	 
+             onchange="jrun('load ../pdb/ald04a.pdb; wireframe  50; colour cpk; color labels [0,0,0]; set echo off; set echo top left; color echo black; echo Se tautomeriza a enamina; select atomno=70; label Asp 33; select atomno=90; label Lys 146;select atomno=21; label Lys 229; select atomno=57; label Tyr 363; select atomno=64; dots 300; select all')">La cual se tautomeriza a la correspondiente <B>Enamina</B>	 
     </label>
 
 <P><CENTER><img SRC="../gif/ald04a.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="4ald-steps"
-             onchange="jrun('load ../pdb/ald04b.pdb; wireframe  50; colour cpk; color labels [0,0,0]; select atomno=78; label Asp 33; select atomno=94; label Lys 146;select atomno=35; label Lys 229; select atomno=68; label Tyr 363; select atomno=73; dots 300; select all')">Entra entonces al centro activo el segundo substrato, <b>Gliceraldehido-3-fosfato</b>	 
+             onchange="jrun('load ../pdb/ald04b.pdb; wireframe  50; colour cpk; color labels [0,0,0]; set echo off; set echo top left; color echo black; echo Entra segundo substrato, gliceraldehido-3-fosfato; select atomno=78; label Asp 33; select atomno=94; label Lys 146;select atomno=35; label Lys 229; select atomno=68; label Tyr 363; select atomno=73; dots 300; select all')">Entra entonces al centro activo el segundo substrato, <b>Gliceraldehido-3-fosfato</b>	 
     </label>
 
 <P><CENTER><img SRC="../gif/ald04b.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="4ald-steps"
-             onchange="jrun('load ../pdb/ald05.pdb; wireframe  50; colour cpk; color labels [0,0,0]; select atomno=85; label Asp 33; select atomno=106; label Lys 146;select atomno=35; label Lys 229; select atomno=72; label Tyr 363; select atomno=96, atomno=79,atomno=60; dots 300; select all')">Que se condensa con el complejo dando lugar a una segunda <B>Base de Schiff</B>	 
+             onchange="jrun('load ../pdb/ald05.pdb; wireframe  50; colour cpk; color labels [0,0,0]; set echo off; set echo top left; color echo black; echo Segunda base de Schiff; select atomno=85; label Asp 33; select atomno=106; label Lys 146;select atomno=35; label Lys 229; select atomno=72; label Tyr 363; select atomno=96, atomno=79,atomno=60; dots 300; select all')">Que se condensa con el complejo dando lugar a una segunda <B>Base de Schiff</B>	 
     </label>
 
 <P><CENTER><img SRC="../gif/ald05.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="4ald-steps"
-             onchange="jrun('load ../pdb/ald06.pdb; wireframe  50; colour cpk; color labels [0,0,0]; select atomno=88; label Asp 33; select atomno=107; label Lys 146;select atomno=35; label Lys 229; select atomno=75; label Tyr 363; select atomno=63; dots 300; select all')">Que a su vez se convierte en una segunda <B>carbinolamina</B>	 
+             onchange="jrun('load ../pdb/ald06.pdb; wireframe  50; colour cpk; color labels [0,0,0]; set echo off; set echo top left; color echo black; echo Segunda carbinolamina; select atomno=88; label Asp 33; select atomno=107; label Lys 146;select atomno=35; label Lys 229; select atomno=75; label Tyr 363; select atomno=63; dots 300; select all')">Que a su vez se convierte en una segunda <B>carbinolamina</B>	 
     </label>
 
 <P><CENTER><img SRC="../gif/ald06.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="4ald-steps"
-             onchange="jrun('load ../pdb/ald07.pdb; wireframe  50; colour cpk; color labels [0,0,0]; select atomno=59; label Asp 33; select atomno=76; label Lys 146;select atomno=95; label Lys 229; select atomno=49; label Tyr 363; select atomno=25; label FBP;select atomno=39; dots 300; select all')">De la cual se desprende <B>el producto, fructosa-1,6-bisfosfato</B>	 
+             onchange="jrun('load ../pdb/ald07.pdb; wireframe  50; colour cpk; color labels [0,0,0]; set echo off; set echo top left; color echo black; echo Se desprende en producto, fructosa.6.fosfato; select atomno=59; label Asp 33; select atomno=76; label Lys 146;select atomno=95; label Lys 229; select atomno=49; label Tyr 363; select atomno=25; label FBP;select atomno=39; dots 300; select all')">De la cual se desprende <B>el producto, fructosa-1,6-bisfosfato</B>	 
     </label>
 
 <P><CENTER><img SRC="../gif/ald07.gif" ALIGN="TOP"  BORDER="0"></CENTER>

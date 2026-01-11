@@ -185,7 +185,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/ubicuitina.pdb&quot;; \
                    set antialiasDisplay on; \
-                   restrict not solvent; select all; color cpk; center all; zoom 100;')">
+                   restrict not solvent; select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Ubicuitina')">
     <b>Ubicuitina</b>
   </button>
 </center>
@@ -211,7 +211,7 @@ jmolSetTarget(1)
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="ubicuitina-steps"
              onchange="jrun('restrict backbone;colour group')">
-      En esta representación, el polímero que es la proteína aparece con un código de colores según el cual lo más cercano al N-término aparece coloreado en azul, mientras que el C-término está en rojo, pasando por toda la gama intermedia de colores según sea la proximidad a cualquiera de los dos términos (azul-cian-verde-amarillo-naranja-rojo). Nótese que en la ubicuitina el C-término aparece como una protuberancia algo aparte del resto de la estructura. Los aminoácidos que ocupan los términos son: 
+      En esta representación, el polímero que es la proteína aparece con un código de colores según el cual lo más cercano al N-término aparece coloreado en azul, mientras que el C-término está en rojo, pasando por toda la gama intermedia de colores según sea la proximidad a cualquiera de los dos términos (azul-cian-verde-amarillo-naranja-rojo). Nótese que en la ubicuitina el C-término aparece como una protuberancia algo aparte del resto de la estructura. Los aminoácidos que ocupan los términos son: <i>Metionina</i>
     </label>
 
 				
@@ -220,7 +220,7 @@ jmolSetTarget(1)
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="ubicuitina-steps"
              onchange="jrun('restrict not solvent; select 1 and met; wireframe 40; spacefill 100; color cpk')">
-      <i>Metionina</i> en el N-término 
+      en el N-término y <i>Glicina</i></i>:
     </label>
 
 <div style="max-width:48rem;margin:0 auto;">
@@ -228,7 +228,7 @@ jmolSetTarget(1)
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="ubicuitina-steps"
              onchange="jrun('restrict not solvent; select 76 and gly; wireframe 40; spacefill 100; colour cpk; select not solvent')">
-      y <i>Glicina</i> en el C-término. 
+      en el C-término. Si volvemos a la representación inicial,
     </label>
 
 <div style="max-width:48rem;margin:0 auto;">
@@ -236,19 +236,19 @@ jmolSetTarget(1)
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="ubicuitina-steps"
              onchange="jrun('colour cpk; wireframe 40; spacefill 100; select not solvent')">
-      Si volvemos a la representación inicial, veremos asimismo representadas las cadenas laterales de los aminoácidos.
+      veremos asimismo representadas las cadenas laterales de los aminoácidos.
     </label>
 
 <P align="justify">La estructura tridimensional de una proteína no queda determinada al azar. Es decir, las moléculas de ubicuitina tienen siempre exactamente la misma forma a igualdad de condiciones del entorno. La estructura tridimensional se mantiene generalmente gracias a interacciones de tipo débil (efecto hidrofóbico, enlaces de hidrógeno, puentes salinos, etc.)</p>
 
-<P align="justify">El <B>efecto hidrofóbico</B> tiene una gran importancia en la determinación de la estructura de una proteína. Para verlo, </p>
+<P align="justify">El <B>efecto hidrofóbico</B> tiene una gran importancia en la determinación de la estructura de una proteína. Para verlo, seleccionamos los residuos polares de la proteína:</p>
 
 <div style="max-width:48rem;margin:0 auto;">
   <fieldset style="border:0;margin:8px 0;padding:0">
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="ubicuitina-steps"
              onchange="jrun('wireframe 40; spacefill 100; select polar; spacefill; colour cpk; select not solvent')">
-      seleccionamos los residuos polares de la proteína:y vemos que ocupan el <i>exterior</i> de la molécula (véase que el interior está hueco). 
+      y vemos que ocupan el <i>exterior</i> de la molécula (véase que el interior está hueco). Por su parte, los residuos hidrofóbicos:
     </label>
 
 <div style="max-width:48rem;margin:0 auto;">
@@ -256,7 +256,7 @@ jmolSetTarget(1)
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="ubicuitina-steps"
              onchange="jrun('wireframe 40; spacefill 100; select hydrophobic; spacefill; colour cpk; select not solvent')">
-      Por su parte, los residuos hidrofóbicos ocupan el <i>interior</i> de la misma. 
+      ocupan el <i>interior</i> de la misma. Volviendo a la representación inicial:
     </label>
 
 <div style="max-width:48rem;margin:0 auto;">
@@ -264,18 +264,18 @@ jmolSetTarget(1)
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="ubicuitina-steps"
              onchange="jrun('colour cpk; wireframe 40; spacefill 100; select not solvent')">
-      Volviendo a la representación inicial. Esto hace que la estructura de una proteína sea comparable a una <i>Micela</i>, con los grupos hidrofóbicos hacia dentro y los polares       hacia fuera.
+      Esto hace que la estructura de una proteína sea comparable a una <i>Micela</i>, con los grupos hidrofóbicos hacia dentro y los polares       hacia fuera.
     </label>
 
 
-<P align="justify">Otras interacciones débiles que participan en la determinación de la estructura proteica son los <B>enlaces de hidrógeno</B>. En las proteínas se establecen multitud de dichos enlaces, bien sea entre grupos peptídicos (-CO-, -NH-) del esqueleto o bien entre grupos donadores y aceptores de las cadenas laterales. 
+<P align="justify">Otras interacciones débiles que participan en la determinación de la estructura proteica son los <B>enlaces de hidrógeno</B>. En las proteínas se establecen multitud de dichos enlaces, bien sea entre grupos peptídicos (-CO-, -NH-) del esqueleto o bien entre grupos donadores y aceptores de las cadenas laterales. Para verlos, coloreamos en verde la proteína y en amarillo los enlaces de hidrógeno:
 
 <div style="max-width:48rem;margin:0 auto;">
   <fieldset style="border:0;margin:8px 0;padding:0">
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="ubicuitina-steps"
-             onchange="jrun('colour chain; calculate hbonds; hbonds 30; color hbonds black; select not solvent')">
-      Para verlos, coloreamos en gris la proteína y en negro los enlaces de hidrógeno. 
+             onchange="jrun('colour green; calculate hbonds; hbonds 30; color hbonds yellow; select not solvent')">
+      Volviendo a la representación inicial:
     </label>
 
 <div style="max-width:48rem;margin:0 auto;">
@@ -283,7 +283,6 @@ jmolSetTarget(1)
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="ubicuitina-steps"
              onchange="jrun('hbonds off; color cpk')">
-		Volviendo a la representación inicial.
     </label>
 </fieldset>
 </div>
@@ -307,7 +306,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/2frc.pdb&quot;; \
                    set antialiasDisplay on; \
-                   restrict not solvent; select all; color cpk; center all; zoom 100;')">
+                   restrict not solvent; select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Citocromo c')">
     <b>Citocromo c</b>
   </button>
 </center>
@@ -377,7 +376,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/rubredoxina.pdb&quot;; \
                    set antialiasDisplay on; \
-                   restrict not solvent; restrict not hydrogen;')">
+                   restrict not solvent; restrict not hydrogen; set echo off; set echo top left; color echo black; echo Rubredoxina')">
     <b>Rubredoxina</b>
   </button>
 </center>
@@ -427,7 +426,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/concanavalina_A.pdb&quot;; \
                    set antialiasDisplay on; \
-                   restrict not solvent; restrict not hydrogen;')">
+                   restrict not solvent; restrict not hydrogen; set echo off; set echo top left; color echo black; echo Concanavalina A')">
     <b>Concanavalina A</b>
   </button>
 </center>
@@ -532,7 +531,7 @@ Las cuatro subunidades son idénticas y se disponen según los vértices de un t
   <button type="button"
     onclick="jrun('load &quot;../pdb/atcasa.pdb&quot;; \
                    set antialiasDisplay on; \
-                   restrict not solvent')">
+                   restrict not solvent; set echo off; set echo top left; color echo black; echo Aspartato transcarbamilasa')">
     <b>Aspartato transcarbamilasa</b>
   </button>
 </center>
@@ -594,7 +593,7 @@ Las cuatro subunidades son idénticas y se disponen según los vértices de un t
 <center>
   <button type="button"
     onclick="jrun('load &quot;../pdb/3cpp.pdb&quot;; \
-                   set antialiasDisplay on; \
+                   set antialiasDisplay on; set echo off; set echo top left; color echo black; echo Citocromo P450 CAM \
                    ')">
     <b>Citocromo P450 CAM</b>
   </button>
@@ -695,6 +694,3 @@ Las cuatro subunidades son idénticas y se disponen según los vértices de un t
 	
 
 </html>
-
-
-

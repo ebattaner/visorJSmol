@@ -198,7 +198,7 @@
   <button type="button"
     onclick="jrun('load &quot;../pdb/maltosa.pdb&quot;; \
                    set antialiasDisplay on; \
-                   select all; color cpk; center all; zoom 100;')">
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Maltosa')">
     <b>Maltosa</b>
   </button>
 </center>
@@ -238,7 +238,7 @@
   <button type="button"
     onclick="jrun('load &quot;../pdb/celobiosa.pdb&quot;; \
                    set antialiasDisplay on; \
-                   select all; color cpk; center all; zoom 100;')">
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Celobiosa')">
     <b>Celobiosa</b>
   </button>
 </center>
@@ -274,12 +274,24 @@
 <p align="justify">Este hecho tiene una gran importancia estructural. Si unimos seis glucosas en una cadena lineal en enlaces <FONT FACE="symbol">a</FONT> (1,4), como en el caso de la maltosa, obtenemos la maltohexaosa; si las unimos en enlace <FONT FACE="symbol">b</FONT> (1,4), la celohexaosa. Podemos comparar ambas estructuras:</p> 
 
 <center>
-<button onClick="loadMolecule ('../pdb/maltohexaosa.pdb', 'ballstick')",<b>Maltohexaosa</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/maltohexaosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Maltohexaosa')">
+    <b>Maltohexaosa</b>
+  </button>
 </center>
-<br />
+<br/><br/>
+
 <center>
-<button onClick="loadMolecule ('../pdb/celohexaosa.pdb', 'ballstick')",<b>Celohexaosa</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/celohexaosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Celohexaosa')">
+    <b>Celohexaosa</b>
+  </button>
 </center>
+
 
 <p align="justify">Como puede verse, las estructuras de ambos oligosac&aacute;ridos son muy distintas. Mientras que las glucosas unidas en <FONT FACE="symbol">a</FONT> (1,4) dan lugar a cadenas helicoidales, con un per&iacute;odo de aproximadamente seis residuos, las estructuras formadas por enlaces <FONT FACE="symbol">b</FONT> (1,4) dan estructuras lineales, fibrosas.</p>
 
@@ -290,7 +302,7 @@
   <button type="button"
     onclick="jrun('load &quot;../pdb/lactosa.pdb&quot;; \
                    set antialiasDisplay on; \
-                   select all; color cpk; center all; zoom 100;')">
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Lactosa')">
     <b>Lactosa</b>
   </button>
 </center>
@@ -322,9 +334,13 @@
 <p align="justify">Cuando la uni&oacute;n de dos monosac&aacute;ridos tiene lugar entre ambos carbonos an&oacute;ricos, tenemos los <i>Disac&aacute;ridos no reductores</i>, como por ejemplo la <i>Trehalosa</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/trehalosa.pdb', 'ballstick')",<b>Trehalosa</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/trehalosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Trehalosa')">
+    <b>Trehalosa</b>
+  </button>
 </center>
-
 
 <P><CENTER><img SRC="../gif/trehalosa.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -342,7 +358,7 @@
   <button type="button"
     onclick="jrun('load &quot;../pdb/sacarosa.pdb&quot;; \
                    set antialiasDisplay on; \
-                   select all; color cpk; center all; zoom 100;')">
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Sacarosa')">
     <b>Sacarosa</b>
   </button>
 </center>
@@ -395,9 +411,13 @@
 <p align="justify">Las prote&iacute;nas producidas en los ribosomas del ret&iacute;culo endopl&aacute;smico rugoso pasan a la luz del mismo, en donde se unen un oligosac&aacute;rido complejo, llamado <i>Oligosac&aacute;rido nuclear</i>, del que derivan todos los dem&aacute;s:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/nuclear.pdb', 'ballstick')",<b>Oligosacárido nuclear</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/nuclear.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Oligosacárido nuclear')">
+    <b>Oligosacárido nuclear</b>
+  </button>
 </center>
-
 
 <P><CENTER><img SRC="../gif/nuclear.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -407,7 +427,12 @@
 <p align="justify">A trav&eacute;s de distintas transformaciones enzim&aacute;ticas, consistentes en la p&eacute;rdida de algunos residuos y la adici&oacute;n de otros, el oligosac&aacute;rido nuclear se modifica dando lugar a distintas marcas de destino celular. As&iacute;, las prote&iacute;nas destinadas al lisosoma van marcadas con un <i>oligosac&aacute;rido de destino lisos&oacute;mico</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/lisosomico.pdb', 'ballstick')",<b>Oligosacárido de destino lisosómico</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/lisosomico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Oligosacárido de destino lisosómico')">
+    <b>Oligosacárido de destino lisosómico</b>
+  </button>
 </center>
 
 <P><CENTER><img SRC="../gif/lisosomico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
@@ -417,14 +442,12 @@
 <p align="justify">Mientras que las destinadas a ser secretadas al exterior de la c&eacute;lula se unen a un <i>Oligosac&aacute;rido de secreci&oacute;n</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/secrecion.pdb', 'ballstick')",<b>Oligosacárido de secreción</b></button>
-</center>
-
-<center>
-<script type="text/javascript"><!--
-jmolButton("load ../pdb/secrecion.pdb","Oligosac&aacute;rido de secreci&oacute;n")
-//-->
-</script>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/secrecion.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Oligosacárido de secreción')">
+    <b>Oligosacárido de secreción</b>
+  </button>
 </center>
 
 <P><CENTER><img SRC="../gif/secrecion.gif" ALIGN="TOP"  BORDER="0"></CENTER>

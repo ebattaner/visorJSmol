@@ -183,7 +183,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/dnab.pdb&quot;; \
                    set antialiasDisplay on; \
-                   restrict not solvent; color labels black; rotate x 90')">
+                   restrict not solvent; color labels black; rotate x 90; set echo off; set echo top left; color echo black; echo DNA, conformación B')">
     <b>DNA, conformación B</b>
   </button>
 </center>
@@ -308,7 +308,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/213d.pdb&quot;; \
                    set antialiasDisplay on; \
-                   restrict not solvent; color labels black')">
+                   restrict not solvent; color labels black; set echo off; set echo top left; color echo black; echo DNA, conformación A')">
     <b>DNA, conformación A</b>
   </button>
 </center>
@@ -363,7 +363,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/dnaz.pdb&quot;; \
                    set antialiasDisplay on; \
-                   restrict not solvent; color labels black')">
+                   restrict not solvent; color labels black; set echo off; set echo top left; color echo black; echo DNA, conformación Z')">
     <b>DNA, conformación Z</b>
   </button>
 </center>
@@ -427,9 +427,9 @@ jmolSetTarget(1)
 
 <center>
   <button type="button"
-    onclick="jrun('load &quot;../pdb/186D.pdb&quot;; \
+    onclick="jrun('load &quot;../pdb/186d.pdb&quot;; \
                    set antialiasDisplay on; \
-                   restrict not solvent; color labels black')">
+                   restrict not solvent; color labels black; set echo off; set echo top left; color echo black; echo DNA cuadruplex')">
     <b>DNA cuadruplex</b>
   </button>
 </center>
@@ -473,7 +473,7 @@ jmolSetTarget(1)
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="dnaz-steps"
              onchange="jrun('restrict 3,12,16,21; color cpk')">
-	Estas bases interaccionan a través de enlaces de hidrógeno (no representados) tipo Hogsten, distintos del apareamiento Watson-Crick habitual. Obsérvese también que tres de los nucleótidos de guanina están en conformacion <i>syn-</I> y el otro en <i>anti-</i>.
+	Estas bases interaccionan a través de enlaces de hidrógeno (no representados) tipo Hogsten, distintos del apareamiento Watson-Crick habitual. Obsérvese también que tres de los nucleótidos de guanina están en conformacion <i>syn-</I> y el otro en <i>anti-</i>. Volviendo a la estructura original:
     </label>
 
 <div style="max-width:48rem;margin:0 auto;">
@@ -481,7 +481,7 @@ jmolSetTarget(1)
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="dnaz-steps"
              onchange="jrun('select not solvent; wireframe 40; spacefill 20%; color cpk')">
-	Volviendo a la estructura original.
+	Estas bases interaccionan a través de enlaces de hidrógeno (no representados) tipo Hogsten, distintos del apareamiento Watson-Crick habitual. Obsérvese también que tres de los nucleótidos de guanina están en conformacion <i>syn-</I> y el otro en <i>anti-</i>. Volviendo a la estructura original:
     </label>
 </fieldset>
 </div>
@@ -523,5 +523,3 @@ jmolSetTarget(1)
 	
 
 </html>
-
-

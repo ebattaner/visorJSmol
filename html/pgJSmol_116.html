@@ -162,7 +162,7 @@
 <P><B>1. Estructura molecular de la ribonucleasa pancre&aacute;tica</B>
 <P align="justify">Una enzima muy bien conocida en sus relaciones estructura-funci&oacute;n es la  <B>Ribonucleasa pancre&aacute;tica (RNAasa A)</B>:
 
-<label><input type="radio" name="1hew-steps"onchange="jrun('load ../pdb/1rcn.pdb; restrict not solvent; select not nucleic; wireframe off; spacefill off; cartoons; color chain; define sitcat 12,41,119; define ssb 26,84,40,95,58,110,65,72')"> </b></label>
+<label><input type="radio" name="1hew-steps"onchange="jrun('load ../pdb/1rcn.pdb; restrict not solvent; select not nucleic; wireframe off; spacefill off; cartoons; color chain; define sitcat 12,41,119; define ssb 26,84,40,95,58,110,65,72; set echo off; set echo top left; color echo black; echo Ribonucleasa pancreática')"> </b></label>
 
  Se trata de una enzima que hidroliza polirribonucle&oacute;tidos en los enlaces Py-X, siendo Py un nucle&oacute;tido pirimid&iacute;nico (C, U) y X cualquier otro nucle&oacute;tido. La estructura que tenemos en pantalla ha sido determinada por el equipo de C.Cuchillo en la Universidad Aut&oacute;noma de Barcelona.</p>
 
@@ -200,7 +200,7 @@ que ha sido cocristalizada con un tetradesoxinucle&oacute;tido (ATAA) que ocupa 
 
 <P>As&iacute;, en el estado basal de la enzima, 
 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn1.pdb; wireframe  50; colour cpk; select atomno=10; label Lys 41; select atomno=54; label His 119; select atomno=36; label His 12; select atomno=6, atomno=48; dots 300; select all')"> </label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn1.pdb; wireframe  50; colour cpk; select atomno=10; label Lys 41; select atomno=54; label His 119; select atomno=36; label His 12; select atomno=6, atomno=48; dots 300; select all; set echo off; set echo top left; color echo black; echo Centro activo')"> </label>
 
 <B>el Centro Activo</B></A> consta de esos tres amino&aacute;cidos, de tal manera que la His 12 aparece como base y la His 119 como &aacute;cido (protonada, imidazolio).</p>
 
@@ -208,13 +208,13 @@ que ha sido cocristalizada con un tetradesoxinucle&oacute;tido (ATAA) que ocupa 
 
 <P>A esta configuraci&oacute;n se une el 
 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/ua.pdb; wireframe  50; colour cpk')"> </b></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/ua.pdb; wireframe  50; colour cpk; set echo off; set echo top left; color echo black; echo Substrato')"> </b></label>
 
 <B>substrato</B></A> que ser&iacute;a un polirribonucle&oacute;tido; en este caso se representa &uacute;nicamente el dinucle&oacute;tido UA. La RNAasa pancre&aacute;tica hidroliza enlaces en los que del lado 3' hay un nucle&oacute;tido pirimid&iacute;nico (U o C) dando lugar a una rotura tipo b, es decir, dejando el fosfato unido al 3' del enlace escindido.</p>
 
 <P>Cuando se forma el
 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn2.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=54; label His 119; select atomno=36; label His 12; select atomno=6, atomno=48; dots 300; select all')"> </b></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn2.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=54; label His 119; select atomno=36; label His 12; select atomno=6, atomno=48; dots 300; select all; set echo off; set echo top left; color echo black; echo Complejo Enzima-Substrato')"> </b></label>
 
 <B>Complejo Enzima-Substrato</B></A> el polinucle&oacute;tido se aloja en un surco de la mol&eacute;cula, seg&uacute;n vimos anteriormente, el cual est&aacute; flanqueado por los tres amino&aacute;cidos del centro activo, seg&uacute;n se indica en el modelo.</p>
 
@@ -222,7 +222,7 @@ que ha sido cocristalizada con un tetradesoxinucle&oacute;tido (ATAA) que ocupa 
 
 <P>A continuaci&oacute;n la His 12 captura un prot&oacute;n del grupo 2'OH del nucle&oacute;tido pirimid&iacute;nico, el cual lleva a cabo un ataque nucleof&iacute;lico sobre el substrato de manera que se forma el
 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn3.pdb; wireframe  50; colour cpk; select atomno=6; label Lys 41; select atomno=35; label His 119; select atomno=54; label His 12; select atomno=6, atomno=48, atomno=70; dots 300; select all')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn3.pdb; wireframe  50; colour cpk; select atomno=6; label Lys 41; select atomno=35; label His 119; select atomno=54; label His 12; select atomno=6, atomno=48, atomno=70; dots 300; select all; set echo off; set echo top left; color echo black; echo Estado de transición 1')"></label>
 
 
 <B>Estado de transici&oacute;n</B></A> inestable (con P pentacovalente), al tiempo que la His 119 cede su prot&oacute;n al ox&iacute;geno en 5' del enlace atacado; el estado de ionizaci&oacute;n de las histidinas es justo el contrario que el visto en el estado basal de la enzima.</p>
@@ -231,7 +231,7 @@ que ha sido cocristalizada con un tetradesoxinucle&oacute;tido (ATAA) que ocupa 
 
 <P>Este estado de transici&oacute;n se resuelve con la
 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn4.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=36; label His 119; select atomno=54; label His 12; select atomno=120; label 3-AMP; select atomno=6, atomno=48; dots 300; select all')"> </b></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn4.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=36; label His 119; select atomno=54; label His 12; select atomno=120; label 3-AMP; select atomno=6, atomno=48; dots 300; select all; set echo off; set echo top left; color echo black; echo Liberación del primer producto, 3´-AMP')"> </b></label>
 
 <B>Liberaci&oacute;n del primer producto (3'-AMP)</B></A> quedando unido a la enzima el nucle&oacute;tido c&iacute;clico 3',5' UMP.</p>
 
@@ -239,7 +239,7 @@ que ha sido cocristalizada con un tetradesoxinucle&oacute;tido (ATAA) que ocupa 
 
 <P>Entra entonces al centro activo una
 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn5.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=35; label His 119; select atomno=54; label His 12; select atomno=93; label Agua; select atomno=6, atomno=48; dots 300; select all')"> </b></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn5.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=35; label His 119; select atomno=54; label His 12; select atomno=93; label Agua; select atomno=6, atomno=48; dots 300; select all; set echo off; set echo top left; color echo black; echo Entra molécula de agua')"> </b></label>
 
 <B>mol&eacute;cula de agua</B>, que es el segundo substrato de la reacci&oacute;n. </p>
 
@@ -247,13 +247,13 @@ que ha sido cocristalizada con un tetradesoxinucle&oacute;tido (ATAA) que ocupa 
 
 <P>La histidina 119 sustrae uno de los dos protones del agua, que queda convertida en un
 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn6.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=54; label His 119; select atomno=37; label His 12; select atomno=6, atomno=31, atomno=49, atomno=92; dots 300; select all')"> </b></label><B>ion hidroxilo</B>,</p>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn6.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=54; label His 119; select atomno=37; label His 12; select atomno=6, atomno=31, atomno=49, atomno=92; dots 300; select all; set echo off; set echo top left; color echo black; echo Ion hidroxilo')"> </b></label><B>ion hidroxilo</B>,</p>
 
 <P><CENTER><img SRC="../gif/fn6.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <P>que a su vez ataca al fosfato c&iacute;clico, dando lugar al
 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn7.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=54; label His 119; select atomno=37; label His 12; select atomno=6, atomno=31, atomno=49,atomno=71; dots 300; select all')"> </b></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn7.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=54; label His 119; select atomno=37; label His 12; select atomno=6, atomno=31, atomno=49,atomno=71; dots 300; select all; set echo off; set echo top left; color echo black; echo Estado de transición 2')"> </b></label>
 
 <B>Estado de transici&oacute;n 2.</b></p>
 
@@ -261,7 +261,7 @@ que ha sido cocristalizada con un tetradesoxinucle&oacute;tido (ATAA) que ocupa 
 
 <P>&eacute;ste se resuelve rompi&eacute;ndose el enlace entre el fosfato y el ox&iacute;geno que sustituye al carbono 2' de la ribosa, el cual recibe a su vez el prot&oacute;n de la histidina 12, para dar lugar a la liberaci&oacute;n del
 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn8.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=54; label His 119; select atomno=36; label His 12; select atomno=6, atomno=48; dots 300; select all')"> </b></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/fn8.pdb; wireframe  50; colour cpk; select atomno=12; label Lys 41; select atomno=54; label His 119; select atomno=36; label His 12; select atomno=6, atomno=48; dots 300; select all; set echo off; set echo top left; color echo black; echo Liberación del segundo producto, 3´-5´-uridin bisfosfato')"> </b></label>
 
 
 <B>segundo producto</B>, que es el nucle&oacute;tido 3',5' uridin bisfosfato.

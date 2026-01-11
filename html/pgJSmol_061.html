@@ -169,7 +169,12 @@ jmolSetTarget(1)
 <P align="justify">Con este nombre conocemos a los l&iacute;pidos formados por la condensaci&oacute;n lineal de <i>unidades isoprenoides</i>. Desde un punto de vista experimental, corresponden a los llamados <i>l&iacute;pidos insaponificables</i>, que quedan en la fase org&aacute;nica despu&eacute;s de una saponificaci&oacute;n. Las unidades prenoides est&aacute;n te&oacute;ricamente basadas en el isopreno o isopenteno:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/isopreno.pdb', 'ballstick')",<b>Isopreno</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/isopreno.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Isopreno')">
+    <b>Isopreno</b>
+  </button>
 </center>
 
 <P><CENTER><img SRC="../gif/isopreno.gif" ALIGN="TOP" BORDER="0"></CENTER>
@@ -181,9 +186,13 @@ jmolSetTarget(1)
 <p align="justify">Así, tenemos como representante de lípidos diprenoides (monoterpenos) el <i>Geraniol</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/geraniol.pdb', 'ballstick')",<b>Geraniol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/geraniol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Geraniol')">
+    <b>Geraniol</b>
+  </button>
 </center>
-						<br />
 
 <P><CENTER><img SRC="../gif/geraniol.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
@@ -192,9 +201,13 @@ jmolSetTarget(1)
 <p align="justify">Un compuesto triprenoide (sesquiterpeno) es el <i>Farnesol</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/farnesol.pdb', 'ballstick')",<b>Farnesol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/farnesol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Farnesol')">
+    <b>Farnesol</b>
+  </button>
 </center>
-			<br />
 
 <P><CENTER><img SRC="../gif/farnesol.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
@@ -202,10 +215,13 @@ jmolSetTarget(1)
 <p align="justify">Como ejemplo de los compuestos tetraprenoides (diterpenos) tenemos el <i>Retinol</i>, de la familia de los <i>retinoides</i> o vitaminas A:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/retinol.pdb', 'ballstick')",<b>Retinol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/retinol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Retinol')">
+    <b>Retinol</b>
+  </button>
 </center>
-			
-			<br />
 
 <P><CENTER><img SRC="../gif/retinol.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
@@ -216,9 +232,13 @@ jmolSetTarget(1)
 <p align="justify">Un compuesto hexaprenoide es el <i>Escualeno</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/escualeno.pdb', 'ballstick')",<b>Escualeno</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/escualeno.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Escualeno')">
+    <b>Escualeno</b>
+  </button>
 </center>
-<br />
 
 <P><CENTER><img SRC="../gif/escualeno.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
@@ -226,9 +246,13 @@ jmolSetTarget(1)
 <p align="justify">Como octaprenoide se presenta el <i><font face="symbol">b</font>-Caroteno</i> o <i>Provitamina A</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/bcaroteno.pdb', 'ballstick')",<b><font face="Symbol">b</font>-Caroteno</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/bcaroteno.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo beta-Caroteno')">
+    <b><font face="symbol">b</font>-Caroteno</b>
+  </button>
 </center>
-			<br />
 
 <P><CENTER><img SRC="../gif/bcaroteno.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
@@ -241,13 +265,13 @@ jmolSetTarget(1)
 <p align="center"><font size="+1"><b>Esteroides</b></font></center></p>
 
 
-<P align="justify">Los esteroides son compuestos hexaprenoides derivados del <i>Escualeno</i>. Este compuesto sufre una serie de transformaciones metab&oacute;licas, dando lugar a un sistema polialic&iacute;clico, el <i>ciclopentanofenantreno</i>. Vamos a estudiar la estructura general de los esteroides con la molécula de <i>Colestanol</i>:
+<P align="justify">Los esteroides son compuestos hexaprenoides derivados del <i>Escualeno</i>. Este compuesto sufre una serie de transformaciones metab&oacute;licas, dando lugar a un sistema polialic&iacute;clico, el <i>ciclopentano perhidrofenantreno</i>. Vamos a estudiar la estructura general de los esteroides con la molécula de <i>Colestanol</i>:
 
 <center>
   <button type="button"
     onclick="jrun('load &quot;../pdb/colestanol.pdb&quot;; \
                    set antialiasDisplay on; \
-                   define ciclo atomno=1, atomno=2, atomno=3, atomno=4, atomno=5, atomno=26, atomno=28, atomno=29, atomno=30, atomno=31, atomno=32, atomno=33')">
+                   define ciclo atomno=1, atomno=2, atomno=3, atomno=4, atomno=5, atomno=26, atomno=28, atomno=29, atomno=30, atomno=31, atomno=32, atomno=33; set echo off; set echo top left; color echo black; echo Colestanol')">
     <b>Colestanol</b>
   </button>
 </center>
@@ -255,7 +279,7 @@ jmolSetTarget(1)
 
 
 
-			<P><CENTER><img SRC="../gif/colestanol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<P><CENTER><img SRC="../gif/colestanol.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
 <p align="justify">
 
@@ -264,7 +288,7 @@ jmolSetTarget(1)
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="colestanol-steps"
         onchange="jrun('restrict 1; center 1; colour cpk; zoom 200; select all')">
-      	Vemos en primer lugar el sistema polialicíclico (ciclopentano fenantreno)
+      	Vemos en primer lugar el sistema polialicíclico (ciclopentano perhidrofenantreno)
     </label>
 
 <label style="display:block;margin:.35rem 0;">
@@ -313,7 +337,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/coprostanol.pdb&quot;; \
                    set antialiasDisplay on; \
-                   define ciclo atomno=1, atomno=2, atomno=3, atomno=4, atomno=5, atomno=26, atomno=28, atomno=29, atomno=30, atomno=31, atomno=32, atomno=3')">
+                   define ciclo atomno=1, atomno=2, atomno=3, atomno=4, atomno=5, atomno=26, atomno=28, atomno=29, atomno=30, atomno=31, atomno=32, atomno=33; set echo off; set echo top left; color echo black; echo Coprostanol')">
     <b>Coprostanol</b>
   </button>
 </center>
@@ -328,7 +352,7 @@ jmolSetTarget(1)
   <fieldset style="border:0;margin:8px 0;padding:0">
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="coprostanol-steps"
-        onchange="jrun('wireframe off; define ciclo atomno=1, atomno=2, atomno=3, atomno=4, atomno=5, atomno=26, atomno=28, atomno=29, atomno=30, atomno=31, atomno=32, atomno=33; restrict ciclo; center ciclo; wireframe 40; spacefill 80; zoom 250; colour labels [0,0,0]; select atomno=3; label 10; select atomno=30; label 5; select all')">
+        onchange="jrun('wireframe off; restrict ciclo; center ciclo; wireframe 40; spacefill 80; zoom 250; colour labels [0,0,0]; select atomno=3; label 10; select atomno=30; label 5; select all')">
      Puede observarse que los sustituyentes en C10 (metilo) y C5 (hidr&oacute;geno) est&aacute;n situados del mismo lado del sistema; es decir, los dos en <I><FONT FACE="Symbol">b</FONT></I>. En el plano, este tipo de sustituyente se representa por un trazo continuo:
 
     </label>
@@ -341,12 +365,15 @@ jmolSetTarget(1)
 
 <P align="justify">Colestanol y Coprostanol son ambos derivados por reducci&oacute;n del <i>Colesterol</i>:</p>
 
-
 <center>
-<button onClick="loadMolecule ('../pdb/colesterol.pdb', 'ballstick')",<b>Colesterol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/colesterol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   set echo off; set echo top left; color echo black; echo Colesterol')">
+    <b>Colesterol</b>
+  </button>
 </center>
-
-						<br />
+<br>
 
 <P><CENTER><img SRC="../gif/colesterol.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
@@ -360,24 +387,13 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/colico.pdb&quot;; \
                    set antialiasDisplay on; \
-                   define ciclo atomno=1, atomno=2, atomno=3, atomno=4, atomno=5, atomno=26, atomno=28, atomno=29, atomno=30, atomno=31, atomno=32, atomno=33')">
+                   define ciclo atomno=1, atomno=2, atomno=3, atomno=4, atomno=5, atomno=26, atomno=28, atomno=29, atomno=30, atomno=31, atomno=32, atomno=33; set echo off; set echo top left; color echo black; echo Ácido cólico')">
     <b>Ácido cólico</b>
   </button>
 </center>
 <br>
 
-<!--
-
-<center>
-  <button type="button"
-    onclick="jrun('load &quot;../pdb/colico.pdb&quot;; \
-                   set antialiasDisplay on; \">
-    <b>Ácido cólico</b>
-  </button>
-</center>
-<br>
--->
-			<P><CENTER><img SRC="../gif/colico.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<P><CENTER><img SRC="../gif/colico.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
 <P align="justify">El ácido cólico es una molécula anfipática <i>plana</i>, 
 
@@ -396,42 +412,62 @@ jmolSetTarget(1)
 <P align="justify">Otras series de esteroides tienen importancia como <B>hormonas</B>. Tenemos, por ejemplo, entre las hormonas de la corteza suprarrenal (<B>corticoides</B>), el <i>Cortisol</i> como representante de los <i>glucocorticoides</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/cortisol.pdb', 'ballstick')",<b>Cortisol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/cortisol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   set echo off; set echo top left; color echo black; echo Cortisol')">
+    <b>Cortisol</b>
+  </button>
 </center>
-			<br />
+<br>
 
-			<P><CENTER><img SRC="../gif/cortisol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<P><CENTER><img SRC="../gif/cortisol.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
 
 <p align="justify">O bien, como representante de los <i>mineralocorticoides</i>, la <i>Aldosterona</i>:</P>
 <center>
-<button onClick="loadMolecule ('../pdb/aldosterona.pdb', 'ballstick')",<b>Aldosterona</b></button>
+
+<center>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/aldosterona.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   set echo off; set echo top left; color echo black; echo Aldosterona')">
+    <b>Aldosterona</b>
+  </button>
 </center>
+<br>
 
-			<br />
-
-			<P><CENTER><img SRC="../gif/aldosterona.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<P><CENTER><img SRC="../gif/aldosterona.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
 
 <p align="justify">Son también esteroides las <i>Hormonas sexuales</i>. Veamos a continuación la estructura de la <i>Progesterona</i>, representante de los <i>Gestágenos</i>, hormonas propias de la fase luteínica del ciclo sexual femenino:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/progesterona.pdb', 'ballstick')",<b>Progesterona</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/progesterona.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   set echo off; set echo top left; color echo black; echo Progesterona')">
+    <b>Progesterona</b>
+  </button>
 </center>
-			<br />
+<br>
 
-			<P><CENTER><img SRC="../gif/progesterona.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<P><CENTER><img SRC="../gif/progesterona.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
 
 <p align="justify">Así como el <i>17-<font face="symbol">b</font>-Estradiol</i>, representante de los <i>Estrógenos</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/17b_estradiol.pdb', 'ballstick')",<b>17-<font face="symbol">b</font>-Estradiol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/17b_estradiol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   set echo off; set echo top left; color echo black; echo 17 beta-Estradiol')">
+    <b>17-<font face="symbol">b</font>-Estradiol</b>
+  </button>
 </center>
+<br>
 
-			<br />
-
-			<P><CENTER><img SRC="../gif/17b_estradiol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<P><CENTER><img SRC="../gif/17b_estradiol.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
 <p align="justify">Obsérvese la naturaleza aromática del anillo A (lo que diferencia a los estrógenos del resto de los esteroides).</p>
 
@@ -439,12 +475,16 @@ jmolSetTarget(1)
 <p align="justify">Y la <i>Testosterona</i>, representante de las hormonas masculinas o <i>Andrógenos</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/testosterona.pdb', 'ballstick')",<b>Testosterona</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/testosterona.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   set echo off; set echo top left; color echo black; echo Testosterona')">
+    <b>Testosterona</b>
+  </button>
 </center>
-			<br />
+<br>
 
-			<P><CENTER><img SRC="../gif/testosterona.gif" ALIGN="TOP" BORDER="0"></CENTER></p>
-
+<P><CENTER><img SRC="../gif/testosterona.gif" ALIGN="TOP" BORDER="0"></CENTER></p>
 
 
 			<hr />
@@ -479,4 +519,3 @@ jmolSetTarget(1)
 	
 
 </html>
-

@@ -191,7 +191,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/myog02.pdb&quot;; \
                    set antialiasDisplay on; \
-                   restrict not solvent')">
+                   restrict not solvent; set echo off; set echo top left; color echo black; echo Mioglobina')">
     <b>Mioglobina</b>
   </button>
 </center>
@@ -244,10 +244,9 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/tpi02.pdb&quot;; \
                    set antialiasDisplay on; \
-                   restrict not solvent')">
+                   restrict not solvent; set echo off; set echo top left; color echo black; echo Triosa fosfato isomerasa')">
     <b>Triosa fosfato isomerasa</b>
   </button>
-</center>
 <br>
 
 <p align="justify">Si seleccionamos las cadenas laterales hidrofóbicas y las representamos a su radio de van der Waals: 
@@ -266,7 +265,7 @@ jmolSetTarget(1)
 	observamos que los residuos polares están situados hacia el exterior, en contacto con el solvente, mientras que el interior de la molécula aparece prácticamente hueco.
           </label>
 
-<p align="justify">Esto hace que la estructura  de una proteína sea asimilable a la de una <i>micela</i>. Las interacciones de van der Waals generadas en el interior a través de este efecto hidrofóbico son una fuerza básica en el mantenimiento de la estructura tridimensional de la proteína.</p>
+lign="justify">Esto hace que la estructura  de una proteína sea asimilable a la de una <i>micela</i>. Las interacciones de van der Waals generadas en el interior a través de este efecto hidrofóbico son una fuerza básica en el mantenimiento de la estructura tridimensional de la proteína.</p>
 
 
 <A NAME="hidro"></A>
@@ -292,7 +291,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/ssb02.pdb&quot;; \
                    set antialiasDisplay on; \
-                   wireframe 40; spacefill 100')">
+                   wireframe 40; spacefill 100; set echo off; set echo top left; color echo black; echo Enlace disulfuro, 1')">
     <b>Enlace disulfuro, 1</b>
   </button>
 </center>
@@ -317,7 +316,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/ssb03.pdb&quot;; \
                    set antialiasDisplay on; \
-                   restrict not solvent; wireframe 40; spacefill 100')">
+                   restrict not solvent; wireframe 40; spacefill 100; set echo off; set echo top left; color echo black; echo Enlace disulfuro, 2')">
     <b>Enlace disulfuro, 2</b>
   </button>
 </center>
@@ -350,7 +349,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/1pad.pdb&quot;; \
                    set antialiasDisplay on; \
-                   wireframe off; spacefill off; cartoons')">
+                   wireframe off; spacefill off; cartoons; set echo off; set echo top left; color echo black; echo Papaína')">
     <b>Papaína</b>
   </button>
 </center>
@@ -384,7 +383,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/3est.pdb&quot;; \
                    set antialiasDisplay on; \
-                   wireframe off; spacefill off; cartoons')">
+                   wireframe off; spacefill off; cartoons; set echo off; set echo top left; color echo black; echo Elastasa')">
     <b>Elastasa</b>
   </button>
 </center>
@@ -449,4 +448,3 @@ jmolSetTarget(1)
 	
 
 </html>
-

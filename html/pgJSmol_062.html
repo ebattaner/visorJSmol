@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8" />
-<title>JSmol - Vitaminas liposolubles</title>
+<title>JSmol - Esteroides</title>
 
 <!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
 <script src="../JSmol/JSmol.min.js"></script>
@@ -129,6 +129,9 @@
     if (repr === "spacefill") applySpacefill(); else applyBallStick();
   }
 </script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
 </head>
 
 <body onload="initJSmol()">
@@ -160,11 +163,15 @@
 <P align="justify">Los <B>Retinoides o vitaminas A</B> derivan de la escisi&oacute;n de una mol&eacute;cula de <font face="symbol">b</font>-caroteno mediante una oxigenasa. En la mol&eacute;cula de <i>Retinol</i> podemos ver las caracter&iacute;sticas principales de estos compuestos:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/retinol.pdb', 'ballstick')",<b>Retinol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/retinol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Retinol')">
+    <b>Retinol</b>
+  </button>
 </center>
-			<br />
 
-			<P><CENTER><img SRC="../gif/retinol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<P><CENTER><img SRC="../gif/retinol.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
 
 <p align="justify">Se trata de derivados tetraprenoides (es decir, constan de 20 &aacute;tomos de carbono) que forman, por un lado, un sistema c&iacute;clico (<i><font face="symbol">b</font>-ionona</i>) y por otro una cadena poliprenoide que termina en una funci&oacute;n oxigenada; en este caso es un alcohol primario. Los distintos retinoides se diferencian en la naturaleza de esta funci&oacute;n; si es un aldehido, tendremos el <i>Retinal</i>; si es un &aacute;cido, el <i>&Aacute;cido Retinoico</i>.</P>
@@ -172,12 +179,15 @@
 <P align="justify">Los retinoides tienen un papel importante en la transcripci&oacute;n de determinados genes; sin embargo, su papel mejor conocido radica en la transducci&oacute;n del est&iacute;mulo visual en la retina. En los fotorreceptores, el grupo prost&eacute;tico de la <i>rodopsina</i> y de las diferentes <i>conopsinas</i> es el <i>11-cis-Retinal</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/cisretinal.pdb', 'ballstick')",<b>11-cis Retinal</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/cisretinal.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo 11-cis Retinal')">
+    <b>11-cis Retinal</b>
+  </button>
 </center>
 
-			<br />
-
-			<P><CENTER><img SRC="../gif/cisretinal.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<P><CENTER><img SRC="../gif/cisretinal.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
 
 
@@ -185,11 +195,15 @@
 <p align="justify">Al incidir un fot&oacute;n de luz visible sobre el mismo, se isomeriza a <i>todo-trans Retinal</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/transretinal.pdb', 'ballstick')",<b>todo-trans Retinal</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/transretinal.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo todo-trans Retinal')">
+    <b>todo-trans Retinal</b>
+  </button>
 </center>
-			<br />
 
-			<P><CENTER><img SRC="../gif/transretinal.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<P><CENTER><img SRC="../gif/transretinal.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
 
 
@@ -200,12 +214,15 @@
 <P align="justify">Otro retinoide es el <i>&Aacute;cido retinoico</i>:</P>
 
 <center>
-<button onClick="loadMolecule ('../pdb/retinoico.pdb', 'ballstick')",<b>Ácido retinoico</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/retinoico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Ácido Retinoico')">
+    <b>Ácido Retinoico</b>
+  </button>
 </center>
 
-			<br />
-
-			<P><CENTER><img SRC="../gif/retinoico.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<P><CENTER><img SRC="../gif/retinoico.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
 
 <br /><br /><br />
@@ -213,12 +230,15 @@
 <P align="justify">Los <b>Calciferoles</b> o vitaminas D son compuestos poliprenoides esteroideos. Se forman a partir del colesterol a través de la irradiación ultravioleta de la piel y una serie de transformaciones químicas en el hígado y el riñón. El metabolito activo es el <i>1,25-Dihidroxicolecalciferol</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/125_dihidroxicolecalciferol.pdb', 'ballstick')",<b>1,25 Dihidroxicolecalciferol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/125_dihidroxicolecalciferol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo 1,25 Dihidroxicolecalciferol')">
+    <b>1,25 Dihidroxicolecalciferol</b>
+  </button>
 </center>
 
-			<br />
-
-			<P><CENTER><img SRC="../gif/125_dihidroxicolecalciferol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<P><CENTER><img SRC="../gif/125_dihidroxicolecalciferol.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
 
 
@@ -233,12 +253,15 @@
 <P align="justify">Los<B> Tocoferoles o vitaminas E</B> son asimismo derivados poliprenoides, cuya funci&oacute;n en el organismo parece ser la protecci&oacute;n antioxidante. Se presenta la estructura del <i><font face="symbol">a</font>-Tocoferol</i>:</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/tocoferol.pdb', 'ballstick')",<b><font face="symbol">a</font>-Tocoferol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/tocoferol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo alfa-Tocoferol')">
+    <b><font face="symbol">a</font>-Tocoferol</b>
+  </button>
 </center>
-			
-			<br />
 
-			<P><CENTER><img SRC="../gif/tocoferol.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<P><CENTER><img SRC="../gif/tocoferol.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
 
 
@@ -250,18 +273,15 @@
 <P align="justify">Las <b>Vitaminas K</B> son cofactores en el proceso de carboxilaci&oacute;n del &aacute;cido glut&aacute;mico para dar &aacute;cido <i><FONT FACE="Symbol">g</FONT>-carboxi glut&aacute;mico</i>, modificaci&oacute;n postraduccional indispensable en la s&iacute;ntesis de determinados factores de la coagulaci&oacute;n, como la protrombina. Se presenta la estructura de la <i>naftoquinona</i> (vitamina K1):</p>
 
 <center>
-<button onClick="loadMolecule ('../pdb/naftoquinona.pdb', 'ballstick')",<b>Naftoquinona</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/naftoquinona.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Naftoquinona')">
+    <b>Naftoquinona</b>
+  </button>
 </center>
 
-			<center>
-			<script type="text/javascript"><!--
-			jmolButton("load Lipidos/estructuras/naftoquinona.pdb","Naftoquinona")
-			//-->
-			</script>
-			</center>
-			<br />
-
-			<P><CENTER><img SRC="../gif/naftoquinona.gif" ALIGN="TOP" BORDER="0"></CENTER>
+<P><CENTER><img SRC="../gif/naftoquinona.gif" ALIGN="TOP" BORDER="0"></CENTER>
 
 
 

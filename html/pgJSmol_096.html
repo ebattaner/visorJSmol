@@ -57,7 +57,6 @@
 
 
 
-
 			
 
 
@@ -75,23 +74,17 @@
 			<A NAME="intro"></A>
 
 			<p align="center"><font size="+1"><b>1. Introducci&oacute;n</b></font></center></p>
-
 </br></br>
+
+
 <center><table border=0 WIDTH=90%><tr>
-	<td align=center width=45%>	
-      	<button class="btn" data-path="../pdb/1b86.pdb" data-target="A"><b>Desoxihemoglobina (estado T)</b></button>
-	</td>
 	<td align=center width=45%>
-      	<button class="btn" data-path="../pdb/1rvw.pdb" data-target="B"><b>Oxihemoglobina (estado R)</button>
-	</td>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="load ../pdb/1b86.pdb; restrict not solvent; spacefill; colour chain; select ddh, hem; color cpk; set echo off; set echo top left; color echo black; echo Desoxihemoglobina (estado T); select not solvent"><b>Desoxihemoglobina (estado T)</b></label>	
+      	</td>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="load ../pdb/1rvw.pdb; restrict not solvent; spacefill; colour chain; select ddh, hem; color cpk; set echo off; set echo top left; color echo black; echo Oxihemoglobina (estado R); zoom 80; rotate x 90; select not solvent"><b>Oxihemoglobina (estado R)</b></label>
+      	</td>
      </tr>
-	
-     </tr>
-<tr><td align=center width=45%>
-	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="restrict not solvent; spacefill; colour chain; select ddh, hem; color cpk; select not solvent">Visión <i>spacefill</i></label>
-<td align=center width=45%>
-	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="restrict not solvent; spacefill; color chain; select hem; color cpk; select *; rotate x 70; rotate y -20; zoom 90">Visión <i>spacefill</i></label>
-	</td></tr>
 </table>
 </center>
 
@@ -192,20 +185,17 @@
 <table border=0 WIDTH=90%>
 	<tr><td><p align="center" width=45%><b>Estado T</b></td><td><p align="center"><b>Estado R</b></td></tr>
 	<tr><td align="left" width=45%>
-	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="zoom 120; labels off; colour labels [0,0,0];wireframe off; spacefill off; select :a; cartoons; colour chain; select :c; cartoons; colour chain; restrict :a,:c; center :a,:c; select not hetero; select 141,526; spacefill 150; wireframe 60; colour cpk; select atomno=1062; label Arg 141; select atomno=3141; label Asp 126; zoom 250; select not hetero">Las interacciones que se establecen entre las dos subunidades son las siguientes: (a) la cadena lateral de Arg 141 (C-terminal) de una subunidad, con la del residuo Asp 126 de la otra</label>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="zoom 120; labels off; colour labels [0,0,0];wireframe off; spacefill off; select :a; cartoons; colour chain; select :c; cartoons; colour chain; restrict :a,:c; center :a,:c; select not hetero; select 141,526; spacefill 150; wireframe 60; colour cpk; select atomno=1062; label Arg 141; select atomno=3141; label Asp 126; zoom 250; select not hetero; set echo off; set echo top left; color echo black; echo Contacto alfa-alfa, desoxihemoglobina">Las interacciones que se establecen entre las dos subunidades son las siguientes: (a) la cadena lateral de Arg 141 (C-terminal) de una subunidad, con la del residuo Asp 126 de la otra</label>
 	</td>
 
 	<td align="left" width=45%>
-	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="labels off; colour labels [0,0,0];wireframe off; spacefill off; select :a;cartoons; colour chain;select :c;cartoons;colour chain;select 1,126,141;  spacefill 150; wireframe 60; colour cpk; restrict :a,:c; center :a,:c; select atomno=3 and not hetero, atomno=2295; label Val 1; select atomno=954,atomno=3244; label Asp 126; select atomno=1070,atomno=3359; label Arg 141; select :a,:c; zoom 250; select not hetero">Por el contrario, en el estado R, estas interacciones no existen o son mucho más débiles. Nótese la distancia a la que aparecen, por ejemplo, los residuos Arg 141 y Asp 126 en este último estado </label>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="labels off; colour labels [0,0,0];wireframe off; spacefill off; select :a;cartoons; colour chain;select :c;cartoons;colour chain;select 1,126,141;  spacefill 150; wireframe 60; colour cpk; restrict :a,:c; center :a,:c; select atomno=3 and not hetero, atomno=2295; label Val 1; select atomno=954,atomno=3244; label Asp 126; select atomno=1070,atomno=3359; label Arg 141; select :a,:c; zoom 250; select not hetero; set echo off; set echo top left; color echo black; echo Contacto alfa-alfa, oxihemoglobina">Por el contrario, en el estado R, estas interacciones no existen o son mucho más débiles. Nótese la distancia a la que aparecen, por ejemplo, los residuos Arg 141 y Asp 126 en este último estado </label>
 	</td></tr>
 
 <tr><td align="left" width=45%>
 	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour labels [0,0,0];select 401; spacefill 150; wireframe 60; colour cpk; select atomno=2201; label Val 1; select not hetero">(b) el grupo carboxilo de Arg 141 con el amino N-terminal de la otra cadena:</label>
 	</td>
-
-	<td align=left width=45%>
-	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="restrict :a,:c; spacefill; select not hetero">En visión <i>spacefill</i></label>
-	</td></tr>
+</tr>
 
 <tr><td align="left" width=45%>
 	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour labels [0,0,0];select 1,541,126; spacefill 150; wireframe 60; colour cpk; select atomno=5 and not hetero; label Val 1; select atomno=3258; label Arg 141; select atomno=947; label Asp 126; select alfalfa and not hetero; select not hetero; zoom 250; restrict not solvent">y (c) las mismas interacciones en los extremos contrarios de las dos cadenas:</label>
@@ -214,17 +204,6 @@
 	<td align=center width=45%>
 	
 	</td></tr>
-
-<tr><td align="left" width=45%>
-	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="restrict :a,:c; spacefill; select not hetero">En visión <i>spacefill</i></label>
-	</td>
-
-	<td align=center width=45%>
-	
-	</td></tr>
-
-
-
 </table>
 </center>
 
@@ -240,26 +219,19 @@
 <table border=0 WIDTH=90%>
 	<tr><td><p align="center" width=45%><b>Estado T</b></td><td><p align="center"><b>Estado R</b></td></tr>
 	<tr><td align="left" width=45%>
-	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="zoom 120; labels off; colour labels [0,0,0];wireframe off; spacefill off; select :a;cartoons; colour chain;select :d; cartoons; colour chain;  restrict :a,:d; center atomno=314; select not hetero">Contacto <FONT FACE=Symbol>a</FONT> - <FONT FACE=Symbol>b</FONT></font>. Se establecen las siguientes interacciones:</label>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="zoom 120; labels off; colour labels [0,0,0];wireframe off; spacefill off; select :a;cartoons; colour chain;select :d; cartoons; colour chain;  restrict :a,:d; center atomno=314; select not hetero; set echo off; set echo top left; color echo black; echo Contacto alfa-beta, desoxihemoglobina">Contacto <FONT FACE=Symbol>a</FONT> - <FONT FACE=Symbol>b</FONT></font>. Se establecen las siguientes interacciones:</label>
 	</td>
 
 	<td align="left" width=45%>
-	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="labels off; colour labels [0,0,0];wireframe off; spacefill off; select :a;cartoons; colour chain; select :d;cartoons;colour chain;select  92 and :a,40 and :a,  43 and :d, 146 and :d;  spacefill 150; wireframe 60; colour cpk; center atomno=730; select atomno=689; label Arg 92; select atomno=297; label Lys 40; select atomno=3751; label Glu 43; select atomno=4529; label His 146; restrict :a,:d; select not hetero">Mientras que en el estado R estas interacciones prácticamente no existen.</label>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="zoom 250; labels off; colour labels [0,0,0];wireframe off; spacefill off; select :a;cartoons; colour chain; select :d;cartoons;colour chain;select  92 and :a,40 and :a,  43 and :d, 146 and :d;  spacefill 150; wireframe 60; colour cpk; center atomno=730; select atomno=689; label Arg 92; select atomno=297; label Lys 40; select atomno=3751; label Glu 43; select atomno=4529; label His 146; restrict :a,:d; select not hetero; set echo off; set echo top left; color echo black; echo Contacto alfa-beta, oxihemoglobina">Mientras que en el estado R estas interacciones prácticamente no existen.</label>
 	</td></tr>
 
 <tr><td align="left" width=45%>
 	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select 92, 586; colour labels [0,0,0];spacefill 150; wireframe 60; colour cpk; select atomno=691; label Arg 92; select atomno=3604; label Glu 43; restrict :a,:d; zoom 250; select not hetero">(a) Arg 92 de la cadena <FONT FACE="Symbol">a</FONT> con Glu 43 de la cadena  <FONT FACE="Symbol">b</FONT>"</label>
-	<td align=left width=45%>
-	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="restrict :a,:d; spacefill; select not hetero">En visión <i>spacefill</i></label>
-	</td></tr>
+	</tr>
 
 <tr><td align="left" width=45%>
-	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour labels [0,0,0];select 40,689; spacefill 150; wireframe 60; colour cpk; select atomno=297; label Lys 40; select atomno=4382; label His 146; restrict :a,:d; select not hetero">(b) Lys 40 de la cadena <FONT FACE="Symbol">a</FONT> con el carboxilo C-terminal de His 146  de la cadena  <FONT FACE="Symbol">b</FONT>:</label>
-	</td>
-	<td align=center width=45%>
-	</td></tr>
-<tr><td align="left" width=45%>
-	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="restrict :a,:d; spacefill; select not hetero">En visión <i>spacefill</i></label>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="colour labels [0,0,0];select 40,689; spacefill 150; wireframe 60; colour cpk; select atomno=297; label Lys 40; select atomno=4382; label His 146; restrict :a,:d; zoom 250; select not hetero">(b) Lys 40 de la cadena <FONT FACE="Symbol">a</FONT> con el carboxilo C-terminal de His 146  de la cadena  <FONT FACE="Symbol">b</FONT>:</label>
 	</td>
 	<td align=center width=45%>
 	</td></tr>
@@ -277,19 +249,17 @@
 <table border=0 WIDTH=90%>
 	<tr><td><p align="center" width=45%><b>Estado T</b></td><td><p align="center"><b>Estado R</b></td></tr>
 	<tr><td align="left" width=45%>
-	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="labels off; colour labels [0,0,0];wireframe off; spacefill off; select :b;cartoons; colour chain;select :d;cartoons;colour chain; select 144, 145, 225, 286, 544, 545, 625, 686;  spacefill 150; wireframe 60; colour cpk; select atomno=1082, atomno=3276; label His2; select atomno=1694, atomno=3891; label Lys 82; select atomno=2160, atomno=4358; label His 143; restrict :b,:d; center atomno=3894; rotate y 90">En el contacto <FONT FACE=Symbol>b</FONT> -  <FONT FACE=Symbol>b</FONT> observamos que la distancia entre ambas subunidades es mayor en el estado T</label>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="labels off; zoom 250; colour labels [0,0,0]; ; set echo off; set echo top left; color echo black; echo Contacto beta-beta, desoxihemoglobina; wireframe off; spacefill off; select :b;cartoons; colour chain;select :d;cartoons;colour chain; select 144, 145, 225, 286, 544, 545, 625, 686;  spacefill 150; wireframe 60; colour cpk; select atomno=1082, atomno=3276; label His2; select atomno=1694, atomno=3891; label Lys 82; select atomno=2160, atomno=4358; label His 143; restrict :b,:d; center atomno=3894; rotate y 90">En el contacto <FONT FACE=Symbol>b</FONT> -  <FONT FACE=Symbol>b</FONT> observamos que la distancia entre ambas subunidades es mayor en el estado T</label>
 	</td>
 
 	<td align="left" width=45%>
-	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="zoom 100; labels off; colour labels [0,0,0]; wireframe off; spacefill off; select :b;cartoons; colour chain;select :d; cartoons;colour chain;select  2, 82, 143;  spacefill 150; wireframe 60; colour cpk; select atomno=1136, atomno=3420; label His 2; select atomno=1745, atomno=4034; label Lys 82; select atomno=2205, atomno=4498; label His 143; restrict :b,:d; center atomno=4165; rotate y 90">En el estado R, la distancia entre subunidades se hace menor y no permite la unión del 2,3-bisfosfoglicerato</label>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="zoom 200; labels off; colour labels [0,0,0]; ; set echo off; set echo top left; color echo black; echo Contacto beta-beta, oxihemoglobina; wireframe off; spacefill off; select :b;cartoons; colour chain;select :d; cartoons;colour chain;select  2, 82, 143;  spacefill 150; wireframe 60; colour cpk; select atomno=1136, atomno=3420; label His 2; select atomno=1745, atomno=4034; label Lys 82; select atomno=2205, atomno=4498; label His 143; restrict :b,:d; center atomno=4165; rotate y 90">En el estado R, la distancia entre subunidades se hace menor y no permite la unión del 2,3-bisfosfoglicerato</label>
 	</td></tr>
 
 <tr><td align="left" width=45%>
 	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="select 701; wireframe 60; spacefill 150; colour cpk; select :b,:d">El compuesto 2,3 bisfosfoglicerato (2,3-BPG) es un inhibidor alostérico y solamente puede fijarse al estado T</label>
-
-	<td align=left width=45%>
-	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="restrict :b,:d, 701; color chain; spacefill; select not hetero">En visión <i>spacefill</i></label>
-	</td></tr>
+<td align="left"><label><input type="radio" name="hlA_1b86" data-target="B" data-cmd="spacefill">En visión <i>spacefill</i></td>
+	></tr>
 
 <tr><td align="left" width=45%>
 	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd=" select :b, :d; spacefill; select DG2; spacefill; select *">a través de interacciones electrostáticas con His 2, Lys 82 e His 143,  debido a que en el estado R no hay espacio suficiente para alojar la molécula en la hendidura entre ambas subunidades en el estado T, lo que se aprecia mejor con la representación <i>spacefill</i></label>
@@ -320,11 +290,11 @@
 <table border=0 WIDTH=90%>
 	<tr><td><p align="center" width=45%><b>Estado T</b></td><td><p align="center"><b>Estado R</b></td></tr>
 	<tr><td align="left" width=45%>
-	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="zoom 120; labels off;  colour labels [0,0,0]; reset; cartoons off; wireframe off; spacefill off; select :b; spacefill; colour chain; select hem and :b;  spacefill;  colour cpk; center atomno=4438; rotate y 90; select not hetero">El grupo hemo se encuentra en una cavidad hidrofóbica de la molécula, de la que sólo interaccionan con el solvente las dos cadenas laterales de propionato de la protoporfirina IX</label>
+	<label><input type="radio" name="hlA_1b86" data-target="A" data-cmd="zoom 120; labels off;  set echo off; set echo top left; color echo black; echo Entorno del glupo hemo, desoxihemoglobina; colour labels [0,0,0]; reset; cartoons off; wireframe off; spacefill off; select :b; spacefill; colour chain; select hem and :b;  spacefill;  colour cpk; center atomno=4438; rotate y 90; select not hetero">El grupo hemo se encuentra en una cavidad hidrofóbica de la molécula, de la que sólo interaccionan con el solvente las dos cadenas laterales de propionato de la protoporfirina IX</label>
 	</td>
 
 	<td align="left" width=45%>
-	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="zoom 100; labels off; colour labels [0,0,0];wireframe; reset; cartoons off; wireframe off; spacefill off;  select :b; spacefill; colour chain; select hem and :b;  spacefill;  colour cpk; center atomno=2245; select not hetero">En el estado R</label>
+	<label><input type="radio" name="hlA_1rvw" data-target="B" data-cmd="zoom 100; labels off; set echo off; set echo top left; color echo black; echo Enorno del grupo hemo, oxihemoglobina; colour labels [0,0,0];wireframe; reset; cartoons off; wireframe off; spacefill off;  select :b; spacefill; colour chain; select hem and :b;  spacefill;  colour cpk; center atomno=2245; select not hetero">En el estado R</label>
 	</td></tr>
 
 <tr><td align="left" width=45%>

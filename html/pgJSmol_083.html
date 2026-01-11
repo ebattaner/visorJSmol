@@ -188,27 +188,27 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/3ala.pdb&quot;; \
                    set antialiasDisplay on; \
-                   select all; color cpk; center all; zoom 100;')">
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Alanil-alanil-alanina')">
     <b>Alanil-alanil-alanina</b>
   </button>
 </center>
 <br>
 
 
-<p align="justify">La unión peptídica tiene <I>polaridad</I>, dado que se establece entre grupos distintos (un amino y un carboxilo). Por lo tanto, </p>
+<p align="justify">La unión peptídica tiene <I>polaridad</I>, dado que se establece entre grupos distintos (un amino y un carboxilo). Por lo tanto, en un extremo del péptido queda un grupo amino (-NH<SUB>2</SUB>) libre: 
 
 <div style="max-width:48rem;margin:0 auto;">
   <fieldset style="border:0;margin:8px 0;padding:0">
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="3ala-steps"
              onchange="jrun('colour green; select atomno=1,atomno=20,atomno=21;colour cpk; select all')">
-      en un extremo del péptido queda un grupo amino (-NH<SUB>2</SUB>) libre: es el <B>N-término</B> o <B>término amino</B>. 
+      es el <B>N-término</B> o <B>término amino</B>. Mientras que al lado contrario queda un carboxilo libre:
     </label>
 
     <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="3ala-steps"
              onchange="jrun('colour green; select atomno=17, atomno=18, atomno=19, atomno=33;colour cpk;select all')">
-       Mientras que al lado contrario queda un carboxilo libre: es el <B>C-término</B> o <B>término carboxilo</B>.  Convencionalmente, las cadenas polipeptídicas se numeran desde el N-término, dando el número 1 al aminoácido que lo ocupa, y así sucesivamente hasta llegar al C-término. En el caso de este tripéptido tendríamos:
+      es el <B>C-término</B> o <B>término carboxilo</B>. Convencionalmente, las cadenas polipeptídicas se numeran desde el N-término, dando el número 1 al aminoácido que lo ocupa, y así sucesivamente hasta llegar al C-término. En el caso de este tripéptido tendríamos:
     </label>
 
     <label style="display:block;margin:.35rem 0;">
@@ -232,25 +232,25 @@ jmolSetTarget(1)
 <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="3ala-steps"
              onchange="jrun('colour green; reset; center atomno=7; zoom 300')">
-      Esto se debe a que el enlace peptídico tiene carácter de <B>doble enlace</B> y está impedida por tanto la rotación en torno al mismo. 
+      Esto se debe a que el enlace peptídico tiene carácter de <B>doble enlace</B> y está impedida por tanto la rotación en torno al mismo. Los dos carbonos alfa:
     </label>
 
 <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="3ala-steps"
              onchange="jrun('select atomno=2, atomno=8; colour cpk')">
-      Los dos carbonos alfa se sitúan en <B>trans-</B> respecto al enlace peptídico, siendo esta disposición general en todas las proteínas (con algunas excepciones que ya veremos). 
+      Se sitúan en <B>trans-</B> respecto al enlace peptídico, siendo esta disposición general en todas las proteínas (con algunas excepciones que ya veremos). El plano determinado por los dos carbonos alfa, el grupo -CO- y el grupo -NH-, es decir, seis átomos, recibe el nombre de <B>plano peptídico</B>:
     </label>
 
 <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="3ala-steps"
-             onchange="jrun('select atomno=5, atomno=6,  atomno=7,  atomno=25; colour cpk')">El plano determinado por los dos carbonos alfa, el grupo -CO- y el grupo -NH-, es decir, seis átomos, recibe el nombre de <B>plano peptídico</B>:
-       
+             onchange="jrun('select atomno=5, atomno=6,  atomno=7,  atomno=25; colour cpk')">
+      Podemos observar que las cadenas laterales de dos residuos consecutivos (en este caso, los grupos metilo de la alanina) 
     </label>
 
 <label style="display:block;margin:.35rem 0;">
       <input type="radio" name="3ala-steps"
              onchange="jrun('select atomno=4, atomno=10, atomno=22, atomno=23, atomno=24, atomno=26, atomno=27, atomno=28; colour cpk; select all')">
-      Podemos observar que las cadenas laterales de dos residuos consecutivos (en este caso, los grupos metilo de la alanina) se sitúan asimismo en<I> trans-</I> unas con otras.
+      se sitúan asimismo en<I> trans-</I> unas con otras.
     </label>
     </fieldset>
 </div>
@@ -280,7 +280,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/trh.pdb&quot;; \
               set antialiasDisplay on; \
-              select all; color cpk; center all; zoom 100;')">
+              select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo TRH, hormona liberadora de tirotropina')">
     <b>TRH</b>
   </button>
 </center>
@@ -297,7 +297,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/oxitocina.pdb&quot;; \
               set antialiasDisplay on; \
-              select all; color cpk; center all; zoom 100;')">
+              select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Oxitocina')">
     <b>Oxitocina</b>
   </button>
 </center>
@@ -310,7 +310,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/insulina.pdb&quot;; \
               set antialiasDisplay on; \
-              restrict not solvent; color cpk; center all; zoom 100;')">
+              restrict not solvent; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Insulina')">
     <b>Insulina</b>
   </button>
 </center>
@@ -338,7 +338,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/glucagon.pdb&quot;; \
               set antialiasDisplay on; \
-              select all; color cpk; center all; zoom 100;')">
+              select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Glucagon')">
     <b>Glucagon</b>
   </button>
 </center>
@@ -352,7 +352,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/leu_encefalina.pdb&quot;; \
               set antialiasDisplay on; \
-              select all; color cpk; center all; zoom 100;')">
+              select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Leu-Encefalina')">
     <b>Leu-Encefalina</b>
   </button>
 </center>
@@ -364,7 +364,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/met_encefalina.pdb&quot;; \
               set antialiasDisplay on; \
-              select all; color cpk; center all; zoom 100;')">
+              select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Met-Encefalina')">
     <b>Met-Encefalina</b>
   </button>
 </center>
@@ -382,7 +382,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/gsh.pdb&quot;; \
               set antialiasDisplay on; \
-              select all; color cpk; center all; zoom 100;')">
+              select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Glutatión reducido, GSH')">
     <b>Glutatión reducido, GSH</b>
   </button>
 </center>
@@ -397,8 +397,8 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/gssg.pdb&quot;; \
               set antialiasDisplay on; \
-              select all; color cpk; center all; zoom 100;')">
-    <b>Glutatión oxidado, GSSG/b>
+              select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Glutatión oxidado, GSSG')">
+    <b>Glutatión oxidado, GSSG</b>
   </button>
 </center>
 <br>
@@ -442,5 +442,3 @@ jmolSetTarget(1)
 	
 
 </html>
-
-

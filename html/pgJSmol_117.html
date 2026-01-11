@@ -174,7 +174,7 @@
 <P align="justify"><CENTER><B>1. Quimotripsina</B></CENTER>
 
 <P>La quimotripsina que vamos a estudiar es la forma <B><FONT FACE="Symbol">g</FONT>-quimotripsina</B>:
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/2gmt.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitcat 57,102,195; define cha 1-10; define chb 16-146; define chc 151-245; define ssb 1,122,42,58,136,201,168,182,191,220')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/2gmt.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitcat 57,102,195; define cha 1-10; define chb 16-146; define chc 151-245; define ssb 1,122,42,58,136,201,168,182,191,220; set echo off; set echo top left; color echo black; echo Quimotripsina')"></label>
 
 <P>La <FONT FACE="Symbol">g</FONT>-quimotripsina es el producto primario de la acci&oacute;n de la tripsina sobre el correspondiente zim&oacute;geno, quimotripsin&oacute;geno, en la activaci&oacute;n de la quimotripsina pancre&aacute;tica. Esta activaci&oacute;n consiste en la rotura proteol&iacute;tica, con p&eacute;rdida de algunos amino&aacute;cidos, en los residuos 14-15 y 146-147, de lo que resulta que la <FONT FACE="Symbol">g</FONT>-quimotripsina consta de tres cadenas unidas por puentes disulfuro: 
 La cadena A, de 13 amino&aacute;cidos:  
@@ -203,7 +203,7 @@ y la cadena C, de 194:
 <P align="justify"><CENTER><B>2. Trombina</B></CENTER>
 
 <P align="justify">La rotura de la protrombina por el complejo protrombinasa da lugar a la enzima <B>Trombina</B>:
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/1bb0.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitcat 57,102,195; define cha 1-10; define chb 16-246; define chc 656-663; define ssb 1,122,42,58,168,182,191,220; restrict not chc')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/1bb0.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitcat 57,102,195; define cha 1-10; define chb 16-246; define chc 656-663; define ssb 1,122,42,58,168,182,191,220; restrict not chc; set echo off; set echo top left; color echo black; echo Trombina')"></label>
 , que a su vez escinde la mol&eacute;cula de fibrin&oacute;geno para producir el mon&oacute;mero de fibrina, todo ello en el proceso de coagulaci&oacute;n de la sangre.
 
 <P align="justify">El sitio catal&Iacute;tico: 
@@ -229,7 +229,7 @@ y la cadena C, de 194:
 <P align="justify"><CENTER><B>3. Subtilisina</B></CENTER>
 
 <P align="justify">Una serin proteinasa de origen bacteriano es la <b>Subtilisina</b>:
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/1st3.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitcat 32, 65, 215; define sitcal 2,40,73,75,77,79')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/1st3.pdb; wireframe  off; spacefill off; cartoons; colour chain; define sitcat 32, 65, 215; define sitcal 2,40,73,75,77,79; set echo off; set echo top left; color echo black; echo Subtilisina')"></label>
 
 <P align="justify">El sitio catal&Iacute;tico: 
 <label><input type="radio" name="1rcn-steps"onchange="jrun('select sitcat; spacefill; colour cpk; select all')"></label>
@@ -251,70 +251,70 @@ y la cadena C, de 194:
 
 <P align="justify">Las serin proteinasas presentan un mecanismo catal&Iacute;tico bien conocido, compartido por otras enzimas no necesariamente proteol&Iacute;ticas. Este mecanismo consiste en una <B>fase de acilaci&oacute;n</B> en la que se forma un intermediario covalente acil-enzima, con liberaci&oacute;n del primer producto, y una <B>fase de desacilaci&oacute;n</B> en la que una mol&eacute;cula de agua rompe el intermediario con liberaci&oacute;n del segundo producto. Todas estas enzimas tienen un centro activo formado por tres amino&aacute;cidos absolutamente conservados, Serina, Histidina y Aspartato, conjunto que recibe el nombre de <B>tr&Iacute;ada catal&Iacute;tica</B>:
 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f01.pdb; wireframe 50; colour cpk; select atomno=3; label Ser 195; select atomno=36; label His 57; select atomno=14; label Asp 102; select all')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f01.pdb; wireframe 50; colour cpk; select atomno=3; label Ser 195; select atomno=36; label His 57; select atomno=14; label Asp 102; select all; set echo off; set echo top left; color echo black; echo Tríada catalítica')"></label>
 
 <P  align="justify">Al centro activo de la enzima se une el <B>substrato</B>. En este caso, se representa como substrato un crom&oacute;geno muy utilizado en los ensayos de quimotripsina, la N-succinil-L-fenilalanina 4-nitroanilida:
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/subst.pdb; wireframe 50; colour cpk')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/subst.pdb; wireframe 50; colour cpk; set echo off; set echo top left; color echo black; echo Substrato')"></label>
 
 <P align="justify"><CENTER><img SRC="../gif/subst.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <P align="justify>Se trata de un amino&aacute;cido arom&aacute;tico (Phe) N-sustitu&Iacute;do (lo que remeda el resto de la cadena polipept&Iacute;dica hacia el N-t&eacute;rmino) unido por enlace amida a 4-nitroanilina. Este &uacute;ltimo enlace es el susceptible al ataque por quimotripsina, lo que libera el crom&oacute;geno (4-nitroanilina) de forma que la reacci&oacute;n puede seguirse f&aacute;cilmente por fotometr&Iacute;a.
 
 <P align="justify">La uni&oacute;n da lugar al <B>complejo enzima-substrato</B></A>. La especificidad se logra dado que el anillo arom&aacute;tico de la fenilalanina va a ocupar un sitio espec&Iacute;fico sobre la superficie de la enzima (no representado):
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f02.pdb; wireframe 50; colour cpk; select atomno=49; label Ser 195; select atomno=82; label His 57; select atomno=60; label Asp 102; select atomno=40; label Substrato; select all')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f02.pdb; wireframe 50; colour cpk; select atomno=49; label Ser 195; select atomno=82; label His 57; select atomno=60; label Asp 102; select atomno=40; label Substrato; select all; set echo off; set echo top left; color echo black; echo Complejo Enzima-Substrato')"></label>
 
 <P align="justify"><CENTER><img SRC="../gif/f02.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <P align="justify">La acci&oacute;n catal&Iacute;tica comienza cuando His 57 retira un prot&oacute;n del grupo alcoh&oacute;lico de la serina, quedando la histidina en forma de imidazolio, con carga positiva (en azul en el modelo) y la serina como enolato, con carga negativa (en rojo en el modelo), tal como puede apreciarse en la imagen del complejo <B>Substrato, serin-enolato e imidazolio</B>:
 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f03.pdb; wireframe 50; colour cpk; select atomno=67, atomno=81; dots 500; select atomno=79; label Ser 195; select atomno=72; label His 57; select atomno=49; label Asp 102; select atomno=40; label Substrato; select all')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f03.pdb; wireframe 50; colour cpk; select atomno=67, atomno=81; dots 500; select atomno=79; label Ser 195; select atomno=72; label His 57; select atomno=49; label Asp 102; select atomno=40; label Substrato; select all; set echo off; set echo top left; color echo black; echo Subsrato, serin-enolato e imidazolio')"></label>
  
 <P align="justify"><CENTER><img SRC="../gif/f03.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <P align="justify">El enolato es un nucle&oacute;filo potente que va a atacar al grupo carbonilo (C=O) del enlace escindible, dando lugar al <B>Estado de transici&oacute;n 1 (fase de acilaci&oacute;n)</B>:
 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f04.pdb; wireframe 50; colour cpk; select atomno=19, atomno=77; dots 500; select atomno=51; label Ser 195; select atomno=82; label His 57; select atomno=59; label Asp 102; select atomno=40; label Estado de transicion; select all')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f04.pdb; wireframe 50; colour cpk; select atomno=19, atomno=77; dots 500; select atomno=51; label Ser 195; select atomno=82; label His 57; select atomno=59; label Asp 102; select atomno=40; label Estado de transicion; select all; set echo off; set echo top left; color echo black; echo Estado de transición 1')"></label>
  en el que se observa un intermediario tetra&eacute;drico (as&iacute; llamado porque el carbono sp2 del grupo carbonilo del enlace escindible se convierte transitoriamente en un carbono sp3, tetra&eacute;drico). 
 
 <P align="justify"><CENTER><img SRC="../gif/f04.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <P align="justify">A continuaci&oacute;n, la histidina 57 cede su prot&oacute;n a este complejo, con lo que se separa el primer producto (4-nitroanilina) y el complejo queda como <B>Acilenzima y primer producto</B>: 
 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f05.pdb; wireframe 50; colour cpk; select atomno=85; label Ser 195; select atomno=40; label His 57; select atomno=18; label Asp 102; select atomno=11; label 4-Nitroanilina; select atomno=74; label Acilenzima; select all')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f05.pdb; wireframe 50; colour cpk; select atomno=85; label Ser 195; select atomno=40; label His 57; select atomno=18; label Asp 102; select atomno=11; label 4-Nitroanilina; select atomno=74; label Acilenzima; select all; set echo off; set echo top left; color echo black; echo Acil-enzima y primer producto')"></label>
 
 <P align="justify"><CENTER><img SRC="../gif/f05.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <P align="justify">Tras la retirada del primer producto, el complejo <B>Acilenzima</B></A> queda listo para comenzar la segunda fase de la reacci&oacute;n.
 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f06.pdb; wireframe 50; colour cpk; select atomno=70; label Ser 195; select atomno=25; label His 57; select atomno=3; label Asp 102; select atomno=59; label Acilenzima; select all')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f06.pdb; wireframe 50; colour cpk; select atomno=70; label Ser 195; select atomno=25; label His 57; select atomno=3; label Asp 102; select atomno=59; label Acilenzima; select all; set echo off; set echo top left; color echo black; echo Acil-enzima')"></label>
 
 <P align="justify"><CENTER><img SRC="../gif/f06.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <P align="justify">&eacute;sta tiene lugar por la entrada de una mol&eacute;cula de agua (el segundo substrato) al centro activo, dando lugar al <B>Complejo Acilenzima - H<SUB>2</SUB>O</B>:
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f07.pdb; wireframe 50; colour cpk; select atomno=73; label Ser 195; select atomno=28; label His 57; select atomno=6; label Asp 102; select atomno=62; label Acilenzima; select atomno=443; label agua; select all')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f07.pdb; wireframe 50; colour cpk; select atomno=73; label Ser 195; select atomno=28; label His 57; select atomno=6; label Asp 102; select atomno=62; label Acilenzima; select atomno=443; label agua; select all; ; set echo off; set echo top left; color echo black; echo Entra molécula de agua')"></label>
 	
 <P align="justify"><CENTER><img SRC="../gif/f07.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <P align="justify">La histidina 57 retira entonces un prot&oacute;n de la mol&eacute;cula de agua, que queda convertida en un ion hidroxilo (OH<SUP>-</SUP>); el conjunto <B>Acilenzima, imidazolio e hidroxilo</B>: 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f08.pdb; wireframe 50; colour cpk; select atomno=441, atomno=21; dots 500; select atomno=71; label Ser 195; select atomno=26; label His 57; select atomno=3; label Asp 102; select atomno=442; label OH-; select atomno=60; label Acilenzima; select all')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f08.pdb; wireframe 50; colour cpk; select atomno=441, atomno=21; dots 500; select atomno=71; label Ser 195; select atomno=26; label His 57; select atomno=3; label Asp 102; select atomno=442; label OH-; select atomno=60; label Acilenzima; select all; set echo off; set echo top left; color echo black; echo Acil-enzima, imidazolio e hidroxilo')"></label>
 
  que se forma es an&aacute;logo al conjunto substrato, imidazolio y enolato que ve&iacute;amos en la fase de acilaci&oacute;n.
 
 <P align="justify"><CENTER><img SRC="../gif/f08.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <P align="justify">El ion hidroxilo es un nucle&oacute;filo que ataca al acilenzima dando lugar al <B>Estado de transici&oacute;n 2 (fase de desacilaci&oacute;n)</B>
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f09.pdb; wireframe 50; colour cpk; select atomno=21, atomno=49; dots 500; select atomno=72; label Ser 195; select atomno=26; label His 57; select atomno=3; label Asp 102; select atomno=65; label Estado de transicion; select all')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f09.pdb; wireframe 50; colour cpk; select atomno=21, atomno=49; dots 500; select atomno=72; label Ser 195; select atomno=26; label His 57; select atomno=3; label Asp 102; select atomno=65; label Estado de transicion; select all; set echo off; set echo top left; color echo black; echo Estado de transición 2')"></label>
  en el que nuevamente vemos que el grupo carbonilo del enlace escindible pasa transitoriamente a ser sp3, de geometr&Iacute;a tetra&eacute;drica.
 
 <P align="justify"><CENTER><img SRC="../gif/f09.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <P align="justify">Este segundo estado de transici&oacute;n se resuelve con la <B>Salida del producto 2</B></A> (N-succinil-L-fenilalanina). 
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f10.pdb; wireframe 50; colour cpk; select atomno=67, atomno=53; dots 500; select atomno=65; label Ser 195; select atomno=58; label His 57; select atomno=35; label Asp 102; select atomno=29; label Succinil-Phe; select all')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f10.pdb; wireframe 50; colour cpk; select atomno=67, atomno=53; dots 500; select atomno=65; label Ser 195; select atomno=58; label His 57; select atomno=35; label Asp 102; select atomno=29; label Succinil-Phe; select all; set echo off; set echo top left; color echo black; echo Salida del segundo producto')"></label>
 
 <P align="justify"><CENTER><img SRC="../gif/f10.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 
 <P align="justify">Por &uacute;ltimo, el grupo imidazolio de la histidina cede su prot&oacute;n al enolato de la serina, con lo cual tiene lugar la <B>vuelta al estado inicial</B>:
-<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f01.pdb; wireframe 50; colour cpk; select atomno=3; label Ser 195; select atomno=36; label His 57; select atomno=14; label Asp 102; select all')"></label>
+<label><input type="radio" name="1rcn-steps"onchange="jrun('load ../pdb/f01.pdb; wireframe 50; colour cpk; select atomno=3; label Ser 195; select atomno=36; label His 57; select atomno=14; label Asp 102; select all; set echo off; set echo top left; color echo black; echo Vuelta al estado inicial')"></label>
 <P align="justify"><center><img SRC="../gif/f11.gif" ALIGN="TOP"  BORDER="0"></center>
 
 <P align="justify">El papel del aspartato, seg&uacute;n se cree, es la estabilizaci&oacute;n del imidazolio de la histidina. <BR><BR><BR><BR><BR><BR>

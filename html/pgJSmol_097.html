@@ -204,7 +204,7 @@ jmolSetTarget(1)
   <button type="button"
     onclick="jrun('load &quot;../pdb/1igt.pdb&quot;; \
                    set antialiasDisplay on; \
-                   restrict not solvent')">
+                   restrict not solvent; set echo off; set echo top left; color echo black; echo Inmunoglobulina G, IgG')">
     <b>Inmunoglobulina G</b>
   </button>
 </center>
@@ -326,21 +326,7 @@ jmolSetTarget(1)
 	 (4) es decir, dos en la cadena ligera y cuatro en la pesada.
     </label>
 
-<!--
 
-				<script type="text/javascript"><!--
-					jmolRadioGroup([
-					["load Proteinas/estructuras/1igt.pdb; select protein","Estos enlaces son los siguientes: (1) Las dos cadenas pesadas se unen entre sí mediante tres enlaces disulfuro, establecidos entre las cisteínas 237, 240 y 242 de ambas cadenas pesadas. Todos estos residuos se encuentran en la región <i>Hinge</i>:"],
-
-      					["restrict *b,*d; restrict backbone; wireframe 40; spacefill 100; color chain; select 237,240,242; spacefill 50%; wireframe 60; color cpk; center atomno=10630; zoom 300; select protein","(2) Las cadenas pesadas están unidas a las ligeras a través de un disulfuro establecido entre la cisteína 214 de la cadena ligera y la cisteína 128 de la cadena pesada:"],
- 
-     					["reset; select 214 and *a, 128 and *b, 214 and *c, 128 and *d; spacefill 50%; wireframe 60; color cpk; center atomno=10579; zoom 300; select protein","(3) Hay además enlaces disulfuro <i>intracatenarios</i>, uno por cada dominio (es decir, dos en la cadena ligera y cuatro en la pesada:"],
-      					["reset; select cys; spacefill 50%; wireframe 60; color cpk; select protein",""]],
-					"")
-					//
-					</script>
-					</p>
--->
 
 
 <hr />

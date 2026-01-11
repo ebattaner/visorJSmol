@@ -99,10 +99,10 @@
 
   // Representaciones
   function applyBallStick() {
-    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.15; spacefill 20%; color cpk; center all; zoom 120;");
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.15; spacefill 20%; color cpk; center all; zoom 100;");
   }
   function applySpacefill() {
-    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 100;");
   }
 
   // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
@@ -165,8 +165,8 @@
   <button type="button"
     onclick="jrun('load &quot;../pdb/6ipchex.pdb&quot;; \
                    set antialiasDisplay on; \
-                   ')">
-    <b>Molécula</b>
+                   set echo off; set echo top left; color echo black; echo Hexaisopropil ciclohexano ')">
+    <b>Hexaisopropil ciclohexano</b>
   </button>
 </center>
 <br>
@@ -212,7 +212,7 @@
   <button type="button"
     onclick="jrun('load &quot;../pdb/metano.pdb&quot;; \
                    set antialiasDisplay on; \
-                   select all; color cpk; center all; zoom 120;')">
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Metano ')">
     <b>Metano</b>
   </button>
 </center>
@@ -222,7 +222,7 @@
   <button type="button"
     onclick="jrun('load &quot;../pdb/etano.pdb&quot;; \
                    set antialiasDisplay on; \
-                   select all; color cpk; center all; zoom 120;')">
+                   select all; color cpk; center all; zoom 100; set echo off; set echo top left; color echo black; echo Etano, conformación alternante ')">
     <b>Etano, conformación alternante</b>
   </button>
 <p align="justify">cuya representación es la siguiente:</p>
@@ -241,7 +241,7 @@
   <button type="button"
     onclick="jrun('load &quot;../pdb/etanoecl.pdb&quot;; \
                    set antialiasDisplay on; \
-                   select all; color cpk; center all; zoom 120;')">
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Etano, conformación eclipsada ')">
     <b>Etano, conformación eclipsada</b>
   </button>
 </center>
@@ -254,10 +254,15 @@
 
 <p align="justify">El hidrocarburo saturado de tres &aacute;tomos de carbono es el</p>
 
-
 <center>
-<button onclick="loadMolecule('../pdb/propano.pdb', 'ballstick')"><b>Propano</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/propano.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Propano ')">
+    <b>Propano</b>
+  </button>
 </center>
+
 
 <p align="justify">cuya representaci&oacute;n es:</p>
 
@@ -265,11 +270,15 @@
 
 <p align="justify">Rotando la mol&eacute;cula podemos observar asimismo el principio de conformaci&oacute;n alternante entre dos carbonos contiguos.</p>
 
-
-
 <p align="justify">El siguiente hidrocarburo en la serie es el</p>
+
 <center>
-<button onclick="loadMolecule('../pdb/butano.pdb', 'ballstick')"><b>Butano</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/butano.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Butano ')">
+    <b>Butano</b>
+  </button>
 </center>
 
 <p align="justify">que representamos como:</p>
@@ -284,7 +293,12 @@
 <p align="justify">Con la misma composici&oacute;n que el butano (C<SUB>4</SUB>H<SUB>10</SUB>), tenemos el</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/2meprop.pdb', 'ballstick')"><b>Metilpropano</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2meprop.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Metilpropano ')">
+    <b>Metilpropano</b>
+  </button>
 </center>
 
 
@@ -300,7 +314,12 @@
 <p align="justify">El hidrocarburo de cinco &aacute;tomos de carbono es el</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/pentano.pdb', 'ballstick')"><b>Pentano</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/pentano.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Pentano ')">
+    <b>Pentano</b>
+  </button>
 </center>
 
 
@@ -328,9 +347,13 @@
 <p align="justify">El pentano presenta dos is&oacute;meros esqueletales, el Metilbutano:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/2mebut.pdb', 'ballstick')"><b>Metilbutano</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/2mebut.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Metilbutano ')">
+    <b>Metilbutano</b>
+  </button>
 </center>
-
 
 <P><CENTER><img SRC="../gif/2mebut.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -339,9 +362,13 @@
 <p align="justify">Y el Dimetilpropano:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/22dimep.pdb', 'ballstick')"><b>Dimetilpropano</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/22dimep.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Dimetilpropano ')">
+    <b>Dimetilpropano</b>
+  </button>
 </center>
-
 
 <P><CENTER><img SRC="../gif/22dimep.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -349,30 +376,55 @@
 
 <p align="justify">Es conveniente tener un concepto claro de la disposici&oacute;n de las cadenas hidrocarbonadas saturadas. Para ello, veremos sucesivamente las estructuras de 
 
-<br />
 <center>
-<button onclick="loadMolecule('../pdb/hexano.pdb', 'ballstick')"><b>Hexano</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/hexano.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Hexano ')">
+    <b>Hexano</b>
+  </button>
 </center>
+<br/><br/>
 
-<br />
 <center>
-<button onclick="loadMolecule('../pdb/heptano.pdb', 'ballstick')"><b>Heptano</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/heptano.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Heptano ')">
+    <b>Heptano</b>
+  </button>
 </center>
+<br/><br/>
 
-<br />
 <center>
-<button onclick="loadMolecule('../pdb/octano.pdb', 'ballstick')"><b>Octano</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/octano.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Octano ')">
+    <b>Octano</b>
+  </button>
 </center>
+<br/><br/>
 
-<br />
 <center>
-<button onclick="loadMolecule('../pdb/nonano.pdb', 'ballstick')"><b>Nonano</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/nonano.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Nonano ')">
+    <b>Nonano</b>
+  </button>
 </center>
+<br/><br/>
 
-<br />
 <center>
-<button onclick="loadMolecule('../pdb/decano.pdb', 'ballstick')"><b>Decano</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/decano.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Decano ')">
+    <b>Decano</b>
+  </button>
 </center>
+<br/><br/>
 
 <p align="justify">Con el bot&oacute;n derecho del rat&oacute;n, (comandos Jmol), podremos ver una representaci&oacute;n espacial (<I>Esferas CPK</I>) de los mismos, para tener una idea general de la disposici&oacute;n de las cadenas hidrocarbonadas.</P>
 
@@ -398,9 +450,14 @@
 <p align="justify">La uni&oacute;n de dos carbonos en hibridaci&oacute;n sp<SUP>2</SUP> da lugar a un doble enlace. Los hidrocarburos con dobles enlaces pertenecen a la llamada <I>serie etil&eacute;nica</I>, cuyo representante m&aacute;s sencillo es el</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/eteno.pdb', 'ballstick')"><b>Eteno o Etileno</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/eteno.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Eteno o Etileno ')">
+    <b>Eteno o Etileno</b>
+  </button>
 </center>
-
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/eteno.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -413,8 +470,14 @@
 <p align="justify">El siguiente hidrocarburo de la serie etil&eacute;nica es el</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/propeno.pdb', 'ballstick')"><b>Propeno o Propileno</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/propeno.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Propeno o Propileno ')">
+    <b>Propeno o Propileno</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/propeno.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -425,12 +488,17 @@
 <p align="justify">Al pasar al siguiente hidrocarburo, nos encontramos con que el doble enlace puede estar en dos posiciones distintas. Se trata en este caso de <I>Is&oacute;meros posicionales</I>, a saber, el</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/1buteno.pdb', 'ballstick')"><b>1-Buteno</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/1buteno.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo 1-Buteno ')">
+    <b>1-Buteno</b>
+  </button>
 </center>
+<br/><br/>
+
 <P><CENTER><img SRC="../gif/1buteno.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
-
-
 
 
 <p>y el <B> 2-buteno</B>.</p>
@@ -438,8 +506,14 @@
 <p align="justify">Respecto a este &uacute;ltimo, dada la imposibilidad de rotaci&oacute;n en torno al doble enlace, los dos grupos metilo de los extremos de la cadena pueden situarse de dos maneras distintas, dando lugar a dos <I>Is&oacute;meros geom&eacute;tricos</I>, el </p>
 
 <center>
-<button onclick="loadMolecule('../pdb/cis2b.pdb', 'ballstick')"><b>cis-2-buteno</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/cis2b.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo cis-2-Buteno ')">
+    <b>cis-2-Buteno</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/cis2b.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -447,35 +521,55 @@
 <p>y el </p>
 
 <center>
-<button onclick="loadMolecule('../pdb/trans2b.pdb', 'ballstick')"><b>trans-2-Buteno</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/trans2b.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo trans-2-Buteno ')">
+    <b>trans-2-Buteno</b>
+  </button>
 </center>
-<center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/trans2b.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
 
-
-
-
-
 <p align="justify">Esta diferencia estructural entre is&oacute;meros geom&eacute;tricos tiene su importancia en determinadas biomol&eacute;culas, y en particular en los <I>&aacute;cidos grasos</I>. En los &aacute;cidos grasos insaturados naturales, la disposici&oacute;n geom&eacute;trica es casi invariablemente del tipo cis-. Esto crea una angulaci&oacute;n en la mol&eacute;cula que podemos ver en el </p>
 
 <center>
-<button onclick="loadMolecule('../pdb/oleico.pdb', 'ballstick')"><b>Ácido Oleico</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/oleico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; rotate x 90; set echo off; set echo top left; color echo black; echo Ácido oleico ')">
+    <b>Oleico, ácido</b>
+  </button>
 </center>
+<br/><br/>
 
 
 <p align=justify"> que es el &aacute;cido 9-cis octadecenoico, a diferencia del correspondiente &aacute;cido graso saturado, el </p>
 
 <center>
-<button onclick="loadMolecule('../pdb/estearic.pdb', 'ballstick')"><b>Ácido Esteárico</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/estearic.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Ácido esteárico ')">
+    <b>Esteárico, ácido</b>
+  </button>
 </center>
+<br/><br/>
 
 <p align="justify">O del correspondiente &aacute;cido en trans-, el</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/elaidico.pdb', 'ballstick')"><b>Ácido Elaídico</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/elaidico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Ácido elaídico ')">
+    <b>elaídico, ácido</b>
+  </button>
 </center>
+<br/><br/>
+
 
 <p align="justify">En los que podemos ver que se trata de mol&eacute;culas rectas, no anguladas.</p>
 
@@ -484,8 +578,15 @@
 <p align="justify">La uni&oacute;n de dos carbonos en hibridaci&oacute;n sp da lugar a un triple enlace. Un ejemplo de hidrocarburo en triple enlace es el</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/acetilen.pdb', 'ballstick')"><b>Etino o Acetileno</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/acetilen.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Etino o Acetileno ')">
+    <b>Etino o Acetileno</b>
+  </button>
 </center>
+<br/><br/>
+
 
 <P><CENTER><img SRC="../gif/acetilen.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -508,24 +609,43 @@
 <p align="justify">El hidrocarburo aclic&iacute;clico m&aacute;s sencillo es el </p>
 
 <center>
-<button onclick="loadMolecule('../pdb/ciclopro.pdb', 'ballstick')"><b>Ciclopropano</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ciclopro.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Ciclopropano ')">
+    <b>Ciclopropano</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/ciclopro.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
+
 <p align="justify">con tres &aacute;tomos de carbono. N&oacute;tese la desviaci&oacute;n de los &aacute;ngulos C-C-C  (60 grados), bastante alejada del valor de aproximadamente 110 grados que presentar&iacute;a en un hidrocarburo lineal. Algo menos distorsionado, aunque todav&iacute;a bastante, es el &aacute;ngulo en el</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/ciclobut.pdb', 'ballstick')"><b>Ciclobutano</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ciclobut.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Ciclobutano ')">
+    <b>Ciclobutano</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/ciclobut.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
 <p>(90 grados), y a&uacute;n menos en el</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/ciclopen.pdb', 'ballstick')"><b>Ciclopentano</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ciclopen.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Ciclopentano ')">
+    <b>Ciclopentano</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/ciclopen.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -535,8 +655,14 @@
 <p align="justify">En el </p>
 
 <center>
-<button onclick="loadMolecule('../pdb/ciclhexs.pdb', 'ballstick')"><b>Ciclohexano, forma silla</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ciclhexs.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Ciclohexano, forma silla ')">
+    <b>Ciclohexano, forma silla</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/ciclhexs.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -548,17 +674,28 @@
 <p align="justify">Por el contrario, en el</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/ciclhexb.pdb', 'ballstick')"><b>Ciclohexano, forma bote</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/ciclhexb.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Ciclohexano, forma bote ')">
+    <b>Ciclohexano, forma bote</b>
+  </button>
 </center>
-
+<br/><br/>
 
 <p <lign="justify">la conformaci&oacute;n entre los carbonos contiguos es <I>eclipsada</I>, siendo el conf&oacute;rmero de energ&iacute;a m&aacute;xima. </p>
 
 <p align="justify">Una disposici&oacute;n an&aacute;loga a la que vemos en el ciclohexano, forma silla,  es la que aparece en las formas c&iacute;clicas de las aldohexosas como la</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/aDglucopiranosa.pdb', 'ballstick')"><b><font face="symbol">a</font>-D-Glucosa, forma cíclica</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/aDglucopiranosa.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo alfa-D-Glucosa, forma cíclica ')">
+    <b><font face="symbol">a</font>-D-Glucosa, forma cíclica</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/adglp.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -581,14 +718,17 @@
 <p align="justify">Cuando se forman estructuras c&iacute;clicas a partir de carbonos en hibridaci&oacute;n sp<SUP>2</SUP>, cuyos orbitales moleculares son coplanares y dirigidos seg&uacute;n los v&eacute;rtices de un tri&aacute;ngulo equil&aacute;tero, se forman los  llamados compuestos <I> arom&aacute;ticos</I>. El representante m&aacute;s caracter&iacute;stico de este grupo es el </p>
 
 <center>
-<button onclick="loadMolecule('../pdb/benceno.pdb', 'ballstick')"><b>Benceno</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/benceno.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo aBenceno ')">
+    <b>Benceno</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/benceno.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
-
-
-
 
 <p align="justify">Podemos observar en su estructura que los seis enlaces C-C y los seis enlaces C-H son equivalentes, siendo toda la mol&eacute;cula coplanar (los doce &aacute;tomos de la misma est&aacute;n en el mismo plano). La equivalencia de todos los enlaces se debe a que los orbitales <font face="Symbol">p</font> de toda la mol&eacute;cula forman un sistema deslocalizado.</P>
 
@@ -596,41 +736,55 @@
 <p align="justify">Los compuestos arom&aacute;ticos pueden estar formados por varios ciclos a la vez, dando una gran variedad de estructuras. As&iacute;, la fusi&oacute;n de dos anillos benc&eacute;nicos da lugar al </p>
 
 <center>
-<button onclick="loadMolecule('../pdb/naftalen.pdb', 'ballstick')"><b>Naftaleno</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/naftalen.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Naftaleno ')">
+    <b>Naftaleno</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/naftalen.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br /><br />
-<p align="left>Y la de tres da lugar a</p>
+
 <center>
-<button onclick="loadMolecule('../pdb/antracen.pdb', 'ballstick')"><b>Antraceno</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/antracen.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Antraceno')">
+    <b>Antraceno</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/antracen.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br /><br />
 
 <center>
-<button onclick="loadMolecule('../pdb/fenantre.pdb', 'ballstick')"><b>Fenantreno</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/fenantre.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Fenantreno ')">
+    <b>Fenantreno</b>
+  </button>
 </center>
-<center>
-<script type="text/javascript"><!--
-jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
-//-->
-</script>
-</center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/fenantre.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br /><br />
 
-
-
-
 <p align="justify">Los compuestos arom&aacute;ticos no est&aacute;n necesariamente formados &uacute;nicamente por carbono. Pueden entrar otros &aacute;tomos en el ciclo, dando lugar a lo que conocemos como <I>heterociclos</I>. En el medio biol&oacute;gico son particularmente interesantes algunos heterociclos, como las <B>pirimidinas</B>, con dos &aacute;tomos de nitr&oacute;geno formando parte del ciclo. Como ejemplo de las mismas, veremos la estructura de la </p>
 
 <center>
-<button onclick="loadMolecule('../pdb/citosina.pdb', 'ballstick')"><b>Citosina</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/citosina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Citosina ')">
+    <b>Citosina</b>
+  </button>
 </center>
-
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/citosina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -642,8 +796,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">Otras bases heteroc&iacute;clicas son  las <B>purinas</B>, de las cuales veremos la estructura de la</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/adenina.pdb', 'ballstick')"><b>Adenina</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adenina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Adenina ')">
+    <b>Adenina</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/adenina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -651,8 +811,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">Otro sistema planar, con electrones deslocalizados,  de gran inter&eacute;s en Bioqu&iacute;mica est&aacute; constitu&iacute;do por las <B>porfirinas</B>, de las cuales presentamos la estructura de la</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/protoix.pdb', 'ballstick')"><b>Protoporfirina IX</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/protoix.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Protoporfirina IX ')">
+    <b>Protoporfirina IX</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/protoix.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -673,8 +839,15 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">El alcohol alif&aacute;tico m&aacute;s sencillo de la serie es el Metanol:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/metanol.pdb', 'ballstick')"><b>Metanol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/metanol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Metanol ')">
+    <b>Metanol</b>
+  </button>
 </center>
+<br/><br/>
+
 
 <P><CENTER><img SRC="../gif/metanol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -684,8 +857,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify"> al que le sigue el Etanol: </p>
 
 <center>
-<button onclick="loadMolecule('../pdb/etanol.pdb', 'ballstick')"><b>Etanol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/etanol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Etanol ')">
+    <b>Etanol</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/etanol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -695,8 +874,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">o <B>alcohol et&iacute;lico</B></A>. En ambos casos, hay una funci&oacute;n <I>alcohol primario</I>,  -CH<SUB>2</SUB>OH. Aparecen sustitu&iacute;dos en el etano los dos carbonos, en el caso del Etilenglicol:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/etglicol.pdb', 'ballstick')"><b>Etilenglicol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/etglicol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Etilenglicol ')">
+    <b>Etilenglicol</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/etglicol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -706,8 +891,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">La sustituci&oacute;n en el propano puede ocurrir de dos maneras, dando lugar a is&oacute;meros posicionales. Por una parte, el 1-propanol,</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/prop1ol.pdb', 'ballstick')"><b>1-Propanol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/prop1ol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo 1-Propanol ')">
+    <b>1-Propanol</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/prop1ol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -715,8 +906,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">Alcohol primario como los dos anteriores, y por otra, el 2-Propanol:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/prop2ol.pdb', 'ballstick')"><b>2-Propanol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/prop2ol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo 2-Propanol ')">
+    <b>2-Propanol</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/prop2ol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -724,8 +921,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">en el que la funci&oacute;n es un <I>alcohol secundario</I> -CHOH-. Otro alcohol alif&aacute;tico interesante en Bioqu&iacute;mica es el Propanotriol o Glicerol:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/glicerol.pdb', 'ballstick')"><b>Glicerol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/glicerol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Glicerol ')">
+    <b>Glicerol</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/glicerol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -735,41 +938,18 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">Cuando el grupo -OH sustituye a un hidrocarburo arom&aacute;tico, tenemos los <B>fenoles</B>. La mol&eacute;cula m&aacute;s representativa en el Fenol:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/fenol.pdb', 'ballstick')"><b>Fenol</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/fenol.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Fenol ')">
+    <b>Fenol</b>
+  </button>
 </center>
+<br/><br/>
+
 
 <P><CENTER><img SRC="../gif/fenol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br /><br />
-
-<p align="left">Dos grupos hidroxi sustituyendo en una molécula de benceno pueden hacerlo de tres formas distintas, dando lugar a tres isómeros posicionales:</p>
-
-<p>1,2-dihidroxibenceno o catecol:
-
-<center>
-<button onclick="loadMolecule('../pdb/catecol.pdb', 'ballstick')"><b>Catecol</b></button>
-</center>
-
-<P><CENTER><img SRC="../gif/catecol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
-<br />
-
-<p>1,3-dihidroxibenceno o resorcinol:
-
-<center>
-<button onclick="loadMolecule('../pdb/resorcinol.pdb', 'ballstick')"><b>Resorcinol</b></button>
-</center>
-
-<P><CENTER><img SRC="../gif/resorcinol.gif" ALIGN="TOP"  BORDER="0"></CENTER>
-<br />
-
-<p>1,4-dihidroxibenceno o hidroquinona:
-
-<center>
-<button onclick="loadMolecule('../pdb/hidroquinona.pdb', 'ballstick')"><b>Hidroquinona</b></button>
-</center>
-
-<P><CENTER><img SRC="../gif/hidroquinona.gif" ALIGN="TOP"  BORDER="0"></CENTER>
-<br />
-
 
 
 
@@ -782,8 +962,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">El aldehido m&aacute;s sencillo de la serie es el Metanal o Formaldehido:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/metanal.pdb', 'ballstick')"><b>Metanal o Formaldehido</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/metanal.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Metanal o Formaldehido ')">
+    <b>Metanal o Formaldehido</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/metanal.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -791,8 +977,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">El siguiente en la serie es el Etanal o Acetaldehido:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/etanal.pdb', 'ballstick')"><b>Etanal o Acetaldehido</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/etanal.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Etanal o Acetaldehido ')">
+    <b>Etanal o Acetaldehido</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/etanal.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -803,8 +995,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">Cuando el grupo carbonilo est&aacute; en el interior de la cadena, los compuestos correspondientes son las <B>cetonas</B>. Podemos ver un ejemplo de las mismas en la Propanona o Acetona:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/acetona.pdb', 'ballstick')"><b>Acetona o Propanona</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/acetona.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Propanona o Acetona ')">
+    <b>Propanona o Acetona</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/acetona.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -822,8 +1020,15 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">El m&aacute;s sencillo de la serie es el Metanoico o &Aacute;cido F&oacute;rmico:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/formico.pdb', 'ballstick')"><b>Metanoico o Ácido Fórmico</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/formico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo ´Metanoico o ácido fórmico ')">
+    <b>Metanoico o ácido fórmico</b>
+  </button>
 </center>
+<br/><br/>
+
 
 <P><CENTER><img SRC="../gif/formico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -832,8 +1037,15 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">El siguiente en la serie es el</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/acetico.pdb', 'ballstick')"><b>Etanoico o Ácido Acético</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/acetico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Etanoico o ácido acético ')">
+    <b>Etanoico o ácido acético</b>
+  </button>
 </center>
+<br/><br/>
+
 
 <P><CENTER><img SRC="../gif/acetico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -843,8 +1055,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">Los &aacute;cidos carbox&iacute;licos de n&uacute;mero par de &aacute;tomos de carbono tienen una gran importancia en Bioqu&iacute;mica, donde son conocidos como <B>&aacute;cidos grasos</B>. As&iacute;, por ejemplo, el &Aacute;cido Palm&iacute;tico (C16), de 16 &aacute;tomos de carbono:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/palmitic.pdb', 'ballstick')"><b>Ácido Palmítico</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/palmitic.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Ácido palmítico ')">
+    <b>Ácido palmítico</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/palmitic.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -854,8 +1072,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">Con mucha frecuencia se presentan insaturados, como es el caso del 9-cis-Octadecenoico o &Aacute;cido Oleico:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/oleico.pdb', 'ballstick')"><b>9-cis-Octadecenoico o Ácido Oleico</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/oleico.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100; rotate x 90; set echo off; set echo top left; color echo black; echo Ácido oleico ')">
+    <b>Ácido oleico</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/oleico.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -868,16 +1092,17 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="center"><font size="+1"><b>6. Funciones nitrogenadas</b></font></p>
 <br /><br />
 
-
-
-
-
-
 <p align="justify">Cuando sustitu&iacute;mos el -OH de un alcohol por un grupo amino -NH<SUB>2</SUB>, los compuestos resultantes son las <B>aminas primarias</B>. La amina primaria m&aacute;s sencilla es la Metilamina:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/metamina.pdb', 'ballstick')"><b>Metilamina</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/metamina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Metilamina ')">
+    <b>Metilamina</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/metamina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -886,8 +1111,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">La siguiente en la serie es la Etilamina:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/etamina.pdb', 'ballstick')"><b>Etilamina</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/etamina.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Etilamina ')">
+    <b>Etilamina</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/etamina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -895,8 +1126,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">Cuando uno de los hidr&oacute;genos del grupo amino queda sustitu&iacute;do por otro radical, tendremos las <B>aminas secundarias</B>. Es el caso de la Piperidina:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/piperidi.pdb', 'ballstick')"><b>Piperidina</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/piperidi.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo Piperidina ')">
+    <b>Piperidina</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/piperidi.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -906,8 +1143,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">El grupo amino tiene una gran importancia entre las biomol&eacute;culas. Es el caso de los <B>amino&aacute;cidos</B>, mon&oacute;meros de las prote&iacute;nas. En los amino&aacute;cidos proteicos, un mismo carbono aparece sustitu&iacute;do por un grupo amino y un grupo carboxilo. Podemos verlo en la mol&eacute;cula de L-Alanina:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/alanina.pdb', 'ballstick')"><b>L-Alanina</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/a.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo L-Alanina ')">
+    <b>L-Alanina</b>
+  </button>
 </center>
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/alanina.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -918,9 +1161,14 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 <p align="justify">Otro grupo importante de aminas son las <B>catecolaminas</B>, un importante conjunto de neurotransmisores y hormonas. Podemos ver la estructura de una de ellas, la L-Adrenalina:</p>
 
 <center>
-<button onclick="loadMolecule('../pdb/adrenali.pdb', 'ballstick')"><b>L-Adrenalina</b></button>
+  <button type="button"
+    onclick="jrun('load &quot;../pdb/adrenali.pdb&quot;; \
+                   set antialiasDisplay on; \
+                   select all; color cpk; center all; zoom 100;set echo off; set echo top left; color echo black; echo L-Adrenalina ')">
+    <b>L-Adrenalina</b>
+  </button>
 </center>
-
+<br/><br/>
 
 <P><CENTER><img SRC="../gif/adrenali.gif" ALIGN="TOP"  BORDER="0"></CENTER>
 <br /><br />
@@ -952,6 +1200,3 @@ jmolButton("load ../pdbanicas/../pdb/fenantre.pdb","Fenantreno")
 
       </body>
 </html>
-
-
-

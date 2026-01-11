@@ -46,7 +46,7 @@
 			<br />
 			<center><font size="+2"><b>Isomer&iacute;a </b><br /></font></center>
 			</br />
-			<font face="Arial" size="2">
+			<font face="Helvetica" size="3">
 			<br /><br />
 
 
@@ -56,13 +56,15 @@
 
 <p align="justify">En primer lugar, tenemos los <b>Is&oacute;meros esqueletales</b>, cuando dos compuestos de la misma composici&oacute;n qu&iacute;mica difieren en el esqueleto carbonado. Por ejemplo, Butano y Metilpropano:</p>
 
-<center><table border=0 WIDTH=90%><tr>
-	<td align=center width=45%>	
-      	<button class="btn" data-path="../pdb/butano.pdb" data-target="A">Butano</button>
+<center><table border=0 WIDTH=90%>
+	<tr>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_lglicer" data-target="A" data-cmd="load ../pdb/butano.pdb; set echo off; set echo top left; color echo black; echo Butano"><b>Butano</b></label>	
 	</td>
 	<td align=center width=45%>
-      	<button class="btn" data-path="../pdb/2meprop.pdb" data-target="B">Metilpropano</button>
+	<label><input type="radio" name="hlB_dglicer" data-target="B" data-cmd="load ../pdb/2meprop.pdb; set echo off; set echo top left; color echo black; echo Metilpropano"><b>Metilpropano</label>
 	</td>
+     </tr>
      </tr>
 	<td align=center width=45%>	
       	<img SRC="../gif/butano.gif" align="top"  border="0">
@@ -70,18 +72,22 @@
 	<td align=center width=45%>
       	<img SRC="../gif/2meprop.gif" align="top"  border="0">
 	</td>
+     </tr>
+
 </table>
 </center>
 
 <p align="justify">An&aacute;logamente, dos compuestos de la misma composici&oacute;n qu&iacute;mica pueden diferir en la situaci&oacute;n de un determinado grupo funcional: son los denominados <b>Is&oacute;meros posicionales</b>. Como ejemplo, tenemos el 1-Propanol y el 2-Propanol:</p>
 
-<center><table border=0 WIDTH=90%><tr>
-	<td align=center width=45%>	
-      	<button class="btn" data-path="../pdb/prop1ol.pdb" data-target="A">1-Propanol</button>
+<center><table border=0 WIDTH=90%>
+	<tr>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_lglicer" data-target="A" data-cmd="load ../pdb/prop1ol.pdb; set echo off; set echo top left; color echo black; echo 1-Propanol"><b>1-Propanol</b></label>	
 	</td>
 	<td align=center width=45%>
-      	<button class="btn" data-path="../pdb/prop2ol.pdb" data-target="B">2-Propanol</button>
+	<label><input type="radio" name="hlB_dglicer" data-target="B" data-cmd="load ../pdb/prop2ol.pdb; set echo off; set echo top left; color echo black; echo 2-Propanol"><b>2-Propanol</label>
 	</td>
+     </tr>
      </tr>
 	<td align=center width=45%>	
       	<img SRC="../gif/prop1ol.gif" align="top"  border="0">
@@ -89,19 +95,23 @@
 	<td align=center width=45%>
       	<img SRC="../gif/prop2ol.gif" align="top"  border="0">
 	</td>
+     </tr>
+
 </table>
 </center>
 
+
 <p align="justify">La posici&oacute;n relativa respecto a un doble enlace da lugar a los <b>Is&oacute;meros geom&eacute;tricos</b>, como el cis-2-Buteno y el trans-2-buteno:</p>
 
-
-<center><table border=0 WIDTH=90%><tr>
-	<td align=center width=45%>	
-      	<button class="btn" data-path="../pdb/cis2b.pdb" data-target="A">cis-2-Buteno</button>
+<center><table border=0 WIDTH=90%>
+	<tr>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_lglicer" data-target="A" data-cmd="load ../pdb/cis2b.pdb; set echo off; set echo top left; color echo black; echo cis-2-Buteno"><b>cis-2-Buteno</b></label>	
 	</td>
 	<td align=center width=45%>
-      	<button class="btn" data-path="../pdb/trans2b.pdb" data-target="B">trans-2-Buteno</button>
+	<label><input type="radio" name="hlB_dglicer" data-target="B" data-cmd="load ../pdb/trans2b.pdb; set echo off; set echo top left; color echo black; echo trans-2-Buteno"><b>trans-2-buteno</label>
 	</td>
+     </tr>
      </tr>
 	<td align=center width=45%>	
       	<img SRC="../gif/cis2b.gif" align="top"  border="0">
@@ -109,32 +119,29 @@
 	<td align=center width=45%>
       	<img SRC="../gif/trans2b.gif" align="top"  border="0">
 	</td>
+     </tr>
+
 </table>
 </center>
 
+
 <p align="justify">La naturaleza tetra&eacute;drica del &aacute;tomo de carbono saturado permite un cuarto tipo de isomer&iacute;a, la <B>Isomer&iacute;a &oacute;ptica</B>. Cuando cuatro grupos distintos sustituyen a un mismo carbono, se pueden disponer en torno al mismo de dos maneras diferentes, siendo una la imagen especular de la otra. Tal es el caso del <b>Gliceraldehido</b>, que puede presentarse en dos formas distintas, que llamamos D- y L-. </p>
 
-<center><table border=0 WIDTH=90%><tr>
-	<td align=center width=45%>	
-      	<button class="btn" data-path="../pdb/lglicer.pdb" data-target="A">L-Gliceraldehido</button>
+<center><table border=0 WIDTH=90%>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_lglicer" data-target="A" data-cmd="load ../pdb/lglicer.pdb; colour labels [0,0,0]; select atomno=3; label 1; select atomno=2; label 2; select atomno=1; label 3;select all; rotate x 180; set echo off; set echo top left; color echo black; echo L-Gliceraldehido"><b>L-Gliceraldehido</b></label>
+	
 	</td>
 	<td align=center width=45%>
-      	<button class="btn" data-path="../pdb/dglicer.pdb" data-target="B">D-Gliceraldehido</button>
+	<label><input type="radio" name="hlB_dglicer" data-target="B" data-cmd="load ../pdb/dglicer.pdb; colour labels [0,0,0]; select atomno=3; label 1; select atomno=2; label 2; select atomno=1; label 3; select all; rotate x 180; set echo off; set echo top left; color echo black; echo D-Gliceraldehido"><b>D-Gliceraldehido</b></label>
 	</td>
+     </tr>
      </tr>
 	<td align=center width=45%>	
       	<img SRC="../gif/lglicer.gif" align="top"  border="0">
 	</td>
 	<td align=center width=45%>
       	<img SRC="../gif/dglicer.gif" align="top"  border="0">
-	</td>
-     </tr>
-	<td align=center width=45%>
-	<label><input type="radio" name="hlA_lglicer" data-target="A" data-cmd="rotate y -45; rotate x 120; rotate y -15; colour labels [0,0,0]; select atomno=3; label 1; select atomno=2; label 2; select atomno=1; label 3;select all"> Numeración</label>
-	
-	</td>
-	<td align=center width=45%>
-	<label><input type="radio" name="hlB_dglicer" data-target="B" data-cmd="rotate y 45; rotate x 120; rotate y 15;colour labels [0,0,0]; select atomno=3; label 1; select atomno=2; label 2; select atomno=1; label 3; select all"> Numeración</label>
 	</td>
      </tr>
 </table>
@@ -146,29 +153,24 @@
 
 <p align="justify">Veamos la estructura del amino&aacute;cido <b>Alanina</b>. En este caso, como en el Gliceraldehido, el carbono asim&eacute;trico es el 2. Cargamos en la pantalla izquierda la L-Alanina y en la derecha la D-Alanina:</p>
 
-<center><table border=0 WIDTH=90%><tr>
-	<td align=center width=45%>	
-      	<button class="btn" data-path="../pdb/alanina.pdb" data-target="A">L-Alanina</button>
+<center><table border=0 WIDTH=90%>
+	
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_alanina" data-target="A" data-cmd="load ../pdb/alanina.pdb; rotate z 90; rotate y -120;colour labels [0,0,0]; select atomno=4; label 1; select atomno=1; label 2; select atomno=2; label 3;select all; set echo off; set echo top left; color echo black; echo L-Alanina"><b>L-Alanina</b></label>
+	
 	</td>
 	<td align=center width=45%>
-      	<button class="btn" data-path="../pdb/d_ala.pdb" data-target="B">D-Alanina</button>
+	<label><input type="radio" name="hlB_d_ala" data-target="B" data-cmd="load ../pdb/d_ala.pdb; rotate x 180; rotate z -90; rotate y 120; colour labels [0,0,0]; select atomno=4; label 1; select atomno=1; label 2; select atomno=2; label 3; select all; set echo off; set echo top left; color echo black; echo D-Alanina"><b>D-Alanina</b></label>
 	</td>
-     </tr>
+     	</tr>
+	<tr>
 	<td align=center width=45%>	
       	<img SRC="../gif/alanina.gif" align="top"  border="0">
 	</td>
 	<td align=center width=45%>
       	<img SRC="../gif/d_ala.gif" align="top"  border="0">
 	</td>
-     </tr>
-	<td align=center width=45%>
-	<label><input type="radio" name="hlA_alanina" data-target="A" data-cmd="rotate z 90; rotate y -120;colour labels [0,0,0]; select atomno=4; label 1; select atomno=1; label 2; select atomno=2; label 3;select all">L-Alanina, numeración</label>
-	
-	</td>
-	<td align=center width=45%>
-	<label><input type="radio" name="hlB_d_ala" data-target="B" data-cmd="rotate x 180; rotate z -90; rotate y 120; colour labels [0,0,0]; select atomno=4; label 1; select atomno=1; label 2; select atomno=2; label 3; select all"> D-Alanina, numeración</label>
-	</td>
-     </tr>
+    	</tr>
 </table>
 </center>
 
@@ -177,17 +179,16 @@
 
 <p align="justify">Un caso particular de isomer&iacute;a en torno a un carbono tetra&eacute;drico, tiene lugar en la fusi&oacute;n de dos anillos alic&iacute;clicos. Tal es el caso de la <B>decalina</B>, formada por la fusi&oacute;n de dos anillos de ciclohexano. T&eacute;ngase en cuenta que estos dos anillos no son planares (como ser&iacute;a en el caso de ciclos arom&aacute;ticos, como en el naftaleno, por ejemplo) y sus carbonos est&aacute;n en conformaci&oacute;n de <i>silla</i>. Esta fusi&oacute;n puede tener lugar de dos maneras, <i>cis-Decalina</i> y <i>trans-Decalina</i>:</p>
 
-<center>
-<table border=0 WIDTH=90%><tr>
-	<td align=center width=45%>	
-      	<button class="btn" data-path="../pdb/cisdecal.pdb" data-target="A">cis-Decalina</button>
+<center><table border=0 WIDTH=90%>
+	<tr>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_lglicer" data-target="A" data-cmd="load ../pdb/cisdecal.pdb; set echo off; set echo top left; color echo black; echo cis-Decalina"><b>cis-Decalina</b></label>	
 	</td>
 	<td align=center width=45%>
-      	<button class="btn" data-path="../pdb/tradecal.pdb" data-target="B">trans-Decalina</button>
+	<label><input type="radio" name="hlB_dglicer" data-target="B" data-cmd="load ../pdb/tradecal.pdb; set echo off; set echo top left; color echo black; echo trans-Decalina"><b>trans-Decalina</label>
 	</td>
-    	 </tr>
-
-	<tr>
+     </tr>
+     </tr>
 	<td align=center width=45%>	
       	<img SRC="../gif/cisdecal.gif" align="top"  border="0">
 	</td>
@@ -195,23 +196,50 @@
       	<img SRC="../gif/tradecal.gif" align="top"  border="0">
 	</td>
      	</tr>
+</table>
+</center>
 
+<p align="justify">Ambos isómeros pueden diferenciarse por la posición relativa de los sustituyentes (en este caso, hidrógenos) en los carbonos 1 y 6 del ciclo. En la cis-decalina, ambos hidrógenos se dirigen al mismo lado; mientras que en la trans-decalina se dirigen a lados opuestos:</p>
+
+<center><table border=0 WIDTH=90%>
 	<tr>
 	<td align=center width=45%>
-	<label><input type="radio" name="hlA_cisdecal" data-target="A" data-cmd="colour labels [0,0,0]; select atomno=3; label 1; select atomno=9; 	label 6; select all">Carbonos 1 y 6</label>
+	<label><input type="radio" name="hlA_cisdecal" data-target="A" data-cmd="colour labels [0,0,0]; select atomno=3; label 1; select atomno=9; label 6; select all">Carbonos 1 y 6</label>
 	</td>
 
 	<td align=center width=45%>
-	<label><input type="radio" name="hlB_tradecal" data-target="B" data-cmd="colour labels [0,0,0]; select atomno=3; label 1; select atomno=9; 	label 6; select all"> Carbonos 1 y 6</label>
+	<label><input type="radio" name="hlB_tradecal" data-target="B" data-cmd="colour labels [0,0,0]; select atomno=3; label 1; select atomno=9; label 6; select all"> Carbonos 1 y 6</label>
 	</td>
      	</tr>
 </table>
 </center>
 
-<p align="justify">Puede observarse que en el caso de la cis-Decalina los sustituyentes en C1 y C6 se dirigen aproximadamente en el mismo sentido, mientras que en la trans-Decalina esos mismos sustityentes se dirigen en sentido contrario. Este tipo de isomería es el que distingue los <i>esteroides, serie <b>normal</b></i>, que son como la cis-Decalina, de los <i>esteroides>, serie <b>allo</b></i>, que son como la trans-Decalina. </p>
+<p align="justify">Este tipo de isomería es lo que diferencia a los <b>Esteroides, serie <i>normal</i></b>, como el <b>Coprostanol</b>, de los <b>Esteroides, serie <i>allo</i></b> como el <b>Colestanol</b>, cuyas estructuras son:</p>
 
-				
-				<hr />
+<center><table border=0 WIDTH=90%>
+	<tr>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlA_lglicer" data-target="A" data-cmd="load ../pdb/coprostanol.pdb; set echo off; set echo top left; color echo black; echo Coprostanol"><b>Coprostanol</b></label>	
+	</td>
+	<td align=center width=45%>
+	<label><input type="radio" name="hlB_dglicer" data-target="B" data-cmd="load ../pdb/colestanol.pdb; set echo off; set echo top left; color echo black; echo Colestanol"><b>Colestanol</label>
+	</td>
+     </tr>
+     </tr>
+	<td align=center width=45%>	
+      	<img SRC="../gif/coprostanol.gif" align="top"  border="0">
+	</td>
+	<td align=center width=45%>
+      	<img SRC="../gif/colestanol.gif" align="top"  border="0">
+	</td>
+     	</tr>
+</table>
+</center>
+
+<p align="justify">Nótese que en las representaciones bidimensionales la diferencia se representa con el sustituyente en C6 en trazo continuo en la serie <i>normal</i>, coprostanol y en trazo discontinuo en la serie <i>allo</i>, colestanol.
+</br></br>
+
+			<hr />
 
 			<center><table border=0 WIDTH=90%><tr>
 				<td align=left width=30%>
@@ -262,7 +290,7 @@
 
   function j(cmd, app){ Jmol.script(app, cmd); }
   function loadMol(app, path){
-    j(`load '${path}'; set antialiasDisplay true; select *; spacefill 20%; wireframe 0.15; cartoon off; backbone off; hbonds off; spin off; reset; zoom 110;`, app);
+    j(`load '${path}'; set antialiasDisplay true; select *; spacefill 20%; wireframe 0.15; cartoon off; backbone off; hbonds off; spin off; reset; zoom 100;`, app);
   }
   function applyStyle(app, mode){
     if (!app) return;
@@ -308,5 +336,3 @@
 </script>
 </body>
 </html>
-
-
