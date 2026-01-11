@@ -5,7 +5,7 @@
 <title>JSmol -Índice General</title>
 
 <!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
-<script src="JSmol/JSmol.min.js"></script>                         
+<script src="JSmol/JSmol.min.js"></script>                         //AQUI
 
 <style>
   :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
@@ -77,7 +77,7 @@
     debug: false,
     color: "white",
     use: "HTML5",
-    j2sPath: "JSmol/j2s",  
+    j2sPath: "JSmol/j2s",  // AQUI
     disableInitialConsole: true,
     script: "background white; set antialiasDisplay true;"
   };
@@ -87,7 +87,7 @@
     Info.width = s; Info.height = s;
     jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
     document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
-  loadMolecule("pdb/adesuc.pdb", "ballstick");
+	loadMolecule("pdb/adesuc.pdb", "ballstick");
   }
 
   window.addEventListener('resize', function() {
@@ -100,7 +100,7 @@
 
   // Representaciones
   function applyBallStick() {
-    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120; spin on");
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120; spin on;");
   }
   function applySpacefill() {
     cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
@@ -143,6 +143,7 @@
     <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
     <div class="panel">
 
+
 <hr />
 
 <P>
@@ -151,31 +152,31 @@
 <P>
 <center>
 
-<A HREF="html/glosJSmol_ab.html#a " > <B> A  </B> </A> <A HREF="html/glosJSmol_ab.html#b " > <B> B </B>
+<A HREF="html/glosario.html#a " > <B> A  </B> </A> <A HREF="html/glosario.html#b " > <B> B </B>
 </A> 
-<A  HREF="html/glosJSmol_cd.html#c " > <B> C </B> </A> <A  HREF="html/glosJSmol_cd.html#d " > <B> D </B>
+<A  HREF="html/glosario.html#c " > <B> C </B> </A> <A  HREF="html/glosario.html#d " > <B> D </B>
 </A> 
-<A  HREF="html/glosJSmol_ef.html#e " > <B> E </B> </A> <A  HREF="html/glosJSmol_ef.html#f " > <B> F </B>
+<A  HREF="html/glosario.html#e " > <B> E </B> </A> <A  HREF="html/glosario.html#f " > <B> F </B>
 </A> 
-<A  HREF="html/glosJSmol_gh.html#g " > <B> G </B> </A> <A  HREF="html/glosJSmol_gh.html#h " > <B> H </B>
+<A  HREF="html/glosario.html#g " > <B> G </B> </A> <A  HREF="html/glosario.html#h " > <B> H </B>
 </A> 
-<A  HREF="html/glosJSmol_im.html#i " > <B> I </B> </A> <A  HREF="html/glosJSmol_im.html#j " > <B> J </B> 
+<A  HREF="html/glosario.html#i " > <B> I </B> </A> <A  HREF="html/glosario.html#j " > <B> J </B> 
 </A> 
-<A  HREF="html/glosJSmol_im.html#k " > <B> K </B> </A> <A  HREF="html/glosJSmol_im.html#l " > <B> L </B>
+<A  HREF="html/glosario.html#k " > <B> K </B> </A> <A  HREF="html/glosario.html#l " > <B> L </B>
 </A> 
-<A  HREF="html/glosJSmol_im.html#m " > <B> M </B> </A> <A  HREF="html/glosJSmol_nz.html#n " > <B> N </B>
+<A  HREF="html/glosario.html#m " > <B> M </B> </A> <A  HREF="html/glosario.html#n " > <B> N </B>
 </A> 
-<A  HREF="html/glosJSmol_nz.html#o " > <B> O </B> </A> <A  HREF="html/glosJSmol_nz.html#p " > <B> P </B>
+<A  HREF="html/glosario.html#o " > <B> O </B> </A> <A  HREF="html/glosario.html#p " > <B> P </B>
 </A> 
-<A  HREF="html/glosJSmol_nz.html#q " > <B> Q </B> </A> <A  HREF="html/glosJSmol_nz.html#r " > <B> R </B>
+<A  HREF="html/glosario.html#q " > <B> Q </B> </A> <A  HREF="html/glosario.html#r " > <B> R </B>
 </A> 
-<A  HREF="html/glosJSmol_nz.html#s " > <B> S </B> </A> <A  HREF="html/glosJSmol_nz.html#t " > <B> T </B>
+<A  HREF="html/glosario.html#s " > <B> S </B> </A> <A  HREF="html/glosario.html#t " > <B> T </B>
 </A> 
-<A  HREF="html/glosJSmol_nz.html#u " > <B> U </B> </A> <A  HREF="html/glosJSmol_nz.html#v " > <B> V </B>
+<A  HREF="html/glosario.html#u " > <B> U </B> </A> <A  HREF="html/glosario.html#v " > <B> V </B>
 </A> 
-<A  HREF="html/glosJSmol_nz.html#w " > <B> W </B> </A> <A  HREF="html/glosJSmol_nz.html#x " > <B> X </B>
+<A  HREF="html/glosario.html#w " > <B> W </B> </A> <A  HREF="html/glosario.html#x " > <B> X </B>
 </A> 
-<A  HREF="html/glosJSmol_nz.html#y " > <B> Y </B> </A> <A  HREF="html/glosJSmol_nz.html#z " > <B> Z </B>
+<A  HREF="html/glosario.html#y " > <B> Y </B> </A> <A  HREF="html/glosario.html#z " > <B> Z </B>
 </A> 
 <p>
 </center>
@@ -201,6 +202,7 @@
 <LI><A HREF="html/Distr_Acidos_Nucleicos.html" ><B>&Aacute;cidos Nucleicos</B></A><br /><br />
 <LI><A HREF="html/Distr_Enzimas.html" ><B>Enzimas</B></A><br /><br />
 </UL>
+<HR>
 
 <!-- Créditos de software -->
 <section style="margin-top:40px; padding:15px; border-top:1px solid #aaa; font-size:14px; line-height:1.5;">
@@ -234,6 +236,8 @@
 	
 
 </html>
+
+
 
 
 
