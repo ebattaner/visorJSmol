@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Introducción a JSmol</title>
+
+<!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
+<script src="../JSmol/JSmol.min.js"></script>
+
+<style>
+  :root {
+    --gap: 16px;
+    --left-w: 700px;
+    --console-h: 230px;
+    --viewer-h: calc(100vh - var(--console-h) - (var(--gap) * 4) - 44px);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
+    background: #fafafa;
+    color: #222;
+  }
+
+  /* Columna izquierda fija: visor arriba y consola abajo */
+  #leftPanel {
+    position: fixed;
+    top: var(--gap);
+    left: var(--gap);
+    width: var(--left-w);
+    height: calc(100vh - (var(--gap) * 2));
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1;
+  }
+
+  #viewerWrap,
+  #consoleWrap {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  }
+
+  #viewerWrap {
+    flex: 1 1 auto;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #viewerTitle,
+  #consoleTitle {
+    margin: 0 0 10px;
+    font-size: 1.05rem;
+  }
+
+  #viewer {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    border: 1px solid #999;
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  #consoleWrap {
+    flex: 0 0 var(--console-h);
+    display: flex;
+    flex-direction: column;
+    min-height: 190px;
+  }
+
+  #consoleOutput {
+    flex: 1 1 auto;
+    min-height: 80px;
+    overflow-y: auto;
+    background: #111827;
+    color: #e5e7eb;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.92rem;
+    line-height: 1.35;
+    white-space: pre-wrap;
+  }
+
+  .consoleLineCommand { color: #bfdbfe; }
+  .consoleLineMessage { color: #d1d5db; }
+  .consoleLineError { color: #fecaca; }
+
+  #consoleControls {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  #commandInput {
+    flex: 1 1 auto;
+    padding: 8px 10px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.95rem;
+  }
+
+  #runCommandButton {
+    flex: 0 0 auto;
+  }
+
+  #quickButtons {
+    margin-top: 8px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  #quickButtons button {
+    padding: 5px 8px;
+    font-size: 0.86rem;
+  }
+
+  /* Panel derecho con scroll normal e independiente del panel izquierdo */
+  .panel {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px 18px;
+    margin-top: var(--gap);
+    margin-left: calc(var(--left-w) + (var(--gap) * 2));
+    margin-right: var(--gap);
+    min-height: calc(100vh - (var(--gap) * 2));
+  }
+
+  .layout { padding-top: 0; }
+
+  h2, h3 { margin: 8px 0 6px; }
+  .bloque { padding: 10px 0; border-top: 1px dashed #e5e7eb; }
+  .bloque:first-of-type { border-top: none; }
+  .texto-exp { color:#555; margin: 6px 0 10px; }
+  button { padding: 8px 12px; border: 1px solid #ccc; background: #f7f7f7; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #eee; }
+  label { cursor: pointer; margin-right: 14px; }
+  .grupo-radios { margin-top: 8px; }
+
+  .nota-consola {
+    background: #f3f4f6;
+    border-left: 4px solid #9ca3af;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin: 12px 0;
+  }
+
+  /* En pantallas estrechas, todo pasa a una sola columna */
+  @media (max-width: 980px){
+    #leftPanel {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: var(--gap);
+    }
+    #viewerWrap { min-height: 380px; }
+    #viewer { height: 380px; }
+    #consoleWrap { flex-basis: 220px; }
+    .panel { margin: var(--gap); }
+  }
+</style>
+
+<script>
+  var jmolApplet0;
+  var currentMol = null;
+  var commandHistory = [];
+  var historyIndex = 0;
+
+  Jmol.setDocument(0);
+
+  function viewerWidth() {
+    var el = document.getElementById('viewer');
+    return el ? Math.max(400, Math.round(el.clientWidth)) : 600;
+  }
+
+  function viewerHeight() {
+    var el = document.getElementById('viewer');
+    return el ? Math.max(280, Math.round(el.clientHeight)) : 500;
+  }
+
+  function logToConsole(text, type) {
+    var out = document.getElementById('consoleOutput');
+    if (!out) return;
+    var line = document.createElement('div');
+    line.className = 'consoleLine' + (type || 'Message');
+    line.textContent = text;
+    out.appendChild(line);
+    out.scrollTop = out.scrollHeight;
+  }
+
+  function jmolMessageCallback(applet, message) {
+    if (message) logToConsole(String(message), 'Message');
+  }
+
+  function jmolEchoCallback(applet, message) {
+    if (message) logToConsole(String(message), 'Message');
+  }
+
+  function jmolPickCallback(applet, message) {
+    if (message) logToConsole(String(message), 'Message');
+  }
+
+  var Info = {
+    width: 600,
+    height: 500,
+    debug: false,
+    color: "white",
+    use: "HTML5",
+    j2sPath: "../JSmol/j2s",
+    disableInitialConsole: true,
+    messageCallback: "jmolMessageCallback",
+    echoCallback: "jmolEchoCallback",
+    pickCallback: "jmolPickCallback",
+    script: "background white; set antialiasDisplay true;"
+  };
+
+  function initJSmol() {
+    Info.width = viewerWidth();
+    Info.height = viewerHeight();
+    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+    document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+    logToConsole('Consola JSmol preparada. Escribe un comando y pulsa Enter.', 'Message');
+  }
+
+  window.addEventListener('resize', function() {
+    if (!jmolApplet0) return;
+    Jmol.resizeApplet(jmolApplet0, viewerWidth(), viewerHeight());
+  });
+
+  function cmd(s) {
+    if (!jmolApplet0) return;
+    Jmol.script(jmolApplet0, s);
+  }
+
+  function runConsoleCommand() {
+    var input = document.getElementById('commandInput');
+    var s = input.value.trim();
+    if (!s) return;
+    commandHistory.push(s);
+    historyIndex = commandHistory.length;
+    logToConsole('> ' + s, 'Command');
+    try {
+      cmd(s);
+    } catch (e) {
+      logToConsole('ERROR: ' + e.message, 'Error');
+    }
+    input.value = '';
+    input.focus();
+  }
+
+  function handleCommand(event) {
+    var input = document.getElementById('commandInput');
+
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      runConsoleCommand();
+      return;
+    }
+
+    if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      if (commandHistory.length === 0) return;
+      historyIndex = Math.max(0, historyIndex - 1);
+      input.value = commandHistory[historyIndex];
+      return;
+    }
+
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      if (commandHistory.length === 0) return;
+      historyIndex = Math.min(commandHistory.length, historyIndex + 1);
+      input.value = historyIndex === commandHistory.length ? '' : commandHistory[historyIndex];
+    }
+  }
+
+  function quickCommand(s) {
+    document.getElementById('commandInput').value = s;
+    runConsoleCommand();
+  }
+
+  // Representaciones
+  function applyBallStick() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.15; spacefill 20%; color cpk; center all; zoom 100;");
+  }
+  function applySpacefill() {
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 100;");
+  }
+
+  function loadMolecule(molName, repr) {
+    currentMol = molName;
+    cmd('load "' + molName + '";');
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+
+    var ridBall = document.getElementById("r-" + molName + "-ball");
+    var ridSpace = document.getElementById("r-" + molName + "-space");
+    if (ridBall && ridSpace) {
+      if (repr === "spacefill") { ridSpace.checked = true; }
+      else { ridBall.checked = true; }
+    }
+  }
+
+  function setRepresentationFor(molName, repr) {
+    if (currentMol !== molName) {
+      loadMolecule(molName, repr);
+      return;
+    }
+    if (repr === "spacefill") applySpacefill(); else applyBallStick();
+  }
+</script>
+
+<script>function jrun(s){ Jmol.script(jmolApplet0, s); }</script>
+
+</head>
+
+<body onload="initJSmol()">
+  <div class="layout">
+    <!-- Panel izquierdo: visor + consola fija -->
+    <div id="leftPanel">
+      <div id="viewerWrap">
+        <h3 id="viewerTitle">Visor</h3>
+        <div id="viewer"></div>
+      </div>
+
+      <div id="consoleWrap">
+        <h3 id="consoleTitle">Consola de comandos</h3>
+        <div id="consoleOutput"></div>
+        <div id="consoleControls">
+          <input type="text" id="commandInput" placeholder="Ej.: load ../pdb/m.pdb" onkeydown="handleCommand(event)">
+          <button id="runCommandButton" type="button" onclick="runConsoleCommand()">Ejecutar</button>
+        </div>
+        <div id="quickButtons">
+          <button type="button" onclick="quickCommand('reset')">reset</button>
+          <button type="button" onclick="quickCommand('zoom 100')">zoom 100</button>
+          <button type="button" onclick="quickCommand('select all; color cpk')">color cpk</button>
+          <button type="button" onclick="quickCommand('restrict not solvent')">sin solvente</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
+    <div class="panel">
+
+
+<a name="inicio"></a>
+
+<hr /><p><center>
+<A HREF="Intro_JSmol.html" ><B>Índice Introducción a JSmol</B></A>
+</center>
+<p>
+<hr />
+<P align="center"><font size="+2"><B>Introducción a JSmol</B></font></center>
+<br /><br />
+<p>
+
+<div class="nota-consola"><b>Novedad:</b> esta página incorpora una consola fija debajo del visor. Para introducir comandos ya no es necesario abrir la consola desde el menú contextual: escribe el comando en la caja inferior izquierda y pulsa <b>Enter</b> o el botón <b>Ejecutar</b>. Las flechas ↑ y ↓ recuperan comandos anteriores.</div>
+
+<p align="justify">Jmol es un programa muy completo de visualización de moléculas en perspectiva. Recoge una gran cantidad de utilidades de su inmediato predecesor, RasMol, y añade muchas otras más. Reconoce, entre otros, archivos estructurales en formato .pdb (abreviatura de Protein Data Bank), que son la forma usual de representación tridimensional de moléculas. Jmol es una programa Java, y por ello requiere tener instaladas en el sistema las últimas actualizaciones de Java. Un importante desarrollo de Jmol es JSmol, que es el programa que utilizaremos aquí. A diferencia de Jmol, JSmol es independiente de Java y es el standard actual para tener Jmol en páginas web como la presente</P>
+
+<p align="justify">Pulsando el botón derecho del ratón sobre la ventana de visualización aparecerá el menú desplegable de JSmol. En esta versión de la página no es necesario abrir la consola desde ese menú: la consola de comandos está fija debajo del visor, en el panel izquierdo. En la caja inferior pueden introducirse instrucciones desde teclado; la zona oscura superior muestra los comandos enviados y algunos mensajes devueltos por JSmol. A lo largo del mismo se introducen algunos comandos desde esta ventana mientras que otros se invocarán desde el menú desplegable con el botón derecho del ratón sobre la ventana del visor. Ocasionalmente, para cargar moléculas en pantalla se utilizará un botón de comando como el que sigue:</p>
+
+<p align = "center"><label><input type="radio" name="k-steps" onchange="jrun('load ../pdb/k.pdb; wireframe 0.15; spacefill 20%; color cpk;  set echo off; set echo top left; color echo black; echo L-Lisina')"> <b>L-lisina</b></label></p>
+
+<p>Que carga el aminoácido L-lisina</p>
+
+      <a name="ind"></a>
+
+      <center><h3><b>Índice</b></h3></center>
+      <ul>
+        <li>A. <a href="#micro"><b>Moléculas de bajo peso molecular</b></a></li>
+        <li>B. <a href="#macro"><b>Macromoléculas</b></a></li>
+      </ul>
+      <hr>
+
+      <a name="micro"></a>
+      <p align="center"><font size="+1"><b>A. Uso de JSmol en moléculas de bajo peso molecular</b></font></p>
+
+<p align="left"><b>1. Apertura de un archivo</b></p>
+
+
+     <p align="justify">En la consola de comandos introducir la instrucción</p>
+<center><b>load ../pdb/m.pdb</b></center></p>
+
+<p align="justify">que corresponde a la estructura molecular del aminoácido <b>L-Metionina</b>, que aparece en representación de <b>bolas y varillas </b> (ver más adelante). En la ventana superior de la consola de comandos aparece el nombre de la molécula, L-metionina. El lo sucesivo las distintas moléculas se cargarán mediante botones de comando (como se hizo con L-Lisina más arriba)</p>
+
+<p align="justify">En el directorio <b>../pdb</b> están las estructuras tridimensionales de todas las moléculas que se presentan en esta demostración. Los archivos <b>.pdb</b> (abreviatura de <b>Protein Data Bank</b>, Brookhaven, USA) son una forma estándar de almacenar información estructural de moléculas. Se trata de archivos de texto en los que se especifican, entre otras cosas, las coordenadas X, Y, y Z de todos y cada uno de los átomos presentes en la molécula.
+</p>
+
+<p align="justify">JSmol no permite más de una molécula en pantalla. De momento seguiremos en pantalla con la molécula de metionina. Obsérvese que el grupo amino aparece protonado (es decir, como –NH<sup>3+</sup> y el grupo carboxilo disociado, es decir, como –COO<sup>-</sup> . La representación (como en todos los aminoácidos, según veremos) es por tanto la de ión anfótero, que es como se presentan habitualmente a pH 7 en solución.</p>
+
+<center><img SRC="../gif/m.gif" ALIGN="TOP"  BORDER="0"></center>
+
+<p align="justify"> Identificar los átomos de la molécula de metionina con su fórmula semidesarrollada. recuérdese que el código que colores CPK asigna el gris al carbono, rojo al oxígeno, azul al nitrógeno, amarillo al azufre, naranja al fósforo y blanco al hidrógeno.</p>
+
+
+<p align="left"><b>2. Información</b></p>
+
+<p align="center"><b>Desplegar con el botón derecho sobre el visor el menú principal.</b></p>
+
+<p align="justify">Desplegando con el botón derecho el menú principal, elegir la opción <b>m</b> (nombre del archivo estructural del aminoácido metionina). Aparecerá un desplegable que informa del número de átomos y enlaces presentes en la estructura. Al tratarse de un compuesto de bajo peso molecular, esta información es bastante escasa. En el caso de las proteínas, la información, como veremos, es mucho más completa.</p>
+
+
+<p align="left"><b>3. Formas de visualización</b></p>
+
+<p align="justify">En el menú principal, ir al submenú <b>Estilo</b>, y de ahí al sub-submenú <b>Patrón</b>. En el mismo aparecen las distintas opciones de representación de la molécula. La que tenemos en pantalla es la que el programa ofrece por defecto <b>Bolas y Varillas</b> (abreviadamente, en lo sucesivo, la ruta serán indicada como <b>Estilo > Patrón > Bolas y Varillas</b>). Explórense todas las posibilidades, que  son las siguientes:</p>
+
+<p align="justify"><b>Esferas CPK</b>:  (<b>Estilo > Patrón > Esferas CPK</b>) Es la molécula con los átomos representados  a su radio de Van der Waals, siendo ésta la forma de representación que más se acerca a la estructura real de la molécula. Los átomos en el código  de <b>colores  CPK</b> (Representación de Corey, Pauling y Kultun) en la que el carbono aparece en gris, el hidrógeno en blanco, el oxígeno en rojo, el nitrógeno en azul y el azufre en amarillo. el inconveniente de esta representación es que al no verse los enlaces interatómicos, es difícil ver la estructura 3D de la molécula a efectos didácticos.</p>
+
+<p align="justify"><b>Bolas y Varillas</b>: Es la opción por defecto en el programa. (<b>Estilo > Patrón > Bolas y varillas</b>)Utiliza el mismo código de colores CPK, pero se visualizan los enlaces y aunque los átomos no aparecen a su radio real, se mantiene el tamaño relativo de unos y otros (así, el hidrógeno aparece más pequeño que los otros átomos). Es la forma más conveniente para visualizar moléculas pequeñas.</p>
+
+<p align="justify"><b>Varillas</b>: Aparecen únicamente los enlaces interatómicos, representados como barras gruesas, y conservando el color CPK.(<b>Estilo > Patrón > Varillas</b>)</p>
+
+<p align="justify"><b>Alambre</b>: Aparecen también únicamente los enlaces interatómicos con los colores CPK, pero representados como alambres finos (es la representación que equivale a los modelos <i>Dreiding</i> utilizados en Química Orgánica)(<b>Estilo > Patrón > Alambre</b>)</p>
+
+<p align="justify">Las opciones <b>Esquemático</b> y  <b>Cordón</b> sólo funcionan en macromoléculas, como veremos más adelante.</p>
+
+<p align="justify">Seleccionar el modelo <b>Bolas y Varillas</b> para seguir con la demostración.</p> 
+
+
+<p align="left"><b>4. Rotación de la molécula</b></p>
+
+<p align="justify">Podemos hacer rotar la molécula sobre el  eje Y,  vertical, o sobre el  eje  X, horizontal  sobre ambos ejes <b>arrastrando el ratón manteniendo oprimido el botón izquierdo del mismo</b>. </p>
+
+<p align="justify">La rotación sobre el eje Z (el que va desde el observador a la pantalla) se consigue <b>arrastrando con el botón derecho al tiempo que se mantiene oprimida la tecla de Mayúsculas</b>.</p>
+
+
+<p align="left"><b>5. Comando Zoom</b></p>
+
+<p align="justify">Podemos acercar o alejar el punto de vista de la molécula <b>arrastrando con el botón izquierdo del ratón al tiempo que se mantiene oprimida la tecla de Mayúsculas</b></p>. 
+
+
+
+<p align="justify">Igualmente, cifras de rotación y de zoom más precisas pùeden introducirse desde la consola de comandos. Por ejemplo, Introducir las siguientes comandos:</p>
+
+<p align="center"><b>rotate x 30</b> [Enter]</p>
+
+<p align="justify">rotará la figura 30 grados sobre el eje x en sentido horario. La instrucción</p>
+
+<p align="center"><b>rotate z -60</b> [Enter]</p>
+
+<p align="justify">girará la molécula 60 grados sobre el eje z en sentido antihorario.</p>
+
+
+<p align="justify">Podemos obtener valores más precisos de zoom introduciendo comandos en la consola de comandos. La molécula, por defecto, aparece en el valor <b>zoom 100</b>. Cifras mayores de 100 nos acercan a la molécula; cifras menores de 100 nos alejan de ella. Por ejemplo, 
+
+<p align="center"><b>zoom 50</b> [Enter]</p>
+
+<p>y pasar a la pantalla de visualización. Observar el efecto. </p>
+
+Probar a continuación con otros valores de <b>zoom</b>. Una vez probado el efecto, volver a <b>zoom 100</b>.
+
+
+<p align="left"><b>6. Traslación de moléculas</b></p>
+
+
+<p align="justify">Podemos trasladar la molécula sobre la pantalla <b>arrastrando con el botón derecho del ratón al tiempo que se mantiene oprimida la tecla Ctrl</b>.</p>
+
+
+<p align="left">Para volver a la imagen inicial de la molécula, introducir el comando:</p>
+
+<p align="center"><b>reset</b> [Enter]</p>
+
+
+<p align="left"><b>7. Mediciones</b></p>
+
+<p align="left"><i>7.1 Distancias</i></p>
+
+<p align="justify">Vamos a medir la distancia entre el átomo de azufre y el nitrógeno del grupo amino. Ir al menú desplegable y elegir <b>Mediciones > Clic para medir distancia</b>. A continuación hacer doble clic sobre el átomo de azufre (amarillo) y a continuación, otro doble clic sobre el átomo de nitrógeno (azul). Aparece una línea recta uniendo los dos átomos e indicando 0.458 nm, es decir, 4.58 angstroms.</p>
+
+<p align="justify">En el menú desplegable, elegir <b>Mediciones > Borrar mediciones</b>. Desaparece la medición efectuada.</p>
+
+
+<p align="left"><i>7.2 Ángulos</i></p>
+
+<p align="justify">Para medir el ángulo entre tres átomos, tomaremos como ejemplo el ángulo formado por el átomo de azufre y sus dos carbonos contiguos. En el menú desplegable, elegir <b>Mediciones > Clic para medir ángulo</b>. Hacer doble clic en el primer átomo, un solo clic en el segundo y doble clic en el tercero y último. Aparece indicado el valor del ángulo, 105.0º.</p>
+
+<p>Practicar con distintos tipos de medición para distancias y ángulos (no olvidar borrar las mediciones anteriores entre una y otra). </p>
+
+
+<p align="left"><i>7.3 Ángulos de torsión</i></p>
+ 
+
+<p align="justify">Si tenemos una cadena de cuatro átomos consecutivos, un ángulo de torsión es el diedro formado por el plano determinado por los tres primeros átomos y el plano formado por los tres últimos. En otras palabras, el ángulo de torsión es la torsión en torno al enlace que une los dos átomos intermedios de los cuatro. Los ángulos de torsión son importantes en la determinación de la estructura secundaria de las proteínas.</p> 
+
+<p align="justify">Para medir ángulos de torsión, seleccionar en el menú <b>Mediciones > Clic para medir torsión (ángulo diedro)</b>. Pinchar en cuatro átomos consecutivos para obtener la medición, haciendo doble clic en el primero y en el último </p>
+
+<p align="justify">En el menú desplegable, elegir <b>Mediciones > Borrar mediciones</b>. Desaparece la medición efectuada.</p>
+
+<p align="left"><b>8. Reconocimiento de átomos</b></p>
+
+
+<p align="justify">Pinchando con el botón izquierdo del ratón en cualquiera de los átomos, aparecerá en la Consola de guiones la naturaleza del átomo seleccionado. Así, si pinchamos sobre el azufre, en la venta de comandos aparecerá</p>
+
+<b>S #4 -2.093 0.896 0.050</b>
+
+<p align="justify">Que nos indica que se trata de azufre (S) que es el átomo nº 4 (#4) en el archivo m.pdb y sus tres coordenadas espaciales [x,y,z]. En las proteínas, como veremos, se obtiene mucha más información.</p>
+
+
+<p align="left"><b>9. Practicar con otras moléculas</b></p>
+
+
+<p align="justify">A continuación, opérese con todos los comandos descritos para familiarizarnos con los mismos. Llevar  a pantalla otros aminoácidos u otras estructuras. Para ello, cargar las siguientes moléculas:</p>
+
+<p>
+<label><input type="radio" name="1hew-steps" onchange="jrun('load ../pdb/colesterol.pdb; wireframe 0.15; spacefill 20%; color cpk;  set echo off; set echo top left; color echo black; echo Colesterol')"> <b>Colesterol</b></label> ** 
+
+<label><input type="radio" name="1hew-steps" onchange="jrun('load ../pdb/aDglucopiranosa.pdb; wireframe 0.15; spacefill 20%; color cpk;  set echo off; set echo top left; color echo black; echo alfa-D-Glucosa')"> <b>alfa-D-glucosa, forma cíclica</b></label> **
+
+<label><input type="radio" name="1hew-steps" onchange="jrun('load ../pdb/ascorbico.pdb; wireframe 0.15; spacefill 20%; color cpk;  set echo off; set echo top left; color echo black; echo Ácido ascórbico')"> <b>Ácido ascórbico (vitamina C)</b></label> **
+
+<label><input type="radio" name="1hew-steps" onchange="jrun('load ../pdb/amilosa.pdb; wireframe 0.15; spacefill 20%; color cpk;  set echo off; set echo top left; color echo black; echo Amilosa')"> <b>Amilosa</b></label> **
+
+<label><input type="radio" name="1hew-steps" onchange="jrun('load ../pdb/lecitina.pdb; wireframe 0.15; spacefill 20%; color cpk;  set echo off; set echo top left; color echo black; echo Lecitina')"> <b>Lecitina (fosfatidil colina)</b></label> **
+
+<label><input type="radio" name="1hew-steps" onchange="jrun('load ../pdb/e.pdb; wireframe 0.15; spacefill 20%; color cpk;  set echo off; set echo top left; color echo black; echo Ácido L-glutámico')"> <b>Ácido L-glutámico</b></label> **
+
+<label><input type="radio" name="1hew-steps" onchange="jrun('load ../pdb/w.pdb; wireframe 0.15; spacefill 20%; color cpk;  set echo off; set echo top left; color echo black; echo L-Triptófano')"> <b>L-Triptófano</b></label> **
+
+<label><input type="radio" name="1hew-steps" onchange="jrun('load ../pdb/atp.pdb; wireframe 0.15; spacefill 20%; color cpk;  set echo off; set echo top left; color echo black; echo ATP')"> <b>Adenosina-5'-trifosfato, ATP</b></label> **
+
+<label><input type="radio" name="1hew-steps" onchange="jrun('load ../pdb/nad.pdb; wireframe 0.15; spacefill 20%; color cpk;  set echo off; set echo top left; color echo black; echo NAD<sup>+</sup>')"> <b>Niacina adenina dinucleótido, forma oxidada, NAD<sup>+</sup></b></label> </p>
+
+<br /><br /><br /><br />
+
+<a name="macro"></a>
+      <p align="center"><font size="+1"><b>B. Uso de JSmol en macromoléculas</b></font></p>
+<br /><br />
+
+<p align="justify">El programa Jmol y su derivado JSmol fue diseñado para estudiar, sobre todo, estructuras macromoleculares. Veremos que las posibilidades del programa son mucho mayores que con moléculas pequeñas. Para iniciarnos en su uso vamos a utilizar una proteína muy pequeña, la <b>rubredoxina</b>, de 53 aminoácidos. Cuando hayamos practicado con ella, podremos pasar a estructuras más complejas.</p>
+
+<p align = "justify">La rubredoxina es una proteína de transporte electrónico que pertenece a una familia de proteínas que contienen hierro y azufre. Se conocen con el nombre de ferredoxinas, ferrosulfoproteínas o proteínas NHI <i>(Non-Heme Iron Proteins</i>, proteínas de hierro no hemínico). El hierro está coordinado tetraédricamente a átomos de azufre en estas estructuras.</p> 
+
+<p align = "justify">La rubredoxina es una proteína de transporte electrónico que pertenece a una familia de proteínas que contienen hierro y azufre. Se conocen con el nombre de ferredoxinas, ferrosulfoproteínas o proteínas NHI (Non-Heme Iron Proteins, proteínas de hierro no hemínico). El hierro está coordinado tetraédricamente a átomos de azufre en estas estructuras.</p> 
+
+<p align = "justify">La rubredoxina es la ferredoxina más sencilla, y se encuentra en bacterias. En todos los organismos vivientes hay ferredoxinas formando parte de sistemas de transporte electrónico (mitocondrial, microsomal, fotosintético, etc.)</p>
+
+<p align = "center"><label><input type="radio" name="1hew-steps" onchange="jrun('load ../pdb/rubredoxina.pdb; wireframe 0.15; spacefill 20%; color cpk;  set echo off; set echo top left; color echo black; echo Rubredoxina')"> <b>Rubredoxina</b></label></p>
+
+
+<br /><br />
+
+<p align="left"><b>1. Generalidades</b></p>
+
+<p align = "justify">Aparece en pantalla las estructura en modelo de Bolas y Varillas. Obsérvese que, en general, <b>en las representaciones de proteínas no se representan los átomos de hidrógeno</b>.</p>
+
+<p align = "justify">En torno a la estructura aparece una multitud de átomos rojos aislados. Se trata, en realidad, de moléculas de agua contenidas en la celda cristalina unidad (Las estructuras proteicas se suelen determinar por difracción de rayos X sobre cristales de la proteína). Para hacerlos desaparecer, teclear en la consola de comandos <b>restrict not solvent</b>. Este comando elimina de la visión los átomos del solvente (en este caso agua), restringiendo la visión a los átomos propios de la proteína.</p>
+
+<p align = "center"><label><input type="radio" name="1hew-steps" onchange="jrun('restrict not solvent')"> <b>restrict not solvent</b></label></p>
+
+
+<p align = "justify">Nótese que son igualmente operativos todos los comandos de rotación, traslación y zoom que veíamos en moléculas pequeñas.</p>
+
+<p align = "justify">Desplegando con el botón derecho sobre la ventana de visualización el menú principal, elegir la opción <b>1CAA</b> (éste es el código de la rubredoxina en la base de datos PDB, Protein Data Bank). Aparecerá la siguiente información: 475 átomos, 429 enlaces, 115 grupos, 1 cadenas, 1 polímero. Por el momento nos interesa saber que 1 cadenas indica que la proteína consta de un solo polipéptido (es decir, que no tiene estructura cuaternaria).</p>
+
+<p align = "justify">Podemos obtener mucha más información de la siguiente manera: En el menú principal, elegir  <b>Mostrar > Cabecera del archivo</b>. En la ventana de comando aparecerán las primeras líneas del archivo <b>rubredoxina.pdb</b> con información sobre la molécula, su procedencia y los datos cristalográficos básicos.</p>
+<br /><br />
+
+<p align="left"><b>2. Formas de representación</b></p>
+
+
+<p align = "justify">En el menú principal, (<b>Estilo > Patrón > Esferas CPK</b>) nos da la representación espacial a radio de van der Waals, como en las moléculas pequeñas. Lo mismo podemos decir de la representación Bolas y Varillas, Varillas y Alambres. Para las proteínas, en este mismo menú hay otras dos posibilidades:
+</p>
+
+<p align = "justify"><b>Estilo > Patrón > Esquemático</b>: Es un modelo en cinta de la estructura de la proteína. Se muestra en el mismo únicamente el esqueleto proteico, sin cadenas laterales. Las zonas en cinta son las que tienen estructura secundaria en hélice o lámina. Las puntas de las flechas señalan la dirección hacia el C-término de la proteína. Asimismo, las diferentes estructuras secundarias llevan un código específico de color: <font face = "Symbol">α-</font>helicoides en rojo, estructuras <font face = "Symbol">β</font> en amarillo y giros <font face = "Symbol">β</font> en azul, quedando en blanco las zonas sin estructura secundaria. Ésta es la representación de las proteínas más usual en libros y en la literatura bioquímica en general.</p>
+
+<p align = "justify"><b>Estilo > Patrón > Cordón</b>: Similar al anterior, pero las zonas con estructura secundaria no aparecen como cintas. Toda la proteína aparecen como un cordón que se extiende desde el N-término hasta el C-término.</p>
+
+<p align = "justify">Volvemos a la representación inicial por defecto mediante el comando <b>Estilo > Patrón > Bolas y Varillas</b></p>
+
+<br /><br />
+
+
+
+
+<p align="left"><b>3.Colores</b></p>
+
+<p align = "justify">Existe la posibilidad de cambiar de colores desde el menú principal. Ahora bien, nosotros lo haremos a partir de la Consola de comandos. El comando</p>
+
+<p align="center"><b>color group</b></p>
+
+<p align = "justify">Nos da la representación en color según sea la posición del aminoácido en la cadena peptídica; sigue el espectro del arco iris de manera que el N-término se representa en azul y el C-término en rojo, con toda la gama intermedia. El comando </p>
+
+<p align="center"><b>color chain</b></p>
+
+<p align = "justify">Representa con distintos colores las diferentes cadenas polipeptídicas de que consta la proteína. En el caso de la rubredoxina nos da un solo color dado que ésta no tiene estructura cuaternaria. El comando</p>
+
+<p align="center"><b>color shapely</b></p>
+
+<p align = "justify">Representa los distintos aminoácidos según el código Shapely (no lo utilizaremos). El comando</p>
+
+<p align="center"><b>color temperature</b></p>
+
+<p align = "justify">Representa los factores anisotrópicos de temperatura de las distintas partes de la molécula, de manera que las zonas más "calientes", es decir, las más sometidas a agitación térmica,  aparecen en rojo y las más "frías" en azul, con toda la gama intermedia. El comando</p>
+
+<p align="center"><b>color structure</b></p>
+
+<p align = "justify">Distingue las zonas según su estructura secundaria. Así, las zonas en hélice aparecen  en rojo, las zonas en lámina en amarillo, las zonas en vuelta en azul, y las zonas sin estructura secundaria en blanco.</p>
+
+<p align = "justify">Volver a la representación en color CPK mediante el comando</p>
+<p align="center"><b>reset; color cpk</b></p>
+<br /><br />
+
+
+
+
+<p align="left"><b>4. Reconocimiento de átomos</b></p>
+
+
+<p align = "justify">De la misma manera que vimos en el modelo de metionina, Jmol reconoce los átomos en las proteínas. </p>
+
+<p align = "justify">Pinchar con el ratón el átomo de oxígeno (rojo) que aparece en la parte inferior extrema de la molécula. Pasar a la ventana de comando y nos informa de lo siguiente:</p>
+
+<p align = "center"><b>[GLU]31.OE1 #238 9.876 -10.771 5.058</b></p>
+
+<p align = "justify">Lo cual nos indica: 
+<ul>
+<li>Que pertenece al residuo Glu 31
+<li>Que es un átomo de oxígeno (OE1)
+<li>Que está en la posición ε1 (E1) de la molécula del aminoácido. Recuérdese que en los ácidos orgánicos se llama carbono <font face = "Symbol">a</font> al adyacente al carboxilo, <font face = "Symbol">b</font> al siguiente, y así sucesivamente con el alfabeto griego: <font face = "Symbol">g, d, e, z, h,</font> etc. Se utiliza el equivalente latino de la letra griega; así, CA significa carbono <font face = "Symbol">a</font>, CB carbono <font face = "Symbol">b</font>, CG carbono <font face = "Symbol">g</font>, etc.
+<li>Que es el átomo listado en la posición 238 del archivo estructural rubredoxina.pdb.
+</ul>
+</p>
+
+<p align = "justify">Igualmente, señalando (sin hacer clic) con el puntero ese mismo átomo en la ventana de visualización aparece en una ventanita la misma información estructural (sin las coordenadas espaciales)</p>
+
+<p align = "justify">Practicar este comando con otros átomos de la estructura. Los carbonos y nitrógenos pertenecientes a los enlaces peptídicos se representan simplemente como C y N (y no CA, CB, etc.), pero sí se indica el residuo de aminoácido al que pertenecen.
+</p>
+
+<p align = "justify">Recuérdese que en la mayoría de las proteínas no se representan los átomos de hidrógeno.
+</p>
+<br /><br />
+
+
+<p align = "justify"></p>
+
+<p align = "justify"></p>
+<br /><br />
+
+
+
+
+<p align="left"><b>5. Selección previa de átomos y estructuras</b></p>
+
+<p align = "justify">Jmol permite seleccionar átomos o conjuntos de átomos con alguna propiedad en común. Una vez seleccionados, todos los comandos que se ejecuten a continuación operarán únicamente sobre el conjunto seleccionado. Vamos a ver únicamente los más importantes.</p>
+
+
+<p align="left"><b><i>5.1 Selección de aminoácidos</i></b></p>
+
+<p align = "justify">Supongamos que queremos visualizar todas las isoleucinas presentes en la molécula. Pasamos a la ventana de comando y tecleamos</p>
+
+<p align = "center"><b>select ile</b></p>
+
+
+<p align = "justify">El programa nos informa que el programa ha seleccionado 32 átomos pertenecientes a todas las isoleucinas de la molécula. A partir de ahora, todos los comandos que tecleemos o seleccionemos operarán únicamente sobre el conjunto de las isoleucinas.</p> 
+
+Por ejemplo, si queremos que las isoleucinas aparezcan en color negro tecleamos el comando
+<p align = "center"><b>color black</b></p>
+
+<p align = "justify">con lo cual aparecen en dicho color las cuatro isoleucinas de la molécula. Para volver a la situación inicial, tecleamos sucesivamente</p>
+
+<p align = "center"><b>select not solvent</b>o bien <b>select all</b></p>
+<p align = "center"><b>color cpk</b></p>
+
+
+<p align = "justify">La molécula contiene un átomo de hierro coordinado a cuatro cisteínas. Para ver bien esta estructura, tecleamos sucesivamente:</p>
+
+<p align = "center"><b>color green</b> (toda la molécula queda en color verde)</p>
+<p align = "center"><b>select cys</b> (seleccionamos las cisteínas)</p>
+<p align = "center"><b>color cpk</b> (las coloreamos en código CPK)</p>
+<p align = "center"><b>select fe</b> (seleccionamos el hierro)</p>
+<p align = "center"><b>color cpk</b> (coloreamos cpk el hierro)</p>
+
+<p align = "justify">Esta misma secuencia de comandos puede introducirse en una misma línea, con los comandos separados por punto y coma (;). Por ejemplo,</p>
+
+<p align = "center"><b>color green; select cys; color cpk; select fe; color cpk
+</b> </p>
+
+
+<p align = "justify">Con las maniobras que hemos hecho, tenemos seleccionado únicamente el átomo de hierro. Para volver a seleccionar toda la molécula, tecleamos</p>
+
+<p align = "center"><b>select not solvent; color cpk</b> </p>
+
+
+<p align = "justify">Practicar seleccionando otros aminoácidos (se introduce el código de tres letras en minúsculas).  
+
+<p align = "justify">Podemos seleccionar también aminoácidos por el lugar que ocupan en la cadena peptídica. Por ejemplo, para seleccionar el aminoácido que contiene el N-término y colorearlo en blanco, las órdenes serían:
+
+<p align = "center"><b>select 1; color white</b> </p>
+
+<p align = "justify">De esta manera podemos seleccionar todos los residuos (del 1 al 53) de esta proteína.
+
+<p align = "justify">Volvemos a la representación inicial:
+
+<p align = "center"><b>select not solvent; color cpk</b> </p>
+<br /><br />
+
+<p align="left"><b><i>5.2 Heteroátomos</i></b></p>
+
+<p align = "justify">Conocemos con el nombre de heteroátomos aquéllos que no pertenecen a la estructura peptídica propiamente dicha, aunque formen parte de la misma (por ejemplo, átomos metálicos y  grupos prostéticos) así como las numerosas moléculas de solvente (normalmente agua) que aparecen en la estructura dado que quedan incluidas en los cristales de proteína a partir de los que se obtiene la estructura tridimensional. Para visualizarlos,  coloreamos en verde toda la molécula, seleccionamos los heteroátomos y los representamos en color cpk:</p>
+
+<p align = "center"><b>color green; select hetero; color cpk</b> </p>
+
+<p align = "justify">En este caso, aparecerá únicamente el átomo de hierro. (Tenemos desde el principio excluida el agua de cristalización mediante el comando  <i>restrict not solvent)</i></p> 
+
+<p align = "justify">Volvemos a seleccionar toda la molécula (excepto el agua) con el comando</p>
+
+<p align = "center"><b>select all; color cpk</b> </p>
+
+<p align="left"><b><i>5.3 Selección de estructuras secundarias</i></b></p>
+
+<p align = "justify">Jmol permite visualizar las zonas que tienen una estructura secundaria determinada. Para ello se emplean las palabras clave helix (helicoide), sheet (lámina) y turn (vuelta). Por ejemplo, la secuencia de comandos</p>
+
+<p align = "center"><b>color green; select helix; color cpk</b> </p>
+
+<p align = "justify">Selecciona las zonas de la molécula que están formando parte de <font face = "Symbol">a</font>-helicoides.</p>
+
+<p align = "justify">Volvemos a la representación inicial con el comando</p>
+
+<p align = "center"><b>select all; color cpk</b></p>
+<br /><br />
+
+
+
+
+<p align="left"><b><i>5.4 Conjuntos predefinidos en Jmol</i></b></p>
+
+<p align = "justify">La instrucción <b>restrict</b> funciona como <b>select</b>, pero con la particularidad de que elimina la visión de todo aquello que no esté comprendido en la instrucción.</p>
+
+<p align = "justify">La instrucción  <b>select</b> (así como <b>restrict</b>) nos permite seleccionar una serie de grupos de átomos o residuos con propiedades en común. Éstos son los llamados <i>conjuntos predefinidos</i>. Para su conocimiento, los clasificamos en tres grupos:</p>
+
+<p align="left"><b><i>5.4.1 Conjuntos predefinidos de átomos</i></b></p>
+
+<UL>
+<li><b>alpha</b>: el conjunto de carbonos α de la molécula
+<li><b>amino</b>: el conjunto de átomos que pertenecen a una estructura peptídica
+<li><b>backbone</b>: los átomos del esqueleto proteico N - Cα - C  de todos los aminoácidos
+<li><b>hetero</b>: conjunto de átomos no peptídicos en la estructura
+<li><b>ligand</b>: heteroátomos no pertenecientes al solvente: cofactores, grupos prostéticos, substratos, etc.
+<li><b>nucleic</b>: átomos pertenecientes a un ácido nucleico
+<li><b>protein</b>: átomos pertenecientes a la proteína, con las modificaciones postraduccionales más comunes (similar a <b>amino</b>)
+<li><b>solvent</b>: el conjunto de átomos  del solvente
+<li><b>water</b>: átomos que forman parte de moléculas de agua.
+</UL>
+
+<p align="left"><b><i>5.4.2 Conjuntos predefinidos de aminoácidos</i></b></p>
+
+<UL>
+<li><b>acidic</b>: El conjunto de aminoácidos dicarboxílicos Asp y Glu
+<li><b>acyclic</b>: El conjunto de aminoácidos que no tienen estructura cíclica.
+<li><b>aliphatic</b>: El conjunto de aminoácidos alifáticos Gly, Ala, Val, Leu, Ile.
+<li><b>aromatic</b>: el conjunto de aminoácidos aromáticos Phe, Tyr, Trp, His.
+<li><b>basic</b>: el conjunto de aminoácidos básicos Lys, Arg, His
+<li><b>charged</b>: el conjunto de aminoácidos con carga eléctrica
+<li><b>cyclic</b>: aminoácidos con estructura cíclica: Pro, His, Phe, Tyr, Trp
+<li><b>cystine</b>: las cisteínas unidas por enlace -S-S- 
+<li><b>large</b>: aminoácidos con cadena lateral grande
+<li><b>hydrophobic</b>: residuos con cadena lateral hidrofóbica
+<li><b>medium</b>: aminoácidos de tamaño medio
+<li><b>neutral</b>: aminoácidos neutros
+<li><b>polar</b>: aminoácidos polares o hidrofílicos
+<li><b>small</b>: aminoácidos de cadena lateral corta
+</UL>
+
+<p align="left"><b><i>5.4.3 Conjuntos predefinidos de estructuras</i></b></p>
+
+<UL>
+<li><b>buried</b>: el conjunto de átomos que radican en el interior de la molécula, alejados del solvente
+<li><b>helix</b>: residuos que forman <font face = "Symbol">a</font>-helicoides
+<li><b>sheet</b>: aminoácidos formando parte de una estructura secundaria en lámina <font face = "Symbol">b</font>
+<li><b>surface</b>: átomos que radican en la superficie de la molécula, en contacto con el solvente.
+<li><b>turn</b>: aminoácidos formando parte de una estructura secundaria en giro <font face = "Symbol">b</font>
+</UL>
+
+<p>Practicar selecciones a partir de estos conjuntos.</p>
+<br /><br />
+
+
+
+<p align="left"><b>6. Hemoglobina</b></p>
+
+<p align = "justify">Practiquemos ahora con moléculas más grandes. Cargamos en pantalla un modelo de hemoglobina:</p>
+
+<p align = "center"><label><input type="radio" name="1rvw-steps" onchange="jrun('load ../pdb/1rvw.pdb; wireframe 0.15; spacefill 20%; color cpk;  restrict not solvent; set echo off; set echo top left; color echo black; echo Hemoglobina, estado R')"> <b>Hemoglobina (carbomonoxi-), estado R</b></label></p>
+ 
+<p align = "justify"> Tenemos en pantalla el archivo 1rvw.pdb. Este archivo contiene un modelo de Hemoglobina en el estado oxi- (forma R). En realidad se trata de carbomonoxihemoglobina, esto es, unida a monóxido de carbono en lugar de oxígeno. </p>
+
+<p align = "justify">Cambiar la representación a <b>Estilo > Patrón > Esquemático</b>. Nótese que la estructura secundaria predominante es α-helicoide. </p>
+
+
+<p align="left"><b><i>6.1 Subunidades y grupo hemo</i></b></p>
+
+<p align = "justify">El comando</p>
+<p align = "center"><b>color chain</b> </p>
+<p align = "justify">atribuye un color diferente a cada una de las subunidades de la proteína: Subunidad a (α1) en azul, subunidad b (β1) en verde, subunidad c (α2) en rosa y subunidad d (β2) en amarillo. Asimismo, la proteína aparece representada esquemáticamente en cintas </p>
+
+<p align = "justify">En el archivo estructural, los átomos del grupo hemo aparecen como HETATM (heteroátomos). Para visualizar los grupos hemo, utilizar el comando</p>
+<p align = "center"><b>select ligand</b> </p>
+<p align = "justify">que selecciona los grupos hemo.  Cambiar la representación a Bolas y varillas mediante el menú <b>Estilo > Patrón > Bolas y varillas</b>. Aparecen los cuatro grupos hemo, uno en cada subunidad.</p>
+
+
+
+ 
+<p align="left"><b><i>6.2 Una subunidad aislada</i></b></p>
+ 
+<p>Podemos restringir la visión a la subunidad α1 con el comando</p> 
+<p align = "center"><b>restrict :a</b> (o bien :b la β1, :c la α2 y :d la β2).</p>
+
+<p align = "justify">Conviene centrar el modelo en la subunidad :a. En el menú principal, seleccionar <b>Átomo elegido >Centrar</b>. Pinchar en el átomo de hierro en el centro del grupo hemo. El modelo se centrará entonces sobre dicho átomo. Cambiar inmediatamente a <b>Átomo elegido > Identificar</b> (si no se hace, el modelo se centrará a cada clic del ratón). </p>
+<br /><br />
+
+
+<p align = "center"><b>7. Inmunoglobulinas</b> </p>
+
+<p>Cargamos en pantalla la Inmunoglobulina G:
+
+<p align = "center"><label><input type="radio" name="1igt-steps" onchange="jrun('load ../pdb/1igt.pdb; wireframe 0.15; spacefill 20%; color cpk;  restrict not solvent; set echo off; set echo top left; color echo black; echo Inmunoglobulina G')"> <b>Inmunoglobulina G</b></label></p>
+
+<p align = "justify">En este archivo están representados los átomos de hidrógeno. Cambiar la vision a <b>Estilo>Patrón Esquemático</b>. Desplegar la consola de comandos y cambiar el color a <b>color chain</b>.</p>
+
+
+<p align="justify">Identificar las cadenas ligeras y pesadas, así como los fragmentos Fab (2) y Fc (1). En el centro del modelo aparece una zona sin estructura secundaria: es la región bisagra <i>(Hinge)</i>, el punto en el que la enzima papaína rompe la molécula en los tres fragmentos citados.</p> 
+
+
+<p align="left"><b><i>7.1 La cadena ligera</i></b></p>
+ 
+<p align = "justify">El comando <b>restrict :a</b> restringe la vision a la cadena ligera L1. Se ven claramente los dos dominios, el variable (VL) en la mitad N-terminal y el constante (CL) en la C-terminal. Centrar la molécula en la region comprendida entre los dos dominios. Para distinguirlos, utilícese el <b>color group</b>. El dominio VL contiene el N-término (azul) y el CL el C-término (rojo). Nótese la estructura secundaria característica de ambos dominios, una doble lámina β antiparalela. </p>
+
+<p>Seleccionar la molécula completa con el comando <b>select all</b>. 
+
+<p align="left"><b><i>7.2 La cadena pesada</i></b></p>
+
+<p align = "justify">Restringir la visión a una de las cadenas pesadas con el comando <b>restrict :b</b>. Podemos ver claramente los cuatro dominios de la cadena pesada. Son el dominio variable VH y los tres constantes CH1, CH2 y CH3. Centrar la molécula en la región comprendida entre CH1 y CH2. El dominio variable contiene el N-término y el CH3 el C-término. Pueden ser distinguidos con el comando <b>color group</b>. </p>
+
+<p align = "justify">El dominio CH2 aparece unido a un polisacárido complejo. Para visualizarlo, utilice el 
+comando <b>select ligand and :b</b> Y cambiar la representación a Bolas y varillas. </p>
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr />
+			<center><table border=0 WIDTH=90%><tr>
+				<td align=center width=45%>
+				<A HREF="#inicio" ><B>Inicio</B></A>
+					
+				</td>
+				<td align=center width=45%>
+
+				<A HREF="pgJSmol_001.html" ><B>Siguiente: Estructuras orgánicas</B></A>					
+				</td>
+
+			</tr></table></center>
+
+
+
+
+
+      </body>
+</html>
