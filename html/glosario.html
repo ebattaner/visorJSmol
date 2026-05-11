@@ -2,44 +2,141 @@
 <html lang="es">
 <head>
 <meta charset="utf-8" />
-<title>JSmol - Glosario</title>
+<title>Introducción a JSmol</title>
 
 <!-- Ajusta esta ruta si tu carpeta no se llama exactamente "JSmol" -->
 <script src="../JSmol/JSmol.min.js"></script>
 
 <style>
-  :root { --gap: 16px; --left-w: 700px; --left-h: 600px; }
+  :root {
+    --gap: 16px;
+    --left-w: 700px;
+    --console-h: 230px;
+    --viewer-h: calc(100vh - var(--console-h) - (var(--gap) * 4) - 44px);
+  }
 
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; background: #fafafa; color: #222; }
 
-  /* === CLAVE: fijar el panel izquierdo (visor) === */
-  #viewerWrap {
-    position: fixed;          /* anclado */
+  body {
+    margin: 0;
+    font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
+    background: #fafafa;
+    color: #222;
+  }
+
+  /* Columna izquierda fija: visor arriba y consola abajo */
+  #leftPanel {
+    position: fixed;
     top: var(--gap);
     left: var(--gap);
-    width: var(--left-w);     /* mismo ancho que estabas usando */
-    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    width: var(--left-w);
+    height: calc(100vh - (var(--gap) * 2));
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     z-index: 1;
   }
 
-  /* === CLAVE: el visor ocupa el alto deseado === */
+  #viewerWrap,
+  #consoleWrap {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  }
+
+  #viewerWrap {
+    flex: 1 1 auto;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #viewerTitle,
+  #consoleTitle {
+    margin: 0 0 10px;
+    font-size: 1.05rem;
+  }
+
   #viewer {
     width: 100%;
-    height: var(--left-h);    /* alto grande del visor */
-    border: 1px solid #999; border-radius: 8px; background: #fff;
+    height: 100%;
+    min-height: 280px;
+    border: 1px solid #999;
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
   }
 
-  /* Panel derecho: lo desplazamos a la derecha del visor fijo */
+  #consoleWrap {
+    flex: 0 0 var(--console-h);
+    display: flex;
+    flex-direction: column;
+    min-height: 190px;
+  }
+
+  #consoleOutput {
+    flex: 1 1 auto;
+    min-height: 80px;
+    overflow-y: auto;
+    background: #111827;
+    color: #e5e7eb;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.92rem;
+    line-height: 1.35;
+    white-space: pre-wrap;
+  }
+
+  .consoleLineCommand { color: #bfdbfe; }
+  .consoleLineMessage { color: #d1d5db; }
+  .consoleLineError { color: #fecaca; }
+
+  #consoleControls {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  #commandInput {
+    flex: 1 1 auto;
+    padding: 8px 10px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.95rem;
+  }
+
+  #runCommandButton {
+    flex: 0 0 auto;
+  }
+
+  #quickButtons {
+    margin-top: 8px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  #quickButtons button {
+    padding: 5px 8px;
+    font-size: 0.86rem;
+  }
+
+  /* Panel derecho con scroll normal e independiente del panel izquierdo */
   .panel {
-    background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 12px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px 18px;
     margin-top: var(--gap);
-    margin-left: calc(var(--left-w) + (var(--gap) * 2)); /* deja hueco para el visor fijo */
+    margin-left: calc(var(--left-w) + (var(--gap) * 2));
     margin-right: var(--gap);
-    min-height: calc(var(--left-h) + 2*var(--gap)); /* opcional, para arrancar a la par */
+    min-height: calc(100vh - (var(--gap) * 2));
   }
 
-  /* ya no usamos el grid como layout, pero mantenemos el contenedor para el padding superior */
   .layout { padding-top: 0; }
 
   h2, h3 { margin: 8px 0 6px; }
@@ -51,67 +148,160 @@
   label { cursor: pointer; margin-right: 14px; }
   .grupo-radios { margin-top: 8px; }
 
-  /* Responsive (opcional): en pantallas estrechas, el visor deja de ser fijo y va arriba */
+  .nota-consola {
+    background: #f3f4f6;
+    border-left: 4px solid #9ca3af;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin: 12px 0;
+  }
+
+  /* En pantallas estrechas, todo pasa a una sola columna */
   @media (max-width: 980px){
-    #viewerWrap { position: static; width: auto; margin: var(--gap); }
-    .panel { margin: var(--gap); }
+    #leftPanel {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: var(--gap);
+    }
+    #viewerWrap { min-height: 380px; }
     #viewer { height: 380px; }
+    #consoleWrap { flex-basis: 220px; }
+    .panel { margin: var(--gap); }
   }
 </style>
 
 <script>
   var jmolApplet0;
-  var currentMol = null; // nombre del archivo actualmente cargado
+  var currentMol = null;
+  var commandHistory = [];
+  var historyIndex = 0;
+
   Jmol.setDocument(0);
 
-  function visorSize() {
-    // Como el visor ahora tiene height fijo por CSS, usamos el ancho disponible del contenedor
+  function viewerWidth() {
     var el = document.getElementById('viewer');
-    var w = el ? el.clientWidth : 600;
-    return Math.max(400, Math.min(800, w));
+    return el ? Math.max(400, Math.round(el.clientWidth)) : 600;
+  }
+
+  function viewerHeight() {
+    var el = document.getElementById('viewer');
+    return el ? Math.max(280, Math.round(el.clientHeight)) : 500;
+  }
+
+  function logToConsole(text, type) {
+    var out = document.getElementById('consoleOutput');
+    if (!out) return;
+    var line = document.createElement('div');
+    line.className = 'consoleLine' + (type || 'Message');
+    line.textContent = text;
+    out.appendChild(line);
+    out.scrollTop = out.scrollHeight;
+  }
+
+  function jmolMessageCallback(applet, message) {
+    if (message) logToConsole(String(message), 'Message');
+  }
+
+  function jmolEchoCallback(applet, message) {
+    if (message) logToConsole(String(message), 'Message');
+  }
+
+  function jmolPickCallback(applet, message) {
+    if (message) logToConsole(String(message), 'Message');
   }
 
   var Info = {
-    width: visorSize(),
-    height: visorSize(),  // JSmol se acomodará; el alto visual lo manda el CSS de #viewer
+    width: 600,
+    height: 500,
     debug: false,
     color: "white",
     use: "HTML5",
     j2sPath: "../JSmol/j2s",
     disableInitialConsole: true,
+    messageCallback: "jmolMessageCallback",
+    echoCallback: "jmolEchoCallback",
+    pickCallback: "jmolPickCallback",
     script: "background white; set antialiasDisplay true;"
   };
 
   function initJSmol() {
-    var s = visorSize();
-    Info.width = s; Info.height = s;
+    Info.width = viewerWidth();
+    Info.height = viewerHeight();
     jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
     document.getElementById("viewer").innerHTML = Jmol.getAppletHtml(jmolApplet0);
+    logToConsole('Consola JSmol preparada. Escribe un comando y pulsa Enter.', 'Message');
   }
 
   window.addEventListener('resize', function() {
     if (!jmolApplet0) return;
-    var s = visorSize();
-    Jmol.resizeApplet(jmolApplet0, s, s);
+    Jmol.resizeApplet(jmolApplet0, viewerWidth(), viewerHeight());
   });
 
-  function cmd(s) { Jmol.script(jmolApplet0, s); }
+  function cmd(s) {
+    if (!jmolApplet0) return;
+    Jmol.script(jmolApplet0, s);
+  }
+
+  function runConsoleCommand() {
+    var input = document.getElementById('commandInput');
+    var s = input.value.trim();
+    if (!s) return;
+    commandHistory.push(s);
+    historyIndex = commandHistory.length;
+    logToConsole('> ' + s, 'Command');
+    try {
+      cmd(s);
+    } catch (e) {
+      logToConsole('ERROR: ' + e.message, 'Error');
+    }
+    input.value = '';
+    input.focus();
+  }
+
+  function handleCommand(event) {
+    var input = document.getElementById('commandInput');
+
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      runConsoleCommand();
+      return;
+    }
+
+    if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      if (commandHistory.length === 0) return;
+      historyIndex = Math.max(0, historyIndex - 1);
+      input.value = commandHistory[historyIndex];
+      return;
+    }
+
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      if (commandHistory.length === 0) return;
+      historyIndex = Math.min(commandHistory.length, historyIndex + 1);
+      input.value = historyIndex === commandHistory.length ? '' : commandHistory[historyIndex];
+    }
+  }
+
+  function quickCommand(s) {
+    document.getElementById('commandInput').value = s;
+    runConsoleCommand();
+  }
 
   // Representaciones
   function applyBallStick() {
-    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.20; spacefill 20%; color cpk; center all; zoom 120;");
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe 0.15; spacefill 20%; color cpk; center all; zoom 100;");
   }
   function applySpacefill() {
-    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 120;");
+    cmd("select all; cartoons off; ribbons off; backbone off; wireframe off; spacefill 100%; color cpk; center all; zoom 100;");
   }
 
-  // Cargar molécula y aplicar representación (ballstick por defecto si no se indica otra)
   function loadMolecule(molName, repr) {
     currentMol = molName;
-    cmd('load "' + molName + '";'); // comillas por si hay rutas con guiones
+    cmd('load "' + molName + '";');
     if (repr === "spacefill") applySpacefill(); else applyBallStick();
 
-    // Marcar radios de su bloque según la representación aplicada (si existen)
     var ridBall = document.getElementById("r-" + molName + "-ball");
     var ridSpace = document.getElementById("r-" + molName + "-space");
     if (ridBall && ridSpace) {
@@ -120,7 +310,6 @@
     }
   }
 
-  // Cambia representación para la molécula indicada (si no está cargada, la carga primero)
   function setRepresentationFor(molName, repr) {
     if (currentMol !== molName) {
       loadMolecule(molName, repr);
@@ -136,14 +325,32 @@
 
 <body onload="initJSmol()">
   <div class="layout">
-    <!-- Panel izquierdo: visor (FIJO) -->
-    <div id="viewerWrap">
-      <h3 style="margin:4px 0 10px;">Visor</h3>
-      <div id="viewer"></div>
+    <!-- Panel izquierdo: visor + consola fija -->
+    <div id="leftPanel">
+      <div id="viewerWrap">
+        <h3 id="viewerTitle">Visor</h3>
+        <div id="viewer"></div>
+      </div>
+
+      <div id="consoleWrap">
+        <h3 id="consoleTitle">Consola de comandos</h3>
+        <div id="consoleOutput"></div>
+        <div id="consoleControls">
+          <input type="text" id="commandInput" placeholder="Ej.: load ../pdb/m.pdb" onkeydown="handleCommand(event)">
+          <button id="runCommandButton" type="button" onclick="runConsoleCommand()">Ejecutar</button>
+        </div>
+        <div id="quickButtons">
+          <button type="button" onclick="quickCommand('reset')">reset</button>
+          <button type="button" onclick="quickCommand('zoom 100')">zoom 100</button>
+          <button type="button" onclick="quickCommand('select all; color cpk')">color cpk</button>
+          <button type="button" onclick="quickCommand('restrict not solvent')">sin solvente</button>
+        </div>
+      </div>
     </div>
 
     <!-- Panel derecho: texto + controles por molécula (SCROLL) -->
     <div class="panel">
+
 
 
 
